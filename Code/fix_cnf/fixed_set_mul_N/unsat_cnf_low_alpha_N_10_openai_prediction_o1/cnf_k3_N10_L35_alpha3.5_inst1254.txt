@@ -1,0 +1,88 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1254
+p cnf 10 35
+7 -4 -2 0
+-5 6 -3 0
+-9 -10 -3 0
+-6 3 9 0
+-1 10 2 0
+-7 5 -6 0
+10 -9 -7 0
+-6 -3 -5 0
+3 4 -7 0
+-4 10 1 0
+-8 2 5 0
+5 8 2 0
+-8 -9 4 0
+1 -10 -5 0
+-6 7 -9 0
+-9 5 10 0
+4 10 5 0
+6 -2 3 0
+8 2 9 0
+4 -6 9 0
+10 6 -7 0
+-1 2 -6 0
+-3 -2 -1 0
+-3 -6 5 0
+4 9 3 0
+-5 8 -10 0
+4 -1 -7 0
+-1 -8 -4 0
+-8 3 2 0
+9 5 4 0
+4 -6 10 0
+4 -9 2 0
+-1 9 -2 0
+9 -4 -7 0
+-4 -7 1 0
+
+c GPT solve time: 65.12 seconds
+
+STEP-BY-STEP REASONING (DPLL-STYLE):
+
+1) Pick x1 = True as a decision (Branch #1).  
+   - No unit clauses are generated immediately.
+
+2) Pick x2 = True as a decision (Branch #2).  
+   - Clause (¬x3 ∨ ¬x2 ∨ ¬x1) becomes (¬x3 ∨ False ∨ False) ⇒ x3 = False (unit propagation).
+
+3) Pick x4 = True as a decision (Branch #3).  
+   - Clause (x7 ∨ ¬x4 ∨ ¬x2) becomes (x7 ∨ False ∨ False) ⇒ x7 = True.  
+   - Clause (x9 ∨ ¬x4 ∨ ¬x7) becomes (x9 ∨ False ∨ False) ⇒ x9 = True.  
+   - Clause (x10 ∨ ¬x9 ∨ ¬x7) becomes (x10 ∨ False ∨ False) ⇒ x10 = True.
+
+4) Pick x5 = True as a decision (Branch #4).  
+   - Leads to a conflict at clause (¬x1 ∨ ¬x8 ∨ ¬x4) once x8 is forced to True.  
+   - Backtrack: set x5 = False instead.  
+     - Then clause (¬x7 ∨ x5 ∨ ¬x6) ⇒ (False ∨ False ∨ ¬x6) ⇒ x6 = False.  
+     - Clause (¬x1 ∨ ¬x8 ∨ ¬x4) ⇒ (False ∨ ¬x8 ∨ False) ⇒ x8 = False.  
+   - No further conflicts arise.
+
+All clauses are satisfied by:
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = True  
+x5 = False  
+x6 = False  
+x7 = True  
+x8 = False  
+x9 = True  
+x10 = True  
+
+FINAL OUTPUT (NO EXTRA EXPLANATION):
+
+SATISFIABLE  
+4  
+1  
+x1 = TRUE  
+x2 = TRUE  
+x3 = FALSE  
+x4 = TRUE  
+x5 = FALSE  
+x6 = FALSE  
+x7 = TRUE  
+x8 = FALSE  
+x9 = TRUE  
+x10 = TRUE

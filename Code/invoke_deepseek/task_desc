@@ -1,0 +1,11 @@
+
+
+
+
+1. 生成的low_alpha_unsat，用传统方法 CDCL 做出计算是否SAT. 这一步骤是和 invoke_traditional_methond文件夹里面的
+    phase_transition_generate_and_draw_Minisat22_low_alpha_unsat.py是一样的
+    python phase_transition_generate_and_draw_Minisat22_low_alpha_unsat.py
+
+
+2. 读取上述步骤生成的cnf， 然后用deepseek进行做判断
+    python  invoke_deepseek_predict_low_alpha_unsat.py

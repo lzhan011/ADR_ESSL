@@ -1,0 +1,65 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1052
+p cnf 8 28
+-6 4 -1 0
+-4 -3 2 0
+-7 8 5 0
+-5 4 -7 0
+-4 5 -2 0
+-4 8 2 0
+-2 7 5 0
+6 -2 8 0
+-8 5 -2 0
+-3 2 7 0
+7 8 -6 0
+5 3 -6 0
+3 5 2 0
+-7 -3 -1 0
+-1 4 6 0
+-1 6 -4 0
+1 -7 6 0
+-2 8 -1 0
+-8 3 1 0
+3 -6 -2 0
+1 -5 8 0
+8 7 -5 0
+5 2 -4 0
+-3 8 1 0
+-1 -6 -5 0
+-5 -2 -8 0
+4 -7 5 0
+-8 -5 -1 0
+
+c GPT solve time: 48.83 seconds
+
+STEP-BY-STEP SOLUTION (DPLL Sketch):
+
+1) First branch on x₁:  
+   • Case (x₁ = True):  
+     - From clauses (15) and (16), x₁ = True forces x₆ = True.  
+     - Then clause (1) forces x₄ = True.  
+     - Clause (12) (x₅ ∨ x₃ ∨ ¬x₆) with x₆ = True, x₃ or x₅ must be True; but other clauses force x₃ = False, hence x₅ = True.  
+     - Finally, clause (25) (¬x₁ ∨ ¬x₆ ∨ ¬x₅) becomes False ∨ False ∨ False, a contradiction.  
+
+   ⇒ x₁ = True leads to conflict.
+
+2) Backtrack, set x₁ = False:  
+   - Clauses (19) and (24) reduce to (¬x₈ ∨ x₃) and (x₈ ∨ ¬x₃). Together, they imply x₃ ⊕ x₈.  
+   • Subcase A: x₃ = True and x₈ = False  
+     - Then clause (21) (x₁ ∨ ¬x₅ ∨ x₈) forces ¬x₅, so x₅ = False.  
+     - Clause (3) (¬x₇ ∨ x₈ ∨ x₅) becomes ¬x₇, so x₇ = False.  
+     - Clause (11) (x₇ ∨ x₈ ∨ ¬x₆) becomes ¬x₆, so x₆ = False.  
+     - Clause (8) (x₆ ∨ ¬x₂ ∨ x₈) forces ¬x₂, so x₂ = False.  
+     - Clause (2) (¬x₄ ∨ ¬x₃ ∨ x₂) then forces ¬x₄, so x₄ = False.  
+     - Now clause (10) (¬x₃ ∨ x₂ ∨ x₇) = (False ∨ False ∨ False) is a contradiction.  
+
+   • Subcase B: x₃ = False and x₈ = True  
+     - Clause (19) (¬x₈ ∨ x₃) = (False ∨ False) is immediately a contradiction.  
+
+   ⇒ x₁ = False also leads to conflict in both subcases.
+
+Since both x₁ = True and x₁ = False yield contradictions, the formula is UNSATISFIABLE.
+
+UNSATISFIABLE
+NUMBER OF BRANCHES: 4
+NUMBER OF CONFLICTS: 3

@@ -1,0 +1,27 @@
+
+
+
+# step 1: 随机生成 CNF, 设定N的值，一般N等于75，设定每个alpha生成的数量，一般alpha的值为300
+run python phase_transition_generate_Minisat22_low_alpha.py
+
+
+# step 2：使用各种GPT模型，生成GPT预测的结果，首先设置首选O1
+run python invoke_openai_predict_low_alpha_unsat_openai_1.0.0.py
+
+
+# step 3: 针对GPT预测对的，画其phase transition 曲线
+run  python invoke_openai_draw_3_curve_step3.py
+
+
+# step 4: 针对GPT预测错的，画其phase transition 曲线
+run  python invoke_openai_draw_3_curve_step3.py
+
+# step 5: 针对所有GPT预测的结果，即包含对的，也包含错的，画其phase transition曲线
+run python invoke_openai_draw_3_curve_step4.py
+
+
+# step 6:
+ 组合120个样本和1800个版本的结果：
+ 首先得到1800个样本的结果：Code/invoke_openai/draw_o1_phase_transition_figures/invoke_openai_draw_3_curve_step4_merger_different_models_3_Multiply_3.py
+ 其次得到120个样本的结果：Code/invoke_openai/invoke_openai_draw_3_curve_step4_merger_different_models_3_Multiply_3.py
+ 最后将上述2个结果拼接在一起：Code/invoke_openai/merge_two_kinds_of_dataset.py

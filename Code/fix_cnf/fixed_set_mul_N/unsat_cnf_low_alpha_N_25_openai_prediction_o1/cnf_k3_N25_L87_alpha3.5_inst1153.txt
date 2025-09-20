@@ -1,0 +1,104 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1153
+p cnf 25 87
+15 10 -21 0
+-21 -20 11 0
+-15 -23 -3 0
+12 14 21 0
+-22 16 5 0
+-10 -5 -21 0
+-14 -8 -5 0
+5 3 -24 0
+-18 -22 1 0
+18 -17 -14 0
+-17 19 3 0
+12 25 21 0
+-12 19 -22 0
+-5 13 -18 0
+14 8 22 0
+-13 25 1 0
+23 8 12 0
+9 21 23 0
+-21 -11 18 0
+-17 -3 -16 0
+6 -24 14 0
+7 18 24 0
+-6 13 -24 0
+21 -12 -15 0
+15 -12 -18 0
+-10 25 23 0
+25 -6 -13 0
+-4 18 -13 0
+10 -11 -9 0
+-2 20 -11 0
+-3 6 -7 0
+12 10 18 0
+6 -5 16 0
+6 -3 -1 0
+15 6 14 0
+-4 -5 20 0
+-21 23 -19 0
+-14 -21 -1 0
+8 21 18 0
+-2 -3 -20 0
+-19 -20 8 0
+-2 -18 -14 0
+12 -2 24 0
+-18 11 5 0
+8 25 -4 0
+-13 -21 23 0
+-3 -5 -12 0
+2 9 24 0
+-14 -7 10 0
+19 -10 -6 0
+-20 15 -18 0
+-11 -7 21 0
+3 6 -7 0
+10 13 -22 0
+13 -2 22 0
+23 11 2 0
+-20 15 10 0
+-5 -14 25 0
+-19 -16 -6 0
+23 4 -25 0
+-3 -15 -23 0
+6 8 -3 0
+-16 -3 -23 0
+5 9 2 0
+-1 -4 -16 0
+24 15 16 0
+-13 -23 14 0
+11 24 -16 0
+-9 -20 1 0
+5 -15 -4 0
+6 5 -17 0
+-19 -7 25 0
+-4 -9 -10 0
+14 16 6 0
+-14 -16 2 0
+9 -5 11 0
+-16 -1 11 0
+-13 -14 -6 0
+-11 25 19 0
+11 19 -17 0
+-14 7 20 0
+-6 -25 16 0
+24 -14 22 0
+24 -11 -23 0
+-23 4 16 0
+12 20 -4 0
+17 1 21 0
+
+c GPT solve time: 108.39 seconds
+
+STEP-BY-STEP SOLVING (DPLL-STYLE SKETCH)
+
+1) Begin by scanning for any unit clauses or pure literals; none found directly, so choose a branching variable.  
+2) Make successive assignments (e.g., x1 = F), propagate constraints, and check for conflicts.  
+3) Continue systematically assigning truth values (e.g., setting x5 = T to satisfy a clause), then fixing new conflicts (adjusting x8, x13, x15, x12, etc.).  
+4) Repeatedly encounter cycles of conflicts: each fix for one conflicting clause triggers another elsewhere, indicating no global satisfying assignment.  
+5) After exhaustively exploring assignments, conclude the formula cannot be satisfied.
+
+UNSATISFIABLE  
+Number of branches: 12  
+Number of conflicts: 12

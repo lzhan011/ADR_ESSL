@@ -1,0 +1,15 @@
+1. fix_cnf(fix_cnf/fixed_set_mul_N 和  fix_cnf/similar_cnf_pairs)
+   和convert_cnf_to_vertex_cover
+   下面都是用的相同的unsat_cnf_low_alpha_N_{N}_openai_prediction_o1
+   的文件，每一个N下面有70对pairs
+
+    invoke_traditional_methond 文件夹下面各个LLMs模型调用的是各个N下面的
+    70pairs的UNSAT的部分, 也即是每个子文件夹下有70个文件
+
+2. Satisfiability_Solvers/Code/invoke_traditional_methond 下面的文件夹不只是 traditional method的方法，
+   也有LLMs的方法，这个文件夹下也使用的是统一的文件输入，然后调用的不同的LLMs模型。
+   这个文件夹下，不强调pairs，做的是general的实验，LLMs在cnf上面的general的效果，画phase transition来用的
+
+
+3. Code/invoke_openai/invoke_openai_draw_3_curve_step4_merger_different_models.py
+  是用来画多个LLMs模型的效果的，融合到一起进行对比，是画general的效果的。

@@ -1,0 +1,12 @@
+
+
+
+1. 设置小的alpha, 生成cnf， 并过滤只保存 是UNSAT的cnf
+run python phase_transition_generate_and_draw_Minisat22_low_alpha_unsat.py
+
+
+2. 读取cnf并用openai的不同模型做预测
+run python invoke_openai_predict_low_alpha_unsat.py
+
+3. 计算各个openai模型在unsat上是否能预测为unsat
+run python calculate_accuracy.py

@@ -1,0 +1,21 @@
+
+
+
+# 生成CNF, 并画出Phase-Transition的经典图，用的CDCL算法
+1. # phase_transition_generate_and_draw_Minisat22.py
+
+
+# 生成CNF, 并用openai求解，并把生成的CNF和Openai求解的结果保存到文件里
+2. invoke_openai/invoke_openai_draw_3_curve.py
+
+
+# 读取上面保存的CNF，然后用CDCL算法求解，计算openai算法的准确率，并把openai算法Phase-Transition的经典图画出来。
+3. invoke_openai/invoke_openai_draw_3_curve_step3.py
+
+
+# 生成CNF, 并用deepseek求解，并把生成的CNF和deepseek求解的结果保存到文件里
+4.    invoke_deepseek/invoke_deepseek_draw_3_curve.py
+
+
+# 读取上面保存的CNF，然后用CDCL算法求解，计算deepseek算法的准确率，并把deepseek算法Phase-Transition的经典图画出来。
+5.    invoke_deepseek/invoke_deepseek_draw_3_curve_step3.py

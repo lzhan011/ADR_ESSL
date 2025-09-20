@@ -1,0 +1,6 @@
+c Example UNSAT CNF with 3 variables and 4 clauses
+p cnf 3 4
+1 2 0
+-1 2 0
+1 -2 0
+-1 -2 0

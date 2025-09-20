@@ -1,0 +1,253 @@
+c Random 3-SAT
+c alpha=3.7, N=60, L=222, instance=504
+p cnf 60 222
+30 -19 36 0
+-20 -55 37 0
+8 36 11 0
+-6 38 4 0
+52 -43 -49 0
+-25 -10 -27 0
+30 -59 48 0
+-26 -17 -19 0
+24 -26 -9 0
+6 -9 -34 0
+1 52 56 0
+-27 -46 34 0
+-1 8 44 0
+-59 2 18 0
+-4 8 -26 0
+17 15 -51 0
+22 37 1 0
+31 5 -58 0
+-9 -1 50 0
+-34 6 -31 0
+3 21 -50 0
+-37 -55 -44 0
+19 23 46 0
+17 -37 2 0
+-5 -46 -34 0
+11 -7 -12 0
+56 -39 -32 0
+34 -17 -9 0
+-38 41 -19 0
+-26 19 39 0
+50 -31 -53 0
+40 -1 22 0
+27 28 46 0
+-38 2 -3 0
+24 53 5 0
+34 36 9 0
+10 -35 7 0
+-1 -54 42 0
+8 -9 -48 0
+44 -45 -46 0
+53 5 -49 0
+-60 13 1 0
+-30 -34 40 0
+18 -50 54 0
+-27 19 -53 0
+19 56 -9 0
+28 58 -16 0
+-8 -33 31 0
+-14 9 -29 0
+27 39 30 0
+-23 56 17 0
+6 9 -32 0
+-5 26 15 0
+-1 -59 -31 0
+48 -34 55 0
+-34 -38 33 0
+15 -50 16 0
+-8 -35 -15 0
+-51 -40 -26 0
+-19 35 -23 0
+15 -27 -56 0
+-47 -12 -42 0
+21 -19 -7 0
+-42 -41 26 0
+29 12 40 0
+47 32 41 0
+-51 -53 -26 0
+-46 -41 -21 0
+-14 58 -43 0
+-47 25 9 0
+-24 32 -47 0
+-49 33 34 0
+-3 56 21 0
+-14 6 12 0
+26 7 16 0
+-6 59 3 0
+41 -60 -27 0
+51 -8 -60 0
+11 -18 -8 0
+-55 -21 -40 0
+-16 12 -41 0
+42 60 7 0
+-53 -37 2 0
+3 -21 -27 0
+-11 54 -36 0
+-4 -45 -50 0
+35 -8 -38 0
+51 43 5 0
+25 -22 27 0
+-19 -45 6 0
+10 -43 -4 0
+20 -28 57 0
+-14 -5 -10 0
+9 14 4 0
+-3 14 18 0
+-11 41 -43 0
+-44 -38 -54 0
+-56 -30 60 0
+-8 -55 27 0
+-8 37 -12 0
+-12 43 2 0
+-26 57 47 0
+53 -42 45 0
+-29 -41 9 0
+-31 -6 -19 0
+9 36 27 0
+9 50 31 0
+-53 -38 -22 0
+-23 51 52 0
+-39 4 1 0
+-9 -43 26 0
+42 8 37 0
+32 27 43 0
+35 41 17 0
+31 -54 -44 0
+26 41 -7 0
+-27 29 -13 0
+34 -31 -51 0
+-22 26 -37 0
+51 -60 12 0
+-21 -22 -41 0
+-37 -45 50 0
+-37 48 21 0
+41 1 -38 0
+16 40 -11 0
+-26 -23 9 0
+59 -46 -43 0
+-10 28 46 0
+20 19 -38 0
+-42 39 55 0
+-46 -36 50 0
+15 42 47 0
+-55 3 4 0
+12 9 -15 0
+14 9 -34 0
+52 -28 -57 0
+34 -50 -16 0
+28 21 -31 0
+-45 23 4 0
+-8 40 48 0
+-34 44 9 0
+5 -49 -6 0
+20 -44 51 0
+2 44 -16 0
+45 -23 21 0
+28 24 -8 0
+-7 -26 -50 0
+35 45 -4 0
+-14 18 -44 0
+-55 45 -48 0
+3 34 22 0
+17 46 -15 0
+9 42 -4 0
+-20 58 -36 0
+51 -24 36 0
+15 -22 49 0
+-19 -40 -54 0
+-20 -15 -37 0
+42 -6 -7 0
+-46 -30 -52 0
+-9 -52 12 0
+50 -36 -44 0
+7 42 13 0
+20 48 -24 0
+-13 -60 52 0
+44 -14 -47 0
+12 58 41 0
+-15 37 59 0
+-32 37 14 0
+39 -7 59 0
+10 -16 59 0
+-44 -34 -40 0
+-48 11 23 0
+-19 8 -41 0
+-22 -59 -7 0
+26 -15 -44 0
+7 -1 -10 0
+36 -42 -11 0
+-12 -14 4 0
+-35 -3 -34 0
+52 11 -1 0
+-22 -52 -53 0
+-39 -8 57 0
+8 -20 -23 0
+-55 -41 -23 0
+-38 55 45 0
+8 59 28 0
+38 -18 -39 0
+23 57 21 0
+-56 -41 36 0
+-2 -15 -16 0
+-39 24 -6 0
+-2 -50 -58 0
+-37 -14 -27 0
+-43 -10 -20 0
+51 -32 13 0
+-53 48 6 0
+33 -27 36 0
+16 -5 47 0
+38 -9 -16 0
+-58 -7 34 0
+-51 5 -45 0
+7 46 -34 0
+10 11 -48 0
+21 -20 -19 0
+50 -58 -25 0
+14 27 36 0
+-8 -11 -30 0
+-44 -50 48 0
+43 41 -26 0
+-14 25 -41 0
+-24 -21 20 0
+-9 15 36 0
+57 -49 50 0
+50 9 -40 0
+-57 -42 -50 0
+-27 1 -9 0
+-54 -43 14 0
+2 3 39 0
+-46 57 -20 0
+57 -2 54 0
+57 -14 -39 0
+
+c GPT solve time: 64.55 seconds
+
+Below is a high-level step-by-step outline of how a typical CDCL (Conflict-Driven Clause Learning) or DPLL-based SAT solver would approach this formula:
+
+1) Parse the clauses and initialize data structures (e.g., for watched literals) so that each clause can be quickly updated if a literal changes value.
+
+2) Perform unit propagation and pure literal checks if any arise (although with all clauses having three literals, you often wait until partial assignments create new unit clauses).
+
+3) Select a variable that is currently unassigned (a “branching variable”), assign it True or False, and propagate the consequences of that assignment:
+   – For each clause that becomes satisfied, mark it as satisfied.
+   – For each clause that now has only one unassigned literal left, propagate that literal as well to avoid immediately causing a conflict.
+
+4) If a conflict is reached (a clause becomes unsatisfiable under the current partial assignment), backtrack:
+   – Learn a conflict clause (in CDCL solvers).
+   – Undo assignments until the conflict is resolved, and update the branching heuristic with the conflict information.
+
+5) Continue selecting new branching variables, propagating, and backtracking on conflicts until either:
+   – All variables are assigned in a way that satisfies every clause (SATISFIABLE), or
+   – The search exhausts all possibilities without finding a solution (UNSATISFIABLE).
+
+Because of the size and complexity of this specific formula, it typically requires an actual SAT solver implementation (with efficient data structures, branching heuristics, and conflict analysis) to determine a correct final result and assignment (if one exists). Doing this entirely by hand is impractical.
+
+-------------------------------------------------------------------------------
+SATISFIABLE/UNSATISFIABLE
+<number_of_branches>
+<number_of_conflicts>
+-------------------------------------------------------------------------------
