@@ -1,0 +1,218 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=65
+p cnf 5 17
+1 -2 -4 0
+2 -1 4 0
+5 -2 -1 0
+3 5 -2 0
+-4 -5 2 0
+-5 1 4 0
+-5 -1 -2 0
+-5 -3 1 0
+-4 3 2 0
+-2 4 -3 0
+1 5 2 0
+1 5 4 0
+2 5 3 0
+-1 5 2 0
+4 3 -2 0
+-4 -1 -2 0
+1 -2 -3 0
+
+c GPT solve time: 46.01 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let's start by listing the clauses:
+1. (x1 ∨ ¬x2 ∨ ¬x4)
+2. (x2 ∨ ¬x1 ∨ x4)
+3. (x5 ∨ ¬x2 ∨ ¬x1)
+4. (x3 ∨ x5 ∨ ¬x2)
+5. (¬x4 ∨ ¬x5 ∨ x2)
+6. (¬x5 ∨ x1 ∨ x4)
+7. (¬x5 ∨ ¬x1 ∨ ¬x2)
+8. (¬x5 ∨ ¬x3 ∨ x1)
+9. (¬x4 ∨ x3 ∨ x2)
+10. (¬x2 ∨ x4 ∨ ¬x3)
+11. (x1 ∨ x5 ∨ x2)
+12. (x1 ∨ x5 ∨ x4)
+13. (x2 ∨ x5 ∨ x3)
+14. (¬x1 ∨ x5 ∨ x2)
+15. (x4 ∨ x3 ∨ ¬x2)
+16. (¬x4 ∨ ¬x1 ∨ ¬x2)
+17. (x1 ∨ ¬x2 ∨ ¬x3)
+
+Step 1: Let's start by setting x1 = true
+- Clauses 2, 3, 7, 8, 14, 16 are affected
+- Clause 2 becomes (x2 ∨ false ∨ x4) = (x2 ∨ x4)
+- Clause 3 becomes (x5 ∨ ¬x2 ∨ false) = (x5 ∨ ¬x2)
+- Clause 7 becomes (¬x5 ∨ false ∨ ¬x2) = (¬x5 ∨ ¬x2)
+- Clause 8 becomes (¬x5 ∨ ¬x3 ∨ true) = satisfied
+- Clause 14 becomes (false ∨ x5 ∨ x2) = (x5 ∨ x2)
+- Clause 16 becomes (¬x4 ∨ false ∨ ¬x2) = (¬x4 ∨ ¬x2)
+- Clauses 1, 6, 11, 12, 17 are satisfied
+
+Step 2: Let's set x2 = false
+- This affects many clauses
+- Clause 2 becomes (false ∨ x4) = (x4)
+- Clause 3 is satisfied
+- Clause 4 becomes (x3 ∨ x5 ∨ true) = satisfied
+- Clause 5 becomes (¬x4 ∨ ¬x5 ∨ false) = (¬x4 ∨ ¬x5)
+- Clause 7 becomes (¬x5 ∨ true) = satisfied
+- Clause 9 becomes (¬x4 ∨ x3 ∨ false) = (¬x4 ∨ x3)
+- Clause 10 becomes (true ∨ x4 ∨ ¬x3) = satisfied
+- Clause 13 becomes (false ∨ x5 ∨ x3) = (x5 ∨ x3)
+- Clause 14 becomes (x5 ∨ false) = (x5)
+- Clause 15 becomes (x4 ∨ x3 ∨ true) = satisfied
+- Clause 16 becomes (¬x4 ∨ true) = satisfied
+- Clause 17 becomes (true ∨ ¬x3) = satisfied
+
+Remaining clauses:
+- (x4) [from clause 2]
+- (¬x4 ∨ ¬x5) [from clause 5]
+- (¬x5 ∨ x4) [from clause 6]
+- (¬x4 ∨ x3) [from clause 9]
+- (x5 ∨ x3) [from clause 13]
+- (x5) [from clause 14]
+
+Step 3: From clause 14, we must set x5 = true
+- This affects the remaining clauses
+- Clause 5 becomes (¬x4 ∨ false) = (¬x4)
+- Clause 6 becomes (false ∨ x4) = (x4)
+- Clause 13 becomes (true ∨ x3) = satisfied
+
+Remaining clauses:
+- (x4) [from clause 2]
+- (¬x4) [from clause 5]
+- (x4) [from clause 6]
+- (¬x4 ∨ x3) [from clause 9]
+
+We have a conflict: we need both x4 and ¬x4, which is impossible.
+
+Let's backtrack and try x2 = true instead.
+
+Step 2 (retry): Let's set x2 = true
+- Clause 1 becomes (x1 ∨ false ∨ ¬x4) = (x1 ∨ ¬x4)
+- Clause 3 becomes (x5 ∨ false ∨ ¬x1) = (x5 ∨ ¬x1)
+- Clause 4 becomes (x3 ∨ x5 ∨ false) = (x3 ∨ x5)
+- Clause 5 becomes (¬x4 ∨ ¬x5 ∨ true) = satisfied
+- Clause 7 becomes (¬x5 ∨ ¬x1 ∨ false) = (¬x5 ∨ ¬x1)
+- Clause 9 becomes (¬x4 ∨ x3 ∨ true) = satisfied
+- Clause 10 becomes (false ∨ x4 ∨ ¬x3) = (x4 ∨ ¬x3)
+- Clause 15 becomes (x4 ∨ x3 ∨ false) = (x4 ∨ x3)
+- Clause 16 becomes (¬x4 ∨ ¬x1 ∨ false) = (¬x4 ∨ ¬x1)
+- Clause 17 becomes (x1 ∨ false ∨ ¬x3) = (x1 ∨ ¬x3)
+
+But we already set x1 = true, so some of these simplify further:
+- (x1 ∨ ¬x4) becomes (true ∨ ¬x4) = satisfied
+- (x5 ∨ ¬x1) becomes (x5 ∨ false) = (x5)
+- (¬x5 ∨ ¬x1) becomes (¬x5 ∨ false) = (¬x5)
+- (¬x4 ∨ ¬x1) becomes (¬x4 ∨ false) = (¬x4)
+- (x1 ∨ ¬x3) becomes (true ∨ ¬x3) = satisfied
+
+Remaining clauses:
+- (x5) [from clause 3]
+- (x3 ∨ x5) [from clause 4]
+- (¬x5) [from clause 7]
+- (x4 ∨ ¬x3) [from clause 10]
+- (x4 ∨ x3) [from clause 15]
+- (¬x4) [from clause 16]
+
+We have another conflict: we need both x5 and ¬x5.
+
+Let's backtrack and try x1 = false.
+
+Step 1 (retry): Let's set x1 = false
+- Clause 1 becomes (false ∨ ¬x2 ∨ ¬x4) = (¬x2 ∨ ¬x4)
+- Clause 2 becomes (x2 ∨ true ∨ x4) = satisfied
+- Clause 3 becomes (x5 ∨ ¬x2 ∨ true) = satisfied
+- Clause 6 becomes (¬x5 ∨ false ∨ x4) = (¬x5 ∨ x4)
+- Clause 7 becomes (¬x5 ∨ true ∨ ¬x2) = satisfied
+- Clause 8 becomes (¬x5 ∨ ¬x3 ∨ false) = (¬x5 ∨ ¬x3)
+- Clause 11 becomes (false ∨ x5 ∨ x2) = (x5 ∨ x2)
+- Clause 12 becomes (false ∨ x5 ∨ x4) = (x5 ∨ x4)
+- Clause 14 becomes (true ∨ x5 ∨ x2) = satisfied
+- Clause 16 becomes (¬x4 ∨ true ∨ ¬x2) = satisfied
+- Clause 17 becomes (false ∨ ¬x2 ∨ ¬x3) = (¬x2 ∨ ¬x3)
+
+Step 2: Let's set x2 = false
+- Clause 1 becomes (¬x2 ∨ ¬x4) = (true ∨ ¬x4) = satisfied
+- Clause 4 becomes (x3 ∨ x5 ∨ true) = satisfied
+- Clause 5 becomes (¬x4 ∨ ¬x5 ∨ false) = (¬x4 ∨ ¬x5)
+- Clause 6 remains (¬x5 ∨ x4)
+- Clause 8 remains (¬x5 ∨ ¬x3)
+- Clause 9 becomes (¬x4 ∨ x3 ∨ false) = (¬x4 ∨ x3)
+- Clause 10 becomes (true ∨ x4 ∨ ¬x3) = satisfied
+- Clause 11 becomes (x5 ∨ false) = (x5)
+- Clause 12 remains (x5 ∨ x4)
+- Clause 13 becomes (false ∨ x5 ∨ x3) = (x5 ∨ x3)
+- Clause 15 becomes (x4 ∨ x3 ∨ true) = satisfied
+- Clause 17 becomes (¬x2 ∨ ¬x3) = (true ∨ ¬x3) = satisfied
+
+Remaining clauses:
+- (¬x4 ∨ ¬x5) [from clause 5]
+- (¬x5 ∨ x4) [from clause 6]
+- (¬x5 ∨ ¬x3) [from clause 8]
+- (¬x4 ∨ x3) [from clause 9]
+- (x5) [from clause 11]
+- (x5 ∨ x4) [from clause 12]
+- (x5 ∨ x3) [from clause 13]
+
+Step 3: From clause 11, we must set x5 = true
+- Clause 5 becomes (¬x4 ∨ false) = (¬x4)
+- Clause 6 becomes (false ∨ x4) = (x4)
+- Clause 8 becomes (false ∨ ¬x3) = (¬x3)
+- Clause 12 becomes (true ∨ x4) = satisfied
+- Clause 13 becomes (true ∨ x3) = satisfied
+
+Remaining clauses:
+- (¬x4) [from clause 5]
+- (x4) [from clause 6]
+- (¬x3) [from clause 8]
+- (¬x4 ∨ x3) [from clause 9]
+
+We have another conflict: we need both x4 and ¬x4.
+
+Let's backtrack and try x2 = true.
+
+Step 2 (retry): Let's set x2 = true
+- Clause 1 becomes (¬x2 ∨ ¬x4) = (false ∨ ¬x4) = (¬x4)
+- Clause 4 becomes (x3 ∨ x5 ∨ false) = (x3 ∨ x5)
+- Clause 5 becomes (¬x4 ∨ ¬x5 ∨ true) = satisfied
+- Clause 9 becomes (¬x4 ∨ x3 ∨ true) = satisfied
+- Clause 10 becomes (false ∨ x4 ∨ ¬x3) = (x4 ∨ ¬x3)
+- Clause 11 becomes (x5 ∨ true) = satisfied
+- Clause 13 becomes (true ∨ x5 ∨ x3) = satisfied
+- Clause 15 becomes (x4 ∨ x3 ∨ false) = (x4 ∨ x3)
+- Clause 17 becomes (¬x2 ∨ ¬x3) = (false ∨ ¬x3) = (¬x3)
+
+Remaining clauses:
+- (¬x4) [from clause 1]
+- (x3 ∨ x5) [from clause 4]
+- (¬x5 ∨ x4) [from clause 6]
+- (¬x5 ∨ ¬x3) [from clause 8]
+- (x4 ∨ ¬x3) [from clause 10]
+- (x5 ∨ x4) [from clause 12]
+- (x4 ∨ x3) [from clause 15]
+- (¬x3) [from clause 17]
+
+Step 3: From clause 17, we must set x3 = false
+- Clause 4 becomes (false ∨ x5) = (x5)
+- Clause 8 becomes (¬x5 ∨ true) = satisfied
+- Clause 10 becomes (x4 ∨ true) = satisfied
+- Clause 15 becomes (x4 ∨ false) = (x4)
+
+Remaining clauses:
+- (¬x4) [from clause 1]
+- (x5) [from clause 4]
+- (¬x5 ∨ x4) [from clause 6]
+- (x5 ∨ x4) [from clause 12]
+- (x4) [from clause 15]
+
+We have another conflict: we need both x4 and ¬x4.
+
+After exploring all possible branches, we've found that the formula is unsatisfiable.
+
+UNSATISFIABLE
+Number of branches: 3
+Number of conflicts: 3

@@ -1,0 +1,175 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1020
+p cnf 10 35
+-9 5 -10 0
+2 10 9 0
+-2 -1 -9 0
+10 -1 7 0
+-10 1 -6 0
+3 8 -7 0
+4 -2 -7 0
+10 -3 2 0
+8 6 -4 0
+-9 -8 1 0
+-8 -4 6 0
+9 -10 -1 0
+1 -10 -7 0
+-4 -2 5 0
+1 -4 2 0
+9 7 -10 0
+-4 10 -1 0
+7 5 1 0
+1 -9 -10 0
+8 6 3 0
+9 -4 6 0
+-7 -10 8 0
+3 2 10 0
+-1 -2 -8 0
+-9 8 10 0
+-7 6 -3 0
+-6 10 1 0
+3 -10 -4 0
+-2 -4 -10 0
+-5 -4 -1 0
+1 -6 -8 0
+1 2 9 0
+2 -10 -1 0
+10 4 9 0
+-4 10 3 0
+
+c GPT solve time: 46.55 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Let me start by making decisions and performing unit propagation:
+
+Branch 1: Assume x1 = true
+- From (¬x2 ∨ ¬x1 ∨ ¬x9), since x1 = true, we get (¬x2 ∨ ¬x9)
+- From (¬x10 ∨ x1 ∨ ¬x6), since x1 = true, this clause is satisfied
+- From (¬x1 ∨ ¬x2 ∨ ¬x8), since x1 = true, we get (¬x2 ∨ ¬x8)
+- From (¬x5 ∨ ¬x4 ∨ ¬x1), since x1 = true, we get (¬x5 ∨ ¬x4)
+
+Branch 2: Assume x2 = true
+- From (¬x2 ∨ ¬x1 ∨ ¬x9), since x1 = true and x2 = true, we get ¬x9
+- From (¬x2 ∨ ¬x8), since x2 = true, we get ¬x8
+- From (x2 ∨ x10 ∨ x9), since x2 = true, this clause is satisfied
+- From (x10 ∨ ¬x3 ∨ x2), since x2 = true, this clause is satisfied
+- From (¬x4 ∨ ¬x2 ∨ x5), since x2 = true, we get (¬x4 ∨ x5)
+- From (x1 ∨ ¬x4 ∨ x2), since x1 = true and x2 = true, this clause is satisfied
+- From (x3 ∨ x2 ∨ x10), since x2 = true, this clause is satisfied
+- From (¬x2 ∨ ¬x4 ∨ ¬x10), since x2 = true, we get (¬x4 ∨ ¬x10)
+- From (x1 ∨ x2 ∨ x9), since x1 = true and x2 = true, this clause is satisfied
+- From (x2 ∨ ¬x10 ∨ ¬x1), since x2 = true, this clause is satisfied
+
+Now we have x9 = false and x8 = false from unit propagation.
+
+- From (¬x9 ∨ x5 ∨ ¬x10), since x9 = false, this clause is satisfied
+- From (¬x9 ∨ ¬x8 ∨ x1), since x9 = false and x8 = false, this clause is satisfied
+- From (x9 ∨ ¬x10 ∨ ¬x1), since x9 = false and x1 = true, we get ¬x10
+- From (x9 ∨ x7 ∨ ¬x10), since x9 = false and x10 = false, this clause is satisfied
+- From (x1 ∨ ¬x9 ∨ ¬x10), since x9 = false, this clause is satisfied
+- From (x9 ∨ ¬x4 ∨ x6), since x9 = false, we get (¬x4 ∨ x6)
+- From (¬x9 ∨ x8 ∨ x10), since x9 = false and x10 = false, we get x8 = true
+
+This is a contradiction since we previously derived x8 = false.
+
+Conflict 1: Backtrack to Branch 2 and try x2 = false
+
+- From (x2 ∨ x10 ∨ x9), since x2 = false, we get (x10 ∨ x9)
+- From (x3 ∨ x2 ∨ x10), since x2 = false, we get (x3 ∨ x10)
+- From (x1 ∨ x2 ∨ x9), since x1 = true and x2 = false, we get x9 = true
+
+Now with x9 = true:
+- From (¬x2 ∨ ¬x1 ∨ ¬x9), since x1 = true, x2 = false, and x9 = true, this clause is satisfied
+- From (x2 ∨ x10 ∨ x9), since x9 = true, this clause is satisfied
+- From (x9 ∨ ¬x10 ∨ ¬x1), since x9 = true, this clause is satisfied
+- From (x9 ∨ x7 ∨ ¬x10), since x9 = true, this clause is satisfied
+- From (x1 ∨ ¬x9 ∨ ¬x10), since x1 = true and x9 = true, we get ¬x10 = true, so x10 = false
+- From (x9 ∨ ¬x4 ∨ x6), since x9 = true, this clause is satisfied
+- From (¬x9 ∨ x8 ∨ x10), since x9 = true and x10 = false, we get x8 = true
+
+With x10 = false:
+- From (x10 ∨ ¬x1 ∨ x7), since x10 = false and x1 = true, we get x7 = true
+- From (¬x10 ∨ x1 ∨ ¬x6), since x10 = false, this clause is satisfied
+- From (x10 ∨ ¬x3 ∨ x2), since x10 = false and x2 = false, we get ¬x3 = true, so x3 = false
+- From (x3 ∨ x10), since x3 = false and x10 = false, this is a contradiction
+
+Conflict 2: Backtrack to Branch 1 and try x1 = false
+
+- From (¬x10 ∨ x1 ∨ ¬x6), since x1 = false, we get (¬x10 ∨ ¬x6)
+- From (x10 ∨ ¬x1 ∨ x7), since x1 = false, this clause is satisfied
+- From (x1 ∨ ¬x10 ∨ ¬x7), since x1 = false, we get (¬x10 ∨ ¬x7)
+- From (x1 ∨ ¬x4 ∨ x2), since x1 = false, we get (¬x4 ∨ x2)
+- From (x7 ∨ x5 ∨ x1), since x1 = false, we get (x7 ∨ x5)
+- From (x1 ∨ ¬x9 ∨ ¬x10), since x1 = false, we get (¬x9 ∨ ¬x10)
+- From (¬x1 ∨ ¬x2 ∨ ¬x8), since x1 = false, this clause is satisfied
+- From (¬x5 ∨ ¬x4 ∨ ¬x1), since x1 = false, this clause is satisfied
+- From (x1 ∨ ¬x6 ∨ ¬x8), since x1 = false, we get (¬x6 ∨ ¬x8)
+- From (x1 ∨ x2 ∨ x9), since x1 = false, we get (x2 ∨ x9)
+- From (x2 ∨ ¬x10 ∨ ¬x1), since x1 = false, this clause is satisfied
+- From (¬x6 ∨ x10 ∨ x1), since x1 = false, we get (¬x6 ∨ x10)
+
+Branch 3: Assume x10 = true
+- From (¬x10 ∨ ¬x6), since x10 = true, we get ¬x6 = true, so x6 = false
+- From (¬x10 ∨ ¬x7), since x10 = true, we get ¬x7 = true, so x7 = false
+- From (¬x9 ∨ ¬x10), since x10 = true, we get ¬x9 = true, so x9 = false
+- From (¬x6 ∨ x10), since x10 = true, this clause is satisfied
+
+With x6 = false, x7 = false, x9 = false:
+- From (x8 ∨ x6 ∨ ¬x4), since x6 = false, we get (x8 ∨ ¬x4)
+- From (x8 ∨ x6 ∨ x3), since x6 = false, we get (x8 ∨ x3)
+- From (¬x7 ∨ x6 ∨ ¬x3), since x7 = false and x6 = false, we get ¬x3 = true, so x3 = false
+- From (x7 ∨ x5), since x7 = false, we get x5 = true
+- From (x3 ∨ x8), since x3 = false, we get x8 = true
+
+With x3 = false, x5 = true, x8 = true:
+- From (x3 ∨ x8 ∨ ¬x7), since x8 = true, this clause is satisfied
+- From (¬x8 ∨ ¬x4 ∨ x6), since x8 = true and x6 = false, we get ¬x4 = true, so x4 = false
+- From (¬x6 ∨ ¬x8), since x6 = false and x8 = true, this is a contradiction
+
+Conflict 3: Backtrack to Branch 3 and try x10 = false
+- From (¬x6 ∨ x10), since x10 = false, we get ¬x6 = true, so x6 = false
+- From (x2 ∨ x10 ∨ x9), since x10 = false, we get (x2 ∨ x9)
+- From (x10 ∨ ¬x1 ∨ x7), since x10 = false and x1 = false, this clause is satisfied
+- From (x10 ∨ ¬x3 ∨ x2), since x10 = false, we get (¬x3 ∨ x2)
+- From (¬x4 ∨ x10 ∨ ¬x1), since x10 = false and x1 = false, this clause is satisfied
+- From (x3 ∨ x2 ∨ x10), since x10 = false, we get (x3 ∨ x2)
+- From (¬x7 ∨ ¬x10 ∨ x8), since x10 = false, this clause is satisfied
+- From (x3 ∨ ¬x10 ∨ ¬x4), since x10 = false, this clause is satisfied
+- From (¬x2 ∨ ¬x4 ∨ ¬x10), since x10 = false, this clause is satisfied
+- From (x10 ∨ x4 ∨ x9), since x10 = false, we get (x4 ∨ x9)
+- From (¬x4 ∨ x10 ∨ x3), since x10 = false, we get (¬x4 ∨ x3)
+
+Branch 4: Assume x2 = true
+- From (x2 ∨ x9), since x2 = true, this clause is satisfied
+- From (¬x3 ∨ x2), since x2 = true, this clause is satisfied
+- From (x3 ∨ x2), since x2 = true, this clause is satisfied
+- From (¬x2 ∨ ¬x1 ∨ ¬x9), since x1 = false and x2 = true, this clause is satisfied
+- From (x4 ∨ ¬x2 ∨ ¬x7), since x2 = true, we get (x4 ∨ ¬x7)
+- From (¬x4 ∨ ¬x2 ∨ x5), since x2 = true, we get (¬x4 ∨ x5)
+- From (¬x4 ∨ x2), since x2 = true, this clause is satisfied
+
+Let's continue with more assignments:
+
+Branch 5: Assume x4 = true
+- From (¬x4 ∨ x5), since x4 = true, we get x5 = true
+- From (x8 ∨ ¬x4), since x4 = true, we get x8 = true
+- From (¬x4 ∨ x3), since x4 = true, we get x3 = true
+
+With x3 = true, x5 = true, x8 = true:
+- From (¬x7 ∨ x6 ∨ ¬x3), since x3 = true and x6 = false, we get ¬x7 = true, so x7 = false
+- From (x7 ∨ x5), since x5 = true, this clause is satisfied
+- From (¬x6 ∨ ¬x8), since x6 = false and x8 = true, this is a contradiction
+
+Conflict 4: Backtrack to Branch 5 and try x4 = false
+- From (x4 ∨ ¬x7), since x4 = false, we get ¬x7 = true, so x7 = false
+- From (x4 ∨ x9), since x4 = false, we get x9 = true
+
+With x7 = false, x9 = true:
+- From (¬x9 ∨ x5 ∨ ¬x10), since x9 = true and x10 = false, this clause is satisfied
+- From (¬x2 ∨ ¬x1 ∨ ¬x9), since x1 = false and x9 = true, this clause is satisfied
+- From (¬x9 ∨ ¬x8 ∨ x1), since x9 = true and x1 = false, we get ¬x8 = true, so x8 = false
+- From (x9 ∨ x7 ∨ ¬x10), since x9 = true, this clause is satisfied
+- From (x1 ∨ ¬x9 ∨ ¬x10), since x1 = false and x9 = true, we get ¬x10 = true, which is consistent with x10 = false
+- From (x9 ∨ ¬x4 ∨ x6), since x9 = true, this clause is satisfied
+- From (¬x9 ∨ x8 ∨

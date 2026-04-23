@@ -1,0 +1,173 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=917
+p cnf 10 35
+4 -3 -7 0
+2 -7 -6 0
+4 -1 -7 0
+-1 -5 6 0
+1 2 -7 0
+2 7 -4 0
+-1 -6 -8 0
+-1 10 -8 0
+3 -4 5 0
+-6 3 7 0
+-5 1 -7 0
+7 -9 -3 0
+-6 -3 8 0
+-5 6 10 0
+3 7 5 0
+5 -3 -8 0
+9 6 -4 0
+-9 5 10 0
+-6 4 -5 0
+8 9 -2 0
+4 -8 -7 0
+-10 -4 -5 0
+2 10 -3 0
+-9 -10 5 0
+-1 -9 -4 0
+2 -3 9 0
+-6 10 -4 0
+6 -4 2 0
+-2 7 3 0
+-9 8 6 0
+-10 -8 -5 0
+-7 -5 8 0
+8 -5 3 0
+-6 5 -3 0
+-3 1 10 0
+
+c GPT solve time: 46.53 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by making decisions and performing unit propagation:
+
+Decision 1: x1 = true
+- From (¬x1 ∨ ¬x6 ∨ ¬x8), either ¬x6 or ¬x8 must be true
+- From (¬x1 ∨ x10 ∨ ¬x8), either x10 or ¬x8 must be true
+- From (¬x1 ∨ ¬x5 ∨ x6), either ¬x5 or x6 must be true
+- From (¬x1 ∨ ¬x9 ∨ ¬x4), either ¬x9 or ¬x4 must be true
+
+Decision 2: x2 = true
+- From (x2 ∨ ¬x7 ∨ ¬x6), no immediate implications
+
+Decision 3: x3 = true
+- From (x3 ∨ ¬x4 ∨ x5), no immediate implications
+- From (¬x6 ∨ x3 ∨ x7), no immediate implications
+- From (x3 ∨ x7 ∨ x5), no immediate implications
+
+Decision 4: x4 = true
+- From (¬x1 ∨ ¬x9 ∨ ¬x4), since x1 is true and x4 is true, we must have ¬x9 = true, so x9 = false
+- From (x2 ∨ x7 ∨ ¬x4), since x4 is true and ¬x4 is false, either x2 or x7 must be true. Since x2 is already true, this clause is satisfied.
+- From (x6 ∨ ¬x4 ∨ x2), since x4 is true and ¬x4 is false, either x6 or x2 must be true. Since x2 is already true, this clause is satisfied.
+- From (¬x6 ∨ x4 ∨ ¬x5), since x4 is true, this clause is satisfied.
+- From (¬x6 ∨ x10 ∨ ¬x4), since x4 is true and ¬x4 is false, either ¬x6 or x10 must be true.
+
+Decision 5: x5 = true
+- From (¬x1 ∨ ¬x5 ∨ x6), since x1 is true and x5 is true, we must have x6 = true
+- From (¬x10 ∨ ¬x4 ∨ ¬x5), since x4 is true and x5 is true, we must have ¬x10 = true, so x10 = false
+- From (¬x10 ∨ ¬x8 ∨ ¬x5), since x5 is true and x10 is false, we must have ¬x8 = true, so x8 = false
+
+Now with x6 = true, x8 = false, x9 = false, x10 = false:
+- From (¬x1 ∨ ¬x6 ∨ ¬x8), since x1 is true, x6 is true, and x8 is false, this clause is satisfied.
+- From (¬x1 ∨ x10 ∨ ¬x8), since x1 is true, x10 is false, and x8 is false, this clause is satisfied.
+- From (¬x6 ∨ x3 ∨ x7), since x6 is true and x3 is true, this clause is satisfied.
+- From (¬x6 ∨ ¬x3 ∨ x8), since x6 is true, x3 is true, and x8 is false, we have a conflict!
+
+Let's backtrack and try x5 = false:
+
+Decision 5 (revised): x5 = false
+- From (¬x5 ∨ x1 ∨ ¬x7), since x5 is false and x1 is true, this clause is satisfied.
+- From (¬x5 ∨ x6 ∨ x10), since x5 is false, this clause is satisfied.
+- From (x5 ∨ ¬x3 ∨ ¬x8), since x5 is false and x3 is true, we must have ¬x8 = true, so x8 = false
+- From (¬x9 ∨ x5 ∨ x10), since x5 is false and x9 is false, we must have x10 = true
+
+Now with x8 = false, x9 = false, x10 = true:
+- From (¬x1 ∨ x10 ∨ ¬x8), since x1 is true, x10 is true, and x8 is false, this clause is satisfied.
+- From (¬x3 ∨ x1 ∨ x10), since x3 is true, x1 is true, and x10 is true, this clause is satisfied.
+
+Decision 6: x6 = true
+- From (¬x1 ∨ ¬x6 ∨ ¬x8), since x1 is true, x6 is true, and x8 is false, this clause is satisfied.
+- From (¬x6 ∨ x3 ∨ x7), since x6 is true and x3 is true, this clause is satisfied.
+- From (¬x6 ∨ ¬x3 ∨ x8), since x6 is true, x3 is true, and x8 is false, we have a conflict!
+
+Let's backtrack and try x6 = false:
+
+Decision 6 (revised): x6 = false
+- From (x2 ∨ ¬x7 ∨ ¬x6), since x2 is true and x6 is false, this clause is satisfied.
+- From (¬x1 ∨ ¬x5 ∨ x6), since x1 is true, x5 is false, and x6 is false, this clause is satisfied.
+- From (¬x6 ∨ x3 ∨ x7), since x6 is false, this clause is satisfied.
+- From (¬x6 ∨ ¬x3 ∨ x8), since x6 is false, this clause is satisfied.
+- From (¬x6 ∨ x4 ∨ ¬x5), since x6 is false, this clause is satisfied.
+- From (¬x6 ∨ x10 ∨ ¬x4), since x6 is false, this clause is satisfied.
+- From (¬x6 ∨ x5 ∨ ¬x3), since x6 is false, this clause is satisfied.
+- From (x6 ∨ ¬x4 ∨ x2), since x4 is true and x2 is true, this clause is satisfied.
+- From (¬x9 ∨ x8 ∨ x6), since x9 is false and x6 is false and x8 is false, we have a conflict!
+
+Let's backtrack further and try x4 = false:
+
+Decision 4 (revised): x4 = false
+- From (x4 ∨ ¬x3 ∨ ¬x7), since x4 is false and x3 is true, we must have ¬x7 = true, so x7 = false
+- From (x4 ∨ ¬x1 ∨ ¬x7), since x4 is false, x1 is true, and x7 is false, this clause is satisfied.
+- From (x3 ∨ ¬x4 ∨ x5), since x3 is true and x4 is false, this clause is satisfied.
+- From (x9 ∨ x6 ∨ ¬x4), since x4 is false, this clause is satisfied.
+- From (x4 ∨ ¬x8 ∨ ¬x7), since x4 is false and x7 is false, we must have ¬x8 = true, so x8 = false
+
+With x7 = false and x8 = false:
+- From (x2 ∨ ¬x7 ∨ ¬x6), since x2 is true and x7 is false, this clause is satisfied.
+- From (x1 ∨ x2 ∨ ¬x7), since x1 is true, x2 is true, and x7 is false, this clause is satisfied.
+- From (x2 ∨ x7 ∨ ¬x4), since x2 is true, x7 is false, and x4 is false, this clause is satisfied.
+- From (x7 ∨ ¬x9 ∨ ¬x3), since x7 is false, x3 is true, we must have ¬x9 = true, so x9 = false
+- From (¬x7 ∨ ¬x5 ∨ x8), since x7 is false and x8 is false, we must have ¬x5 = true, so x5 = false
+
+With x5 = false, x7 = false, x8 = false, x9 = false:
+- From (¬x5 ∨ x1 ∨ ¬x7), since x5 is false, x1 is true, and x7 is false, this clause is satisfied.
+- From (¬x5 ∨ x6 ∨ x10), since x5 is false, this clause is satisfied.
+- From (x5 ∨ ¬x3 ∨ ¬x8), since x5 is false, x3 is true, and x8 is false, we have a conflict!
+
+Let's backtrack further and try x3 = false:
+
+Decision 3 (revised): x3 = false
+- From (x4 ∨ ¬x3 ∨ ¬x7), since x3 is false, this clause is satisfied.
+- From (x2 ∨ ¬x3 ∨ x9), since x2 is true and x3 is false, this clause is satisfied.
+- From (¬x2 ∨ x7 ∨ x3), since x2 is true and x3 is false, we must have x7 = true
+- From (x5 ∨ ¬x3 ∨ ¬x8), since x3 is false, this clause is satisfied.
+- From (¬x6 ∨ x5 ∨ ¬x3), since x3 is false, this clause is satisfied.
+- From (¬x3 ∨ x1 ∨ x10), since x3 is false, this clause is satisfied.
+
+With x7 = true:
+- From (x4 ∨ ¬x1 ∨ ¬x7), since x1 is true and x7 is true, we must have x4 = true
+- From (x1 ∨ x2 ∨ ¬x7), since x1 is true, x2 is true, and x7 is true, we have a conflict!
+
+Let's backtrack further and try x2 = false:
+
+Decision 2 (revised): x2 = false
+- From (x1 ∨ x2 ∨ ¬x7), since x1 is true and x2 is false, we must have ¬x7 = true, so x7 = false
+- From (¬x2 ∨ x7 ∨ x3), since x2 is false, this clause is satisfied.
+- From (x8 ∨ x9 ∨ ¬x2), since x2 is false, this clause is satisfied.
+- From (x2 ∨ x10 ∨ ¬x3), since x2 is false, either x10 or ¬x3 must be true.
+- From (x2 ∨ ¬x3 ∨ x9), since x2 is false, either ¬x3 or x9 must be true.
+- From (x6 ∨ ¬x4 ∨ x2), since x2 is false, either x6 or ¬x4 must be true.
+
+With x7 = false:
+- From (x4 ∨ ¬x3 ∨ ¬x7), since x7 is false, this clause is satisfied.
+- From (x2 ∨ ¬x7 ∨ ¬x6), since x2 is false and x7 is false, we must have ¬x6 = true, so x6 = false
+- From (x4 ∨ ¬x1 ∨ ¬x7), since x1 is true and x7 is false, this clause is satisfied.
+- From (¬x5 ∨ x1 ∨ ¬x7), since x1 is true and x7 is false, this clause is satisfied.
+- From (x7 ∨ ¬x9 ∨ ¬x3), since x7 is false, either ¬x9 or ¬x3 must be true.
+- From (x3 ∨ x7 ∨ x5), since x7 is false, either x3 or x5 must be true.
+- From (x4 ∨ ¬x8 ∨ ¬x7), since x7 is false, this clause is satisfied.
+- From (¬x7 ∨ ¬x5 ∨ x8), since x7 is false, this clause is satisfied.
+
+With x6 = false:
+- From (¬x1 ∨ ¬x5 ∨ x6), since x1 is true and x6 is false, we must have ¬x5 = true, so x5 = false
+- From (¬x1 ∨ ¬x6 ∨ ¬x8), since x1 is true and x6 is false, we must have ¬x8 = true, so x8 = false
+- From (¬x6 ∨ x3 ∨ x7), since x6 is false, this clause is satisfied.
+- From (¬x6 ∨ ¬x3 ∨ x8), since x6 is false, this clause is satisfied.
+- From (¬x5 ∨ x6 ∨ x10), since x5 is false and x6 is false, we must have x10 = true
+- From (x9 ∨ x6 ∨ ¬x4), since x6 is false, either x9 or ¬x4 must be true.
+- From (¬x6 ∨ x4 ∨ ¬x5), since x6 is false, this clause is satisfied.
+- From (¬x6 ∨ x10 ∨ ¬x4), since x6 is false, this clause is satisfied.
+- From (x6 ∨ ¬x4 ∨ x2), since x6 is false, x2 is false, we must have ¬x4 = true, so x4 = false
+- From (¬x9 ∨ x8 ∨ x6), since x8

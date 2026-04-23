@@ -1,0 +1,257 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=59
+p cnf 5 17
+4 -3 -5 0
+-4 5 2 0
+-3 4 -2 0
+2 4 -3 0
+-2 1 3 0
+-3 -2 -1 0
+1 -2 -3 0
+-2 -4 5 0
+3 -4 -5 0
+-5 2 -1 0
+-2 -4 1 0
+-5 2 1 0
+-1 2 3 0
+2 4 3 0
+-1 4 3 0
+-5 -3 1 0
+1 -2 -5 0
+
+c GPT solve time: 48.49 seconds
+
+Step-by-step DPLL-style SAT solving:
+
+**Variables:** x1, x2, x3, x4, x5
+
+---
+
+### Step 1: Choose a variable to branch on.
+
+Let’s start with x1 = True.
+
+#### Branch 1: x1 = True
+
+- Substitute x1 = True into all clauses:
+    - Any clause with x1 is satisfied.
+    - Any clause with ¬x1: remove ¬x1 from the clause.
+
+**Simplified formula:**
+1. (x4 ∨ ¬x3 ∨ ¬x5)
+2. (¬x4 ∨ x5 ∨ x2)
+3. (¬x3 ∨ x4 ∨ ¬x2)
+4. (x2 ∨ x4 ∨ ¬x3)
+5. (¬x2 ∨ x3)         [from (¬x2 ∨ x1 ∨ x3)]
+6. (¬x3 ∨ ¬x2)        [from (¬x3 ∨ ¬x2 ∨ ¬x1)]
+7. (¬x2 ∨ ¬x3)        [from (x1 ∨ ¬x2 ∨ ¬x3)]
+8. (¬x2 ∨ ¬x4 ∨ x5)
+9. (x3 ∨ ¬x4 ∨ ¬x5)
+10. (¬x5 ∨ x2)        [from (¬x5 ∨ x2 ∨ ¬x1)]
+11. (¬x2 ∨ ¬x4)       [from (¬x2 ∨ ¬x4 ∨ x1)]
+12. (¬x5 ∨ x2)        [from (¬x5 ∨ x2 ∨ x1)]
+13. (x2 ∨ x4 ∨ x3)
+14. (¬x1 ∨ x4 ∨ x3)   [remove, since x1=True, clause satisfied]
+15. (¬x5 ∨ ¬x3 ∨ x1)  [remove, since x1=True, clause satisfied]
+16. (x1 ∨ ¬x2 ∨ ¬x5)  [remove, since x1=True, clause satisfied]
+
+Now, let's look for unit clauses or easy assignments.
+
+#### Step 2: Try x2 = True
+
+Let’s try x2 = True.
+
+- (¬x2 ∨ x3) → (x3)
+- (¬x3 ∨ ¬x2) → (¬x3)
+- (¬x2 ∨ ¬x3) → (¬x3)
+- (¬x2 ∨ ¬x4) → (¬x4)
+- (¬x5 ∨ x2) → satisfied
+- (¬x5 ∨ x2) → satisfied
+- (x2 ∨ x4 ∨ x3) → satisfied
+
+Now, (x3) and (¬x3) together: **CONFLICT**.
+
+#### Step 3: Backtrack, try x2 = False
+
+Backtrack to x2 = False.
+
+- (¬x2 ∨ x3) → satisfied
+- (¬x3 ∨ ¬x2) → (¬x3)
+- (¬x2 ∨ ¬x3) → satisfied
+- (¬x2 ∨ ¬x4) → satisfied
+- (¬x5 ∨ x2) → (¬x5)
+- (¬x5 ∨ x2) → (¬x5)
+- (x2 ∨ x4 ∨ x3) → (x4 ∨ x3)
+
+Now, update the formula:
+
+1. (x4 ∨ ¬x3 ∨ ¬x5)
+2. (¬x4 ∨ x5 ∨ False) → (¬x4 ∨ x5)
+3. (¬x3 ∨ x4 ∨ True) → satisfied
+4. (False ∨ x4 ∨ ¬x3) → (x4 ∨ ¬x3)
+5. (¬x3)
+6. (¬x2 ∨ ¬x3) → satisfied
+7. (¬x2 ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)
+8. (x3 ∨ ¬x4 ∨ ¬x5)
+9. (¬x5)
+10. (¬x2 ∨ ¬x4) → satisfied
+11. (x2 ∨ x4 ∨ x3) → (x4 ∨ x3)
+
+Now, (¬x3) is a unit clause. Set x3 = False.
+
+#### Step 4: Propagate x3 = False
+
+- (x4 ∨ ¬x3 ∨ ¬x5) → (x4 ∨ True ∨ ¬x5) → satisfied
+- (¬x4 ∨ x5) remains
+- (x4 ∨ ¬x3) → (x4 ∨ True) → satisfied
+- (¬x3) → satisfied
+- (x3 ∨ ¬x4 ∨ ¬x5) → (False ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5)
+- (¬x5) remains
+- (x4 ∨ x3) → (x4 ∨ False) → (x4)
+
+Now, collect the remaining clauses:
+
+1. (¬x4 ∨ x5)
+2. (¬x4 ∨ x5)
+3. (¬x4 ∨ ¬x5)
+4. (¬x5)
+5. (x4)
+
+#### Step 5: Propagate x4 = True
+
+- (¬x4 ∨ x5) → (False ∨ x5) → (x5)
+- (¬x4 ∨ x5) → (x5)
+- (¬x4 ∨ ¬x5) → (¬x5)
+- (¬x5) remains
+- (x4) → satisfied
+
+Now, (x5) and (¬x5) together: **CONFLICT**.
+
+#### Step 6: Backtrack to x3 = True (with x2 = False)
+
+Backtrack to x3 = True, x2 = False.
+
+- (x4 ∨ ¬x3 ∨ ¬x5) → (x4 ∨ False ∨ ¬x5) → (x4 ∨ ¬x5)
+- (¬x4 ∨ x5) remains
+- (x4 ∨ ¬x3) → (x4 ∨ False) → (x4)
+- (¬x3) → (False)
+- (x3 ∨ ¬x4 ∨ ¬x5) → (True ∨ ¬x4 ∨ ¬x5) → satisfied
+- (¬x5) remains
+- (x4 ∨ x3) → (x4 ∨ True) → satisfied
+
+But (¬x3) is a unit clause, so x3 must be False, which is a conflict with x3 = True.
+
+#### Step 7: Backtrack to x1 = False
+
+Now, try x1 = False.
+
+- Any clause with ¬x1 is satisfied.
+- Any clause with x1: remove x1 from the clause.
+
+**Simplified formula:**
+1. (x4 ∨ ¬x3 ∨ ¬x5)
+2. (¬x4 ∨ x5 ∨ x2)
+3. (¬x3 ∨ x4 ∨ ¬x2)
+4. (x2 ∨ x4 ∨ ¬x3)
+5. (¬x2 ∨ x3)         [from (¬x2 ∨ x1 ∨ x3)]
+6. (¬x3 ∨ ¬x2)        [from (¬x3 ∨ ¬x2 ∨ ¬x1)]
+7. (¬x2 ∨ ¬x3)        [from (x1 ∨ ¬x2 ∨ ¬x3)]
+8. (¬x2 ∨ ¬x4 ∨ x5)
+9. (x3 ∨ ¬x4 ∨ ¬x5)
+10. (¬x5 ∨ x2)        [from (¬x5 ∨ x2 ∨ ¬x1)]
+11. (¬x2 ∨ ¬x4)       [from (¬x2 ∨ ¬x4 ∨ x1)]
+12. (¬x5 ∨ x2)        [from (¬x5 ∨ x2 ∨ x1)]
+13. (x2 ∨ x4 ∨ x3)
+14. (x4 ∨ x3)         [from (¬x1 ∨ x4 ∨ x3)]
+15. (¬x5 ∨ ¬x3)       [from (¬x5 ∨ ¬x3 ∨ x1)]
+16. (¬x2 ∨ ¬x5)       [from (x1 ∨ ¬x2 ∨ ¬x5)]
+
+Let’s try x2 = True.
+
+#### Branch: x1 = False, x2 = True
+
+- (¬x2 ∨ x3) → (x3)
+- (¬x3 ∨ ¬x2) → (¬x3)
+- (¬x2 ∨ ¬x3) → (¬x3)
+- (¬x2 ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)
+- (¬x5 ∨ x2) → satisfied
+- (¬x5 ∨ x2) → satisfied
+- (¬x2 ∨ ¬x4) → (¬x4)
+- (x2 ∨ x4 ∨ x3) → satisfied
+- (¬x2 ∨ ¬x5) → (¬x5)
+
+Now, (x3) and (¬x3): **CONFLICT**.
+
+#### Try x2 = False
+
+- (¬x2 ∨ x3) → satisfied
+- (¬x3 ∨ ¬x2) → (¬x3)
+- (¬x2 ∨ ¬x3) → satisfied
+- (¬x2 ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)
+- (¬x5 ∨ x2) → (¬x5)
+- (¬x5 ∨ x2) → (¬x5)
+- (¬x2 ∨ ¬x4) → satisfied
+- (x2 ∨ x4 ∨ x3) → (x4 ∨ x3)
+- (¬x2 ∨ ¬x5) → satisfied
+
+Now, (¬x3) is a unit clause. Set x3 = False.
+
+- (x4 ∨ ¬x3 ∨ ¬x5) → (x4 ∨ True ∨ ¬x5) → satisfied
+- (¬x4 ∨ x5) remains
+- (x4 ∨ ¬x3) → (x4 ∨ True) → satisfied
+- (¬x3) → satisfied
+- (x3 ∨ ¬x4 ∨ ¬x5) → (False ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5)
+- (¬x5) remains
+- (x4 ∨ x3) → (x4 ∨ False) → (x4)
+- (x4 ∨ x3) → (x4)
+
+Now, (x4) is a unit clause. Set x4 = True.
+
+- (¬x4 ∨ x5) → (False ∨ x5) → (x5)
+- (¬x4 ∨ x5) → (x5)
+- (¬x4 ∨ ¬x5) → (¬x5)
+- (¬x5) remains
+- (x4) → satisfied
+
+Now, (x5) and (¬x5): **CONFLICT**.
+
+---
+
+## Summary
+
+All branches lead to a conflict. Therefore, the formula is **UNSATISFIABLE**.
+
+### Counting branches and conflicts
+
+- x1 = True, x2 = True → conflict
+- x1 = True, x2 = False, x3 = False → conflict
+- x1 = True, x2 = False, x3 = True → conflict
+- x1 = False, x2 = True → conflict
+- x1 = False, x2 = False, x3 = False → conflict
+- x1 = False, x2 = False, x3 = True → conflict
+
+Branches (decision points):  
+- x1 (1), x2 (2), x3 (3) in some branches
+
+Conflicts (backtracking steps):  
+- Each time a branch leads to a contradiction
+
+Let’s count:
+
+- x1 = True, x2 = True → conflict (1)
+- x1 = True, x2 = False, x3 = False → conflict (2)
+- x1 = True, x2 = False, x3 = True → conflict (3)
+- x1 = False, x2 = True → conflict (4)
+- x1 = False, x2 = False, x3 = False → conflict (5)
+- x1 = False, x2 = False, x3 = True → conflict (6)
+
+Branches: x1 (2), x2 (2 per x1), x3 (2 per x2 in some cases) = 6 branches  
+Conflicts: 6
+
+---
+
+**Final Answers:**
+
+- UNSATISFIABLE
+- Number of branches: 6
+- Number of conflicts: 6

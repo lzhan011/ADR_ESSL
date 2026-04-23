@@ -1,0 +1,66 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=983
+p cnf 10 35
+1 -7 2 0
+7 8 -6 0
+5 -8 6 0
+-10 8 -4 0
+-8 -9 -3 0
+-6 2 3 0
+5 -8 -10 0
+-3 6 8 0
+-10 -4 2 0
+-8 -1 -4 0
+-2 5 -8 0
+-6 -7 8 0
+-5 -4 1 0
+-4 1 5 0
+6 4 -7 0
+7 6 8 0
+-4 1 -9 0
+-5 6 -9 0
+-7 4 5 0
+2 -5 -1 0
+3 -10 2 0
+-4 -2 -10 0
+5 8 4 0
+9 -6 7 0
+-9 6 -7 0
+9 10 -5 0
+-8 5 -2 0
+-3 -5 4 0
+-2 8 9 0
+-5 4 -3 0
+-8 4 3 0
+8 1 -2 0
+-4 2 5 0
+5 2 3 0
+7 -2 9 0
+
+c GPT solve time: 12.70 seconds
+
+Step 1: Choose x1 = True. This satisfies clause 1.
+Step 2: Choose x7 = False. This satisfies clause 12.
+Step 3: Choose x8 = True. This satisfies clauses 2, 5, 8, 10, 16, 17, 23, 27, 31, 32.
+Step 4: Choose x6 = True. This satisfies clauses 3, 6, 18, 24, 25.
+Step 5: Choose x5 = False. This satisfies clauses 7, 11, 13, 26, 28, 30.
+Step 6: Choose x10 = False. This satisfies clause 4.
+Step 7: Choose x4 = True. This satisfies clauses 9, 14, 15, 19, 22, 33.
+Step 8: Choose x2 = True. This satisfies clauses 20, 21, 29, 34, 35.
+Step 9: Choose x3 = False. This satisfies clause 28.
+Step 10: Choose x9 = True. This satisfies clause 36.
+
+SATISFIABLE
+Number of branches: 10
+Number of conflicts: 0
+
+x1 = True
+x2 = True
+x3 = False
+x4 = True
+x5 = False
+x6 = True
+x7 = False
+x8 = True
+x9 = True
+x10 = False

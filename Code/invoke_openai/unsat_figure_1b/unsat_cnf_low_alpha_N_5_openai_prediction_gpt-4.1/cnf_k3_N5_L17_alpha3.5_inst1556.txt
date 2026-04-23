@@ -1,0 +1,208 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1556
+p cnf 5 17
+-1 3 2 0
+2 -3 1 0
+-3 4 1 0
+4 -5 1 0
+-3 -4 -1 0
+-4 1 -3 0
+3 -1 -2 0
+-2 -4 5 0
+-3 -1 -5 0
+5 2 -4 0
+3 4 5 0
+-1 -4 -3 0
+-4 1 -2 0
+5 -3 4 0
+-5 1 -4 0
+-4 3 -2 0
+-4 -5 1 0
+
+c GPT solve time: 21.02 seconds
+
+Step-by-step DPLL-style SAT solving:
+
+**Step 1: List variables:**  
+x1, x2, x3, x4, x5
+
+**Step 2: Try x1 = True (Branch 1)**  
+Substitute x1 = True into all clauses:
+
+- (¬x1 ∨ x3 ∨ x2) → (x3 ∨ x2)
+- (x2 ∨ ¬x3 ∨ x1) → always True
+- (¬x3 ∨ x4 ∨ x1) → always True
+- (x4 ∨ ¬x5 ∨ x1) → always True
+- (¬x3 ∨ ¬x4 ∨ ¬x1) → (¬x3 ∨ ¬x4)
+- (¬x4 ∨ x1 ∨ ¬x3) → always True
+- (x3 ∨ ¬x1 ∨ ¬x2) → (x3 ∨ ¬x2)
+- (¬x2 ∨ ¬x4 ∨ x5) → (¬x2 ∨ ¬x4 ∨ x5)
+- (¬x3 ∨ ¬x1 ∨ ¬x5) → (¬x3 ∨ ¬x5)
+- (x5 ∨ x2 ∨ ¬x4) → (x5 ∨ x2 ∨ ¬x4)
+- (x3 ∨ x4 ∨ x5) → (x3 ∨ x4 ∨ x5)
+- (¬x1 ∨ ¬x4 ∨ ¬x3) → (¬x4 ∨ ¬x3)
+- (¬x4 ∨ x1 ∨ ¬x2) → always True
+- (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ ¬x3 ∨ x4)
+- (¬x5 ∨ x1 ∨ ¬x4) → always True
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4 ∨ x3 ∨ ¬x2)
+- (¬x4 ∨ ¬x5 ∨ x1) → always True
+
+**Step 3: Try x2 = True (Branch 2)**  
+Substitute x2 = True:
+
+- (x3 ∨ x2) → always True
+- (x3 ∨ ¬x2) → (x3)
+- (¬x2 ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)
+- (x5 ∨ x2 ∨ ¬x4) → always True
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4 ∨ x3)
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4 ∨ x3)
+
+**Step 4: Try x3 = True (Branch 3)**  
+Substitute x3 = True:
+
+- (¬x3 ∨ ¬x4) → (¬x4)
+- (¬x3 ∨ ¬x5) → (¬x5)
+- (x3 ∨ x4 ∨ x5) → always True
+- (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ x4)
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4)
+- (¬x4 ∨ x3) → (¬x4)
+
+**Step 5: Now, (¬x4) appears multiple times. So x4 = False (Unit Propagation)**
+
+Substitute x4 = False:
+
+- (¬x4 ∨ x5) → always True
+- (x5 ∨ x4) → (x5)
+- (¬x5) → (¬x5)
+
+So, (x5) and (¬x5) → CONFLICT
+
+**Backtrack: x3 = False (Branch 4)**
+
+Substitute x3 = False:
+
+- (x3) → False (conflict)
+- (x3 ∨ x4 ∨ x5) → (x4 ∨ x5)
+- (x5 ∨ ¬x3 ∨ x4) → always True
+
+But (x3) is required to be True from earlier, so this branch fails.
+
+**Backtrack: x2 = False (Branch 5)**
+
+Substitute x2 = False (with x1 = True):
+
+- (x3 ∨ x2) → (x3)
+- (x3 ∨ ¬x2) → always True
+- (¬x2 ∨ ¬x4 ∨ x5) → always True
+- (x5 ∨ x2 ∨ ¬x4) → (x5 ∨ ¬x4)
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4 ∨ x3)
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4 ∨ x3)
+
+Try x3 = True (Branch 6):
+
+- (x3) → satisfied
+- (¬x3 ∨ ¬x4) → (¬x4)
+- (¬x3 ∨ ¬x5) → (¬x5)
+- (x4 ∨ x5) → (x4 ∨ x5)
+- (¬x4 ∨ x3) → (¬x4)
+
+So, (¬x4) appears, so x4 = False
+
+Substitute x4 = False:
+
+- (x4 ∨ x5) → (x5)
+- (¬x5) → (¬x5)
+
+So, (x5) and (¬x5) → CONFLICT
+
+Try x3 = False (Branch 7):
+
+- (x3) → False (conflict)
+
+**Backtrack: x1 = False (Branch 8)**
+
+Substitute x1 = False:
+
+- (¬x1 ∨ x3 ∨ x2) → always True
+- (x2 ∨ ¬x3 ∨ x1) → (x2 ∨ ¬x3)
+- (¬x3 ∨ x4 ∨ x1) → (¬x3 ∨ x4)
+- (x4 ∨ ¬x5 ∨ x1) → (x4 ∨ ¬x5)
+- (¬x3 ∨ ¬x4 ∨ ¬x1) → always True
+- (¬x4 ∨ x1 ∨ ¬x3) → (¬x4 ∨ ¬x3)
+- (x3 ∨ ¬x1 ∨ ¬x2) → (x3 ∨ ¬x2)
+- (¬x2 ∨ ¬x4 ∨ x5) → (¬x2 ∨ ¬x4 ∨ x5)
+- (¬x3 ∨ ¬x1 ∨ ¬x5) → always True
+- (x5 ∨ x2 ∨ ¬x4) → (x5 ∨ x2 ∨ ¬x4)
+- (x3 ∨ x4 ∨ x5) → (x3 ∨ x4 ∨ x5)
+- (¬x1 ∨ ¬x4 ∨ ¬x3) → always True
+- (¬x4 ∨ x1 ∨ ¬x2) → (¬x4 ∨ ¬x2)
+- (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ ¬x3 ∨ x4)
+- (¬x5 ∨ x1 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4 ∨ x3 ∨ ¬x2)
+- (¬x4 ∨ ¬x5 ∨ x1) → (¬x4 ∨ ¬x5)
+
+Try x2 = True (Branch 9):
+
+- (x2 ∨ ¬x3) → always True
+- (x3 ∨ ¬x2) → (x3)
+- (¬x2 ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)
+- (¬x4 ∨ ¬x2) → (¬x4)
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4 ∨ x3)
+
+Try x3 = True (Branch 10):
+
+- (x3) → satisfied
+- (¬x3 ∨ x4) → (x4)
+- (¬x3 ∨ ¬x4) → (¬x4)
+- (x3 ∨ x4 ∨ x5) → always True
+- (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ x4)
+- (¬x4 ∨ x3) → (¬x4)
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4)
+
+So, (x4) and (¬x4) → CONFLICT
+
+Try x3 = False (Branch 11):
+
+- (x3) → False (conflict)
+
+Try x2 = False (Branch 12):
+
+- (x2 ∨ ¬x3) → (¬x3)
+- (x3 ∨ ¬x2) → always True
+- (¬x2 ∨ ¬x4 ∨ x5) → always True
+- (¬x4 ∨ ¬x2) → (¬x4)
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4 ∨ x3)
+
+Try x3 = True (Branch 13):
+
+- (¬x3) → False (conflict)
+
+Try x3 = False (Branch 14):
+
+- (¬x3) → satisfied
+- (¬x3 ∨ x4) → always True
+- (¬x3 ∨ ¬x4) → always True
+- (x3 ∨ x4 ∨ x5) → (x4 ∨ x5)
+- (x5 ∨ ¬x3 ∨ x4) → always True
+- (¬x4 ∨ x3) → (¬x4)
+- (¬x4 ∨ x3 ∨ ¬x2) → (¬x4)
+
+So, (¬x4) appears, so x4 = False
+
+Substitute x4 = False:
+
+- (x4 ∨ x5) → (x5)
+- (¬x5 ∨ ¬x4) → (¬x5)
+- (¬x4 ∨ ¬x5) → always True
+
+So, (x5) and (¬x5) → CONFLICT
+
+**All branches exhausted.**
+
+---
+
+**Final answers:**
+
+- UNSATISFIABLE
+- Number of branches (decision points): 14
+- Number of conflicts (backtracking steps): 8

@@ -1,0 +1,100 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2545
+p cnf 5 17
+-1 3 -2 0
+-5 3 -2 0
+-3 -2 -5 0
+-5 2 3 0
+4 5 -2 0
+3 4 1 0
+3 -1 2 0
+-5 2 4 0
+5 1 -4 0
+-3 -2 1 0
+-1 -2 5 0
+4 5 1 0
+-5 -1 -4 0
+2 5 -1 0
+5 -3 1 0
+1 2 -4 0
+3 5 2 0
+
+c GPT solve time: 16.27 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+**Step 1: Initial Analysis**
+The formula has 5 variables (x1, x2, x3, x4, x5) and 17 clauses.
+
+**Step 2: Unit Propagation and Pure Literal Elimination**
+No unit clauses or pure literals found initially.
+
+**Step 3: DPLL Search**
+
+**Branch 1: x1 = True**
+- Clause 1: (¬x1 ∨ x3 ∨ ¬x2) → (x3 ∨ ¬x2)
+- Clause 6: (x3 ∨ x4 ∨ x1) → satisfied
+- Clause 7: (x3 ∨ ¬x1 ∨ x2) → (x3 ∨ x2)
+- Clause 9: (x5 ∨ x1 ∨ ¬x4) → satisfied
+- Clause 10: (¬x3 ∨ ¬x2 ∨ x1) → satisfied
+- Clause 11: (¬x1 ∨ ¬x2 ∨ x5) → (¬x2 ∨ x5)
+- Clause 12: (x4 ∨ x5 ∨ x1) → satisfied
+- Clause 13: (¬x5 ∨ ¬x1 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- Clause 14: (x2 ∨ x5 ∨ ¬x1) → (x2 ∨ x5)
+- Clause 15: (x5 ∨ ¬x3 ∨ x1) → satisfied
+- Clause 16: (x1 ∨ x2 ∨ ¬x4) → satisfied
+
+Remaining clauses: 2, 3, 4, 5, 8, 17 and simplified versions of 1, 7, 11, 13, 14
+
+**Branch 2: x2 = False (under x1 = True)**
+- Clause 1: (x3 ∨ ¬x2) → satisfied
+- Clause 2: (¬x5 ∨ x3 ∨ ¬x2) → satisfied
+- Clause 3: (¬x3 ∨ ¬x2 ∨ ¬x5) → satisfied
+- Clause 4: (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ x3)
+- Clause 5: (x4 ∨ x5 ∨ ¬x2) → satisfied
+- Clause 7: (x3 ∨ x2) → x3 (unit clause!)
+- Clause 8: (¬x5 ∨ x2 ∨ x4) → (¬x5 ∨ x4)
+- Clause 11: (¬x2 ∨ x5) → x5 (unit clause!)
+- Clause 14: (x2 ∨ x5) → x5 (already satisfied)
+- Clause 17: (x3 ∨ x5 ∨ x2) → satisfied
+
+**Unit Propagation:**
+- x3 = True (from clause 7)
+- x5 = True (from clause 11)
+
+**Checking remaining clauses with x1=T, x2=F, x3=T, x5=T:**
+- Clause 4: (¬x5 ∨ x3) → (F ∨ T) = T ✓
+- Clause 8: (¬x5 ∨ x4) → (F ∨ x4) = x4
+- Clause 13: (¬x5 ∨ ¬x4) → (F ∨ ¬x4) = ¬x4
+
+From clauses 8 and 13: x4 and ¬x4 must both be true - **CONFLICT!**
+
+**Backtrack - Branch 3: x2 = True (under x1 = True)**
+- Clause 1: (x3 ∨ ¬x2) → x3 (unit clause!)
+- Clause 11: (¬x2 ∨ x5) → x5 (unit clause!)
+
+**Unit Propagation:**
+- x3 = True
+- x5 = True
+
+**Checking with x1=T, x2=T, x3=T, x5=T:**
+- Clause 13: (¬x5 ∨ ¬x4) → ¬x4 (unit clause!)
+
+**Unit Propagation:**
+- x4 = False
+
+**Final Check with x1=T, x2=T, x3=T, x4=F, x5=T:**
+All clauses are satisfied!
+
+**Solution Found:**
+- x1 = True
+- x2 = True  
+- x3 = True
+- x4 = False
+- x5 = True
+
+SATISFIABLE
+Number of branches: 3
+Number of conflicts: 1
+
+x1 = True, x2 = True, x3 = True, x4 = False, x5 = True

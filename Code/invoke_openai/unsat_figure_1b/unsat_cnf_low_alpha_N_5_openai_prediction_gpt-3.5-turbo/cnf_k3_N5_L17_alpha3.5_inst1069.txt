@@ -1,0 +1,120 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1069
+p cnf 5 17
+-3 4 -2 0
+2 -3 1 0
+-1 5 3 0
+3 1 4 0
+5 -4 -1 0
+-5 1 -4 0
+-1 5 -3 0
+5 -4 -3 0
+-1 5 -3 0
+-4 -1 -2 0
+-3 -5 -4 0
+3 1 2 0
+5 -1 3 0
+3 -4 1 0
+4 -1 -5 0
+-2 -4 -1 0
+-5 -4 -1 0
+
+c GPT solve time: 18.83 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment: x1 = True.
+4. Update the clauses based on the assignment:
+   (¬x1 ∨ x5 ∨ x3) -> (False ∨ x5 ∨ x3) -> (x5 ∨ x3)
+   (x3 ∨ x1 ∨ x4) -> (x3 ∨ True ∨ x4) -> True
+   (¬x5 ∨ x1 ∨ ¬x4) -> (False ∨ True ∨ False) -> True
+   (¬x1 ∨ x5 ∨ ¬x3) -> (False ∨ x5 ∨ False) -> x5
+   (x5 ∨ ¬x4 ∨ ¬x1) -> (x5 ∨ False ∨ False) -> x5
+   (¬x1 ∨ x5 ∨ ¬x3) -> (False ∨ x5 ∨ False) -> x5
+   (¬x4 ∨ ¬x1 ∨ ¬x2) -> (False ∨ False ∨ False) -> False
+   (¬x3 ∨ ¬x5 ∨ ¬x4) -> (False ∨ False ∨ False) -> False
+   (x3 ∨ x1 ∨ x2) -> (True ∨ True ∨ False) -> True
+   (x5 ∨ ¬x1 ∨ x3) -> (True ∨ False ∨ True) -> True
+   (x3 ∨ ¬x4 ∨ x1) -> (True ∨ False ∨ True) -> True
+   (x4 ∨ ¬x1 ∨ ¬x5) -> (True ∨ False ∨ False) -> True
+   (¬x2 ∨ ¬x4 ∨ ¬x1) -> (False ∨ False ∨ False) -> False
+   (¬x5 ∨ ¬x4 ∨ ¬x1) -> (False ∨ False ∨ False) -> False
+5. Check if there are any empty clauses. If yes, backtrack.
+6. Choose a literal to assign. Let's assign x2 = True.
+7. Update the assignment: x2 = True.
+8. Update the clauses based on the assignment:
+   (¬x3 ∨ x4 ∨ ¬x2) -> (False ∨ x4 ∨ False) -> x4
+   (x2 ∨ ¬x3 ∨ x1) -> (True ∨ False ∨ True) -> True
+9. Check if there are any empty clauses. If yes, backtrack.
+10. Choose a literal to assign. Let's assign x3 = True.
+11. Update the assignment: x3 = True.
+12. Update the clauses based on the assignment:
+   (¬x3 ∨ x4 ∨ ¬x2) -> (False ∨ x4 ∨ False) -> x4
+   (x2 ∨ ¬x3 ∨ x1) -> (True ∨ False ∨ True) -> True
+   (¬x1 ∨ x5 ∨ x3) -> (False ∨ x5 ∨ True) -> x5
+   (x3 ∨ x1 ∨ x4) -> (True ∨ True ∨ x4) -> True
+   (x5 ∨ ¬x4 ∨ ¬x1) -> (x5 ∨ False ∨ False) -> x5
+   (¬x5 ∨ x1 ∨ ¬x4) -> (False ∨ True ∨ False) -> True
+   (¬x1 ∨ x5 ∨ ¬x3) -> (False ∨ x5 ∨ False) -> x5
+   (x5 ∨ ¬x4 ∨ ¬x3) -> (x5 ∨ False ∨ False) -> x5
+   (¬x1 ∨ x5 ∨ ¬x3) -> (False ∨ x5 ∨ False) -> x5
+   (¬x4 ∨ ¬x1 ∨ ¬x2) -> (False ∨ False ∨ False) -> False
+   (¬x3 ∨ ¬x5 ∨ ¬x4) -> (False ∨ False ∨ False) -> False
+   (x3 ∨ x1 ∨ x2) -> (True ∨ True ∨ True) -> True
+   (x5 ∨ ¬x1 ∨ x3) -> (True ∨ False ∨ True) -> True
+   (x3 ∨ ¬x4 ∨ x1) -> (True ∨ False ∨ True) -> True
+   (x4 ∨ ¬x1 ∨ ¬x5) -> (True ∨ False ∨ False) -> True
+   (¬x2 ∨ ¬x4 ∨ ¬x1) -> (False ∨ False ∨ False) -> False
+   (¬x5 ∨ ¬x4 ∨ ¬x1) -> (False ∨ False ∨ False) -> False
+13. Check if there are any empty clauses. If yes, backtrack.
+14. Choose a literal to assign. Let's assign x4 = True.
+15. Update the assignment: x4 = True.
+16. Update the clauses based on the assignment:
+   (¬x3 ∨ x4 ∨ ¬x2) -> (False ∨ True ∨ False) -> True
+   (x2 ∨ ¬x3 ∨ x1) -> (True ∨ False ∨ True) -> True
+   (¬x1 ∨ x5 ∨ x3) -> (False ∨ x5 ∨ True) -> x5
+   (x3 ∨ x1 ∨ x4) -> (True ∨ True ∨ True) -> True
+   (x5 ∨ ¬x4 ∨ ¬x1) -> (x5 ∨ False ∨ False) -> x5
+   (¬x5 ∨ x1 ∨ ¬x4) -> (False ∨ True ∨ False) -> True
+   (¬x1 ∨ x5 ∨ ¬x3) -> (False ∨ x5 ∨ False) -> x5
+   (x5 ∨ ¬x4 ∨ ¬x3) -> (x5 ∨ False ∨ False) -> x5
+   (¬x1 ∨ x5 ∨ ¬x3) -> (False ∨ x5 ∨ False) -> x5
+   (¬x4 ∨ ¬x1 ∨ ¬x2) -> (False ∨ False ∨ False) -> False
+   (¬x3 ∨ ¬x5 ∨ ¬x4) -> (False ∨ False ∨ False) -> False
+   (x3 ∨ x1 ∨ x2) -> (True ∨ True ∨ True) -> True
+   (x5 ∨ ¬x1 ∨ x3) -> (True ∨ False ∨ True) -> True
+   (x3 ∨ ¬x4 ∨ x1) -> (True ∨ False ∨ True) -> True
+   (x4 ∨ ¬x1 ∨ ¬x5) -> (True ∨ False ∨ False) -> True
+   (¬x2 ∨ ¬x4 ∨ ¬x1) -> (False ∨ False ∨ False) -> False
+   (¬x5 ∨ ¬x4 ∨ ¬x1) -> (False ∨ False ∨ False) -> False
+17. Check if there are any empty clauses. If yes, backtrack.
+18. Choose a literal to assign. Let's assign x5 = True.
+19. Update the assignment: x5 = True.
+20. Update the clauses based on the assignment:
+   (¬x3 ∨ x4 ∨ ¬x2) -> (False ∨ True ∨ False) -> True
+   (x2 ∨ ¬x3 ∨ x1) -> (True ∨ False ∨ True) -> True
+   (¬x1 ∨ x5 ∨ x3) -> (False ∨ True ∨ True) -> True
+   (x3 ∨ x1 ∨ x4) -> (True ∨ True ∨ True) -> True
+   (x5 ∨ ¬x4 ∨ ¬x1) -> (True ∨ False ∨ False) -> True
+   (¬x5 ∨ x1 ∨ ¬x4) -> (False ∨ True ∨ False) -> True
+   (¬x1 ∨ x5 ∨ ¬x3) -> (False ∨ True ∨ False) -> True
+   (x5 ∨ ¬x4 ∨ ¬x3) -> (True ∨ False ∨ False) -> True
+   (¬x1 ∨ x5 ∨ ¬x3) -> (False ∨ True ∨ False) -> True
+   (¬x4 ∨ ¬x1 ∨ ¬x2) -> (False ∨ False ∨ False) -> False
+   (¬x3 ∨ ¬x5 ∨ ¬x4) -> (False ∨ False ∨ False) -> False
+   (x3 ∨ x1 ∨ x2) -> (True ∨ True ∨ True) -> True
+   (x5 ∨ ¬x1 ∨ x3) -> (True ∨ False ∨ True) -> True
+   (x3 ∨ ¬x4 ∨ x1) -> (True ∨ False ∨ True) -> True
+   (x4 ∨ ¬x1 ∨ ¬x5) -> (True ∨ False ∨ False) -> True
+   (¬x2 ∨ ¬x4 ∨ ¬x1) -> (False ∨ False ∨ False) -> False
+   (¬x5 ∨ ¬x4 ∨ ¬x1) -> (False ∨ False ∨ False) -> False
+21. Check if there are any empty clauses. If yes, backtrack.
+22. All clauses are satisfied. The formula is SATISFIABLE.
+23. Number of branches (decision points): 4
+24. Number of conflicts (backtracking steps): 0
+25. Values for literals:
+    x1 = True
+    x2 = True
+    x3 = True
+    x4 = True
+    x5 = True

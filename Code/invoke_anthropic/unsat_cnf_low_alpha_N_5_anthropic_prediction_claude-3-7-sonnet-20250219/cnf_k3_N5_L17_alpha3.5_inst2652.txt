@@ -1,0 +1,144 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2652
+p cnf 5 17
+1 5 -4 0
+3 -5 2 0
+-3 -5 -2 0
+2 1 4 0
+1 -4 5 0
+-3 2 -5 0
+3 -4 -2 0
+-5 3 4 0
+-3 4 -5 0
+-2 -4 -3 0
+2 1 -4 0
+2 5 4 0
+2 4 5 0
+1 -4 -2 0
+3 -4 2 0
+2 -1 -3 0
+4 5 -2 0
+
+c GPT solve time: 29.81 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let's start by looking for unit clauses or pure literals to simplify the formula.
+
+Initial formula:
+1. (x1 ∨ x5 ∨ ¬x4)
+2. (x3 ∨ ¬x5 ∨ x2)
+3. (¬x3 ∨ ¬x5 ∨ ¬x2)
+4. (x2 ∨ x1 ∨ x4)
+5. (x1 ∨ ¬x4 ∨ x5)
+6. (¬x3 ∨ x2 ∨ ¬x5)
+7. (x3 ∨ ¬x4 ∨ ¬x2)
+8. (¬x5 ∨ x3 ∨ x4)
+9. (¬x3 ∨ x4 ∨ ¬x5)
+10. (¬x2 ∨ ¬x4 ∨ ¬x3)
+11. (x2 ∨ x1 ∨ ¬x4)
+12. (x2 ∨ x5 ∨ x4)
+13. (x2 ∨ x4 ∨ x5)
+14. (x1 ∨ ¬x4 ∨ ¬x2)
+15. (x3 ∨ ¬x4 ∨ x2)
+16. (x2 ∨ ¬x1 ∨ ¬x3)
+17. (x4 ∨ x5 ∨ ¬x2)
+
+I don't see any unit clauses. Let's make a decision and branch.
+
+Branch 1: Let's set x1 = true
+After propagation:
+- Clauses 1, 4, 5, 11, 14 are satisfied
+- Remaining clauses:
+2. (x3 ∨ ¬x5 ∨ x2)
+3. (¬x3 ∨ ¬x5 ∨ ¬x2)
+6. (¬x3 ∨ x2 ∨ ¬x5)
+7. (x3 ∨ ¬x4 ∨ ¬x2)
+8. (¬x5 ∨ x3 ∨ x4)
+9. (¬x3 ∨ x4 ∨ ¬x5)
+10. (¬x2 ∨ ¬x4 ∨ ¬x3)
+12. (x2 ∨ x5 ∨ x4)
+13. (x2 ∨ x4 ∨ x5)
+15. (x3 ∨ ¬x4 ∨ x2)
+16. (x2 ∨ ¬x1 ∨ ¬x3) → (x2 ∨ ¬x3) [simplified]
+17. (x4 ∨ x5 ∨ ¬x2)
+
+Branch 2: Let's set x2 = true
+After propagation:
+- Clauses 2, 6, 12, 13, 15, 16 are satisfied
+- Remaining clauses:
+3. (¬x3 ∨ ¬x5 ∨ ¬x2) → (¬x3 ∨ ¬x5) [simplified]
+7. (x3 ∨ ¬x4 ∨ ¬x2) → (x3 ∨ ¬x4) [simplified]
+8. (¬x5 ∨ x3 ∨ x4)
+9. (¬x3 ∨ x4 ∨ ¬x5)
+10. (¬x2 ∨ ¬x4 ∨ ¬x3) → (¬x4 ∨ ¬x3) [simplified]
+17. (x4 ∨ x5 ∨ ¬x2) → (x4 ∨ x5) [simplified]
+
+Branch 3: Let's set x3 = false
+After propagation:
+- Clauses 3, 6, 9, 10, 16 are satisfied
+- Remaining clauses:
+7. (x3 ∨ ¬x4 ∨ ¬x2) → (¬x4) [simplified]
+8. (¬x5 ∨ x3 ∨ x4) → (¬x5 ∨ x4) [simplified]
+17. (x4 ∨ x5) 
+
+From clause 7, we must set x4 = false
+After propagation:
+- Clauses 7, 10 are satisfied
+- Remaining clauses:
+8. (¬x5 ∨ x3 ∨ x4) → (¬x5) [simplified]
+17. (x4 ∨ x5) → (x5) [simplified]
+
+We have a conflict: clause 8 requires x5 = false, but clause 17 requires x5 = true.
+
+Backtrack to Branch 3 and try x3 = true.
+After propagation:
+- Clauses 2, 7, 8, 15 are satisfied
+- Remaining clauses:
+3. (¬x3 ∨ ¬x5) → (¬x5) [simplified]
+9. (¬x3 ∨ x4 ∨ ¬x5) → (x4 ∨ ¬x5) [simplified]
+10. (¬x4 ∨ ¬x3) → (¬x4) [simplified]
+17. (x4 ∨ x5) 
+
+We have a conflict: clause 10 requires x4 = false, but clause 17 requires x4 = true or x5 = true, and clause 3 requires x5 = false.
+
+Backtrack to Branch 2 and try x2 = false.
+After propagation:
+- Clauses 3, 7, 10, 14, 17 are satisfied
+- Remaining clauses:
+2. (x3 ∨ ¬x5 ∨ x2) → (x3 ∨ ¬x5) [simplified]
+6. (¬x3 ∨ x2 ∨ ¬x5) → (¬x3 ∨ ¬x5) [simplified]
+8. (¬x5 ∨ x3 ∨ x4)
+9. (¬x3 ∨ x4 ∨ ¬x5)
+12. (x2 ∨ x5 ∨ x4) → (x5 ∨ x4) [simplified]
+13. (x2 ∨ x4 ∨ x5) → (x4 ∨ x5) [simplified]
+15. (x3 ∨ ¬x4 ∨ x2) → (x3 ∨ ¬x4) [simplified]
+
+Branch 4: Let's set x4 = true
+After propagation:
+- Clauses 8, 9, 12, 13 are satisfied
+- Remaining clauses:
+2. (x3 ∨ ¬x5) 
+6. (¬x3 ∨ ¬x5)
+15. (x3 ∨ ¬x4) → (x3) [simplified]
+
+From clause 15, we must set x3 = true
+After propagation:
+- Clauses 2, 15 are satisfied
+- Remaining clauses:
+6. (¬x3 ∨ ¬x5) → (¬x5) [simplified]
+
+From clause 6, we must set x5 = false
+All clauses are now satisfied!
+
+We have a satisfying assignment:
+x1 = true
+x2 = false
+x3 = true
+x4 = true
+x5 = false
+
+SATISFIABLE
+Number of branches: 4
+Number of conflicts: 2
+x1 = true, x2 = false, x3 = true, x4 = true, x5 = false

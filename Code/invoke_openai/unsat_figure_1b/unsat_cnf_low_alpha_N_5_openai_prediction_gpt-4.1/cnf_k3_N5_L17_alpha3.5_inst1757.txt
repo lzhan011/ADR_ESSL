@@ -1,0 +1,483 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1757
+p cnf 5 17
+4 1 3 0
+-1 3 2 0
+3 -2 4 0
+-5 -4 3 0
+2 4 -3 0
+4 3 5 0
+-1 2 4 0
+-1 2 -3 0
+-3 1 5 0
+5 3 -4 0
+2 1 -4 0
+-1 -2 -3 0
+-4 -2 -5 0
+3 2 5 0
+-2 3 4 0
+-5 -2 1 0
+4 -3 1 0
+
+c GPT solve time: 36.79 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Variables:** x1, x2, x3, x4, x5
+
+Let's proceed step by step:
+
+---
+
+### 1. Choose a variable to branch on. Let's pick x1 = True.
+
+#### Assign x1 = True (Branch 1)
+
+- Simplify clauses:
+    - Any clause with x1 is satisfied.
+    - Remove ¬x1 from clauses.
+
+Clauses left (after removing satisfied and simplifying):
+
+(¬x1 ∨ x3 ∨ x2) → (x3 ∨ x2)  
+(¬x1 ∨ x2 ∨ x4) → (x2 ∨ x4)  
+(¬x1 ∨ x2 ∨ ¬x3) → (x2 ∨ ¬x3)  
+(¬x1 ∨ ¬x2 ∨ ¬x3) → (¬x2 ∨ ¬x3)  
+(¬x5 ∨ ¬x4 ∨ x3)  
+(x3 ∨ ¬x2 ∨ x4)  
+(x2 ∨ x4 ∨ ¬x3)  
+(x4 ∨ x3 ∨ x5)  
+(¬x3 ∨ x1 ∨ x5) → (¬x3 ∨ x5)  
+(x5 ∨ x3 ∨ ¬x4)  
+(x2 ∨ x1 ∨ ¬x4) → (x2 ∨ ¬x4)  
+(¬x4 ∨ ¬x2 ∨ ¬x5)  
+(x3 ∨ x2 ∨ x5)  
+(¬x2 ∨ x3 ∨ x4)  
+(¬x5 ∨ ¬x2 ∨ x1) → (¬x5 ∨ ¬x2)  
+(x4 ∨ ¬x3 ∨ x1) → (x4 ∨ ¬x3)
+
+---
+
+### 2. Next, assign x2 = True (Branch 2)
+
+- Any clause with x2 is satisfied.
+- Remove ¬x2 from clauses.
+
+Clauses left:
+
+(¬x5 ∨ ¬x4 ∨ x3)  
+(x3 ∨ ¬x2 ∨ x4) → (x3 ∨ x4)  
+(x2 ∨ x4 ∨ ¬x3) → (x4 ∨ ¬x3)  
+(x4 ∨ x3 ∨ x5)  
+(¬x3 ∨ x5)  
+(x5 ∨ x3 ∨ ¬x4)  
+(x2 ∨ ¬x4) → (¬x4)  
+(¬x4 ∨ ¬x2 ∨ ¬x5) → (¬x4 ∨ ¬x5)  
+(x3 ∨ x2 ∨ x5) → (x3 ∨ x5)  
+(¬x2 ∨ x3 ∨ x4) → (x3 ∨ x4)  
+(¬x5 ∨ ¬x2 ∨ x1) → (¬x5)  
+(x4 ∨ ¬x3)
+
+---
+
+### 3. Next, assign x3 = True (Branch 3)
+
+- Any clause with x3 is satisfied.
+- Remove ¬x3 from clauses.
+
+Clauses left:
+
+(¬x5 ∨ ¬x4 ∨ x3) → (¬x5 ∨ ¬x4 ∨ True) → satisfied  
+(x3 ∨ x4) → satisfied  
+(x4 ∨ ¬x3) → (x4)  
+(x4 ∨ x3 ∨ x5) → satisfied  
+(¬x3 ∨ x5) → (x5)  
+(x5 ∨ x3 ∨ ¬x4) → satisfied  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(x3 ∨ x5) → satisfied  
+(x3 ∨ x4) → satisfied  
+(¬x5)  
+
+Now, the remaining clauses are:
+
+(x4)  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(x5)  
+(¬x5)
+
+---
+
+#### At this point, (x4) and (¬x4) are a conflict.
+
+**Conflict encountered. Backtrack.**
+
+---
+
+### 4. Backtrack: Try x3 = False (Branch 4)
+
+Go back to previous assignment: x1 = True, x2 = True, x3 = False
+
+Now, substitute x3 = False:
+
+- Any clause with ¬x3 is satisfied.
+- Remove x3 from clauses.
+
+Clauses left:
+
+(¬x5 ∨ ¬x4 ∨ x3) → (¬x5 ∨ ¬x4)  
+(x3 ∨ x4) → (x4)  
+(x4 ∨ ¬x3) → satisfied  
+(x4 ∨ x3 ∨ x5) → (x4 ∨ x5)  
+(¬x3 ∨ x5) → satisfied  
+(x5 ∨ x3 ∨ ¬x4) → (x5 ∨ ¬x4)  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(x3 ∨ x5) → (x5)  
+(x3 ∨ x4) → (x4)  
+(¬x5)
+
+Now, the remaining clauses are:
+
+(¬x5 ∨ ¬x4)  
+(x4)  
+(x4 ∨ x5)  
+(x5 ∨ ¬x4)  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(x5)  
+(x4)  
+(¬x5)
+
+---
+
+#### Unit propagation:
+
+- (x4) and (¬x4): conflict.
+
+**Conflict encountered. Backtrack.**
+
+---
+
+### 5. Backtrack: Try x2 = False (Branch 5)
+
+Go back to x1 = True, x2 = False
+
+Now, substitute x2 = False:
+
+- Any clause with ¬x2 is satisfied.
+- Remove x2 from clauses.
+
+Clauses left:
+
+(¬x5 ∨ ¬x4 ∨ x3)  
+(x3 ∨ ¬x2 ∨ x4) → (x3 ∨ x4)  
+(x2 ∨ x4 ∨ ¬x3) → (x4 ∨ ¬x3)  
+(x4 ∨ x3 ∨ x5)  
+(¬x3 ∨ x5)  
+(x5 ∨ x3 ∨ ¬x4)  
+(x2 ∨ ¬x4) → (¬x4)  
+(¬x4 ∨ ¬x2 ∨ ¬x5) → (¬x4 ∨ ¬x5)  
+(x3 ∨ x2 ∨ x5) → (x3 ∨ x5)  
+(¬x2 ∨ x3 ∨ x4) → satisfied  
+(¬x5 ∨ ¬x2 ∨ x1) → (¬x5 ∨ x1)  
+(x4 ∨ ¬x3)
+
+---
+
+### 6. Next, assign x3 = True (Branch 6)
+
+x1 = True, x2 = False, x3 = True
+
+- Any clause with x3 is satisfied.
+- Remove ¬x3 from clauses.
+
+Clauses left:
+
+(¬x5 ∨ ¬x4 ∨ x3) → satisfied  
+(x3 ∨ x4) → satisfied  
+(x4 ∨ ¬x3) → (x4)  
+(x4 ∨ x3 ∨ x5) → satisfied  
+(¬x3 ∨ x5) → (x5)  
+(x5 ∨ x3 ∨ ¬x4) → satisfied  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(x3 ∨ x5) → satisfied  
+(¬x5 ∨ x1)  
+(x4)
+
+Remaining clauses:
+
+(x4)  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(x5)  
+(¬x5 ∨ x1)
+
+Again, (x4) and (¬x4): conflict.
+
+**Conflict encountered. Backtrack.**
+
+---
+
+### 7. Backtrack: x3 = False (Branch 7)
+
+x1 = True, x2 = False, x3 = False
+
+Now, substitute x3 = False:
+
+- Any clause with ¬x3 is satisfied.
+- Remove x3 from clauses.
+
+Clauses left:
+
+(¬x5 ∨ ¬x4 ∨ x3) → (¬x5 ∨ ¬x4)  
+(x3 ∨ x4) → (x4)  
+(x4 ∨ ¬x3) → satisfied  
+(x4 ∨ x3 ∨ x5) → (x4 ∨ x5)  
+(¬x3 ∨ x5) → satisfied  
+(x5 ∨ x3 ∨ ¬x4) → (x5 ∨ ¬x4)  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(x3 ∨ x5) → (x5)  
+(¬x5 ∨ x1)  
+(x4)
+
+Remaining clauses:
+
+(¬x5 ∨ ¬x4)  
+(x4)  
+(x4 ∨ x5)  
+(x5 ∨ ¬x4)  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(x5)  
+(¬x5 ∨ x1)  
+(x4)
+
+Again, (x4) and (¬x4): conflict.
+
+**Conflict encountered. Backtrack.**
+
+---
+
+### 8. Backtrack: x1 = False (Branch 8)
+
+Now, x1 = False
+
+Substitute x1 = False:
+
+- Any clause with ¬x1 is satisfied.
+- Remove x1 from clauses.
+
+Clauses left:
+
+(x4 ∨ x1 ∨ x3) → (x4 ∨ x3)  
+(x3 ∨ ¬x2 ∨ x4)  
+(x2 ∨ x4 ∨ ¬x3)  
+(x4 ∨ x3 ∨ x5)  
+(¬x5 ∨ ¬x4 ∨ x3)  
+(x5 ∨ x3 ∨ ¬x4)  
+(x2 ∨ x1 ∨ ¬x4) → (x2 ∨ ¬x4)  
+(¬x4 ∨ ¬x2 ∨ ¬x5)  
+(x3 ∨ x2 ∨ x5)  
+(¬x2 ∨ x3 ∨ x4)  
+(¬x5 ∨ ¬x2 ∨ x1) → (¬x5 ∨ ¬x2)  
+(x4 ∨ ¬x3 ∨ x1) → (x4 ∨ ¬x3)
+
+---
+
+### 9. Assign x2 = True (Branch 9)
+
+x1 = False, x2 = True
+
+- Any clause with x2 is satisfied.
+- Remove ¬x2 from clauses.
+
+Clauses left:
+
+(x4 ∨ x3)  
+(x3 ∨ ¬x2 ∨ x4) → (x3 ∨ x4)  
+(x2 ∨ x4 ∨ ¬x3) → satisfied  
+(x4 ∨ x3 ∨ x5)  
+(¬x5 ∨ ¬x4 ∨ x3)  
+(x5 ∨ x3 ∨ ¬x4)  
+(x2 ∨ ¬x4) → satisfied  
+(¬x4 ∨ ¬x2 ∨ ¬x5) → (¬x4 ∨ ¬x5)  
+(x3 ∨ x2 ∨ x5) → satisfied  
+(¬x2 ∨ x3 ∨ x4) → (x3 ∨ x4)  
+(¬x5 ∨ ¬x2) → (¬x5)  
+(x4 ∨ ¬x3)
+
+---
+
+### 10. Assign x3 = True (Branch 10)
+
+x1 = False, x2 = True, x3 = True
+
+- Any clause with x3 is satisfied.
+- Remove ¬x3 from clauses.
+
+Clauses left:
+
+(x4 ∨ x3) → satisfied  
+(x3 ∨ x4) → satisfied  
+(x4 ∨ x3 ∨ x5) → satisfied  
+(¬x5 ∨ ¬x4 ∨ x3) → satisfied  
+(x5 ∨ x3 ∨ ¬x4) → satisfied  
+(¬x4 ∨ ¬x5)  
+(x3 ∨ x4) → satisfied  
+(¬x5)  
+(x4 ∨ ¬x3) → (x4)
+
+Remaining clauses:
+
+(¬x4 ∨ ¬x5)  
+(¬x5)  
+(x4)
+
+---
+
+#### Unit propagation:
+
+- (¬x5): x5 = False
+- (¬x4 ∨ ¬x5): with x5 = False, (¬x4 ∨ True) → satisfied
+- (x4): x4 = True
+
+Now, all variables are assigned:
+
+x1 = False  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = False
+
+Check if all original clauses are satisfied:
+
+1. (x4 ∨ x1 ∨ x3): True ∨ False ∨ True = True
+2. (¬x1 ∨ x3 ∨ x2): True ∨ True ∨ True = True
+3. (x3 ∨ ¬x2 ∨ x4): True ∨ False ∨ True = True
+4. (¬x5 ∨ ¬x4 ∨ x3): True ∨ False ∨ True = True
+5. (x2 ∨ x4 ∨ ¬x3): True ∨ True ∨ False = True
+6. (x4 ∨ x3 ∨ x5): True ∨ True ∨ False = True
+7. (¬x1 ∨ x2 ∨ x4): True ∨ True ∨ True = True
+8. (¬x1 ∨ x2 ∨ ¬x3): True ∨ True ∨ False = True
+9. (¬x3 ∨ x1 ∨ x5): False ∨ False ∨ False = False
+
+Wait, clause 9: (¬x3 ∨ x1 ∨ x5): (False ∨ False ∨ False) = False
+
+So this assignment does **not** satisfy all clauses.
+
+---
+
+### 11. Backtrack: x3 = False (Branch 11)
+
+x1 = False, x2 = True, x3 = False
+
+Now, substitute x3 = False:
+
+- Any clause with ¬x3 is satisfied.
+- Remove x3 from clauses.
+
+Clauses left:
+
+(x4 ∨ x3) → (x4)  
+(x3 ∨ x4) → (x4)  
+(x4 ∨ x3 ∨ x5) → (x4 ∨ x5)  
+(¬x5 ∨ ¬x4 ∨ x3) → (¬x5 ∨ ¬x4)  
+(x5 ∨ x3 ∨ ¬x4) → (x5 ∨ ¬x4)  
+(¬x4 ∨ ¬x5)  
+(x3 ∨ x4) → (x4)  
+(¬x5)  
+(x4 ∨ ¬x3) → satisfied
+
+Now, the remaining clauses are:
+
+(x4)  
+(x4)  
+(x4 ∨ x5)  
+(¬x5 ∨ ¬x4)  
+(x5 ∨ ¬x4)  
+(¬x4 ∨ ¬x5)  
+(x4)  
+(¬x5)
+
+Unit propagation:
+
+- (x4): x4 = True
+- (¬x5 ∨ ¬x4): (¬x5 ∨ False) → (¬x5)
+- (¬x4 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+- (¬x5): x5 = False
+
+Now, check (x4 ∨ x5): True ∨ False = True  
+(x5 ∨ ¬x4): False ∨ False = False
+
+So, (x5 ∨ ¬x4) is not satisfied.
+
+**Conflict encountered. Backtrack.**
+
+---
+
+### 12. Backtrack: x2 = False (Branch 12)
+
+x1 = False, x2 = False
+
+Now, substitute x2 = False:
+
+- Any clause with ¬x2 is satisfied.
+- Remove x2 from clauses.
+
+Clauses left:
+
+(x4 ∨ x3)  
+(x3 ∨ ¬x2 ∨ x4) → (x3 ∨ x4)  
+(x2 ∨ x4 ∨ ¬x3) → (x4 ∨ ¬x3)  
+(x4 ∨ x3 ∨ x5)  
+(¬x5 ∨ ¬x4 ∨ x3)  
+(x5 ∨ x3 ∨ ¬x4)  
+(x2 ∨ ¬x4) → (¬x4)  
+(¬x4 ∨ ¬x2 ∨ ¬x5) → (¬x4 ∨ ¬x5)  
+(x3 ∨ x2 ∨ x5) → (x3 ∨ x5)  
+(¬x5 ∨ ¬x2 ∨ x1) → (¬x5 ∨ x1)  
+(x4 ∨ ¬x3 ∨ x1) → (x4 ∨ ¬x3)
+
+---
+
+### 13. Assign x3 = True (Branch 13)
+
+x1 = False, x2 = False, x3 = True
+
+- Any clause with x3 is satisfied.
+- Remove ¬x3 from clauses.
+
+Clauses left:
+
+(x4 ∨ x3) → satisfied  
+(x3 ∨ x4) → satisfied  
+(x4 ∨ ¬x3) → (x4)  
+(x4 ∨ x3 ∨ x5) → satisfied  
+(¬x5 ∨ ¬x4 ∨ x3) → satisfied  
+(x5 ∨ x3 ∨ ¬x4) → satisfied  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(x3 ∨ x5) → satisfied  
+(¬x5 ∨ x1)  
+(x4 ∨ ¬x3) → (x4)
+
+Remaining clauses:
+
+(x4)  
+(¬x4)  
+(¬x4 ∨ ¬x5)  
+(¬x5 ∨ x1)
+
+(x4) and (¬x4): conflict.
+
+**Conflict encountered. Backtrack.**
+
+---
+
+### 14. Backtrack: x3 = False (Branch 14)
+
+x1 = False, x2 = False, x3 =

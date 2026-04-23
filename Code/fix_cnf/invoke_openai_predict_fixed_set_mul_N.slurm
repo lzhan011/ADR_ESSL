@@ -2,11 +2,9 @@
 #SBATCH -N 1
 #SBATCH -n 16
 #SBATCH -t 70:20:00
-#SBATCH --account=loni_quantum04
+#SBATCH --account=loni_irt4llm
 #SBATCH --output=logs/invoke_openai_predict_fixed_set_mul_N_output.log
 #SBATCH --error=logs/invoke_openai_predict_fixed_set_mul_N_error.log
-
-
 
 
 module purge

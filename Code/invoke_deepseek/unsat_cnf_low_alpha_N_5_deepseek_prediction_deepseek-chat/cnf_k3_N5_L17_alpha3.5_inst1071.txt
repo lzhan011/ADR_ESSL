@@ -1,0 +1,85 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1071
+p cnf 5 17
+-4 -5 1 0
+2 3 -4 0
+-1 5 4 0
+-2 1 3 0
+-3 4 2 0
+-2 3 5 0
+5 2 4 0
+2 -4 -5 0
+-3 -4 -2 0
+-5 -2 -1 0
+-5 4 1 0
+4 -5 -1 0
+2 4 3 0
+-3 -1 5 0
+4 5 1 0
+5 -3 1 0
+3 -2 -4 0
+
+c GPT solve time: 67.17 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm (a backtracking search algorithm for SAT). We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Setup
+The formula has variables: \( x_1, x_2, x_3, x_4, x_5 \). We start with no assignments.
+
+### Step 2: Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 3: Branching and Propagation
+We’ll make decisions and propagate implications, backtracking when conflicts arise.
+
+#### Decision 1: Assign \( x_1 = \text{True} \) (Branch 1)
+- From \( (\neg x_1 \lor x_5 \lor x_4) \), since \( x_1 = \text{True} \), this clause is satisfied.
+- From \( (\neg x_5 \lor \neg x_2 \lor \neg x_1) \), since \( x_1 = \text{True} \), this simplifies to \( (\neg x_5 \lor \neg x_2) \).
+- From \( (\neg x_5 \lor x_4 \lor x_1) \), this is satisfied.
+- From \( (x_4 \lor \neg x_5 \lor \neg x_1) \), since \( x_1 = \text{True} \), this simplifies to \( (x_4 \lor \neg x_5) \).
+- From \( (x_4 \lor x_5 \lor x_1) \), this is satisfied.
+- From \( (x_5 \lor \neg x_3 \lor x_1) \), this is satisfied.
+- From \( (\neg x_3 \lor \neg x_1 \lor x_5) \), since \( x_1 = \text{True} \), this simplifies to \( (\neg x_3 \lor x_5) \).
+
+No further simplifications are possible yet. Proceed to next decision.
+
+#### Decision 2: Assign \( x_2 = \text{True} \) (Branch 2)
+- From \( (\neg x_2 \lor x_1 \lor x_3) \), since \( x_2 = \text{True} \), this is satisfied.
+- From \( (\neg x_2 \lor x_3 \lor x_5) \), since \( x_2 = \text{True} \), this is satisfied.
+- From \( (x_2 \lor \neg x_4 \lor \neg x_5) \), since \( x_2 = \text{True} \), this is satisfied.
+- From \( (\neg x_3 \lor \neg x_4 \lor \neg x_2) \), since \( x_2 = \text{True} \), this simplifies to \( (\neg x_3 \lor \neg x_4) \).
+- From \( (\neg x_5 \lor \neg x_2) \) (from earlier), since \( x_2 = \text{True} \), this forces \( x_5 = \text{False} \).
+  - Now assign \( x_5 = \text{False} \).
+  - From \( (\neg x_4 \lor \neg x_5 \lor x_1) \), since \( x_5 = \text{False} \), this is satisfied.
+  - From \( (x_2 \lor x_3 \lor \neg x_4) \), since \( x_2 = \text{True} \), this is satisfied.
+  - From \( (x_5 \lor x_2 \lor x_4) \), since \( x_5 = \text{False} \) and \( x_2 = \text{True} \), this is satisfied.
+  - From \( (x_4 \lor \neg x_5) \) (from earlier), since \( x_5 = \text{False} \), this is satisfied.
+  - From \( (\neg x_3 \lor x_5) \) (from earlier), since \( x_5 = \text{False} \), this forces \( x_3 = \text{False} \).
+    - Now assign \( x_3 = \text{False} \).
+    - From \( (\neg x_3 \lor \neg x_4) \) (from earlier), since \( x_3 = \text{False} \), this is satisfied.
+    - From \( (x_3 \lor \neg x_2 \lor \neg x_4) \), since \( x_3 = \text{False} \), this simplifies to \( (\neg x_2 \lor \neg x_4) \). Since \( x_2 = \text{True} \), this forces \( x_4 = \text{False} \).
+      - Now assign \( x_4 = \text{False} \).
+      - From \( (x_2 \lor x_4 \lor x_3) \), since \( x_2 = \text{True} \), this is satisfied.
+      - From \( (x_4 \lor x_5 \lor x_1) \), since \( x_4 = \text{False} \), \( x_5 = \text{False} \), and \( x_1 = \text{True} \), this is satisfied.
+      - All clauses are now satisfied.
+
+### Final Assignment:
+- \( x_1 = \text{True} \)
+- \( x_2 = \text{True} \)
+- \( x_3 = \text{False} \)
+- \( x_4 = \text{False} \)
+- \( x_5 = \text{False} \)
+
+### Statistics:
+- Branches (decision points): 2 (assigning \( x_1 \) and \( x_2 \))
+- Conflicts (backtracking steps): 0 (no backtracking needed)
+
+### Output:
+SATISFIABLE  
+Branches: 2  
+Conflicts: 0  
+\( x_1 = \text{True} \)  
+\( x_2 = \text{True} \)  
+\( x_3 = \text{False} \)  
+\( x_4 = \text{False} \)  
+\( x_5 = \text{False} \)

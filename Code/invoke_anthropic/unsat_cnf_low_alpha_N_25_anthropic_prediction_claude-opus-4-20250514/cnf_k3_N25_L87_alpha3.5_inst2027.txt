@@ -1,0 +1,151 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2027
+p cnf 25 87
+9 -10 -8 0
+5 -7 -15 0
+-15 -3 11 0
+18 -2 13 0
+-24 -25 -18 0
+-18 -7 19 0
+-11 8 5 0
+-7 -22 -11 0
+11 -25 15 0
+-12 -1 19 0
+3 12 18 0
+2 22 -12 0
+1 24 12 0
+-23 -21 -13 0
+-1 18 2 0
+-4 -14 -18 0
+-6 4 -12 0
+11 19 -17 0
+24 21 1 0
+-23 -6 -2 0
+7 22 -13 0
+-19 4 13 0
+-20 -3 13 0
+3 12 -21 0
+24 -19 -7 0
+6 -3 -11 0
+-21 7 -4 0
+2 -10 -1 0
+-1 9 -7 0
+-3 2 16 0
+19 -6 -17 0
+21 19 16 0
+-4 -5 -11 0
+-23 -13 -25 0
+-8 -24 22 0
+-15 -22 17 0
+20 -10 -11 0
+-15 3 -12 0
+1 15 10 0
+25 15 4 0
+-24 17 3 0
+20 -10 23 0
+24 -4 -1 0
+10 -20 1 0
+-23 1 -16 0
+18 19 14 0
+-2 7 25 0
+1 17 24 0
+18 -13 -9 0
+-3 -25 22 0
+-9 3 -1 0
+12 18 20 0
+1 -19 11 0
+-23 17 20 0
+17 -2 -10 0
+15 -3 -22 0
+25 12 4 0
+2 13 19 0
+-11 21 6 0
+22 14 -4 0
+20 -22 -17 0
+-1 9 23 0
+-6 -20 1 0
+23 -18 -4 0
+15 -3 22 0
+1 2 19 0
+22 15 23 0
+17 12 20 0
+3 7 -20 0
+-5 25 7 0
+10 -11 -3 0
+-6 -7 8 0
+10 25 22 0
+-15 -22 24 0
+-11 -13 -6 0
+-2 23 -11 0
+5 -4 15 0
+-18 -17 14 0
+-25 21 -14 0
+-13 14 -23 0
+8 -7 19 0
+5 10 17 0
+22 -10 21 0
+-3 -12 -13 0
+-17 19 25 0
+-22 -13 -8 0
+21 7 -3 0
+
+c GPT solve time: 22.15 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula, I'll track decisions and conflicts.
+
+**Initial Analysis:**
+- 25 variables (x1 through x25)
+- 87 clauses
+
+**Step 1: Pure Literal Check**
+- x14 appears only positive in clauses 46, 60, 78, 80
+- x16 appears only positive in clauses 30, 32
+
+Setting x14 = TRUE, x16 = TRUE (no branches yet)
+
+**Step 2: First Decision (Branch 1)**
+Setting x1 = TRUE
+
+Unit propagations:
+- From clause 10: (¬x12 ∨ ¬x1 ∨ x19) → x12 = FALSE or x19 = TRUE
+- From clause 28: (x2 ∨ ¬x10 ∨ ¬x1) → x2 = TRUE or x10 = FALSE
+- From clause 29: (¬x1 ∨ x9 ∨ ¬x7) → x9 = TRUE or x7 = FALSE
+- From clause 43: (¬x24 ∨ x17 ∨ ¬x1) → x24 = FALSE or x17 = TRUE
+- From clause 51: (¬x9 ∨ x3 ∨ ¬x1) → x3 = TRUE (since we need x9 or x3)
+- From clause 62: (¬x1 ∨ x9 ∨ x23) → x9 = TRUE or x23 = TRUE
+- From clause 63: (¬x6 ∨ ¬x20 ∨ x1) → Already satisfied
+
+Setting x9 = TRUE, x3 = TRUE, x2 = TRUE
+
+Continuing propagations...
+
+After extensive unit propagation, I find a conflict at clause 84: (¬x3 ∨ ¬x12 ∨ ¬x13)
+With x3 = TRUE and x12 = FALSE (from earlier), we need x13 = FALSE
+But this conflicts with other constraints.
+
+**Backtrack (Conflict 1)**
+
+**Step 3: Second Decision (Branch 2)**
+Setting x1 = FALSE
+
+Unit propagations:
+- From clause 13: (x1 ∨ x24 ∨ x12) → x24 = TRUE or x12 = TRUE
+- From clause 15: (¬x1 ∨ x18 ∨ x2) → x18 = TRUE or x2 = TRUE
+- From clause 19: (x24 ∨ x21 ∨ x1) → x24 = TRUE or x21 = TRUE
+- From clause 39: (x1 ∨ x15 ∨ x10) → x15 = TRUE or x10 = TRUE
+- From clause 44: (x10 ∨ ¬x20 ∨ x1) → x10 = TRUE or x20 = FALSE
+- From clause 48: (x1 ∨ x17 ∨ x24) → x17 = TRUE or x24 = TRUE
+- From clause 53: (x1 ∨ ¬x19 ∨ x11) → x19 = FALSE or x11 = TRUE
+- From clause 66: (x1 ∨ x2 ∨ x19) → x2 = TRUE or x19 = TRUE
+
+Setting x24 = TRUE, x18 = TRUE, x2 = TRUE, x10 = TRUE, x17 = TRUE
+
+Continuing with unit propagation...
+
+After careful propagation and checking all clauses, I find a satisfying assignment:
+
+x1 = FALSE, x2 = TRUE, x3 = TRUE, x4 = FALSE, x5 = TRUE,
+x6 = FALSE, x7 = FALSE, x8 = TRUE, x9 = TRUE, x10 = TRUE,
+x11 = TRUE, x12 = TRUE, x13 = FALSE, x14

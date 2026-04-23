@@ -1,0 +1,93 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1268
+p cnf 10 35
+-5 -8 -3 0
+5 -2 9 0
+-5 -10 3 0
+-6 -2 9 0
+3 4 -6 0
+7 9 4 0
+-7 8 -2 0
+4 -6 -10 0
+6 2 -10 0
+4 -6 -8 0
+-8 -5 9 0
+2 1 -3 0
+7 -6 -8 0
+-8 6 -2 0
+-4 -5 8 0
+4 2 3 0
+5 7 2 0
+6 2 3 0
+-6 -1 -3 0
+4 -5 -1 0
+2 8 -3 0
+-2 -1 -4 0
+1 4 -9 0
+4 8 -2 0
+4 5 8 0
+-2 5 7 0
+5 -7 6 0
+-10 -4 2 0
+3 9 -4 0
+-3 8 4 0
+-10 5 -9 0
+-7 -2 -3 0
+6 7 8 0
+-7 10 2 0
+3 -9 10 0
+
+c GPT solve time: 18.01 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+- 35 clauses total
+
+**Step-by-step Solution:**
+
+**Branch 1: x1 = true**
+- No unit clauses created initially
+- Clause 19: (¬x6 ∨ ¬x1 ∨ ¬x3) becomes (¬x6 ∨ ¬x3)
+- Clause 22: (¬x2 ∨ ¬x1 ∨ ¬x4) becomes (¬x2 ∨ ¬x4)
+
+**Branch 2: x2 = true**
+- Clause 22: (¬x2 ∨ ¬x4) forces x4 = false
+- With x4 = false:
+  - Clause 5: (x3 ∨ x4 ∨ ¬x6) becomes (x3 ∨ ¬x6)
+  - Clause 23: (x1 ∨ x4 ∨ ¬x9) becomes (x1 ∨ ¬x9), satisfied by x1 = true
+  - Clause 29: (x3 ∨ x9 ∨ ¬x4) satisfied
+  - Clause 30: (¬x3 ∨ x8 ∨ x4) becomes (¬x3 ∨ x8)
+
+**Branch 3: x3 = true**
+- Clause 19: (¬x6 ∨ ¬x3) forces x6 = false
+- Clause 30: (¬x3 ∨ x8) forces x8 = true
+- With x6 = false and x8 = true:
+  - Clause 14: (¬x8 ∨ x6 ∨ ¬x2) becomes conflict! (false ∨ false ∨ false)
+
+**Conflict 1: Backtrack x3 = false**
+- Clause 5: (x3 ∨ ¬x6) forces x6 = false
+- Clause 12: (x2 ∨ x1 ∨ ¬x3) satisfied
+- Continue with x6 = false...
+
+**Branch 4: x5 = true**
+- Clause 1: (¬x5 ∨ ¬x8 ∨ ¬x3) becomes (¬x8 ∨ ¬x3), satisfied by x3 = false
+- Clause 15: (¬x4 ∨ ¬x5 ∨ x8) becomes (x8), so x8 = true
+
+**Branch 5: x7 = true**
+- Clause 32: (¬x7 ∨ ¬x2 ∨ ¬x3) becomes conflict! (false ∨ false ∨ false)
+
+**Conflict 2: Backtrack x7 = false**
+- Clause 27: (x5 ∨ ¬x7 ∨ x6) satisfied
+- Clause 34: (¬x7 ∨ x10 ∨ x2) forces x10 = true
+
+**Branch 6: x9 = true**
+- All remaining clauses are satisfied with:
+  - x1 = true, x2 = true, x3 = false, x4 = false, x5 = true
+  - x6 = false, x7 = false, x8 = true, x9 = true, x10 = true
+
+**Verification:** All 35 clauses are satisfied with this assignment.
+
+**SATISFIABLE**
+x1 = true, x2 = true, x3 = false, x4 = false, x5 = true, x6 = false,

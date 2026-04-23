@@ -1,0 +1,353 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=4694
+p cnf 25 87
+13 20 23 0
+22 -9 21 0
+-1 7 21 0
+9 -16 24 0
+18 8 12 0
+24 16 2 0
+11 -4 -7 0
+-9 20 8 0
+-24 18 15 0
+25 -10 7 0
+6 -1 -5 0
+-12 -22 18 0
+17 4 25 0
+-9 6 1 0
+-10 -23 -5 0
+-8 4 7 0
+8 16 -13 0
+25 -12 -20 0
+23 -4 -17 0
+9 14 17 0
+11 4 -24 0
+5 16 -24 0
+-2 14 22 0
+-23 -18 22 0
+3 -18 -2 0
+23 9 -11 0
+20 -3 -8 0
+-25 -20 17 0
+-2 13 -20 0
+-5 -8 14 0
+-22 -18 14 0
+5 -10 -16 0
+-3 12 22 0
+-5 -2 -18 0
+-4 7 19 0
+23 9 8 0
+24 -15 -13 0
+-10 3 -17 0
+-6 4 -7 0
+9 -13 -7 0
+20 -22 17 0
+-4 6 -14 0
+-16 22 10 0
+16 18 -17 0
+4 -11 -12 0
+22 -1 25 0
+-12 22 4 0
+17 12 -9 0
+20 -12 -5 0
+-22 25 -10 0
+6 -9 20 0
+7 -1 -4 0
+20 -17 -18 0
+12 -6 -23 0
+18 -20 22 0
+-21 -24 -25 0
+18 -5 -20 0
+-2 1 -14 0
+12 16 6 0
+17 -16 23 0
+25 24 -22 0
+-14 25 -11 0
+24 -17 -9 0
+8 -23 -2 0
+20 7 14 0
+-7 25 22 0
+-6 14 -2 0
+23 -5 -3 0
+24 5 -10 0
+8 -24 9 0
+6 -14 18 0
+-5 -8 18 0
+1 -19 -14 0
+-18 -13 -23 0
+-12 -2 -6 0
+10 -24 12 0
+5 -2 17 0
+-22 -20 16 0
+-4 5 -8 0
+-12 -1 -24 0
+-2 6 5 0
+-23 1 -25 0
+-10 4 -22 0
+-6 4 21 0
+16 -21 -6 0
+22 7 -18 0
+20 2 -10 0
+
+c GPT solve time: 154.15 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables to assign values based on their frequency in the clauses to minimize branching. Here's a summary of the assignments and conflicts:
+
+1. **Branch on x9 = True**:
+   - Propagate: Clauses containing x9 are satisfied (e.g., (x9 ∨ ¬x16 ∨ x24), (¬x9 ∨ x20 ∨ x8), etc.).
+   - Conflict: None yet.
+
+2. **Branch on x20 = True**:
+   - Propagate: Clauses like (x20 ∨ ¬x3 ∨ ¬x8) imply ¬x3 or ¬x8 must be true.
+   - Conflict: Clause (¬x20 ∨ x17 ∨ ¬x18) requires x17 or ¬x18.
+
+3. **Branch on x17 = True**:
+   - Propagate: Clauses like (x17 ∨ x4 ∨ x25) are satisfied.
+   - Conflict: Clause (¬x17 ∨ ¬x16 ∨ x23) requires ¬x16 or x23.
+
+4. **Branch on x16 = False**:
+   - Propagate: Clauses like (x16 ∨ x18 ∨ ¬x17) are satisfied.
+   - Conflict: Clause (¬x16 ∨ x22 ∨ x10) requires x22 or x10.
+
+5. **Branch on x22 = True**:
+   - Propagate: Clauses like (x22 ∨ ¬x1 ∨ x25) are satisfied.
+   - Conflict: Clause (¬x22 ∨ ¬x20 ∨ x16) conflicts with x20=True and x16=False.
+
+   **Backtrack**: Conflict detected. Undo x22=True, try x22=False.
+   - Conflict: Clause (x22 ∨ x7 ∨ ¬x18) requires x7 or ¬x18.
+
+6. **Branch on x7 = True**:
+   - Propagate: Clauses like (x7 ∨ ¬x1 ∨ ¬x4) are satisfied.
+   - Conflict: Clause (¬x7 ∨ x25 ∨ x22) requires x25 or x22 (but x22=False), so x25 must be true.
+
+7. **Branch on x25 = True**:
+   - Propagate: Clauses like (x25 ∨ ¬x10 ∨ x7) are satisfied.
+   - Conflict: Clause (¬x25 ∨ ¬x20 ∨ x17) conflicts with x20=True and x17=True.
+
+   **Backtrack**: Conflict detected. Undo x25=True, try x25=False.
+   - Conflict: Clause (x25 ∨ x24 ∨ ¬x22) requires x24 or ¬x22 (but x22=False), so x24 must be true.
+
+8. **Branch on x24 = True**:
+   - Propagate: Clauses like (x24 ∨ ¬x15 ∨ ¬x13) are satisfied.
+   - Conflict: Clause (¬x24 ∨ x18 ∨ x15) requires x18 or x15.
+
+9. **Branch on x18 = True**:
+   - Propagate: Clauses like (x18 ∨ ¬x20 ∨ x22) are satisfied.
+   - Conflict: Clause (¬x18 ∨ ¬x13 ∨ ¬x23) requires ¬x13 or ¬x23.
+
+10. **Branch on x13 = False**:
+    - Propagate: Clauses like (¬x13 ∨ ¬x23) require ¬x23.
+    - Conflict: Clause (x13 ∨ x20 ∨ x23) conflicts with x13=False and x20=True, requiring x23=True, but ¬x23 is required.
+
+    **Backtrack**: Conflict detected. Undo x13=False, try x13=True.
+    - Conflict: Clause (¬x18 ∨ ¬x13 ∨ ¬x23) requires ¬x23.
+
+11. **Branch on x23 = False**:
+    - Propagate: Clauses like (¬x23 ∨ ¬x18 ∨ x22) are satisfied.
+    - Conflict: Clause (x23 ∨ x9 ∨ x8) requires x8 (since x9=True and x23=False).
+
+12. **Branch on x8 = True**:
+    - Propagate: Clauses like (x8 ∨ ¬x24 ∨ x9) are satisfied.
+    - Conflict: Clause (¬x8 ∨ x4 ∨ x7) requires x4 (since x7=True).
+
+13. **Branch on x4 = True**:
+    - Propagate: Clauses like (x4 ∨ ¬x11 ∨ ¬x12) are satisfied.
+    - Conflict: Clause (¬x4 ∨ x6 ∨ ¬x14) requires x6 or ¬x14.
+
+14. **Branch on x6 = True**:
+    - Propagate: Clauses like (x6 ∨ ¬x9 ∨ x20) are satisfied.
+    - Conflict: Clause (¬x6 ∨ x14 ∨ ¬x2) requires x14 or ¬x2.
+
+15. **Branch on x14 = True**:
+    - Propagate: Clauses like (x14 ∨ ¬x2) are satisfied.
+    - Conflict: Clause (¬x14 ∨ x25 ∨ ¬x11) requires ¬x11 (since x25=False).
+
+16. **Branch on x11 = False**:
+    - Propagate: Clauses like (¬x11 ∨ ¬x12) require ¬x12.
+    - Conflict: Clause (x12 ∨ x16 ∨ x6) requires x12 (since x16=False and x6=True), but ¬x12 is required.
+
+    **Backtrack**: Conflict detected. Undo x11=False, try x11=True.
+    - Conflict: Clause (¬x14 ∨ x25 ∨ ¬x11) conflicts with x11=True.
+
+    **Backtrack**: Conflict detected. Undo x14=True, try x14=False.
+    - Conflict: Clause (¬x6 ∨ x14 ∨ ¬x2) requires ¬x2.
+
+17. **Branch on x2 = False**:
+    - Propagate: Clauses like (¬x2 ∨ x6 ∨ x5) are satisfied.
+    - Conflict: Clause (x2 ∨ ¬x10) requires ¬x10.
+
+18. **Branch on x10 = False**:
+    - Propagate: Clauses like (¬x10 ∨ x3 ∨ ¬x17) are satisfied.
+    - Conflict: Clause (x10 ∨ ¬x24 ∨ x12) requires x12 (since x24=True).
+
+19. **Branch on x12 = True**:
+    - Propagate: Clauses like (x12 ∨ ¬x6 ∨ ¬x23) are satisfied.
+    - Conflict: Clause (¬x12 ∨ x22 ∨ x4) conflicts with x12=True.
+
+    **Backtrack**: Conflict detected. Undo x12=True, try x12=False.
+    - Conflict: Clause (x10 ∨ ¬x24 ∨ x12) conflicts with x10=False and x12=False.
+
+    **Backtrack**: Conflict detected. Undo x10=False, try x10=True.
+    - Conflict: Clause (x2 ∨ ¬x10) conflicts with x2=False and x10=True.
+
+    **Backtrack**: Conflict detected. Undo x2=False, try x2=True.
+    - Conflict: Clause (¬x6 ∨ x14 ∨ ¬x2) requires x14 (since x6=True and x2=True).
+
+20. **Branch on x14 = True**:
+    - Propagate: Clauses like (¬x14 ∨ x25 ∨ ¬x11) require ¬x11 (since x25=False).
+    - Conflict: Clause (x11 ∨ x4 ∨ ¬x24) requires x11 (since x4=True and x24=True), but ¬x11 is required.
+
+    **Backtrack**: Conflict detected. Undo x14=True, try x14=False.
+    - Conflict: Clause (¬x6 ∨ x14 ∨ ¬x2) conflicts with x6=True and x2=True.
+
+    **Backtrack**: Conflict detected. Undo x6=True, try x6=False.
+    - Conflict: Clause (x6 ∨ ¬x1 ∨ ¬x5) requires ¬x1 or ¬x5.
+
+21. **Branch on x1 = False**:
+    - Propagate: Clauses like (¬x1 ∨ x7 ∨ x21) are satisfied.
+    - Conflict: Clause (x1 ∨ ¬x19 ∨ ¬x14) requires ¬x19 or ¬x14.
+
+22. **Branch on x19 = False**:
+    - Propagate: Clauses like (¬x4 ∨ x7 ∨ x19) are satisfied.
+    - Conflict: Clause (x1 ∨ ¬x19 ∨ ¬x14) conflicts with x1=False and x19=False.
+
+    **Backtrack**: Conflict detected. Undo x19=False, try x19=True.
+    - Conflict: Clause (x1 ∨ ¬x19 ∨ ¬x14) requires ¬x14.
+
+23. **Branch on x14 = False**:
+    - Propagate: Clauses like (¬x14 ∨ x25 ∨ ¬x11) require ¬x11 (since x25=False).
+    - Conflict: Clause (x11 ∨ x4 ∨ ¬x24) requires x11 (since x4=True and x24=True), but ¬x11 is required.
+
+    **Backtrack**: Conflict detected. Undo x1=False, try x1=True.
+    - Conflict: Clause (x6 ∨ ¬x1 ∨ ¬x5) requires ¬x5 (since x6=False and x1=True).
+
+24. **Branch on x5 = False**:
+    - Propagate: Clauses like (¬x5 ∨ ¬x8 ∨ x14) are satisfied.
+    - Conflict: Clause (x5 ∨ x16 ∨ ¬x24) requires x16 (since x5=False and x24=True), but x16=False.
+
+    **Backtrack**: Conflict detected. Undo x5=False, try x5=True.
+    - Conflict: Clause (x6 ∨ ¬x1 ∨ ¬x5) conflicts with x6=False and x1=True.
+
+    **Backtrack**: Conflict detected. Undo x6=False, try x6=True.
+    - Conflict: Clause (¬x6 ∨ x4 ∨ ¬x7) conflicts with x4=True and x7=True.
+
+    **Backtrack**: Conflict detected. Undo x4=True, try x4=False.
+    - Conflict: Clause (¬x4 ∨ x5 ∨ ¬x8) requires x5 or ¬x8.
+
+25. **Branch on x5 = True**:
+    - Propagate: Clauses like (¬x5 ∨ ¬x2 ∨ ¬x18) require ¬x2 or ¬x18.
+    - Conflict: Clause (x5 ∨ x16 ∨ ¬x24) requires x16 (since x5=True and x24=True), but x16=False.
+
+    **Backtrack**: Conflict detected. Undo x5=True, try x5=False.
+    - Conflict: Clause (¬x4 ∨ x5 ∨ ¬x8) requires ¬x8.
+
+26. **Branch on x8 = False**:
+    - Propagate: Clauses like (¬x8 ∨ x4 ∨ x7) require x4 (since x7=True).
+    - Conflict: Clause (x8 ∨ x16 ∨ ¬x13) requires x16 or ¬x13 (but x16=False), so ¬x13 must be true.
+
+27. **Branch on x13 = False**:
+    - Propagate: Clauses like (¬x13 ∨ ¬x23) require ¬x23.
+    - Conflict: Clause (x13 ∨ x20 ∨ x23) conflicts with x13=False and x20=True, requiring x23=True, but ¬x23 is required.
+
+    **Backtrack**: Conflict detected. Undo x13=False, try x13=True.
+    - Conflict: Clause (x8 ∨ x16 ∨ ¬x13) conflicts with x8=False and x16=False.
+
+    **Backtrack**: Conflict detected. Undo x8=False, try x8=True.
+    - Conflict: Clause (¬x8 ∨ x4 ∨ x7) requires x4 (since x7=True).
+
+28. **Branch on x4 = True**:
+    - Propagate: Clauses like (¬x4 ∨ x6 ∨ ¬x14) require x6 or ¬x14.
+    - Conflict: Clause (x4 ∨ ¬x11 ∨ ¬x12) requires ¬x11 or ¬x12.
+
+29. **Branch on x11 = False**:
+    - Propagate: Clauses like (¬x11 ∨ ¬x12) require ¬x12.
+    - Conflict: Clause (x12 ∨ x16 ∨ x6) requires x12 (since x16=False and x6=True), but ¬x12 is required.
+
+    **Backtrack**: Conflict detected. Undo x11=False, try x11=True.
+    - Conflict: Clause (x4 ∨ ¬x11 ∨ ¬x12) requires ¬x12.
+
+30. **Branch on x12 = False**:
+    - Propagate: Clauses like (¬x12 ∨ ¬x2 ∨ ¬x6) require ¬x2 or ¬x6.
+    - Conflict: Clause (x12 ∨ x16 ∨ x6) requires x16 (since x12=False and x6=True), but x16=False.
+
+    **Backtrack**: Conflict detected. Undo x12=False, try x12=True.
+    - Conflict: Clause (x4 ∨ ¬x11 ∨ ¬x12) conflicts with x11=True and x12=True.
+
+    **Backtrack**: Conflict detected. Undo x4=True, try x4=False.
+    - Conflict: Clause (¬x4 ∨ x7 ∨ x19) requires x19 (since x7=True).
+
+31. **Branch on x19 = True**:
+    - Propagate: Clauses like (x1 ∨ ¬x19 ∨ ¬x14) require ¬x14 (since x1=True and x19=True).
+    - Conflict: Clause (¬x14 ∨ x25 ∨ ¬x11) requires x25 or ¬x11.
+
+32. **Branch on x25 = True**:
+    - Propagate: Clauses like (¬x25 ∨ ¬x20 ∨ x17) require ¬x20 or x17 (but x20=True), so x17 must be true.
+    - Conflict: Clause (¬x21 ∨ ¬x24 ∨ ¬x25) requires ¬x21 or ¬x24 (but x24=True), so ¬x21 must be true.
+
+33. **Branch on x21 = False**:
+    - Propagate: Clauses like (¬x21 ∨ ¬x24 ∨ ¬x25) are satisfied.
+    - Conflict: Clause (x22 ∨ ¬x9 ∨ x21) requires x22 (since x9=True and x21=False).
+
+34. **Branch on x22 = True**:
+    - Propagate: Clauses like (x22 ∨ x7 ∨ ¬x18) are satisfied.
+    - Conflict: Clause (¬x22 ∨ ¬x20 ∨ x16) conflicts with x22=True and x20=True, requiring x16=True, but x16=False.
+
+    **Backtrack**: Conflict detected. Undo x22=True, try x22=False.
+    - Conflict: Clause (x22 ∨ ¬x9 ∨ x21) conflicts with x9=True and x21=False.
+
+    **Backtrack**: Conflict detected. Undo x21=False, try x21=True.
+    - Conflict: Clause (¬x21 ∨ ¬x24 ∨ ¬x25) conflicts with x21=True and x24=True.
+
+    **Backtrack**: Conflict detected. Undo x25=True, try x25=False.
+    - Conflict: Clause (¬x14 ∨ x25 ∨ ¬x11) requires ¬x11 (since x14=False and x25=False).
+
+35. **Branch on x11 = False**:
+    - Propagate: Clauses like (¬x11 ∨ ¬x12) require ¬x12.
+    - Conflict: Clause (x12 ∨ x16 ∨ x6) requires x12 (since x16=False and x6=True), but ¬x12 is required.
+
+    **Backtrack**: Conflict detected. Undo x11=False, try x11=True.
+    - Conflict: Clause (¬x14 ∨ x25 ∨ ¬x11) conflicts with x11=True.
+
+    **Backtrack**: Conflict detected. Undo x19=True, try x19=False.
+    - Conflict: Clause (¬x4 ∨ x7 ∨ x19) conflicts with x4=False and x7=True.
+
+    **Backtrack**: Conflict detected. Undo x7=True, try x7=False.
+    - Conflict: Clause (x7 ∨ ¬x1 ∨ ¬x4) requires ¬x1 or ¬x4.
+
+36. **Branch on x1 = False**:
+    - Propagate: Clauses like (¬x1 ∨ x7 ∨ x21) are satisfied.
+    - Conflict: Clause (x1 ∨ ¬x19 ∨ ¬x14) requires ¬x19 or ¬x14.
+
+37. **Branch on x19 = False**:
+    - Propagate: Clauses like (¬x4 ∨ x7 ∨ x19) are satisfied.
+    - Conflict: Clause (x1 ∨ ¬x19 ∨ ¬x14) conflicts with x1=False and x19=False.
+
+    **Backtrack**: Conflict detected. Undo x19=False, try x19=True.
+    - Conflict: Clause (x1 ∨ ¬x19 ∨ ¬x14) requires ¬x14.
+
+38. **Branch on x14 = False**:
+    - Propagate: Clauses like (¬x14 ∨ x25 ∨ ¬x11) require ¬x11 (since x25=False).
+    - Conflict: Clause (x11 ∨ x4 ∨ ¬x24) requires x11 (since x4=False and x24=True), but ¬x11 is required.
+
+    **Backtrack**: Conflict detected. Undo x1=False, try x1=True.
+    - Conflict: Clause (x7 ∨ ¬x1 ∨ ¬x4) conflicts with x1=True.
+
+    **Backtrack**: Conflict detected. Undo x7=False, try x7=True.
+    - Conflict: Clause (¬x7 ∨ x25 ∨ x22) requires x25 or x22.
+
+39. **Branch on x25 = True**:
+    - Propagate: Clauses like (¬x25 ∨ ¬x20 ∨ x17) require x17 (since x20=True).
+    - Conflict: Clause (¬x21 ∨ ¬x24 ∨ ¬x25) requires ¬x21 or ¬x24 (but x24=True), so ¬x21 must be true.
+
+40. **Branch on x21 = False**:
+    - Propagate: Clauses like (x22 ∨ ¬x9 ∨ x21) require x22 (since x9=True and x21=False).
+    - Conflict: Clause (¬x22 ∨ ¬x20 ∨ x16) conflicts with x22=True and x20=True, requiring x16=True, but x16=False.
+
+    **Backtrack**: Conflict detected. Undo x21=False, try x21=True.
+    - Conflict: Clause (¬x21 ∨ ¬

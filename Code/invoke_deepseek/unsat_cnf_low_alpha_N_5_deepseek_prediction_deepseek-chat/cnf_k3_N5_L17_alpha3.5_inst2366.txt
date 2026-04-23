@@ -1,0 +1,192 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2366
+p cnf 5 17
+-3 5 1 0
+-1 -5 3 0
+1 -5 3 0
+-3 -1 2 0
+4 -5 1 0
+-5 -1 -3 0
+2 -4 -1 0
+2 -4 -3 0
+-1 3 -2 0
+-1 2 5 0
+-2 -4 -5 0
+-3 2 4 0
+-1 -2 -4 0
+-1 -3 -4 0
+4 5 -2 0
+1 3 5 0
+-2 5 3 0
+
+c GPT solve time: 111.90 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm with backtracking. We'll keep track of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Setup
+Clauses:
+1. (¬x3 ∨ x5 ∨ x1)
+2. (¬x1 ∨ ¬x5 ∨ x3)
+3. (x1 ∨ ¬x5 ∨ x3)
+4. (¬x3 ∨ ¬x1 ∨ x2)
+5. (x4 ∨ ¬x5 ∨ x1)
+6. (¬x5 ∨ ¬x1 ∨ ¬x3)
+7. (x2 ∨ ¬x4 ∨ ¬x1)
+8. (x2 ∨ ¬x4 ∨ ¬x3)
+9. (¬x1 ∨ x3 ∨ ¬x2)
+10. (¬x1 ∨ x2 ∨ x5)
+11. (¬x2 ∨ ¬x4 ∨ ¬x5)
+12. (¬x3 ∨ x2 ∨ x4)
+13. (¬x1 ∨ ¬x2 ∨ ¬x4)
+14. (¬x1 ∨ ¬x3 ∨ ¬x4)
+15. (x4 ∨ x5 ∨ ¬x2)
+16. (x1 ∨ x3 ∨ x5)
+17. (¬x2 ∨ x5 ∨ x3)
+
+### Step 2: Assign x1 = True (Decision 1)
+- Simplify clauses:
+  - Clause 2: (¬x5 ∨ x3) (since ¬x1 is False)
+  - Clause 3: (True ∨ ¬x5 ∨ x3) → satisfied
+  - Clause 4: (¬x3 ∨ x2)
+  - Clause 5: (x4 ∨ ¬x5 ∨ True) → satisfied
+  - Clause 6: (¬x5 ∨ ¬x3)
+  - Clause 7: (x2 ∨ ¬x4)
+  - Clause 8: (x2 ∨ ¬x4 ∨ ¬x3)
+  - Clause 9: (x3 ∨ ¬x2)
+  - Clause 10: (x2 ∨ x5)
+  - Clause 11: (¬x2 ∨ ¬x4 ∨ ¬x5)
+  - Clause 12: (¬x3 ∨ x2 ∨ x4)
+  - Clause 13: (¬x2 ∨ ¬x4)
+  - Clause 14: (¬x3 ∨ ¬x4)
+  - Clause 15: (x4 ∨ x5 ∨ ¬x2)
+  - Clause 16: (True ∨ x3 ∨ x5) → satisfied
+  - Clause 17: (¬x2 ∨ x5 ∨ x3)
+
+### Step 3: Assign x2 = True (Decision 2)
+- Simplify clauses:
+  - Clause 4: (¬x3 ∨ True) → satisfied
+  - Clause 7: (True ∨ ¬x4) → satisfied
+  - Clause 8: (True ∨ ¬x4 ∨ ¬x3) → satisfied
+  - Clause 9: (x3 ∨ False) → (x3)
+  - Clause 10: (True ∨ x5) → satisfied
+  - Clause 11: (False ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5)
+  - Clause 12: (¬x3 ∨ True ∨ x4) → satisfied
+  - Clause 13: (False ∨ ¬x4) → (¬x4)
+  - Clause 14: (¬x3 ∨ ¬x4)
+  - Clause 15: (x4 ∨ x5 ∨ False) → (x4 ∨ x5)
+  - Clause 17: (False ∨ x5 ∨ x3) → (x5 ∨ x3)
+
+### Step 4: Assign x3 = True (Decision 3)
+- Simplify clauses:
+  - Clause 2: (¬x5 ∨ True) → satisfied
+  - Clause 6: (¬x5 ∨ False) → (¬x5)
+  - Clause 9: (True) → satisfied
+  - Clause 11: (¬x4 ∨ ¬x5)
+  - Clause 13: (¬x4)
+  - Clause 14: (False ∨ ¬x4) → (¬x4)
+  - Clause 15: (x4 ∨ x5)
+  - Clause 17: (x5 ∨ True) → satisfied
+
+From Clause 13 and 14: ¬x4 must be True → x4 = False.
+- Clause 11: (True ∨ ¬x5) → satisfied
+- Clause 15: (False ∨ x5) → (x5)
+- Clause 6: (¬x5) → x5 must be False.
+
+But Clause 15 requires x5 = True. Conflict! Backtrack.
+
+### Step 5: Backtrack to x3 = False (Conflict 1)
+Now assign x3 = False (undo x3 = True).
+- Simplify clauses:
+  - Clause 2: (¬x5 ∨ False) → (¬x5)
+  - Clause 6: (¬x5 ∨ True) → satisfied
+  - Clause 9: (False ∨ False) → conflict (empty clause). Backtrack.
+
+### Step 6: Backtrack to x2 = False (Conflict 2)
+Now assign x2 = False (undo x2 = True).
+- Simplify clauses:
+  - Clause 4: (¬x3 ∨ False) → (¬x3)
+  - Clause 7: (False ∨ ¬x4 ∨ False) → (¬x4)
+  - Clause 8: (False ∨ ¬x4 ∨ ¬x3) → (¬x4 ∨ ¬x3)
+  - Clause 9: (¬x1 ∨ x3 ∨ True) → satisfied
+  - Clause 10: (¬x1 ∨ False ∨ x5) → (¬x1 ∨ x5)
+  - Clause 11: (True ∨ ¬x4 ∨ ¬x5) → satisfied
+  - Clause 12: (¬x3 ∨ False ∨ x4) → (¬x3 ∨ x4)
+  - Clause 13: (¬x1 ∨ True ∨ ¬x4) → satisfied
+  - Clause 14: (¬x1 ∨ ¬x3 ∨ ¬x4)
+  - Clause 15: (x4 ∨ x5 ∨ True) → satisfied
+  - Clause 17: (True ∨ x5 ∨ x3) → satisfied
+
+From Clause 4: ¬x3 → x3 = False.
+From Clause 7: ¬x4 → x4 = False.
+From Clause 8: (True ∨ True) → satisfied
+From Clause 10: (¬x1 ∨ x5)
+From Clause 12: (True ∨ False) → satisfied
+From Clause 14: (¬x1 ∨ True ∨ True) → satisfied
+
+Now assign x5 = True (Decision 4):
+- Clause 2: (¬x1 ∨ False ∨ False) → (¬x1)
+- Clause 10: (¬x1 ∨ True) → satisfied
+From Clause 2: ¬x1 → x1 = False. But x1 was already set to True. Conflict! Backtrack.
+
+### Step 7: Backtrack to x5 = False (Conflict 3)
+Now assign x5 = False (undo x5 = True).
+- Clause 10: (¬x1 ∨ False) → (¬x1)
+From Clause 10: ¬x1 → x1 = False. But x1 was set to True initially. Conflict! Backtrack.
+
+### Step 8: Backtrack to x1 = False (Conflict 4)
+Now assign x1 = False (undo x1 = True).
+- Simplify clauses:
+  - Clause 1: (¬x3 ∨ x5 ∨ False) → (¬x3 ∨ x5)
+  - Clause 2: (True ∨ ¬x5 ∨ x3) → satisfied
+  - Clause 3: (False ∨ ¬x5 ∨ x3) → (¬x5 ∨ x3)
+  - Clause 4: (¬x3 ∨ True ∨ x2) → satisfied
+  - Clause 5: (x4 ∨ ¬x5 ∨ False) → (x4 ∨ ¬x5)
+  - Clause 6: (¬x5 ∨ True ∨ ¬x3) → satisfied
+  - Clause 7: (x2 ∨ ¬x4 ∨ True) → satisfied
+  - Clause 8: (x2 ∨ ¬x4 ∨ ¬x3)
+  - Clause 9: (True ∨ x3 ∨ ¬x2) → satisfied
+  - Clause 10: (True ∨ x2 ∨ x5) → satisfied
+  - Clause 11: (¬x2 ∨ ¬x4 ∨ ¬x5)
+  - Clause 12: (¬x3 ∨ x2 ∨ x4)
+  - Clause 13: (True ∨ ¬x2 ∨ ¬x4) → satisfied
+  - Clause 14: (True ∨ ¬x3 ∨ ¬x4) → satisfied
+  - Clause 15: (x4 ∨ x5 ∨ ¬x2)
+  - Clause 16: (False ∨ x3 ∨ x5) → (x3 ∨ x5)
+  - Clause 17: (¬x2 ∨ x5 ∨ x3)
+
+### Step 9: Assign x3 = True (Decision 5)
+- Simplify clauses:
+  - Clause 1: (False ∨ x5) → (x5)
+  - Clause 3: (¬x5 ∨ True) → satisfied
+  - Clause 8: (x2 ∨ ¬x4 ∨ False) → (x2 ∨ ¬x4)
+  - Clause 11: (¬x2 ∨ ¬x4 ∨ ¬x5)
+  - Clause 12: (False ∨ x2 ∨ x4) → (x2 ∨ x4)
+  - Clause 15: (x4 ∨ x5 ∨ ¬x2)
+  - Clause 16: (True ∨ x5) → satisfied
+  - Clause 17: (¬x2 ∨ x5 ∨ True) → satisfied
+
+From Clause 1: x5 = True.
+From Clause 11: (¬x2 ∨ ¬x4 ∨ False) → (¬x2 ∨ ¬x4)
+From Clause 12: (x2 ∨ x4)
+From Clause 15: (x4 ∨ True ∨ ¬x2) → satisfied
+From Clause 8: (x2 ∨ ¬x4)
+
+Now assign x2 = True (Decision 6):
+- Clause 8: (True ∨ ¬x4) → satisfied
+- Clause 11: (False ∨ ¬x4) → (¬x4)
+- Clause 12: (True ∨ x4) → satisfied
+From Clause 11: ¬x4 → x4 = False.
+All clauses are satisfied.
+
+### Final Assignment:
+- x1 = False
+- x2 = True
+- x3 = True
+- x4 = False
+- x5 = True
+
+### Results:
+* SATISFIABLE
+* Number of branches: 6
+* Number of conflicts: 4
+* Literals: x1=False, x2=True, x3=True, x4=False, x5=True

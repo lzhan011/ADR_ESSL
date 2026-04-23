@@ -1,0 +1,147 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1046
+p cnf 5 17
+-5 -3 -4 0
+-3 -2 1 0
+-2 4 -1 0
+4 -5 -3 0
+-3 -4 -2 0
+-5 2 3 0
+4 1 -2 0
+-5 3 -4 0
+3 -1 -2 0
+-3 -2 -5 0
+-1 2 5 0
+5 -1 -4 0
+-4 3 1 0
+-3 -1 4 0
+4 -5 -1 0
+1 2 5 0
+-3 4 -2 0
+
+c GPT solve time: 116.58 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm (a backtracking-based search algorithm for SAT). We'll keep track of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Setup
+The formula consists of 17 clauses over variables \( x_1, x_2, x_3, x_4, x_5 \).
+
+### Step 2: Unit Propagation
+No unit clauses initially, so we proceed with branching.
+
+### Step 3: Branching and Propagation
+We’ll make decisions and propagate implications, backtracking when conflicts arise.
+
+#### Decision 1: \( x_1 = \text{True} \) (Branch 1)
+- Clause \( (x1 ∨ x2 ∨ x5) \) is satisfied.
+- From \( (¬x3 ∨ ¬x2 ∨ x1) \): If \( x1 = \text{True} \), clause is satisfied.
+- From \( (¬x1 ∨ x2 ∨ x5) \): \( x2 ∨ x5 \) must be true.
+- From \( (x5 ∨ ¬x1 ∨ ¬x4) \): \( x5 ∨ ¬x4 \) must be true.
+- From \( (¬x3 ∨ ¬x1 ∨ x4) \): \( ¬x3 ∨ x4 \) must be true.
+- From \( (x4 ∨ ¬x5 ∨ ¬x1) \): \( x4 ∨ ¬x5 \) must be true.
+- From \( (x3 ∨ ¬x1 ∨ ¬x2) \): \( x3 ∨ ¬x2 \) must be true.
+- From \( (¬x4 ∨ x3 ∨ x1) \): \( ¬x4 ∨ x3 \) must be true.
+
+No immediate conflicts. Proceed with further branching.
+
+#### Decision 2: \( x_2 = \text{True} \) (Branch 2)
+- From \( (¬x2 ∨ x4 ∨ ¬x1) \): \( x4 \) must be true (since \( x1 = \text{True} \), \( ¬x1 = \text{False} \)).
+- From \( (x4 ∨ x1 ∨ ¬x2) \): Satisfied.
+- From \( (¬x3 ∨ ¬x2 ∨ ¬x5) \): \( ¬x3 ∨ ¬x5 \) must be true.
+- From \( (¬x3 ∨ ¬x4 ∨ ¬x2) \): \( ¬x3 ∨ ¬x4 \) must be true. But \( x4 = \text{True} \), so \( ¬x3 \) must be true.
+- From \( (¬x3 ∨ x4 ∨ ¬x2) \): Satisfied.
+- From \( (x3 ∨ ¬x1 ∨ ¬x2) \): \( x3 \) must be true (since \( ¬x1 = \text{False} \), \( ¬x2 = \text{False} \)). But \( ¬x3 \) must be true (from above), so **conflict**.
+  
+**Conflict detected**: Backtrack to Decision 2.
+
+#### Decision 2 (Backtrack): \( x_2 = \text{False} \) (Branch 3)
+- From \( (¬x1 ∨ x2 ∨ x5) \): \( x5 \) must be true.
+- From \( (¬x5 ∨ x2 ∨ x3) \): \( x3 \) must be true (since \( x5 = \text{True} \), \( x2 = \text{False} \)).
+- From \( (¬x5 ∨ ¬x3 ∨ ¬x4) \): \( ¬x3 ∨ ¬x4 \) must be true. But \( x3 = \text{True} \), so \( ¬x4 \) must be true.
+- From \( (x4 ∨ ¬x5 ∨ ¬x3) \): \( x4 \) must be false (consistent with \( ¬x4 \)).
+- From \( (¬x3 ∨ ¬x4 ∨ ¬x2) \): Satisfied.
+- From \( (¬x5 ∨ x3 ∨ ¬x4) \): Satisfied.
+- From \( (¬x3 ∨ ¬x2 ∨ ¬x5) \): Satisfied.
+- From \( (x5 ∨ ¬x1 ∨ ¬x4) \): Satisfied.
+- From \( (¬x4 ∨ x3 ∨ x1) \): Satisfied.
+- From \( (¬x3 ∨ ¬x1 ∨ x4) \): \( x4 \) must be false (consistent).
+- From \( (x4 ∨ ¬x5 ∨ ¬x1) \): Satisfied.
+- From \( (x1 ∨ x2 ∨ x5) \): Satisfied.
+- From \( (¬x3 ∨ x4 ∨ ¬x2) \): Satisfied.
+- From \( (x3 ∨ ¬x1 ∨ ¬x2) \): Satisfied.
+
+No conflicts. Assignments so far:
+- \( x1 = \text{True} \), \( x2 = \text{False} \), \( x3 = \text{True} \), \( x4 = \text{False} \), \( x5 = \text{True} \).
+
+Check all clauses:
+1. \( (¬x5 ∨ ¬x3 ∨ ¬x4) \): \( \text{False} ∨ \text{False} ∨ \text{True} = \text{True} \).
+2. \( (¬x3 ∨ ¬x2 ∨ x1) \): \( \text{False} ∨ \text{True} ∨ \text{True} = \text{True} \).
+3. \( (¬x2 ∨ x4 ∨ ¬x1) \): \( \text{True} ∨ \text{False} ∨ \text{False} = \text{True} \).
+4. \( (x4 ∨ ¬x5 ∨ ¬x3) \): \( \text{False} ∨ \text{False} ∨ \text{False} = \text{False} \). **Conflict**.
+
+Wait, clause 4 is unsatisfied. This means our current assignment is invalid. We must backtrack further.
+
+#### Backtrack to Decision 1: \( x_1 = \text{False} \) (Branch 4)
+- From \( (¬x2 ∨ x4 ∨ ¬x1) \): \( ¬x2 ∨ x4 \) must be true.
+- From \( (¬x3 ∨ ¬x2 ∨ x1) \): \( ¬x3 ∨ ¬x2 \) must be true.
+- From \( (x4 ∨ x1 ∨ ¬x2) \): \( x4 ∨ ¬x2 \) must be true.
+- From \( (x3 ∨ ¬x1 ∨ ¬x2) \): \( x3 ∨ ¬x2 \) must be true.
+- From \( (¬x1 ∨ x2 ∨ x5) \): \( x2 ∨ x5 \) must be true.
+- From \( (x5 ∨ ¬x1 ∨ ¬x4) \): \( x5 ∨ ¬x4 \) must be true.
+- From \( (¬x4 ∨ x3 ∨ x1) \): \( ¬x4 ∨ x3 \) must be true.
+- From \( (¬x3 ∨ ¬x1 ∨ x4) \): \( ¬x3 ∨ x4 \) must be true.
+- From \( (x4 ∨ ¬x5 ∨ ¬x1) \): \( x4 ∨ ¬x5 \) must be true.
+- From \( (x1 ∨ x2 ∨ x5) \): \( x2 ∨ x5 \) must be true.
+
+No immediate conflicts. Proceed with branching.
+
+#### Decision 2: \( x_2 = \text{True} \) (Branch 5)
+- From \( (¬x3 ∨ ¬x2 ∨ ¬x5) \): \( ¬x3 ∨ ¬x5 \) must be true.
+- From \( (¬x3 ∨ ¬x4 ∨ ¬x2) \): \( ¬x3 ∨ ¬x4 \) must be true.
+- From \( (¬x3 ∨ x4 ∨ ¬x2) \): Satisfied.
+- From \( (x3 ∨ ¬x1 ∨ ¬x2) \): \( x3 \) must be true.
+- From \( (¬x2 ∨ x4 ∨ ¬x1) \): \( x4 \) must be true.
+- From \( (x4 ∨ x1 ∨ ¬x2) \): Satisfied.
+- From \( (¬x5 ∨ x2 ∨ x3) \): Satisfied.
+- From \( (¬x5 ∨ ¬x3 ∨ ¬x4) \): \( \text{False} ∨ \text{False} ∨ \text{False} = \text{False} \). **Conflict**.
+
+**Conflict detected**: Backtrack to Decision 2.
+
+#### Decision 2 (Backtrack): \( x_2 = \text{False} \) (Branch 6)
+- From \( (¬x1 ∨ x2 ∨ x5) \): \( x5 \) must be true.
+- From \( (x2 ∨ x5) \): \( x5 \) must be true (consistent).
+- From \( (¬x5 ∨ x2 ∨ x3) \): \( x3 \) must be true.
+- From \( (¬x5 ∨ ¬x3 ∨ ¬x4) \): \( ¬x4 \) must be true.
+- From \( (x4 ∨ ¬x5 ∨ ¬x3) \): \( x4 \) must be false (consistent).
+- From \( (¬x3 ∨ ¬x4 ∨ ¬x2) \): Satisfied.
+- From \( (¬x5 ∨ x3 ∨ ¬x4) \): Satisfied.
+- From \( (¬x3 ∨ ¬x2 ∨ ¬x5) \): Satisfied.
+- From \( (x5 ∨ ¬x1 ∨ ¬x4) \): Satisfied.
+- From \( (¬x4 ∨ x3 ∨ x1) \): Satisfied.
+- From \( (¬x3 ∨ ¬x1 ∨ x4) \): \( x4 \) must be false (consistent).
+- From \( (x4 ∨ ¬x5 ∨ ¬x1) \): Satisfied.
+- From \( (x1 ∨ x2 ∨ x5) \): Satisfied.
+- From \( (¬x3 ∨ x4 ∨ ¬x2) \): Satisfied.
+- From \( (x3 ∨ ¬x1 ∨ ¬x2) \): Satisfied.
+
+No conflicts. Assignments:
+- \( x1 = \text{False} \), \( x2 = \text{False} \), \( x3 = \text{True} \), \( x4 = \text{False} \), \( x5 = \text{True} \).
+
+Check all clauses:
+1. \( (¬x5 ∨ ¬x3 ∨ ¬x4) \): \( \text{False} ∨ \text{False} ∨ \text{True} = \text{True} \).
+2. \( (¬x3 ∨ ¬x2 ∨ x1) \): \( \text{False} ∨ \text{True} ∨ \text{False} = \text{True} \).
+3. \( (¬x2 ∨ x4 ∨ ¬x1) \): \( \text{True} ∨ \text{False} ∨ \text{True} = \text{True} \).
+4. \( (x4 ∨ ¬x5 ∨ ¬x3) \): \( \text{False} ∨ \text{False} ∨ \text{False} = \text{False} \). **Conflict**.
+
+Another conflict. This path is also invalid. The formula is **UNSATISFIABLE**.
+
+### Summary:
+- Branches (decision points): 6 (as we made 6 decisions).
+- Conflicts (backtracking steps): 3 (from Branch 2, Branch 5, and final check).
+
+### Final Answer:
+```
+UNSATISFIABLE
+6
+3
+```

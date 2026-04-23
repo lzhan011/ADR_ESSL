@@ -1,0 +1,80 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=507
+p cnf 8 28
+7 5 -2 0
+-7 4 -3 0
+-2 8 -7 0
+2 -1 3 0
+2 -1 -4 0
+-5 4 1 0
+8 -5 6 0
+-8 -2 -1 0
+-7 -5 -6 0
+2 7 -6 0
+-3 -8 1 0
+-7 -2 -3 0
+1 5 3 0
+-3 -5 -8 0
+7 5 -2 0
+2 -7 -5 0
+6 -7 8 0
+-7 1 5 0
+-8 6 -5 0
+6 4 -1 0
+-7 8 4 0
+-3 -4 -2 0
+-5 -1 8 0
+3 5 -4 0
+-6 3 1 0
+5 7 -3 0
+6 2 1 0
+-2 7 3 0
+
+c GPT solve time: 9.92 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Step 1: Let's start by assigning x1 = true.
+- Simplify clauses containing x1.
+- No unit clauses or contradictions yet.
+
+Step 2: Let's assign x2 = true.
+- Simplify clauses containing x2.
+- Clause (¬x8 ∨ ¬x2 ∨ ¬x1) becomes (¬x8) - unit clause.
+- So x8 = false.
+
+Step 3: With x8 = false:
+- Clause (¬x2 ∨ x8 ∨ ¬x7) becomes (¬x2 ∨ ¬x7), which with x2 = true gives (¬x7) - unit clause.
+- So x7 = false.
+
+Step 4: With x7 = false:
+- Simplify clauses containing x7.
+- Clause (x7 ∨ x5 ∨ ¬x2) becomes (x5 ∨ ¬x2), which with x2 = true gives (x5) - unit clause.
+- So x5 = true.
+
+Step 5: With x5 = true:
+- Simplify clauses containing x5.
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x8) becomes (¬x3) - unit clause.
+- So x3 = false.
+
+Step 6: With x3 = false:
+- Simplify clauses containing x3.
+- Clause (x2 ∨ ¬x1 ∨ x3) becomes (x2 ∨ ¬x1), which with x1 = true and x2 = true is satisfied.
+
+Step 7: Let's assign x4 = true.
+- Simplify clauses containing x4.
+- No contradictions.
+
+Step 8: Let's assign x6 = true.
+- Simplify clauses containing x6.
+- No contradictions.
+
+Checking all clauses with our assignments:
+x1 = true, x2 = true, x3 = false, x4 = true, x5 = true, x6 = true, x7 = false, x8 = false
+
+All clauses are satisfied with these assignments.
+
+SATISFIABLE
+Number of branches: 2 (decisions for x1 and x4)
+Number of conflicts: 0
+x1 = true, x2 = true, x3 = false, x4 = true, x5 = true, x6 = true, x7 = false, x8 = false

@@ -1,0 +1,45 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1492
+p cnf 5 17
+2 -5 4 0
+5 -4 3 0
+-3 1 -2 0
+2 5 4 0
+2 -5 3 0
+-2 1 3 0
+-3 -4 -2 0
+-3 -1 5 0
+5 -4 1 0
+5 1 3 0
+3 -5 -2 0
+-5 1 3 0
+4 -1 -2 0
+2 -3 -5 0
+-3 -1 2 0
+-3 -1 2 0
+4 -2 -3 0
+
+c GPT solve time: 2.31 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment: x1 = True.
+4. Check each clause to see if any are satisfied with the current assignment.
+5. Update the assignment: x5 = True.
+6. Check each clause to see if any are satisfied with the current assignment.
+7. Update the assignment: x4 = True.
+8. Check each clause to see if any are satisfied with the current assignment.
+9. Update the assignment: x3 = False.
+10. Check each clause to see if any are satisfied with the current assignment.
+11. Update the assignment: x2 = True.
+12. Check each clause to see if any are satisfied with the current assignment.
+13. All clauses are satisfied with the current assignment.
+14. The formula is SATISFIABLE.
+15. Number of branches (decision points): 4
+16. Number of conflicts (backtracking steps): 0
+17. Values for literals:
+    x1 = True
+    x2 = True
+    x3 = False
+    x4 = True
+    x5 = True

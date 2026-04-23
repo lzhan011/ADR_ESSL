@@ -1,0 +1,182 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1346
+p cnf 5 17
+1 -2 4 0
+5 -4 2 0
+-2 -5 -4 0
+-2 -1 -3 0
+1 5 2 0
+-2 -5 -1 0
+-5 1 -4 0
+5 4 -2 0
+-2 5 1 0
+3 5 -1 0
+1 5 -4 0
+3 -5 1 0
+-5 -1 2 0
+-4 3 1 0
+-3 -5 4 0
+2 -1 5 0
+-5 -3 -4 0
+
+c GPT solve time: 28.57 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking (conflicts)
+
+Let’s denote the clauses for reference:
+
+1. (x1 ∨ ¬x2 ∨ x4)  
+2. (x5 ∨ ¬x4 ∨ x2)  
+3. (¬x2 ∨ ¬x5 ∨ ¬x4)  
+4. (¬x2 ∨ ¬x1 ∨ ¬x3)  
+5. (x1 ∨ x5 ∨ x2)  
+6. (¬x2 ∨ ¬x5 ∨ ¬x1)  
+7. (¬x5 ∨ x1 ∨ ¬x4)  
+8. (x5 ∨ x4 ∨ ¬x2)  
+9. (¬x2 ∨ x5 ∨ x1)  
+10. (x3 ∨ x5 ∨ ¬x1)  
+11. (x1 ∨ x5 ∨ ¬x4)  
+12. (x3 ∨ ¬x5 ∨ x1)  
+13. (¬x5 ∨ ¬x1 ∨ x2)  
+14. (¬x4 ∨ x3 ∨ x1)  
+15. (¬x3 ∨ ¬x5 ∨ x4)  
+16. (x2 ∨ ¬x1 ∨ x5)  
+17. (¬x5 ∨ ¬x3 ∨ ¬x4)
+
+We will now proceed step-by-step.
+
+Step 1: No unit clauses or pure literals initially.
+
+Step 2: Make a decision (branch) — assign x1 = True  
+→ Branches = 1
+
+Propagate x1 = True:
+
+- Clause 1: satisfied
+- Clause 4: (¬x2 ∨ ¬x1 ∨ ¬x3) → (¬x2 ∨ False ∨ ¬x3) → (¬x2 ∨ ¬x3)
+- Clause 5: satisfied
+- Clause 6: (¬x2 ∨ ¬x5 ∨ ¬x1) → (¬x2 ∨ ¬x5 ∨ False) → (¬x2 ∨ ¬x5)
+- Clause 7: (¬x5 ∨ x1 ∨ ¬x4) → satisfied
+- Clause 9: satisfied
+- Clause 10: (x3 ∨ x5 ∨ ¬x1) → (x3 ∨ x5 ∨ False) → (x3 ∨ x5)
+- Clause 11: satisfied
+- Clause 12: (x3 ∨ ¬x5 ∨ x1) → satisfied
+- Clause 13: (¬x5 ∨ ¬x1 ∨ x2) → (¬x5 ∨ False ∨ x2) → (¬x5 ∨ x2)
+- Clause 14: (¬x4 ∨ x3 ∨ x1) → satisfied
+- Clause 16: (x2 ∨ ¬x1 ∨ x5) → (x2 ∨ False ∨ x5) → (x2 ∨ x5)
+
+Now, make a decision: x2 = False  
+→ Branches = 2
+
+Propagate x2 = False:
+
+- Clause 2: (x5 ∨ ¬x4 ∨ x2) → (x5 ∨ ¬x4 ∨ False) → (x5 ∨ ¬x4)
+- Clause 3: (¬x2 ∨ ¬x5 ∨ ¬x4) → (True ∨ ...) → satisfied
+- Clause 4: (¬x2 ∨ ¬x3) → (True ∨ ¬x3) → satisfied
+- Clause 6: (¬x2 ∨ ¬x5) → (True ∨ ¬x5) → satisfied
+- Clause 8: (x5 ∨ x4 ∨ ¬x2) → (x5 ∨ x4 ∨ True) → satisfied
+- Clause 9: satisfied
+- Clause 13: (¬x5 ∨ x2) → (¬x5 ∨ False) → (¬x5)
+- Clause 16: (x2 ∨ x5) → (False ∨ x5) → (x5)
+
+Now we have a conflict: Clause 13 says ¬x5, Clause 16 says x5  
+→ Conflict → Backtrack  
+→ Conflicts = 1
+
+Backtrack to x2 = True  
+→ Branches = 3
+
+Propagate x2 = True:
+
+- Clause 1: (x1 ∨ ¬x2 ∨ x4) → (True ∨ False ∨ x4) → satisfied
+- Clause 2: (x5 ∨ ¬x4 ∨ x2) → satisfied
+- Clause 3: (¬x2 ∨ ¬x5 ∨ ¬x4) → (False ∨ ¬x5 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- Clause 4: (¬x2 ∨ ¬x1 ∨ ¬x3) → (False ∨ False ∨ ¬x3) → (¬x3)
+- Clause 5: satisfied
+- Clause 6: (¬x2 ∨ ¬x5 ∨ ¬x1) → (False ∨ ¬x5 ∨ False) → (¬x5)
+- Clause 8: satisfied
+- Clause 9: satisfied
+- Clause 13: (¬x5 ∨ x2) → satisfied
+- Clause 16: (x2 ∨ ¬x1 ∨ x5) → (True ∨ False ∨ x5) → satisfied
+
+From Clause 4: ¬x3 → x3 = False  
+From Clause 6: ¬x5 → x5 = False
+
+Propagate x3 = False, x5 = False
+
+- Clause 10: (x3 ∨ x5 ∨ ¬x1) → (False ∨ False ∨ False) → conflict  
+→ Conflict → Backtrack  
+→ Conflicts = 2
+
+Backtrack to x1 = False  
+→ Branches = 4
+
+Propagate x1 = False:
+
+- Clause 1: (False ∨ ¬x2 ∨ x4) → (¬x2 ∨ x4)
+- Clause 4: (¬x2 ∨ ¬x1 ∨ ¬x3) → (¬x2 ∨ True ∨ ¬x3) → satisfied
+- Clause 5: (False ∨ x5 ∨ x2) → (x5 ∨ x2)
+- Clause 6: (¬x2 ∨ ¬x5 ∨ ¬x1) → (¬x2 ∨ ¬x5 ∨ True) → satisfied
+- Clause 7: (¬x5 ∨ False ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- Clause 9: (¬x2 ∨ x5 ∨ False) → (¬x2 ∨ x5)
+- Clause 10: (x3 ∨ x5 ∨ True) → satisfied
+- Clause 11: (False ∨ x5 ∨ ¬x4) → (x5 ∨ ¬x4)
+- Clause 12: (x3 ∨ ¬x5 ∨ False) → (x3 ∨ ¬x5)
+- Clause 13: (¬x5 ∨ True ∨ x2) → satisfied
+- Clause 14: (¬x4 ∨ x3 ∨ False) → (¬x4 ∨ x3)
+- Clause 16: (x2 ∨ True ∨ x5) → satisfied
+
+Now make a decision: x2 = True  
+→ Branches = 5
+
+Propagate x2 = True:
+
+- Clause 1: (¬x2 ∨ x4) → (False ∨ x4) → (x4)
+- Clause 3: (¬x2 ∨ ¬x5 ∨ ¬x4) → (False ∨ ¬x5 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- Clause 5: (x5 ∨ x2) → satisfied
+- Clause 9: (¬x2 ∨ x5) → (False ∨ x5) → (x5)
+- Clause 12: (x3 ∨ ¬x5)
+- Clause 14: (¬x4 ∨ x3)
+- Clause 7: (¬x5 ∨ ¬x4)
+- Clause 11: (x5 ∨ ¬x4)
+
+From above:
+- x4 from Clause 1
+- x5 from Clause 9
+
+Now we have:
+- x4 = True
+- x5 = True
+
+Check Clause 3: (¬x5 ∨ ¬x4) → (False ∨ False) → conflict  
+→ Conflict → Backtrack  
+→ Conflicts = 3
+
+Backtrack to x2 = False  
+→ Branches = 6
+
+Propagate x2 = False:
+
+- Clause 1: (¬x2 ∨ x4) → (True ∨ x4) → satisfied
+- Clause 3: (¬x2 ∨ ¬x5 ∨ ¬x4) → satisfied
+- Clause 5: (x5 ∨ x2) → (x5 ∨ False) → (x5)
+- Clause 9: (¬x2 ∨ x5) → (True ∨ x5) → satisfied
+- Clause 6: (¬x2 ∨ ¬x5 ∨ ¬x1) → (True ∨ ...) → satisfied
+- Clause 13: (¬x5 ∨ x2) → (¬x5 ∨ False) → (¬x5)
+
+Now we have x5 and ¬x5 → conflict  
+→ Conflict → Backtrack  
+→ Conflicts = 4
+
+All branches explored.
+
+Conclusion:
+
+The formula is UNSATISFIABLE  
+Number of branches: 6  
+Number of conflicts: 4

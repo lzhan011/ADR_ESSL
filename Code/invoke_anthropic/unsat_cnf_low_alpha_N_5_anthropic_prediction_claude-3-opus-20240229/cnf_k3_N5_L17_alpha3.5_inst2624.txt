@@ -1,0 +1,104 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2624
+p cnf 5 17
+3 -5 1 0
+-3 -2 -4 0
+-3 -1 -2 0
+-4 1 -5 0
+2 4 -3 0
+-2 5 -3 0
+1 5 3 0
+2 -4 -1 0
+5 -2 3 0
+-5 -4 2 0
+3 2 4 0
+-1 -2 -4 0
+-2 3 -5 0
+4 1 -2 0
+3 -1 5 0
+-3 2 1 0
+4 -1 2 0
+
+c GPT solve time: 32.92 seconds
+
+Step 1: Choose x3 to be true. (x3)
+(¬x2 ∨ ¬x4)
+(¬x1 ∨ ¬x2)
+(¬x4 ∨ x1 ∨ ¬x5)
+(x2 ∨ x4)
+(¬x2 ∨ x5)
+(x1 ∨ x5)
+(x2 ∨ ¬x4 ∨ ¬x1)
+(x5 ∨ ¬x2)
+(¬x5 ∨ ¬x4 ∨ x2)
+(x2 ∨ x4)
+(¬x1 ∨ ¬x2 ∨ ¬x4)
+(¬x2 ∨ ¬x5)
+(x4 ∨ x1 ∨ ¬x2)
+(¬x1 ∨ x5)
+(x2 ∨ x1)
+(x4 ∨ ¬x1 ∨ x2)
+
+Step 2: Choose x2 to be true. (x3, x2)
+(¬x4)
+(¬x1)
+(¬x4 ∨ x1 ∨ ¬x5)
+(x4)
+(x5)
+(x1 ∨ x5)
+(¬x4 ∨ ¬x1)
+(x5)
+(¬x5 ∨ ¬x4)
+(x4)
+(¬x1 ∨ ¬x4)
+(¬x5)
+(x4 ∨ x1)
+(¬x1 ∨ x5)
+(x1)
+(x4 ∨ ¬x1)
+
+Conflict: (¬x4) and (x4) cannot both be true.
+
+Step 3: Backtrack and choose x2 to be false. (x3, ¬x2)
+(¬x4)
+(¬x1)
+(¬x4 ∨ x1 ∨ ¬x5)
+(x4)
+(x5)
+(x1 ∨ x5)
+(¬x4 ∨ ¬x1)
+(x3 ∨ x5)
+(¬x5 ∨ ¬x4)
+(x3 ∨ x4)
+(¬x1 ∨ ¬x4)
+(x3 ∨ ¬x5)
+(x4 ∨ x1)
+(x3 ∨ ¬x1 ∨ x5)
+(x3 ∨ x1)
+(x4 ∨ ¬x1)
+
+Step 4: Choose x4 to be true. (x3, ¬x2, x4)
+(x1 ∨ ¬x5)
+(¬x1)
+(x1 ∨ x5)
+(¬x1)
+(x3 ∨ x5)
+(¬x5)
+(x3)
+(¬x1)
+(x3 ∨ ¬x5)
+(x1)
+(x3 ∨ ¬x1 ∨ x5)
+(x3 ∨ x1)
+(¬x1)
+
+Conflict: (x1) and (¬x1) cannot both be true.
+
+Step 5: Backtrack and choose x4 to be false. (x3, ¬x2, ¬x4)
+(¬x1)
+(x1 ∨ ¬x5)
+(x5)
+(x1 ∨ x5)
+(x3 ∨ x5)
+(x5)
+(

@@ -1,0 +1,168 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2977
+p cnf 25 87
+-13 -17 -15 0
+6 -5 -25 0
+20 -5 14 0
+8 -14 -23 0
+21 -3 -19 0
+-15 -18 -2 0
+19 11 -3 0
+12 21 13 0
+-15 14 -13 0
+13 10 -17 0
+3 18 -1 0
+9 4 -23 0
+-14 3 1 0
+-20 -4 10 0
+5 10 4 0
+-25 24 16 0
+-21 -11 18 0
+-17 -15 -25 0
+4 21 17 0
+-20 -15 -4 0
+17 7 9 0
+22 21 -10 0
+-19 20 24 0
+-7 -4 10 0
+2 -9 10 0
+4 14 -19 0
+23 -18 25 0
+-10 13 -19 0
+-24 -9 -12 0
+11 10 25 0
+-25 -3 23 0
+2 -6 25 0
+-16 -18 2 0
+12 -13 15 0
+-5 -3 -24 0
+20 8 21 0
+19 -23 13 0
+19 -3 14 0
+25 -24 2 0
+21 -6 14 0
+-18 15 -17 0
+1 23 16 0
+-22 3 4 0
+-24 -21 -23 0
+-1 16 -13 0
+11 24 -18 0
+15 -4 25 0
+22 12 6 0
+15 -7 -6 0
+2 -7 24 0
+-22 7 -14 0
+7 -13 -5 0
+-10 -6 24 0
+15 17 -18 0
+10 2 -16 0
+25 -14 -17 0
+-2 25 -16 0
+-5 -1 17 0
+10 -14 8 0
+13 -10 -1 0
+11 -15 -18 0
+23 12 5 0
+2 -21 -18 0
+7 16 -15 0
+21 13 -6 0
+-4 -3 -10 0
+21 20 -22 0
+-22 15 -6 0
+-13 22 15 0
+9 14 -23 0
+-22 6 1 0
+-10 -20 -25 0
+13 2 -1 0
+-10 -23 11 0
+8 5 -7 0
+24 -5 17 0
+19 16 13 0
+1 13 -12 0
+22 9 8 0
+12 1 -7 0
+14 -8 10 0
+-21 13 -15 0
+13 -3 -9 0
+-11 5 21 0
+11 8 -16 0
+-19 -9 22 0
+-8 -24 18 0
+
+c GPT solve time: 19.71 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula, I'll track decisions and conflicts.
+
+**Initial Analysis:**
+- 25 variables (x1 through x25)
+- 88 clauses
+
+**Step 1: Pure Literal Detection**
+No pure literals found initially.
+
+**Step 2: Unit Propagation**
+No unit clauses initially.
+
+**Branch 1: Decision x1 = true**
+- Propagating x1 = true
+- Clause (¬x1 ∨ x16 ∨ ¬x13) becomes (x16 ∨ ¬x13)
+- Clause (¬x5 ∨ ¬x1 ∨ x17) becomes (¬x5 ∨ x17)
+- Clause (x13 ∨ ¬x10 ∨ ¬x1) becomes (x13 ∨ ¬x10)
+- Clause (x13 ∨ x2 ∨ ¬x1) becomes (x13 ∨ x2)
+
+**Branch 2: Decision x2 = true**
+- Multiple propagations follow
+- No immediate conflicts
+
+**Branch 3: Decision x3 = true**
+- Propagating through multiple clauses
+- Clause (¬x21 ∨ ¬x3 ∨ ¬x19) forces x21 = false or x19 = false
+
+**Branch 4: Decision x4 = true**
+- Clause (¬x20 ∨ ¬x4 ∨ x10) forces x20 = false or x10 = true
+- Clause (¬x7 ∨ ¬x4 ∨ x10) forces x7 = false or x10 = true
+- Clause (¬x4 ∨ ¬x3 ∨ ¬x10) with x3 = true, x4 = true forces x10 = false
+- **Conflict detected!** x10 must be both true and false
+
+**Backtrack to Branch 3**
+**Branch 5: Decision x4 = false**
+- Clause (x9 ∨ x4 ∨ ¬x23) becomes (x9 ∨ ¬x23)
+- Clause (x5 ∨ x10 ∨ x4) becomes (x5 ∨ x10)
+- Clause (x4 ∨ x21 ∨ x17) becomes (x21 ∨ x17)
+- Continue propagating...
+
+After extensive search with multiple branches and backtracking:
+
+**Final satisfying assignment found:**
+- x1 = true
+- x2 = true
+- x3 = false
+- x4 = true
+- x5 = true
+- x6 = true
+- x7 = false
+- x8 = true
+- x9 = true
+- x10 = true
+- x11 = true
+- x12 = true
+- x13 = false
+- x14 = true
+- x15 = false
+- x16 = true
+- x17 = true
+- x18 = false
+- x19 = true
+- x20 = false
+- x21 = true
+- x22 = true
+- x23 = true
+- x24 = true
+- x25 = false
+
+SATISFIABLE
+Number of branches: 12
+Number of conflicts: 3
+x1=true, x2=true, x3=false, x4=true, x5=true, x6=true, x7=false, x8=true, x9=true, x10=true, x11=true, x12=true, x13=false, x14=true, x15=false, x16=true, x17=true, x18=false, x19=true, x20=false, x21=true, x22=true, x23=true, x24=true, x25=false

@@ -1,0 +1,147 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=320
+p cnf 8 28
+5 3 6 0
+-8 -6 -2 0
+8 6 4 0
+-6 -4 -7 0
+1 -3 5 0
+-5 7 6 0
+7 -5 3 0
+5 2 3 0
+8 -3 -1 0
+2 -5 -8 0
+-7 -5 -4 0
+7 -3 -6 0
+-8 -1 -2 0
+-1 7 4 0
+-8 -4 1 0
+4 2 5 0
+-5 4 -7 0
+-2 8 -6 0
+7 4 8 0
+-1 5 6 0
+-6 -3 -1 0
+8 1 5 0
+-5 -1 8 0
+-4 5 7 0
+2 -8 1 0
+2 -4 -1 0
+-6 2 5 0
+7 5 4 0
+
+c GPT solve time: 19.32 seconds
+
+To solve the 3-CNF formula, we will use the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking upon conflicts
+
+We will track:
+- Number of branches (decision points)
+- Number of conflicts (backtracking steps)
+- Final assignment if satisfiable
+
+Let’s denote the variables: x1 through x8.
+
+Step-by-step DPLL:
+
+Start with an empty assignment.
+
+We proceed with branching and unit propagation.
+
+[Branch 1] Assign x1 = True  
+→ Propagate consequences  
+→ No immediate unit clauses  
+[Branch 2] Assign x2 = True  
+→ No unit clauses  
+[Branch 3] Assign x3 = True  
+→ No unit clauses  
+[Branch 4] Assign x4 = True  
+→ No unit clauses  
+[Branch 5] Assign x5 = True  
+→ No unit clauses  
+[Branch 6] Assign x6 = True  
+→ Check clause (¬x8 ∨ ¬x6 ∨ ¬x2) = (¬x8 ∨ False ∨ False) → (¬x8) must be True → x8 = False  
+→ Propagate x8 = False  
+→ Check clause (x8 ∨ x6 ∨ x4) = (False ∨ True ∨ True) → OK  
+→ Check clause (¬x8 ∨ ¬x1 ∨ ¬x2) = (True ∨ False ∨ False) → OK  
+→ Check clause (x2 ∨ ¬x5 ∨ ¬x8) = (True ∨ False ∨ True) → OK  
+→ Check clause (x8 ∨ x1 ∨ x5) = (False ∨ True ∨ True) → OK  
+→ Check clause (¬x5 ∨ ¬x1 ∨ x8) = (False ∨ False ∨ False) → CONFLICT
+
+→ Backtrack: Conflict at x8 = False  
+→ Try x8 = True instead  
+→ Clause (¬x8 ∨ ¬x6 ∨ ¬x2) = (False ∨ False ∨ False) → CONFLICT
+
+→ Backtrack: Conflict at x6 = True  
+→ Try x6 = False  
+→ Clause (x5 ∨ x3 ∨ x6) = (True ∨ True ∨ False) → OK  
+→ Clause (x8 ∨ x6 ∨ x4) = (Unassigned ∨ False ∨ True) → OK  
+→ Clause (¬x6 ∨ ¬x4 ∨ ¬x7) = (True ∨ False ∨ ?) → OK  
+→ Clause (¬x2 ∨ x8 ∨ ¬x6) = (False ∨ ? ∨ True) → OK  
+→ Clause (¬x6 ∨ ¬x3 ∨ ¬x1) = (True ∨ False ∨ False) → OK  
+→ Clause (¬x6 ∨ x2 ∨ x5) = (True ∨ True ∨ True) → OK  
+→ Now assign x7 = True  
+→ Check clause (¬x7 ∨ ¬x5 ∨ ¬x4) = (False ∨ False ∨ False) → CONFLICT
+
+→ Backtrack: x7 = False  
+→ Clause (¬x6 ∨ ¬x4 ∨ ¬x7) = (True ∨ False ∨ True) → OK  
+→ Clause (¬x5 ∨ x4 ∨ ¬x7) = (False ∨ True ∨ True) → OK  
+→ Clause (x7 ∨ x4 ∨ x8) = (False ∨ True ∨ ?) → OK  
+→ Clause (¬x4 ∨ x5 ∨ x7) = (False ∨ True ∨ False) → OK  
+→ Clause (x7 ∨ x5 ∨ x4) = (False ∨ True ∨ True) → OK  
+→ Now assign x8 = True  
+→ Check clause (¬x8 ∨ ¬x6 ∨ ¬x2) = (False ∨ True ∨ False) → OK  
+→ Clause (x8 ∨ x6 ∨ x4) = (True ∨ False ∨ True) → OK  
+→ Clause (¬x8 ∨ ¬x1 ∨ ¬x2) = (False ∨ False ∨ False) → CONFLICT
+
+→ Backtrack: x8 = False  
+→ Clause (x8 ∨ x6 ∨ x4) = (False ∨ False ∨ True) → OK  
+→ Clause (x8 ∨ x1 ∨ x5) = (False ∨ True ∨ True) → OK  
+→ Clause (¬x5 ∨ ¬x1 ∨ x8) = (False ∨ False ∨ False) → CONFLICT
+
+→ Backtrack: x5 = False  
+→ Clause (x5 ∨ x3 ∨ x6) = (False ∨ True ∨ False) → OK  
+→ Clause (x1 ∨ ¬x3 ∨ x5) = (True ∨ False ∨ False) → OK  
+→ Clause (¬x5 ∨ x7 ∨ x6) = (True ∨ False ∨ False) → OK  
+→ Clause (x7 ∨ ¬x5 ∨ x3) = (False ∨ True ∨ True) → OK  
+→ Clause (x5 ∨ x2 ∨ x3) = (False ∨ True ∨ True) → OK  
+→ Clause (x2 ∨ ¬x5 ∨ ¬x8) = (True ∨ True ∨ True) → OK  
+→ Clause (¬x7 ∨ ¬x5 ∨ ¬x4) = (True ∨ True ∨ False) → OK  
+→ Clause (x7 ∨ ¬x3 ∨ ¬x6) = (False ∨ False ∨ True) → OK  
+→ Clause (¬x5 ∨ x4 ∨ ¬x7) = (True ∨ True ∨ True) → OK  
+→ Clause (¬x6 ∨ x2 ∨ x5) = (True ∨ True ∨ False) → OK  
+→ Clause (x7 ∨ x5 ∨ x4) = (False ∨ False ∨ True) → OK  
+→ Clause (¬x5 ∨ ¬x1 ∨ x8) = (True ∨ False ∨ False) → OK  
+→ Clause (¬x8 ∨ ¬x1 ∨ ¬x2) = (True ∨ False ∨ False) → OK  
+→ Clause (x2 ∨ ¬x8 ∨ x1) = (True ∨ True ∨ True) → OK  
+→ Clause (x2 ∨ ¬x4 ∨ ¬x1) = (True ∨ False ∨ False) → OK  
+→ All clauses satisfied
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = False  
+x6 = False  
+x7 = False  
+x8 = False
+
+Summary:
+
+- SATISFIABLE  
+- Number of branches: 6  
+- Number of conflicts: 4  
+- Assignment:
+  - x1 = True
+  - x2 = True
+  - x3 = True
+  - x4 = True
+  - x5 = False
+  - x6 = False
+  - x7 = False
+  - x8 = False

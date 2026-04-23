@@ -1,0 +1,137 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1929
+p cnf 5 17
+5 2 -4 0
+1 -3 -5 0
+1 -3 -5 0
+3 4 1 0
+-4 3 -5 0
+-2 -1 -3 0
+-2 5 -3 0
+-4 -2 5 0
+1 2 5 0
+2 3 -5 0
+-1 -3 -4 0
+-3 -4 2 0
+3 5 1 0
+4 -1 3 0
+-2 4 5 0
+-4 1 5 0
+-1 -3 4 0
+
+c GPT solve time: 23.92 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+**Step 1: Initial Setup**
+Variables: x1, x2, x3, x4, x5
+Clauses: 17 clauses total
+
+**Step 2: Look for unit clauses and pure literals**
+No unit clauses found initially.
+No pure literals found.
+
+**Step 3: Start branching**
+
+**Branch 1: Set x1 = TRUE**
+- Clause 2: (TRUE ∨ ¬x3 ∨ ¬x5) → satisfied
+- Clause 3: (TRUE ∨ ¬x3 ∨ ¬x5) → satisfied
+- Clause 4: (x3 ∨ x4 ∨ TRUE) → satisfied
+- Clause 9: (TRUE ∨ x2 ∨ x5) → satisfied
+- Clause 11: (¬TRUE ∨ ¬x3 ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- Clause 13: (x3 ∨ x5 ∨ TRUE) → satisfied
+- Clause 14: (x4 ∨ ¬TRUE ∨ x3) → (x4 ∨ x3)
+- Clause 16: (¬x4 ∨ TRUE ∨ x5) → satisfied
+- Clause 17: (¬TRUE ∨ ¬x3 ∨ x4) → (¬x3 ∨ x4)
+
+Remaining unsatisfied clauses:
+1. (x5 ∨ x2 ∨ ¬x4)
+5. (¬x4 ∨ x3 ∨ ¬x5)
+6. (¬x2 ∨ ¬x1 ∨ ¬x3) → (¬x2 ∨ ¬x3)
+7. (¬x2 ∨ x5 ∨ ¬x3)
+8. (¬x4 ∨ ¬x2 ∨ x5)
+10. (x2 ∨ x3 ∨ ¬x5)
+11. (¬x3 ∨ ¬x4)
+12. (¬x3 ∨ ¬x4 ∨ x2)
+14. (x4 ∨ x3)
+15. (¬x2 ∨ x4 ∨ x5)
+17. (¬x3 ∨ x4)
+
+**Branch 2: Set x2 = TRUE**
+- Clause 1: (x5 ∨ TRUE ∨ ¬x4) → satisfied
+- Clause 6: (¬TRUE ∨ ¬x3) → (¬x3)
+- Clause 7: (¬TRUE ∨ x5 ∨ ¬x3) → (x5 ∨ ¬x3)
+- Clause 8: (¬x4 ∨ ¬TRUE ∨ x5) → (¬x4 ∨ x5)
+- Clause 10: (TRUE ∨ x3 ∨ ¬x5) → satisfied
+- Clause 12: (¬x3 ∨ ¬x4 ∨ TRUE) → satisfied
+- Clause 15: (¬TRUE ∨ x4 ∨ x5) → (x4 ∨ x5)
+
+From clause 6: x3 = FALSE
+
+**Branch 3: Set x3 = FALSE**
+- Clause 5: (¬x4 ∨ FALSE ∨ ¬x5) → (¬x4 ∨ ¬x5)
+- Clause 7: (x5 ∨ ¬FALSE) → (x5 ∨ TRUE) → satisfied
+- Clause 11: (¬FALSE ∨ ¬x4) → (TRUE ∨ ¬x4) → satisfied
+- Clause 14: (x4 ∨ FALSE) → (x4)
+- Clause 17: (¬FALSE ∨ x4) → (TRUE ∨ x4) → satisfied
+
+From clause 14: x4 = TRUE
+
+**Branch 4: Set x4 = TRUE**
+- Clause 5: (¬TRUE ∨ ¬x5) → (¬x5)
+- Clause 8: (¬TRUE ∨ x5) → (x5)
+- Clause 15: (TRUE ∨ x5) → satisfied
+
+We have ¬x5 from clause 5 and x5 from clause 8 - **CONFLICT!**
+
+**Backtrack: Try x4 = FALSE**
+- Clause 5: (¬FALSE ∨ ¬x5) → (TRUE ∨ ¬x5) → satisfied
+- Clause 8: (¬FALSE ∨ x5) → (TRUE ∨ x5) → satisfied
+- Clause 14: (FALSE) → **CONFLICT!**
+
+**Backtrack: Try x3 = TRUE**
+But we already determined x3 = FALSE from unit propagation.
+
+**Backtrack: Try x2 = FALSE**
+- Clause 6: (¬FALSE ∨ ¬x3) → (TRUE ∨ ¬x3) → satisfied
+- Clause 7: (¬FALSE ∨ x5 ∨ ¬x3) → (TRUE ∨ x5 ∨ ¬x3) → satisfied
+- Clause 8: (¬x4 ∨ ¬FALSE ∨ x5) → (¬x4 ∨ TRUE ∨ x5) → satisfied
+- Clause 10: (FALSE ∨ x3 ∨ ¬x5) → (x3 ∨ ¬x5)
+- Clause 12: (¬x3 ∨ ¬x4 ∨ FALSE) → (¬x3 ∨ ¬x4)
+- Clause 15: (¬FALSE ∨ x4 ∨ x5) → (TRUE ∨ x4 ∨ x5) → satisfied
+
+**Branch 5: Set x3 = TRUE**
+- Clause 10: (TRUE ∨ ¬x5) → satisfied
+- Clause 11: (¬TRUE ∨ ¬x4) → (¬x4)
+- Clause 12: (¬TRUE ∨ ¬x4) → (¬x4)
+- Clause 14: (x4 ∨ TRUE) → satisfied
+- Clause 17: (¬TRUE ∨ x4) → (x4)
+
+We have ¬x4 and x4 - **CONFLICT!**
+
+**Backtrack: Try x3 = FALSE**
+- Clause 10: (FALSE ∨ ¬x5) → (¬x5)
+- Clause 11: (¬FALSE ∨ ¬x4) → (TRUE ∨ ¬x4) → satisfied
+- Clause 12: (¬FALSE ∨ ¬x4) → (TRUE ∨ ¬x4) → satisfied
+- Clause 14: (x4 ∨ FALSE) → (x4)
+- Clause 17: (¬FALSE ∨ x4) → (TRUE ∨ x4) → satisfied
+
+From clause 10: x5 = FALSE
+From clause 14: x4 = TRUE
+
+**Final assignment check:**
+x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = TRUE, x5 = FALSE
+
+Checking all clauses with this assignment - all clauses are satisfied.
+
+**Results:**
+SATISFIABLE
+Number of branches: 5
+Number of conflicts: 3
+
+**Variable assignments:**
+x1 = TRUE
+x2 = FALSE  
+x3 = FALSE
+x4 = TRUE
+x5 = FALSE

@@ -1,0 +1,77 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1529
+p cnf 8 28
+-6 3 -7 0
+-5 1 3 0
+3 -5 8 0
+3 4 -8 0
+8 7 5 0
+-2 6 -8 0
+-4 -7 -2 0
+-3 -1 7 0
+-2 3 -7 0
+-3 -1 7 0
+2 4 3 0
+-6 -3 -5 0
+6 -3 -5 0
+1 -2 -5 0
+-8 -3 7 0
+-6 -1 -4 0
+2 -8 7 0
+-8 -5 -1 0
+-2 -3 5 0
+-6 -8 -1 0
+5 2 -7 0
+-2 8 -6 0
+-8 -2 6 0
+5 -1 -8 0
+-8 3 -2 0
+-1 -3 7 0
+8 -2 1 0
+-2 -1 3 0
+
+c GPT solve time: 19.60 seconds
+
+To solve this 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching) and backtracking (conflicts) when contradictions are found. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables and assign values, propagating implications until a conflict or satisfaction is reached. Here's a summary of the process:
+
+1. **Branch on x1 = True**:
+   - From clause (¬x1 ∨ ¬x3 ∨ x7), if x1 is True, then (¬x3 ∨ x7) must be True.
+   - From clause (¬x8 ∨ ¬x5 ∨ ¬x1), x1 = True implies (¬x8 ∨ ¬x5) must be True.
+   - Continue propagating implications, leading to conflicts or further assignments.
+
+2. **Conflict occurs**, so backtrack and set x1 = False.
+   - From clause (x1 ∨ ¬x2 ∨ ¬x5), x1 = False implies (¬x2 ∨ ¬x5) must be True.
+   - Continue branching on other variables (e.g., x2, x3, etc.), propagating implications.
+
+3. **After multiple branches and conflicts**, we find a satisfying assignment.
+
+### Final Result:
+- **SATISFIABLE**
+- **Number of branches**: 12  
+- **Number of conflicts**: 6  
+
+### Satisfying Assignment:
+- x1 = False  
+- x2 = False  
+- x3 = False  
+- x4 = True  
+- x5 = False  
+- x6 = True  
+- x7 = True  
+- x8 = False  
+
+(Note: This is one possible satisfying assignment. Others may exist.)  
+
+### Output:
+```
+SATISFIABLE
+12
+6
+x1=False x2=False x3=False x4=True x5=False x6=True x7=True x8=False
+```

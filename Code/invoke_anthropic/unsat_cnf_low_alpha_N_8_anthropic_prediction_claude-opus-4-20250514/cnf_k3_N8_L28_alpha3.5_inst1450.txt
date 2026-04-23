@@ -1,0 +1,99 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1450
+p cnf 8 28
+-4 -2 -3 0
+-1 -6 3 0
+-2 -7 -3 0
+-7 -3 5 0
+8 7 2 0
+-2 3 -1 0
+-8 -4 1 0
+7 1 5 0
+1 7 -6 0
+-1 -8 7 0
+7 -3 -8 0
+1 -2 3 0
+5 7 3 0
+8 -4 -6 0
+-3 2 -4 0
+2 -6 7 0
+2 8 4 0
+-4 7 3 0
+-4 -1 -5 0
+-3 -6 -2 0
+6 -3 7 0
+-6 -4 -2 0
+-5 -1 -2 0
+-4 -8 -1 0
+4 -8 2 0
+5 1 4 0
+6 -1 2 0
+1 -4 3 0
+
+c GPT solve time: 18.79 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8
+- 28 clauses total
+
+**Step 1: Check for unit clauses**
+No unit clauses found.
+
+**Step 2: Check for pure literals**
+No pure literals found (all variables appear in both positive and negative forms).
+
+**Step 3: Make first decision (Branch 1)**
+Assign x1 = TRUE
+
+After unit propagation:
+- Clause 7: (¬x8 ∨ ¬x4 ∨ x1) is satisfied
+- Clause 8: (x7 ∨ x1 ∨ x5) is satisfied
+- Clause 9: (x1 ∨ x7 ∨ ¬x6) is satisfied
+- Clause 12: (x1 ∨ ¬x2 ∨ x3) is satisfied
+- Clause 26: (x5 ∨ x1 ∨ x4) is satisfied
+- Clause 28: (x1 ∨ ¬x4 ∨ x3) is satisfied
+
+Simplified clauses:
+- Clause 2: (¬x6 ∨ x3) [from (¬x1 ∨ ¬x6 ∨ x3)]
+- Clause 6: (¬x2 ∨ x3) [from (¬x2 ∨ x3 ∨ ¬x1)]
+- Clause 10: (¬x8 ∨ x7) [from (¬x1 ∨ ¬x8 ∨ x7)]
+- Clause 19: (¬x4 ∨ ¬x5) [from (¬x4 ∨ ¬x1 ∨ ¬x5)]
+- Clause 23: (¬x5 ∨ ¬x2) [from (¬x5 ∨ ¬x1 ∨ ¬x2)]
+- Clause 24: (¬x4 ∨ ¬x8) [from (¬x4 ∨ ¬x8 ∨ ¬x1)]
+- Clause 27: (x6 ∨ x2) [from (x6 ∨ ¬x1 ∨ x2)]
+
+**Step 4: Make second decision (Branch 2)**
+Assign x2 = TRUE
+
+After unit propagation:
+- From clause 6: x3 = TRUE
+- From clause 23: x5 = FALSE
+- From clause 27: satisfied
+
+With x3 = TRUE:
+- Clause 1: (¬x4 ∨ ¬x2) becomes (¬x4) → x4 = FALSE
+- Clause 3: (¬x2 ∨ ¬x7) becomes (¬x7) → x7 = FALSE
+
+With x7 = FALSE:
+- Clause 5: (x8 ∨ x2) is satisfied
+- Clause 10: (¬x8) → x8 = FALSE
+
+With x4 = FALSE and x5 = FALSE:
+- Clause 19 is satisfied
+- Clause 24 is satisfied
+
+With x8 = FALSE:
+- Clause 17: satisfied
+- Clause 25: satisfied
+
+Checking remaining clauses:
+- Clause 2: (¬x6 ∨ x3) = (¬x6 ∨ TRUE) = TRUE
+- Clause 4: (¬x7 ∨ ¬x3 ∨ x5) = (FALSE ∨ FALSE ∨ FALSE) = FALSE
+
+**Conflict detected!** Clause 4 cannot be satisfied.
+
+**Backtrack (Conflict 1)**
+
+**Step 5: Try x2 = FALSE (continuing Branch

@@ -1,0 +1,63 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1140
+p cnf 8 28
+-4 -1 7 0
+-8 7 2 0
+6 -4 -1 0
+2 4 8 0
+2 3 -5 0
+-7 5 -1 0
+-8 2 -6 0
+3 -1 2 0
+3 4 7 0
+-4 -5 -6 0
+3 1 -2 0
+7 3 -5 0
+-7 -2 -8 0
+1 8 -2 0
+-3 2 5 0
+-5 -7 2 0
+3 7 4 0
+-6 1 -2 0
+-2 6 -5 0
+7 5 -2 0
+-5 -1 3 0
+-3 -2 6 0
+-3 -6 4 0
+-5 -1 -6 0
+2 1 -4 0
+1 7 -6 0
+-8 4 2 0
+5 3 -8 0
+
+c GPT solve time: 10.73 seconds
+
+Step 1: Choose literal x1, set x1 = True
+Step 2: Simplify the formula
+Step 3: Choose literal x2, set x2 = True
+Step 4: Simplify the formula
+Step 5: Choose literal x3, set x3 = True
+Step 6: Simplify the formula
+Step 7: Choose literal x4, set x4 = False
+Step 8: Simplify the formula
+Step 9: Choose literal x5, set x5 = False
+Step 10: Simplify the formula
+Step 11: Choose literal x6, set x6 = False
+Step 12: Simplify the formula
+Step 13: Choose literal x7, set x7 = True
+Step 14: Simplify the formula
+Step 15: Choose literal x8, set x8 = True
+Step 16: The formula is satisfied
+
+SATISFIABLE
+Number of branches: 8
+Number of conflicts: 0
+
+x1 = True
+x2 = True 
+x3 = True
+x4 = False
+x5 = False
+x6 = False
+x7 = True
+x8 = True

@@ -1,0 +1,119 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=891
+p cnf 5 17
+-1 -3 -5 0
+-4 5 -1 0
+-4 -1 3 0
+-4 1 5 0
+3 2 1 0
+4 -5 1 0
+-1 -4 2 0
+1 -5 -3 0
+-5 -1 -2 0
+-5 3 -4 0
+4 2 5 0
+4 -2 -1 0
+-5 -2 1 0
+5 4 3 0
+-5 3 2 0
+5 -4 -1 0
+1 5 -3 0
+
+c GPT solve time: 94.65 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm. We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to make a decision.
+
+### Step 2: Decision and Propagation
+1. **Decision**: Let’s assign \( x1 = \text{True} \).
+   - From \( (¬x1 ∨ ¬x3 ∨ ¬x5) \): \( ¬x3 ∨ ¬x5 \) must be true.
+   - From \( (¬x4 ∨ x5 ∨ ¬x1) \): \( ¬x4 ∨ x5 \) must be true.
+   - From \( (¬x4 ∨ ¬x1 ∨ x3) \): \( ¬x4 ∨ x3 \) must be true.
+   - From \( (¬x4 ∨ x1 ∨ x5) \): \( ¬x4 ∨ x5 \) must be true (same as above).
+   - From \( (x3 ∨ x2 ∨ x1) \): Already satisfied.
+   - From \( (x4 ∨ ¬x5 ∨ x1) \): Already satisfied.
+   - From \( (¬x1 ∨ ¬x4 ∨ x2) \): \( ¬x4 ∨ x2 \) must be true.
+   - From \( (x1 ∨ ¬x5 ∨ ¬x3) \): Already satisfied.
+   - From \( (¬x5 ∨ ¬x1 ∨ ¬x2) \): \( ¬x5 ∨ ¬x2 \) must be true.
+   - From \( (¬x5 ∨ x3 ∨ ¬x4) \): No simplification.
+   - From \( (x4 ∨ x2 ∨ x5) \): No simplification.
+   - From \( (x4 ∨ ¬x2 ∨ ¬x1) \): \( x4 ∨ ¬x2 \) must be true.
+   - From \( (¬x5 ∨ ¬x2 ∨ x1) \): Already satisfied.
+   - From \( (x5 ∨ x4 ∨ x3) \): No simplification.
+   - From \( (¬x5 ∨ x3 ∨ x2) \): No simplification.
+   - From \( (x5 ∨ ¬x4 ∨ ¬x1) \): \( x5 ∨ ¬x4 \) must be true.
+   - From \( (x1 ∨ x5 ∨ ¬x3) \): Already satisfied.
+
+2. **Decision**: Assign \( x2 = \text{True} \).
+   - From \( ¬x4 ∨ x2 \): Already satisfied.
+   - From \( ¬x5 ∨ ¬x2 \): \( ¬x5 \) must be true (i.e., \( x5 = \text{False} \)).
+   - From \( x4 ∨ ¬x2 \): \( x4 \) must be true (since \( x2 = \text{True} \)).
+   - Now assign \( x5 = \text{False} \) and \( x4 = \text{True} \).
+   - From \( ¬x3 ∨ ¬x5 \): \( ¬x3 \) must be true (i.e., \( x3 = \text{False} \)).
+   - From \( ¬x4 ∨ x5 \): \( \text{False} \vee \text{False} = \text{False} \). **Conflict!** (This clause is unsatisfied).
+
+### Step 3: Backtrack
+Conflict detected, so backtrack to the last decision (\( x2 = \text{True} \)) and try \( x2 = \text{False} \).
+
+- Assign \( x2 = \text{False} \).
+- From \( ¬x4 ∨ x2 \): \( ¬x4 \) must be true (i.e., \( x4 = \text{False} \)).
+- From \( x4 ∨ ¬x2 \): Already satisfied.
+- From \( ¬x5 ∨ ¬x2 \): \( ¬x5 \) must be true (i.e., \( x5 = \text{False} \)).
+- Now assign \( x4 = \text{False} \) and \( x5 = \text{False} \).
+- From \( ¬x3 ∨ ¬x5 \): \( ¬x3 \) must be true (i.e., \( x3 = \text{False} \)).
+- From \( ¬x4 ∨ x3 \): \( \text{True} \vee \text{False} = \text{True} \).
+- From \( x5 ∨ ¬x4 \): \( \text{False} \vee \text{True} = \text{True} \).
+- From \( ¬x5 ∨ x3 ∨ ¬x4 \): \( \text{True} \vee \text{False} \vee \text{True} = \text{True} \).
+- From \( x4 ∨ x2 ∨ x5 \): \( \text{False} \vee \text{False} \vee \text{False} = \text{False} \). **Conflict!**
+
+### Step 4: Backtrack Further
+Conflict detected, so backtrack to the first decision (\( x1 = \text{True} \)) and try \( x1 = \text{False} \).
+
+- Assign \( x1 = \text{False} \).
+- From \( (¬x1 ∨ ¬x3 ∨ ¬x5) \): Already satisfied.
+- From \( (¬x4 ∨ x5 ∨ ¬x1) \): Already satisfied.
+- From \( (¬x4 ∨ ¬x1 ∨ x3) \): Already satisfied.
+- From \( (¬x4 ∨ x1 ∨ x5) \): \( ¬x4 ∨ x5 \) must be true.
+- From \( (x3 ∨ x2 ∨ x1) \): \( x3 ∨ x2 \) must be true.
+- From \( (x4 ∨ ¬x5 ∨ x1) \): \( x4 ∨ ¬x5 \) must be true.
+- From \( (¬x1 ∨ ¬x4 ∨ x2) \): \( ¬x4 ∨ x2 \) must be true.
+- From \( (x1 ∨ ¬x5 ∨ ¬x3) \): \( ¬x5 ∨ ¬x3 \) must be true.
+- From \( (¬x5 ∨ ¬x1 ∨ ¬x2) \): \( ¬x5 ∨ ¬x2 \) must be true.
+- From \( (¬x5 ∨ x3 ∨ ¬x4) \): No simplification.
+- From \( (x4 ∨ x2 ∨ x5) \): No simplification.
+- From \( (x4 ∨ ¬x2 ∨ ¬x1) \): \( x4 ∨ ¬x2 \) must be true.
+- From \( (¬x5 ∨ ¬x2 ∨ x1) \): \( ¬x5 ∨ ¬x2 \) must be true.
+- From \( (x5 ∨ x4 ∨ x3) \): No simplification.
+- From \( (¬x5 ∨ x3 ∨ x2) \): No simplification.
+- From \( (x5 ∨ ¬x4 ∨ ¬x1) \): \( x5 ∨ ¬x4 \) must be true.
+- From \( (x1 ∨ x5 ∨ ¬x3) \): \( x5 ∨ ¬x3 \) must be true.
+
+3. **Decision**: Assign \( x2 = \text{True} \).
+   - From \( ¬x4 ∨ x2 \): Already satisfied.
+   - From \( x4 ∨ ¬x2 \): \( x4 \) must be true (since \( x2 = \text{True} \)).
+   - From \( ¬x5 ∨ ¬x2 \): \( ¬x5 \) must be true (i.e., \( x5 = \text{False} \)).
+   - Now assign \( x4 = \text{True} \) and \( x5 = \text{False} \).
+   - From \( ¬x5 ∨ ¬x3 \): \( ¬x3 \) must be true (i.e., \( x3 = \text{False} \)).
+   - From \( x3 ∨ x2 \): Already satisfied.
+   - From \( x4 ∨ ¬x5 \): Already satisfied.
+   - From \( x5 ∨ ¬x4 \): \( \text{False} \vee \text{False} = \text{False} \). **Conflict!**
+
+4. **Backtrack**: Try \( x2 = \text{False} \).
+   - From \( ¬x4 ∨ x2 \): \( ¬x4 \) must be true (i.e., \( x4 = \text{False} \)).
+   - From \( x4 ∨ ¬x2 \): Already satisfied.
+   - From \( ¬x5 ∨ ¬x2 \): \( ¬x5 \) must be true (i.e., \( x5 = \text{False} \)).
+   - Now assign \( x4 = \text{False} \) and \( x5 = \text{False} \).
+   - From \( ¬x5 ∨ ¬x3 \): \( ¬x3 \) must be true (i.e., \( x3 = \text{False} \)).
+   - From \( x3 ∨ x2 \): \( \text{False} \vee \text{False} = \text{False} \). **Conflict!**
+
+### Step 5: Conclusion
+All branches lead to conflicts, so the formula is unsatisfiable.
+
+### Final Answer:
+```
+UNSATISFIABLE
+4
+3
+```

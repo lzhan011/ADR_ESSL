@@ -1,0 +1,54 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=692
+p cnf 8 28
+6 -4 3 0
+5 -8 -4 0
+7 -6 -4 0
+-7 -8 3 0
+1 -8 6 0
+7 -3 6 0
+1 -2 5 0
+-6 -5 -2 0
+-1 -5 -7 0
+-1 -6 7 0
+-4 -8 5 0
+2 4 8 0
+4 -6 -5 0
+5 6 -4 0
+3 -2 5 0
+2 -7 -4 0
+4 7 3 0
+4 -2 1 0
+-7 -3 6 0
+-1 6 -5 0
+-2 -8 -7 0
+-3 -7 -4 0
+6 -4 -7 0
+-3 8 -6 0
+2 4 -6 0
+-6 8 3 0
+4 1 8 0
+1 -8 7 0
+
+c GPT solve time: 63.48 seconds
+
+Step-by-step outline (concise):
+
+1) Make an initial decision x₁ = True.  
+2) This simplifies several clauses, creating short clauses such as (¬x₆ ∨ x₇), (x₆ ∨ ¬x₅), and (¬x₅ ∨ ¬x₇).  
+3) Trying x₅ = True leads to a direct conflict. Hence x₅ = False, forcing x₆ = True and x₇ = True.  
+4) Further simplifications force x₂ = True, x₃ = True, x₄ = False, x₈ = False.  
+5) All clauses become satisfied under this assignment.
+
+––––––––––––––––––––––––––––––––––––
+SATISFIABLE  
+2  
+1  
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = False  
+x5 = False  
+x6 = True  
+x7 = True  
+x8 = False

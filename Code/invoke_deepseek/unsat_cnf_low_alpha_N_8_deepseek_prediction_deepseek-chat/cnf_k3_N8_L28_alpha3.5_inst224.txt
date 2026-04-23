@@ -1,0 +1,88 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=224
+p cnf 8 28
+4 5 -6 0
+-1 -4 -5 0
+7 4 -2 0
+6 -5 -2 0
+-2 3 8 0
+8 3 4 0
+-4 3 5 0
+7 8 6 0
+-8 -7 -4 0
+-6 -5 -8 0
+2 -1 4 0
+8 -7 -4 0
+-1 4 -2 0
+-6 8 5 0
+7 -2 4 0
+7 5 -8 0
+-2 1 6 0
+5 -1 4 0
+-6 5 3 0
+1 5 -6 0
+-5 8 -4 0
+2 1 4 0
+6 1 -2 0
+5 8 3 0
+2 3 -5 0
+5 1 -4 0
+-5 8 -6 0
+-5 -8 7 0
+
+c GPT solve time: 59.96 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching), propagating unit clauses, and backtracking upon conflicts. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in order (x1, x2, ..., x8) and assign values, propagating implications.
+
+#### Branch 1: Assume x1 = True
+- From clause (¬x1 ∨ x4 ∨ ¬x2), if x1 = True, then (x4 ∨ ¬x2) must be true.
+- From clause (x2 ∨ ¬x1 ∨ x4), if x1 = True, then (x2 ∨ x4) must be true.
+- From clause (x5 ∨ ¬x1 ∨ x4), if x1 = True, then (x5 ∨ x4) must be true.
+- From clause (x1 ∨ x5 ∨ ¬x6), if x1 = True, this clause is satisfied.
+- From clause (¬x1 ∨ ¬x4 ∨ ¬x5), if x1 = True, then (¬x4 ∨ ¬x5) must be true.
+
+Assume x4 = True (to satisfy (x4 ∨ ¬x2) and (x2 ∨ x4)):
+- From (¬x4 ∨ ¬x5), x5 must be False.
+- From (x5 ∨ x4), since x5 is False, x4 must be True (consistent).
+- From (x4 ∨ x5 ∨ ¬x6), since x4 is True, this clause is satisfied.
+- From (¬x6 ∨ x5 ∨ x3), since x5 is False, (¬x6 ∨ x3) must be true.
+- From (¬x5 ∨ x8 ∨ ¬x4), since x5 is False and x4 is True, x8 must be True.
+- From (x8 ∨ x3 ∨ x4), since x8 is True, this clause is satisfied.
+- From (¬x8 ∨ ¬x7 ∨ ¬x4), since x8 is True and x4 is True, x7 must be False.
+- From (x7 ∨ x8 ∨ x6), since x7 is False and x8 is True, this clause is satisfied.
+- From (¬x6 ∨ ¬x5 ∨ ¬x8), since x5 is False and x8 is True, (¬x6) must be true, so x6 = False.
+- From (x6 ∨ ¬x5 ∨ ¬x2), since x6 is False and x5 is False, ¬x2 must be true, so x2 = False.
+- From (¬x2 ∨ x3 ∨ x8), since x2 is False and x8 is True, this clause is satisfied.
+- From (¬x2 ∨ x1 ∨ x6), since x2 is False and x1 is True, this clause is satisfied.
+- From (x2 ∨ x1 ∨ x4), since x1 is True, this clause is satisfied.
+- From (x6 ∨ x1 ∨ ¬x2), since x1 is True, this clause is satisfied.
+- From (¬x6 ∨ x8 ∨ x5), since x6 is False and x5 is False, x8 must be True (consistent).
+- From (x5 ∨ x8 ∨ x3), since x5 is False and x8 is True, this clause is satisfied.
+- From (x2 ∨ x3 ∨ ¬x5), since x2 is False and x5 is False, x3 must be True.
+- From (¬x6 ∨ x5 ∨ x3), since x6 is False and x5 is False, x3 must be True (consistent).
+- From (x5 ∨ x1 ∨ ¬x4), since x1 is True, this clause is satisfied.
+- From (¬x5 ∨ x8 ∨ ¬x6), since x5 is False and x6 is False, x8 must be True (consistent).
+- From (¬x5 ∨ ¬x8 ∨ x7), since x5 is False and x8 is True, x7 must be False (consistent).
+- From (x7 ∨ x5 ∨ ¬x8), since x7 is False and x8 is True, x5 must be False (consistent).
+- From (x7 ∨ x4 ∨ ¬x2), since x7 is False and x4 is True, this clause is satisfied.
+- From (x7 ∨ ¬x2 ∨ x4), since x7 is False and x4 is True, this clause is satisfied.
+- From (x8 ∨ ¬x7 ∨ ¬x4), since x8 is True, this clause is satisfied.
+
+All clauses are satisfied with this assignment:
+- x1 = True, x2 = False, x3 = True, x4 = True, x5 = False, x6 = False, x7 = False, x8 = True.
+
+### Step 3: Count Branches and Conflicts
+- Branches (decision points): 2 (x1 = True, x4 = True).
+- Conflicts (backtracking steps): 0 (no backtracking needed).
+
+### Final Answer:
+SATISFIABLE  
+Branches: 2  
+Conflicts: 0  
+x1 = True, x2 = False, x3 = True, x4 = True, x5 = False, x6 = False, x7 = False, x8 = True

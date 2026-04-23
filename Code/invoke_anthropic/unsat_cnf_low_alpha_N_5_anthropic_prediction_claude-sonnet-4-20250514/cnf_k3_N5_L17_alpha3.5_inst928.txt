@@ -1,0 +1,163 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=928
+p cnf 5 17
+1 2 -4 0
+-5 -1 -3 0
+3 4 2 0
+-3 2 -1 0
+2 4 5 0
+1 -3 -2 0
+1 3 2 0
+1 -4 3 0
+3 1 5 0
+-1 2 -3 0
+-2 3 1 0
+-5 -4 -1 0
+-2 -1 3 0
+-3 -2 5 0
+4 3 -2 0
+-4 -1 3 0
+-3 2 4 0
+
+c GPT solve time: 26.40 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+**Step 1: Initial Analysis**
+The formula has 5 variables (x1, x2, x3, x4, x5) and 17 clauses.
+
+**Step 2: Look for unit clauses and pure literals**
+No unit clauses found initially.
+No pure literals found.
+
+**Step 3: Start branching**
+
+**Branch 1: Set x1 = TRUE**
+Simplifying clauses with x1 = TRUE:
+- Clause 1: (TRUE ∨ x2 ∨ ¬x4) → satisfied
+- Clause 2: (¬x5 ∨ FALSE ∨ ¬x3) → (¬x5 ∨ ¬x3)
+- Clause 4: (¬x3 ∨ x2 ∨ FALSE) → (¬x3 ∨ x2)
+- Clause 6: (TRUE ∨ ¬x3 ∨ ¬x2) → satisfied
+- Clause 7: (TRUE ∨ x3 ∨ x2) → satisfied
+- Clause 8: (TRUE ∨ ¬x4 ∨ x3) → satisfied
+- Clause 9: (x3 ∨ TRUE ∨ x5) → satisfied
+- Clause 10: (FALSE ∨ x2 ∨ ¬x3) → (x2 ∨ ¬x3)
+- Clause 11: (¬x2 ∨ x3 ∨ TRUE) → satisfied
+- Clause 12: (¬x5 ∨ ¬x4 ∨ FALSE) → (¬x5 ∨ ¬x4)
+- Clause 13: (¬x2 ∨ FALSE ∨ x3) → (¬x2 ∨ x3)
+- Clause 16: (¬x4 ∨ FALSE ∨ x3) → (¬x4 ∨ x3)
+
+Remaining clauses:
+- (¬x5 ∨ ¬x3)
+- (x3 ∨ x4 ∨ x2)
+- (¬x3 ∨ x2)
+- (x2 ∨ x4 ∨ x5)
+- (x2 ∨ ¬x3)
+- (¬x5 ∨ ¬x4)
+- (¬x2 ∨ x3)
+- (¬x3 ∨ ¬x2 ∨ x5)
+- (x4 ∨ x3 ∨ ¬x2)
+- (¬x4 ∨ x3)
+- (¬x3 ∨ x2 ∨ x4)
+
+**Branch 2: Set x2 = TRUE**
+With x1 = TRUE, x2 = TRUE:
+- (¬x3 ∨ TRUE) → satisfied
+- (TRUE ∨ ¬x3) → satisfied
+- (¬TRUE ∨ x3) → (x3)
+- (¬x3 ∨ ¬TRUE ∨ x5) → (¬x3 ∨ x5)
+- (x4 ∨ x3 ∨ ¬TRUE) → (x4 ∨ x3)
+- (¬x3 ∨ TRUE ∨ x4) → satisfied
+
+Unit clause found: x3 = TRUE
+
+**Setting x3 = TRUE:**
+- (¬x5 ∨ ¬TRUE) → (¬x5)
+- (TRUE ∨ x4 ∨ x2) → satisfied
+- (TRUE ∨ x4 ∨ x5) → satisfied
+- (¬x5 ∨ ¬x4)
+- (¬TRUE ∨ x5) → (x5)
+- (x4 ∨ TRUE) → satisfied
+- (¬x4 ∨ TRUE) → satisfied
+
+Unit clauses: ¬x5 and x5 → **CONFLICT!**
+
+**Backtrack: Try x2 = FALSE**
+With x1 = TRUE, x2 = FALSE:
+- (¬x3 ∨ FALSE) → (¬x3)
+- (FALSE ∨ ¬x3) → (¬x3)
+- (¬FALSE ∨ x3) → (x3)
+
+Unit clauses: ¬x3 and x3 → **CONFLICT!**
+
+**Backtrack: Try x1 = FALSE**
+
+**Branch 3: Set x1 = FALSE**
+Simplifying with x1 = FALSE:
+Many clauses become:
+- (FALSE ∨ x2 ∨ ¬x4) → (x2 ∨ ¬x4)
+- (¬x5 ∨ TRUE ∨ ¬x3) → satisfied
+- (¬x3 ∨ x2 ∨ TRUE) → satisfied
+- (FALSE ∨ ¬x3 ∨ ¬x2) → (¬x3 ∨ ¬x2)
+- (FALSE ∨ x3 ∨ x2) → (x3 ∨ x2)
+- (FALSE ∨ ¬x4 ∨ x3) → (¬x4 ∨ x3)
+- (x3 ∨ FALSE ∨ x5) → (x3 ∨ x5)
+- (TRUE ∨ x2 ∨ ¬x3) → satisfied
+- (¬x2 ∨ x3 ∨ FALSE) → (¬x2 ∨ x3)
+- (¬x5 ∨ ¬x4 ∨ TRUE) → satisfied
+- (¬x2 ∨ TRUE ∨ x3) → satisfied
+- (¬x4 ∨ TRUE ∨ x3) → satisfied
+
+Remaining clauses:
+- (x2 ∨ ¬x4)
+- (x3 ∨ x4 ∨ x2)
+- (¬x3 ∨ ¬x2)
+- (x2 ∨ x4 ∨ x5)
+- (x3 ∨ x2)
+- (¬x4 ∨ x3)
+- (x3 ∨ x5)
+- (¬x2 ∨ x3)
+- (¬x3 ∨ ¬x2 ∨ x5)
+- (x4 ∨ x3 ∨ ¬x2)
+- (¬x3 ∨ x2 ∨ x4)
+
+**Branch 4: Set x3 = TRUE**
+With x1 = FALSE, x3 = TRUE:
+- (x2 ∨ ¬x4)
+- (TRUE ∨ x4 ∨ x2) → satisfied
+- (¬TRUE ∨ ¬x2) → (¬x2)
+- (x2 ∨ x4 ∨ x5)
+- (TRUE ∨ x2) → satisfied
+- (¬x4 ∨ TRUE) → satisfied
+- (TRUE ∨ x5) → satisfied
+- (¬x2 ∨ TRUE) → satisfied
+- (¬TRUE ∨ ¬x2 ∨ x5) → (¬x2 ∨ x5)
+- (x4 ∨ TRUE ∨ ¬x2) → satisfied
+- (¬TRUE ∨ x2 ∨ x4) → (x2 ∨ x4)
+
+Unit clause: ¬x2, so x2 = FALSE
+
+**Setting x2 = FALSE:**
+- (FALSE ∨ ¬x4) → (¬x4)
+- (FALSE ∨ x4 ∨ x5) → (x4 ∨ x5)
+- (¬FALSE ∨ x5) → (x5)
+- (¬FALSE ∨ x4) → (x4)
+
+Unit clauses: ¬x4 and x4 → **CONFLICT!**
+
+**Branch 5: Set x3 = FALSE**
+With x1 = FALSE, x3 = FALSE:
+- (x2 ∨ ¬x4)
+- (FALSE ∨ x4 ∨ x2) → (x4 ∨ x2)
+- (¬FALSE ∨ ¬x2) → (¬x2)
+- (x2 ∨ x4 ∨ x5)
+- (FALSE ∨ x2) → (x2)
+
+Unit clauses: ¬x2 and x2 → **CONFLICT!**
+
+All branches lead to conflicts.
+
+**Final Result:**
+- UNSATISFIABLE
+- Number of branches: 5
+- Number of conflicts: 4

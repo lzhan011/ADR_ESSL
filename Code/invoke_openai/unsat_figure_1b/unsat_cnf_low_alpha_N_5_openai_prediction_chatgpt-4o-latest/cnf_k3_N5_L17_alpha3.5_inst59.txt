@@ -1,0 +1,162 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=59
+p cnf 5 17
+4 -3 -5 0
+-4 5 2 0
+-3 4 -2 0
+2 4 -3 0
+-2 1 3 0
+-3 -2 -1 0
+1 -2 -3 0
+-2 -4 5 0
+3 -4 -5 0
+-5 2 -1 0
+-2 -4 1 0
+-5 2 1 0
+-1 2 3 0
+2 4 3 0
+-1 4 3 0
+-5 -3 1 0
+1 -2 -5 0
+
+c GPT solve time: 17.25 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination (if applicable)
+3. Branching (decision points)
+4. Backtracking on conflicts
+
+We will track:
+- Number of branches (decision points)
+- Number of conflicts (backtracking steps)
+- Final assignment if satisfiable
+
+Let’s denote the variables: x1, x2, x3, x4, x5
+
+Step-by-step:
+
+Start with no assignments.
+
+We begin by choosing a variable to assign. Let's pick x1 = True (Branch 1)
+
+→ Propagate:
+
+Check all clauses for simplification:
+
+Clause (¬x1 ∨ x2 ∨ x3): satisfied if x1 = False → not satisfied yet  
+Clause (¬x1 ∨ x4 ∨ x3): not satisfied yet  
+Clause (¬x1 ∨ x2 ∨ x3): not satisfied yet  
+Clause (¬x1 ∨ x4 ∨ x3): not satisfied yet  
+Clause (¬x1 ∨ x2 ∨ x3): not satisfied yet  
+Clause (¬x1 ∨ x4 ∨ x3): not satisfied yet  
+Clause (¬x1 ∨ x2 ∨ x3): not satisfied yet  
+Clause (¬x1 ∨ x4 ∨ x3): not satisfied yet  
+
+No unit clauses yet. Continue.
+
+Next decision: x2 = True (Branch 2)
+
+→ Propagate:
+
+Clause (¬x2 ∨ x1 ∨ x3): x2 = True → ¬x2 = False → need x1 or x3 = True → x1 = True, so satisfied  
+Clause (x2 ∨ x4 ∨ ¬x3): x2 = True → satisfied  
+Clause (¬x2 ∨ ¬x4 ∨ x5): ¬x2 = False → need ¬x4 or x5  
+Clause (¬x2 ∨ ¬x4 ∨ x1): ¬x2 = False → need ¬x4 or x1 → x1 = True → satisfied  
+Clause (¬x2 ∨ x1 ∨ x3): x1 = True → satisfied  
+Clause (¬x2 ∨ ¬x4 ∨ x1): x1 = True → satisfied  
+Clause (¬x2 ∨ ¬x4 ∨ x1): x1 = True → satisfied  
+Clause (¬x2 ∨ ¬x4 ∨ x1): x1 = True → satisfied  
+
+Still no conflict.
+
+Next decision: x3 = True (Branch 3)
+
+→ Propagate:
+
+Clause (¬x3 ∨ x4 ∨ ¬x2): ¬x3 = False, x4 or ¬x2 → x2 = True → ¬x2 = False → need x4  
+Clause (x2 ∨ x4 ∨ ¬x3): x2 = True → satisfied  
+Clause (¬x3 ∨ ¬x2 ∨ ¬x1): all negated → all false → conflict!  
+→ Conflict 1 → Backtrack
+
+Backtrack x3 = False (Branch 4)
+
+→ Propagate:
+
+Clause (¬x3 ∨ ¬x2 ∨ ¬x1): ¬x3 = True → satisfied  
+Clause (x1 ∨ ¬x2 ∨ ¬x3): x1 = True → satisfied  
+Clause (¬x5 ∨ ¬x3 ∨ x1): ¬x3 = True → satisfied  
+Clause (x2 ∨ x4 ∨ ¬x3): x2 = True → satisfied  
+Clause (¬x3 ∨ x4 ∨ ¬x2): ¬x3 = True → satisfied  
+Clause (x4 ∨ ¬x3 ∨ ¬x5): ¬x3 = True → satisfied  
+Clause (¬x3 ∨ ¬x2 ∨ ¬x1): already satisfied  
+Clause (¬x3 ∨ x4 ∨ ¬x2): already satisfied  
+
+Still no conflict.
+
+Next decision: x4 = True (Branch 5)
+
+→ Propagate:
+
+Clause (x4 ∨ ¬x3 ∨ ¬x5): x4 = True → satisfied  
+Clause (¬x4 ∨ x5 ∨ x2): ¬x4 = False → need x5 or x2 → x2 = True → satisfied  
+Clause (¬x2 ∨ ¬x4 ∨ x5): ¬x2 = False, ¬x4 = False → need x5  
+Clause (¬x2 ∨ ¬x4 ∨ x1): x1 = True → satisfied  
+Clause (¬x5 ∨ x2 ∨ x1): x2 = True → satisfied  
+Clause (¬x5 ∨ x2 ∨ x1): x2 = True → satisfied  
+Clause (x3 ∨ ¬x4 ∨ ¬x5): x3 = False, ¬x4 = False → need ¬x5  
+Clause (¬x5 ∨ ¬x3 ∨ x1): ¬x3 = True → satisfied  
+Clause (¬x5 ∨ x2 ∨ x1): x2 = True → satisfied  
+Clause (¬x5 ∨ x2 ∨ x1): x2 = True → satisfied  
+
+Still no conflict.
+
+Next decision: x5 = False (Branch 6)
+
+→ Propagate:
+
+Clause (¬x5 ∨ x2 ∨ x1): ¬x5 = True → satisfied  
+Clause (¬x5 ∨ ¬x3 ∨ x1): ¬x5 = True → satisfied  
+Clause (x3 ∨ ¬x4 ∨ ¬x5): x3 = False, ¬x4 = False, ¬x5 = True → satisfied  
+Clause (¬x5 ∨ x2 ∨ x1): satisfied  
+Clause (¬x5 ∨ x2 ∨ x1): satisfied  
+Clause (¬x5 ∨ ¬x3 ∨ x1): satisfied  
+Clause (¬x5 ∨ x2 ∨ x1): satisfied  
+Clause (¬x5 ∨ x2 ∨ x1): satisfied  
+
+All clauses satisfied.
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = True  
+x5 = False
+
+✅ All clauses are satisfied.
+
+✅ No further conflicts.
+
+Summary:
+
+- SATISFIABLE
+- Number of branches: 6
+- Number of conflicts: 1
+- Assignment:
+  - x1 = True
+  - x2 = True
+  - x3 = False
+  - x4 = True
+  - x5 = False
+
+Final output:
+
+SATISFIABLE  
+6  
+1  
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = True  
+x5 = False

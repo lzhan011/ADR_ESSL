@@ -1,0 +1,54 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=228
+p cnf 5 17
+3 5 2 0
+-1 -5 4 0
+-4 5 -3 0
+-4 -2 -3 0
+2 -5 4 0
+-1 5 -3 0
+-5 1 4 0
+3 2 -1 0
+-2 5 3 0
+-4 1 3 0
+-2 4 -3 0
+4 -5 -2 0
+-3 -1 -4 0
+4 -3 2 0
+-1 5 2 0
+-4 3 -2 0
+2 -3 -5 0
+
+c GPT solve time: 12.01 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by assigning x1 = true.
+- No unit clauses are created.
+
+Step 2: Let's assign x2 = true.
+- No unit clauses are created.
+
+Step 3: Let's assign x3 = true.
+- This creates a conflict in clause (¬x4 ∨ ¬x2 ∨ ¬x3) since x2 = true and x3 = true, forcing x4 = false.
+- But this conflicts with clause (x2 ∨ ¬x5 ∨ x4) which requires x4 = true when x2 = true and x5 = false.
+- Backtrack and try x3 = false.
+
+Step 4: With x1 = true, x2 = true, x3 = false:
+- Clause (x3 ∨ x2 ∨ ¬x1) is satisfied by x2 = true.
+- Clause (¬x2 ∨ x5 ∨ x3) forces x5 = true since x2 = true and x3 = false.
+
+Step 5: With x1 = true, x2 = true, x3 = false, x5 = true:
+- Clause (¬x1 ∨ ¬x5 ∨ x4) forces x4 = true since x1 = true and x5 = true.
+
+Step 6: Check if all clauses are satisfied with x1 = true, x2 = true, x3 = false, x4 = true, x5 = true:
+- All clauses are satisfied.
+
+SATISFIABLE
+Number of branches: 3
+Number of conflicts: 1
+x1 = true
+x2 = true
+x3 = false
+x4 = true
+x5 = true

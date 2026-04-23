@@ -1,0 +1,91 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1486
+p cnf 10 35
+4 -6 -3 0
+-10 3 -9 0
+-5 3 -6 0
+-4 -10 -9 0
+4 1 -8 0
+-7 1 -3 0
+8 10 -2 0
+9 -3 6 0
+-1 2 -3 0
+3 10 8 0
+9 -10 8 0
+-9 1 -8 0
+-4 3 7 0
+-3 -1 10 0
+-8 4 10 0
+-7 -8 -4 0
+-6 7 10 0
+4 -8 -1 0
+2 -10 6 0
+-1 -10 8 0
+-3 2 8 0
+-10 -6 -3 0
+-5 -2 10 0
+-4 -8 10 0
+-4 -3 -9 0
+-9 -6 -7 0
+-10 -6 -4 0
+-5 7 10 0
+2 -8 5 0
+9 5 -7 0
+3 -7 -10 0
+-7 9 3 0
+-5 3 6 0
+1 -10 8 0
+5 -3 -6 0
+
+c GPT solve time: 18.20 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the formula, I'll track decisions and conflicts.
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+- 35 clauses total
+
+**Branch 1:** x1 = true
+- Unit propagations: None immediately
+- Checking clauses...
+- Clause (¬x1 ∨ x2 ∨ ¬x3) forces x2 = true or x3 = false
+- Clause (¬x1 ∨ ¬x10 ∨ x8) forces x10 = false or x8 = true
+
+**Branch 2:** x2 = true (continuing from x1 = true)
+- Checking remaining clauses...
+- No immediate conflicts
+
+**Branch 3:** x3 = true
+- Clause (¬x3 ∨ ¬x1 ∨ x10) with x1 = true, x3 = true forces x10 = true
+- Clause (¬x10 ∨ ¬x6 ∨ ¬x3) with x10 = true, x3 = true forces x6 = false
+- Clause (¬x5 ∨ x3 ∨ ¬x6) is satisfied
+- Clause (x9 ∨ ¬x3 ∨ x6) with x3 = true, x6 = false forces x9 = true
+- Clause (¬x10 ∨ x3 ∨ ¬x9) with x10 = true, x9 = true forces x3 = true (consistent)
+- Clause (¬x4 ∨ ¬x10 ∨ ¬x9) with x10 = true, x9 = true forces x4 = false
+
+**Branch 4:** x4 = false (forced)
+- Clause (x4 ∨ ¬x6 ∨ ¬x3) with x4 = false, x6 = false, x3 = true gives CONFLICT!
+
+**Backtrack 1:** (First conflict)
+- Undo x3 = true, try x3 = false
+
+**Branch 5:** x3 = false (after backtracking)
+- Clause (x3 ∨ x10 ∨ x8) forces x10 = true or x8 = true
+- Clause (¬x7 ∨ x1 ∨ ¬x3) is satisfied
+- Clause (¬x1 ∨ x2 ∨ ¬x3) is satisfied
+
+**Branch 6:** x10 = true
+- Clause (¬x10 ∨ x3 ∨ ¬x9) with x10 = true, x3 = false forces x9 = false
+- Clause (¬x4 ∨ ¬x10 ∨ ¬x9) is satisfied
+- Clause (x9 ∨ ¬x10 ∨ x8) with x9 = false, x10 = true forces x8 = true
+- Clause (¬x1 ∨ ¬x10 ∨ x8) is satisfied
+- Clause (¬x9 ∨ x1 ∨ ¬x8) with x9 = false is satisfied
+
+**Branch 7:** x4 = true
+- Clause (¬x4 ∨ ¬x8 ∨ x10) is satisfied
+- Clause (¬x7 ∨ ¬x8 ∨ ¬x4) with x4 = true, x8 = true forces x7 = false
+
+**Branch 8:** x5 = true
+- Clause (¬x5 ∨ x3 ∨ ¬x6) with x5 = true, x

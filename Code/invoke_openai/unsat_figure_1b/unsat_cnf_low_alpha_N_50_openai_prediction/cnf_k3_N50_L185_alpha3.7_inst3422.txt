@@ -1,0 +1,425 @@
+c Random 3-SAT
+c alpha=3.7, N=50, L=185, instance=3422
+p cnf 50 185
+-26 -6 -24 0
+48 -28 -9 0
+13 -37 44 0
+47 -29 -7 0
+-45 30 -46 0
+1 -18 10 0
+-39 1 47 0
+-35 44 37 0
+23 -34 33 0
+-49 -4 8 0
+-26 -29 19 0
+-47 39 -46 0
+40 25 -3 0
+13 -40 37 0
+21 11 36 0
+8 -23 20 0
+40 38 44 0
+46 24 30 0
+-16 -26 23 0
+-27 -7 -29 0
+33 -50 -21 0
+13 -30 -37 0
+-33 4 -36 0
+38 -7 -10 0
+6 49 -30 0
+18 28 -44 0
+-18 -10 3 0
+-17 -34 -47 0
+-50 -32 -36 0
+-45 43 47 0
+23 13 -40 0
+6 3 15 0
+13 39 7 0
+4 16 21 0
+-1 48 -9 0
+-19 -43 -10 0
+-48 18 13 0
+-23 24 43 0
+-20 27 -6 0
+-12 -49 -30 0
+50 -46 -12 0
+40 -22 -25 0
+18 -41 25 0
+-2 -23 -50 0
+-2 -42 26 0
+-37 31 12 0
+-31 -48 39 0
+-40 -36 -15 0
+1 3 18 0
+-41 20 34 0
+13 -47 -28 0
+-38 39 50 0
+-32 -37 -15 0
+35 -1 9 0
+-27 -22 28 0
+46 -22 -48 0
+11 12 7 0
+37 -24 -47 0
+25 -22 40 0
+-14 11 -44 0
+4 -10 -38 0
+-2 -30 20 0
+-44 -16 34 0
+31 21 -5 0
+22 -39 -23 0
+-44 -16 9 0
+-4 -2 -8 0
+10 -22 20 0
+-20 1 23 0
+-46 43 24 0
+15 -3 -35 0
+14 -27 38 0
+1 -43 -47 0
+-41 -8 11 0
+22 12 27 0
+1 -42 45 0
+-49 25 12 0
+31 46 -40 0
+47 -41 48 0
+-5 -26 37 0
+-9 26 -32 0
+-29 31 -4 0
+8 -9 -6 0
+41 -33 40 0
+25 45 23 0
+-9 -46 -48 0
+5 -35 49 0
+44 7 -19 0
+-33 30 24 0
+-22 -6 39 0
+-47 21 50 0
+4 37 -29 0
+34 16 45 0
+6 -15 -28 0
+30 28 -50 0
+46 -28 -16 0
+-21 48 4 0
+26 -37 41 0
+-18 -34 -32 0
+41 16 35 0
+-7 42 44 0
+7 -3 30 0
+-27 -7 46 0
+-40 -9 -13 0
+-35 15 -14 0
+11 -28 -8 0
+-17 30 -2 0
+-30 -40 -5 0
+3 13 44 0
+30 3 -17 0
+15 -28 -3 0
+23 -1 27 0
+-4 -28 -8 0
+12 -47 29 0
+-25 -2 -35 0
+21 -49 25 0
+2 22 -15 0
+29 -17 -45 0
+-37 -1 -5 0
+43 -15 -46 0
+45 -27 42 0
+14 -7 -37 0
+6 27 -25 0
+26 -3 50 0
+22 16 47 0
+-21 -37 -34 0
+30 15 8 0
+-47 -24 36 0
+7 -16 -27 0
+13 -15 -48 0
+-17 34 43 0
+-44 23 -28 0
+34 -23 36 0
+35 24 -19 0
+-8 43 -34 0
+32 31 -30 0
+-32 5 -40 0
+-12 43 -4 0
+-49 29 -22 0
+-22 -27 33 0
+14 -3 -16 0
+-22 -18 -38 0
+37 -45 33 0
+-24 4 -49 0
+27 11 7 0
+-41 31 7 0
+-46 15 -34 0
+13 1 14 0
+9 -35 -8 0
+-30 4 8 0
+-15 28 20 0
+-44 14 17 0
+49 -4 16 0
+21 2 15 0
+3 -29 -9 0
+-13 40 45 0
+-16 47 -24 0
+19 -23 22 0
+-33 -29 8 0
+-24 -39 -36 0
+40 3 23 0
+22 38 -13 0
+36 15 -16 0
+1 -34 9 0
+-16 3 48 0
+-3 32 -8 0
+-9 14 11 0
+32 30 -44 0
+-23 47 -43 0
+6 -22 -43 0
+40 -35 44 0
+-19 -6 -43 0
+41 32 -26 0
+13 -32 -39 0
+-38 -48 -1 0
+-14 -50 49 0
+-45 -48 5 0
+-10 -47 -20 0
+25 -24 10 0
+-27 -41 -13 0
+-21 35 -30 0
+-20 -26 -18 0
+-25 35 -40 0
+-5 32 -26 0
+16 -4 3 0
+
+c GPT solve time: 177.80 seconds
+
+**Step-by-step DPLL-style SAT solving (summary):**
+
+1. **Unit propagation:** No unit clauses initially.
+2. **Pure literal elimination:** No pure literals.
+3. **Branching:** Start with x1 = True (arbitrary choice).
+
+---
+
+### Branch 1: x1 = True
+
+- Propagate x1 = True.
+- Satisfies clauses: (x1 ∨ ¬x18 ∨ x10), (¬x39 ∨ x1 ∨ x47), (x1 ∨ x3 ∨ x18), (x1 ∨ ¬x42 ∨ x45), (x1 ∨ ¬x43 ∨ ¬x47), (x13 ∨ x1 ∨ x14), (x1 ∨ ¬x34 ∨ x9)
+- Update all clauses.
+
+#### Next: x2 = True
+
+- Propagate x2 = True.
+- Satisfies: (¬x2 ∨ ¬x23 ∨ ¬x50), (¬x2 ∨ ¬x42 ∨ x26), (¬x2 ∨ ¬x30 ∨ x20), (¬x4 ∨ ¬x2 ∨ ¬x8)
+- Update all clauses.
+
+#### Next: x3 = True
+
+- Propagate x3 = True.
+- Satisfies: (x40 ∨ x25 ∨ ¬x3), (x6 ∨ x3 ∨ x15), (x1 ∨ x3 ∨ x18), (x3 ∨ x13 ∨ x44), (x30 ∨ x3 ∨ ¬x17), (x40 ∨ x3 ∨ x23), (x16 ∨ ¬x4 ∨ x3), (x14 ∨ ¬x3 ∨ ¬x16), (x3 ∨ ¬x29 ∨ ¬x9)
+- Update all clauses.
+
+#### Next: x4 = True
+
+- Propagate x4 = True.
+- Satisfies: (¬x49 ∨ ¬x4 ∨ x8), (¬x33 ∨ x4 ∨ ¬x36), (x4 ∨ x16 ∨ x21), (¬x24 ∨ x4 ∨ ¬x49), (¬x30 ∨ x4 ∨ x8)
+- Update all clauses.
+
+#### Next: x5 = True
+
+- Propagate x5 = True.
+- Satisfies: (x31 ∨ x21 ∨ ¬x5), (x5 ∨ ¬x35 ∨ x49), (¬x32 ∨ x5 ∨ ¬x40), (¬x5 ∨ ¬x26 ∨ x37), (¬x5 ∨ x32 ∨ ¬x26)
+- Update all clauses.
+
+#### Next: x6 = True
+
+- Propagate x6 = True.
+- Satisfies: (x6 ∨ x49 ∨ ¬x30), (x6 ∨ x3 ∨ x15), (x6 ∨ x27 ∨ ¬x25), (x6 ∨ ¬x15 ∨ ¬x28), (x6 ∨ ¬x22 ∨ ¬x43)
+- Update all clauses.
+
+#### Next: x7 = True
+
+- Propagate x7 = True.
+- Satisfies: (x47 ∨ ¬x29 ∨ ¬x7), (x38 ∨ ¬x7 ∨ ¬x10), (x11 ∨ x12 ∨ x7), (x27 ∨ x11 ∨ x7), (x41 ∨ x31 ∨ x7), (x7 ∨ ¬x3 ∨ x30), (x14 ∨ ¬x7 ∨ ¬x37)
+- Update all clauses.
+
+#### Next: x8 = True
+
+- Propagate x8 = True.
+- Satisfies: (¬x49 ∨ ¬x4 ∨ x8), (x8 ∨ ¬x23 ∨ x20), (x8 ∨ ¬x9 ∨ ¬x6)
+- Update all clauses.
+
+#### Next: x9 = True
+
+- Propagate x9 = True.
+- Satisfies: (x48 ∨ ¬x28 ∨ ¬x9), (x35 ∨ ¬x1 ∨ x9), (x9 ∨ ¬x35 ∨ ¬x8), (x1 ∨ ¬x34 ∨ x9)
+- Update all clauses.
+
+#### Next: x10 = True
+
+- Propagate x10 = True.
+- Satisfies: (x1 ∨ ¬x18 ∨ x10), (x38 ∨ ¬x7 ∨ ¬x10), (x25 ∨ ¬x24 ∨ x10)
+- Update all clauses.
+
+#### Next: x11 = True
+
+- Propagate x11 = True.
+- Satisfies: (x21 ∨ x11 ∨ x36), (x11 ∨ x12 ∨ x7), (x14 ∨ x11 ∨ ¬x44), (x27 ∨ x11 ∨ x7), (¬x41 ∨ ¬x8 ∨ x11), (¬x9 ∨ x14 ∨ x11)
+- Update all clauses.
+
+#### Next: x12 = True
+
+- Propagate x12 = True.
+- Satisfies: (x11 ∨ x12 ∨ x7), (¬x37 ∨ x31 ∨ x12), (x22 ∨ x12 ∨ x27), (x12 ∨ ¬x47 ∨ x29), (¬x25 ∨ x35 ∨ ¬x40)
+- Update all clauses.
+
+#### Next: x13 = True
+
+- Propagate x13 = True.
+- Satisfies: (x13 ∨ ¬x37 ∨ x44), (x13 ∨ ¬x40 ∨ x37), (x13 ∨ ¬x30 ∨ ¬x37), (x23 ∨ x13 ∨ ¬x40), (x13 ∨ x39 ∨ x7), (x13 ∨ ¬x47 ∨ ¬x28), (x13 ∨ x1 ∨ x14), (x3 ∨ x13 ∨ x44), (x13 ∨ ¬x15 ∨ ¬x48), (x13 ∨ ¬x32 ∨ ¬x39)
+- Update all clauses.
+
+#### Next: x14 = True
+
+- Propagate x14 = True.
+- Satisfies: (x14 ∨ ¬x27 ∨ x38), (x14 ∨ x11 ∨ ¬x44), (x14 ∨ ¬x3 ∨ ¬x16), (x14 ∨ ¬x7 ∨ ¬x37), (¬x14 ∨ ¬x50 ∨ x49), (x13 ∨ x1 ∨ x14), (¬x44 ∨ x14 ∨ x17), (¬x9 ∨ x14 ∨ x11)
+- Update all clauses.
+
+#### Next: x15 = True
+
+- Propagate x15 = True.
+- Satisfies: (x6 ∨ x3 ∨ x15), (x15 ∨ ¬x3 ∨ ¬x35), (x30 ∨ x15 ∨ x8), (x36 ∨ x15 ∨ ¬x16), (x21 ∨ x2 ∨ x15), (x30 ∨ x15 ∨ x8)
+- Update all clauses.
+
+#### Next: x16 = True
+
+- Propagate x16 = True.
+- Satisfies: (x4 ∨ x16 ∨ x21), (x34 ∨ x16 ∨ x45), (x41 ∨ x16 ∨ x35), (x22 ∨ x16 ∨ x47), (x16 ∨ ¬x4 ∨ x3), (x22 ∨ x16 ∨ x47)
+- Update all clauses.
+
+#### Next: x17 = True
+
+- Propagate x17 = True.
+- Satisfies: (¬x17 ∨ ¬x34 ∨ ¬x47), (¬x17 ∨ x30 ∨ ¬x2), (x29 ∨ ¬x17 ∨ ¬x45), (¬x17 ∨ x34 ∨ x43), (x30 ∨ x3 ∨ ¬x17)
+- Update all clauses.
+
+#### Next: x18 = True
+
+- Propagate x18 = True.
+- Satisfies: (x1 ∨ ¬x18 ∨ x10), (x18 ∨ x28 ∨ ¬x44), (x18 ∨ ¬x41 ∨ x25), (¬x22 ∨ ¬x18 ∨ ¬x38)
+- Update all clauses.
+
+#### Next: x19 = True
+
+- Propagate x19 = True.
+- Satisfies: (¬x26 ∨ ¬x29 ∨ x19), (x44 ∨ x7 ∨ ¬x19), (x35 ∨ x24 ∨ ¬x19), (x19 ∨ ¬x23 ∨ x22), (¬x19 ∨ ¬x6 ∨ ¬x43)
+- Update all clauses.
+
+#### Next: x20 = True
+
+- Propagate x20 = True.
+- Satisfies: (x8 ∨ ¬x23 ∨ x20), (x10 ∨ ¬x22 ∨ x20), (¬x20 ∨ x1 ∨ x23), (¬x15 ∨ x28 ∨ x20)
+- Update all clauses.
+
+#### Next: x21 = True
+
+- Propagate x21 = True.
+- Satisfies: (x21 ∨ x11 ∨ x36), (x4 ∨ x16 ∨ x21), (x31 ∨ x21 ∨ ¬x5), (x21 ∨ x2 ∨ x15)
+- Update all clauses.
+
+#### Next: x22 = True
+
+- Propagate x22 = True.
+- Satisfies: (x22 ∨ ¬x39 ∨ ¬x23), (x22 ∨ x12 ∨ x27), (x22 ∨ x16 ∨ x47), (x22 ∨ x38 ∨ ¬x13)
+- Update all clauses.
+
+#### Next: x23 = True
+
+- Propagate x23 = True.
+- Satisfies: (x23 ∨ ¬x34 ∨ x33), (x8 ∨ ¬x23 ∨ x20), (x23 ∨ x13 ∨ ¬x40), (x25 ∨ x45 ∨ x23), (x23 ∨ ¬x1 ∨ x27), (x19 ∨ ¬x23 ∨ x22), (x34 ∨ ¬x23 ∨ x36), (¬x44 ∨ x23 ∨ ¬x28)
+- Update all clauses.
+
+#### Next: x24 = True
+
+- Propagate x24 = True.
+- Satisfies: (x46 ∨ x24 ∨ x30), (¬x23 ∨ x24 ∨ x43), (¬x33 ∨ x30 ∨ x24), (x35 ∨ x24 ∨ ¬x19)
+- Update all clauses.
+
+#### Next: x25 = True
+
+- Propagate x25 = True.
+- Satisfies: (x40 ∨ x25 ∨ ¬x3), (x25 ∨ ¬x22 ∨ x40), (x25 ∨ x45 ∨ x23), (x21 ∨ ¬x49 ∨ x25), (¬x25 ∨ x35 ∨ ¬x40)
+- Update all clauses.
+
+#### Next: x26 = True
+
+- Propagate x26 = True.
+- Satisfies: (x26 ∨ ¬x37 ∨ x41), (x26 ∨ ¬x3 ∨ x50), (¬x9 ∨ x26 ∨ ¬x32), (¬x5 ∨ ¬x26 ∨ x37), (¬x32 ∨ x5 ∨ ¬x40), (¬x5 ∨ x32 ∨ ¬x26)
+- Update all clauses.
+
+#### Next: x27 = True
+
+- Propagate x27 = True.
+- Satisfies: (¬x27 ∨ ¬x7 ∨ ¬x29), (¬x27 ∨ ¬x22 ∨ x28), (x27 ∨ x11 ∨ x7), (¬x27 ∨ ¬x7 ∨ x46), (¬x27 ∨ ¬x41 ∨ ¬x13), (x14 ∨ ¬x27 ∨ x38), (x27 ∨ x11 ∨ x7)
+- Update all clauses.
+
+#### Next: x28 = True
+
+- Propagate x28 = True.
+- Satisfies: (x18 ∨ x28 ∨ ¬x44), (x30 ∨ x28 ∨ ¬x50), (¬x15 ∨ x28 ∨ x20)
+- Update all clauses.
+
+#### Next: x29 = True
+
+- Propagate x29 = True.
+- Satisfies: (x47 ∨ ¬x29 ∨ ¬x7), (¬x29 ∨ x31 ∨ ¬x4), (¬x33 ∨ ¬x29 ∨ x8), (x29 ∨ ¬x17 ∨ ¬x45), (¬x49 ∨ x29 ∨ ¬x22)
+- Update all clauses.
+
+#### Next: x30 = True
+
+- Propagate x30 = True.
+- Satisfies: (¬x45 ∨ x30 ∨ ¬x46), (x46 ∨ x24 ∨ x30), (x6 ∨ x49 ∨ ¬x30), (x30 ∨ x28 ∨ ¬x50), (x30 ∨ x15 ∨ x8), (x30 ∨ x3 ∨ ¬x17), (x30 ∨ x15 ∨ x8), (¬x17 ∨ x30 ∨ ¬x2)
+- Update all clauses.
+
+#### Next: x31 = True
+
+- Propagate x31 = True.
+- Satisfies: (¬x37 ∨ x31 ∨ x12), (¬x31 ∨ ¬x48 ∨ x39), (x31 ∨ x21 ∨ ¬x5), (x31 ∨ x46 ∨ ¬x40), (¬x29 ∨ x31 ∨ ¬x4), (¬x41 ∨ x31 ∨ x7), (x32 ∨ x31 ∨ ¬x30)
+- Update all clauses.
+
+#### Next: x32 = True
+
+- Propagate x32 = True.
+- Satisfies: (¬x50 ∨ ¬x32 ∨ ¬x36), (¬x32 ∨ ¬x37 ∨ ¬x15), (x32 ∨ x31 ∨ ¬x30), (¬x32 ∨ x5 ∨ ¬x40), (x32 ∨ x30 ∨ ¬x44), (¬x3 ∨ x32 ∨ ¬x8), (x41 ∨ x32 ∨ ¬x26), (¬x25 ∨ ¬x2 ∨ ¬x35), (¬x5 ∨ x32 ∨ ¬x26)
+- Update all clauses.
+
+#### Next: x33 = True
+
+- Propagate x33 = True.
+- Satisfies: (x23 ∨ ¬x34 ∨ x33), (x33 ∨ ¬x50 ∨ ¬x21), (x37 ∨ ¬x45 ∨ x33), (¬x33 ∨ x30 ∨ x24), (¬x33 ∨ ¬x29 ∨ x8)
+- Update all clauses.
+
+#### Next: x34 = True
+
+- Propagate x34 = True.
+- Satisfies: (x34 ∨ x16 ∨ x45), (¬x44 ∨ ¬x16 ∨ x34), (¬x44 ∨ ¬x16 ∨ x9), (¬x18 ∨ ¬x34 ∨ ¬x32), (¬x46 ∨ x15 ∨ ¬x34), (¬x17 ∨ x34 ∨ x43), (x34 ∨ ¬x23 ∨ x36)
+- Update all clauses.
+
+#### Next: x35 = True
+
+- Propagate x35 = True.
+- Satisfies: (¬x35 ∨ x44 ∨ x37), (x35 ∨ ¬x1 ∨ x9), (x35 ∨ x24 ∨ ¬x19), (¬x25 ∨ x35 ∨ ¬x40), (¬x21 ∨ x35 ∨ ¬x30), (x41 ∨ x16 ∨ x35)
+- Update all clauses.
+
+#### Next: x36 = True
+
+- Propagate x36 = True.
+- Satisfies: (x21 ∨ x11 ∨ x36), (¬x50 ∨ ¬x32 ∨ ¬x36), (¬x40 ∨ ¬x36 ∨ ¬x15), (x36 ∨ x15 ∨ ¬x16), (x34 ∨ ¬x23 ∨ x36), (¬x24 ∨ ¬x39 ∨ ¬x36)
+- Update all clauses.
+
+#### Next: x37 = True
+
+- Propagate x37 = True.
+- Satisfies: (x13 ∨ ¬x37 ∨ x44), (¬x35 ∨ x44 ∨ x37), (x13 ∨ ¬x40 ∨ x37), (x37 ∨ ¬x24 ∨ ¬x47), (¬x37 ∨ x31 ∨ x12), (¬x32 ∨ ¬x37 ∨ ¬x15), (¬x21 ∨ ¬x37 ∨ ¬x34), (x14 ∨ ¬x7 ∨ ¬x37), (¬x37 ∨ ¬x1 ∨ ¬x5)
+- Update all clauses.
+
+#### Next: x38 = True
+
+- Propagate x38 = True.
+- Satisfies: (x40 ∨ x38 ∨ x44), (x38 ∨ ¬x7 ∨ ¬x10), (

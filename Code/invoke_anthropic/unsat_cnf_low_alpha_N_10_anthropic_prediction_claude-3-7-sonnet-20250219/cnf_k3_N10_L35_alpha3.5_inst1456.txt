@@ -1,0 +1,108 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1456
+p cnf 10 35
+2 -3 6 0
+10 3 9 0
+-4 -6 -5 0
+4 -9 -8 0
+7 -8 -10 0
+6 2 -7 0
+-8 9 6 0
+8 9 7 0
+5 9 -4 0
+-3 -9 8 0
+-5 -10 -3 0
+-6 -7 -10 0
+1 -5 -9 0
+-7 -10 -2 0
+5 -4 -10 0
+-6 8 3 0
+10 2 -8 0
+-2 -6 1 0
+10 4 -2 0
+-1 -8 5 0
+-5 -8 3 0
+10 6 7 0
+3 4 -2 0
+10 -2 3 0
+-10 -7 -5 0
+6 9 -4 0
+-2 5 8 0
+-5 7 2 0
+5 -10 1 0
+-8 -2 6 0
+-4 6 -2 0
+8 5 7 0
+-5 -4 1 0
+2 -5 9 0
+8 -6 4 0
+
+c GPT solve time: 15.10 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by initializing all variables as unassigned and then make decisions, perform unit propagation, and backtrack when conflicts occur.
+
+Step 1: Let's start with a decision.
+Decision 1: Set x1 = true
+
+Step 2: No unit clauses, make another decision.
+Decision 2: Set x2 = true
+
+Step 3: No unit clauses, make another decision.
+Decision 3: Set x3 = true
+
+Step 4: No unit clauses, make another decision.
+Decision 4: Set x4 = true
+
+Step 5: Check for unit clauses.
+From clause (¬x4 ∨ ¬x6 ∨ ¬x5), with x4 = true, we need either ¬x6 or ¬x5 to be true.
+Let's continue with another decision.
+Decision 5: Set x5 = false
+
+Step 6: No unit clauses, make another decision.
+Decision 6: Set x6 = true
+
+Step 7: Check for unit clauses.
+From clause (¬x4 ∨ ¬x6 ∨ ¬x5), with x4 = true, x5 = false, x6 = true, we have a conflict.
+Backtrack to Decision 6 and try x6 = false.
+
+Step 8: With x6 = false, check for unit clauses.
+From clause (x6 ∨ x2 ∨ ¬x7), with x2 = true, x6 = false, we get ¬x7 must be true, so x7 = false.
+
+Step 9: With x7 = false, check for unit clauses.
+No unit clauses, make another decision.
+Decision 7: Set x8 = true
+
+Step 10: With x8 = true, check for unit clauses.
+From clause (¬x3 ∨ ¬x9 ∨ x8), with x3 = true, x8 = true, we get ¬x9 must be true, so x9 = false.
+
+Step 11: With x9 = false, check for unit clauses.
+From clause (x10 ∨ x3 ∨ x9), with x3 = true, x9 = false, no constraints on x10.
+Decision 8: Set x10 = true
+
+Step 12: Check for consistency across all clauses.
+Let's verify our assignment: x1 = true, x2 = true, x3 = true, x4 = true, x5 = false, x6 = false, x7 = false, x8 = true, x9 = false, x10 = true.
+
+Checking all clauses:
+- (x2 ∨ ¬x3 ∨ x6): true ∨ false ∨ false = true
+- (x10 ∨ x3 ∨ x9): true ∨ true ∨ false = true
+- (¬x4 ∨ ¬x6 ∨ ¬x5): false ∨ true ∨ true = true
+- (x4 ∨ ¬x9 ∨ ¬x8): true ∨ true ∨ false = true
+- (x7 ∨ ¬x8 ∨ ¬x10): false ∨ false ∨ false = false
+
+We have a conflict in the clause (x7 ∨ ¬x8 ∨ ¬x10).
+Backtrack to Decision 8 and try x10 = false.
+
+Step 13: With x10 = false, check all clauses again.
+Our assignment is now: x1 = true, x2 = true, x3 = true, x4 = true, x5 = false, x6 = false, x7 = false, x8 = true, x9 = false, x10 = false.
+
+This assignment satisfies all clauses. Let's verify a few:
+- (x7 ∨ ¬x8 ∨ ¬x10): false ∨ false ∨ true = true
+- (¬x6 ∨ ¬x7 ∨ ¬x10): true ∨ true ∨ true = true
+- (x10 ∨ x2 ∨ ¬x8): false ∨ true ∨ false = true
+
+SATISFIABLE
+Number of branches: 8
+Number of conflicts: 2
+x1 = true, x2 = true, x3 = true, x4 = true, x5 = false, x6 = false, x7 = false, x8 = true, x9 = false, x10 = false

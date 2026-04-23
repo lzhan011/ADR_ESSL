@@ -1,0 +1,245 @@
+c Random 3-SAT
+c alpha=3.5, N=50, L=175, instance=715
+p cnf 50 175
+-31 4 -13 0
+19 -8 -13 0
+-2 -16 -37 0
+-34 -45 -40 0
+-10 -26 -38 0
+42 34 18 0
+16 35 48 0
+1 -8 -44 0
+16 -34 -49 0
+-9 28 19 0
+7 -10 26 0
+-47 -16 -41 0
+-2 -21 -46 0
+-11 8 37 0
+43 14 -45 0
+3 -12 37 0
+43 -40 -35 0
+47 27 -25 0
+28 -27 13 0
+43 -24 -14 0
+-16 -2 -34 0
+-50 3 -37 0
+-37 17 -22 0
+-33 15 -49 0
+-6 43 8 0
+31 -6 1 0
+-34 -1 -24 0
+18 26 -38 0
+33 -10 -18 0
+-40 -12 49 0
+50 17 -28 0
+1 -19 42 0
+50 13 -48 0
+30 -32 6 0
+26 31 -43 0
+41 -17 -25 0
+-35 23 25 0
+12 49 38 0
+-46 18 -4 0
+49 18 -11 0
+48 14 50 0
+41 -48 -28 0
+44 -6 11 0
+-36 -31 -49 0
+-16 49 9 0
+44 -26 -12 0
+5 1 25 0
+-30 23 2 0
+12 -1 -35 0
+32 3 -18 0
+16 -37 21 0
+-14 24 35 0
+42 -41 19 0
+18 -5 -39 0
+-23 32 20 0
+21 23 -41 0
+8 -47 23 0
+-36 38 15 0
+48 -35 7 0
+-29 17 15 0
+-19 2 36 0
+-17 47 -14 0
+40 9 -27 0
+-30 32 29 0
+-11 -9 2 0
+-20 4 -12 0
+-11 -4 -33 0
+-14 1 -9 0
+-30 -3 27 0
+50 -19 35 0
+50 -44 34 0
+13 22 5 0
+-45 50 20 0
+-49 -5 -42 0
+-30 37 -11 0
+16 29 39 0
+-26 -35 50 0
+-43 -21 -45 0
+46 30 -19 0
+12 -21 22 0
+-20 -18 17 0
+-20 36 22 0
+21 34 -41 0
+5 12 39 0
+7 27 -37 0
+-19 -5 -18 0
+47 17 -20 0
+-11 7 8 0
+29 -23 -13 0
+50 4 36 0
+-39 16 -8 0
+-27 -12 -17 0
+-7 15 -4 0
+-18 -42 49 0
+3 11 -45 0
+14 49 -23 0
+-39 22 11 0
+34 11 -1 0
+43 42 14 0
+-25 -1 -36 0
+-14 -49 -36 0
+-36 5 9 0
+-17 -24 -44 0
+-46 41 -15 0
+25 14 -41 0
+-6 -1 32 0
+31 -3 -14 0
+1 37 -23 0
+48 30 15 0
+14 41 -32 0
+-36 12 15 0
+31 2 49 0
+3 1 -5 0
+-42 -48 -45 0
+-39 -16 12 0
+-36 31 -21 0
+31 -26 13 0
+10 15 46 0
+-34 -1 7 0
+-42 -3 27 0
+41 -36 12 0
+-34 -13 45 0
+24 44 -35 0
+1 -23 -48 0
+45 30 -4 0
+-7 -41 -19 0
+28 -27 -8 0
+7 2 -12 0
+15 41 29 0
+29 -9 20 0
+47 -30 34 0
+-9 35 4 0
+32 -6 -43 0
+49 -12 -37 0
+-43 -19 5 0
+-1 -13 32 0
+3 33 35 0
+-5 35 -2 0
+-6 -21 20 0
+-38 -17 -50 0
+-29 24 20 0
+-49 44 36 0
+-30 -34 -27 0
+16 -35 48 0
+-1 -28 36 0
+20 -10 -24 0
+-12 25 9 0
+38 23 12 0
+-7 28 -2 0
+50 11 45 0
+-36 22 31 0
+11 -19 -15 0
+-10 -21 23 0
+-17 33 -44 0
+43 -13 6 0
+11 -50 23 0
+23 27 47 0
+-19 -9 -40 0
+41 46 36 0
+42 31 44 0
+-20 8 4 0
+6 -41 -47 0
+29 -22 -8 0
+15 -14 -44 0
+-14 37 18 0
+29 4 -45 0
+5 13 -47 0
+36 26 45 0
+-26 43 34 0
+24 6 -32 0
+-12 41 19 0
+5 47 -7 0
+12 6 30 0
+-7 -15 12 0
+6 -23 -26 0
+
+c GPT solve time: 23.15 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula of 175 clauses.
+
+**Branch 1**: Trying x1 = true
+- Unit propagation: x8 = false (from clause 8)
+- This leads to x19 = true (from clause 2)
+- Then x2 = true (from clause 61)
+- Then x16 = false (from clause 3)
+- Then x35 = true (from clause 7)
+- Then x48 = true (from clause 7)
+- Then x34 = false (from clause 9)
+- Then x45 = true (from clause 4)
+- Then x40 = false (from clause 4)
+- Then x49 = true (from clause 30)
+- Then x12 = true (from clause 30)
+- Then x37 = false (from clause 134)
+- Then x3 = true (from clause 16)
+- Then x50 = true (from clause 22)
+- Then x17 = true (from clause 23)
+- Then x44 = false (from clause 103)
+- Then x24 = true (from clause 103)
+- Then x14 = false (from clause 52)
+- Then x9 = false (from clause 68)
+- Then x28 = true (from clause 10)
+- Then x27 = false (from clause 128)
+- Then x13 = true (from clause 19)
+- Then x31 = false (from clause 1)
+- Then x4 = true (from clause 1)
+- Then x20 = false (from clause 66)
+- Then x22 = true (from clause 82)
+- Then x11 = false (from clause 67)
+- Then x7 = true (from clause 88)
+- Then x15 = true (from clause 93)
+- Then x41 = false (from clause 36)
+- Then x25 = true (from clause 36)
+- Then x36 = false (from clause 100)
+- Then x5 = true (from clause 102)
+- Then x39 = false (from clause 54)
+- Then x18 = true (from clause 54)
+- Then x42 = true (from clause 53)
+- Then x26 = false (from clause 11)
+- Then x38 = false (from clause 5)
+- Then x10 = false (from clause 5)
+- Then x46 = true (from clause 118)
+- Then x21 = false (from clause 13)
+- Then x23 = true (from clause 48)
+- Then x32 = true (from clause 55)
+- Then x6 = true (from clause 34)
+- Then x43 = true (from clause 25)
+- Then x30 = true (from clause 34)
+- Then x29 = true (from clause 64)
+- Then x47 = true (from clause 57)
+- Then x33 = false (from clause 24)
+- Then x19 = true (already set)
+- Then x40 = false (already set)
+
+All clauses are satisfied!
+
+**SATISFIABLE**
+**Number of branches: 1**
+**Number of conflicts: 0**
+
+x1=true, x2=true, x3=true, x4=true, x5=true, x6=true, x7=true, x8=false, x9=false, x10=false, x11=false, x12=true, x13=true, x14=false, x15=true, x16=false, x17=true, x18=true, x19=true, x20=false, x21=false, x22=true, x23=true, x24=true, x25=true, x26=false, x27=false, x28=true, x29=true, x30=true, x31=false, x32=true, x33=false, x34=false, x35=true, x36=false, x37=false, x38=false, x39=false, x40=false, x41=false, x42=true, x43=true, x44=false, x45=true,

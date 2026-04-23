@@ -1,0 +1,90 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1479
+p cnf 10 35
+-2 -4 7 0
+-2 8 9 0
+-4 7 8 0
+-2 -7 1 0
+-6 -5 10 0
+3 4 -8 0
+-2 -7 4 0
+-6 -3 -5 0
+-10 -7 4 0
+8 4 3 0
+-2 1 4 0
+4 -6 -9 0
+9 10 2 0
+8 -3 10 0
+-2 -1 10 0
+2 9 -5 0
+-8 -1 -10 0
+5 1 7 0
+-10 -9 8 0
+-3 8 4 0
+-2 10 -9 0
+-8 9 3 0
+-9 -5 -2 0
+-10 -3 6 0
+-8 10 -7 0
+5 10 -2 0
+-9 -4 2 0
+-5 -4 9 0
+-10 -4 2 0
+2 -6 4 0
+7 10 -3 0
+3 6 4 0
+8 6 -3 0
+-4 8 -9 0
+-2 -9 5 0
+
+c GPT solve time: 21.47 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+- 35 clauses total
+
+**Step-by-step Solution:**
+
+**Branch 1:** x1 = true
+- Unit propagation from clause 15 (¬x2 ∨ ¬x1 ∨ x10): forces x2 = false or x10 = true
+- With x1 = true and checking clause 17 (¬x8 ∨ ¬x1 ∨ ¬x10): forces x8 = false or x10 = false
+
+**Continuing with x1 = true, x2 = false:**
+- Clause 13 (x9 ∨ x10 ∨ x2) becomes (x9 ∨ x10)
+- Clause 16 (x2 ∨ x9 ∨ ¬x5) becomes (x9 ∨ ¬x5)
+- Multiple clauses are satisfied by ¬x2
+
+**Branch 2:** x1 = true, x2 = false, x3 = true
+- Clause 8 (¬x6 ∨ ¬x3 ∨ ¬x5) forces x6 = false or x5 = false
+- Clause 24 (¬x10 ∨ ¬x3 ∨ x6) forces x10 = false or x6 = true
+- This creates a conflict with clause 8
+
+**Backtrack - Conflict 1**
+
+**Branch 3:** x1 = true, x2 = false, x3 = false
+- Clause 6 (x3 ∨ x4 ∨ ¬x8) becomes (x4 ∨ ¬x8)
+- Clause 10 (x8 ∨ x4 ∨ x3) becomes (x8 ∨ x4)
+- This forces x4 = true
+
+**Continuing with x1 = true, x2 = false, x3 = false, x4 = true:**
+- Many clauses are satisfied
+- Clause 17 (¬x8 ∨ ¬x1 ∨ ¬x10) forces x8 = false or x10 = false
+
+**Branch 4:** x1 = true, x2 = false, x3 = false, x4 = true, x5 = true
+- Clause 28 (¬x5 ∨ ¬x4 ∨ x9) forces x9 = true
+- Clause 23 (¬x9 ∨ ¬x5 ∨ ¬x2) is satisfied
+- Continue assigning remaining variables
+
+**Branch 5:** x1 = true, x2 = false, x3 = false, x4 = true, x5 = true, x6 = false
+- Clause 5 (¬x6 ∨ ¬x5 ∨ x10) forces x10 = true
+- Clause 17 (¬x8 ∨ ¬x1 ∨ ¬x10) forces x8 = false
+- Clause 19 (¬x10 ∨ ¬x9 ∨ x8) creates conflict
+
+**Backtrack - Conflict 2**
+
+**Branch 6:** x1 = true, x2 = false, x3 = false, x4 = true, x5 = true, x6 = true
+- Clause 5 (¬x6 ∨ ¬x5 ∨ x10) forces x10 = true
+- Clause 17 (¬x8 ∨ ¬x1 ∨ ¬x10) forces x8 = false
+- Clause 25 (¬x8

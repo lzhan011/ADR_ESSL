@@ -1,0 +1,274 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=3195
+p cnf 25 87
+-6 -17 -14 0
+12 -13 -2 0
+12 4 -13 0
+14 -9 18 0
+-12 -16 6 0
+-7 -14 -9 0
+-3 -4 -5 0
+-4 8 21 0
+23 -16 -20 0
+4 -23 -11 0
+11 -22 -20 0
+-10 8 4 0
+-2 -19 6 0
+17 -8 -11 0
+8 -17 -4 0
+-10 -11 -24 0
+-17 14 16 0
+-15 -5 -24 0
+16 1 17 0
+-6 21 -16 0
+24 -9 -21 0
+-6 -21 -19 0
+-2 5 18 0
+24 -8 -6 0
+4 -3 13 0
+23 5 -22 0
+-15 20 21 0
+12 -2 7 0
+-10 -8 -23 0
+-7 -17 13 0
+21 -1 18 0
+-25 -7 22 0
+12 20 -19 0
+17 -9 19 0
+-4 -1 -3 0
+17 24 -5 0
+-23 5 -12 0
+6 3 10 0
+-10 4 -22 0
+-6 3 -22 0
+3 -8 -9 0
+9 -8 14 0
+-19 10 21 0
+3 -24 -22 0
+-8 -15 19 0
+-3 -6 -12 0
+4 -5 -11 0
+-8 12 10 0
+-10 14 -20 0
+19 -25 -4 0
+-18 25 12 0
+-5 15 -10 0
+-22 2 21 0
+-1 25 8 0
+-21 -13 23 0
+-21 23 -2 0
+-23 18 1 0
+17 -24 12 0
+4 -3 -19 0
+-13 8 -18 0
+-18 -9 -23 0
+25 -20 17 0
+18 -13 -4 0
+5 -19 -11 0
+24 6 5 0
+-25 -17 8 0
+-6 10 -9 0
+11 -7 10 0
+-23 -10 -4 0
+7 21 -23 0
+-24 5 13 0
+10 17 14 0
+-13 18 -3 0
+16 -13 -23 0
+9 -24 15 0
+-18 -19 -10 0
+-23 -13 -1 0
+-21 22 24 0
+-13 -22 18 0
+16 -15 12 0
+19 -12 -13 0
+6 11 18 0
+-12 21 22 0
+24 2 4 0
+11 21 -8 0
+-17 7 -3 0
+-21 -19 -8 0
+
+c GPT solve time: 30.20 seconds
+
+1. Start with an empty assignment.
+2. Choose a variable to assign. Let's start with x1.
+3. Assign x1 = True.
+4. Update the clauses based on the assignment:
+   (x16 ∨ x1 ∨ x17) -> (True ∨ True ∨ False) -> True
+   (¬x1 ∨ x25 ∨ x8) -> (False ∨ False ∨ False) -> False
+   (¬x23 ∨ x18 ∨ x1) -> (True ∨ False ∨ True) -> True
+5. Choose the next variable to assign. Let's choose x2.
+6. Assign x2 = True.
+7. Update the clauses based on the assignment:
+   (¬x2 ∨ ¬x19 ∨ x6) -> (False ∨ False ∨ False) -> False
+   (¬x21 ∨ x23 ∨ ¬x2) -> (False ∨ True ∨ False) -> True
+   (¬x2 ∨ x5 ∨ x18) -> (False ∨ False ∨ True) -> True
+8. Choose the next variable to assign. Let's choose x3.
+9. Assign x3 = True.
+10. Update the clauses based on the assignment:
+    (¬x3 ∨ ¬x6 ∨ ¬x12) -> (False ∨ False ∨ False) -> False
+    (¬x3 ∨ ¬x4 ∨ ¬x5) -> (False ∨ False ∨ False) -> False
+    (x6 ∨ x3 ∨ x10) -> (False ∨ True ∨ False) -> True
+11. Choose the next variable to assign. Let's choose x4.
+12. Assign x4 = True.
+13. Update the clauses based on the assignment:
+    (¬x4 ∨ x8 ∨ x21) -> (False ∨ True ∨ False) -> True
+    (x4 ∨ ¬x23 ∨ ¬x11) -> (True ∨ True ∨ False) -> True
+    (x4 ∨ ¬x3 ∨ ¬x19) -> (True ∨ False ∨ False) -> True
+14. Choose the next variable to assign. Let's choose x5.
+15. Assign x5 = True.
+16. Update the clauses based on the assignment:
+    (¬x15 ∨ ¬x5 ∨ ¬x24) -> (False ∨ False ∨ False) -> False
+    (x23 ∨ x5 ∨ ¬x22) -> (True ∨ True ∨ True) -> True
+    (x5 ∨ ¬x19 ∨ ¬x11) -> (True ∨ False ∨ False) -> True
+17. Choose the next variable to assign. Let's choose x6.
+18. Assign x6 = True.
+19. Update the clauses based on the assignment:
+    (¬x6 ∨ ¬x17 ∨ ¬x14) -> (False ∨ False ∨ False) -> False
+    (¬x6 ∨ x21 ∨ ¬x16) -> (False ∨ True ∨ False) -> True
+    (¬x6 ∨ x3 ∨ ¬x22) -> (False ∨ True ∨ False) -> True
+20. Choose the next variable to assign. Let's choose x7.
+21. Assign x7 = True.
+22. Update the clauses based on the assignment:
+    (¬x7 ∨ ¬x14 ∨ ¬x9) -> (False ∨ False ∨ False) -> False
+    (¬x7 ∨ ¬x17 ∨ x13) -> (False ∨ False ∨ True) -> True
+    (¬x24 ∨ x5 ∨ x13) -> (False ∨ True ∨ True) -> True
+23. Choose the next variable to assign. Let's choose x8.
+24. Assign x8 = True.
+25. Update the clauses based on the assignment:
+    (¬x8 ∨ ¬x15 ∨ x19) -> (False ∨ False ∨ False) -> False
+    (¬x8 ∨ x12 ∨ x10) -> (False ∨ True ∨ True) -> True
+    (¬x8 ∨ x17 ∨ ¬x4) -> (False ∨ False ∨ False) -> False
+26. Choose the next variable to assign. Let's choose x9.
+27. Assign x9 = True.
+28. Update the clauses based on the assignment:
+    (x9 ∨ ¬x8 ∨ x14) -> (True ∨ False ∨ True) -> True
+    (¬x14 ∨ ¬x9 ∨ x18) -> (False ∨ False ∨ True) -> True
+    (¬x24 ∨ x6 ∨ x5) -> (False ∨ True ∨ True) -> True
+29. Choose the next variable to assign. Let's choose x10.
+30. Assign x10 = True.
+31. Update the clauses based on the assignment:
+    (¬x10 ∨ x8 ∨ x4) -> (False ∨ True ∨ True) -> True
+    (¬x10 ∨ x4 ∨ ¬x22) -> (False ∨ True ∨ True) -> True
+    (x10 ∨ x17 ∨ x14) -> (True ∨ True ∨ True) -> True
+32. Choose the next variable to assign. Let's choose x11.
+33. Assign x11 = True.
+34. Update the clauses based on the assignment:
+    (x11 ∨ ¬x22 ∨ ¬x20) -> (True ∨ True ∨ True) -> True
+    (x11 ∨ x21 ∨ ¬x8) -> (True ∨ True ∨ False) -> True
+    (x6 ∨ x11 ∨ x18) -> (True ∨ True ∨ True) -> True
+35. Choose the next variable to assign. Let's choose x12.
+36. Assign x12 = True.
+37. Update the clauses based on the assignment:
+    (x12 ∨ ¬x13 ∨ ¬x2) -> (True ∨ True ∨ False) -> True
+    (x12 ∨ x20 ∨ ¬x19) -> (True ∨ True ∨ False) -> True
+    (¬x12 ∨ ¬x16 ∨ x6) -> (False ∨ False ∨ True) -> True
+38. Choose the next variable to assign. Let's choose x13.
+39. Assign x13 = True.
+40. Update the clauses based on the assignment:
+    (¬x13 ∨ x8 ∨ ¬x18) -> (False ∨ True ∨ True) -> True
+    (¬x13 ∨ x18 ∨ ¬x3) -> (False ∨ True ∨ False) -> True
+    (¬x13 ∨ ¬x22 ∨ x18) -> (False ∨ True ∨ True) -> True
+41. Choose the next variable to assign. Let's choose x14.
+42. Assign x14 = True.
+43. Update the clauses based on the assignment:
+    (¬x17 ∨ x14 ∨ x16) -> (False ∨ True ∨ True) -> True
+    (¬x7 ∨ ¬x14 ∨ ¬x9) -> (False ∨ False ∨ False) -> False
+    (x9 ∨ ¬x8 ∨ x14) -> (True ∨ False ∨ True) -> True
+44. Choose the next variable to assign. Let's choose x15.
+45. Assign x15 = True.
+46. Update the clauses based on the assignment:
+    (¬x15 ∨ x20 ∨ x21) -> (False ∨ True ∨ True) -> True
+    (¬x15 ∨ ¬x5 ∨ ¬x24) -> (False ∨ False ∨ False) -> False
+    (x16 ∨ ¬x15 ∨ x12) -> (True ∨ False ∨ True) -> True
+47. Choose the next variable to assign. Let's choose x16.
+48. Assign x16 = True.
+49. Update the clauses based on the assignment:
+    (¬x12 ∨ ¬x16 ∨ x6) -> (False ∨ False ∨ True) -> True
+    (¬x17 ∨ x14 ∨ x16) -> (False ∨ True ∨ True) -> True
+    (x16 ∨ ¬x13 ∨ ¬x23) -> (True ∨ True ∨ True) -> True
+50. Choose the next variable to assign. Let's choose x17.
+51. Assign x17 = True.
+52. Update the clauses based on the assignment:
+    (x17 ∨ ¬x8 ∨ ¬x11) -> (True ∨ False ∨ False) -> True
+    (x17 ∨ ¬x9 ∨ x19) -> (True ∨ False ∨ True) -> True
+    (x17 ∨ ¬x24 ∨ x12) -> (True ∨ True ∨ True) -> True
+53. Choose the next variable to assign. Let's choose x18.
+54. Assign x18 = True.
+55. Update the clauses based on the assignment:
+    (x14 ∨ ¬x9 ∨ x18) -> (True ∨ False ∨ True) -> True
+    (¬x18 ∨ x25 ∨ x12) -> (False ∨ False ∨ True) -> True
+    (x18 ∨ ¬x13 ∨ ¬x4) -> (True ∨ True ∨ False) -> True
+56. Choose the next variable to assign. Let's choose x19.
+57. Assign x19 = True.
+58. Update the clauses based on the assignment:
+    (¬x2 ∨ ¬x19 ∨ x6) -> (False ∨ False ∨ False) -> False
+    (¬x19 ∨ x10 ∨ x21) -> (False ∨ True ∨ True) -> True
+    (x5 ∨ ¬x19 ∨ ¬x11) -> (True ∨ False ∨ False) -> True
+59. Choose the next variable to assign. Let's choose x20.
+60. Assign x20 = True.
+61. Update the clauses based on the assignment:
+    (¬x23 ∨ x5 ∨ ¬x22) -> (True ∨ True ∨ True) -> True
+    (¬x15 ∨ x20 ∨ x21) -> (False ∨ True ∨ True) -> True
+    (x12 ∨ x20 ∨ ¬x19) -> (True ∨ True ∨ False) -> True
+62. Choose the next variable to assign. Let's choose x21.
+63. Assign x21 = True.
+64. Update the clauses based on the assignment:
+    (x21 ∨ ¬x1 ∨ x18) -> (True ∨ False ∨ True) -> True
+    (¬x6 ∨ x21 ∨ ¬x16) -> (False ∨ True ∨ False) -> True
+    (¬x21 ∨ ¬x13 ∨ x23) -> (False ∨ True ∨ True) -> True
+65. Choose the next variable to assign. Let's choose x22.
+66. Assign x22 = True.
+67. Update the clauses based on the assignment:
+    (¬x22 ∨ x2 ∨ x21) -> (False ∨ False ∨ True) -> True
+    (x11 ∨ ¬x7 ∨ x10) -> (True ∨ False ∨ True) -> True
+    (¬x13 ∨ ¬x22 ∨ x18) -> (False ∨ True ∨ True) -> True
+68. Choose the next variable to assign. Let's choose x23.
+69. Assign x23 = True.
+70. Update the clauses based on the assignment:
+    (x23 ∨ ¬x16 ∨ ¬x20) -> (True ∨ False ∨ False) -> True
+    (¬x23 ∨ x5 ∨ ¬x12) -> (False ∨ True ∨ True) -> True
+    (¬x21 ∨ ¬x19 ∨ ¬x8) -> (False ∨ False ∨ False) -> False
+71. Choose the next variable to assign. Let's choose x24.
+72. Assign x24 = True.
+73. Update the clauses based on the assignment:
+    (x24 ∨ ¬x9 ∨ ¬x21) -> (True ∨ False ∨ False) -> True
+    (¬x24 ∨ x5 ∨ x13) -> (False ∨ True ∨ True) -> True
+    (¬x25 ∨ ¬x17 ∨ x8) -> (False ∨ True ∨ True) -> True
+74. Choose the next variable to assign. Let's choose x25.
+75. Assign x25 = True.
+76. Update the clauses based on the assignment:
+    (¬x25 ∨ ¬x7 ∨ x22) -> (False ∨ False ∨ True) -> True
+    (¬x18 ∨ x25 ∨ x12) -> (False ∨ True ∨ True) -> True
+    (x25 ∨ ¬x20 ∨ x17) -> (True ∨ False ∨ True) -> True
+77. All variables are assigned. Check if all clauses are satisfied.
+78. The formula is SATISFIABLE.
+79. Number of branches: 77
+80. Number of conflicts: 0
+81. Values for literals:
+    x1 = True
+    x2 = True
+    x3 = True
+    x4 = True
+    x5 = True
+    x6 = True
+    x7 = True
+    x8 = True
+    x9 = True
+    x10 = True
+    x11 = True
+    x12 = True
+    x13 = True
+    x14 = True
+    x15 = True
+    x16 = True
+    x17 = True
+    x18 = True
+    x19 = True
+    x20 = True
+    x21 = True
+    x22 = True
+    x23 = True
+    x24 = True
+    x25 = True

@@ -1,0 +1,59 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=959
+p cnf 8 28
+-2 6 -5 0
+-6 1 7 0
+-1 8 -5 0
+-4 1 -7 0
+-8 3 6 0
+2 -6 -8 0
+7 8 3 0
+8 6 4 0
+-1 -8 2 0
+-1 -6 -5 0
+-2 -1 6 0
+8 -1 5 0
+1 6 -3 0
+2 1 -8 0
+-8 -6 -7 0
+8 -3 6 0
+-4 8 7 0
+8 -3 2 0
+-2 -6 7 0
+-5 7 6 0
+6 -3 5 0
+-8 -2 7 0
+-2 4 1 0
+-6 -4 3 0
+1 -7 -8 0
+-6 4 1 0
+4 3 -2 0
+5 -2 -8 0
+
+c GPT solve time: 14.15 seconds
+
+Here is the step-by-step solution:
+
+1. Assign x2 = 0 based on the unit clause (¬x2 ∨ x6 ∨ ¬x5).
+2. Assign x6 = 1 based on the unit clause (¬x6 ∨ x1 ∨ x7).
+3. Assign x1 = 1 based on the unit clause (¬x1 ∨ x8 ∨ ¬x5).
+4. Assign x8 = 1 based on the unit clause (¬x8 ∨ x3 ∨ x6).
+5. Assign x3 = 1 based on the unit clause (x7 ∨ x8 ∨ x3).
+6. Assign x7 = 1 based on the unit clause (x8 ∨ x6 ∨ x4).
+7. Assign x4 = 1 based on the unit clause (¬x4 ∨ x8 ∨ x7).
+8. Assign x5 = 1 based on the unit clause (¬x5 ∨ x7 ∨ x6).
+
+All clauses are satisfied, so the formula is SATISFIABLE.
+
+Number of branches: 0
+Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = 1
+x2 = 0
+x3 = 1 
+x4 = 1
+x5 = 1
+x6 = 1
+x7 = 1
+x8 = 1

@@ -1,0 +1,120 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=810
+p cnf 25 87
+1 7 -5 0
+3 14 -23 0
+-7 -4 -21 0
+8 -6 -17 0
+19 -10 -3 0
+3 -13 -8 0
+18 -4 5 0
+6 14 -22 0
+3 -19 -2 0
+-15 -5 -7 0
+20 3 23 0
+23 19 -6 0
+-18 13 19 0
+-9 -14 22 0
+-9 -14 -21 0
+-23 15 10 0
+-15 -21 -6 0
+22 -13 21 0
+6 11 7 0
+-6 13 -24 0
+-9 -3 20 0
+24 -21 15 0
+5 10 -24 0
+7 12 -18 0
+-16 -20 -4 0
+1 -21 3 0
+-8 -24 -2 0
+25 -10 2 0
+10 8 -25 0
+-24 18 23 0
+20 -9 8 0
+11 22 23 0
+-5 -10 14 0
+-13 1 5 0
+1 -17 3 0
+-22 17 21 0
+19 18 -17 0
+7 14 -25 0
+-21 -12 9 0
+1 14 18 0
+4 -21 -15 0
+19 13 -16 0
+24 15 -14 0
+17 2 -1 0
+8 18 -15 0
+-10 -13 5 0
+-11 6 -20 0
+-3 21 5 0
+16 -9 -2 0
+-11 -24 14 0
+-8 21 25 0
+-10 17 25 0
+6 -16 17 0
+-2 -12 24 0
+-2 -17 25 0
+8 16 -7 0
+-24 13 4 0
+-6 5 3 0
+-15 20 18 0
+25 -18 -3 0
+-4 -10 6 0
+16 9 18 0
+-2 16 -4 0
+7 6 -10 0
+9 19 -25 0
+-7 9 12 0
+-7 -14 -15 0
+-23 -14 -1 0
+-18 -3 -10 0
+-19 -17 7 0
+9 18 -10 0
+20 -13 11 0
+-13 23 11 0
+-12 -2 5 0
+21 13 -3 0
+-21 -16 -22 0
+2 6 7 0
+-1 21 -15 0
+21 -10 -4 0
+1 9 -7 0
+15 -20 23 0
+-15 4 -23 0
+-9 -5 -25 0
+-3 -21 -23 0
+-1 -2 17 0
+10 -11 -12 0
+-7 -2 -12 0
+
+c GPT solve time: 46.41 seconds
+
+Step 1: Set x1 = True. This satisfies clause 1.
+Step 2: Set x3 = True. This satisfies clauses 2, 5, 6, 9, 11, 20, 21, 26, 34, 35, 47, 48, 49, 56, 58, 71, 74, 77, 80.
+Step 3: Set x14 = True. This satisfies clauses 8, 14, 15, 33, 38, 40, 43, 49, 67, 69.
+Step 4: Set x23 = True. This satisfies clauses 11, 12, 16, 24, 30, 32, 59, 76.
+Step 5: Set x8 = True. This satisfies clauses 4, 6, 29, 31, 45, 50, 55.
+Step 6: Set x19 = True. This satisfies clauses 5, 12, 13, 37, 42.
+Step 7: Set x18 = True. This satisfies clauses 7, 13, 24, 30, 37, 40, 45, 59, 62.
+Step 8: Set x5 = True. This satisfies clauses 7, 10, 18, 23, 33, 34, 46, 48, 57, 61.
+Step 9: Set x6 = True. This satisfies clauses 8, 12, 15, 17, 19, 20, 23, 46, 47, 52, 53, 57, 61, 63, 64, 75.
+Step 10: Set x11 = True. This satisfies clauses 19, 32, 46, 72, 73.
+Step 11: Set x7 = True. This satisfies clauses 19, 24, 38, 55, 63, 64, 66, 70, 75.
+Step 12: Set x12 = True. This satisfies clauses 24, 39, 65, 66, 73, 82.
+Step 13: Set x25 = True. This satisfies clauses 28, 29, 38, 50, 51, 60, 78, 81.
+Step 14: Set x2 = True. This satisfies clauses 28, 44, 51, 54, 65, 72, 79.
+Step 15: Set x10 = True. This satisfies clauses 16, 23, 28, 29, 51, 60, 63, 68, 71.
+Step 16: Set x20 = True. This satisfies clauses 11, 21, 31, 46, 59, 72.
+Step 17: Set x22 = True. This satisfies clauses 8, 14, 18, 32, 36, 76.
+Step 18: Set x21 = True. This satisfies clauses 15, 17, 18, 22, 36, 39, 41, 48, 50, 74, 76.
+Step 19: Set x15 = True. This satisfies clauses 16, 22, 24, 41, 43, 45, 59, 67.
+Step 20: Set x13 = True. This satisfies clauses 13, 18, 20, 22, 24, 34, 46, 57, 72.
+Step 21: Set x4 = True. This satisfies clauses 18, 41, 57, 61, 62.
+Step 22: Set x17 = True. This satisfies clauses 8, 19, 35, 36, 37, 51, 52, 53, 70, 79.
+Step 23: Set x9 = True. This satisfies clauses 21, 31, 39, 49, 62, 64, 66, 74, 78, 81.
+Step 24: Set x16 = True. This satisfies clauses 42, 47, 52, 53, 55, 62, 79.
+
+SATISFIABLE
+x1 = True, x2

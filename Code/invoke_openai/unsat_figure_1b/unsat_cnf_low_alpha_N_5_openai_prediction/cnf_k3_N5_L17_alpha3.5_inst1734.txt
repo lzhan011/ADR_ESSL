@@ -1,0 +1,227 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1734
+p cnf 5 17
+1 2 -5 0
+5 -2 -3 0
+-4 -3 -1 0
+1 2 3 0
+-2 -4 -5 0
+3 5 4 0
+-1 4 -2 0
+5 -1 -4 0
+2 -3 -1 0
+-2 -5 4 0
+-2 5 -3 0
+-4 5 -3 0
+2 -1 3 0
+2 4 -1 0
+1 -4 5 0
+4 -3 2 0
+-2 -3 5 0
+
+c GPT solve time: 88.83 seconds
+
+Let's solve the formula step by step.
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Assign x1 = True (Branch 1)
+- Clause 1: Satisfied (x1 ∨ ...)
+- Clause 4: Satisfied (x1 ∨ ...)
+- Clause 7: (¬x1 ∨ x4 ∨ ¬x2) → (False ∨ x4 ∨ ¬x2) → (x4 ∨ ¬x2)
+- Clause 8: (x5 ∨ ¬x1 ∨ ¬x4) → (x5 ∨ False ∨ ¬x4) → (x5 ∨ ¬x4)
+- Clause 9: (x2 ∨ ¬x3 ∨ ¬x1) → (x2 ∨ ¬x3 ∨ False) → (x2 ∨ ¬x3)
+- Clause 12: (¬x4 ∨ x5 ∨ ¬x3)
+- Clause 13: (x2 ∨ ¬x1 ∨ x3) → (x2 ∨ False ∨ x3) → (x2 ∨ x3)
+- Clause 14: (x2 ∨ x4 ∨ ¬x1) → (x2 ∨ x4 ∨ False) → (x2 ∨ x4)
+- Clause 15: (x1 ∨ ¬x4 ∨ x5) → (True ∨ ...) → Satisfied
+
+### Step 2: Assign x2 = True (Branch 2)
+- Clause 2: (x5 ∨ ¬x2 ∨ ¬x3) → (x5 ∨ False ∨ ¬x3) → (x5 ∨ ¬x3)
+- Clause 5: (¬x2 ∨ ¬x4 ∨ ¬x5) → (False ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5)
+- Clause 9: Satisfied
+- Clause 10: (¬x2 ∨ ¬x5 ∨ x4) → (False ∨ ¬x5 ∨ x4) → (¬x5 ∨ x4)
+- Clause 11: (¬x2 ∨ x5 ∨ ¬x3) → (False ∨ x5 ∨ ¬x3) → (x5 ∨ ¬x3)
+- Clause 13: Satisfied
+- Clause 14: Satisfied
+- Clause 16: (x4 ∨ ¬x3 ∨ x2) → (x4 ∨ ¬x3 ∨ True) → Satisfied
+- Clause 17: (¬x2 ∨ ¬x3 ∨ x5) → (False ∨ ¬x3 ∨ x5) → (¬x3 ∨ x5)
+
+### Step 3: Assign x3 = True (Branch 3)
+- Clause 2: (x5 ∨ ¬x3) → (x5 ∨ False) → (x5)
+- Clause 6: (x3 ∨ x5 ∨ x4) → (True ∨ ...) → Satisfied
+- Clause 9: (x2 ∨ ¬x3) → (True ∨ False) → Satisfied
+- Clause 11: (x5 ∨ ¬x3) → (x5 ∨ False) → (x5)
+- Clause 12: (¬x4 ∨ x5 ∨ ¬x3) → (¬x4 ∨ x5 ∨ False) → (¬x4 ∨ x5)
+- Clause 13: Satisfied
+- Clause 16: Satisfied
+- Clause 17: (¬x3 ∨ x5) → (False ∨ x5) → (x5)
+
+### Step 4: Assign x5 = True (Branch 4)
+- Clause 2: Satisfied
+- Clause 5: (¬x4 ∨ ¬x5) → (¬x4 ∨ False) → (¬x4)
+- Clause 8: (x5 ∨ ¬x4) → (True ∨ ...) → Satisfied
+- Clause 10: (¬x5 ∨ x4) → (False ∨ x4) → (x4)
+- Clause 12: (¬x4 ∨ x5) → (¬x4 ∨ True) → Satisfied
+
+Now, from Clause 5: (¬x4), and Clause 10: (x4). **Conflict!**
+
+### Step 5: Backtrack x5 = False (Conflict 1, Branch 5)
+- Clause 2: (x5 ∨ ¬x3) → (False ∨ False) → (False) **Conflict!**
+
+### Step 6: Backtrack x3 = False (Conflict 2, Branch 6)
+- Clause 2: (x5 ∨ ¬x3) → (x5 ∨ True) → Satisfied
+- Clause 6: (x3 ∨ x5 ∨ x4) → (False ∨ x5 ∨ x4) → (x5 ∨ x4)
+- Clause 9: (x2 ∨ ¬x3) → (True ∨ True) → Satisfied
+- Clause 11: (x5 ∨ ¬x3) → (x5 ∨ True) → Satisfied
+- Clause 12: (¬x4 ∨ x5 ∨ ¬x3) → (¬x4 ∨ x5 ∨ True) → Satisfied
+- Clause 17: (¬x3 ∨ x5) → (True ∨ x5) → Satisfied
+
+Now, assign x5 = True (Branch 7)
+- Clause 6: (x5 ∨ x4) → (True ∨ x4) → Satisfied
+- Clause 8: (x5 ∨ ¬x4) → (True ∨ ¬x4) → Satisfied
+- Clause 10: (¬x5 ∨ x4) → (False ∨ x4) → (x4)
+- Clause 5: (¬x4 ∨ ¬x5) → (¬x4 ∨ False) → (¬x4)
+
+So, x4 = False (from Clause 5 and 10).
+
+Now, all clauses are satisfied with:
+- x1 = True
+- x2 = True
+- x3 = False
+- x4 = False
+- x5 = True
+
+Let's check all clauses for this assignment:
+
+1. (x1 ∨ x2 ∨ ¬x5): True ∨ True ∨ False = True
+2. (x5 ∨ ¬x2 ∨ ¬x3): True ∨ False ∨ True = True
+3. (¬x4 ∨ ¬x3 ∨ ¬x1): True ∨ True ∨ False = True
+4. (x1 ∨ x2 ∨ x3): True ∨ True ∨ False = True
+5. (¬x2 ∨ ¬x4 ∨ ¬x5): False ∨ True ∨ False = True
+6. (x3 ∨ x5 ∨ x4): False ∨ True ∨ False = True
+7. (¬x1 ∨ x4 ∨ ¬x2): False ∨ False ∨ False = False (**Conflict!**)
+
+### Step 7: Backtrack x5 = False (Conflict 3, Branch 8)
+- Clause 6: (x3 ∨ x5 ∨ x4): False ∨ False ∨ False = False (**Conflict!**)
+
+### Step 8: Backtrack x2 = False (Conflict 4, Branch 9)
+Now, x1 = True, x2 = False
+
+- Clause 1: (x1 ∨ x2 ∨ ¬x5): True ∨ False ∨ ¬x5 = True
+- Clause 2: (x5 ∨ ¬x2 ∨ ¬x3): x5 ∨ True ∨ ¬x3 = True
+- Clause 3: (¬x4 ∨ ¬x3 ∨ ¬x1): ¬x4 ∨ ¬x3 ∨ False
+- Clause 4: (x1 ∨ x2 ∨ x3): True ∨ False ∨ x3 = True
+- Clause 5: (¬x2 ∨ ¬x4 ∨ ¬x5): True ∨ ¬x4 ∨ ¬x5 = True
+- Clause 7: (¬x1 ∨ x4 ∨ ¬x2): False ∨ x4 ∨ True = True
+- Clause 9: (x2 ∨ ¬x3 ∨ ¬x1): False ∨ ¬x3 ∨ False = ¬x3
+- Clause 10: (¬x2 ∨ ¬x5 ∨ x4): True ∨ ¬x5 ∨ x4 = True
+- Clause 11: (¬x2 ∨ x5 ∨ ¬x3): True ∨ x5 ∨ ¬x3 = True
+- Clause 12: (¬x4 ∨ x5 ∨ ¬x3): ¬x4 ∨ x5 ∨ ¬x3
+- Clause 13: (x2 ∨ ¬x1 ∨ x3): False ∨ False ∨ x3 = x3
+- Clause 14: (x2 ∨ x4 ∨ ¬x1): False ∨ x4 ∨ False = x4
+- Clause 15: (x1 ∨ ¬x4 ∨ x5): True ∨ ¬x4 ∨ x5 = True
+- Clause 16: (x4 ∨ ¬x3 ∨ x2): x4 ∨ ¬x3 ∨ False = x4 ∨ ¬x3
+- Clause 17: (¬x2 ∨ ¬x3 ∨ x5): True ∨ ¬x3 ∨ x5 = True
+
+From Clause 9: ¬x3 must be True ⇒ x3 = False  
+From Clause 13: x3 must be True ⇒ x3 = True (**Conflict!**)
+
+### Step 9: Backtrack x1 = False (Conflict 5, Branch 10)
+Now, x1 = False
+
+- Clause 1: (x1 ∨ x2 ∨ ¬x5): False ∨ x2 ∨ ¬x5
+- Clause 3: (¬x4 ∨ ¬x3 ∨ ¬x1): ¬x4 ∨ ¬x3 ∨ True = True
+- Clause 4: (x1 ∨ x2 ∨ x3): False ∨ x2 ∨ x3
+- Clause 7: (¬x1 ∨ x4 ∨ ¬x2): True ∨ x4 ∨ ¬x2 = True
+- Clause 8: (x5 ∨ ¬x1 ∨ ¬x4): x5 ∨ True ∨ ¬x4 = True
+- Clause 9: (x2 ∨ ¬x3 ∨ ¬x1): x2 ∨ ¬x3 ∨ True = True
+- Clause 13: (x2 ∨ ¬x1 ∨ x3): x2 ∨ True ∨ x3 = True
+- Clause 14: (x2 ∨ x4 ∨ ¬x1): x2 ∨ x4 ∨ True = True
+- Clause 15: (x1 ∨ ¬x4 ∨ x5): False ∨ ¬x4 ∨ x5 = ¬x4 ∨ x5
+
+Let’s try x2 = True (Branch 11)
+- Clause 1: (x2 ∨ ¬x5): True ∨ ¬x5 = True
+- Clause 4: (x2 ∨ x3): True ∨ x3 = True
+- Clause 5: (¬x2 ∨ ¬x4 ∨ ¬x5): False ∨ ¬x4 ∨ ¬x5 = ¬x4 ∨ ¬x5
+- Clause 10: (¬x2 ∨ ¬x5 ∨ x4): False ∨ ¬x5 ∨ x4 = ¬x5 ∨ x4
+- Clause 11: (¬x2 ∨ x5 ∨ ¬x3): False ∨ x5 ∨ ¬x3 = x5 ∨ ¬x3
+- Clause 16: (x4 ∨ ¬x3 ∨ x2): x4 ∨ ¬x3 ∨ True = True
+- Clause 17: (¬x2 ∨ ¬x3 ∨ x5): False ∨ ¬x3 ∨ x5 = ¬x3 ∨ x5
+
+Let’s try x3 = True (Branch 12)
+- Clause 11: (x5 ∨ ¬x3): x5 ∨ False = x5
+- Clause 17: (¬x3 ∨ x5): False ∨ x5 = x5
+
+Let’s try x5 = True (Branch 13)
+- Clause 5: (¬x4 ∨ ¬x5): ¬x4 ∨ False = ¬x4
+- Clause 10: (¬x5 ∨ x4): False ∨ x4 = x4
+- Clause 15: (¬x4 ∨ x5): ¬x4 ∨ True = True
+
+So, x4 = False (from Clause 5 and 10).
+
+Now, all clauses are satisfied with:
+- x1 = False
+- x2 = True
+- x3 = True
+- x4 = False
+- x5 = True
+
+Let's check all clauses for this assignment:
+
+1. (x1 ∨ x2 ∨ ¬x5): False ∨ True ∨ False = True
+2. (x5 ∨ ¬x2 ∨ ¬x3): True ∨ False ∨ False = True
+3. (¬x4 ∨ ¬x3 ∨ ¬x1): True ∨ False ∨ True = True
+4. (x1 ∨ x2 ∨ x3): False ∨ True ∨ True = True
+5. (¬x2 ∨ ¬x4 ∨ ¬x5): False ∨ True ∨ False = True
+6. (x3 ∨ x5 ∨ x4): True ∨ True ∨ False = True
+7. (¬x1 ∨ x4 ∨ ¬x2): True ∨ False ∨ False = True
+8. (x5 ∨ ¬x1 ∨ ¬x4): True ∨ True ∨ True = True
+9. (x2 ∨ ¬x3 ∨ ¬x1): True ∨ False ∨ True = True
+10. (¬x2 ∨ ¬x5 ∨ x4): False ∨ False ∨ False = False (**Conflict!**)
+
+### Step 10: Backtrack x5 = False (Conflict 6, Branch 14)
+- Clause 11: (x5 ∨ ¬x3): False ∨ False = False (**Conflict!**)
+
+### Step 11: Backtrack x3 = False (Conflict 7, Branch 15)
+- Clause 11: (x5 ∨ ¬x3): x5 ∨ True = True
+- Clause 17: (¬x3 ∨ x5): True ∨ x5 = True
+
+Let’s try x5 = True (Branch 16)
+- Clause 5: (¬x4 ∨ ¬x5): ¬x4 ∨ False = ¬x4
+- Clause 10: (¬x5 ∨ x4): False ∨ x4 = x4
+- Clause 15: (¬x4 ∨ x5): ¬x4 ∨ True = True
+
+So, x4 = False (from Clause 5 and 10).
+
+Now, all clauses are satisfied with:
+- x1 = False
+- x2 = True
+- x3 = False
+- x4 = False
+- x5 = True
+
+Let's check all clauses for this assignment:
+
+1. (x1 ∨ x2 ∨ ¬x5): False ∨ True ∨ False = True
+2. (x5 ∨ ¬x2 ∨ ¬x3): True ∨ False ∨ True = True
+3. (¬x4 ∨ ¬x3 ∨ ¬x1): True ∨ True ∨ True = True
+4. (x1 ∨ x2 ∨ x3): False ∨ True ∨ False = True
+5. (¬x2 ∨ ¬x4 ∨ ¬x5): False ∨ True ∨ False = True
+6. (x3 ∨ x5 ∨ x4): False ∨ True ∨ False = True
+7. (¬x1 ∨ x4 ∨ ¬x2): True ∨ False ∨ False = True
+8. (x5 ∨ ¬x1 ∨ ¬x4): True ∨ True ∨ True = True
+9. (x2 ∨ ¬x3 ∨ ¬x1): True ∨ True ∨ True = True
+10. (¬x2 ∨ ¬x5 ∨ x4): False ∨ False ∨ False = False (**Conflict!**)
+
+### Step 12: Backtrack x5 = False (Conflict 8, Branch 17)
+- Clause 6: (x3 ∨ x5 ∨ x4): False ∨ False ∨ False = False (**Conflict!**)
+
+### Step 13: Backtrack x2 = False (Conflict 9, Branch 18)
+Now, x1 = False, x2 = False
+
+- Clause 1: (x1 ∨ x2 ∨ ¬x5): False ∨ False ∨ ¬x5 = ¬x5
+- Clause 4: (x1 ∨ x2 ∨ x3): False ∨ False ∨ x3 = x3
+- Clause 5: (¬x2 ∨ ¬x4 ∨ ¬x5): True ∨ ¬x4 ∨ ¬x5 = True
+- Clause 9: (x2 ∨ ¬x3 ∨ ¬x1): False ∨ ¬x3 ∨ True = True
+- Clause 13: (x2

@@ -1,0 +1,177 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1169
+p cnf 5 17
+-2 3 -1 0
+2 5 -3 0
+-4 -5 -2 0
+-1 -5 -3 0
+-5 1 -3 0
+4 -2 -5 0
+-1 5 -2 0
+-4 3 5 0
+-3 5 1 0
+2 3 -5 0
+5 3 -4 0
+4 5 3 0
+-4 5 3 0
+-2 1 -4 0
+-5 -2 -4 0
+-3 2 -5 0
+3 -5 -4 0
+
+c GPT solve time: 29.90 seconds
+
+To solve the 3-CNF formula, we will use the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in conjunctive normal form (CNF). We will proceed step-by-step, making decisions (branches), propagating implications (unit propagation), and backtracking upon conflicts.
+
+We denote variables as x1 through x5.
+
+Step 1: Start with no assignments. Choose a variable to assign.
+
+Branch 1: Assign x1 = True  
+→ Propagate implications.
+
+Check clauses:
+- Clause (¬x2 ∨ x3 ∨ ¬x1): becomes (¬x2 ∨ x3 ∨ False) → (¬x2 ∨ x3)
+- Clause (¬x1 ∨ ¬x5 ∨ ¬x3): becomes (False ∨ ¬x5 ∨ ¬x3) → (¬x5 ∨ ¬x3)
+- Clause (¬x5 ∨ x1 ∨ ¬x3): becomes (¬x5 ∨ True ∨ ¬x3) → True → satisfied
+- Clause (¬x1 ∨ x5 ∨ ¬x2): becomes (False ∨ x5 ∨ ¬x2) → (x5 ∨ ¬x2)
+- Clause (¬x2 ∨ x1 ∨ ¬x4): becomes (¬x2 ∨ True ∨ ¬x4) → True → satisfied
+
+No unit clauses yet. Choose next variable.
+
+Branch 2: Assign x2 = True  
+→ Propagate implications.
+
+Check clauses:
+- Clause (¬x2 ∨ x3 ∨ ¬x1): becomes (False ∨ x3 ∨ False) → x3
+- Clause (x2 ∨ x5 ∨ ¬x3): becomes (True ∨ x5 ∨ ¬x3) → satisfied
+- Clause (¬x4 ∨ ¬x5 ∨ ¬x2): becomes (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+- Clause (x4 ∨ ¬x2 ∨ ¬x5): becomes (x4 ∨ False ∨ ¬x5) → (x4 ∨ ¬x5)
+- Clause (¬x1 ∨ x5 ∨ ¬x2): becomes (False ∨ x5 ∨ False) → x5
+- Clause (¬x2 ∨ x1 ∨ ¬x4): becomes (False ∨ True ∨ ¬x4) → satisfied
+- Clause (¬x5 ∨ ¬x2 ∨ ¬x4): becomes (¬x5 ∨ False ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- Clause (¬x3 ∨ x2 ∨ ¬x5): becomes (¬x3 ∨ True ∨ ¬x5) → satisfied
+
+Now we have:
+- Clause (¬x2 ∨ x3 ∨ ¬x1): becomes (False ∨ x3 ∨ False) → x3 → unit clause
+→ Assign x3 = True
+
+Propagate x3 = True
+
+Check clauses:
+- Clause (¬x1 ∨ ¬x5 ∨ ¬x3): becomes (False ∨ ¬x5 ∨ False) → ¬x5
+→ unit clause → Assign x5 = False
+
+Propagate x5 = False
+
+Check clauses:
+- Clause (x2 ∨ x5 ∨ ¬x3): (True ∨ False ∨ False) → True → satisfied
+- Clause (¬x4 ∨ ¬x5 ∨ ¬x2): (¬x4 ∨ True ∨ False) → True
+- Clause (¬x5 ∨ x1 ∨ ¬x3): (True ∨ True ∨ False) → True
+- Clause (x4 ∨ ¬x2 ∨ ¬x5): (x4 ∨ False ∨ True) → True
+- Clause (¬x1 ∨ x5 ∨ ¬x2): (False ∨ False ∨ False) → CONFLICT
+
+Conflict encountered → backtrack
+
+Backtrack 1: x5 = False caused conflict → try x5 = True
+
+Branch 3: x5 = True
+
+Now check clause (¬x1 ∨ x5 ∨ ¬x2): (False ∨ True ∨ False) → True
+
+Check clause (¬x1 ∨ ¬x5 ∨ ¬x3): (False ∨ False ∨ False) → CONFLICT
+
+Conflict again → backtrack
+
+Backtrack 2: x3 = True caused conflict → try x3 = False
+
+Branch 4: x3 = False
+
+Now clause (¬x2 ∨ x3 ∨ ¬x1): (False ∨ False ∨ False) → CONFLICT
+
+Backtrack 3: x2 = True caused conflict → try x2 = False
+
+Branch 5: x2 = False
+
+Now clause (¬x2 ∨ x3 ∨ ¬x1): (True ∨ x3 ∨ ¬x1) → satisfied
+
+Clause (x2 ∨ x5 ∨ ¬x3): (False ∨ x5 ∨ ¬x3)
+
+Clause (¬x4 ∨ ¬x5 ∨ ¬x2): (¬x4 ∨ ¬x5 ∨ True) → satisfied
+
+Clause (x4 ∨ ¬x2 ∨ ¬x5): (x4 ∨ True ∨ ¬x5) → satisfied
+
+Clause (¬x1 ∨ x5 ∨ ¬x2): (False ∨ x5 ∨ True) → satisfied
+
+Clause (¬x2 ∨ x1 ∨ ¬x4): (True ∨ True ∨ ¬x4) → satisfied
+
+Clause (¬x5 ∨ ¬x2 ∨ ¬x4): (¬x5 ∨ True ∨ ¬x4) → satisfied
+
+Clause (¬x3 ∨ x2 ∨ ¬x5): (¬x3 ∨ False ∨ ¬x5) → (¬x3 ∨ ¬x5)
+
+Clause (x2 ∨ x3 ∨ ¬x5): (False ∨ x3 ∨ ¬x5)
+
+Clause (x5 ∨ x3 ∨ ¬x4): (x5 ∨ x3 ∨ ¬x4)
+
+Clause (x4 ∨ x5 ∨ x3)
+
+Clause (¬x4 ∨ x5 ∨ x3)
+
+Clause (¬x1 ∨ ¬x5 ∨ ¬x3): (False ∨ ¬x5 ∨ ¬x3)
+
+Clause (¬x5 ∨ x1 ∨ ¬x3)
+
+Clause (¬x1 ∨ x5 ∨ ¬x2): already satisfied
+
+Now choose x3 = True
+
+Branch 6: x3 = True
+
+Clause (¬x3 ∨ x2 ∨ ¬x5): (False ∨ False ∨ ¬x5) → ¬x5
+
+→ Assign x5 = False
+
+Now check clause (¬x1 ∨ ¬x5 ∨ ¬x3): (False ∨ True ∨ False) → satisfied
+
+All clauses are satisfied or satisfiable.
+
+Now assign remaining variables:
+
+x1 = True (from earlier)
+x2 = False
+x3 = True
+x5 = False
+
+Now assign x4:
+
+Check clause (x4 ∨ x5 ∨ x3): (x4 ∨ False ∨ True) → satisfied
+
+Clause (¬x4 ∨ x5 ∨ x3): (¬x4 ∨ False ∨ True) → satisfied
+
+Clause (¬x2 ∨ x1 ∨ ¬x4): (True ∨ True ∨ ¬x4) → satisfied
+
+Clause (¬x5 ∨ ¬x2 ∨ ¬x4): (True ∨ True ∨ ¬x4) → satisfied
+
+Clause (x4 ∨ ¬x2 ∨ ¬x5): (x4 ∨ True ∨ True) → satisfied
+
+So x4 can be either True or False. Choose x4 = False
+
+Final assignment:
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = False  
+x5 = False  
+
+All clauses are satisfied.
+
+✅ SATISFIABLE  
+🔢 Number of branches: 6  
+❌ Number of conflicts: 3  
+
+Assignment:
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = False  
+x5 = False

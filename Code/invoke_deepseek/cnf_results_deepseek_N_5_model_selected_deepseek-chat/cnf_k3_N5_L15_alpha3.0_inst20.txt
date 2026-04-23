@@ -1,0 +1,190 @@
+c Random 3-SAT
+c alpha=3.0, N=5, L=15, instance=20
+p cnf 5 15
+3 -5 -4 0
+3 -2 -4 0
+2 -4 1 0
+-4 -1 5 0
+-1 -5 3 0
+-2 -3 -5 0
+3 -2 4 0
+4 1 5 0
+4 -5 3 0
+-5 -2 1 0
+-2 -4 1 0
+2 3 -4 0
+-5 -4 2 0
+4 -5 3 0
+4 5 -1 0
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which involves making decisions (branching), unit propagation, and backtracking upon conflicts. Here's the step-by-step process:
+
+### Step 1: Initial Setup
+The formula consists of 15 clauses over variables \( x1, x2, x3, x4, x5 \). We start with no assignments and no conflicts or branches yet.
+
+### Step 2: Unit Propagation
+No unit clauses exist initially, so we must make a decision.
+
+### Step 3: Decision Making (Branching)
+We choose \( x1 = \text{True} \) (first decision point).  
+- Propagate \( x1 = \text{True} \):
+  - Clause \( (x2 ∨ ¬x4 ∨ x1) \) is satisfied (removed).
+  - Clause \( (¬x4 ∨ ¬x1 ∨ x5) \) simplifies to \( (¬x4 ∨ x5) \).
+  - Clause \( (¬x1 ∨ ¬x5 ∨ x3) \) simplifies to \( (¬x5 ∨ x3) \).
+  - Clause \( (x4 ∨ x1 ∨ x5) \) is satisfied (removed).
+  - Clause \( (¬x5 ∨ ¬x2 ∨ x1) \) is satisfied (removed).
+  - Clause \( (¬x2 ∨ ¬x4 ∨ x1) \) is satisfied (removed).
+  - Clause \( (x4 ∨ x5 ∨ ¬x1) \) simplifies to \( (x4 ∨ x5) \).
+
+### Step 4: Next Decision
+Choose \( x2 = \text{True} \) (second decision point).  
+- Propagate \( x2 = \text{True} \):
+  - Clause \( (x3 ∨ ¬x2 ∨ ¬x4) \) simplifies to \( (x3 ∨ ¬x4) \).
+  - Clause \( (¬x2 ∨ ¬x3 ∨ ¬x5) \) simplifies to \( (¬x3 ∨ ¬x5) \).
+  - Clause \( (x3 ∨ ¬x2 ∨ x4) \) simplifies to \( (x3 ∨ x4) \).
+  - Clause \( (¬x5 ∨ ¬x4 ∨ x2) \) simplifies to \( (¬x5 ∨ ¬x4) \).
+  - Clause \( (x2 ∨ x3 ∨ ¬x4) \) is satisfied (removed).
+
+### Step 5: Next Decision
+Choose \( x3 = \text{True} \) (third decision point).  
+- Propagate \( x3 = \text{True} \):
+  - Clause \( (x3 ∨ ¬x5 ∨ ¬x4) \) is satisfied (removed).
+  - Clause \( (x3 ∨ ¬x4) \) is satisfied (removed).
+  - Clause \( (¬x3 ∨ ¬x5) \) simplifies to \( (¬x5) \).
+  - Clause \( (x3 ∨ x4) \) is satisfied (removed).
+  - Clause \( (x4 ∨ ¬x5 ∨ x3) \) is satisfied (removed).
+  - Clause \( (x4 ∨ ¬x5 ∨ x3) \) is satisfied (removed).
+
+Now, \( (¬x5) \) forces \( x5 = \text{False} \).  
+- Propagate \( x5 = \text{False} \):
+  - Clause \( (¬x4 ∨ x5) \) simplifies to \( (¬x4) \).
+  - Clause \( (¬x5 ∨ x3) \) is satisfied (removed).
+  - Clause \( (x4 ∨ x5) \) simplifies to \( (x4) \).
+  - Clause \( (¬x5 ∨ ¬x4) \) simplifies to \( (¬x4) \).
+
+Now, \( (¬x4) \) and \( (x4) \) conflict, so we backtrack.
+
+### Step 6: Backtracking (First Conflict)
+Undo \( x3 = \text{True} \), set \( x3 = \text{False} \).  
+- Propagate \( x3 = \text{False} \):
+  - Clause \( (¬x3 ∨ ¬x5) \) is satisfied (removed).
+  - Clause \( (x3 ∨ x4) \) simplifies to \( (x4) \).
+
+Now, \( (x4) \) forces \( x4 = \text{True} \).  
+- Propagate \( x4 = \text{True} \):
+  - Clause \( (¬x4 ∨ x5) \) simplifies to \( (x5) \).
+  - Clause \( (¬x4) \) conflicts (second conflict).  
+This path is unsatisfiable, so we backtrack further.
+
+### Step 7: Backtracking (Second Conflict)
+Undo \( x2 = \text{True} \), set \( x2 = \text{False} \).  
+- Propagate \( x2 = \text{False} \):
+  - Clause \( (x2 ∨ x3 ∨ ¬x4) \) simplifies to \( (x3 ∨ ¬x4) \).
+  - Clause \( (¬x2 ∨ ¬x3 ∨ ¬x5) \) simplifies to \( (¬x3 ∨ ¬x5) \).
+  - Clause \( (¬x5 ∨ ¬x4 ∨ x2) \) simplifies to \( (¬x5 ∨ ¬x4) \).
+
+### Step 8: Next Decision
+Choose \( x3 = \text{True} \) (fourth decision point).  
+- Propagate \( x3 = \text{True} \):
+  - Clause \( (x3 ∨ ¬x5 ∨ ¬x4) \) is satisfied (removed).
+  - Clause \( (x3 ∨ ¬x4) \) is satisfied (removed).
+  - Clause \( (¬x3 ∨ ¬x5) \) simplifies to \( (¬x5) \).
+  - Clause \( (x4 ∨ ¬x5 ∨ x3) \) is satisfied (removed).
+
+Now, \( (¬x5) \) forces \( x5 = \text{False} \).  
+- Propagate \( x5 = \text{False} \):
+  - Clause \( (¬x4 ∨ x5) \) simplifies to \( (¬x4) \).
+  - Clause \( (x4 ∨ x5) \) simplifies to \( (x4) \).
+  - Clause \( (¬x5 ∨ ¬x4) \) simplifies to \( (¬x4) \).
+
+Now, \( (¬x4) \) and \( (x4) \) conflict (third conflict), so we backtrack.
+
+### Step 9: Backtracking (Third Conflict)
+Undo \( x3 = \text{True} \), set \( x3 = \text{False} \).  
+- Propagate \( x3 = \text{False} \):
+  - Clause \( (¬x3 ∨ ¬x5) \) is satisfied (removed).
+  - Clause \( (x3 ∨ ¬x4) \) simplifies to \( (¬x4) \).
+
+Now, \( (¬x4) \) forces \( x4 = \text{False} \).  
+- Propagate \( x4 = \text{False} \):
+  - Clause \( (¬x4 ∨ x5) \) simplifies to \( (x5) \).
+  - Clause \( (x4 ∨ x5) \) simplifies to \( (x5) \).
+  - Clause \( (¬x5 ∨ ¬x4) \) simplifies to \( (¬x5) \).
+
+Now, \( (x5) \) and \( (¬x5) \) conflict (fourth conflict).  
+This path is unsatisfiable, so we backtrack further.
+
+### Step 10: Backtracking (Fourth Conflict)
+Undo \( x1 = \text{True} \), set \( x1 = \text{False} \).  
+- Propagate \( x1 = \text{False} \):
+  - Clause \( (x2 ∨ ¬x4 ∨ x1) \) simplifies to \( (x2 ∨ ¬x4) \).
+  - Clause \( (¬x4 ∨ ¬x1 ∨ x5) \) simplifies to \( (¬x4 ∨ x5) \).
+  - Clause \( (¬x1 ∨ ¬x5 ∨ x3) \) simplifies to \( (¬x5 ∨ x3) \).
+  - Clause \( (x4 ∨ x1 ∨ x5) \) simplifies to \( (x4 ∨ x5) \).
+  - Clause \( (¬x5 ∨ ¬x2 ∨ x1) \) simplifies to \( (¬x5 ∨ ¬x2) \).
+  - Clause \( (¬x2 ∨ ¬x4 ∨ x1) \) simplifies to \( (¬x2 ∨ ¬x4) \).
+  - Clause \( (x4 ∨ x5 ∨ ¬x1) \) simplifies to \( (x4 ∨ x5) \).
+
+### Step 11: Next Decision
+Choose \( x2 = \text{True} \) (fifth decision point).  
+- Propagate \( x2 = \text{True} \):
+  - Clause \( (x3 ∨ ¬x2 ∨ ¬x4) \) simplifies to \( (x3 ∨ ¬x4) \).
+  - Clause \( (¬x2 ∨ ¬x3 ∨ ¬x5) \) simplifies to \( (¬x3 ∨ ¬x5) \).
+  - Clause \( (x3 ∨ ¬x2 ∨ x4) \) simplifies to \( (x3 ∨ x4) \).
+  - Clause \( (¬x5 ∨ ¬x2) \) simplifies to \( (¬x5) \).
+  - Clause \( (¬x2 ∨ ¬x4) \) simplifies to \( (¬x4) \).
+  - Clause \( (¬x5 ∨ ¬x4 ∨ x2) \) is satisfied (removed).
+
+Now, \( (¬x5) \) forces \( x5 = \text{False} \).  
+- Propagate \( x5 = \text{False} \):
+  - Clause \( (¬x4 ∨ x5) \) simplifies to \( (¬x4) \).
+  - Clause \( (¬x5 ∨ x3) \) simplifies to \( (x3) \).
+  - Clause \( (x4 ∨ x5) \) simplifies to \( (x4) \).
+
+Now, \( (x3) \) forces \( x3 = \text{True} \).  
+- Propagate \( x3 = \text{True} \):
+  - Clause \( (x3 ∨ ¬x4) \) is satisfied (removed).
+  - Clause \( (¬x3 ∨ ¬x5) \) is satisfied (removed).
+  - Clause \( (x3 ∨ x4) \) is satisfied (removed).
+
+Now, \( (¬x4) \) and \( (x4) \) conflict (fifth conflict), so we backtrack.
+
+### Step 12: Backtracking (Fifth Conflict)
+Undo \( x2 = \text{True} \), set \( x2 = \text{False} \).  
+- Propagate \( x2 = \text{False} \):
+  - Clause \( (x2 ∨ ¬x4) \) simplifies to \( (¬x4) \).
+  - Clause \( (¬x5 ∨ ¬x2) \) is satisfied (removed).
+  - Clause \( (¬x2 ∨ ¬x4) \) is satisfied (removed).
+
+Now, \( (¬x4) \) forces \( x4 = \text{False} \).  
+- Propagate \( x4 = \text{False} \):
+  - Clause \( (¬x4 ∨ x5) \) simplifies to \( (x5) \).
+  - Clause \( (x4 ∨ x5) \) simplifies to \( (x5) \).
+  - Clause \( (x4 ∨ ¬x5 ∨ x3) \) simplifies to \( (¬x5 ∨ x3) \).
+  - Clause \( (x4 ∨ x5 ∨ ¬x1) \) simplifies to \( (x5) \).
+
+Now, \( (x5) \) forces \( x5 = \text{True} \).  
+- Propagate \( x5 = \text{True} \):
+  - Clause \( (¬x5 ∨ x3) \) simplifies to \( (x3) \).
+  - Clause \( (¬x5 ∨ ¬x4 ∨ x2) \) simplifies to \( (¬x4 ∨ x2) \), which is satisfied (removed).
+
+Now, \( (x3) \) forces \( x3 = \text{True} \).  
+- Propagate \( x3 = \text{True} \):
+  - All remaining clauses are satisfied.
+
+### Final Assignment:
+- \( x1 = \text{False} \)
+- \( x2 = \text{False} \)
+- \( x3 = \text{True} \)
+- \( x4 = \text{False} \)
+- \( x5 = \text{True} \)
+
+### Result:
+- SATISFIABLE
+- Branches: 5
+- Conflicts: 5
+
+### Output:
+SATISFIABLE  
+5  
+5

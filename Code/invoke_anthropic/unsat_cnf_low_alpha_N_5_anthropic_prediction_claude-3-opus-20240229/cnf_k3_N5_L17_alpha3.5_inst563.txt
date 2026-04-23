@@ -1,0 +1,48 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=563
+p cnf 5 17
+2 -4 -3 0
+4 3 2 0
+-3 5 -1 0
+1 -5 -4 0
+1 -2 -3 0
+4 -2 5 0
+-1 5 -4 0
+4 3 -2 0
+2 -4 3 0
+5 -3 2 0
+3 1 2 0
+-2 -3 4 0
+-3 -5 2 0
+-4 -2 -1 0
+1 -2 -3 0
+-5 -2 -4 0
+3 1 -2 0
+
+c GPT solve time: 10.27 seconds
+
+Step 1: Assign x2 = 1. This satisfies clauses 1, 2, 10, 11, 13.
+Remaining clauses: 3, 4, 5, 6, 7, 8, 9, 12, 14, 15, 16, 17
+
+Step 2: Assign x4 = 0. This satisfies clauses 6, 7, 9, 14, 16.
+Remaining clauses: 3, 4, 5, 8, 12, 15, 17
+
+Step 3: Assign x3 = 0. This satisfies clauses 5, 8, 12, 15, 17.
+Remaining clauses: 3, 4
+
+Step 4: Assign x5 = 1. This satisfies clause 3.
+Remaining clause: 4
+
+Step 5: Assign x1 = 1. This satisfies clause 4.
+
+All clauses are satisfied, so the formula is SATISFIABLE.
+
+Literal values:
+x1 = 1
+x2 = 1 
+x3 = 0
+x4 = 0
+x5 = 1
+
+Number of branches: 0
+Number of conflicts: 0

@@ -1,0 +1,249 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1277
+p cnf 5 17
+-4 -2 -5 0
+-3 5 1 0
+2 -3 -4 0
+2 -4 -1 0
+2 1 -5 0
+-3 -2 1 0
+-1 4 3 0
+5 4 3 0
+-2 1 -5 0
+-2 -1 -4 0
+-4 -3 -5 0
+-2 3 -4 0
+-5 2 3 0
+-3 4 -1 0
+2 1 -4 0
+4 -5 2 0
+3 1 5 0
+
+c GPT solve time: 77.89 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (branching on variables, unit propagation, and backtracking on conflicts):
+
+**Variables:** x1, x2, x3, x4, x5
+
+---
+
+### Step 1: Choose a variable to branch on
+
+Let's start with x1 = True.
+
+#### Assign x1 = True
+
+- Propagate this assignment through the clauses.
+
+---
+
+### Step 2: Unit propagation
+
+Check for any unit clauses or simplifications:
+
+- (¬x3 ∨ x5 ∨ x1): Satisfied (x1 = True)
+- (x2 ∨ ¬x4 ∨ ¬x1): (x2 ∨ ¬x4 ∨ False) → (x2 ∨ ¬x4)
+- (x2 ∨ x1 ∨ ¬x5): Satisfied (x1 = True)
+- (¬x3 ∨ ¬x2 ∨ x1): Satisfied (x1 = True)
+- (¬x1 ∨ x4 ∨ x3): (False ∨ x4 ∨ x3) → (x4 ∨ x3)
+- (¬x2 ∨ x1 ∨ ¬x5): Satisfied (x1 = True)
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (¬x2 ∨ False ∨ ¬x4) → (¬x2 ∨ ¬x4)
+- (¬x3 ∨ x4 ∨ ¬x1): (¬x3 ∨ x4 ∨ False) → (¬x3 ∨ x4)
+- (x2 ∨ x1 ∨ ¬x4): Satisfied (x1 = True)
+- (x3 ∨ x1 ∨ x5): Satisfied (x1 = True)
+
+Other clauses remain.
+
+---
+
+### Step 3: Choose next variable
+
+Let's try x2 = True.
+
+#### Assign x2 = True
+
+Propagate:
+
+- (x2 ∨ ¬x4): Satisfied
+- (¬x2 ∨ ¬x4): (False ∨ ¬x4) → (¬x4)
+- (¬x2 ∨ x1 ∨ ¬x5): Satisfied
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (False ∨ False ∨ ¬x4) → (¬x4)
+- (¬x2 ∨ x3 ∨ ¬x4): (False ∨ x3 ∨ ¬x4) → (x3 ∨ ¬x4)
+- (¬x5 ∨ x2 ∨ x3): Satisfied (x2 = True)
+- (x2 ∨ x1 ∨ ¬x5): Satisfied
+
+Now, (¬x4) is a unit clause.
+
+#### Assign x4 = False
+
+Propagate:
+
+- (x4 ∨ x3): (False ∨ x3) → (x3)
+- (¬x3 ∨ x4): (¬x3 ∨ False) → (¬x3)
+- (x2 ∨ ¬x4): Satisfied
+- (¬x2 ∨ ¬x4): Satisfied
+- (x3 ∨ ¬x4): (x3 ∨ True) → Satisfied
+- (x5 ∨ x4 ∨ x3): (x5 ∨ False ∨ x3) → (x5 ∨ x3)
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (True ∨ False ∨ ¬x5) → (True ∨ ¬x5) → Satisfied
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (True ∨ ¬x3 ∨ ¬x5) → Satisfied
+
+Now, (x3) and (¬x3) are both present. This is a conflict.
+
+---
+
+### Step 4: Backtrack
+
+Conflict! Backtrack to last decision: x2 = True. Try x2 = False.
+
+**Branch 1 complete (conflict).**
+**Branches so far: 1**
+**Conflicts so far: 1**
+
+---
+
+#### Assign x2 = False (with x1 = True)
+
+Propagate:
+
+- (x2 ∨ ¬x4 ∨ ¬x1): (False ∨ ¬x4 ∨ False) → (¬x4)
+- (x2 ∨ x1 ∨ ¬x5): (False ∨ True ∨ ¬x5) → Satisfied
+- (¬x3 ∨ ¬x2 ∨ x1): (¬x3 ∨ True ∨ True) → Satisfied
+- (¬x2 ∨ x1 ∨ ¬x5): (True ∨ True ∨ ¬x5) → Satisfied
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (True ∨ False ∨ ¬x4) → Satisfied
+- (¬x2 ∨ x3 ∨ ¬x4): (True ∨ x3 ∨ ¬x4) → Satisfied
+- (¬x5 ∨ x2 ∨ x3): (¬x5 ∨ False ∨ x3) → (¬x5 ∨ x3)
+- (x2 ∨ x1 ∨ ¬x4): (False ∨ True ∨ ¬x4) → Satisfied
+- (x4 ∨ ¬x5 ∨ x2): (x4 ∨ ¬x5 ∨ False) → (x4 ∨ ¬x5)
+
+Now, (¬x4) is a unit clause.
+
+#### Assign x4 = False
+
+Propagate:
+
+- (x4 ∨ x3): (False ∨ x3) → (x3)
+- (¬x3 ∨ x4): (¬x3 ∨ False) → (¬x3)
+- (x5 ∨ x4 ∨ x3): (x5 ∨ False ∨ x3) → (x5 ∨ x3)
+- (x4 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+
+Now, (x3) and (¬x3) are both present. Conflict again.
+
+---
+
+### Step 5: Backtrack
+
+Conflict! Backtrack to previous decision: x1 = True. Try x1 = False.
+
+**Branch 2 complete (conflict).**
+**Branches so far: 2**
+**Conflicts so far: 2**
+
+---
+
+#### Assign x1 = False
+
+Propagate:
+
+- (¬x3 ∨ x5 ∨ x1): (¬x3 ∨ x5 ∨ False) → (¬x3 ∨ x5)
+- (x2 ∨ ¬x3 ∨ ¬x4): (x2 ∨ ¬x3 ∨ ¬x4)
+- (x2 ∨ ¬x4 ∨ ¬x1): (x2 ∨ ¬x4 ∨ True) → Satisfied
+- (x2 ∨ x1 ∨ ¬x5): (x2 ∨ False ∨ ¬x5) → (x2 ∨ ¬x5)
+- (¬x3 ∨ ¬x2 ∨ x1): (¬x3 ∨ ¬x2 ∨ False) → (¬x3 ∨ ¬x2)
+- (¬x1 ∨ x4 ∨ x3): (True ∨ x4 ∨ x3) → Satisfied
+- (¬x2 ∨ x1 ∨ ¬x5): (¬x2 ∨ False ∨ ¬x5) → (¬x2 ∨ ¬x5)
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (¬x2 ∨ True ∨ ¬x4) → Satisfied
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (¬x4 ∨ ¬x3 ∨ ¬x5)
+- (¬x2 ∨ x3 ∨ ¬x4): (¬x2 ∨ x3 ∨ ¬x4)
+- (¬x5 ∨ x2 ∨ x3): (¬x5 ∨ x2 ∨ x3)
+- (¬x3 ∨ x4 ∨ ¬x1): (¬x3 ∨ x4 ∨ True) → Satisfied
+- (x2 ∨ x1 ∨ ¬x4): (x2 ∨ False ∨ ¬x4) → (x2 ∨ ¬x4)
+- (x4 ∨ ¬x5 ∨ x2): (x4 ∨ ¬x5 ∨ x2)
+- (x3 ∨ x1 ∨ x5): (x3 ∨ False ∨ x5) → (x3 ∨ x5)
+
+No unit clauses. Let's branch on x2.
+
+---
+
+#### Assign x2 = True (with x1 = False)
+
+Propagate:
+
+- (x2 ∨ ¬x5): Satisfied
+- (x2 ∨ ¬x4): Satisfied
+- (¬x2 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+- (¬x2 ∨ x3 ∨ ¬x4): (False ∨ x3 ∨ ¬x4) → (x3 ∨ ¬x4)
+- (¬x3 ∨ ¬x2): (¬x3 ∨ False) → (¬x3)
+- (¬x3 ∨ x5): (¬x3 ∨ x5)
+- (x3 ∨ x5): (x3 ∨ x5)
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (¬x4 ∨ ¬x3 ∨ ¬x5)
+- (¬x5 ∨ x2 ∨ x3): Satisfied
+
+Now, (¬x5) is a unit clause.
+
+#### Assign x5 = False
+
+Propagate:
+
+- (¬x3 ∨ x5): (¬x3 ∨ False) → (¬x3)
+- (x3 ∨ x5): (x3 ∨ False) → (x3)
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (¬x4 ∨ ¬x3 ∨ True) → Satisfied
+- (x4 ∨ ¬x5 ∨ x2): (x4 ∨ True ∨ True) → Satisfied
+
+Now, (¬x3) and (x3) are both present. Conflict.
+
+---
+
+### Step 6: Backtrack
+
+Conflict! Backtrack to x2 = True. Try x2 = False.
+
+**Branch 3 complete (conflict).**
+**Branches so far: 3**
+**Conflicts so far: 3**
+
+---
+
+#### Assign x2 = False (with x1 = False)
+
+Propagate:
+
+- (x2 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+- (x2 ∨ ¬x4): (False ∨ ¬x4) → (¬x4)
+- (¬x2 ∨ ¬x5): (True ∨ ¬x5) → Satisfied
+- (¬x2 ∨ x3 ∨ ¬x4): (True ∨ x3 ∨ ¬x4) → Satisfied
+- (¬x3 ∨ ¬x2): (¬x3 ∨ True) → Satisfied
+- (¬x3 ∨ x5): (¬x3 ∨ x5)
+- (x3 ∨ x5): (x3 ∨ x5)
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (¬x4 ∨ ¬x3 ∨ ¬x5)
+- (¬x5 ∨ x2 ∨ x3): (¬x5 ∨ False ∨ x3) → (¬x5 ∨ x3)
+
+Now, (¬x5) and (¬x4) are unit clauses.
+
+#### Assign x5 = False
+
+Propagate:
+
+- (¬x3 ∨ x5): (¬x3 ∨ False) → (¬x3)
+- (x3 ∨ x5): (x3 ∨ False) → (x3)
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (¬x4 ∨ ¬x3 ∨ True) → Satisfied
+- (¬x5 ∨ x3): (True ∨ x3) → Satisfied
+
+Now, (¬x3) and (x3) are both present. Conflict.
+
+---
+
+### Step 7: Backtrack
+
+All branches exhausted.
+
+**Branch 4 complete (conflict).**
+**Branches so far: 4**
+**Conflicts so far: 4**
+
+---
+
+## Final Answer
+
+* UNSATISFIABLE
+* Number of branches: 4
+* Number of conflicts: 4

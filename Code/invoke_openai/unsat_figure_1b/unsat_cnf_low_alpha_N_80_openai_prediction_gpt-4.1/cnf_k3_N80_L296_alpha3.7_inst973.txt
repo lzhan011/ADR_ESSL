@@ -1,0 +1,527 @@
+c Random 3-SAT
+c alpha=3.7, N=80, L=296, instance=973
+p cnf 80 296
+-31 -42 56 0
+-34 38 4 0
+-58 -9 -52 0
+-28 -35 51 0
+2 -10 44 0
+72 31 -22 0
+8 40 71 0
+-65 -30 -57 0
+-7 -22 -44 0
+-24 -75 -73 0
+41 13 -52 0
+-77 15 69 0
+55 -19 11 0
+13 -9 -16 0
+-56 -24 -79 0
+-17 57 -22 0
+63 8 -4 0
+-54 -72 25 0
+-59 -67 -40 0
+70 -12 -27 0
+-49 -21 -24 0
+18 -55 9 0
+-28 -31 -55 0
+55 8 15 0
+-32 -70 54 0
+-78 -62 -76 0
+19 -21 -77 0
+-5 10 12 0
+-61 68 67 0
+55 33 25 0
+-25 -58 15 0
+-42 -43 1 0
+-41 -34 -71 0
+13 -22 45 0
+-14 58 20 0
+-38 -66 -22 0
+-74 2 -44 0
+-68 44 -2 0
+-2 -22 -40 0
+9 70 74 0
+10 26 41 0
+34 -32 -48 0
+-33 -71 -76 0
+75 62 -80 0
+57 -40 -65 0
+-26 -4 32 0
+-65 10 -9 0
+-18 2 -28 0
+37 68 17 0
+-77 61 29 0
+75 24 -47 0
+-66 35 48 0
+-9 73 48 0
+-62 -4 -79 0
+47 11 -30 0
+-63 -44 72 0
+23 35 -62 0
+34 -52 -63 0
+28 -39 3 0
+-11 -40 -19 0
+-34 -4 9 0
+-65 55 -56 0
+-50 -18 -58 0
+-46 39 -74 0
+-67 25 73 0
+18 -10 64 0
+9 -29 28 0
+-27 35 56 0
+34 12 -8 0
+-74 4 -43 0
+-56 -16 -10 0
+69 -12 -45 0
+-45 76 40 0
+-33 -60 52 0
+-21 -48 -72 0
+-10 -23 -64 0
+-17 -25 20 0
+-66 -10 -56 0
+-45 54 -60 0
+18 -45 63 0
+39 -35 -56 0
+35 62 -57 0
+-53 -15 41 0
+-55 -35 68 0
+63 -34 58 0
+57 47 -74 0
+60 -61 35 0
+-37 -15 61 0
+-29 -3 -49 0
+60 59 24 0
+-74 -42 77 0
+68 63 69 0
+-66 -1 -31 0
+68 59 -29 0
+-37 -66 52 0
+12 -77 16 0
+14 27 9 0
+-2 -67 -76 0
+1 -10 72 0
+74 55 -50 0
+73 -54 -42 0
+43 -52 78 0
+53 -56 -20 0
+-5 14 -78 0
+35 77 -55 0
+-44 -22 -19 0
+71 -68 -35 0
+-41 79 -13 0
+64 35 -62 0
+-27 -80 30 0
+-78 -53 -3 0
+56 -75 6 0
+-3 67 -35 0
+54 -77 44 0
+-61 38 -29 0
+-46 44 10 0
+-37 -26 14 0
+59 11 -56 0
+38 -80 -40 0
+73 -13 62 0
+55 63 -5 0
+-59 -52 11 0
+-35 3 -38 0
+-14 74 25 0
+78 -64 -21 0
+-57 -53 -42 0
+5 -39 26 0
+-44 -43 -18 0
+56 -62 30 0
+51 73 4 0
+-78 -43 -64 0
+54 46 23 0
+8 31 12 0
+-74 64 -20 0
+52 77 2 0
+-36 -1 -59 0
+59 69 39 0
+-6 19 -69 0
+27 72 31 0
+-64 8 22 0
+-19 25 -16 0
+47 20 17 0
+52 -12 8 0
+-6 -17 27 0
+-31 -9 56 0
+-36 53 -7 0
+64 -19 -3 0
+61 38 43 0
+54 61 -78 0
+-4 -2 32 0
+12 70 -16 0
+21 29 -70 0
+67 43 -56 0
+59 58 71 0
+19 -23 77 0
+-72 -18 -10 0
+35 38 -76 0
+-51 76 77 0
+25 -48 64 0
+6 3 5 0
+-29 32 -34 0
+-8 -55 -63 0
+-28 19 -15 0
+-58 11 -51 0
+58 -63 -52 0
+15 -8 77 0
+20 -23 -11 0
+-80 48 12 0
+-20 67 40 0
+21 50 22 0
+9 68 55 0
+51 64 41 0
+-65 46 11 0
+48 2 -51 0
+3 -54 -25 0
+57 -44 31 0
+62 26 -3 0
+-46 -26 43 0
+9 -2 16 0
+10 -77 47 0
+28 60 -76 0
+69 62 -10 0
+-49 -3 23 0
+56 -17 -23 0
+8 45 -21 0
+29 55 49 0
+9 -8 77 0
+-74 68 -80 0
+-41 -79 68 0
+-80 -56 70 0
+-10 -48 21 0
+-27 76 -32 0
+-5 -58 74 0
+-37 -52 -35 0
+8 26 76 0
+26 -7 -72 0
+-1 38 -47 0
+-22 -32 7 0
+36 -17 -10 0
+80 59 38 0
+65 -33 68 0
+69 72 24 0
+32 -13 -53 0
+-71 -12 -59 0
+17 70 68 0
+-3 -24 53 0
+26 10 39 0
+-21 -70 5 0
+-46 23 -3 0
+21 -57 70 0
+-62 -70 41 0
+-33 1 8 0
+-54 79 65 0
+-34 -55 33 0
+-38 26 -78 0
+61 66 -44 0
+-39 -64 9 0
+-31 -17 33 0
+29 30 9 0
+49 42 55 0
+58 38 32 0
+20 -27 32 0
+57 60 78 0
+-40 25 78 0
+3 4 -15 0
+27 -36 21 0
+37 -68 58 0
+19 -15 42 0
+25 -38 65 0
+63 -44 -75 0
+-54 -65 -60 0
+38 41 2 0
+45 -26 32 0
+-70 10 -77 0
+57 20 4 0
+50 57 40 0
+-57 -63 50 0
+-4 -19 -33 0
+-48 -71 26 0
+17 -1 -40 0
+54 -73 36 0
+21 48 -12 0
+-23 3 -16 0
+-78 -34 41 0
+-15 55 63 0
+56 72 -32 0
+45 -12 37 0
+27 42 -79 0
+-14 68 76 0
+-16 -2 17 0
+34 49 65 0
+22 20 -65 0
+-4 52 6 0
+14 10 26 0
+38 19 -28 0
+-32 -80 -1 0
+-39 29 10 0
+-13 -6 35 0
+-32 -50 65 0
+-54 50 56 0
+19 56 -78 0
+-12 33 -15 0
+-72 80 58 0
+37 -62 -71 0
+-69 4 56 0
+32 -53 -37 0
+-32 17 34 0
+77 -39 -72 0
+-2 48 3 0
+-16 20 -52 0
+36 50 -38 0
+56 -77 18 0
+-71 -58 -7 0
+52 62 -60 0
+-12 33 64 0
+57 -17 75 0
+-3 -51 15 0
+25 78 57 0
+-55 5 -78 0
+59 71 -19 0
+23 49 -11 0
+70 -28 34 0
+-2 5 -77 0
+-59 10 3 0
+12 1 -67 0
+-16 50 58 0
+-44 -66 68 0
+-51 -50 -17 0
+-41 -47 -48 0
+28 73 69 0
+-24 1 -17 0
+49 41 69 0
+40 69 -71 0
+54 70 -21 0
+-60 68 8 0
+-44 12 -9 0
+
+c GPT solve time: 52.90 seconds
+
+Step-by-step DPLL (Davis–Putnam–Logemann–Loveland) SAT solving:
+
+**Step 1: Preprocessing**
+- No unit clauses or pure literals are immediately apparent.
+- Proceed to branching.
+
+**Step 2: Branching and Propagation**
+- Pick the first variable in the first clause: x31.
+- Branch 1: x31 = True
+
+  - Clause 1: (¬x31 ∨ ¬x42 ∨ x56) → Satisfied (¬x31 is False, but x31=True, so clause depends on others)
+  - Clause 6: (x72 ∨ x31 ∨ ¬x22) → Satisfied (x31=True)
+  - Clause 23: (¬x28 ∨ ¬x31 ∨ ¬x55) → (¬x28 ∨ ¬x55) (since x31=True, ¬x31=False)
+  - Clause 99: (¬x31 ∨ ¬x9 ∨ x56) → (¬x9 ∨ x56)
+  - Clause 131: (¬x31 ∨ ¬x17 ∨ x33) → (¬x17 ∨ x33)
+
+- No immediate conflict. Continue.
+
+- Branch 2: x31 = False
+
+  - Clause 1: (¬x31 ∨ ¬x42 ∨ x56) → Satisfied (¬x31=True)
+  - Clause 6: (x72 ∨ x31 ∨ ¬x22) → (x72 ∨ ¬x22)
+  - Clause 23: (¬x28 ∨ ¬x31 ∨ ¬x55) → Satisfied (¬x31=True)
+  - Clause 99: (¬x31 ∨ ¬x9 ∨ x56) → Satisfied (¬x31=True)
+  - Clause 131: (¬x31 ∨ ¬x17 ∨ x33) → Satisfied (¬x31=True)
+
+- No immediate conflict. Continue.
+
+**Step 3: Continue with x42 (from clause 1)**
+- Try x42 = True (with x31=False):
+
+  - Clause 1: (¬x31 ∨ ¬x42 ∨ x56) → (¬x42 ∨ x56) (x31=False, so ¬x31=True, clause satisfied)
+  - Clause 32: (¬x42 ∨ ¬x43 ∨ x1) → (¬x43 ∨ x1)
+  - Clause 90: (¬x74 ∨ ¬x42 ∨ x77) → (¬x74 ∨ x77)
+  - Clause 108: (x73 ∨ ¬x54 ∨ ¬x42) → (x73 ∨ ¬x54)
+  - Clause 121: (¬x57 ∨ ¬x53 ∨ ¬x42) → (¬x57 ∨ ¬x53)
+
+- Try x42 = False (with x31=False):
+
+  - Clause 1: (¬x31 ∨ ¬x42 ∨ x56) → Satisfied (¬x42=True)
+  - Clause 32: (¬x42 ∨ ¬x43 ∨ x1) → Satisfied (¬x42=True)
+  - Clause 90: (¬x74 ∨ ¬x42 ∨ x77) → Satisfied (¬x42=True)
+  - Clause 108: (x73 ∨ ¬x54 ∨ ¬x42) → Satisfied (¬x42=True)
+  - Clause 121: (¬x57 ∨ ¬x53 ∨ ¬x42) → Satisfied (¬x42=True)
+
+- No conflict. Continue.
+
+**Step 4: Continue with x72 (from clause 6, x31=False)**
+- Try x72 = True:
+
+  - Clause 6: (x72 ∨ x31 ∨ ¬x22) → Satisfied (x72=True)
+  - Clause 18: (¬x54 ∨ ¬x72 ∨ x25) → (¬x54 ∨ x25)
+  - Clause 75: (¬x21 ∨ ¬x48 ∨ ¬x72) → (¬x21 ∨ ¬x48)
+  - Clause 124: (¬x72 ∨ ¬x18 ∨ ¬x10) → (¬x18 ∨ ¬x10)
+  - Clause 153: (¬x72 ∨ x80 ∨ x58) → (x80 ∨ x58)
+
+- Try x72 = False:
+
+  - Clause 6: (x72 ∨ x31 ∨ ¬x22) → (¬x22) (x72=False, x31=False)
+  - So x22 = False.
+
+  - Propagate x22 = False:
+    - Clause 6: Satisfied.
+    - Clause 9: (¬x7 ∨ ¬x22 ∨ ¬x44) → Satisfied (¬x22=True)
+    - Clause 16: (¬x17 ∨ x57 ∨ ¬x22) → Satisfied (¬x22=True)
+    - Clause 34: (x13 ∨ ¬x22 ∨ x45) → Satisfied (¬x22=True)
+    - Clause 37: (¬x38 ∨ ¬x66 ∨ ¬x22) → Satisfied (¬x22=True)
+    - Clause 38: (¬x74 ∨ x2 ∨ ¬x44) → unaffected
+    - Clause 39: (¬x68 ∨ x44 ∨ ¬x2) → unaffected
+    - Clause 40: (¬x2 ∨ ¬x22 ∨ ¬x40) → Satisfied (¬x22=True)
+    - Clause 100: (¬x22 ∨ ¬x32 ∨ x7) → Satisfied (¬x22=True)
+    - Clause 133: (x22 ∨ x20 ∨ ¬x65) → (x20 ∨ ¬x65) (x22=False)
+    - Clause 6: Satisfied.
+
+- No conflict. Continue.
+
+**Step 5: Continue with x54 (from clause 18, x72=True)**
+- Try x54 = True:
+
+  - Clause 18: (¬x54 ∨ ¬x72 ∨ x25) → (¬x72 ∨ x25) (x54=True, so ¬x54=False)
+  - x72=True, so ¬x72=False, so clause reduces to x25.
+  - So x25 = True.
+
+  - Propagate x25 = True:
+    - Clause 18: Satisfied.
+    - Clause 30: (x55 ∨ x33 ∨ x25) → Satisfied.
+    - Clause 31: (¬x25 ∨ ¬x58 ∨ x15) → (¬x58 ∨ x15)
+    - Clause 67: (¬x67 ∨ x25 ∨ x73) → Satisfied.
+    - Clause 73: (¬x17 ∨ ¬x25 ∨ x20) → (¬x17 ∨ x20)
+    - Clause 85: (¬x40 ∨ x25 ∨ x78) → Satisfied.
+    - Clause 104: (x25 ∨ ¬x48 ∨ x64) → Satisfied.
+    - Clause 125: (¬x3 ∨ ¬x24 ∨ x53) → unaffected.
+    - Clause 133: (x22 ∨ x20 ∨ ¬x65) → (x20 ∨ ¬x65) (x22=False)
+    - Clause 135: (x25 ∨ x78 ∨ x57) → Satisfied.
+    - Clause 31: (¬x25 ∨ ¬x58 ∨ x15) → (¬x58 ∨ x15)
+
+- Try x25 = False:
+
+  - Clause 18: (¬x54 ∨ ¬x72 ∨ x25) → (¬x54 ∨ ¬x72) (x25=False)
+  - x54=True, so ¬x54=False; x72=True, so ¬x72=False; so clause is False.
+  - Conflict.
+
+- So x25 must be True.
+
+**Step 6: Continue with x58 (from clause 31, x25=True)**
+- Clause 31: (¬x25 ∨ ¬x58 ∨ x15) → (¬x58 ∨ x15) (x25=True)
+- Try x58 = True:
+
+  - Clause 31: (¬x58 ∨ x15) → x15
+  - So x15 = True.
+
+- Try x58 = False:
+
+  - Clause 31: (¬x58 ∨ x15) → Satisfied (¬x58=True)
+
+- No conflict. Continue.
+
+**Step 7: Continue with x15 (from above, x58=True)**
+- x15 = True.
+
+- Propagate x15 = True:
+  - Clause 12: (¬x77 ∨ x15 ∨ x69) → Satisfied.
+  - Clause 24: (x55 ∨ x8 ∨ x15) → Satisfied.
+  - Clause 80: (¬x53 ∨ ¬x15 ∨ x41) → (¬x53 ∨ x41)
+  - Clause 87: (¬x11 ∨ ¬x40 ∨ ¬x19) → unaffected.
+  - Clause 110: (¬x3 ∨ ¬x51 ∨ x15) → Satisfied.
+  - Clause 115: (¬x15 ∨ x55 ∨ x63) → (x55 ∨ x63)
+  - Clause 116: (x56 ∨ x72 ∨ ¬x32) → unaffected.
+  - Clause 117: (x45 ∨ ¬x12 ∨ x37) → unaffected.
+  - Clause 118: (x27 ∨ x42 ∨ ¬x79) → unaffected.
+  - Clause 119: (¬x14 ∨ x68 ∨ x76) → unaffected.
+  - Clause 120: (¬x16 ∨ ¬x2 ∨ x17) → unaffected.
+  - Clause 121: (x34 ∨ x49 ∨ x65) → unaffected.
+  - Clause 122: (x22 ∨ x20 ∨ ¬x65) → (x20 ∨ ¬x65) (x22=False)
+  - Clause 123: (¬x4 ∨ x52 ∨ x6) → unaffected.
+  - Clause 124: (x14 ∨ x10 ∨ x26) → unaffected.
+  - Clause 125: (x38 ∨ x19 ∨ ¬x28) → unaffected.
+  - Clause 126: (¬x32 ∨ ¬x80 ∨ ¬x1) → unaffected.
+  - Clause 127: (¬x39 ∨ x29 ∨ x10) → unaffected.
+  - Clause 128: (¬x13 ∨ ¬x6 ∨ x35) → unaffected.
+  - Clause 129: (¬x32 ∨ ¬x50 ∨ x65) → unaffected.
+  - Clause 130: (¬x54 ∨ x50 ∨ x56) → unaffected.
+  - Clause 131: (x19 ∨ x56 ∨ ¬x78) → unaffected.
+  - Clause 132: (¬x12 ∨ x33 ∨ ¬x15) → (¬x12 ∨ x33)
+  - Clause 133: (¬x72 ∨ x80 ∨ x58) → (x80 ∨ x58) (x72=True, so ¬x72=False)
+  - Clause 134: (x37 ∨ ¬x62 ∨ ¬x71) → unaffected.
+  - Clause 135: (¬x69 ∨ x4 ∨ x56) → unaffected.
+  - Clause 136: (x32 ∨ ¬x53 ∨ ¬x37) → unaffected.
+  - Clause 137: (¬x32 ∨ x17 ∨ x34) → unaffected.
+  - Clause 138: (x77 ∨ ¬x39 ∨ ¬x72) → (x77 ∨ ¬x39) (x72=True, so ¬x72=False)
+  - Clause 139: (¬x2 ∨ x48 ∨ x3) → unaffected.
+  - Clause 140: (¬x16 ∨ x20 ∨ ¬x52) → unaffected.
+  - Clause 141: (x36 ∨ x50 ∨ ¬x38) → unaffected.
+  - Clause 142: (x56 ∨ ¬x77 ∨ x18) → unaffected.
+  - Clause 143: (¬x71 ∨ ¬x58 ∨ ¬x7) → unaffected.
+  - Clause 144: (x52 ∨ x62 ∨ ¬x60) → unaffected.
+  - Clause 145: (¬x12 ∨ x33 ∨ x64) → unaffected.
+  - Clause 146: (x57 ∨ ¬x17 ∨ x75) → unaffected.
+  - Clause 147: (¬x3 ∨ ¬x51 ∨ x15) → Satisfied.
+  - Clause 148: (x25 ∨ x78 ∨ x57) → Satisfied.
+  - Clause 149: (¬x55 ∨ x5 ∨ ¬x78) → unaffected.
+  - Clause 150: (x59 ∨ x71 ∨ ¬x19) → unaffected.
+  - Clause 151: (x23 ∨ x49 ∨ ¬x11) → unaffected.
+  - Clause 152: (x70 ∨ ¬x28 ∨ x34) → unaffected.
+  - Clause 153: (¬x2 ∨ x5 ∨ ¬x77) → unaffected.
+  - Clause 154: (¬x59 ∨ x10 ∨ x3) → unaffected.
+  - Clause 155: (x12 ∨ x1 ∨ ¬x67) → unaffected.
+  - Clause 156: (¬x16 ∨ x50 ∨ x58) → unaffected.
+  - Clause 157: (¬x44 ∨ ¬x66 ∨ x68) → unaffected.
+  - Clause 158: (¬x51 ∨ ¬x50 ∨ ¬x17) → unaffected.
+  - Clause 159: (¬x41 ∨ ¬x47 ∨ ¬x48) → unaffected.
+  - Clause 160: (x28 ∨ x73 ∨ x69) → unaffected.
+  - Clause 161: (¬x24 ∨ x1 ∨ ¬x17) → unaffected.
+  - Clause 162: (x49 ∨ x41 ∨ x69) → unaffected.
+  - Clause 163: (x40 ∨ x69 ∨ ¬x71) → unaffected.
+  - Clause 164: (x54 ∨ x70 ∨ ¬x21) → unaffected.
+  - Clause 165: (¬x60 ∨ x68 ∨ x8) → unaffected.
+  - Clause 166: (¬x44 ∨ x12 ∨ ¬x9) → unaffected.
+
+- No conflict. Continue.
+
+**Step 8: Continue with x80 (from clause 133, x72=True, x58=True)**
+- Clause 133: (x80 ∨ x58) → Satisfied (x58=True)
+- No need to assign x80.
+
+**Step 9: Continue with x55 (from clause 115, x15=True)**
+- Clause 115: (x55 ∨ x63)
+- Try x55 = True:
+
+  - Clause 13: (x55 ∨ ¬x19 ∨ x11) → Satisfied.
+  - Clause 24: (x55 ∨ x8 ∨ x15) → Satisfied.
+  - Clause 30: (x55 ∨ x33 ∨ x25) → Satisfied.
+  - Clause 59: (¬x65 ∨ x55 ∨ ¬x56) → Satisfied.
+  - Clause 79: (x55 ∨ x63 ∨ ¬x5) → Satisfied.
+  - Clause 81: (¬x34 ∨ ¬x55 ∨ x33) → (¬x34 ∨ x33)
+  - Clause 82: (¬x55 ∨ ¬x35 ∨ x68) → (¬x35 ∨ x68)
+  - Clause 83: (x35 ∨ x77 ∨ ¬x55) → (x35 ∨ x77)
+  - Clause 149: (¬x55 ∨ x5 ∨ ¬x78) → (x5 ∨ ¬x78)
+
+- No conflict. Continue.
+
+**Step 10: Continue with x63 (from clause 115, x15=True, x55=True)**
+- Clause 115: (x55 ∨ x63) → Satisfied (x55=True)
+- No need to assign x63.
+
+**Step 11: Continue with x33 (from clause 81, x55=True)**
+- Clause 81: (¬x34 ∨ ¬x55 ∨ x33) → (¬x34 ∨ x33) (x55=True)
+- Try x33 = True:
+
+  - Clause 30: (x55 ∨ x33 ∨ x25) → Satisfied.
+  - Clause 77: (¬x33 ∨ ¬x60 ∨ x52) → (¬x60 ∨ x52)
+  - Clause 92: (¬x33 ∨ x1 ∨ x8) → (x1 ∨ x8)
+  - Clause 129: (¬x32 ∨ ¬x50 ∨ x65) → unaffected.
+  - Clause 132: (¬x12 ∨ x33 ∨ ¬x15) → (¬x12 ∨ ¬x15) (x33=True)
+  - Clause 145: (¬x12 ∨ x33 ∨ x64) → (¬x12 ∨ x64)
+
+- No conflict. Continue.
+
+**Step 12: Continue with x34 (from clause 81, x33=True)**
+- Clause 81: (¬x34 ∨ x33) → Satisfied (x33=True)
+- No need to assign x34.
+
+**Step 13: Continue with x35 (from clause 82, x55=True)**
+- Clause 82: (¬x35 ∨ x68)
+- Try x35 = True

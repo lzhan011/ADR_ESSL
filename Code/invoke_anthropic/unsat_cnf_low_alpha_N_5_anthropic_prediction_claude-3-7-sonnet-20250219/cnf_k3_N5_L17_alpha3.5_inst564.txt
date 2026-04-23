@@ -1,0 +1,88 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=564
+p cnf 5 17
+1 5 4 0
+3 1 2 0
+-3 -5 -2 0
+4 5 -1 0
+3 1 5 0
+5 2 4 0
+4 -2 1 0
+1 -2 -4 0
+1 -3 -5 0
+5 -1 2 0
+4 -5 -1 0
+4 -5 -1 0
+-1 -2 4 0
+-5 -4 2 0
+2 1 5 0
+3 2 -1 0
+-2 -4 -1 0
+
+c GPT solve time: 21.83 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by assigning x1 = true.
+- Clause (x1 ∨ x5 ∨ x4) is satisfied
+- Clause (x3 ∨ x1 ∨ x2) is satisfied
+- Clause (x4 ∨ x5 ∨ ¬x1) becomes unsatisfied, so we need to backtrack
+
+Step 2: Let's try x1 = false.
+- Clause (x1 ∨ x5 ∨ x4) simplifies to (x5 ∨ x4)
+- Clause (x3 ∨ x1 ∨ x2) simplifies to (x3 ∨ x2)
+- Clause (x4 ∨ x5 ∨ ¬x1) is satisfied
+- Clause (x3 ∨ x1 ∨ x5) simplifies to (x3 ∨ x5)
+- Clause (x4 ∨ ¬x2 ∨ x1) simplifies to (x4 ∨ ¬x2)
+- Clause (x1 ∨ ¬x2 ∨ ¬x4) simplifies to (¬x2 ∨ ¬x4)
+- Clause (x1 ∨ ¬x3 ∨ ¬x5) simplifies to (¬x3 ∨ ¬x5)
+- Clause (x5 ∨ ¬x1 ∨ x2) is satisfied
+- Clauses (x4 ∨ ¬x5 ∨ ¬x1) are satisfied
+- Clause (¬x1 ∨ ¬x2 ∨ x4) is satisfied
+- Clause (x2 ∨ x1 ∨ x5) simplifies to (x2 ∨ x5)
+- Clause (x3 ∨ x2 ∨ ¬x1) is satisfied
+- Clause (¬x2 ∨ ¬x4 ∨ ¬x1) is satisfied
+
+Step 3: Let's assign x2 = true.
+- Clause (x3 ∨ x2) is satisfied
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x2) simplifies to (¬x3 ∨ ¬x5)
+- Clause (x5 ∨ x2 ∨ x4) is satisfied
+- Clause (x4 ∨ ¬x2) becomes unsatisfied, so we need to backtrack
+
+Step 4: Let's try x2 = false.
+- Clause (x3 ∨ x2) simplifies to (x3)
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x2) is satisfied
+- Clause (x5 ∨ x2 ∨ x4) simplifies to (x5 ∨ x4)
+- Clause (x4 ∨ ¬x2) is satisfied
+- Clause (¬x2 ∨ ¬x4) is satisfied
+- Clause (¬x5 ∨ ¬x4 ∨ x2) simplifies to (¬x5 ∨ ¬x4)
+- Clause (x2 ∨ x5) simplifies to (x5)
+
+Step 5: Unit propagation gives us x3 = true and x5 = true.
+- Clause (x5 ∨ x4) is satisfied
+- Clause (x3 ∨ x5) is satisfied
+- Clause (¬x3 ∨ ¬x5) becomes unsatisfied, so we need to backtrack
+
+Step 6: Let's go back and try x1 = true again, but with a different branch.
+- Clause (x4 ∨ x5 ∨ ¬x1) simplifies to (x4 ∨ x5)
+- We need both x4 and x5 to be false to make this clause unsatisfied
+
+Step 7: Let's try x4 = true and x5 = true.
+- This satisfies all clauses with x4 or x5
+
+Step 8: Let's check if x2 = true works.
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x2) simplifies to (¬x3)
+- This forces x3 = false
+
+Step 9: Checking all clauses with these assignments:
+x1 = true, x2 = true, x3 = false, x4 = true, x5 = true
+- All clauses are satisfied
+
+SATISFIABLE
+Number of branches: 3
+Number of conflicts: 2
+x1 = true
+x2 = true
+x3 = false
+x4 = true
+x5 = true

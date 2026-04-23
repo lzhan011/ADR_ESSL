@@ -1,0 +1,196 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=383
+p cnf 5 17
+-3 2 1 0
+-3 2 4 0
+-1 3 -2 0
+5 4 -1 0
+1 5 2 0
+3 -4 5 0
+4 -2 5 0
+3 -5 4 0
+1 -2 -4 0
+-1 -3 -2 0
+-1 3 -4 0
+-4 -5 3 0
+-3 -5 -2 0
+-5 -2 -3 0
+2 -4 -1 0
+1 -5 4 0
+-2 1 -4 0
+
+c GPT solve time: 49.30 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by assigning x1 = true.
+
+Step 2: With x1 = true, we can simplify the clauses:
+- (¬x3 ∨ x2 ∨ true) becomes satisfied
+- (true ∨ x5 ∨ x2) becomes satisfied
+- (true ∨ ¬x2 ∨ ¬x4) becomes satisfied
+- (¬true ∨ ¬x3 ∨ ¬x2) becomes (¬x3 ∨ ¬x2)
+- (¬true ∨ x3 ∨ ¬x4) becomes (x3 ∨ ¬x4)
+- (x2 ∨ ¬x4 ∨ ¬true) becomes (x2 ∨ ¬x4)
+- (true ∨ ¬x5 ∨ x4) becomes satisfied
+- (¬x2 ∨ true ∨ ¬x4) becomes satisfied
+
+Step 3: Let's assign x2 = false.
+
+Step 4: With x2 = false, we can simplify further:
+- (¬x3 ∨ false ∨ x4) becomes (¬x3 ∨ x4)
+- (¬x1 ∨ x3 ∨ ¬false) becomes (¬x1 ∨ x3) which is (x3) since x1 = true
+- (x4 ∨ ¬false ∨ x5) becomes satisfied
+- (¬x3 ∨ ¬x5 ∨ ¬false) becomes (¬x3 ∨ ¬x5)
+- (¬x5 ∨ ¬false ∨ ¬x3) becomes (¬x5 ∨ ¬x3)
+- (false ∨ ¬x4 ∨ ¬x1) becomes (¬x4 ∨ ¬x1) which is (¬x4) since x1 = true
+
+Step 5: We have a unit clause (x3), so x3 = true.
+
+Step 6: With x3 = true, we can simplify:
+- (¬true ∨ x4) becomes (x4)
+- (true ∨ ¬x4 ∨ x5) becomes satisfied
+- (true ∨ ¬x5 ∨ x4) becomes satisfied
+- (¬x4 ∨ ¬x5 ∨ true) becomes satisfied
+- (¬true ∨ ¬x5 ∨ ¬x2) becomes (¬x5 ∨ ¬x2) which is (¬x5) since x2 = false
+- (¬x5 ∨ ¬x2 ∨ ¬true) becomes (¬x5 ∨ ¬x2) which is (¬x5) since x2 = false
+
+Step 7: We have unit clauses (x4) and (¬x5), so x4 = true and x5 = false.
+
+Step 8: Let's check if all clauses are satisfied:
+- (¬x3 ∨ x2 ∨ x1): x1 = true, so satisfied
+- (¬x3 ∨ x2 ∨ x4): x4 = true, so satisfied
+- (¬x1 ∨ x3 ∨ ¬x2): x3 = true, x2 = false, so satisfied
+- (x5 ∨ x4 ∨ ¬x1): x4 = true, so satisfied
+- (x1 ∨ x5 ∨ x2): x1 = true, so satisfied
+- (x3 ∨ ¬x4 ∨ x5): x3 = true, so satisfied
+- (x4 ∨ ¬x2 ∨ x5): x4 = true, x2 = false, so satisfied
+- (x3 ∨ ¬x5 ∨ x4): x3 = true, x4 = true, x5 = false, so satisfied
+- (x1 ∨ ¬x2 ∨ ¬x4): x1 = true, x2 = false, so satisfied
+- (¬x1 ∨ ¬x3 ∨ ¬x2): x2 = false, so satisfied
+- (¬x1 ∨ x3 ∨ ¬x4): x3 = true, so satisfied
+- (¬x4 ∨ ¬x5 ∨ x3): x3 = true, x5 = false, so satisfied
+- (¬x3 ∨ ¬x5 ∨ ¬x2): x5 = false, x2 = false, so satisfied
+- (¬x5 ∨ ¬x2 ∨ ¬x3): x5 = false, x2 = false, so satisfied
+- (x2 ∨ ¬x4 ∨ ¬x1): This is (false ∨ ¬true ∨ ¬true) which is false!
+
+We have a conflict. We need to backtrack.
+
+Step 9: Let's try x2 = true instead.
+
+Step 10: With x2 = true, we can simplify:
+- (¬x3 ∨ true ∨ x4) becomes satisfied
+- (¬x1 ∨ x3 ∨ ¬true) becomes (¬x1 ∨ x3) which is (x3) since x1 = true
+- (x1 ∨ x5 ∨ true) becomes satisfied
+- (x4 ∨ ¬true ∨ x5) becomes (x4 ∨ x5)
+- (x1 ∨ ¬true ∨ ¬x4) becomes (x1 ∨ ¬x4) which is satisfied since x1 = true
+- (¬x3 ∨ ¬x5 ∨ ¬true) becomes (¬x3 ∨ ¬x5)
+- (¬x5 ∨ ¬true ∨ ¬x3) becomes (¬x5 ∨ ¬x3)
+- (true ∨ ¬x4 ∨ ¬x1) becomes satisfied
+- (¬true ∨ x1 ∨ ¬x4) becomes (x1 ∨ ¬x4) which is satisfied since x1 = true
+
+Step 11: We have a unit clause (x3), so x3 = true.
+
+Step 12: With x3 = true, we can simplify:
+- (true ∨ ¬x4 ∨ x5) becomes satisfied
+- (true ∨ ¬x5 ∨ x4) becomes satisfied
+- (¬x1 ∨ ¬true ∨ ¬x2) becomes (¬x1 ∨ ¬x2) which is (¬x1 ∨ ¬true) since x2 = true, which is (¬x1) since true ∨ ¬true = true. But this conflicts with x1 = true!
+
+We have another conflict. We need to backtrack again.
+
+Step 13: Let's try x1 = false instead.
+
+Step 14: With x1 = false, we can simplify:
+- (¬x3 ∨ x2 ∨ false) becomes (¬x3 ∨ x2)
+- (¬false ∨ x3 ∨ ¬x2) becomes satisfied
+- (x5 ∨ x4 ∨ ¬false) becomes (x5 ∨ x4)
+- (false ∨ x5 ∨ x2) becomes (x5 ∨ x2)
+- (false ∨ ¬x2 ∨ ¬x4) becomes (¬x2 ∨ ¬x4)
+- (¬false ∨ ¬x3 ∨ ¬x2) becomes satisfied
+- (¬false ∨ x3 ∨ ¬x4) becomes satisfied
+- (x2 ∨ ¬x4 ∨ ¬false) becomes satisfied
+- (false ∨ ¬x5 ∨ x4) becomes (¬x5 ∨ x4)
+- (¬x2 ∨ false ∨ ¬x4) becomes (¬x2 ∨ ¬x4)
+
+Step 15: Let's assign x2 = true.
+
+Step 16: With x2 = true, we can simplify:
+- (¬x3 ∨ true) becomes satisfied
+- (x5 ∨ x4) remains (x5 ∨ x4)
+- (x5 ∨ true) becomes satisfied
+- (¬true ∨ ¬x4) becomes (¬x4)
+- (¬true ∨ ¬x4) becomes (¬x4)
+- (true ∨ ¬x4 ∨ ¬x1) becomes satisfied
+- (¬x5 ∨ x4) remains (¬x5 ∨ x4)
+- (¬true ∨ false ∨ ¬x4) becomes (¬x4)
+
+Step 17: We have a unit clause (¬x4), so x4 = false.
+
+Step 18: With x4 = false, we can simplify:
+- (x5 ∨ false) becomes (x5)
+- (x3 ∨ ¬false ∨ x5) becomes (x3 ∨ x5)
+- (false ∨ ¬x2 ∨ x5) becomes (¬x2 ∨ x5) which is (x5) since x2 = true
+- (x3 ∨ ¬x5 ∨ false) becomes (x3 ∨ ¬x5)
+- (¬false ∨ ¬x5 ∨ x3) becomes satisfied
+- (¬x3 ∨ ¬x5 ∨ ¬x2) becomes (¬x3 ∨ ¬x5)
+- (¬x5 ∨ ¬x2 ∨ ¬x3) becomes (¬x5 ∨ ¬x3)
+
+Step 19: We have a unit clause (x5), so x5 = true.
+
+Step 20: With x5 = true, we can simplify:
+- (x3 ∨ true) becomes satisfied
+- (x3 ∨ ¬true) becomes (x3)
+- (¬x3 ∨ ¬true) becomes (¬x3)
+- (¬true ∨ ¬x3) becomes (¬x3)
+
+Step 21: We have conflicting unit clauses (x3) and (¬x3). This is a contradiction.
+
+Step 22: Let's backtrack and try x2 = false.
+
+Step 23: With x2 = false and x1 = false, we can simplify:
+- (¬x3 ∨ false) becomes (¬x3)
+- (x5 ∨ x4) remains (x5 ∨ x4)
+- (x5 ∨ false) becomes (x5)
+- (¬false ∨ ¬x4) becomes satisfied
+- (false ∨ ¬x4 ∨ ¬x1) becomes (¬x4 ∨ ¬false) which is (¬x4 ∨ true) which is satisfied
+- (¬x5 ∨ x4) remains (¬x5 ∨ x4)
+- (¬false ∨ false ∨ ¬x4) becomes (true ∨ ¬x4) which is satisfied
+
+Step 24: We have unit clauses (¬x3) and (x5), so x3 = false and x5 = true.
+
+Step 25: With x3 = false and x5 = true, we can simplify:
+- (x4 ∨ ¬false ∨ true) becomes satisfied
+- (false ∨ ¬true ∨ x4) becomes (x4)
+- (false ∨ ¬x5 ∨ x4) becomes (x4)
+- (¬x4 ∨ ¬true ∨ false) becomes (¬x4)
+
+Step 26: We have conflicting unit clauses (x4) and (¬x4). This is another contradiction.
+
+Let's try a different approach. Let's start over with a different initial assignment.
+
+Step 27: Let's start by assigning x3 = false.
+
+Step 28: With x3 = false, we can simplify:
+- (¬false ∨ x2 ∨ x1) becomes satisfied
+- (¬false ∨ x2 ∨ x4) becomes satisfied
+- (¬x1 ∨ false ∨ ¬x2) becomes (¬x1 ∨ ¬x2)
+- (false ∨ ¬x4 ∨ x5) becomes (¬x4 ∨ x5)
+- (false ∨ ¬x5 ∨ x4) becomes (¬x5 ∨ x4)
+- (¬x1 ∨ false ∨ ¬x4) becomes (¬x1 ∨ ¬x4)
+- (¬x4 ∨ ¬x5 ∨ false) becomes (¬x4 ∨ ¬x5)
+- (¬false ∨ ¬x5 ∨ ¬x2) becomes satisfied
+- (¬x5 ∨ ¬x2 ∨ ¬false) becomes (¬x5 ∨ ¬x2)
+
+Step 29: Let's assign x4 = true.
+
+Step 30: With x4 = true, we can simplify:
+- (x5 ∨ true ∨ ¬x1) becomes satisfied
+- (¬x5 ∨ true) becomes satisfied
+- (true ∨ ¬x2 ∨ x5) becomes satisfied
+- (¬x1 ∨ ¬x2) remains (¬x1 ∨ ¬x2)
+- (¬true ∨ x5) becomes (x5)
+- (¬x1 ∨ ¬true) becomes (¬x1)
+- (¬true ∨ ¬x5) becomes (¬x5)
+- (¬x5 ∨ ¬x2) remains (¬x5 ∨ ¬x2)
+- (x1 ∨ ¬x5 ∨ true) becomes satisfied
+- (¬x2 ∨ x1 ∨ ¬true) becomes (¬x2 ∨ x1)

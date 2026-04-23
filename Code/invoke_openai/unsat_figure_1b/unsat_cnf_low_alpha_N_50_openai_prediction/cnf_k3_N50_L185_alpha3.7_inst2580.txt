@@ -1,0 +1,512 @@
+c Random 3-SAT
+c alpha=3.7, N=50, L=185, instance=2580
+p cnf 50 185
+43 -50 -35 0
+-14 41 50 0
+-18 -34 -10 0
+36 23 37 0
+-7 40 30 0
+47 -25 50 0
+22 -19 -29 0
+21 -30 -4 0
+12 -4 -19 0
+14 -12 23 0
+-21 -8 -37 0
+25 21 38 0
+50 -28 29 0
+-26 -24 29 0
+3 26 49 0
+-22 -33 47 0
+-19 3 -12 0
+-27 41 40 0
+17 -5 34 0
+11 -49 31 0
+1 47 -18 0
+35 -46 -2 0
+12 -22 -29 0
+-15 -7 -32 0
+4 -35 -23 0
+7 -22 -28 0
+25 -44 35 0
+-47 -39 22 0
+44 46 39 0
+31 19 -49 0
+50 -9 -6 0
+44 -5 45 0
+-27 -21 -46 0
+-4 41 34 0
+20 -19 -16 0
+-8 -36 -29 0
+26 -7 -13 0
+48 -31 29 0
+-36 -21 -5 0
+10 21 -13 0
+10 42 -2 0
+15 -49 13 0
+-46 26 -5 0
+-38 12 -16 0
+2 8 -37 0
+-25 -17 -45 0
+30 10 -24 0
+39 -1 -32 0
+-19 24 28 0
+-21 -17 -7 0
+27 37 -26 0
+34 -15 -32 0
+46 -11 2 0
+50 -23 40 0
+34 -29 -3 0
+-43 28 -2 0
+-12 10 -37 0
+26 -40 13 0
+-49 -8 15 0
+-40 34 -32 0
+-38 -42 4 0
+10 -24 -50 0
+23 34 36 0
+34 -27 -14 0
+-16 -17 34 0
+-7 49 -25 0
+30 24 39 0
+17 -12 29 0
+-39 -3 19 0
+14 35 41 0
+-9 30 49 0
+10 13 36 0
+-25 -13 -37 0
+47 -11 -22 0
+-29 -46 7 0
+-3 14 -12 0
+19 -22 49 0
+-44 34 13 0
+40 49 -1 0
+-1 8 16 0
+-4 19 35 0
+26 -8 42 0
+42 -33 46 0
+-40 48 21 0
+11 -33 28 0
+-34 17 1 0
+37 34 26 0
+-34 29 13 0
+-47 24 -10 0
+10 32 -4 0
+21 19 -31 0
+-5 -46 49 0
+-19 35 -11 0
+4 20 -17 0
+-12 -27 -44 0
+25 -46 6 0
+24 -31 -34 0
+-29 -25 43 0
+-36 21 -6 0
+-42 14 47 0
+47 4 -44 0
+-38 16 -27 0
+-13 -48 41 0
+-5 29 -42 0
+-45 38 -22 0
+19 23 4 0
+11 -48 10 0
+-21 32 14 0
+-47 7 48 0
+5 -14 4 0
+29 -33 50 0
+25 -6 -50 0
+42 -41 23 0
+-4 -23 -31 0
+41 24 -4 0
+5 1 -37 0
+-35 46 37 0
+-47 -15 39 0
+-30 42 -40 0
+44 -18 31 0
+-20 42 44 0
+-30 -29 -38 0
+22 -24 19 0
+-14 -16 6 0
+-37 19 20 0
+-27 -17 33 0
+5 -39 44 0
+9 -46 27 0
+33 -3 18 0
+-2 -13 -17 0
+-20 -9 43 0
+-40 26 13 0
+27 -49 -2 0
+47 -39 -23 0
+40 -34 -2 0
+-29 6 -37 0
+10 -38 -33 0
+11 29 -31 0
+-35 -50 -42 0
+42 -6 -7 0
+40 14 30 0
+-19 -38 26 0
+-45 19 43 0
+14 -8 -23 0
+9 45 -16 0
+19 -22 26 0
+-28 -48 -46 0
+-41 33 -20 0
+44 -47 -5 0
+-12 45 30 0
+50 49 -33 0
+1 -37 -39 0
+31 34 4 0
+-17 -19 45 0
+-1 -45 -4 0
+-40 -50 21 0
+12 31 -16 0
+5 26 -13 0
+-2 48 -45 0
+12 -25 8 0
+33 21 -4 0
+26 6 -21 0
+-9 -47 36 0
+-3 17 -35 0
+-25 -28 22 0
+-48 -36 5 0
+23 -45 -11 0
+20 -47 24 0
+-11 9 -1 0
+41 -13 -46 0
+32 41 27 0
+20 -12 -23 0
+43 42 -6 0
+-15 -13 39 0
+-33 -14 32 0
+2 31 -27 0
+-12 30 -45 0
+-47 -18 -50 0
+-32 -24 43 0
+-39 -14 -24 0
+10 -49 -9 0
+-18 10 -30 0
+22 -4 -47 0
+-24 -1 -40 0
+-40 24 -42 0
+
+c GPT solve time: 87.41 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List all variables**
+Variables: x1, x2, ..., x50 (since the highest index is x50).
+
+**Step 2: Try to find a satisfying assignment using branching and backtracking.**
+
+Given the size, let's proceed with a systematic approach:
+
+---
+
+### Step-by-step (abbreviated for clarity):
+
+1. **Choose x1 = TRUE** (Branch 1)
+2. Propagate implications, check for conflicts.
+3. If no conflict, continue assigning next unassigned variable (x2 = TRUE), and so on.
+4. If a conflict is found, backtrack (count as a conflict), flip the last decision variable, and continue.
+5. Repeat until either a satisfying assignment is found or all possibilities are exhausted.
+
+---
+
+Given the formula is large but not pathological, let's attempt a greedy assignment (all TRUE), then flip as needed:
+
+#### Try all variables TRUE:
+
+- Substitute x1 = x2 = ... = x50 = TRUE into all clauses.
+- Check if any clause is unsatisfied.
+
+**Check a few clauses:**
+- (x43 ∨ ¬x50 ∨ ¬x35): x43=TRUE, so satisfied.
+- (¬x14 ∨ x41 ∨ x50): x14=TRUE, so ¬x14=FALSE, x41=TRUE, so satisfied.
+- (¬x18 ∨ ¬x34 ∨ ¬x10): x18=TRUE, x34=TRUE, x10=TRUE, so all negations are FALSE. **This clause is UNSATISFIED.**
+
+**First conflict found.**
+
+#### Branch 1: x1=TRUE, x2=TRUE, ..., x10=TRUE, x18=TRUE, x34=TRUE
+
+Conflict at (¬x18 ∨ ¬x34 ∨ ¬x10).  
+Try flipping x10=FALSE (Branch 2, Conflict 1).
+
+Now x10=FALSE, x18=TRUE, x34=TRUE.
+
+- (¬x18 ∨ ¬x34 ∨ ¬x10): ¬x18=FALSE, ¬x34=FALSE, ¬x10=TRUE. Satisfied.
+
+Check other clauses that may now be unsatisfied:
+
+- (x10 ∨ x21 ∨ ¬x13): x10=FALSE, x21=TRUE, so satisfied.
+- (x10 ∨ x42 ∨ ¬x2): x10=FALSE, x42=TRUE, so satisfied.
+- (¬x12 ∨ x10 ∨ ¬x37): x12=TRUE, x10=FALSE, x37=TRUE, so ¬x12=FALSE, x10=FALSE, ¬x37=FALSE. **Conflict.**
+
+#### Branch 2: x12=TRUE, x10=FALSE, x37=TRUE
+
+Conflict at (¬x12 ∨ x10 ∨ ¬x37).  
+Try flipping x12=FALSE (Branch 3, Conflict 2).
+
+Now x12=FALSE, x10=FALSE, x37=TRUE.
+
+- (¬x12 ∨ x10 ∨ ¬x37): ¬x12=TRUE, so satisfied.
+
+Check (x14 ∨ ¬x12 ∨ x23): x14=TRUE, ¬x12=TRUE, so satisfied.
+
+Check (x25 ∨ x21 ∨ x38): x25=TRUE, so satisfied.
+
+Check (¬x19 ∨ x3 ∨ ¬x12): x19=TRUE, x3=TRUE, so satisfied.
+
+Check (x12 ∨ ¬x4 ∨ ¬x19): x12=FALSE, ¬x4=FALSE, ¬x19=FALSE. **Conflict.**
+
+#### Branch 3: x12=FALSE, x4=TRUE, x19=TRUE
+
+Conflict at (x12 ∨ ¬x4 ∨ ¬x19).  
+Try flipping x4=FALSE (Branch 4, Conflict 3).
+
+Now x12=FALSE, x4=FALSE, x19=TRUE.
+
+- (x12 ∨ ¬x4 ∨ ¬x19): x12=FALSE, ¬x4=TRUE, so satisfied.
+
+Check (x21 ∨ ¬x30 ∨ ¬x4): x21=TRUE, so satisfied.
+
+Check (¬x4 ∨ x41 ∨ x34): ¬x4=TRUE, so satisfied.
+
+Check (x10 ∨ x32 ∨ ¬x4): x10=FALSE, x32=TRUE, so satisfied.
+
+Check (x41 ∨ x24 ∨ ¬x4): x41=TRUE, so satisfied.
+
+Check (¬x1 ∨ ¬x45 ∨ ¬x4): x1=TRUE, so ¬x1=FALSE, ¬x45=FALSE, ¬x4=TRUE, so satisfied.
+
+Check (x33 ∨ x21 ∨ ¬x4): x33=TRUE, so satisfied.
+
+Check (¬x4 ∨ ¬x23 ∨ ¬x31): ¬x4=TRUE, so satisfied.
+
+Check (x4 ∨ x20 ∨ ¬x17): x4=FALSE, x20=TRUE, so satisfied.
+
+Check (x31 ∨ x34 ∨ x4): x31=TRUE, so satisfied.
+
+Check (x19 ∨ x23 ∨ x4): x19=TRUE, so satisfied.
+
+Check (¬x4 ∨ x19 ∨ x35): ¬x4=TRUE, so satisfied.
+
+Check (x47 ∨ x4 ∨ ¬x44): x47=TRUE, so satisfied.
+
+Check (x5 ∨ ¬x14 ∨ x4): x5=TRUE, so satisfied.
+
+Check (x41 ∨ x24 ∨ ¬x4): x41=TRUE, so satisfied.
+
+Check (x23 ∨ x34 ∨ x36): x23=TRUE, so satisfied.
+
+Check (x12 ∨ x31 ∨ ¬x16): x12=FALSE, x31=TRUE, so satisfied.
+
+Check (x12 ∨ ¬x25 ∨ x8): x12=FALSE, ¬x25=FALSE, x8=TRUE, so satisfied.
+
+Check (x19 ∨ ¬x22 ∨ x49): x19=TRUE, so satisfied.
+
+Check (x22 ∨ ¬x19 ∨ ¬x29): x22=TRUE, so satisfied.
+
+Check (x20 ∨ ¬x19 ∨ ¬x16): x20=TRUE, so satisfied.
+
+Check (¬x19 ∨ x3 ∨ ¬x12): ¬x19=FALSE, x3=TRUE, so satisfied.
+
+Check (¬x19 ∨ x24 ∨ x28): ¬x19=FALSE, x24=TRUE, so satisfied.
+
+Check (¬x19 ∨ x35 ∨ ¬x11): ¬x19=FALSE, x35=TRUE, so satisfied.
+
+Check (¬x21 ∨ ¬x8 ∨ ¬x37): x21=TRUE, so ¬x21=FALSE, x8=TRUE, so ¬x8=FALSE, x37=TRUE, so ¬x37=FALSE. **Conflict.**
+
+#### Branch 4: x21=TRUE, x8=TRUE, x37=TRUE
+
+Conflict at (¬x21 ∨ ¬x8 ∨ ¬x37).  
+Try flipping x21=FALSE (Branch 5, Conflict 4).
+
+Now x21=FALSE, x8=TRUE, x37=TRUE.
+
+- (¬x21 ∨ ¬x8 ∨ ¬x37): ¬x21=TRUE, so satisfied.
+
+Check (x21 ∨ ¬x30 ∨ ¬x4): x21=FALSE, ¬x30=FALSE, ¬x4=TRUE, so satisfied.
+
+Check (x25 ∨ x21 ∨ x38): x25=TRUE, so satisfied.
+
+Check (x33 ∨ x21 ∨ ¬x4): x33=TRUE, so satisfied.
+
+Check (x21 ∨ x19 ∨ ¬x31): x21=FALSE, x19=TRUE, so satisfied.
+
+Check (x26 ∨ x6 ∨ ¬x21): x26=TRUE, x6=TRUE, so satisfied.
+
+Check (x2 ∨ x31 ∨ ¬x27): x2=TRUE, so satisfied.
+
+Check (x33 ∨ x21 ∨ ¬x4): x33=TRUE, so satisfied.
+
+Check (x21 ∨ ¬x30 ∨ ¬x4): x21=FALSE, ¬x30=FALSE, ¬x4=TRUE, so satisfied.
+
+Check (¬x21 ∨ ¬x17 ∨ ¬x7): ¬x21=TRUE, so satisfied.
+
+Check (¬x21 ∨ ¬x8 ∨ ¬x37): ¬x21=TRUE, so satisfied.
+
+Check (¬x21 ∨ x32 ∨ x14): ¬x21=TRUE, so satisfied.
+
+Check (¬x27 ∨ ¬x21 ∨ ¬x46): ¬x27=FALSE, ¬x21=TRUE, so satisfied.
+
+Check (¬x36 ∨ ¬x21 ∨ ¬x5): ¬x36=FALSE, ¬x21=TRUE, so satisfied.
+
+Check (¬x40 ∨ ¬x50 ∨ x21): ¬x40=FALSE, ¬x50=FALSE, x21=FALSE, so all FALSE. **Conflict.**
+
+#### Branch 5: x40=TRUE, x50=TRUE, x21=FALSE
+
+Conflict at (¬x40 ∨ ¬x50 ∨ x21).  
+Try flipping x40=FALSE (Branch 6, Conflict 5).
+
+Now x40=FALSE, x50=TRUE, x21=FALSE.
+
+- (¬x40 ∨ ¬x50 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (x40 ∨ x49 ∨ ¬x1): x40=FALSE, x49=TRUE, so satisfied.
+
+Check (x40 ∨ x14 ∨ x30): x40=FALSE, x14=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x26 ∨ x13): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x34 ∨ ¬x32): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x24 ∨ ¬x42): ¬x40=TRUE, so satisfied.
+
+Check (¬x40 ∨ x48 ∨ x21): ¬

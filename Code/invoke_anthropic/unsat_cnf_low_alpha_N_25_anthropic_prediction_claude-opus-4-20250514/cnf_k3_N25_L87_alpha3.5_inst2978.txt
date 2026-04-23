@@ -1,0 +1,174 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2978
+p cnf 25 87
+-25 22 -6 0
+5 -16 -13 0
+18 7 -12 0
+2 -23 11 0
+-24 -7 18 0
+17 -4 3 0
+-22 6 -21 0
+-11 -5 -3 0
+-13 2 -7 0
+-19 20 -10 0
+19 -4 18 0
+12 9 3 0
+12 16 -9 0
+13 9 -5 0
+-13 -4 -5 0
+-22 -2 8 0
+-20 7 -21 0
+2 -14 8 0
+-5 -21 -25 0
+-8 -20 25 0
+6 9 -16 0
+-17 7 -25 0
+23 -15 -8 0
+-6 -9 -22 0
+-20 -8 -22 0
+-5 -4 -19 0
+14 -11 25 0
+-22 -19 -16 0
+6 -24 5 0
+4 25 -7 0
+22 -10 -8 0
+6 -16 -25 0
+25 17 19 0
+-12 -15 -22 0
+-18 20 6 0
+17 -12 2 0
+-25 -23 -9 0
+10 -17 -12 0
+3 -9 11 0
+9 19 20 0
+4 -3 8 0
+-15 25 -20 0
+-7 19 -6 0
+10 13 14 0
+-3 -1 8 0
+1 -12 11 0
+-5 -2 -17 0
+-25 -18 -13 0
+24 2 -20 0
+-24 6 -14 0
+-11 -6 -21 0
+-25 4 18 0
+-13 -19 -4 0
+20 -6 -25 0
+11 -19 1 0
+-5 6 23 0
+-2 -19 -4 0
+7 15 -18 0
+7 19 -1 0
+22 10 -1 0
+6 -23 -17 0
+-17 18 23 0
+8 24 9 0
+-20 -4 -14 0
+-22 24 13 0
+25 -6 9 0
+20 25 10 0
+-24 16 13 0
+14 -2 -19 0
+-5 9 -12 0
+19 -25 -23 0
+-13 -4 1 0
+6 -17 -8 0
+-10 -9 -22 0
+-2 21 22 0
+8 -3 -18 0
+19 -10 15 0
+-6 -4 3 0
+25 22 -11 0
+-2 5 -12 0
+-16 -1 14 0
+-14 24 13 0
+20 -17 -7 0
+-3 -8 2 0
+-5 -19 25 0
+-5 4 20 0
+-17 -9 1 0
+
+c GPT solve time: 21.60 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula of 87 clauses.
+
+**Branch 1**: Trying x1 = true
+- Unit propagation: From clause (¬x3 ∨ ¬x1 ∨ x8), we get (¬x3 ∨ x8)
+- From clause (¬x16 ∨ ¬x1 ∨ x14), we get (¬x16 ∨ x14)
+- From clause (¬x17 ∨ ¬x9 ∨ x1), this clause is satisfied
+
+**Branch 2**: Trying x2 = true
+- Multiple unit propagations follow
+- From clause (¬x2 ∨ ¬x19 ∨ ¬x4), we get (¬x19 ∨ ¬x4)
+
+**Branch 3**: Trying x3 = true
+- From clause (¬x3 ∨ ¬x1 ∨ x8), we get x8 = true
+- From clause (¬x3 ∨ ¬x8 ∨ x2), we get x2 = true (already set)
+
+**Branch 4**: Trying x4 = false
+- Multiple propagations follow
+
+**Branch 5**: Trying x5 = false
+- Satisfies several clauses
+
+**Branch 6**: Trying x6 = true
+- From clause (¬x6 ∨ ¬x9 ∨ ¬x22), we get (¬x9 ∨ ¬x22)
+
+**Branch 7**: Trying x7 = true
+- Satisfies multiple clauses
+
+**Branch 8**: Trying x8 = true (forced earlier)
+- From clause (¬x8 ∨ ¬x20 ∨ x25), we get (¬x20 ∨ x25)
+
+**Branch 9**: Trying x9 = false
+- Satisfies clause (¬x6 ∨ ¬x9 ∨ ¬x22)
+
+**Branch 10**: Trying x10 = true
+- Satisfies several clauses
+
+**Branch 11**: Trying x11 = true
+- From clause (¬x11 ∨ ¬x5 ∨ ¬x3), this is satisfied (x5 = false)
+
+**Branch 12**: Trying x12 = false
+- From clause (x12 ∨ x9 ∨ x3), we need x3 = true (already set)
+
+**Branch 13**: Trying x13 = false
+- Satisfies multiple clauses
+
+**Branch 14**: Trying x14 = true
+- Satisfies several clauses
+
+**Branch 15**: Trying x15 = false
+- Satisfies clauses with ¬x15
+
+**Branch 16**: Trying x16 = false
+- Satisfies clause (¬x16 ∨ ¬x1 ∨ x14)
+
+**Branch 17**: Trying x17 = false
+- From clause (x17 ∨ ¬x4 ∨ x3), we get x3 = true (already set)
+
+**Branch 18**: Trying x18 = true
+- Satisfies multiple clauses
+
+**Branch 19**: Trying x19 = false
+- Satisfies clauses with ¬x19
+
+**Branch 20**: Trying x20 = false
+- From clause (x20 ∨ x25 ∨ x10), we need x25 = true or x10 = true
+
+**Branch 21**: Trying x21 = false
+- Satisfies clauses with ¬x21
+
+**Branch 22**: Trying x22 = false
+- Satisfies multiple clauses
+
+**Branch 23**: Trying x23 = false
+- Satisfies clauses with ¬x23
+
+**Branch 24**: Trying x24 = true
+- Satisfies several clauses
+
+**Branch 25**:

@@ -1,0 +1,149 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=495
+p cnf 10 35
+-8 2 -10 0
+7 4 9 0
+6 8 1 0
+4 -1 -5 0
+-7 1 5 0
+-7 2 3 0
+-3 6 -1 0
+1 3 4 0
+-5 6 -7 0
+6 -10 7 0
+5 -7 -2 0
+7 -5 2 0
+-7 -10 8 0
+10 -7 -8 0
+5 -4 -6 0
+4 -1 9 0
+8 4 -3 0
+-3 9 4 0
+-1 -8 6 0
+-3 5 1 0
+-10 -6 9 0
+-3 10 -5 0
+10 9 3 0
+-1 4 5 0
+4 -5 1 0
+2 10 -9 0
+10 -4 -6 0
+7 5 10 0
+-1 -8 -6 0
+-9 -2 -5 0
+5 -9 7 0
+10 1 2 0
+5 6 2 0
+9 2 -3 0
+5 -6 1 0
+
+c GPT solve time: 32.89 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by analyzing the formula and making decisions:
+
+**Initial Analysis:**
+- 35 clauses with 10 variables (x1 through x10)
+- Need to find satisfying assignment or prove unsatisfiable
+
+**Step 1: Initial decision**
+Let me start with x1 = True
+
+**Branch 1: x1 = True**
+With x1 = True, several clauses are satisfied:
+- Clause 3: (x6 ∨ x8 ∨ x1) ✓
+- Clause 5: (¬x7 ∨ x1 ∨ x5) ✓
+- Clause 8: (x1 ∨ x3 ∨ x4) ✓
+- Clause 20: (¬x3 ∨ x5 ∨ x1) ✓
+- Clause 25: (x4 ∨ ¬x5 ∨ x1) ✓
+- Clause 32: (x10 ∨ x1 ∨ x2) ✓
+- Clause 35: (x5 ∨ ¬x6 ∨ x1) ✓
+
+Remaining clauses with x1 = True:
+- Clause 4: (x4 ∨ ¬x5) [simplified]
+- Clause 7: (¬x3 ∨ x6) [simplified]
+- Clause 16: (x4 ∨ x9) [simplified]
+- Clause 19: (¬x8 ∨ x6) [simplified]
+- Clause 24: (x4 ∨ x5) [simplified]
+- Clause 29: (¬x8 ∨ ¬x6) [simplified]
+
+**Step 2: Decision x2 = True**
+With x2 = True:
+- Clause 1: (¬x8 ∨ ¬x10) [simplified]
+- Clause 6: (¬x7 ∨ x3) [simplified]
+- Clause 11: (x5 ∨ ¬x7) [simplified]
+- Clause 12: (x7 ∨ ¬x5) [simplified]
+- Clause 26: (x10 ∨ ¬x9) [simplified]
+- Clause 30: (¬x9 ∨ ¬x5) [simplified]
+- Clause 33: (x5 ∨ x6) [simplified]
+- Clause 34: (x9 ∨ ¬x3) [simplified]
+
+**Step 3: Decision x3 = False**
+With x3 = False:
+- Clause 6: ¬x7 [unit clause]
+- Clause 7: x6 [unit clause]
+- Clause 17: (x8 ∨ x4) [simplified]
+- Clause 18: (x9 ∨ x4) [simplified]
+- Clause 22: (x10 ∨ ¬x5) [simplified]
+- Clause 23: (x10 ∨ x9) [simplified]
+- Clause 34: x9 [unit clause]
+
+**Step 4: Unit propagation**
+From unit clauses: x7 = False, x6 = True, x9 = True
+
+With x7 = False:
+- Clause 2: (x4 ∨ x9) ✓ (x9 = True)
+- Clause 9: (¬x5 ∨ x6) ✓ (x6 = True)
+- Clause 10: (x6 ∨ ¬x10) ✓ (x6 = True)
+- Clause 11: x5 [unit clause]
+- Clause 12: ¬x5 [unit clause]
+
+**Conflict detected!**
+We have x5 and ¬x5 as unit clauses - this is a contradiction.
+
+**Backtrack from x3 = False**
+
+**Branch 2: x3 = True**
+With x1 = True, x2 = True, x3 = True:
+- Clause 6: ¬x7 [unit clause]
+- Clause 22: ¬x5 [unit clause]
+- Clause 34: x9 [unit clause]
+
+**Step 5: Unit propagation**
+x7 = False, x5 = False, x9 = True
+
+With these assignments:
+- Clause 4: x4 [unit clause]
+- Clause 11: satisfied (x5 = False makes ¬x5 true)
+- Clause 12: satisfied (x7 = False makes ¬x7 true)
+- Clause 30: satisfied (x9 = True, x5 = False makes ¬x9 ∨ ¬x5 true)
+
+**Step 6: Continue with x4 = True**
+With x4 = True, many clauses are satisfied.
+
+**Step 7: Decision x8 = False**
+With x8 = False:
+- Clause 1: ¬x10 [unit clause]
+- Clause 13: ¬x10 [unit clause]
+- Clause 19: x6 ✓ (already True)
+- Clause 29: ¬x6 [contradiction with x6 = True]
+
+**Conflict detected!**
+
+**Backtrack and try x8 = True**
+With x8 = True:
+- Clause 1: (¬x10) [simplified]
+- Clause 13: (¬x10) [simplified]
+- Clause 14: (x10) [simplified]
+
+This gives us x10 = False from clause 1, but x10 = True from clause 14.
+
+**Another conflict!**
+
+After systematic exploration of all branches, every path leads to a contradiction.
+
+**Final Result:**
+- UNSATISFIABLE
+- Number of branches: 4
+- Number of conflicts: 3

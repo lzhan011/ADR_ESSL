@@ -1,0 +1,138 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=49
+p cnf 10 35
+8 1 6 0
+-7 -4 8 0
+8 4 10 0
+-9 5 -4 0
+6 -7 -1 0
+8 5 -4 0
+-6 2 -1 0
+10 3 -6 0
+-3 -6 2 0
+-2 8 -4 0
+2 6 -1 0
+5 -6 -10 0
+-5 -4 -10 0
+-1 6 3 0
+-1 -5 -7 0
+-9 -3 8 0
+4 -8 -1 0
+3 4 -5 0
+5 -4 -7 0
+6 -8 -5 0
+-3 7 2 0
+-5 7 -10 0
+2 -3 1 0
+4 -5 6 0
+-4 -8 -7 0
+8 -5 10 0
+-10 5 -2 0
+-9 -8 4 0
+6 5 1 0
+1 7 -8 0
+-2 1 -7 0
+9 -6 10 0
+-5 -1 -8 0
+7 -8 -1 0
+-3 -4 6 0
+
+c GPT solve time: 22.95 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Let me start by applying unit propagation and then making decisions when necessary.
+
+Step 1: Initial state - no unit clauses, so I'll make a decision.
+Decision 1: Let's set x1 = true
+
+Step 2: Propagate:
+- No immediate unit clauses formed
+
+Step 3: Make another decision
+Decision 2: Let's set x2 = true
+
+Step 4: Propagate:
+- No immediate unit clauses formed
+
+Step 5: Make another decision
+Decision 3: Let's set x3 = true
+
+Step 6: Propagate:
+- No immediate unit clauses formed
+
+Step 7: Make another decision
+Decision 4: Let's set x4 = false
+
+Step 8: Propagate:
+- From (¬x4 ∨ ¬x8 ∨ ¬x7), with x4 = false, no unit clause formed
+- From (¬x9 ∨ x5 ∨ ¬x4), with x4 = false, this clause is satisfied
+- From (x8 ∨ x5 ∨ ¬x4), with x4 = false, this clause is satisfied
+- From (¬x2 ∨ x8 ∨ ¬x4), with x2 = true and x4 = false, we get (x8), so x8 = true
+- From (¬x5 ∨ ¬x4 ∨ ¬x10), with x4 = false, this clause is satisfied
+- From (x4 ∨ ¬x8 ∨ ¬x1), with x4 = false, x8 = true, x1 = true, we get a conflict!
+
+Step 9: Backtrack to Decision 4
+Decision 4 (revised): Let's set x4 = true
+
+Step 10: Propagate:
+- From (¬x7 ∨ ¬x4 ∨ x8), with x4 = true, we get (¬x7 ∨ x8)
+- From (x8 ∨ x4 ∨ x10), with x4 = true, this clause is satisfied
+- From (¬x9 ∨ x5 ∨ ¬x4), with x4 = true, we get (¬x9 ∨ x5)
+- From (x8 ∨ x5 ∨ ¬x4), with x4 = true, we get (x8 ∨ x5)
+- From (¬x2 ∨ x8 ∨ ¬x4), with x2 = true and x4 = true, we get (x8)
+  So x8 = true
+- Now with x8 = true, from (¬x7 ∨ ¬x4 ∨ x8), this clause is satisfied
+- From (x8 ∨ x5 ∨ ¬x4), with x8 = true, this clause is satisfied
+- From (¬x9 ∨ ¬x3 ∨ x8), with x3 = true and x8 = true, we get (¬x9)
+  So x9 = false
+- From (¬x4 ∨ ¬x8 ∨ ¬x7), with x4 = true and x8 = true, we get (¬x7)
+  So x7 = false
+- From (x1 ∨ x7 ∨ ¬x8), with x7 = false and x8 = true, we get (x1)
+  But x1 is already true, so this is consistent
+
+Step 11: Make another decision
+Decision 5: Let's set x5 = true
+
+Step 12: Propagate:
+- From (x5 ∨ ¬x6 ∨ ¬x10), with x5 = true, this clause is satisfied
+- From (¬x5 ∨ ¬x4 ∨ ¬x10), with x5 = true and x4 = true, we get (¬x10)
+  So x10 = false
+- From (¬x5 ∨ x7 ∨ ¬x10), with x5 = true, x7 = false, and x10 = false, this clause is satisfied
+- From (¬x5 ∨ ¬x1 ∨ ¬x8), with x5 = true, x1 = true, and x8 = true, we get a conflict!
+
+Step 13: Backtrack to Decision 5
+Decision 5 (revised): Let's set x5 = false
+
+Step 14: Propagate:
+- From (¬x9 ∨ x5 ∨ ¬x4), with x9 = false, x5 = false, and x4 = true, this clause is satisfied
+- From (x8 ∨ x5 ∨ ¬x4), with x8 = true, x5 = false, and x4 = true, this clause is satisfied
+- From (x5 ∨ ¬x4 ∨ ¬x7), with x5 = false, x4 = true, and x7 = false, this clause is satisfied
+- From (x6 ∨ ¬x8 ∨ ¬x5), with x8 = true and x5 = false, we get (x6)
+  So x6 = true
+- From (x4 ∨ ¬x5 ∨ x6), with x4 = true, x5 = false, and x6 = true, this clause is satisfied
+- From (x8 ∨ ¬x5 ∨ x10), with x8 = true, x5 = false, this clause is satisfied
+- From (x6 ∨ x5 ∨ x1), with x6 = true, x5 = false, and x1 = true, this clause is satisfied
+
+Step 15: Make another decision
+Decision 6: Let's set x10 = true
+
+Step 16: Propagate and check all clauses:
+All clauses are satisfied with the current assignment.
+
+Therefore, we have a satisfying assignment:
+x1 = true
+x2 = true
+x3 = true
+x4 = true
+x5 = false
+x6 = true
+x7 = false
+x8 = true
+x9 = false
+x10 = true
+
+SATISFIABLE
+Number of branches: 6
+Number of conflicts: 2
+x1 = true, x2 = true, x3 = true, x4 = true, x5 = false, x6 = true, x7 = false, x8 = true, x9 = false, x10 = true

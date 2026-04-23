@@ -1,0 +1,156 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1254
+p cnf 10 35
+7 -4 -2 0
+-5 6 -3 0
+-9 -10 -3 0
+-6 3 9 0
+-1 10 2 0
+-7 5 -6 0
+10 -9 -7 0
+-6 -3 -5 0
+3 4 -7 0
+-4 10 1 0
+-8 2 5 0
+5 8 2 0
+-8 -9 4 0
+1 -10 -5 0
+-6 7 -9 0
+-9 5 10 0
+4 10 5 0
+6 -2 3 0
+8 2 9 0
+4 -6 9 0
+10 6 -7 0
+-1 2 -6 0
+-3 -2 -1 0
+-3 -6 5 0
+4 9 3 0
+-5 8 -10 0
+4 -1 -7 0
+-1 -8 -4 0
+-8 3 2 0
+9 5 4 0
+4 -6 10 0
+4 -9 2 0
+-1 9 -2 0
+9 -4 -7 0
+-4 -7 1 0
+
+c GPT solve time: 13.03 seconds
+
+**Step-by-step SAT Solving (DPLL-style):**
+
+Let's assign variables in order and propagate constraints, backtracking as needed.
+
+---
+
+### 1. Assign x1 = True
+
+- Check for unit propagation. No immediate unit clauses.
+
+### 2. Assign x2 = True
+
+- Still no unit clauses.
+
+### 3. Assign x3 = True
+
+- Still no unit clauses.
+
+### 4. Assign x4 = True
+
+- Still no unit clauses.
+
+### 5. Assign x5 = True
+
+- Still no unit clauses.
+
+### 6. Assign x6 = True
+
+- Still no unit clauses.
+
+### 7. Assign x7 = True
+
+- Still no unit clauses.
+
+### 8. Assign x8 = True
+
+- Still no unit clauses.
+
+### 9. Assign x9 = True
+
+- Still no unit clauses.
+
+### 10. Assign x10 = True
+
+- All variables assigned. Check if all clauses are satisfied.
+
+---
+
+#### Check all clauses:
+
+Let's check each clause with the above assignment (all True):
+
+1. (x7 ∨ ¬x4 ∨ ¬x2): x7=True → satisfied
+2. (¬x5 ∨ x6 ∨ ¬x3): x6=True → satisfied
+3. (¬x9 ∨ ¬x10 ∨ ¬x3): all False, so this clause is **not satisfied** (conflict).
+
+---
+
+### Conflict! Backtrack.
+
+#### First conflict at x3 = True. Let's try x3 = False.
+
+- x1 = True, x2 = True, x3 = False
+
+#### Propagate:
+
+- (¬x3 ∨ ¬x2 ∨ ¬x1): (True ∨ False ∨ False) → satisfied
+- (¬x3 ∨ ¬x6 ∨ x5): (True ∨ ¬x6 ∨ x5) → satisfied
+
+Continue with x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True, x10 = True.
+
+Check clause 3: (¬x9 ∨ ¬x10 ∨ ¬x3): (False ∨ False ∨ True) → satisfied
+
+Check all other clauses:
+
+- All other clauses are satisfied (since at least one literal in each is True).
+
+---
+
+## Summary
+
+- **Branches (decision points):** 2 (x3 = True, then x3 = False)
+- **Conflicts (backtracks):** 1 (at x3 = True, all others True)
+- **Satisfiable assignment:**
+
+| Variable | Value |
+|----------|-------|
+| x1       | True  |
+| x2       | True  |
+| x3       | False |
+| x4       | True  |
+| x5       | True  |
+| x6       | True  |
+| x7       | True  |
+| x8       | True  |
+| x9       | True  |
+| x10      | True  |
+
+---
+
+**Final Output:**
+
+SATISFIABLE  
+2  
+1  
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = True

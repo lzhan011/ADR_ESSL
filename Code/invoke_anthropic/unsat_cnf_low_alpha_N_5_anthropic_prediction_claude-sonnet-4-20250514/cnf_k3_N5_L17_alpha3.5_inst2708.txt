@@ -1,0 +1,132 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2708
+p cnf 5 17
+1 -3 4 0
+-4 -1 3 0
+-5 -4 3 0
+4 -1 3 0
+3 5 -1 0
+5 -3 -4 0
+3 -1 -5 0
+5 3 1 0
+1 4 2 0
+-1 -2 5 0
+2 -3 5 0
+3 -2 1 0
+-3 -1 -4 0
+2 3 5 0
+-4 -2 -3 0
+4 -5 -1 0
+-5 -3 1 0
+
+c GPT solve time: 20.92 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+**Step 1: Initial Analysis**
+The formula has 5 variables (x1, x2, x3, x4, x5) and 17 clauses.
+
+**Step 2: Look for unit clauses and pure literals**
+No unit clauses found initially.
+No pure literals found.
+
+**Step 3: Start branching**
+
+**Branch 1: Set x1 = TRUE**
+Branches: 1
+
+Simplifying with x1 = TRUE:
+- Clause 1: (TRUE ∨ ¬x3 ∨ x4) → satisfied
+- Clause 2: (¬x4 ∨ FALSE ∨ x3) → (¬x4 ∨ x3)
+- Clause 3: (¬x5 ∨ ¬x4 ∨ x3) → unchanged
+- Clause 4: (x4 ∨ FALSE ∨ x3) → (x4 ∨ x3)
+- Clause 5: (x3 ∨ x5 ∨ FALSE) → (x3 ∨ x5)
+- Clause 6: (x5 ∨ ¬x3 ∨ ¬x4) → unchanged
+- Clause 7: (x3 ∨ FALSE ∨ ¬x5) → (x3 ∨ ¬x5)
+- Clause 8: (x5 ∨ x3 ∨ TRUE) → satisfied
+- Clause 9: (TRUE ∨ x4 ∨ x2) → satisfied
+- Clause 10: (FALSE ∨ ¬x2 ∨ x5) → (¬x2 ∨ x5)
+- Clause 12: (x3 ∨ ¬x2 ∨ TRUE) → satisfied
+- Clause 13: (¬x3 ∨ FALSE ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- Clause 16: (x4 ∨ ¬x5 ∨ FALSE) → (x4 ∨ ¬x5)
+- Clause 17: (¬x5 ∨ ¬x3 ∨ TRUE) → satisfied
+
+Remaining clauses:
+- (¬x4 ∨ x3)
+- (¬x5 ∨ ¬x4 ∨ x3)
+- (x4 ∨ x3)
+- (x3 ∨ x5)
+- (x5 ∨ ¬x3 ∨ ¬x4)
+- (x3 ∨ ¬x5)
+- (¬x2 ∨ x5)
+- (x2 ∨ ¬x3 ∨ x5)
+- (x2 ∨ x3 ∨ x5)
+- (¬x4 ∨ ¬x2 ∨ ¬x3)
+- (x4 ∨ ¬x5)
+- (¬x3 ∨ ¬x4)
+
+**Branch 2: Set x3 = TRUE**
+Branches: 2
+
+With x1 = TRUE, x3 = TRUE:
+- (¬x4 ∨ TRUE) → satisfied
+- (¬x5 ∨ ¬x4 ∨ TRUE) → satisfied
+- (x4 ∨ TRUE) → satisfied
+- (TRUE ∨ x5) → satisfied
+- (x5 ∨ FALSE ∨ ¬x4) → (x5 ∨ ¬x4)
+- (TRUE ∨ ¬x5) → satisfied
+- (¬x2 ∨ x5) → unchanged
+- (x2 ∨ FALSE ∨ x5) → (x2 ∨ x5)
+- (x2 ∨ TRUE ∨ x5) → satisfied
+- (¬x4 ∨ ¬x2 ∨ FALSE) → (¬x4 ∨ ¬x2)
+- (x4 ∨ ¬x5) → unchanged
+- (FALSE ∨ ¬x4) → ¬x4
+
+We get unit clause: ¬x4, so x4 = FALSE
+
+**Setting x4 = FALSE:**
+- (x5 ∨ ¬FALSE) → (x5 ∨ TRUE) → satisfied
+- (¬x2 ∨ x5) → unchanged
+- (x2 ∨ x5) → unchanged
+- (¬FALSE ∨ ¬x2) → (TRUE ∨ ¬x2) → satisfied
+- (FALSE ∨ ¬x5) → ¬x5
+
+We get unit clause: ¬x5, so x5 = FALSE
+
+**Setting x5 = FALSE:**
+- (¬x2 ∨ FALSE) → ¬x2, so x2 = FALSE
+- (x2 ∨ FALSE) → x2, so x2 = TRUE
+
+**Conflict detected!** x2 cannot be both TRUE and FALSE.
+Conflicts: 1
+
+**Backtrack: Try x3 = FALSE**
+Branches: 3
+
+With x1 = TRUE, x3 = FALSE:
+- (¬x4 ∨ FALSE) → ¬x4, so x4 = FALSE
+- (¬x5 ∨ ¬FALSE ∨ FALSE) → (¬x5 ∨ TRUE) → satisfied
+- (FALSE ∨ FALSE) → FALSE
+
+**Conflict detected!** Empty clause found.
+Conflicts: 2
+
+**Backtrack: Try x1 = FALSE**
+Branches: 4
+
+With x1 = FALSE, let me try x3 = TRUE:
+Branches: 5
+
+After working through the assignments systematically with x1 = FALSE, x3 = TRUE, x4 = TRUE, x5 = TRUE, x2 = TRUE, I find this leads to another conflict.
+
+Continuing the systematic search with x1 = FALSE, x3 = FALSE:
+Branches: 6
+
+This also leads to conflicts.
+
+After exhaustive search through all branches, every path leads to a conflict.
+
+**Final Result:**
+- UNSATISFIABLE
+- Number of branches: 6
+- Number of conflicts: 4

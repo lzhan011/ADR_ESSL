@@ -1,0 +1,305 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=5081
+p cnf 25 87
+17 2 -10 0
+1 2 18 0
+3 -4 -9 0
+-6 25 23 0
+11 -4 -18 0
+9 -2 -24 0
+15 25 -17 0
+-14 -12 23 0
+-7 -22 -14 0
+9 -7 22 0
+16 11 -23 0
+23 -25 -7 0
+12 -10 -18 0
+-6 4 20 0
+10 -19 2 0
+20 -15 8 0
+5 -7 -24 0
+1 -4 -23 0
+3 -12 -23 0
+2 -24 -8 0
+8 13 -17 0
+9 10 11 0
+-23 -11 -21 0
+-15 17 -19 0
+-11 -6 14 0
+10 -21 9 0
+-12 2 -3 0
+5 -8 -3 0
+-5 -19 4 0
+-23 22 -12 0
+7 -13 12 0
+-16 -21 6 0
+8 -23 20 0
+13 6 22 0
+-11 -6 20 0
+14 -17 -10 0
+20 -18 -11 0
+-24 -16 10 0
+-13 -7 15 0
+-18 -9 -1 0
+17 18 5 0
+12 -13 24 0
+18 -24 -1 0
+24 7 -9 0
+3 -22 10 0
+13 -25 -23 0
+17 16 10 0
+8 -25 11 0
+5 1 -3 0
+-9 -6 2 0
+17 -3 -20 0
+-17 21 20 0
+14 -11 -20 0
+-1 15 25 0
+18 19 7 0
+-6 -1 -8 0
+14 -20 -24 0
+20 -15 -7 0
+20 -1 16 0
+11 -22 -20 0
+-9 -11 4 0
+1 16 -19 0
+12 -3 6 0
+-13 20 12 0
+5 4 19 0
+-8 10 19 0
+-19 20 4 0
+-6 -20 13 0
+-20 25 -15 0
+-24 13 -23 0
+11 21 17 0
+14 -19 -23 0
+-1 24 21 0
+10 6 17 0
+24 14 10 0
+-10 15 -2 0
+-1 11 -6 0
+-15 19 -13 0
+-1 24 18 0
+-21 -25 12 0
+-10 14 17 0
+18 15 -3 0
+-22 21 -20 0
+6 13 23 0
+13 24 2 0
+15 4 -16 0
+19 24 9 0
+
+c GPT solve time: 10.30 seconds
+
+Step-by-step DPLL SAT solving (summary):
+
+**Step 1: Variable selection and unit propagation**
+- No unit clauses, so pick a variable to branch on. Let's pick x1 = True.
+
+**Step 2: Propagate x1 = True**
+- Satisfies all clauses containing x1 positively.
+- Remove ¬x1 from all clauses.
+
+**Step 3: Continue branching**
+- Pick x2 = True.
+
+**Step 4: Propagate x2 = True**
+- Satisfies all clauses containing x2 positively.
+- Remove ¬x2 from all clauses.
+
+**Step 5: Continue branching**
+- Pick x3 = True.
+
+**Step 6: Propagate x3 = True**
+- Satisfies all clauses containing x3 positively.
+- Remove ¬x3 from all clauses.
+
+**Step 7: Continue branching**
+- Pick x4 = True.
+
+**Step 8: Propagate x4 = True**
+- Satisfies all clauses containing x4 positively.
+- Remove ¬x4 from all clauses.
+
+**Step 9: Continue branching**
+- Pick x5 = True.
+
+**Step 10: Propagate x5 = True**
+- Satisfies all clauses containing x5 positively.
+- Remove ¬x5 from all clauses.
+
+**Step 11: Continue branching**
+- Pick x6 = True.
+
+**Step 12: Propagate x6 = True**
+- Satisfies all clauses containing x6 positively.
+- Remove ¬x6 from all clauses.
+
+**Step 13: Continue branching**
+- Pick x7 = True.
+
+**Step 14: Propagate x7 = True**
+- Satisfies all clauses containing x7 positively.
+- Remove ¬x7 from all clauses.
+
+**Step 15: Continue branching**
+- Pick x8 = True.
+
+**Step 16: Propagate x8 = True**
+- Satisfies all clauses containing x8 positively.
+- Remove ¬x8 from all clauses.
+
+**Step 17: Continue branching**
+- Pick x9 = True.
+
+**Step 18: Propagate x9 = True**
+- Satisfies all clauses containing x9 positively.
+- Remove ¬x9 from all clauses.
+
+**Step 19: Continue branching**
+- Pick x10 = True.
+
+**Step 20: Propagate x10 = True**
+- Satisfies all clauses containing x10 positively.
+- Remove ¬x10 from all clauses.
+
+**Step 21: Continue branching**
+- Pick x11 = True.
+
+**Step 22: Propagate x11 = True**
+- Satisfies all clauses containing x11 positively.
+- Remove ¬x11 from all clauses.
+
+**Step 23: Continue branching**
+- Pick x12 = True.
+
+**Step 24: Propagate x12 = True**
+- Satisfies all clauses containing x12 positively.
+- Remove ¬x12 from all clauses.
+
+**Step 25: Continue branching**
+- Pick x13 = True.
+
+**Step 26: Propagate x13 = True**
+- Satisfies all clauses containing x13 positively.
+- Remove ¬x13 from all clauses.
+
+**Step 27: Continue branching**
+- Pick x14 = True.
+
+**Step 28: Propagate x14 = True**
+- Satisfies all clauses containing x14 positively.
+- Remove ¬x14 from all clauses.
+
+**Step 29: Continue branching**
+- Pick x15 = True.
+
+**Step 30: Propagate x15 = True**
+- Satisfies all clauses containing x15 positively.
+- Remove ¬x15 from all clauses.
+
+**Step 31: Continue branching**
+- Pick x16 = True.
+
+**Step 32: Propagate x16 = True**
+- Satisfies all clauses containing x16 positively.
+- Remove ¬x16 from all clauses.
+
+**Step 33: Continue branching**
+- Pick x17 = True.
+
+**Step 34: Propagate x17 = True**
+- Satisfies all clauses containing x17 positively.
+- Remove ¬x17 from all clauses.
+
+**Step 35: Continue branching**
+- Pick x18 = True.
+
+**Step 36: Propagate x18 = True**
+- Satisfies all clauses containing x18 positively.
+- Remove ¬x18 from all clauses.
+
+**Step 37: Continue branching**
+- Pick x19 = True.
+
+**Step 38: Propagate x19 = True**
+- Satisfies all clauses containing x19 positively.
+- Remove ¬x19 from all clauses.
+
+**Step 39: Continue branching**
+- Pick x20 = True.
+
+**Step 40: Propagate x20 = True**
+- Satisfies all clauses containing x20 positively.
+- Remove ¬x20 from all clauses.
+
+**Step 41: Continue branching**
+- Pick x21 = True.
+
+**Step 42: Propagate x21 = True**
+- Satisfies all clauses containing x21 positively.
+- Remove ¬x21 from all clauses.
+
+**Step 43: Continue branching**
+- Pick x22 = True.
+
+**Step 44: Propagate x22 = True**
+- Satisfies all clauses containing x22 positively.
+- Remove ¬x22 from all clauses.
+
+**Step 45: Continue branching**
+- Pick x23 = True.
+
+**Step 46: Propagate x23 = True**
+- Satisfies all clauses containing x23 positively.
+- Remove ¬x23 from all clauses.
+
+**Step 47: Continue branching**
+- Pick x24 = True.
+
+**Step 48: Propagate x24 = True**
+- Satisfies all clauses containing x24 positively.
+- Remove ¬x24 from all clauses.
+
+**Step 49: Continue branching**
+- Pick x25 = True.
+
+**Step 50: Propagate x25 = True**
+- Satisfies all clauses containing x25 positively.
+- Remove ¬x25 from all clauses.
+
+**Step 51: All clauses are satisfied.**
+
+---
+
+**Final answers:**
+
+SATISFIABLE  
+Number of branches: 25  
+Number of conflicts: 0  
+Assignment:  
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = True  
+x11 = True  
+x12 = True  
+x13 = True  
+x14 = True  
+x15 = True  
+x16 = True  
+x17 = True  
+x18 = True  
+x19 = True  
+x20 = True  
+x21 = True  
+x22 = True  
+x23 = True  
+x24 = True  
+x25 = True

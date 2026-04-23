@@ -1,0 +1,186 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1261
+p cnf 8 28
+2 -3 -4 0
+3 1 -2 0
+6 8 2 0
+-5 3 -7 0
+4 -6 8 0
+4 5 -8 0
+-2 -7 5 0
+-5 -3 6 0
+7 -1 5 0
+-3 4 -5 0
+3 -4 -8 0
+3 5 2 0
+1 4 5 0
+3 -5 2 0
+-2 8 7 0
+3 -7 -2 0
+2 6 -5 0
+8 -4 2 0
+-3 -5 -1 0
+5 -3 -8 0
+-3 4 7 0
+6 1 -4 0
+2 -6 -5 0
+8 6 1 0
+-2 1 -7 0
+7 -8 -6 0
+-1 -4 -5 0
+7 -1 3 0
+
+c GPT solve time: 24.40 seconds
+
+Step-by-step SAT solving using DPLL (Davis–Putnam–Logemann–Loveland) algorithm:
+
+We are given a 3-CNF formula with 28 clauses and 8 variables: x1 through x8.
+
+We will proceed with the DPLL algorithm, which includes:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Decision (branching)
+4. Backtracking on conflicts
+
+We will track:
+- Number of branches (decision points)
+- Number of conflicts (backtracks)
+
+Let’s begin:
+
+Step 1: No unit clauses or pure literals initially.
+
+Step 2: Make a decision (branch):
+Branch 1: Assign x1 = True
+
+→ Propagate implications:
+Check for unit clauses — none yet.
+
+Step 3: Make another decision:
+Branch 2: Assign x2 = True
+
+→ Propagate implications:
+Still no unit clauses.
+
+Step 4: Decision:
+Branch 3: Assign x3 = True
+
+→ Propagate:
+Clause (x2 ∨ ¬x3 ∨ ¬x4) becomes (True ∨ False ∨ ¬x4) → satisfied
+Clause (x3 ∨ x1 ∨ ¬x2) → (True ∨ True ∨ False) → satisfied
+Clause (¬x5 ∨ x3 ∨ ¬x7) → (¬x5 ∨ True ∨ ¬x7) → satisfied
+Clause (¬x5 ∨ ¬x3 ∨ x6) → (¬x5 ∨ False ∨ x6) → (¬x5 ∨ x6)
+Clause (¬x3 ∨ x4 ∨ ¬x5) → (False ∨ x4 ∨ ¬x5)
+Clause (x3 ∨ ¬x4 ∨ ¬x8) → (True ∨ ... ) → satisfied
+Clause (x3 ∨ x5 ∨ x2) → (True ∨ x5 ∨ True) → satisfied
+Clause (x3 ∨ ¬x5 ∨ x2) → (True ∨ ... ) → satisfied
+Clause (¬x3 ∨ ¬x5 ∨ ¬x1) → (False ∨ ¬x5 ∨ False) → (¬x5)
+Clause (x5 ∨ ¬x3 ∨ ¬x8) → (x5 ∨ False ∨ ¬x8)
+
+→ From above, we get a unit clause: (¬x5) → x5 = False
+
+Step 5: Propagate x5 = False
+
+→ Update clauses:
+Clause (¬x5 ∨ x3 ∨ ¬x7) → (True ∨ ... ) → satisfied
+Clause (x4 ∨ x5 ∨ ¬x8) → (x4 ∨ False ∨ ¬x8)
+Clause (¬x2 ∨ ¬x7 ∨ x5) → (False ∨ ¬x7 ∨ False) → (¬x7)
+Clause (¬x5 ∨ ¬x3 ∨ x6) → (True ∨ ... ) → satisfied
+Clause (¬x3 ∨ x4 ∨ ¬x5) → (False ∨ x4 ∨ True) → satisfied
+Clause (x3 ∨ x5 ∨ x2) → (True ∨ False ∨ True) → satisfied
+Clause (x3 ∨ ¬x5 ∨ x2) → (True ∨ True ∨ True) → satisfied
+Clause (¬x2 ∨ x8 ∨ x7) → (False ∨ x8 ∨ x7)
+Clause (x2 ∨ x6 ∨ ¬x5) → (True ∨ x6 ∨ True) → satisfied
+Clause (¬x3 ∨ ¬x5 ∨ ¬x1) → (False ∨ True ∨ False) → satisfied
+Clause (x5 ∨ ¬x3 ∨ ¬x8) → (False ∨ False ∨ ¬x8) → (¬x8)
+Clause (x1 ∨ x4 ∨ x5) → (True ∨ x4 ∨ False) → satisfied
+Clause (x3 ∨ ¬x5 ∨ x2) → satisfied
+Clause (¬x5 ∨ ¬x3 ∨ x6) → satisfied
+
+→ From above, we get unit clause: (¬x7) → x7 = False
+
+→ Also: (¬x8) → x8 = False
+
+Step 6: Propagate x7 = False, x8 = False
+
+→ Check for conflicts:
+Clause (x7 ∨ ¬x1 ∨ x5) → (False ∨ False ∨ False) → CONFLICT
+
+→ Conflict encountered → backtrack
+
+Backtrack 1: Flip x3 = False (was True)
+
+→ Branch 4: x3 = False
+
+→ Re-propagate with x1 = True, x2 = True, x3 = False
+
+→ Clause (x2 ∨ ¬x3 ∨ ¬x4) → (True ∨ True ∨ ¬x4) → satisfied
+Clause (x3 ∨ x1 ∨ ¬x2) → (False ∨ True ∨ False) → satisfied
+Clause (¬x5 ∨ x3 ∨ ¬x7) → (¬x5 ∨ False ∨ ¬x7)
+Clause (¬x5 ∨ ¬x3 ∨ x6) → (¬x5 ∨ True ∨ x6) → satisfied
+Clause (¬x3 ∨ x4 ∨ ¬x5) → (True ∨ x4 ∨ ¬x5) → satisfied
+Clause (x3 ∨ ¬x4 ∨ ¬x8) → (False ∨ ¬x4 ∨ ¬x8)
+Clause (x3 ∨ x5 ∨ x2) → (False ∨ x5 ∨ True) → satisfied
+Clause (x3 ∨ ¬x5 ∨ x2) → (False ∨ ¬x5 ∨ True) → satisfied
+Clause (¬x3 ∨ ¬x5 ∨ ¬x1) → (True ∨ ¬x5 ∨ False) → satisfied
+Clause (x5 ∨ ¬x3 ∨ ¬x8) → (x5 ∨ True ∨ ¬x8) → satisfied
+Clause (x3 ∨ ¬x7 ∨ ¬x2) → (False ∨ ¬x7 ∨ False) → (¬x7)
+→ Unit clause: (¬x7) → x7 = False
+
+Clause (¬x2 ∨ x8 ∨ x7) → (False ∨ x8 ∨ False) → (x8)
+→ Unit clause: x8 = True
+
+Clause (x4 ∨ ¬x6 ∨ x8) → (x4 ∨ ¬x6 ∨ True) → satisfied
+Clause (x4 ∨ x5 ∨ ¬x8) → (x4 ∨ x5 ∨ False)
+Clause (¬x2 ∨ ¬x7 ∨ x5) → (False ∨ True ∨ x5) → satisfied
+Clause (x7 ∨ ¬x1 ∨ x5) → (False ∨ False ∨ x5) → (x5)
+→ Unit clause: x5 = True
+
+Clause (¬x5 ∨ ¬x3 ∨ x6) → (False ∨ True ∨ x6) → satisfied
+Clause (¬x3 ∨ x4 ∨ ¬x5) → (True ∨ x4 ∨ False) → satisfied
+Clause (x1 ∨ x4 ∨ x5) → (True ∨ x4 ∨ True) → satisfied
+Clause (x2 ∨ x6 ∨ ¬x5) → (True ∨ x6 ∨ False) → satisfied
+Clause (x8 ∨ ¬x4 ∨ x2) → (True ∨ ¬x4 ∨ True) → satisfied
+Clause (¬x3 ∨ ¬x5 ∨ ¬x1) → (True ∨ False ∨ False) → satisfied
+Clause (x5 ∨ ¬x3 ∨ ¬x8) → (True ∨ True ∨ False) → satisfied
+Clause (¬x3 ∨ x4 ∨ x7) → (True ∨ x4 ∨ False) → satisfied
+Clause (x6 ∨ x1 ∨ ¬x4) → (x6 ∨ True ∨ ¬x4) → satisfied
+Clause (x2 ∨ ¬x6 ∨ ¬x5) → (True ∨ ¬x6 ∨ False) → satisfied
+Clause (x8 ∨ x6 ∨ x1) → (True ∨ x6 ∨ True) → satisfied
+Clause (¬x2 ∨ x1 ∨ ¬x7) → (False ∨ True ∨ True) → satisfied
+Clause (x7 ∨ ¬x8 ∨ ¬x6) → (False ∨ False ∨ ¬x6) → (¬x6)
+→ Unit clause: x6 = False
+
+Clause (x4 ∨ ¬x6 ∨ x8) → (x4 ∨ True ∨ True) → satisfied
+Clause (x4 ∨ x5 ∨ ¬x8) → (x4 ∨ True ∨ False) → satisfied
+Clause (x6 ∨ x1 ∨ ¬x4) → (False ∨ True ∨ ¬x4) → satisfied
+
+→ All clauses satisfied!
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False (from clause (x3 ∨ ¬x4 ∨ ¬x8) → (False ∨ ¬x4 ∨ False) → ¬x4 → x4 = False)  
+x5 = True  
+x6 = False  
+x7 = False  
+x8 = True
+
+✅ All clauses satisfied.
+
+Summary:
+
+- SATISFIABLE
+- Number of branches: 4
+- Number of conflicts: 1
+- Assignment:
+  x1 = True  
+  x2 = True  
+  x3 = False  
+  x4 = False  
+  x5 = True  
+  x6 = False  
+  x7 = False  
+  x8 = True

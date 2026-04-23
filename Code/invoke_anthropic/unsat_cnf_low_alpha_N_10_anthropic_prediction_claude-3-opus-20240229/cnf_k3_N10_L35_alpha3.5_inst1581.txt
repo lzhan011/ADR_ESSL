@@ -1,0 +1,98 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1581
+p cnf 10 35
+-10 3 4 0
+-1 9 3 0
+6 5 -9 0
+-4 -6 1 0
+8 4 6 0
+-8 -9 4 0
+4 2 3 0
+-3 -4 8 0
+-8 -10 6 0
+-10 1 4 0
+8 10 6 0
+6 -1 -9 0
+-9 8 -6 0
+-4 5 8 0
+3 -8 -10 0
+10 2 1 0
+10 9 -3 0
+9 -5 6 0
+4 9 3 0
+-4 -5 1 0
+7 10 -9 0
+-5 -3 -1 0
+-10 6 -2 0
+1 9 -4 0
+-10 -1 6 0
+-4 -5 8 0
+-9 -7 -10 0
+2 5 -1 0
+-1 -2 -6 0
+-1 2 -6 0
+-5 10 3 0
+-2 -1 3 0
+8 4 -5 0
+-3 -4 -5 0
+-3 9 10 0
+
+c GPT solve time: 20.59 seconds
+
+Here is the step-by-step solution to the given 3-CNF formula:
+
+Step 1: Choose literal x4 (appears in 12 clauses).
+Clauses satisfied: 4, 5, 7, 8, 14, 19, 24, 26, 33
+Clauses simplified: 1, 6, 10, 20, 34
+
+Step 2: Choose literal x6 (appears in 9 clauses).
+Clauses satisfied: 3, 5, 9, 11, 13, 18, 23, 25, 29
+Clauses simplified: 30
+
+Step 3: Choose literal x9 (appears in 8 clauses).
+Clauses satisfied: 2, 6, 7, 17, 19, 24, 27, 35
+Clauses simplified: 3, 12, 13, 21
+
+Step 4: Choose literal ¬x10 (appears in 6 clauses).
+Clauses satisfied: 1, 9, 10, 15, 23, 25
+Clauses simplified: 11, 21, 31
+
+Step 5: Choose literal x8 (appears in 6 clauses).
+Clauses satisfied: 6, 11, 14, 26, 33
+Clause simplified: 8
+
+Step 6: Choose literal x1 (appears in 7 clauses).
+Clauses satisfied: 10, 20, 24, 28
+Clauses simplified: 2, 12, 22, 25, 29, 30, 32
+
+Step 7: Choose literal ¬x3 (appears in 5 clauses).
+Clauses satisfied: 8, 15, 17, 22, 34
+Clause simplified: 2
+
+Step 8: Choose literal x5 (appears in 3 clauses).
+Clauses satisfied: 3, 14, 31
+Clauses simplified: 18, 20, 33
+
+Step 9: Choose literal ¬x2 (appears in 3 clauses).
+Clauses satisfied: 23, 29, 32
+
+Step 10: Choose literal ¬x7 (appears in 1 clause).
+Clause satisfied: 27
+
+All clauses are satisfied.
+
+* SATISFIABLE
+* Number of branches: 10
+* Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = True
+x2 = False
+x3 = False
+x4 = True
+x5 = True
+x6 = True
+x7 = False
+x8 = True
+x9 = True
+x10 = False

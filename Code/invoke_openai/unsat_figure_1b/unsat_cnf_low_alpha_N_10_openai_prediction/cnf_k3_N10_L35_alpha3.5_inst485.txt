@@ -1,0 +1,242 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=485
+p cnf 10 35
+8 -10 -2 0
+-9 -3 -4 0
+-6 -8 3 0
+5 1 -10 0
+9 -2 -8 0
+-1 -8 10 0
+-8 -2 1 0
+-1 -2 9 0
+-7 -2 -3 0
+4 1 -8 0
+-9 10 -2 0
+3 -7 -10 0
+-3 4 -5 0
+8 3 5 0
+-6 7 2 0
+1 -6 -4 0
+4 9 6 0
+10 3 -4 0
+-2 -10 3 0
+9 -3 2 0
+-5 -2 -4 0
+-9 1 6 0
+-6 4 8 0
+5 1 4 0
+7 -2 -3 0
+4 3 -8 0
+5 -9 -6 0
+6 -9 2 0
+-2 -7 6 0
+-2 8 5 0
+6 2 3 0
+6 8 -4 0
+-1 -5 -8 0
+-10 1 -7 0
+6 -5 -4 0
+
+c GPT solve time: 73.68 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (with unit propagation and pure literal elimination where possible).  
+We will keep track of branches (decision points) and conflicts (backtracking steps).
+
+**Step 1: List of variables:**  
+x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+---
+
+### Step-by-step Solution
+
+#### 1. Try assigning x2 = False (arbitrary choice for branching)
+**Branch 1 (x2 = False):**  
+- Update all clauses with x2 or ¬x2.
+
+**Clauses simplified:**
+- Any clause with ¬x2 is satisfied.
+- Any clause with x2: remove x2 from clause.
+
+**After simplification, check for unit clauses or pure literals.**
+
+#### 2. Propagate implications
+
+- (x8 ∨ ¬x10 ∨ ¬x2): ¬x2 is True, clause satisfied.
+- (¬x9 ∨ ¬x3 ∨ ¬x4): unchanged.
+- (¬x6 ∨ ¬x8 ∨ x3): unchanged.
+- (x5 ∨ x1 ∨ ¬x10): unchanged.
+- (x9 ∨ ¬x2 ∨ ¬x8): ¬x2 is True, clause satisfied.
+- (¬x1 ∨ ¬x8 ∨ x10): unchanged.
+- (¬x8 ∨ ¬x2 ∨ x1): ¬x2 is True, clause satisfied.
+- (¬x1 ∨ ¬x2 ∨ x9): ¬x2 is True, clause satisfied.
+- (¬x7 ∨ ¬x2 ∨ ¬x3): ¬x2 is True, clause satisfied.
+- (x4 ∨ x1 ∨ ¬x8): unchanged.
+- (¬x9 ∨ x10 ∨ ¬x2): ¬x2 is True, clause satisfied.
+- (x3 ∨ ¬x7 ∨ ¬x10): unchanged.
+- (¬x3 ∨ x4 ∨ ¬x5): unchanged.
+- (x8 ∨ x3 ∨ x5): unchanged.
+- (¬x6 ∨ x7 ∨ x2): x2 is False, so clause becomes (¬x6 ∨ x7).
+- (x1 ∨ ¬x6 ∨ ¬x4): unchanged.
+- (x4 ∨ x9 ∨ x6): unchanged.
+- (x10 ∨ x3 ∨ ¬x4): unchanged.
+- (¬x2 ∨ ¬x10 ∨ x3): ¬x2 is True, clause satisfied.
+- (x9 ∨ ¬x3 ∨ x2): x2 is False, so clause becomes (x9 ∨ ¬x3).
+- (¬x5 ∨ ¬x2 ∨ ¬x4): ¬x2 is True, clause satisfied.
+- (¬x9 ∨ x1 ∨ x6): unchanged.
+- (¬x6 ∨ x4 ∨ x8): unchanged.
+- (x5 ∨ x1 ∨ x4): unchanged.
+- (x7 ∨ ¬x2 ∨ ¬x3): ¬x2 is True, clause satisfied.
+- (x4 ∨ x3 ∨ ¬x8): unchanged.
+- (x5 ∨ ¬x9 ∨ ¬x6): unchanged.
+- (x6 ∨ ¬x9 ∨ x2): x2 is False, so clause becomes (x6 ∨ ¬x9).
+- (¬x2 ∨ ¬x7 ∨ x6): ¬x2 is True, clause satisfied.
+- (¬x2 ∨ x8 ∨ x5): ¬x2 is True, clause satisfied.
+- (x6 ∨ x2 ∨ x3): x2 is False, so clause becomes (x6 ∨ x3).
+- (x6 ∨ x8 ∨ ¬x4): unchanged.
+- (¬x1 ∨ ¬x5 ∨ ¬x8): unchanged.
+- (¬x10 ∨ x1 ∨ ¬x7): unchanged.
+- (x6 ∨ ¬x5 ∨ ¬x4): unchanged.
+
+**Now, let's look for pure literals:**
+- x7 appears only positively in (¬x6 ∨ x7), so assign x7 = True.
+
+#### 3. Propagate x7 = True
+
+- (¬x6 ∨ x7): x7 = True, clause satisfied.
+- (x3 ∨ ¬x7 ∨ ¬x10): x7 = True, so ¬x7 = False, clause becomes (x3 ∨ ¬x10).
+- (¬x10 ∨ x1 ∨ ¬x7): x7 = True, so ¬x7 = False, clause becomes (¬x10 ∨ x1).
+
+#### 4. Look for more pure literals or unit clauses
+
+- No more pure literals.
+- Let's pick another variable to branch. Let's try x1 = True.
+
+**Branch 2 (x1 = True):**
+
+#### 5. Propagate x1 = True
+
+- (x5 ∨ x1 ∨ ¬x10): x1 = True, clause satisfied.
+- (x4 ∨ x1 ∨ ¬x8): x1 = True, clause satisfied.
+- (x1 ∨ ¬x6 ∨ ¬x4): x1 = True, clause satisfied.
+- (¬x9 ∨ x1 ∨ x6): x1 = True, clause satisfied.
+- (x5 ∨ x1 ∨ x4): x1 = True, clause satisfied.
+- (¬x10 ∨ x1): x1 = True, clause satisfied.
+- (¬x1 ∨ ¬x5 ∨ ¬x8): x1 = True, so ¬x1 = False, clause becomes (¬x5 ∨ ¬x8).
+
+#### 6. Look for more pure literals or unit clauses
+
+- (¬x5 ∨ ¬x8): both unassigned.
+- (¬x3 ∨ x4 ∨ ¬x5): x4, x5 unassigned.
+- (x8 ∨ x3 ∨ x5): x8, x3, x5 unassigned.
+- (x3 ∨ ¬x10): x3, x10 unassigned.
+- (x9 ∨ ¬x3): x9, x3 unassigned.
+- (x6 ∨ ¬x9): x6, x9 unassigned.
+- (x6 ∨ x3): x6, x3 unassigned.
+- (x6 ∨ x8 ∨ ¬x4): x6, x8, x4 unassigned.
+- (x6 ∨ ¬x5 ∨ ¬x4): x6, x5, x4 unassigned.
+
+Let's try x3 = True.
+
+**Branch 3 (x3 = True):**
+
+#### 7. Propagate x3 = True
+
+- (¬x6 ∨ ¬x8 ∨ x3): x3 = True, clause satisfied.
+- (x3 ∨ ¬x10): x3 = True, clause satisfied.
+- (x8 ∨ x3 ∨ x5): x3 = True, clause satisfied.
+- (x6 ∨ x3): x3 = True, clause satisfied.
+- (x9 ∨ ¬x3): x3 = True, so ¬x3 = False, clause becomes (x9).
+- (x4 ∨ x3 ∨ ¬x8): x3 = True, clause satisfied.
+
+Now, (x9) is a unit clause, so x9 = True.
+
+#### 8. Propagate x9 = True
+
+- (¬x9 ∨ ¬x3 ∨ ¬x4): x9 = True, so ¬x9 = False, clause becomes (¬x3 ∨ ¬x4). x3 = True, so ¬x3 = False, clause becomes (¬x4).
+- (x4 ∨ x9 ∨ x6): x9 = True, clause satisfied.
+- (x6 ∨ ¬x9): x9 = True, so ¬x9 = False, clause becomes (x6).
+- (¬x9 ∨ x1 ∨ x6): x9 = True, so ¬x9 = False, clause becomes (x1 ∨ x6). x1 = True, clause satisfied.
+
+Now, (¬x4) is a unit clause, so x4 = False.
+
+#### 9. Propagate x4 = False
+
+- (¬x3 ∨ x4 ∨ ¬x5): x4 = False, so clause becomes (¬x3 ∨ ¬x5). x3 = True, so ¬x3 = False, clause becomes (¬x5).
+- (x6 ∨ x8 ∨ ¬x4): x4 = False, so ¬x4 = True, clause satisfied.
+- (x6 ∨ ¬x5 ∨ ¬x4): x4 = False, so ¬x4 = True, clause satisfied.
+
+Now, (¬x5) is a unit clause, so x5 = False.
+
+#### 10. Propagate x5 = False
+
+- (¬x5 ∨ ¬x8): x5 = False, so ¬x5 = True, clause satisfied.
+
+#### 11. Now, (x6) is a unit clause, so x6 = True.
+
+#### 12. Propagate x6 = True
+
+- (¬x6 ∨ ¬x8 ∨ x3): x6 = True, so ¬x6 = False, clause becomes (¬x8 ∨ x3). x3 = True, so clause satisfied.
+- (¬x6 ∨ x7): x6 = True, so ¬x6 = False, clause becomes (x7). x7 = True, clause satisfied.
+- (¬x6 ∨ x4 ∨ x8): x6 = True, so ¬x6 = False, clause becomes (x4 ∨ x8). x4 = False, so clause becomes (x8).
+- (x5 ∨ ¬x9 ∨ ¬x6): x6 = True, so ¬x6 = False, clause becomes (x5 ∨ ¬x9). x5 = False, so clause becomes (¬x9). x9 = True, so ¬x9 = False, clause satisfied.
+
+Now, (x8) is a unit clause, so x8 = True.
+
+#### 13. Propagate x8 = True
+
+- (¬x1 ∨ ¬x5 ∨ ¬x8): x8 = True, so ¬x8 = False, clause becomes (¬x1 ∨ ¬x5). x1 = True, so ¬x1 = False, clause becomes (¬x5). x5 = False, so ¬x5 = True, clause satisfied.
+- (¬x1 ∨ ¬x8 ∨ x10): x8 = True, so ¬x8 = False, clause becomes (¬x1 ∨ x10). x1 = True, so ¬x1 = False, clause becomes (x10).
+- (x10 ∨ x3 ∨ ¬x4): x3 = True, clause satisfied.
+
+Now, (x10) is a unit clause, so x10 = True.
+
+#### 14. Propagate x10 = True
+
+- (x3 ∨ ¬x7 ∨ ¬x10): x10 = True, so ¬x10 = False, clause becomes (x3 ∨ ¬x7). x3 = True, clause satisfied.
+
+All clauses are now satisfied.
+
+---
+
+### Final Assignment
+
+- x1 = True
+- x2 = False
+- x3 = True
+- x4 = False
+- x5 = False
+- x6 = True
+- x7 = True
+- x8 = True
+- x9 = True
+- x10 = True
+
+---
+
+### Counting branches and conflicts
+
+- Branch 1: x2 = False
+- Branch 2: x1 = True
+- Branch 3: x3 = True
+
+No conflicts occurred (no need to backtrack).
+
+---
+
+## Final Output
+
+* SATISFIABLE
+* Number of branches: 3
+* Number of conflicts: 0
+
+**Assignment:**
+- x1 = True
+- x2 = False
+- x3 = True
+- x4 = False
+- x5 = False
+- x6 = True
+- x7 = True
+- x8 = True
+- x9 = True
+- x10 = True

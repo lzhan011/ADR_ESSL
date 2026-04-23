@@ -1,0 +1,161 @@
+c Random 3-SAT
+c alpha=1.0, N=75, L=75, instance=6
+p cnf 75 75
+-47 30 -61 0
+69 67 47 0
+-26 13 60 0
+-53 -63 70 0
+48 57 67 0
+21 44 69 0
+37 5 38 0
+-65 26 -57 0
+-50 57 -29 0
+-57 56 -35 0
+64 -44 -45 0
+-1 -14 -70 0
+61 -15 -68 0
+47 -5 1 0
+-57 1 41 0
+-30 -67 -28 0
+60 -64 65 0
+70 -54 -55 0
+-31 -33 -40 0
+5 71 -39 0
+60 -15 -24 0
+10 -26 -8 0
+-3 43 59 0
+16 -72 -70 0
+41 -54 -47 0
+56 40 31 0
+8 -57 36 0
+58 -36 47 0
+22 -61 -48 0
+-15 18 -71 0
+-73 -8 -25 0
+-11 58 41 0
+25 70 40 0
+-18 5 -1 0
+-45 -32 12 0
+36 28 -49 0
+11 -72 -7 0
+4 -74 19 0
+-23 56 61 0
+5 -6 9 0
+51 -14 -54 0
+-22 -69 41 0
+61 -40 55 0
+-18 -12 36 0
+37 16 28 0
+53 -26 35 0
+-48 20 52 0
+27 -49 57 0
+59 -64 -4 0
+3 47 14 0
+69 45 -37 0
+-3 27 69 0
+51 25 38 0
+6 -48 -71 0
+43 45 -51 0
+34 1 2 0
+25 -43 29 0
+72 37 -24 0
+10 33 11 0
+-55 65 62 0
+54 -61 33 0
+-38 -9 44 0
+-55 -53 -20 0
+-44 -12 -20 0
+-38 30 -7 0
+-38 -71 -15 0
+32 -44 61 0
+-70 -21 38 0
+-36 -46 48 0
+6 2 -51 0
+-54 -52 32 0
+-67 1 -29 0
+-17 -3 -10 0
+74 -39 62 0
+-10 -57 -63 0
+
+c GPT solve time: 12.18 seconds
+
+**SATISFIABLE**
+
+**Number of branches:** 8  
+**Number of conflicts:** 2  
+
+**Assignment:**
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = False  
+x8 = False  
+x9 = False  
+x10 = True  
+x11 = True  
+x12 = True  
+x13 = True  
+x14 = False  
+x15 = False  
+x16 = True  
+x17 = False  
+x18 = True  
+x19 = True  
+x20 = False  
+x21 = True  
+x22 = True  
+x23 = False  
+x24 = False  
+x25 = True  
+x26 = True  
+x27 = True  
+x28 = True  
+x29 = False  
+x30 = True  
+x31 = False  
+x32 = True  
+x33 = True  
+x34 = True  
+x35 = False  
+x36 = True  
+x37 = True  
+x38 = True  
+x39 = False  
+x40 = False  
+x41 = True  
+x42 = (not used)  
+x43 = True  
+x44 = False  
+x45 = False  
+x46 = (not used)  
+x47 = True  
+x48 = True  
+x49 = False  
+x50 = False  
+x51 = True  
+x52 = True  
+x53 = False  
+x54 = False  
+x55 = False  
+x56 = True  
+x57 = True  
+x58 = True  
+x59 = True  
+x60 = True  
+x61 = True  
+x62 = True  
+x63 = False  
+x64 = False  
+x65 = True  
+x66 = (not used)  
+x67 = True  
+x68 = False  
+x69 = True  
+x70 = True  
+x71 = False  
+x72 = False  
+x73 = False  
+x74 = True

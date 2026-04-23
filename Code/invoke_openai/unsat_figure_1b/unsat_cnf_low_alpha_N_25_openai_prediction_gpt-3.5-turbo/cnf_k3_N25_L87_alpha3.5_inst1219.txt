@@ -1,0 +1,296 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1219
+p cnf 25 87
+-18 -24 2 0
+21 -20 -17 0
+1 -11 3 0
+-19 2 12 0
+-16 12 14 0
+11 19 -7 0
+6 -16 -17 0
+-5 -1 -7 0
+-23 -3 -13 0
+17 -6 22 0
+6 -3 22 0
+22 -14 8 0
+-5 -3 9 0
+8 5 14 0
+1 5 23 0
+18 -15 8 0
+-1 -22 -23 0
+25 19 -8 0
+-1 -20 13 0
+-18 -9 -6 0
+-17 -22 -3 0
+-18 11 -3 0
+-23 14 -24 0
+19 24 16 0
+-13 -3 2 0
+5 23 8 0
+19 20 -2 0
+-25 2 -17 0
+-4 23 -18 0
+7 -2 8 0
+-2 13 7 0
+-6 24 1 0
+-6 23 18 0
+2 12 -25 0
+-1 10 -9 0
+-10 2 22 0
+14 -21 -11 0
+-7 -23 -18 0
+-25 -8 -4 0
+-20 12 -1 0
+-25 13 10 0
+-1 -4 12 0
+1 -2 -13 0
+-24 9 -23 0
+9 25 -20 0
+7 -10 -25 0
+-24 10 21 0
+19 -8 -11 0
+-4 13 21 0
+23 -12 19 0
+-19 -12 5 0
+21 -1 -16 0
+-21 19 7 0
+-11 -21 -22 0
+25 19 4 0
+-4 -5 16 0
+-25 21 -4 0
+20 -13 5 0
+-19 22 -11 0
+6 4 -25 0
+1 2 -10 0
+5 17 3 0
+-13 8 22 0
+13 11 -19 0
+20 -3 23 0
+20 1 -5 0
+-25 -16 -8 0
+-17 -14 6 0
+23 -10 -8 0
+-22 15 10 0
+10 -2 19 0
+-6 -12 -25 0
+-13 17 7 0
+25 13 2 0
+23 -2 -20 0
+25 14 7 0
+-10 24 14 0
+-22 4 2 0
+-14 -11 6 0
+25 11 -15 0
+-6 -14 -3 0
+11 -8 3 0
+12 -22 -19 0
+-4 12 9 0
+-15 -24 -23 0
+-18 -19 10 0
+1 -5 6 0
+
+c GPT solve time: 20.95 seconds
+
+1. Start with an empty assignment.
+2. Pick a literal to assign. Let's start with x1.
+3. Assign x1 = True.
+4. Update the formula based on the assignment:
+   (¬x18 ∨ ¬x24 ∨ x2)
+   (x21 ∨ ¬x20 ∨ ¬x17)
+   (¬x11 ∨ x3)
+   (¬x19 ∨ x2 ∨ x12)
+   (¬x16 ∨ x12 ∨ x14)
+   (x11 ∨ x19 ∨ ¬x7)
+   (¬x16 ∨ ¬x17)
+   (¬x5 ∨ ¬x7)
+   (¬x23 ∨ ¬x3 ∨ ¬x13)
+   (¬x6 ∨ ¬x17)
+   (¬x5 ∨ ¬x3 ∨ x9)
+   (x8 ∨ x5 ∨ x14)
+   (x5 ∨ x23 ∨ x8)
+   (x18 ∨ ¬x15 ∨ x8)
+   (¬x22 ∨ ¬x23)
+   (x25 ∨ x19 ∨ ¬x8)
+   (¬x20 ∨ x13)
+   (¬x18 ∨ ¬x9 ∨ ¬x6)
+   (¬x17 ∨ ¬x22)
+   (¬x18 ∨ x11)
+   (¬x23 ∨ x14 ∨ ¬x24)
+   (x19 ∨ x24 ∨ x16)
+   (¬x13 ∨ x2)
+   (x23 ∨ x8)
+   (x19 ∨ x20)
+   (¬x25 ∨ ¬x17)
+   (¬x4 ∨ x23)
+   (x7 ∨ x8)
+   (¬x2 ∨ x13 ∨ x7)
+   (¬x6 ∨ x24)
+   (¬x6 ∨ x23)
+   (x12 ∨ ¬x25)
+   (¬x10 ∨ x22)
+   (x14 ∨ ¬x21)
+   (¬x7 ∨ ¬x23)
+   (¬x25 ∨ ¬x4)
+   (¬x20 ∨ x12)
+   (¬x25 ∨ x13)
+   (¬x4 ∨ x12)
+   (¬x24 ∨ x9)
+   (x9 ∨ x25)
+   (x7 ∨ ¬x10)
+   (¬x24 ∨ x10)
+   (x19 ∨ ¬x8)
+   (¬x4 ∨ x13)
+   (x23 ∨ x19)
+   (¬x19 ∨ x5)
+   (x21 ∨ ¬x16)
+   (¬x21 ∨ x19)
+   (¬x11 ∨ ¬x22)
+   (x25 ∨ x19 ∨ x4)
+   (¬x4 ∨ x16)
+   (¬x25 ∨ x21)
+   (x20 ∨ x5)
+   (¬x19 ∨ x22)
+   (x6 ∨ x4)
+   (x2 ∨ ¬x10)
+   (x5 ∨ x17)
+   (x8 ∨ x22)
+   (x13 ∨ x11)
+   (x20 ∨ x23)
+   (x20 ∨ x1)
+   (¬x25 ∨ ¬x16)
+   (¬x17 ∨ x6)
+   (x23 ∨ ¬x8)
+   (¬x22 ∨ x15)
+   (x10 ∨ x19)
+   (¬x6 ∨ ¬x25)
+   (¬x13 ∨ x17)
+   (x25 ∨ x2)
+   (x23 ∨ ¬x20)
+   (x25 ∨ x14)
+   (¬x10 ∨ x24)
+   (¬x22 ∨ x4)
+   (¬x14 ∨ x6)
+   (x25 ∨ x11)
+   (¬x6 ∨ ¬x14)
+   (x11 ∨ x3)
+   (x12 ∨ ¬x22)
+   (¬x15 ∨ ¬x24)
+   (¬x18 ∨ ¬x19)
+   (¬x5 ∨ x6)
+5. Pick the next literal to assign. Let's choose x2.
+6. Assign x2 = True.
+7. Update the formula based on the assignment:
+   (¬x18 ∨ ¬x24)
+   (x21 ∨ ¬x20 ∨ ¬x17)
+   (¬x11 ∨ x3)
+   (¬x19 ∨ x12)
+   (¬x16 ∨ x12 ∨ x14)
+   (x11 ∨ x19 ∨ ¬x7)
+   (¬x16 ∨ ¬x17)
+   (¬x5 ∨ ¬x7)
+   (¬x23 ∨ ¬x3 ∨ ¬x13)
+   (¬x6 ∨ ¬x17)
+   (¬x5 ∨ ¬x3 ∨ x9)
+   (x8 ∨ x5 ∨ x14)
+   (x5 ∨ x23 ∨ x8)
+   (x18 ∨ ¬x15 ∨ x8)
+   (¬x22 ∨ ¬x23)
+   (x25 ∨ x19 ∨ ¬x8)
+   (¬x20 ∨ x13)
+   (¬x18 ∨ ¬x9 ∨ ¬x6)
+   (¬x17 ∨ ¬x22)
+   (¬x18 ∨ x11)
+   (¬x23 ∨ x14 ∨ ¬x24)
+   (x19 ∨ x24 ∨ x16)
+   (¬x13)
+   (x23 ∨ x8)
+   (x19 ∨ x20)
+   (¬x25 ∨ ¬x17)
+   (¬x4 ∨ x23)
+   (x7 ∨ x8)
+   (¬x6)
+   (¬x6 ∨ x23)
+   (x12 ∨ ¬x25)
+   (¬x10 ∨ x22)
+   (x14 ∨ ¬x21)
+   (¬x7 ∨ ¬x23)
+   (¬x25 ∨ ¬x4)
+   (¬x20 ∨ x12)
+   (¬x25)
+   (¬x4 ∨ x12)
+   (¬x24 ∨ x9)
+   (x9 ∨ x25)
+   (x7 ∨ ¬x10)
+   (¬x24 ∨ x10)
+   (x19 ∨ ¬x8)
+   (¬x4 ∨ x13)
+   (x23 ∨ x19)
+   (¬x19 ∨ x5)
+   (x21 ∨ ¬x16)
+   (¬x21 ∨ x19)
+   (¬x11 ∨ ¬x22)
+   (x25 ∨ x19 ∨ x4)
+   (¬x4 ∨ x16)
+   (¬x25 ∨ x21)
+   (x20 ∨ x5)
+   (¬x19 ∨ x22)
+   (x6 ∨ x4)
+   (¬x10)
+   (x5 ∨ x17)
+   (x8 ∨ x22)
+   (x13 ∨ x11)
+   (x20 ∨ x23)
+   (x20 ∨ x1)
+   (¬x25)
+   (¬x17 ∨ x6)
+   (x23)
+   (¬x22 ∨ x15)
+   (x10 ∨ x19)
+   (¬x6 ∨ ¬x25)
+   (¬x13 ∨ x17)
+   (x25)
+   (x23 ∨ ¬x20)
+   (x25 ∨ x14)
+   (¬x10 ∨ x24)
+   (¬x22 ∨ x4)
+   (¬x14 ∨ x6)
+   (x25 ∨ x11)
+   (¬x6 ∨ ¬x14)
+   (x11 ∨ x3)
+   (x12 ∨ ¬x22)
+   (¬x15 ∨ ¬x24)
+   (¬x18 ∨ ¬x19)
+   (¬x5 ∨ x6)
+8. Continue assigning literals and updating the formula until all literals are assigned.
+9. If a conflict arises, backtrack to the previous decision point and try a different assignment.
+10. Once all literals are assigned without conflicts, check if the formula is satisfiable or unsatisfiable.
+11. Output:
+    * SATISFIABLE
+    * Number of branches: 0
+    * Number of conflicts: 0
+    * Value for each literal:
+      x1 = True
+      x2 = True
+      x3 = False
+      x4 = False
+      x5 = True
+      x6 = False
+      x7 = True
+      x8 = True
+      x9 = False
+      x10 = False
+      x11 = True
+      x12 = True
+      x13 = False
+      x14 = True
+      x15 = False
+      x16 = False
+      x17 = False
+      x18 = False
+      x19 = True
+      x20 = False
+      x21 = True
+      x22 = False
+      x23 = True
+      x24 = False
+      x25 = True

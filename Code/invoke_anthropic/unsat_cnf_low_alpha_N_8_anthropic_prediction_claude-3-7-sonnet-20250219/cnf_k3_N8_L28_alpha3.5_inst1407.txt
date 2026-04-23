@@ -1,0 +1,197 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1407
+p cnf 8 28
+3 5 -7 0
+1 6 -7 0
+-8 -1 2 0
+-6 -5 1 0
+3 -6 -1 0
+-3 -7 -1 0
+-3 8 7 0
+3 -1 -5 0
+1 7 6 0
+2 3 6 0
+-7 3 4 0
+5 -7 1 0
+-3 1 -4 0
+-5 3 -7 0
+8 -3 -1 0
+8 -5 -2 0
+-5 -7 -6 0
+-8 -6 -4 0
+4 5 3 0
+5 7 1 0
+5 8 4 0
+-3 -6 -7 0
+-6 -7 1 0
+-3 -5 4 0
+7 -1 -2 0
+7 4 -2 0
+-5 6 1 0
+8 6 -5 0
+
+c GPT solve time: 47.44 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by making a decision and setting x1 = true.
+
+Step 2: Apply unit propagation:
+- No immediate unit clauses.
+
+Step 3: Make another decision, x2 = true.
+
+Step 4: Apply unit propagation:
+- No immediate unit clauses.
+
+Step 5: Make another decision, x3 = true.
+
+Step 6: Apply unit propagation:
+- From (¬x3 ∨ ¬x7 ∨ ¬x1), since x3 = true and x1 = true, we must have x7 = false.
+- From (¬x3 ∨ ¬x6 ∨ ¬x7), since x3 = true and x7 = false, no constraint on x6.
+- From (x3 ∨ ¬x6 ∨ ¬x1), since x3 = true, this clause is satisfied.
+- From (x3 ∨ ¬x1 ∨ ¬x5), since x3 = true, this clause is satisfied.
+- From (¬x3 ∨ x1 ∨ ¬x4), since x3 = true and x1 = true, this clause is satisfied.
+- From (¬x3 ∨ x8 ∨ x7), since x3 = true and x7 = false, we must have x8 = true.
+- From (x8 ∨ ¬x3 ∨ ¬x1), since x3 = true, x1 = true, and x8 = true, this clause is satisfied.
+
+Step 7: Continue unit propagation:
+- From (¬x8 ∨ ¬x1 ∨ x2), since x8 = true, x1 = true, and x2 = true, this clause is satisfied.
+- From (x8 ∨ ¬x5 ∨ ¬x2), since x8 = true, this clause is satisfied.
+- From (¬x8 ∨ ¬x6 ∨ ¬x4), since x8 = true, we must have x6 = false OR x4 = false.
+
+Step 8: Make another decision, x4 = true.
+
+Step 9: Apply unit propagation:
+- From (¬x8 ∨ ¬x6 ∨ ¬x4), since x8 = true and x4 = true, we must have x6 = false.
+- From (¬x6 ∨ ¬x5 ∨ x1), since x6 = false, this clause is satisfied.
+- From (¬x5 ∨ x6 ∨ x1), since x6 = false and x1 = true, this clause is satisfied.
+- From (x8 ∨ x6 ∨ ¬x5), since x8 = true, this clause is satisfied.
+- From (¬x5 ∨ ¬x7 ∨ ¬x6), since x7 = false and x6 = false, this clause is satisfied.
+
+Step 10: Make another decision, x5 = true.
+
+Step 11: Apply unit propagation:
+- From (x4 ∨ x5 ∨ x3), since x4 = true, x5 = true, and x3 = true, this clause is satisfied.
+- From (x5 ∨ x7 ∨ x1), since x5 = true, this clause is satisfied.
+- From (x5 ∨ x8 ∨ x4), since x5 = true, this clause is satisfied.
+- From (¬x3 ∨ ¬x5 ∨ x4), since x3 = true, x5 = true, and x4 = true, this clause is satisfied.
+- From (x5 ∨ ¬x7 ∨ x1), since x5 = true, this clause is satisfied.
+- From (¬x5 ∨ x3 ∨ ¬x7), since x5 = true, x3 = true, and x7 = false, this clause is satisfied.
+
+All clauses are now satisfied. Let's verify:
+- (x3 ∨ x5 ∨ ¬x7): Satisfied because x3 = true, x5 = true, and x7 = false.
+- (x1 ∨ x6 ∨ ¬x7): Satisfied because x1 = true and x7 = false.
+- (x2 ∨ x3 ∨ x6): Satisfied because x2 = true and x3 = true.
+- (x1 ∨ x7 ∨ x6): Satisfied because x1 = true.
+- (¬x7 ∨ x3 ∨ x4): Satisfied because x7 = false, x3 = true, and x4 = true.
+- (x7 ∨ ¬x1 ∨ ¬x2): Since x1 = true, x2 = true, and x7 = false, we need to check this clause.
+  This clause is (x7 ∨ ¬x1 ∨ ¬x2) = (false ∨ false ∨ false) = false.
+
+We have a conflict! We need to backtrack.
+
+Step 12: Backtrack to the last decision (x5 = true) and try x5 = false.
+
+Step 13: Apply unit propagation with x5 = false:
+- From (x3 ∨ x5 ∨ ¬x7), since x3 = true, this clause is satisfied.
+- From (¬x5 ∨ x3 ∨ ¬x7), since x5 = false, this clause is satisfied.
+- From (¬x5 ∨ ¬x7 ∨ ¬x6), since x5 = false, this clause is satisfied.
+- From (¬x5 ∨ x6 ∨ x1), since x5 = false, this clause is satisfied.
+- From (x8 ∨ x6 ∨ ¬x5), since x5 = false, this clause is satisfied.
+- From (x4 ∨ x5 ∨ x3), since x4 = true and x3 = true, this clause is satisfied.
+- From (x5 ∨ x7 ∨ x1), since x7 = false and x1 = true, this clause is satisfied.
+- From (x5 ∨ x8 ∨ x4), since x8 = true and x4 = true, this clause is satisfied.
+- From (x5 ∨ ¬x7 ∨ x1), since x7 = false and x1 = true, this clause is satisfied.
+
+Let's check the clause (x7 ∨ ¬x1 ∨ ¬x2) again:
+- With x1 = true, x2 = true, and x7 = false, this clause is still false.
+
+We still have a conflict. Let's backtrack further.
+
+Step 14: Backtrack to the decision x4 = true and try x4 = false.
+
+Step 15: Apply unit propagation with x4 = false:
+- From (¬x7 ∨ x3 ∨ x4), since x7 = false and x3 = true, this clause is satisfied.
+- From (¬x3 ∨ x1 ∨ ¬x4), since x3 = true, x1 = true, and x4 = false, this clause is satisfied.
+- From (x7 ∨ x4 ∨ ¬x2), since x7 = false, x4 = false, and x2 = true, this clause is false.
+
+We have another conflict. Let's backtrack further.
+
+Step 16: Backtrack to the decision x3 = true and try x3 = false.
+
+Step 17: Apply unit propagation with x3 = false:
+- From (x3 ∨ x5 ∨ ¬x7), since x3 = false, we need x5 = true OR x7 = false.
+- From (x3 ∨ ¬x1 ∨ ¬x5), since x3 = false and x1 = true, we need x5 = false.
+- From (x3 ∨ ¬x6 ∨ ¬x1), since x3 = false and x1 = true, we need x6 = false.
+- From (x2 ∨ x3 ∨ x6), since x3 = false and x2 = true, this clause is satisfied.
+- From (¬x3 ∨ ¬x7 ∨ ¬x1), since x3 = false, this clause is satisfied.
+- From (¬x3 ∨ x8 ∨ x7), since x3 = false, this clause is satisfied.
+- From (¬x3 ∨ x1 ∨ ¬x4), since x3 = false and x1 = true, this clause is satisfied.
+- From (¬x3 ∨ ¬x6 ∨ ¬x7), since x3 = false, this clause is satisfied.
+- From (¬x3 ∨ ¬x5 ∨ x4), since x3 = false, this clause is satisfied.
+
+From the propagation, we have x5 = false and x6 = false.
+
+Step 18: Continue unit propagation:
+- From (¬x6 ∨ ¬x5 ∨ x1), since x6 = false and x5 = false, this clause is satisfied.
+- From (¬x5 ∨ ¬x7 ∨ ¬x6), since x5 = false and x6 = false, this clause is satisfied.
+- From (¬x5 ∨ x6 ∨ x1), since x5 = false, this clause is satisfied.
+- From (x8 ∨ x6 ∨ ¬x5), since x5 = false, this clause is satisfied.
+- From (x4 ∨ x5 ∨ x3), since x5 = false and x3 = false, we need x4 = true.
+- From (x5 ∨ x7 ∨ x1), since x5 = false and x1 = true, this clause is satisfied.
+- From (x5 ∨ x8 ∨ x4), since x4 = true, this clause is satisfied.
+- From (x5 ∨ ¬x7 ∨ x1), since x5 = false and x1 = true, this clause is satisfied.
+
+Step 19: Continue unit propagation with x4 = true:
+- From (¬x8 ∨ ¬x6 ∨ ¬x4), since x6 = false and x4 = true, we need x8 = false.
+- From (¬x3 ∨ x8 ∨ x7), since x3 = false and x8 = false, we need x7 = true.
+
+Step 20: Continue unit propagation with x8 = false and x7 = true:
+- From (x3 ∨ x5 ∨ ¬x7), since x3 = false, x5 = false, and x7 = true, this clause is false.
+
+We have a conflict. Let's backtrack.
+
+Step 21: Backtrack to the decision x2 = true and try x2 = false.
+
+Step 22: Apply unit propagation with x1 = true and x2 = false:
+- From (¬x8 ∨ ¬x1 ∨ x2), since x1 = true and x2 = false, we need x8 = false.
+- From (x7 ∨ ¬x1 ∨ ¬x2), since x1 = true and x2 = false, this clause is satisfied.
+- From (x7 ∨ x4 ∨ ¬x2), since x2 = false, this clause is satisfied.
+
+Step 23: Continue with x8 = false and make a decision x3 = true.
+
+Step 24: Apply unit propagation:
+- From (¬x3 ∨ x8 ∨ x7), since x3 = true and x8 = false, we need x7 = true.
+- From (¬x3 ∨ ¬x7 ∨ ¬x1), since x3 = true, x7 = true, and x1 = true, this clause is false.
+
+We have a conflict. Let's backtrack.
+
+Step 25: Try x3 = false with x1 = true, x2 = false, and x8 = false.
+
+Step 26: Apply unit propagation:
+- From (x3 ∨ x5 ∨ ¬x7), since x3 = false, we need x5 = true OR x7 = false.
+- From (x3 ∨ ¬x1 ∨ ¬x5), since x3 = false and x1 = true, we need x5 = false.
+
+This gives us a contradiction: x5 must be both true and false. Let's backtrack.
+
+Step 27: Backtrack to the decision x1 = true and try x1 = false.
+
+Step 28: Apply unit propagation with x1 = false:
+- From (x1 ∨ x6 ∨ ¬x7), since x1 = false, we need x6 = true OR x7 = false.
+- From (x1 ∨ x7 ∨ x6), since x1 = false, we need x7 = true OR x6 = true.
+
+Let's make a decision x6 = true.
+
+Step 29: Apply unit propagation:
+- From (¬x6 ∨ ¬x5 ∨ x1), since x6 = true and x1 = false, we need x5 = false.
+- From (x3 ∨ ¬x6 ∨ ¬x1), since x6 = true and x1 = false, we need x3 = true.
+- From (¬x5 ∨ x6 ∨ x1), since x6 = true, this clause is satisfied.
+- From (x8 ∨ x6 ∨ ¬x5), since x6 = true, this clause is satisfied.
+
+Step 30: Continue unit propagation with x5 = false and x3 = true:
+- From (x3 ∨ x5 ∨ ¬x7), since x3 = true, this clause is satisfied.
+- From (x3 ∨ ¬x1 ∨ ¬x5), since x3 = true, this clause is satisfied.
+- From (¬x3 ∨ ¬x7 ∨ ¬x1), since x3 = true and x1 = false, this clause is satisfied.
+- From (¬x3 ∨ x8 ∨ x7), since x3 = true, we need x8 = true OR x7 = true.
+- From (¬x3 ∨ x1 ∨ ¬x4), since x3 = true and x1 = false, we need x4 = false.
+- From (¬x3 ∨ ¬x5 ∨ x4), since x3

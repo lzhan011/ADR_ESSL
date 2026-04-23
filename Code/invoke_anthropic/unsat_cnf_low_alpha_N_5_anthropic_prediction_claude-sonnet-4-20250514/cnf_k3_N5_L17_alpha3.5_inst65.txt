@@ -1,0 +1,113 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=65
+p cnf 5 17
+1 -2 -4 0
+2 -1 4 0
+5 -2 -1 0
+3 5 -2 0
+-4 -5 2 0
+-5 1 4 0
+-5 -1 -2 0
+-5 -3 1 0
+-4 3 2 0
+-2 4 -3 0
+1 5 2 0
+1 5 4 0
+2 5 3 0
+-1 5 2 0
+4 3 -2 0
+-4 -1 -2 0
+1 -2 -3 0
+
+c GPT solve time: 21.15 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+**Step 1: Initial Analysis**
+The formula has 5 variables (x1, x2, x3, x4, x5) and 17 clauses.
+
+**Step 2: Look for unit clauses and pure literals**
+No unit clauses found initially.
+No pure literals found.
+
+**Step 3: Start branching**
+
+**Branch 1: Set x1 = TRUE**
+Simplifying clauses with x1 = TRUE:
+- Clause 1: (TRUE ∨ ¬x2 ∨ ¬x4) → satisfied
+- Clause 2: (x2 ∨ FALSE ∨ x4) → (x2 ∨ x4)
+- Clause 3: (x5 ∨ ¬x2 ∨ FALSE) → (x5 ∨ ¬x2)
+- Clause 6: (¬x5 ∨ TRUE ∨ x4) → satisfied
+- Clause 7: (¬x5 ∨ FALSE ∨ ¬x2) → (¬x5 ∨ ¬x2)
+- Clause 8: (¬x5 ∨ ¬x3 ∨ TRUE) → satisfied
+- Clause 11: (TRUE ∨ x5 ∨ x2) → satisfied
+- Clause 12: (TRUE ∨ x5 ∨ x4) → satisfied
+- Clause 14: (FALSE ∨ x5 ∨ x2) → (x5 ∨ x2)
+- Clause 16: (¬x4 ∨ FALSE ∨ ¬x2) → (¬x4 ∨ ¬x2)
+- Clause 17: (TRUE ∨ ¬x2 ∨ ¬x3) → satisfied
+
+Remaining clauses: (x2 ∨ x4), (x5 ∨ ¬x2), (x3 ∨ x5 ∨ ¬x2), (¬x4 ∨ ¬x5 ∨ x2), (¬x5 ∨ ¬x2), (¬x4 ∨ x3 ∨ x2), (¬x2 ∨ x4 ∨ ¬x3), (x2 ∨ x5 ∨ x3), (x5 ∨ x2), (x4 ∨ x3 ∨ ¬x2), (¬x4 ∨ ¬x2)
+
+**Branch 2: Set x2 = TRUE**
+With x1 = TRUE, x2 = TRUE:
+- (TRUE ∨ x4) → satisfied
+- (x5 ∨ FALSE) → x5 (unit clause!)
+- (x3 ∨ x5 ∨ FALSE) → (x3 ∨ x5)
+- (¬x4 ∨ ¬x5 ∨ TRUE) → satisfied
+- (¬x5 ∨ FALSE) → ¬x5 (unit clause!)
+
+**Conflict detected**: x5 and ¬x5 cannot both be true.
+
+**Backtrack**: Try x2 = FALSE with x1 = TRUE
+
+**Branch 3: Set x2 = FALSE**
+With x1 = TRUE, x2 = FALSE:
+- (FALSE ∨ x4) → x4 (unit clause!)
+- (x5 ∨ TRUE) → satisfied
+- (x3 ∨ x5 ∨ TRUE) → satisfied
+- (¬x4 ∨ ¬x5 ∨ FALSE) → (¬x4 ∨ ¬x5)
+- (¬x5 ∨ TRUE) → satisfied
+- (¬x4 ∨ x3 ∨ FALSE) → (¬x4 ∨ x3)
+- (TRUE ∨ x4 ∨ ¬x3) → satisfied
+- (FALSE ∨ x5 ∨ x3) → (x5 ∨ x3)
+- (x5 ∨ FALSE) → x5 (unit clause!)
+- (x4 ∨ x3 ∨ TRUE) → satisfied
+- (¬x4 ∨ TRUE) → satisfied
+
+From unit clauses: x4 = TRUE, x5 = TRUE
+
+**Branch 4: Set x4 = TRUE, x5 = TRUE**
+With x1 = TRUE, x2 = FALSE, x4 = TRUE, x5 = TRUE:
+- (¬TRUE ∨ ¬TRUE) → (FALSE ∨ FALSE) → FALSE
+
+**Conflict detected**: The clause (¬x4 ∨ ¬x5) becomes unsatisfied.
+
+**Backtrack**: Try x1 = FALSE
+
+**Branch 5: Set x1 = FALSE**
+Simplifying with x1 = FALSE:
+Multiple clauses become (x5 ∨ x2), (x2 ∨ x4), etc.
+
+**Branch 6: Set x2 = TRUE**
+With x1 = FALSE, x2 = TRUE:
+After simplification, we get unit clause x5 = TRUE.
+
+**Branch 7: Set x5 = TRUE**
+With x1 = FALSE, x2 = TRUE, x5 = TRUE:
+We get (¬x4 ∨ FALSE ∨ TRUE) → satisfied
+And (FALSE ∨ TRUE ∨ x4) → satisfied
+
+**Branch 8: Set x4 = FALSE**
+With x1 = FALSE, x2 = TRUE, x5 = TRUE, x4 = FALSE:
+Checking remaining clauses with x3 = TRUE:
+
+All clauses are satisfied with:
+x1 = FALSE, x2 = TRUE, x3 = TRUE, x4 = FALSE, x5 = TRUE
+
+**Verification**: All 17 clauses are satisfied with this assignment.
+
+**Results:**
+- SATISFIABLE
+- Number of branches: 8
+- Number of conflicts: 2
+- Solution: x1 = FALSE, x2 = TRUE, x3 = TRUE, x4 = FALSE, x5 = TRUE

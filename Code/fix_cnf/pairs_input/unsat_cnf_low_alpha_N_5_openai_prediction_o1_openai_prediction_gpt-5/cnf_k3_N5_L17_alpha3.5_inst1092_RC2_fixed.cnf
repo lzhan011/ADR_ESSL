@@ -1,0 +1,25 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1093
+p cnf 5 17
+-4 -1 -5 0
+4 -1 3 0
+1 -2 5 0
+2 -1 -3 0
+1 -3 -2 0
+1 2 5 0
+5 -4 3 0
+3 -2 5 0
+-2 -4 -1 0
+4 3 5 0
+-2 -3 4 0
+5 -3 2 0
+-2 1 -3 0
+1 5 -3 0
+2 1 -3 0
+1 -3 2 0
+
+c GPT solve time: 88.28 seconds
+
+SATISFIABLE: x1 = False, x2 = False, x3 = False, x4 = False, x5 = True
+Number of branches: 3
+Number of conflicts: 1

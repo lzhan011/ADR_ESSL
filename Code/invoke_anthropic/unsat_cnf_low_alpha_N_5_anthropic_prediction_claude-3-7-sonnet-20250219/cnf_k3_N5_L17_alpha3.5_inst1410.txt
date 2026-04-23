@@ -1,0 +1,106 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1410
+p cnf 5 17
+2 5 1 0
+-5 3 -4 0
+-3 -2 1 0
+1 -2 -3 0
+3 2 -4 0
+4 -2 -1 0
+-5 1 3 0
+-1 4 3 0
+1 3 4 0
+-4 2 -1 0
+5 -4 3 0
+1 5 -4 0
+5 -1 -3 0
+-2 5 4 0
+2 -5 -3 0
+-3 -2 -1 0
+-4 -1 5 0
+
+c GPT solve time: 45.42 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let's start by assigning variables and checking for unit clauses or pure literals.
+
+Step 1: Let's try x1 = true
+- Clauses with x1 are satisfied: (x2 ∨ x5 ∨ x1), (¬x3 ∨ ¬x2 ∨ x1), (x1 ∨ ¬x2 ∨ ¬x3), (¬x5 ∨ x1 ∨ x3), (x1 ∨ x3 ∨ x4), (x1 ∨ x5 ∨ ¬x4)
+- Clauses simplified: (¬x5 ∨ x3 ∨ ¬x4), (x3 ∨ x2 ∨ ¬x4), (x4 ∨ ¬x2 ∨ ¬x1) → (x4 ∨ ¬x2), (¬x1 ∨ x4 ∨ x3) → (x4 ∨ x3), (¬x4 ∨ x2 ∨ ¬x1) → (¬x4 ∨ x2), (x5 ∨ ¬x4 ∨ x3), (x5 ∨ ¬x1 ∨ ¬x3) → (x5 ∨ ¬x3), (¬x2 ∨ x5 ∨ x4), (x2 ∨ ¬x5 ∨ ¬x3), (¬x3 ∨ ¬x2 ∨ ¬x1) → (¬x3 ∨ ¬x2), (¬x4 ∨ ¬x1 ∨ x5) → (¬x4 ∨ x5)
+
+Step 2: Let's try x2 = true
+- Clauses with x2 are satisfied: (x3 ∨ x2 ∨ ¬x4), (¬x4 ∨ x2), (x2 ∨ ¬x5 ∨ ¬x3)
+- Clauses simplified: (¬x5 ∨ x3 ∨ ¬x4), (x4 ∨ ¬x2) → (x4), (x4 ∨ x3), (x5 ∨ ¬x4 ∨ x3), (x5 ∨ ¬x3), (¬x2 ∨ x5 ∨ x4) → (x5 ∨ x4), (¬x3 ∨ ¬x2) → (¬x3), (¬x4 ∨ x5)
+
+Step 3: From (¬x3), we set x3 = false
+- Clauses with ¬x3 are satisfied: (¬x3), (x5 ∨ ¬x3)
+- Clauses simplified: (¬x5 ∨ ¬x4), (x4), (x4), (x5 ∨ ¬x4), (x5 ∨ x4), (¬x4 ∨ x5)
+
+Step 4: From (x4), we set x4 = true
+- Clauses with x4 are satisfied: (x4), (x5 ∨ x4)
+- Clauses simplified: (¬x5), (x5 ∨ ¬x4) → (x5), (¬x4 ∨ x5) → (x5)
+
+Step 5: We have a contradiction: (¬x5) and (x5)
+
+Let's backtrack and try x2 = false:
+- Clauses with ¬x2 are satisfied: (¬x3 ∨ ¬x2 ∨ x1), (x1 ∨ ¬x2 ∨ ¬x3), (x4 ∨ ¬x2), (¬x2 ∨ x5 ∨ x4)
+- Clauses simplified: (x2 ∨ x5 ∨ x1) → (x5 ∨ x1), (¬x5 ∨ x3 ∨ ¬x4), (x3 ∨ x2 ∨ ¬x4) → (x3 ∨ ¬x4), (¬x1 ∨ x4 ∨ x3), (¬x4 ∨ x2 ∨ ¬x1) → (¬x4 ∨ ¬x1), (x5 ∨ ¬x4 ∨ x3), (x5 ∨ ¬x1 ∨ ¬x3), (x2 ∨ ¬x5 ∨ ¬x3) → (¬x5 ∨ ¬x3), (¬x4 ∨ ¬x1 ∨ x5)
+
+Step 6: Let's try x3 = true
+- Clauses with x3 are satisfied: (¬x5 ∨ x3 ∨ ¬x4), (x3 ∨ ¬x4), (¬x1 ∨ x4 ∨ x3), (x5 ∨ ¬x4 ∨ x3)
+- Clauses simplified: (x5 ∨ x1), (¬x4 ∨ ¬x1), (x5 ∨ ¬x1 ∨ ¬x3) → (x5 ∨ ¬x1), (¬x5 ∨ ¬x3) → (¬x5), (¬x4 ∨ ¬x1 ∨ x5) → (¬x4 ∨ ¬x1 ∨ x5)
+
+Step 7: From (¬x5), we set x5 = false
+- Clauses with ¬x5 are satisfied: (¬x5)
+- Clauses simplified: (x5 ∨ x1) → (x1), (¬x4 ∨ ¬x1), (x5 ∨ ¬x1) → (¬x1), (¬x4 ∨ ¬x1 ∨ x5) → (¬x4 ∨ ¬x1)
+
+Step 8: We have a contradiction: (x1) and (¬x1)
+
+Let's backtrack and try x3 = false:
+- Clauses with ¬x3 are satisfied: (¬x5 ∨ ¬x3), (x5 ∨ ¬x1 ∨ ¬x3)
+- Clauses simplified: (x5 ∨ x1), (¬x5 ∨ x3 ∨ ¬x4) → (¬x5 ∨ ¬x4), (x3 ∨ ¬x4) → (¬x4), (¬x1 ∨ x4 ∨ x3) → (¬x1 ∨ x4), (¬x4 ∨ ¬x1), (x5 ∨ ¬x4 ∨ x3) → (x5 ∨ ¬x4), (¬x4 ∨ ¬x1 ∨ x5)
+
+Step 9: From (¬x4), we set x4 = false
+- Clauses with ¬x4 are satisfied: (¬x4), (¬x4 ∨ ¬x1), (x5 ∨ ¬x4), (¬x4 ∨ ¬x1 ∨ x5)
+- Clauses simplified: (x5 ∨ x1), (¬x5 ∨ ¬x4) → (¬x5), (¬x1 ∨ x4) → (¬x1)
+
+Step 10: From (¬x5), we set x5 = false
+- Clauses with ¬x5 are satisfied: (¬x5)
+- Clauses simplified: (x5 ∨ x1) → (x1), (¬x1)
+
+Step 11: We have a contradiction: (x1) and (¬x1)
+
+Let's backtrack and try x1 = false:
+- Clauses with ¬x1 are satisfied: (¬x1 ∨ x4 ∨ x3), (¬x4 ∨ x2 ∨ ¬x1), (x5 ∨ ¬x1 ∨ ¬x3), (¬x3 ∨ ¬x2 ∨ ¬x1), (¬x4 ∨ ¬x1 ∨ x5)
+- Clauses simplified: (x2 ∨ x5 ∨ x1) → (x2 ∨ x5), (¬x5 ∨ x3 ∨ ¬x4), (¬x3 ∨ ¬x2 ∨ x1) → (¬x3 ∨ ¬x2), (x1 ∨ ¬x2 ∨ ¬x3) → (¬x2 ∨ ¬x3), (x3 ∨ x2 ∨ ¬x4), (x4 ∨ ¬x2 ∨ ¬x1) → (x4 ∨ ¬x2), (¬x5 ∨ x1 ∨ x3) → (¬x5 ∨ x3), (x1 ∨ x3 ∨ x4) → (x3 ∨ x4), (x1 ∨ x5 ∨ ¬x4) → (x5 ∨ ¬x4), (¬x2 ∨ x5 ∨ x4), (x2 ∨ ¬x5 ∨ ¬x3)
+
+Step 12: Let's try x2 = true
+- Clauses with x2 are satisfied: (x2 ∨ x5), (x3 ∨ x2 ∨ ¬x4), (x2 ∨ ¬x5 ∨ ¬x3)
+- Clauses simplified: (¬x5 ∨ x3 ∨ ¬x4), (¬x3 ∨ ¬x2) → (¬x3), (¬x2 ∨ ¬x3) → (¬x3), (x4 ∨ ¬x2) → (x4), (¬x5 ∨ x3) → (¬x5), (x3 ∨ x4) → (x4), (x5 ∨ ¬x4), (¬x2 ∨ x5 ∨ x4) → (x5 ∨ x4)
+
+Step 13: From (¬x3), we set x3 = false
+- Clauses with ¬x3 are satisfied: (¬x3)
+- Clauses simplified: (¬x5 ∨ x3 ∨ ¬x4) → (¬x5 ∨ ¬x4), (x4), (¬x5), (x4), (x5 ∨ ¬x4), (x5 ∨ x4)
+
+Step 14: From (¬x5), we set x5 = false
+- Clauses with ¬x5 are satisfied: (¬x5), (¬x5 ∨ ¬x4)
+- Clauses simplified: (x4), (x5 ∨ ¬x4) → (¬x4), (x5 ∨ x4) → (x4)
+
+Step 15: We have a contradiction: (x4) and (¬x4)
+
+Let's backtrack and try x2 = false:
+- Clauses with ¬x2 are satisfied: (¬x3 ∨ ¬x2), (¬x2 ∨ ¬x3), (x4 ∨ ¬x2), (¬x2 ∨ x5 ∨ x4)
+- Clauses simplified: (x2 ∨ x5) → (x5), (¬x5 ∨ x3 ∨ ¬x4), (x3 ∨ x2 ∨ ¬x4) → (x3 ∨ ¬x4), (¬x5 ∨ x3), (x3 ∨ x4), (x5 ∨ ¬x4), (x2 ∨ ¬x5 ∨ ¬x3) → (¬x5 ∨ ¬x3)
+
+Step 16: From (x5), we set x5 = true
+- Clauses with x5 are satisfied: (x5), (x5 ∨ ¬x4)
+- Clauses simplified: (¬x5 ∨ x3 ∨ ¬x4) → (x3 ∨ ¬x4), (x3 ∨ ¬x4), (¬x5 ∨ x3) → (x3), (x3 ∨ x4), (¬x5 ∨ ¬x3) → (¬x3)
+
+Step 17: We have a contradiction: (x3) and (¬x3)
+
+After exploring all possible assignments, we've found that the formula is unsatisfiable.
+
+UNSATISFIABLE
+Number of branches: 4 (x1, x2, x3, x5)
+Number of conflicts: 4

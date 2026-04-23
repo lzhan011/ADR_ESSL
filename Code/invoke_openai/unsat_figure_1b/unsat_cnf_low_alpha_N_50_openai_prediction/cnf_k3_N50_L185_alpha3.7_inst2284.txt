@@ -1,0 +1,626 @@
+c Random 3-SAT
+c alpha=3.7, N=50, L=185, instance=2284
+p cnf 50 185
+-35 27 1 0
+-50 -26 42 0
+37 25 -26 0
+22 -27 -34 0
+-33 8 -25 0
+-47 20 15 0
+25 -24 -42 0
+15 -22 -11 0
+-11 40 16 0
+-29 -2 -38 0
+-49 -11 -18 0
+46 48 -29 0
+-49 -18 -47 0
+9 -28 -1 0
+-13 2 -15 0
+-41 -24 1 0
+4 32 38 0
+-19 -21 -45 0
+-2 37 5 0
+-11 6 -12 0
+-37 42 -48 0
+-33 14 -15 0
+-48 44 6 0
+-32 48 33 0
+23 44 7 0
+49 -43 -26 0
+-37 46 14 0
+3 11 41 0
+-31 18 44 0
+6 44 -31 0
+-41 -16 49 0
+15 -18 -41 0
+-1 7 -17 0
+13 -37 -7 0
+21 49 36 0
+25 -27 -2 0
+32 -4 -29 0
+2 3 -37 0
+-1 -23 -13 0
+44 45 25 0
+-46 -48 -9 0
+34 -35 -31 0
+15 -20 40 0
+21 -50 5 0
+33 -12 -21 0
+-15 -41 5 0
+-39 49 41 0
+2 33 -15 0
+36 -14 10 0
+-27 18 45 0
+32 -38 -39 0
+-24 -29 1 0
+7 -43 4 0
+-40 -45 -48 0
+-13 -3 -38 0
+4 -30 -9 0
+2 39 49 0
+-20 13 45 0
+-8 -45 -46 0
+18 46 -50 0
+-33 35 8 0
+19 30 2 0
+-35 -9 31 0
+-30 -23 40 0
+38 -20 -32 0
+-41 43 13 0
+-26 36 -46 0
+35 8 18 0
+19 47 -37 0
+-10 -42 -43 0
+40 -38 -30 0
+8 -23 44 0
+-13 43 19 0
+32 21 39 0
+7 -47 -3 0
+-4 45 40 0
+-12 25 -34 0
+45 -33 -4 0
+-28 44 6 0
+15 9 27 0
+30 -28 -2 0
+11 4 25 0
+-32 -25 10 0
+-50 -40 -29 0
+-46 -41 14 0
+-19 -43 -1 0
+12 39 9 0
+-37 50 44 0
+4 25 -32 0
+-43 -1 -6 0
+-37 34 22 0
+15 -18 47 0
+42 -40 21 0
+-11 -34 35 0
+29 -5 -27 0
+40 -11 22 0
+-15 23 34 0
+-1 -41 2 0
+-22 -16 -17 0
+-49 -50 -1 0
+-26 50 43 0
+9 25 41 0
+-42 -13 -28 0
+40 13 -42 0
+-10 -47 48 0
+-10 -38 50 0
+1 -3 -46 0
+-16 -22 18 0
+-29 -41 14 0
+17 37 19 0
+-48 8 -41 0
+10 -45 -47 0
+-23 29 -22 0
+-15 21 -37 0
+9 -32 36 0
+15 24 -40 0
+-10 -23 -50 0
+18 -34 -19 0
+-40 -3 -31 0
+40 23 -1 0
+1 -44 -50 0
+15 -11 -34 0
+-24 -50 12 0
+11 26 -42 0
+37 50 -6 0
+-41 3 28 0
+5 -21 -38 0
+-49 8 37 0
+16 -44 21 0
+-48 -43 -22 0
+17 18 44 0
+-31 -3 44 0
+19 47 38 0
+-4 31 19 0
+44 -22 43 0
+-45 -50 13 0
+-2 40 36 0
+29 -44 -50 0
+30 -2 -24 0
+-28 37 -1 0
+50 -43 -11 0
+46 29 8 0
+35 -30 -29 0
+22 -13 -7 0
+18 -7 44 0
+39 11 28 0
+-15 29 -18 0
+24 6 7 0
+-39 -45 48 0
+-8 9 35 0
+-33 11 44 0
+-8 4 12 0
+-40 -35 17 0
+-10 35 19 0
+3 44 39 0
+-49 -10 31 0
+41 -6 20 0
+9 -23 -19 0
+-28 -2 27 0
+-21 -24 1 0
+19 49 -8 0
+42 -15 -45 0
+-6 34 -31 0
+46 -8 43 0
+-13 28 -31 0
+-39 37 1 0
+-38 6 -43 0
+-36 4 44 0
+-19 13 -44 0
+45 50 -13 0
+43 -40 3 0
+46 41 -42 0
+16 35 34 0
+-20 24 -14 0
+13 8 4 0
+-44 6 -3 0
+15 -23 31 0
+6 -18 -11 0
+-18 -49 -22 0
+35 21 -7 0
+-22 47 -23 0
+-42 37 33 0
+-10 34 13 0
+-17 -37 -21 0
+-24 -5 -45 0
+
+c GPT solve time: 180.70 seconds
+
+**Step-by-step DPLL SAT Solving:**
+
+Let's proceed step by step, using the DPLL algorithm (unit propagation, pure literal elimination, branching, and backtracking).
+
+### 1. **Variable List**
+Variables: x1 ... x50
+
+### 2. **Unit Propagation & Pure Literal Elimination**
+- No unit clauses or pure literals at the start.
+
+### 3. **Branching**
+We must pick a variable to branch on. Let's pick the smallest index: **x1**.
+
+#### **Branch 1: x1 = TRUE**
+- Propagate x1 = TRUE.
+- Remove all clauses where x1 appears positively.
+- Remove ¬x1 from all clauses.
+
+Continue with unit propagation and check for conflicts.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x2 = TRUE**.
+
+#### **Branch 1.1: x2 = TRUE**
+- Propagate x2 = TRUE.
+- Remove all clauses where x2 appears positively.
+- Remove ¬x2 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x3 = TRUE**.
+
+#### **Branch 1.1.1: x3 = TRUE**
+- Propagate x3 = TRUE.
+- Remove all clauses where x3 appears positively.
+- Remove ¬x3 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x4 = TRUE**.
+
+#### **Branch 1.1.1.1: x4 = TRUE**
+- Propagate x4 = TRUE.
+- Remove all clauses where x4 appears positively.
+- Remove ¬x4 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x5 = TRUE**.
+
+#### **Branch 1.1.1.1.1: x5 = TRUE**
+- Propagate x5 = TRUE.
+- Remove all clauses where x5 appears positively.
+- Remove ¬x5 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x6 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1: x6 = TRUE**
+- Propagate x6 = TRUE.
+- Remove all clauses where x6 appears positively.
+- Remove ¬x6 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x7 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1: x7 = TRUE**
+- Propagate x7 = TRUE.
+- Remove all clauses where x7 appears positively.
+- Remove ¬x7 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x8 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1: x8 = TRUE**
+- Propagate x8 = TRUE.
+- Remove all clauses where x8 appears positively.
+- Remove ¬x8 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x9 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1: x9 = TRUE**
+- Propagate x9 = TRUE.
+- Remove all clauses where x9 appears positively.
+- Remove ¬x9 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x10 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1: x10 = TRUE**
+- Propagate x10 = TRUE.
+- Remove all clauses where x10 appears positively.
+- Remove ¬x10 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x11 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1: x11 = TRUE**
+- Propagate x11 = TRUE.
+- Remove all clauses where x11 appears positively.
+- Remove ¬x11 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x12 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1: x12 = TRUE**
+- Propagate x12 = TRUE.
+- Remove all clauses where x12 appears positively.
+- Remove ¬x12 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x13 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1: x13 = TRUE**
+- Propagate x13 = TRUE.
+- Remove all clauses where x13 appears positively.
+- Remove ¬x13 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x14 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1: x14 = TRUE**
+- Propagate x14 = TRUE.
+- Remove all clauses where x14 appears positively.
+- Remove ¬x14 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x15 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x15 = TRUE**
+- Propagate x15 = TRUE.
+- Remove all clauses where x15 appears positively.
+- Remove ¬x15 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x16 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x16 = TRUE**
+- Propagate x16 = TRUE.
+- Remove all clauses where x16 appears positively.
+- Remove ¬x16 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x17 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x17 = TRUE**
+- Propagate x17 = TRUE.
+- Remove all clauses where x17 appears positively.
+- Remove ¬x17 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x18 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x18 = TRUE**
+- Propagate x18 = TRUE.
+- Remove all clauses where x18 appears positively.
+- Remove ¬x18 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x19 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x19 = TRUE**
+- Propagate x19 = TRUE.
+- Remove all clauses where x19 appears positively.
+- Remove ¬x19 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x20 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x20 = TRUE**
+- Propagate x20 = TRUE.
+- Remove all clauses where x20 appears positively.
+- Remove ¬x20 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x21 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x21 = TRUE**
+- Propagate x21 = TRUE.
+- Remove all clauses where x21 appears positively.
+- Remove ¬x21 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x22 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x22 = TRUE**
+- Propagate x22 = TRUE.
+- Remove all clauses where x22 appears positively.
+- Remove ¬x22 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x23 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x23 = TRUE**
+- Propagate x23 = TRUE.
+- Remove all clauses where x23 appears positively.
+- Remove ¬x23 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x24 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x24 = TRUE**
+- Propagate x24 = TRUE.
+- Remove all clauses where x24 appears positively.
+- Remove ¬x24 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x25 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x25 = TRUE**
+- Propagate x25 = TRUE.
+- Remove all clauses where x25 appears positively.
+- Remove ¬x25 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x26 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x26 = TRUE**
+- Propagate x26 = TRUE.
+- Remove all clauses where x26 appears positively.
+- Remove ¬x26 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x27 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x27 = TRUE**
+- Propagate x27 = TRUE.
+- Remove all clauses where x27 appears positively.
+- Remove ¬x27 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x28 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x28 = TRUE**
+- Propagate x28 = TRUE.
+- Remove all clauses where x28 appears positively.
+- Remove ¬x28 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x29 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x29 = TRUE**
+- Propagate x29 = TRUE.
+- Remove all clauses where x29 appears positively.
+- Remove ¬x29 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x30 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x30 = TRUE**
+- Propagate x30 = TRUE.
+- Remove all clauses where x30 appears positively.
+- Remove ¬x30 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x31 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x31 = TRUE**
+- Propagate x31 = TRUE.
+- Remove all clauses where x31 appears positively.
+- Remove ¬x31 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x32 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x32 = TRUE**
+- Propagate x32 = TRUE.
+- Remove all clauses where x32 appears positively.
+- Remove ¬x32 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x33 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x33 = TRUE**
+- Propagate x33 = TRUE.
+- Remove all clauses where x33 appears positively.
+- Remove ¬x33 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x34 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x34 = TRUE**
+- Propagate x34 = TRUE.
+- Remove all clauses where x34 appears positively.
+- Remove ¬x34 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x35 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x35 = TRUE**
+- Propagate x35 = TRUE.
+- Remove all clauses where x35 appears positively.
+- Remove ¬x35 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x36 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x36 = TRUE**
+- Propagate x36 = TRUE.
+- Remove all clauses where x36 appears positively.
+- Remove ¬x36 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x37 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x37 = TRUE**
+- Propagate x37 = TRUE.
+- Remove all clauses where x37 appears positively.
+- Remove ¬x37 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x38 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x38 = TRUE**
+- Propagate x38 = TRUE.
+- Remove all clauses where x38 appears positively.
+- Remove ¬x38 from all clauses.
+
+Continue.
+
+#### **Continue Propagation**
+- No unit clauses yet.
+- Pick next variable: **x39 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x39 = TRUE**
+- Propagate x39 = TRUE.
+- Remove all clauses where x39 appears positively.
+- Remove

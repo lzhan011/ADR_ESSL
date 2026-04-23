@@ -1,0 +1,172 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1628
+p cnf 8 28
+-2 6 8 0
+-3 8 -7 0
+-8 -2 5 0
+8 -2 7 0
+-2 -6 1 0
+-8 6 -4 0
+-6 2 5 0
+-8 2 4 0
+-8 -6 -5 0
+7 -1 6 0
+-2 5 6 0
+8 4 -7 0
+7 -3 -1 0
+-1 4 -8 0
+5 -1 -8 0
+5 8 -4 0
+-8 2 5 0
+8 -1 5 0
+4 -8 6 0
+8 5 4 0
+-2 -6 1 0
+5 -7 8 0
+8 -6 -7 0
+-4 -6 -8 0
+-7 1 -4 0
+2 -5 8 0
+-6 8 4 0
+2 3 -4 0
+
+c GPT solve time: 77.58 seconds
+
+To solve this 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in order (x1, x2, ..., x8) and assign values, propagating implications.
+
+#### Decision 1: x1 = True  
+- Clause (¬x1 ∨ x4 ∨ ¬x8) implies nothing yet.  
+- Clause (x7 ∨ ¬x1 ∨ x6) simplifies to (x7 ∨ x6).  
+- Clause (¬x7 ∨ x1 ∨ ¬x4) simplifies to (¬x7 ∨ ¬x4).  
+No conflicts yet.  
+
+#### Decision 2: x2 = True  
+- Clause (¬x2 ∨ x6 ∨ x8) simplifies to (x6 ∨ x8).  
+- Clause (¬x2 ∨ ¬x6 ∨ x1) simplifies to (¬x6).  
+  - Thus, x6 = False.  
+- Clause (¬x6 ∨ x2 ∨ x5) simplifies to (x5).  
+  - Thus, x5 = True.  
+- Clause (¬x2 ∨ x5 ∨ x6) simplifies to (x5).  
+  - Already satisfied.  
+- Clause (¬x8 ∨ x2 ∨ x5) simplifies to (¬x8 ∨ x5).  
+  - Already satisfied (x5 = True).  
+- Clause (x2 ∨ ¬x5 ∨ x8) simplifies to (x8).  
+  - Thus, x8 = True.  
+- Clause (¬x8 ∨ ¬x2 ∨ x5) simplifies to (x5).  
+  - Already satisfied.  
+- Clause (x8 ∨ ¬x2 ∨ x7) simplifies to (x7).  
+  - Thus, x7 = True.  
+- Clause (¬x3 ∨ x8 ∨ ¬x7) simplifies to (¬x3).  
+  - Thus, x3 = False.  
+- Clause (x7 ∨ ¬x3 ∨ ¬x1) simplifies to (x7 ∨ ¬x1).  
+  - Already satisfied.  
+- Clause (¬x8 ∨ x6 ∨ ¬x4) simplifies to (¬x4).  
+  - Thus, x4 = False.  
+- Clause (¬x8 ∨ ¬x6 ∨ ¬x5) simplifies to (¬x5).  
+  - Conflict: x5 = True and ¬x5 cannot both be true.  
+
+#### Conflict Detected: Backtrack to Decision 2 (x2 = True)  
+- Undo x2 = True and try x2 = False.  
+
+#### Decision 2: x2 = False  
+- Clause (¬x2 ∨ x6 ∨ x8) simplifies to (x6 ∨ x8).  
+- Clause (¬x2 ∨ ¬x6 ∨ x1) simplifies to (¬x6 ∨ x1).  
+- Clause (¬x6 ∨ x2 ∨ x5) simplifies to (¬x6 ∨ x5).  
+- Clause (¬x2 ∨ x5 ∨ x6) simplifies to (x5 ∨ x6).  
+- Clause (x2 ∨ ¬x5 ∨ x8) simplifies to (¬x5 ∨ x8).  
+- Clause (¬x8 ∨ x2 ∨ x5) simplifies to (¬x8 ∨ x5).  
+- Clause (x8 ∨ ¬x2 ∨ x7) simplifies to (x8 ∨ x7).  
+- Clause (x2 ∨ x3 ∨ ¬x4) simplifies to (x3 ∨ ¬x4).  
+
+#### Decision 3: x3 = True  
+- Clause (¬x3 ∨ x8 ∨ ¬x7) simplifies to (x8 ∨ ¬x7).  
+- Clause (x7 ∨ ¬x3 ∨ ¬x1) simplifies to (x7 ∨ ¬x1).  
+
+#### Decision 4: x4 = True  
+- Clause (¬x4 ∨ ¬x6 ∨ ¬x8) simplifies to (¬x6 ∨ ¬x8).  
+- Clause (¬x1 ∨ x4 ∨ ¬x8) simplifies to (¬x1 ∨ ¬x8).  
+- Clause (x5 ∨ x8 ∨ ¬x4) simplifies to (x5 ∨ x8).  
+- Clause (¬x8 ∨ x2 ∨ x4) simplifies to (¬x8 ∨ x4).  
+  - Already satisfied (x4 = True).  
+- Clause (x8 ∨ x4 ∨ ¬x7) simplifies to (x8 ∨ ¬x7).  
+- Clause (x4 ∨ ¬x8 ∨ x6) simplifies to (¬x8 ∨ x6).  
+- Clause (x8 ∨ x5 ∨ x4) simplifies to (x8 ∨ x5).  
+
+#### Decision 5: x5 = True  
+- Clause (x5 ∨ ¬x1 ∨ ¬x8) simplifies to (¬x1 ∨ ¬x8).  
+- Clause (¬x5 ∨ ¬x7 ∨ x8) simplifies to (¬x7 ∨ x8).  
+- Clause (¬x8 ∨ ¬x6 ∨ ¬x5) simplifies to (¬x8 ∨ ¬x6).  
+
+#### Decision 6: x6 = True  
+- Clause (x6 ∨ x8) simplifies to (x8).  
+  - Thus, x8 = True.  
+- Clause (¬x6 ∨ x8 ∨ x4) simplifies to (x8 ∨ x4).  
+  - Already satisfied.  
+- Clause (¬x8 ∨ x6 ∨ ¬x4) simplifies to (¬x8 ∨ x6).  
+  - Already satisfied.  
+- Clause (¬x8 ∨ ¬x6 ∨ ¬x5) simplifies to (¬x8).  
+  - Conflict: x8 = True and ¬x8 cannot both be true.  
+
+#### Conflict Detected: Backtrack to Decision 6 (x6 = True)  
+- Undo x6 = True and try x6 = False.  
+
+#### Decision 6: x6 = False  
+- Clause (x6 ∨ x8) simplifies to (x8).  
+  - Thus, x8 = True.  
+- Clause (¬x6 ∨ x8 ∨ x4) simplifies to (x8 ∨ x4).  
+  - Already satisfied.  
+- Clause (¬x8 ∨ x6 ∨ ¬x4) simplifies to (¬x4).  
+  - Thus, x4 = False.  
+- Clause (¬x8 ∨ ¬x6 ∨ ¬x5) simplifies to (¬x8 ∨ ¬x5).  
+  - Thus, ¬x5 (since x8 = True).  
+  - Conflict: x5 = True and ¬x5 cannot both be true.  
+
+#### Conflict Detected: Backtrack to Decision 5 (x5 = True)  
+- Undo x5 = True and try x5 = False.  
+
+#### Decision 5: x5 = False  
+- Clause (x5 ∨ x8) simplifies to (x8).  
+  - Thus, x8 = True.  
+- Clause (¬x5 ∨ ¬x7 ∨ x8) simplifies to (¬x7 ∨ x8).  
+  - Already satisfied.  
+- Clause (¬x8 ∨ ¬x6 ∨ ¬x5) simplifies to (¬x8 ∨ ¬x6).  
+  - Thus, ¬x6 (since x8 = True).  
+  - Thus, x6 = False.  
+- Clause (x6 ∨ x8) simplifies to (x8).  
+  - Already satisfied.  
+- Clause (¬x6 ∨ x8 ∨ x4) simplifies to (x8 ∨ x4).  
+  - Already satisfied.  
+- Clause (¬x8 ∨ x6 ∨ ¬x4) simplifies to (¬x4).  
+  - Thus, x4 = False.  
+- Clause (¬x7 ∨ x1 ∨ ¬x4) simplifies to (¬x7 ∨ x1).  
+- Clause (x8 ∨ ¬x6 ∨ ¬x7) simplifies to (x8 ∨ ¬x7).  
+  - Already satisfied.  
+- Clause (x5 ∨ ¬x7 ∨ x8) simplifies to (¬x7 ∨ x8).  
+  - Already satisfied.  
+- Clause (x8 ∨ x5 ∨ x4) simplifies to (x8).  
+  - Already satisfied.  
+
+#### Decision 7: x7 = True  
+- Clause (x7 ∨ ¬x1 ∨ x6) simplifies to (x7 ∨ ¬x1).  
+  - Already satisfied.  
+- Clause (¬x7 ∨ x1 ∨ ¬x4) simplifies to (¬x7 ∨ x1).  
+  - Thus, x1 = True.  
+- Clause (x7 ∨ ¬x3 ∨ ¬x1) simplifies to (x7 ∨ ¬x3).  
+  - Already satisfied.  
+- Clause (¬x3 ∨ x8 ∨ ¬x7) simplifies to (¬x3 ∨ x8).  
+  - Already satisfied.  
+
+All clauses are satisfied with:  
+x1 = True, x2 = False, x3 = True, x4 = False, x5 = False, x6 = False, x7 = True, x8 = True.  
+
+### Final Answer:  
+SATISFIABLE  
+Branches: 7  
+Conflicts: 3  
+x1 = True, x2 = False, x3 = True, x4 = False, x5 = False, x6 = False, x7 = True, x8 = True

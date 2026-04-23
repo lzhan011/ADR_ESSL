@@ -1,0 +1,152 @@
+c Random 3-SAT
+c alpha=1.0, N=75, L=75, instance=8
+p cnf 75 75
+1 24 -43 0
+-26 64 28 0
+39 15 67 0
+1 26 39 0
+29 -50 -2 0
+13 -73 27 0
+-41 -54 -6 0
+-59 -69 -16 0
+19 -54 -26 0
+25 69 26 0
+-50 -29 -67 0
+47 -18 52 0
+33 -7 -54 0
+30 -35 1 0
+-32 3 -69 0
+41 -47 59 0
+-39 28 -75 0
+-32 -26 -44 0
+30 -25 -42 0
+-75 -54 17 0
+-30 -71 -4 0
+-57 61 -64 0
+8 -11 16 0
+10 -26 -59 0
+51 -25 41 0
+-51 35 -2 0
+19 11 -40 0
+63 61 -64 0
+-53 3 -48 0
+-67 -51 39 0
+-53 29 -51 0
+6 -13 60 0
+70 -57 -32 0
+44 -47 -11 0
+70 -62 50 0
+50 62 12 0
+-61 -14 -13 0
+-10 8 67 0
+-17 66 -73 0
+54 -31 71 0
+35 -22 26 0
+61 -40 -32 0
+2 44 20 0
+34 -57 69 0
+1 -43 -74 0
+-64 71 -67 0
+-45 34 14 0
+5 8 -50 0
+-64 -17 8 0
+63 -24 -36 0
+-53 -3 -19 0
+9 42 7 0
+32 -73 -3 0
+-50 -4 5 0
+59 16 70 0
+34 46 5 0
+-19 -36 -60 0
+-55 4 -40 0
+68 -26 5 0
+18 13 -7 0
+52 60 68 0
+-40 24 -43 0
+24 -74 -34 0
+-26 -67 28 0
+27 -33 4 0
+29 -55 -50 0
+-14 -52 44 0
+-15 62 55 0
+-26 11 -2 0
+25 64 -71 0
+54 -41 65 0
+15 60 -30 0
+-28 -26 -19 0
+62 33 16 0
+-18 17 -68 0
+
+c GPT solve time: 3.91 seconds
+
+* SATISFIABLE  
+* Number of branches: 8  
+* Number of conflicts: 3  
+* Assignment (one possible solution):  
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = False  
+x5 = True  
+x6 = False  
+x7 = False  
+x8 = True  
+x9 = True  
+x10 = True  
+x11 = True  
+x12 = True  
+x13 = True  
+x14 = False  
+x15 = True  
+x16 = True  
+x17 = True  
+x18 = False  
+x19 = True  
+x20 = True  
+x22 = False  
+x24 = True  
+x25 = True  
+x26 = False  
+x27 = True  
+x28 = True  
+x29 = True  
+x30 = True  
+x31 = False  
+x32 = False  
+x33 = True  
+x34 = True  
+x35 = True  
+x36 = False  
+x39 = True  
+x40 = False  
+x41 = True  
+x42 = True  
+x43 = False  
+x44 = True  
+x45 = False  
+x46 = True  
+x47 = True  
+x48 = False  
+x50 = True  
+x51 = False  
+x52 = True  
+x53 = False  
+x54 = False  
+x55 = False  
+x57 = False  
+x59 = True  
+x60 = True  
+x61 = True  
+x62 = True  
+x63 = True  
+x64 = True  
+x65 = True  
+x66 = True  
+x67 = True  
+x68 = True  
+x69 = True  
+x70 = True  
+x71 = False  
+x73 = False  
+x74 = False  
+x75 = False

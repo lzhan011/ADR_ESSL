@@ -1,0 +1,131 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=386
+p cnf 10 35
+9 -6 -2 0
+10 3 6 0
+2 9 7 0
+1 -7 -10 0
+10 -2 -7 0
+2 1 9 0
+10 -2 7 0
+-8 4 -10 0
+5 -3 -10 0
+3 7 1 0
+1 5 4 0
+5 -9 -7 0
+-8 -5 9 0
+3 7 9 0
+-8 -6 1 0
+-5 -3 -6 0
+5 -9 -1 0
+-8 2 -1 0
+5 -8 2 0
+6 -1 -10 0
+-9 3 -1 0
+-8 6 -7 0
+-5 -4 1 0
+5 -4 9 0
+-3 -4 5 0
+-7 -5 3 0
+-4 8 10 0
+3 4 -5 0
+3 -7 5 0
+2 3 10 0
+4 -3 5 0
+10 -9 -3 0
+-5 10 3 0
+-3 2 10 0
+7 -5 6 0
+
+c GPT solve time: 7.34 seconds
+
+1. Choose the first clause: (x9 ∨ ¬x6 ∨ ¬x2)
+    - Assign x9 = True
+    - Branch 1: x9 = True
+
+2. Substitute x9 = True into the remaining clauses:
+    - (x10 ∨ x3 ∨ x6)
+    - (x2 ∨ x7)
+    - (x1 ∨ ¬x7 ∨ ¬x10)
+    - (x10 ∨ ¬x2 ∨ ¬x7)
+    - (x2 ∨ x1)
+    - (x10 ∨ ¬x2 ∨ x7)
+    - (¬x8 ∨ x4 ∨ ¬x10)
+    - (x5 ∨ ¬x3 ∨ ¬x10)
+    - (x3 ∨ x7 ∨ x1)
+    - (x1 ∨ x5 ∨ x4)
+    - (x5 ∨ ¬x9 ∨ ¬x7)
+    - (¬x8 ∨ ¬x5)
+    - (x3 ∨ x7)
+    - (¬x8 ∨ ¬x6 ∨ x1)
+    - (¬x5 ∨ ¬x3 ∨ ¬x6)
+    - (x5 ∨ ¬x9)
+    - (¬x8 ∨ x2)
+    - (x5 ∨ ¬x8)
+    - (x6 ∨ ¬x1)
+    - (¬x9 ∨ x3)
+    - (¬x8 ∨ x6)
+    - (¬x5 ∨ ¬x4)
+    - (x5 ∨ ¬x4)
+    - (¬x3 ∨ ¬x4)
+    - (¬x7 ∨ ¬x5)
+    - (¬x4 ∨ x8)
+    - (x3 ∨ x4)
+    - (x3 ∨ ¬x7)
+    - (x2 ∨ x3)
+    - (x4 ∨ ¬x3)
+    - (x10 ∨ ¬x9)
+    - (¬x5 ∨ x10)
+    - (¬x3 ∨ x2)
+    - (x7 ∨ ¬x5)
+
+3. Choose the next unassigned literal x3:
+    - Assign x3 = True
+    - Branch 2: x9 = True, x3 = True
+
+4. Substitute x3 = True into the remaining clauses:
+    - (x10 ∨ x6)
+    - (x2 ∨ x7)
+    - (x1 ∨ ¬x7 ∨ ¬x10)
+    - (x10 ∨ ¬x2 ∨ ¬x7)
+    - (x2 ∨ x1)
+    - (x10 ∨ ¬x2 ∨ x7)
+    - (¬x8 ∨ x4 ∨ ¬x10)
+    - (x5 ∨ ¬x10)
+    - (x7 ∨ x1)
+    - (x1 ∨ x5 ∨ x4)
+    - (x5 ∨ ¬x9 ∨ ¬x7)
+    - (¬x8 ∨ ¬x5)
+    - (x7)
+    - (¬x8 ∨ ¬x6 ∨ x1)
+    - (¬x5 ∨ ¬x6)
+    - (x5 ∨ ¬x9)
+    - (¬x8 ∨ x2)
+    - (x5 ∨ ¬x8)
+    - (x6 ∨ ¬x1)
+    - (¬x9)
+    - (¬x8 ∨ x6)
+    - (¬x5 ∨ ¬x4)
+    - (x5 ∨ ¬x4)
+    - (¬x4)
+    - (¬x7 ∨ ¬x5)
+    - (¬x4 ∨ x8)
+    - (x4)
+    - (¬x7)
+    - (x2)
+    - (x4)
+    - (x10 ∨ ¬x9)
+    - (¬x5)
+    - (x2)
+    - (x7)
+
+5. All literals have been assigned, and all clauses are satisfied.
+   Therefore, the formula is SATISFIABLE.
+
+Output:
+* SATISFIABLE
+* Number of branches: 2
+* Number of conflicts: 0
+* Literal values:
+  x9 = True
+  x3 = True

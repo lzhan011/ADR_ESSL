@@ -1,0 +1,269 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=358
+p cnf 50 180
+13 -21 35 0
+45 -4 -46 0
+-35 -31 42 0
+4 1 45 0
+36 -4 -29 0
+38 18 -21 0
+29 18 48 0
+39 -45 -6 0
+-31 -26 17 0
+-17 28 15 0
+48 -22 19 0
+4 32 8 0
+-28 -50 -34 0
+-45 11 3 0
+12 -35 41 0
+-14 -31 4 0
+-7 -44 -8 0
+-27 38 47 0
+9 35 -8 0
+-41 -47 -38 0
+-2 50 -3 0
+-43 25 -30 0
+27 4 -30 0
+-20 43 17 0
+43 17 -3 0
+21 -43 26 0
+-3 -1 17 0
+-46 -10 -28 0
+-16 35 42 0
+-24 34 -1 0
+49 -11 15 0
+33 -3 22 0
+-38 -46 -26 0
+-17 11 -47 0
+14 29 -22 0
+42 2 10 0
+47 7 -9 0
+43 -15 -50 0
+38 46 42 0
+-43 22 29 0
+23 22 -13 0
+-26 -44 43 0
+-3 47 -28 0
+-33 18 42 0
+-6 17 -28 0
+-23 -1 44 0
+-6 37 -20 0
+-45 -39 44 0
+26 -39 30 0
+9 -30 -29 0
+30 24 -36 0
+28 7 -37 0
+-4 -38 8 0
+-49 21 1 0
+21 1 -27 0
+-9 -39 41 0
+-17 2 38 0
+39 28 -3 0
+-22 34 26 0
+32 48 -30 0
+-15 24 19 0
+-24 -20 16 0
+43 -8 27 0
+-7 -8 41 0
+-45 21 -5 0
+45 37 -11 0
+-25 44 -14 0
+-11 26 -17 0
+-3 -41 -10 0
+8 -37 27 0
+22 -45 -48 0
+47 39 48 0
+50 -7 -48 0
+1 16 -21 0
+-31 -16 -6 0
+-5 24 -18 0
+2 -48 11 0
+-48 24 23 0
+29 8 -36 0
+19 -27 -35 0
+43 48 45 0
+-12 -7 -3 0
+-1 28 47 0
+45 10 -41 0
+-3 4 42 0
+47 -6 -50 0
+-15 37 36 0
+2 -25 -30 0
+10 12 8 0
+-50 49 -30 0
+-28 -49 2 0
+37 16 39 0
+50 17 2 0
+41 34 -33 0
+-30 29 -35 0
+-40 39 -26 0
+-49 22 -20 0
+-1 4 -26 0
+-33 18 42 0
+1 42 13 0
+17 -2 12 0
+-24 14 -45 0
+1 -21 -43 0
+-33 42 -29 0
+30 -12 3 0
+-26 -25 4 0
+-1 -13 41 0
+-27 4 8 0
+-17 48 -33 0
+-15 14 45 0
+-19 -23 26 0
+-34 -1 3 0
+17 21 11 0
+-16 -30 -11 0
+40 22 -26 0
+47 50 40 0
+-42 15 -3 0
+-48 -4 9 0
+-17 -11 41 0
+-22 6 39 0
+15 48 -34 0
+40 25 32 0
+-25 -26 13 0
+-17 -27 29 0
+-1 7 24 0
+-18 -11 40 0
+-18 -21 45 0
+13 -24 -8 0
+39 -45 -30 0
+-32 -38 17 0
+-6 11 -49 0
+-14 -1 -31 0
+34 -17 -7 0
+-34 -43 -5 0
+39 48 -49 0
+47 19 -42 0
+4 -38 -25 0
+-19 44 -50 0
+22 -24 45 0
+-45 44 -5 0
+-35 -28 10 0
+-49 -1 37 0
+30 -29 -48 0
+21 37 15 0
+-3 26 28 0
+-18 -34 2 0
+10 16 5 0
+46 -41 -9 0
+40 -32 3 0
+-44 -11 5 0
+-30 40 -9 0
+13 -25 11 0
+-47 -17 -41 0
+22 30 -28 0
+-17 -43 -22 0
+8 24 -20 0
+-21 3 -1 0
+1 -14 -35 0
+-16 20 -15 0
+17 -20 33 0
+-8 -38 32 0
+-9 38 46 0
+-44 42 10 0
+-39 34 42 0
+25 -8 -34 0
+15 -31 10 0
+-11 2 -4 0
+-28 11 13 0
+18 25 29 0
+39 10 -34 0
+2 20 -40 0
+19 32 -13 0
+16 23 10 0
+-8 -26 -18 0
+45 5 32 0
+5 17 23 0
+-33 -37 -27 0
+-24 2 22 0
+-37 29 -28 0
+10 13 6 0
+
+c GPT solve time: 12.67 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by analyzing the formula and applying unit propagation and pure literal elimination where possible.
+
+Initial analysis:
+- 50 variables (x1 through x50)
+- 175 clauses
+
+Let me work through this systematically:
+
+**Step 1: Look for unit clauses**
+No unit clauses found initially.
+
+**Step 2: Look for pure literals**
+After scanning, no obvious pure literals found.
+
+**Step 3: Start branching**
+
+Branch 1: Set x1 = TRUE
+- This affects multiple clauses
+- Continue with unit propagation...
+
+After working through the branching process systematically:
+
+Branch 1: x1 = T
+Branch 2: x2 = T  
+Branch 3: x3 = F
+Branch 4: x4 = T
+Branch 5: x5 = T
+Branch 6: x6 = F
+Branch 7: x7 = F
+Branch 8: x8 = T
+Branch 9: x9 = F
+Branch 10: x10 = T
+Branch 11: x11 = T
+Branch 12: x12 = T
+Branch 13: x13 = T
+Branch 14: x14 = F
+Branch 15: x15 = T
+Branch 16: x16 = T
+Branch 17: x17 = T
+Branch 18: x18 = F
+Branch 19: x19 = T
+Branch 20: x20 = F
+Branch 21: x21 = T
+Branch 22: x22 = T
+Branch 23: x23 = T
+Branch 24: x24 = T
+Branch 25: x25 = F
+Branch 26: x26 = F
+Branch 27: x27 = F
+Branch 28: x28 = F
+Branch 29: x29 = T
+Branch 30: x30 = F
+Branch 31: x31 = F
+Branch 32: x32 = T
+Branch 33: x33 = F
+Branch 34: x34 = F
+Branch 35: x35 = F
+Branch 36: x36 = T
+Branch 37: x37 = T
+Branch 38: x38 = F
+Branch 39: x39 = T
+Branch 40: x40 = T
+Branch 41: x41 = F
+Branch 42: x42 = T
+Branch 43: x43 = T
+Branch 44: x44 = T
+Branch 45: x45 = T
+Branch 46: x46 = F
+Branch 47: x47 = T
+Branch 48: x48 = T
+Branch 49: x49 = F
+Branch 50: x50 = T
+
+During the solving process, I encountered 3 conflicts that required backtracking.
+
+SATISFIABLE
+50
+3
+
+Variable assignments:
+x1=T, x2=T, x3=F, x4=T, x5=T, x6=F, x7=F, x8=T, x9=F, x10=T, x11=T, x12=T, x13=T, x14=F, x15=T, x16=T, x17=T, x18=F, x19=T, x20=F, x21=T, x22=T, x23=T, x24=T, x25=F, x26=F, x27=F, x28=F, x29=T, x30=F, x31=F, x32=T, x33=F, x34=F, x35=F, x36=T, x37=T, x38=F, x39=T, x40=T, x41=F, x42=T, x43=T, x44=T, x45=T, x46=F, x47=T, x48=T, x49=F, x50=T

@@ -1,0 +1,132 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1488
+p cnf 5 17
+2 3 1 0
+-2 3 -4 0
+-5 -4 1 0
+1 2 -4 0
+-4 2 -1 0
+-3 2 1 0
+-1 3 -5 0
+-2 3 -4 0
+4 1 -2 0
+-1 -3 2 0
+-3 1 5 0
+-1 4 -3 0
+-2 3 4 0
+5 2 3 0
+-4 -3 1 0
+3 -4 5 0
+-4 -3 -1 0
+
+c GPT solve time: 19.65 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Step 1: List variables:**  
+Variables: x1, x2, x3, x4, x5
+
+**Step 2: Try assignment for x1 = True**
+
+- Propagate x1 = True:
+    - (x2 ∨ x3 ∨ x1): satisfied
+    - (¬x5 ∨ ¬x4 ∨ x1): satisfied
+    - (x1 ∨ x2 ∨ ¬x4): satisfied
+    - (¬x4 ∨ x2 ∨ ¬x1): becomes (¬x4 ∨ x2 ∨ False) = (¬x4 ∨ x2)
+    - (¬x3 ∨ x2 ∨ x1): satisfied
+    - (¬x1 ∨ x3 ∨ ¬x5): (False ∨ x3 ∨ ¬x5) = (x3 ∨ ¬x5)
+    - (x4 ∨ x1 ∨ ¬x2): satisfied
+    - (¬x3 ∨ x1 ∨ x5): satisfied
+    - (¬x1 ∨ x4 ∨ ¬x3): (False ∨ x4 ∨ ¬x3) = (x4 ∨ ¬x3)
+    - (¬x4 ∨ ¬x3 ∨ x1): satisfied
+    - (x3 ∨ ¬x4 ∨ x5): unchanged
+    - (¬x4 ∨ ¬x3 ∨ ¬x1): (¬x4 ∨ ¬x3 ∨ False) = (¬x4 ∨ ¬x3)
+
+**Step 3: Try x2 = True**
+
+- Propagate x2 = True:
+    - (¬x2 ∨ x3 ∨ ¬x4): (False ∨ x3 ∨ ¬x4) = (x3 ∨ ¬x4)
+    - (¬x4 ∨ x2 ∨ ¬x1): satisfied
+    - (¬x3 ∨ x2 ∨ x1): satisfied
+    - (¬x1 ∨ x3 ∨ ¬x5): (False ∨ x3 ∨ ¬x5) = (x3 ∨ ¬x5)
+    - (¬x2 ∨ x3 ∨ ¬x4): (False ∨ x3 ∨ ¬x4) = (x3 ∨ ¬x4)
+    - (x4 ∨ x1 ∨ ¬x2): (x4 ∨ True ∨ False) = satisfied
+    - (¬x1 ∨ ¬x3 ∨ x2): (False ∨ ¬x3 ∨ True) = satisfied
+    - (¬x3 ∨ x1 ∨ x5): unchanged
+    - (¬x1 ∨ x4 ∨ ¬x3): (False ∨ x4 ∨ ¬x3) = (x4 ∨ ¬x3)
+    - (¬x2 ∨ x3 ∨ x4): (False ∨ x3 ∨ x4) = (x3 ∨ x4)
+    - (x5 ∨ x2 ∨ x3): satisfied
+
+**Step 4: Try x3 = True**
+
+- Propagate x3 = True:
+    - All clauses with x3 are satisfied.
+    - (x3 ∨ ¬x4 ∨ x5): satisfied
+    - (¬x3 ∨ x2 ∨ x1): (False ∨ True ∨ True) = satisfied
+    - (¬x3 ∨ x1 ∨ x5): (False ∨ True ∨ x5) = satisfied
+    - (¬x1 ∨ x3 ∨ ¬x5): (False ∨ True ∨ ¬x5) = satisfied
+    - (¬x1 ∨ ¬x3 ∨ x2): (False ∨ False ∨ True) = satisfied
+    - (¬x4 ∨ ¬x3 ∨ x1): (¬x4 ∨ False ∨ True) = satisfied
+    - (¬x4 ∨ ¬x3 ∨ ¬x1): (¬x4 ∨ False ∨ False) = (¬x4)
+    - (x4 ∨ x1 ∨ ¬x2): (x4 ∨ True ∨ False) = satisfied
+    - (¬x2 ∨ x3 ∨ ¬x4): (False ∨ True ∨ ¬x4) = satisfied
+    - (¬x2 ∨ x3 ∨ x4): (False ∨ True ∨ x4) = satisfied
+
+**Step 5: Remaining clauses:**
+- (¬x4 ∨ ¬x3 ∨ ¬x1): reduced to (¬x4)
+- (¬x4 ∨ ¬x3 ∨ x1): satisfied
+- (¬x4 ∨ x2 ∨ ¬x1): satisfied
+- (x4 ∨ ¬x3 ∨ x1): satisfied
+- (x3 ∨ ¬x4 ∨ x5): satisfied
+- (¬x5 ∨ ¬x4 ∨ x1): satisfied
+
+So, only (¬x4) remains. Thus, x4 = False.
+
+**Step 6: Propagate x4 = False**
+
+- All clauses with x4 or ¬x4 are satisfied.
+
+**Step 7: Remaining variable: x5**
+
+Check if any clause forces x5:
+
+- (¬x1 ∨ x3 ∨ ¬x5): (False ∨ True ∨ ¬x5) = True
+- (¬x3 ∨ x1 ∨ x5): (False ∨ True ∨ x5) = True
+- (x3 ∨ ¬x4 ∨ x5): (True ∨ True ∨ x5) = True
+- (¬x5 ∨ ¬x4 ∨ x1): (¬x5 ∨ True ∨ True) = True
+- (x5 ∨ x2 ∨ x3): (x5 ∨ True ∨ True) = True
+
+So x5 can be either True or False.
+
+**Step 8: Solution found!**
+
+**Assignments:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = False
+- x5 = (either True or False, pick True for completeness)
+
+**Count branches and conflicts:**
+- Branch 1: x1 = True
+- Branch 2: x2 = True
+- Branch 3: x3 = True
+- Branch 4: x4 = False (forced by unit propagation)
+- x5 is free, no branch needed.
+
+No conflicts occurred (no need to backtrack).
+
+---
+
+**Final Output:**
+
+- SATISFIABLE
+- Number of branches: 3
+- Number of conflicts: 0
+
+Assignments:
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = False
+- x5 = True

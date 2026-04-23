@@ -1,0 +1,68 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=126
+p cnf 8 28
+4 -2 1 0
+-4 7 -2 0
+7 4 5 0
+-8 6 -5 0
+-3 1 8 0
+5 -8 -6 0
+-7 -3 4 0
+-3 2 -4 0
+1 4 2 0
+8 6 -1 0
+-4 7 8 0
+-4 6 -8 0
+4 -3 -1 0
+-6 -8 -1 0
+4 3 1 0
+-3 -4 1 0
+1 -4 5 0
+8 1 2 0
+-6 -4 -8 0
+-5 -7 -2 0
+8 2 4 0
+6 -8 4 0
+-2 8 5 0
+5 2 -1 0
+2 -1 -3 0
+6 3 -8 0
+3 -5 -6 0
+6 5 2 0
+
+c GPT solve time: 4.77 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1.
+3. Assign x1 = True.
+4. Update the clauses based on the assignment:
+   (x4 ∨ ¬x2 ∨ x1) -> (x4 ∨ ¬x2)
+   (¬x3 ∨ x1 ∨ x8) -> (¬x3 ∨ x8)
+   (x1 ∨ x4 ∨ x2) -> (x4 ∨ x2)
+   (¬x4 ∨ x6 ∨ ¬x8) -> (¬x4 ∨ x6)
+   (x4 ∨ x3 ∨ x1) -> (x4 ∨ x3)
+   (x1 ∨ ¬x4 ∨ x5) -> (¬x4 ∨ x5)
+   (x8 ∨ x1 ∨ x2) -> (x8 ∨ x2)
+   (x5 ∨ x2 ∨ ¬x1) -> (x5 ∨ x2)
+   (x2 ∨ ¬x1 ∨ ¬x3) -> (x2 ∨ ¬x3)
+   (x6 ∨ x3 ∨ ¬x8) -> (x6 ∨ x3)
+5. Choose the next literal to assign. Let's choose x2.
+6. Assign x2 = True.
+7. Update the clauses based on the assignment:
+   (x4 ∨ ¬x2) -> (x4)
+   (¬x4 ∨ x6) -> (x6)
+   (x4 ∨ x2) -> (x4)
+   (¬x3 ∨ x8) -> (¬x3)
+   (¬x4 ∨ x5) -> (x5)
+   (x8 ∨ x2) -> (x8)
+   (x5 ∨ x2) -> (x5)
+   (x2 ∨ ¬x3) -> (¬x3)
+8. Choose the next literal to assign. Let's choose x3.
+9. Assign x3 = True.
+10. Update the clauses based on the assignment:
+    (¬x3) -> UNSATISFIABLE
+
+Output:
+* UNSATISFIABLE
+* Number of branches: 2
+* Number of conflicts: 0

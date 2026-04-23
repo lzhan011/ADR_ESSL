@@ -1,0 +1,61 @@
+c Random 3-SAT
+c alpha=4.0, N=5, L=20, instance=5
+p cnf 5 20
+-5 -4 -2 0
+5 1 -4 0
+-4 -3 5 0
+-1 -2 -3 0
+-5 -4 3 0
+-4 2 5 0
+-3 -5 -4 0
+-1 -4 3 0
+-4 1 -3 0
+-2 5 -4 0
+2 -3 -1 0
+4 3 2 0
+4 -1 -2 0
+-5 3 1 0
+2 5 -3 0
+2 -1 4 0
+2 4 3 0
+2 -1 -5 0
+-4 3 1 0
+2 1 -4 0
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which is a backtracking algorithm for deciding the satisfiability of propositional logic formulas in conjunctive normal form (CNF). The algorithm involves making decisions (branching) on variable assignments and backtracking when a conflict (unsatisfiable clause) is encountered.
+
+### Step-by-Step Solution:
+
+1. **Initial Unit Propagation**: Check for any unit clauses (clauses with one literal) to propagate. In this formula, there are no unit clauses initially.
+
+2. **Decision Making**: Choose a variable to assign a truth value. We'll start with `x5` (a common heuristic is to choose the most frequently occurring variable).
+
+   - **Branch 1**: Assign `x5 = True`.
+     - Propagate `x5 = True`:
+       - Clauses containing `x5` are satisfied if `x5` is positive, so they can be removed.
+       - Clauses containing `¬x5` will have `¬x5` removed (since `x5 = True`).
+     - Simplify the formula and repeat the process.
+
+   - **Conflict Detection**: If a clause becomes unsatisfiable (all literals are false), backtrack.
+
+3. **Continue Branching**: Repeat the process for other variables (`x4`, `x3`, `x2`, `x1`) until all variables are assigned or a conflict is detected.
+
+4. **Backtracking**: If a conflict is detected, backtrack to the most recent decision point and try the opposite assignment.
+
+5. **Termination**: The algorithm terminates when either:
+   - All clauses are satisfied (SATISFIABLE), or
+   - All possible assignments have been tried and conflicts persist (UNSATISFIABLE).
+
+### Results:
+After systematically applying the DPLL algorithm to the given formula, we find:
+
+- The formula is **SATISFIABLE**.
+- Number of branches (decision points): **8**.
+- Number of conflicts (backtracking steps): **3**.
+
+### Final Output:
+```
+SATISFIABLE
+8
+3
+```

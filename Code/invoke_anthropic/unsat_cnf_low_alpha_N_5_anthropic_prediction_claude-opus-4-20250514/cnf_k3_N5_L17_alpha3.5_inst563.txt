@@ -1,0 +1,71 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=563
+p cnf 5 17
+2 -4 -3 0
+4 3 2 0
+-3 5 -1 0
+1 -5 -4 0
+1 -2 -3 0
+4 -2 5 0
+-1 5 -4 0
+4 3 -2 0
+2 -4 3 0
+5 -3 2 0
+3 1 2 0
+-2 -3 4 0
+-3 -5 2 0
+-4 -2 -1 0
+1 -2 -3 0
+-5 -2 -4 0
+3 1 -2 0
+
+c GPT solve time: 18.71 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+Let me start by analyzing the formula and making decisions:
+
+**Branch 1: x1 = true**
+- Simplifying with x1 = true:
+  - Clauses (3), (5), (11), (15), (17) are satisfied
+  - Clause (7): (¬true ∨ x5 ∨ ¬x4) = (x5 ∨ ¬x4)
+  - Clause (14): (¬x4 ∨ ¬x2 ∨ ¬true) = (¬x4 ∨ ¬x2)
+
+**Branch 2: x2 = true** (under x1 = true)
+- Simplifying with x1 = true, x2 = true:
+  - Additional clauses (1), (2), (9), (10) are satisfied
+  - Clause (6): (x4 ∨ ¬true ∨ x5) = (x4 ∨ x5)
+  - Clause (8): (x4 ∨ x3 ∨ ¬true) = (x4 ∨ x3)
+  - Clause (12): (¬true ∨ ¬x3 ∨ x4) = (¬x3 ∨ x4)
+  - Clause (13): (¬x3 ∨ ¬x5 ∨ true) = satisfied
+  - Clause (14): (¬x4 ∨ ¬true) = ¬x4
+  - Clause (16): (¬x5 ∨ ¬true ∨ ¬x4) = (¬x5 ∨ ¬x4)
+
+From clause (14): x4 must be false
+
+**Branch 3: x4 = false** (under x1 = true, x2 = true)
+- Simplifying with x1 = true, x2 = true, x4 = false:
+  - Clause (4): (true ∨ ¬x5 ∨ ¬false) = satisfied
+  - Clause (6): (false ∨ x5) = x5
+  - Clause (7): (x5 ∨ ¬false) = satisfied
+  - Clause (8): (false ∨ x3) = x3
+  - Clause (12): (¬x3 ∨ false) = ¬x3
+
+From clause (6): x5 must be true
+From clause (8): x3 must be true
+From clause (12): x3 must be false
+
+**Conflict!** x3 cannot be both true and false.
+
+**Backtrack to Branch 2**
+
+**Branch 4: x2 = false** (under x1 = true)
+- Simplifying with x1 = true, x2 = false:
+  - Clauses (5), (6), (12), (14), (15), (16), (17) are satisfied
+  - Clause (1): (false ∨ ¬x4 ∨ ¬x3) = (¬x4 ∨ ¬x3)
+  - Clause (2): (x4 ∨ x3 ∨ false) = (x4 ∨ x3)
+  - Clause (9): (false ∨ ¬x4 ∨ x3) = (¬x4 ∨ x3)
+  - Clause (10): (x5 ∨ ¬x3 ∨ false) = (x5 ∨ ¬x3)
+  - Clause (13): (¬x3 ∨ ¬x5 ∨ false) = (¬x3 ∨ ¬x5)
+
+**Branch 5: x3 = true** (under x1 = true, x2 = false)

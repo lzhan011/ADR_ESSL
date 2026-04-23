@@ -1,0 +1,101 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1443
+p cnf 5 17
+-1 -4 -5 0
+-3 5 2 0
+-5 -1 4 0
+-4 -3 2 0
+3 5 4 0
+-5 -3 -1 0
+5 -2 -4 0
+-5 -1 -3 0
+-5 1 -2 0
+-4 -1 -2 0
+-1 4 -2 0
+-1 4 2 0
+3 -4 5 0
+3 4 -2 0
+-3 4 1 0
+-2 -1 -3 0
+-5 1 2 0
+
+c GPT solve time: 78.19 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm. We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Initial Formula:
+1. (¬x1 ∨ ¬x4 ∨ ¬x5)  
+2. (¬x3 ∨ x5 ∨ x2)  
+3. (¬x5 ∨ ¬x1 ∨ x4)  
+4. (¬x4 ∨ ¬x3 ∨ x2)  
+5. (x3 ∨ x5 ∨ x4)  
+6. (¬x5 ∨ ¬x3 ∨ ¬x1)  
+7. (x5 ∨ ¬x2 ∨ ¬x4)  
+8. (¬x5 ∨ ¬x1 ∨ ¬x3)  
+9. (¬x5 ∨ x1 ∨ ¬x2)  
+10. (¬x4 ∨ ¬x1 ∨ ¬x2)  
+11. (¬x1 ∨ x4 ∨ ¬x2)  
+12. (¬x1 ∨ x4 ∨ x2)  
+13. (x3 ∨ ¬x4 ∨ x5)  
+14. (x3 ∨ x4 ∨ ¬x2)  
+15. (¬x3 ∨ x4 ∨ x1)  
+16. (¬x2 ∨ ¬x1 ∨ ¬x3)  
+17. (¬x5 ∨ x1 ∨ x2)  
+
+### Step 1: Unit Propagation
+No unit clauses initially.
+
+### Step 2: Make a decision
+**Decision 1**: Let’s assign \( x1 = \text{True} \).
+
+#### Implications from \( x1 = \text{True} \):
+- Clause 1: (¬x1 ∨ ¬x4 ∨ ¬x5) → Requires \( \text{False} ∨ ¬x4 ∨ ¬x5 \). No implication.
+- Clause 3: (¬x5 ∨ ¬x1 ∨ x4) → \( \text{False} ∨ \text{False} ∨ x4 \). Thus, \( x4 = \text{True} \).
+- Clause 6: (¬x5 ∨ ¬x3 ∨ ¬x1) → \( \text{False} ∨ ¬x3 ∨ \text{False} \). Thus, \( x3 = \text{False} \).
+- Clause 8: (¬x5 ∨ ¬x1 ∨ ¬x3) → \( \text{False} ∨ \text{False} ∨ \text{True} \). No implication.
+- Clause 10: (¬x4 ∨ ¬x1 ∨ ¬x2) → \( \text{False} ∨ \text{False} ∨ ¬x2 \). Thus, \( x2 = \text{False} \).
+- Clause 11: (¬x1 ∨ x4 ∨ ¬x2) → \( \text{False} ∨ \text{True} ∨ \text{True} \). No implication.
+- Clause 12: (¬x1 ∨ x4 ∨ x2) → \( \text{False} ∨ \text{True} ∨ \text{False} \). No implication.
+- Clause 16: (¬x2 ∨ ¬x1 ∨ ¬x3) → \( \text{True} ∨ \text{False} ∨ \text{True} \). No implication.
+
+Now, assign \( x4 = \text{True} \), \( x3 = \text{False} \), \( x2 = \text{False} \).
+
+#### Check clauses with current assignments (\( x1 = \text{True}, x2 = \text{False}, x3 = \text{False}, x4 = \text{True} \)):
+- Clause 2: (¬x3 ∨ x5 ∨ x2) → \( \text{True} ∨ x5 ∨ \text{False} \). No implication.
+- Clause 4: (¬x4 ∨ ¬x3 ∨ x2) → \( \text{False} ∨ \text{True} ∨ \text{False} \). Conflict (clause unsatisfied). **Conflict 1**.
+
+Backtrack to **Decision 1**.
+
+### Step 3: Backtrack and try \( x1 = \text{False} \).
+
+#### Implications from \( x1 = \text{False} \):
+- Clause 3: (¬x5 ∨ ¬x1 ∨ x4) → \( \text{False} ∨ \text{True} ∨ x4 \). No implication.
+- Clause 6: (¬x5 ∨ ¬x3 ∨ ¬x1) → \( \text{False} ∨ ¬x3 ∨ \text{True} \). No implication.
+- Clause 8: (¬x5 ∨ ¬x1 ∨ ¬x3) → \( \text{False} ∨ \text{True} ∨ ¬x3 \). No implication.
+- Clause 9: (¬x5 ∨ x1 ∨ ¬x2) → \( \text{False} ∨ \text{False} ∨ ¬x2 \). Thus, \( x2 = \text{False} \).
+- Clause 10: (¬x4 ∨ ¬x1 ∨ ¬x2) → \( \text{False} ∨ \text{True} ∨ \text{True} \). No implication.
+- Clause 11: (¬x1 ∨ x4 ∨ ¬x2) → \( \text{True} ∨ x4 ∨ \text{True} \). No implication.
+- Clause 12: (¬x1 ∨ x4 ∨ x2) → \( \text{True} ∨ x4 ∨ \text{False} \). No implication.
+- Clause 15: (¬x3 ∨ x4 ∨ x1) → \( \text{False} ∨ x4 ∨ \text{False} \). Thus, \( x4 = \text{True} \).
+- Clause 16: (¬x2 ∨ ¬x1 ∨ ¬x3) → \( \text{True} ∨ \text{True} ∨ ¬x3 \). No implication.
+
+Now, assign \( x2 = \text{False} \), \( x4 = \text{True} \).
+
+#### Check clauses with current assignments (\( x1 = \text{False}, x2 = \text{False}, x4 = \text{True} \)):
+- Clause 1: (¬x1 ∨ ¬x4 ∨ ¬x5) → \( \text{True} ∨ \text{False} ∨ ¬x5 \). Thus, \( x5 = \text{False} \).
+- Clause 5: (x3 ∨ x5 ∨ x4) → \( x3 ∨ \text{False} ∨ \text{True} \). No implication.
+- Clause 7: (x5 ∨ ¬x2 ∨ ¬x4) → \( \text{False} ∨ \text{True} ∨ \text{False} \). Conflict (clause unsatisfied). **Conflict 2**.
+
+Backtrack to \( x4 = \text{True} \). No other options for \( x4 \), so backtrack further.
+
+### Step 4: Try \( x2 = \text{True} \) (alternative to \( x2 = \text{False} \)).
+
+#### Implications from \( x1 = \text{False}, x2 = \text{True} \):
+- Clause 9: (¬x5 ∨ x1 ∨ ¬x2) → \( \text{False} ∨ \text{False} ∨ \text{False} \). Conflict (clause unsatisfied). **Conflict 3**.
+
+No further backtracking possible. Formula is UNSATISFIABLE.
+
+### Final Answer:
+* UNSATISFIABLE  
+* Number of branches: 2  
+* Number of conflicts: 3

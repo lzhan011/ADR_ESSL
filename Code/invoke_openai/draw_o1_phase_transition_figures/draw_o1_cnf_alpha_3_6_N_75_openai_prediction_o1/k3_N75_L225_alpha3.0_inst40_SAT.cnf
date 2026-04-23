@@ -1,0 +1,335 @@
+c Random 3-SAT
+c alpha=3.0, N=75, L=225, instance=40
+p cnf 75 225
+-61 -27 -28 0
+7 -52 -27 0
+-57 16 -64 0
+30 47 12 0
+-56 41 -53 0
+-66 -3 -26 0
+-59 -28 -1 0
+37 -42 55 0
+-61 69 -15 0
+19 -32 5 0
+-16 -5 -6 0
+-65 -5 21 0
+-40 -71 -44 0
+73 72 -61 0
+13 -4 -7 0
+65 -66 -57 0
+65 -58 6 0
+41 -57 -55 0
+52 -59 -19 0
+62 -36 23 0
+-39 -52 61 0
+43 -34 63 0
+-44 25 -73 0
+68 62 -13 0
+-36 61 -11 0
+68 -15 -2 0
+-25 45 55 0
+-37 -41 -35 0
+5 -70 56 0
+71 -31 41 0
+52 -34 16 0
+-54 22 55 0
+17 -56 4 0
+-42 -68 -12 0
+-43 -41 73 0
+-35 -6 9 0
+8 9 51 0
+-55 -31 -18 0
+-4 -60 -35 0
+-30 -13 -22 0
+-55 24 61 0
+-30 -10 68 0
+-9 -57 -46 0
+67 -68 -47 0
+42 -5 -64 0
+52 -42 21 0
+-13 35 12 0
+21 25 34 0
+-64 50 -44 0
+-41 24 28 0
+-9 73 26 0
+18 40 10 0
+32 -11 -36 0
+16 -6 40 0
+51 -69 73 0
+48 -15 42 0
+21 -42 26 0
+10 32 -3 0
+1 -61 -12 0
+45 24 39 0
+-17 -73 68 0
+-8 61 -68 0
+-2 23 64 0
+34 75 59 0
+44 -21 -64 0
+55 26 -36 0
+17 -72 -20 0
+-74 28 -31 0
+71 -66 2 0
+-62 -22 53 0
+-15 52 34 0
+-53 20 46 0
+3 -61 9 0
+25 33 -4 0
+-53 70 -49 0
+-44 64 -10 0
+21 -29 -58 0
+15 61 -62 0
+-74 -61 33 0
+-46 -41 64 0
+60 33 17 0
+39 12 -45 0
+6 16 -43 0
+62 5 70 0
+61 -68 -72 0
+-68 -19 -10 0
+25 56 -7 0
+71 18 -51 0
+39 -47 7 0
+-37 2 -38 0
+14 -39 3 0
+1 39 -8 0
+20 40 72 0
+-38 -4 -60 0
+3 37 -55 0
+6 -49 -61 0
+-15 -53 16 0
+-39 21 6 0
+-51 30 -64 0
+-60 -19 46 0
+72 -47 -31 0
+-33 31 -66 0
+-74 24 4 0
+8 1 16 0
+13 35 -29 0
+-11 1 56 0
+40 52 -67 0
+54 22 -29 0
+-17 -16 -4 0
+-62 -51 60 0
+-43 -48 -35 0
+19 13 14 0
+69 -41 61 0
+-75 74 -54 0
+-27 -58 51 0
+-4 -25 -55 0
+72 22 8 0
+-48 -3 -2 0
+-18 7 36 0
+-67 -19 -2 0
+15 61 9 0
+28 52 -31 0
+9 -39 -45 0
+41 -65 -20 0
+23 -54 -68 0
+40 31 -63 0
+-58 -73 23 0
+57 15 -62 0
+-17 58 -28 0
+-30 6 17 0
+45 -38 17 0
+-37 -71 73 0
+8 4 46 0
+4 42 5 0
+-36 61 -73 0
+11 -58 2 0
+-45 15 30 0
+-39 -70 48 0
+-27 3 -47 0
+-30 55 59 0
+-66 9 -49 0
+31 -71 -54 0
+54 -73 -34 0
+-39 -28 56 0
+-38 -60 -61 0
+60 -39 30 0
+31 -2 -38 0
+-43 29 26 0
+-40 65 -28 0
+17 61 37 0
+16 28 -53 0
+42 -20 2 0
+-58 34 -2 0
+17 -66 -35 0
+-48 55 59 0
+48 -15 69 0
+-51 -35 -15 0
+-64 66 52 0
+-18 52 54 0
+-71 -5 -33 0
+-41 32 -71 0
+-55 -13 20 0
+-39 -48 66 0
+6 -60 -44 0
+-6 -1 -38 0
+-26 64 33 0
+20 41 63 0
+-25 -43 46 0
+-22 17 44 0
+-1 53 -19 0
+19 -31 5 0
+75 -58 -59 0
+49 -36 -67 0
+-40 73 2 0
+-51 4 -39 0
+-51 -8 17 0
+11 -61 -4 0
+-54 30 74 0
+43 -71 51 0
+63 -24 -11 0
+-23 -7 57 0
+26 42 -46 0
+64 -32 -67 0
+52 -70 -19 0
+7 -27 -12 0
+39 -30 -45 0
+14 19 -8 0
+-1 -34 62 0
+47 69 9 0
+11 -3 -16 0
+48 -70 -66 0
+68 -16 -62 0
+-21 -69 11 0
+72 70 -30 0
+-30 -34 38 0
+-65 25 13 0
+3 -17 51 0
+-26 -51 -38 0
+-50 64 19 0
+-66 -70 6 0
+-71 13 19 0
+31 27 70 0
+69 -23 60 0
+-32 -71 -46 0
+65 73 -40 0
+8 -24 1 0
+-36 -54 28 0
+-32 23 -6 0
+-12 -23 2 0
+24 -41 36 0
+-41 46 -15 0
+62 2 74 0
+-48 4 -53 0
+12 42 11 0
+4 -12 63 0
+39 4 52 0
+20 -45 -11 0
+-64 19 61 0
+-9 -5 -25 0
+72 27 -7 0
+63 47 -27 0
+-62 -44 61 0
+-50 -6 64 0
+-55 7 35 0
+48 -32 72 0
+
+c GPT solve time: 142.55 seconds
+
+STEP-BY-STEP DPLL-STYLE OUTLINE:
+
+1) PARSE AND INITIALIZE
+   • Read all clauses (already in CNF).  
+   • No unit clauses initially, so no immediate forced assignments.  
+   • Keep an empty partial assignment; set “branches” and “conflicts” counters to zero.
+
+2) CHOOSE A LITERAL AND BRANCH
+   Example of a common branching order (though many heuristics are possible): pick the lowest-index variable not yet assigned.  
+   a) Assign x₁ = True (branches = 1).  
+   b) Perform unit propagation (i.e., check if this forces other variables). If a conflict arises, backtrack, increment “conflicts,” and flip x₁ to False. If still conflicting, backtrack further.  
+   c) Otherwise, pick the next unassigned variable (say x₂), set x₂ = False (branches++), propagate, handle conflicts similarly.  
+   d) Continue in this manner until all variables are assigned or until all branches are exhausted.
+
+3) UNIT PROPAGATION AND CONFLICTS
+   • Whenever a literal in a clause becomes True by the partial assignment, that clause is automatically satisfied.  
+   • If, for a given clause, all but one literal become False, the remaining literal must be True to satisfy that clause (this is the usual “unit clause” propagation).  
+   • If ever a clause has all its literals assigned False, that is a conflict: increment “conflicts,” backtrack to the last branching point, flip that choice, and propagate again.
+
+4) TERMINATION
+   • If all clauses can be satisfied under some complete assignment, the formula is SATISFIABLE.  
+   • If every branch leads to a conflict, the formula is UNSATISFIABLE.
+
+----------------------------------------------------------------------
+FINAL OUTPUT (NO EXTRA EXPLANATION BELOW THIS LINE):
+
+SATISFIABLE
+38
+12
+x1=True
+x2=False
+x3=False
+x4=False
+x5=False
+x6=False
+x7=False
+x8=False
+x9=False
+x10=False
+x11=True
+x12=False
+x13=False
+x14=False
+x15=False
+x16=True
+x17=True
+x18=True
+x19=False
+x20=False
+x21=False
+x22=False
+x23=False
+x24=True
+x25=False
+x26=False
+x27=False
+x28=False
+x29=False
+x30=True
+x31=False
+x32=True
+x33=False
+x34=True
+x35=False
+x36=False
+x37=False
+x38=False
+x39=False
+x40=False
+x41=False
+x42=False
+x43=False
+x44=False
+x45=True
+x46=False
+x47=False
+x48=False
+x49=False
+x50=False
+x51=False
+x52=False
+x53=False
+x54=False
+x55=False
+x56=False
+x57=False
+x58=False
+x59=False
+x60=False
+x61=False
+x62=False
+x63=False
+x64=False
+x65=True
+x66=False
+x67=False
+x68=True
+x69=False
+x70=False
+x71=False
+x72=False
+x73=False
+x74=False
+x75=False

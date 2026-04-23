@@ -1,0 +1,247 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=778
+p cnf 8 28
+2 1 4 0
+4 -2 3 0
+-6 -1 -2 0
+-7 -4 3 0
+-2 -3 7 0
+-6 -3 -4 0
+-7 5 4 0
+-2 -4 -5 0
+8 1 2 0
+-5 -3 1 0
+3 -4 -7 0
+7 8 3 0
+-1 -4 -2 0
+2 -3 -1 0
+8 -1 -7 0
+-8 -7 -2 0
+4 3 -8 0
+-4 -1 -8 0
+8 6 -1 0
+1 -2 4 0
+1 6 7 0
+-5 2 4 0
+3 -8 -6 0
+-4 -6 1 0
+-3 -7 6 0
+-3 8 -2 0
+6 -5 -3 0
+-8 -2 3 0
+
+c GPT solve time: 53.26 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Step 1: Choose a variable to branch on.**  
+Let’s start with x1 = True.  
+Branches: 1
+
+**Step 2: Propagate implications.**  
+- (x2 ∨ x1 ∨ x4): Satisfied.
+- (x8 ∨ x1 ∨ x2): Satisfied.
+- (¬x5 ∨ ¬x3 ∨ x1): Satisfied.
+- (x1 ∨ ¬x2 ∨ x4): Satisfied.
+- (x1 ∨ x6 ∨ x7): Satisfied.
+- (¬x4 ∨ ¬x1 ∨ ¬x8): (¬x4 ∨ ¬x8) (since x1 = True)
+- (x8 ∨ x6 ∨ ¬x1): (x8 ∨ x6) (since x1 = True)
+- (¬x6 ∨ ¬x1 ∨ ¬x2): (¬x6 ∨ ¬x2) (since x1 = True)
+- (¬x1 ∨ ¬x4 ∨ ¬x2): (¬x4 ∨ ¬x2) (since x1 = True)
+- (x2 ∨ ¬x3 ∨ ¬x1): (x2 ∨ ¬x3) (since x1 = True)
+
+**Step 3: Choose next variable.**  
+Let’s try x2 = True.  
+Branches: 2
+
+**Step 4: Propagate implications.**  
+- (¬x6 ∨ ¬x2): (¬x6) (since x2 = True)
+- (¬x4 ∨ ¬x2): (¬x4) (since x2 = True)
+- (x2 ∨ ¬x3): Satisfied.
+- (¬x2 ∨ ¬x3 ∨ x7): (¬x3 ∨ x7) (since x2 = True)
+- (¬x2 ∨ ¬x4 ∨ ¬x5): (¬x4 ∨ ¬x5) (since x2 = True)
+- (¬x8 ∨ ¬x7 ∨ ¬x2): (¬x8 ∨ ¬x7) (since x2 = True)
+- (¬x8 ∨ ¬x2 ∨ x3): (¬x8 ∨ x3) (since x2 = True)
+
+**Step 5: Unit propagate.**  
+From above, (¬x6): x6 = False.  
+From above, (¬x4): x4 = False.
+
+**Step 6: Propagate further.**  
+- (x4 ∨ x3 ∨ ¬x8): (x3 ∨ ¬x8) (since x4 = False)
+- (¬x4 ∨ ¬x6 ∨ x1): Satisfied (x4 = False)
+- (¬x7 ∨ ¬x4 ∨ x3): (¬x7 ∨ x3) (x4 = False)
+- (¬x7 ∨ x5 ∨ x4): (¬x7 ∨ x5) (x4 = False)
+- (x3 ∨ ¬x4 ∨ ¬x7): (x3 ∨ ¬x7) (x4 = False)
+- (¬x2 ∨ ¬x4 ∨ ¬x5): (¬x5) (since x2 = True, x4 = False) ⇒ x5 = False
+
+**Step 7: Propagate x5 = False.**  
+- (¬x5 ∨ x2 ∨ x4): Satisfied (x5 = False)
+- (x6 ∨ ¬x5 ∨ ¬x3): (x6 ∨ ¬x3) (x5 = False)
+- (¬x7 ∨ x5 ∨ x4): (¬x7) (x5 = False, x4 = False) ⇒ x7 = False
+
+**Step 8: Propagate x7 = False.**  
+- (¬x7 ∨ ¬x4 ∨ x3): Satisfied (x7 = False)
+- (¬x7 ∨ x5 ∨ x4): Satisfied (x7 = False)
+- (x3 ∨ ¬x4 ∨ ¬x7): Satisfied (x7 = False)
+- (x7 ∨ x8 ∨ x3): (x8 ∨ x3) (x7 = False)
+- (x8 ∨ ¬x1 ∨ ¬x7): (x8 ∨ ¬x1) (x7 = False)
+- (¬x8 ∨ ¬x7 ∨ ¬x2): (¬x8) (x7 = False, x2 = True) ⇒ x8 = False
+
+**Step 9: Propagate x8 = False.**  
+- (x8 ∨ x6): (x6) (x8 = False) ⇒ x6 = False (already set)
+- (x3 ∨ ¬x8 ∨ ¬x6): Satisfied (x8 = False)
+- (x3 ∨ ¬x4 ∨ ¬x7): Satisfied
+- (x8 ∨ x1 ∨ x2): Satisfied
+- (x8 ∨ x6 ∨ ¬x1): (x6 ∨ ¬x1) (x8 = False)
+- (x8 ∨ ¬x1 ∨ ¬x7): (¬x1) (x8 = False, x7 = False) ⇒ x1 = False
+
+**Conflict!**  
+x1 was set to True at the start, but now must be False.  
+Conflicts: 1
+
+**Step 10: Backtrack to previous branch.**  
+Backtrack x2 = True → x2 = False.  
+Branches: 3
+
+**Step 11: Propagate x2 = False (with x1 = True).**  
+- (x2 ∨ x1 ∨ x4): Satisfied.
+- (x4 ∨ ¬x2 ∨ x3): (x4 ∨ x3) (x2 = False)
+- (¬x6 ∨ ¬x1 ∨ ¬x2): (¬x6 ∨ ¬x1) (x2 = False)
+- (¬x7 ∨ ¬x4 ∨ x3): (¬x7 ∨ ¬x4 ∨ x3)
+- (¬x2 ∨ ¬x3 ∨ x7): Satisfied (x2 = False)
+- (¬x6 ∨ ¬x3 ∨ ¬x4): (¬x6 ∨ ¬x3 ∨ ¬x4)
+- (¬x7 ∨ x5 ∨ x4): (¬x7 ∨ x5 ∨ x4)
+- (¬x2 ∨ ¬x4 ∨ ¬x5): Satisfied (x2 = False)
+- (x8 ∨ x1 ∨ x2): Satisfied
+- (¬x5 ∨ ¬x3 ∨ x1): Satisfied
+- (x3 ∨ ¬x4 ∨ ¬x7): (x3 ∨ ¬x4 ∨ ¬x7)
+- (x7 ∨ x8 ∨ x3): (x7 ∨ x8 ∨ x3)
+- (¬x1 ∨ ¬x4 ∨ ¬x2): (¬x1 ∨ ¬x4) (x2 = False)
+- (x2 ∨ ¬x3 ∨ ¬x1): (¬x3 ∨ ¬x1) (x2 = False)
+- (x8 ∨ ¬x1 ∨ ¬x7): (x8 ∨ ¬x1 ∨ ¬x7)
+- (¬x8 ∨ ¬x7 ∨ ¬x2): Satisfied (x2 = False)
+- (x4 ∨ x3 ∨ ¬x8): (x4 ∨ x3 ∨ ¬x8)
+- (¬x4 ∨ ¬x1 ∨ ¬x8): (¬x4 ∨ ¬x1 ∨ ¬x8)
+- (x8 ∨ x6 ∨ ¬x1): (x8 ∨ x6) (x1 = True)
+- (x1 ∨ ¬x2 ∨ x4): Satisfied
+- (x1 ∨ x6 ∨ x7): Satisfied
+- (¬x5 ∨ x2 ∨ x4): (¬x5 ∨ x4) (x2 = False)
+- (x3 ∨ ¬x8 ∨ ¬x6): (x3 ∨ ¬x8 ∨ ¬x6)
+- (¬x4 ∨ ¬x6 ∨ x1): (¬x4 ∨ ¬x6) (x1 = True)
+- (¬x3 ∨ ¬x7 ∨ x6): (¬x3 ∨ ¬x7 ∨ x6)
+- (¬x3 ∨ x8 ∨ ¬x2): (¬x3 ∨ x8) (x2 = False)
+- (x6 ∨ ¬x5 ∨ ¬x3): (x6 ∨ ¬x5 ∨ ¬x3)
+- (¬x8 ∨ ¬x2 ∨ x3): Satisfied (x2 = False)
+
+**Step 12: Choose next variable.**  
+Let’s try x4 = True.  
+Branches: 4
+
+**Step 13: Propagate.**  
+- (x4 ∨ x3): Satisfied
+- (¬x1 ∨ ¬x4): (¬x1) (x4 = True) ⇒ x1 = False
+
+**Conflict!**  
+x1 was set to True, now must be False.  
+Conflicts: 2
+
+**Step 14: Backtrack x4 = True → x4 = False.**  
+Branches: 5
+
+**Step 15: Propagate.**  
+- (x4 ∨ x3): (x3) (x4 = False) ⇒ x3 = True
+- (¬x4 ∨ ¬x1): Satisfied
+- (¬x5 ∨ x4): (¬x5) (x4 = False) ⇒ x5 = False
+- (x4 ∨ x3 ∨ ¬x8): (x3 ∨ ¬x8) (x4 = False)
+- (¬x4 ∨ ¬x1 ∨ ¬x8): Satisfied
+- (¬x6 ∨ ¬x3 ∨ ¬x4): (¬x6 ∨ ¬x3) (x4 = False)
+- (¬x7 ∨ ¬x4 ∨ x3): Satisfied
+- (¬x7 ∨ x5 ∨ x4): (¬x7) (x5 = False, x4 = False) ⇒ x7 = False
+- (x3 ∨ ¬x4 ∨ ¬x7): Satisfied
+- (x7 ∨ x8 ∨ x3): (x8 ∨ x3) (x7 = False)
+- (x8 ∨ ¬x1 ∨ ¬x7): (x8 ∨ ¬x1) (x7 = False)
+- (¬x8 ∨ ¬x7 ∨ ¬x2): (¬x8) (x7 = False, x2 = False) ⇒ x8 = False
+- (x3 ∨ ¬x8 ∨ ¬x6): Satisfied (x3 = True)
+- (¬x3 ∨ ¬x7 ∨ x6): (¬x7 ∨ x6) (x3 = True)
+- (¬x3 ∨ x8): (x8) (x3 = True)
+- (x6 ∨ ¬x5 ∨ ¬x3): (x6 ∨ ¬x3) (x5 = False)
+- (x8 ∨ x6): (x6) (x8 = False) ⇒ x6 = False
+
+**Step 16: Check for conflicts.**  
+- (¬x6 ∨ ¬x1): (¬x1) (x6 = False) ⇒ x1 = False
+
+**Conflict!**  
+x1 was set to True, now must be False.  
+Conflicts: 3
+
+**Step 17: Backtrack to initial branch.**  
+Backtrack x1 = True → x1 = False.  
+Branches: 6
+
+**Step 18: Propagate x1 = False.**  
+- (x2 ∨ x1 ∨ x4): (x2 ∨ x4) (x1 = False)
+- (x8 ∨ x1 ∨ x2): (x8 ∨ x2) (x1 = False)
+- (¬x5 ∨ ¬x3 ∨ x1): (¬x5 ∨ ¬x3) (x1 = False)
+- (x1 ∨ ¬x2 ∨ x4): (¬x2 ∨ x4) (x1 = False)
+- (x1 ∨ x6 ∨ x7): (x6 ∨ x7) (x1 = False)
+- (¬x1 ∨ ¬x4 ∨ ¬x2): Satisfied (x1 = False)
+- (x2 ∨ ¬x3 ∨ ¬x1): Satisfied (x1 = False)
+- (x8 ∨ ¬x1 ∨ ¬x7): Satisfied (x1 = False)
+- (¬x4 ∨ ¬x1 ∨ ¬x8): Satisfied (x1 = False)
+- (x8 ∨ x6 ∨ ¬x1): Satisfied (x1 = False)
+
+**Step 19: Choose x2 = True.**  
+Branches: 7
+
+**Step 20: Propagate.**  
+- (x2 ∨ x4): Satisfied
+- (x8 ∨ x2): Satisfied
+- (¬x2 ∨ x4): (x4) (x2 = True)
+- (¬x2 ∨ ¬x3 ∨ x7): (¬x3 ∨ x7) (x2 = True)
+- (¬x2 ∨ ¬x4 ∨ ¬x5): (¬x4 ∨ ¬x5) (x2 = True)
+- (¬x6 ∨ ¬x2): (¬x6) (x2 = True) ⇒ x6 = False
+- (¬x8 ∨ ¬x7 ∨ ¬x2): (¬x8 ∨ ¬x7) (x2 = True)
+- (¬x8 ∨ ¬x2 ∨ x3): (¬x8 ∨ x3) (x2 = True)
+
+**Step 21: Propagate x4 = True.**  
+- (¬x4 ∨ ¬x5): (¬x5) (x4 = True) ⇒ x5 = False
+- (¬x4 ∨ ¬x6): (¬x6) (x4 = True) ⇒ x6 = False (already set)
+- (¬x4 ∨ ¬x1 ∨ ¬x8): (¬x1 ∨ ¬x8) (x4 = True)
+- (¬x7 ∨ ¬x4 ∨ x3): (¬x7 ∨ x3) (x4 = True)
+- (¬x7 ∨ x5 ∨ x4): Satisfied (x4 = True)
+- (x3 ∨ ¬x4 ∨ ¬x7): (x3 ∨ ¬x7) (x4 = True)
+- (x4 ∨ x3 ∨ ¬x8): Satisfied (x4 = True)
+
+**Step 22: Propagate x5 = False.**  
+- (¬x5 ∨ ¬x3): (¬x3) (x5 = False)
+- (¬x5 ∨ x4): Satisfied (x5 = False)
+- (x6 ∨ ¬x5 ∨ ¬x3): (x6 ∨ ¬x3) (x5 = False)
+
+**Step 23: Propagate (¬x3) ⇒ x3 = False.**  
+- (¬x3 ∨ x8): (x8) (x3 = False)
+- (¬x3 ∨ ¬x7): (¬x7) (x3 = False) ⇒ x7 = False
+- (¬x3 ∨ ¬x7 ∨ x6): Satisfied (x3 = False)
+- (¬x2 ∨ ¬x3 ∨ x7): Satisfied (x3 = False)
+- (x3 ∨ ¬x4 ∨ ¬x7): (¬x4 ∨ ¬x7) (x3 = False)
+- (x7 ∨ x8 ∨ x3): (x8) (x7 = False, x3 = False)
+- (x3 ∨ ¬x8 ∨ ¬x6): (¬x8 ∨ ¬x6) (x3 = False)
+- (x4 ∨ x3 ∨ ¬x8): (x4 ∨ ¬x8) (x3 = False)
+- (¬x8 ∨ x3): (¬x8) (x3 = False)
+
+**Step 24: Propagate x8 = True.**  
+- (¬x8 ∨ ¬x7): (¬x7) (x8 = True) ⇒ x7 = False (already set)
+- (¬x8 ∨ ¬x2): (¬x2) (x8 = True) ⇒ x2 = False (but x2 = True)
+
+**Conflict!**  
+x2 was set to True, now must be False.  
+Conflicts: 4
+
+**Step 25: Backtrack x4 = True → x4 = False.**  
+Branches: 8
+
+**Step 26: Propagate x4 = False.**  
+- (x2 ∨ x4): (x2) (x4 = False) ⇒ x2 = True (already set)
+- (¬x2 ∨ x4): (¬x2) (x4 = False) ⇒ x2 = False (contradicts x2 = True)
+
+**Conflict!**

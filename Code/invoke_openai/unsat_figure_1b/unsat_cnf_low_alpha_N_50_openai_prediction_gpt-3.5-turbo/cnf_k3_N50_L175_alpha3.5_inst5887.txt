@@ -1,0 +1,511 @@
+c Random 3-SAT
+c alpha=3.5, N=50, L=175, instance=5887
+p cnf 50 175
+-12 47 39 0
+-1 9 40 0
+22 50 42 0
+19 -22 28 0
+4 14 -50 0
+-26 6 24 0
+5 -1 -46 0
+31 -40 -7 0
+-30 50 -46 0
+-35 22 21 0
+50 43 36 0
+-14 47 46 0
+-10 33 32 0
+7 49 31 0
+11 -17 -10 0
+-29 18 31 0
+1 15 -4 0
+41 5 2 0
+-4 35 -20 0
+-44 -41 33 0
+25 29 -31 0
+-34 39 -13 0
+48 10 2 0
+-23 38 -43 0
+35 40 -50 0
+34 35 49 0
+45 4 13 0
+6 -32 36 0
+43 -1 44 0
+30 34 39 0
+37 1 -12 0
+24 -23 -35 0
+22 -47 37 0
+-36 -13 42 0
+-16 20 -26 0
+45 43 2 0
+-22 -47 -27 0
+-21 -42 46 0
+5 -22 34 0
+-9 -42 -10 0
+6 -43 -39 0
+1 -45 -6 0
+-12 -36 15 0
+20 47 46 0
+2 -37 11 0
+-32 -31 38 0
+-49 22 -28 0
+20 43 -2 0
+-48 -19 -15 0
+4 15 47 0
+14 -5 -47 0
+16 -44 -20 0
+17 -46 -10 0
+29 6 -16 0
+-48 32 25 0
+-49 -45 2 0
+9 -37 -5 0
+-50 6 45 0
+-37 18 23 0
+-9 -31 -46 0
+3 -15 -41 0
+-44 -23 31 0
+15 -22 -3 0
+42 47 -16 0
+-2 -37 11 0
+-23 -38 -32 0
+-38 -44 6 0
+22 -37 5 0
+12 -40 -43 0
+20 49 -48 0
+43 38 -34 0
+-14 -22 5 0
+27 43 -40 0
+-10 5 50 0
+-46 -49 24 0
+-49 46 22 0
+-39 -44 -38 0
+-25 34 14 0
+47 -25 -50 0
+12 18 7 0
+-21 49 -36 0
+-6 -23 -13 0
+39 -24 44 0
+21 17 -42 0
+-44 22 33 0
+44 -48 -8 0
+-37 3 -12 0
+-2 14 -12 0
+48 -26 -17 0
+16 -17 -14 0
+26 33 -35 0
+16 10 20 0
+37 2 31 0
+-31 -14 -50 0
+-7 -23 48 0
+-4 -5 43 0
+-34 3 -4 0
+42 -18 35 0
+23 -39 -42 0
+-22 5 48 0
+17 -12 14 0
+-38 -33 -27 0
+31 -8 39 0
+31 40 -5 0
+39 -2 6 0
+-37 26 -24 0
+-20 40 -34 0
+24 -43 -22 0
+-41 -29 -30 0
+-19 23 -14 0
+18 4 -38 0
+19 -1 39 0
+-33 -7 30 0
+42 -50 21 0
+18 -23 21 0
+-25 8 -17 0
+-37 6 -50 0
+33 15 -6 0
+-24 -32 -25 0
+4 -10 -3 0
+46 -31 -25 0
+14 21 31 0
+35 -45 50 0
+3 13 -27 0
+7 28 16 0
+13 -23 49 0
+50 -28 5 0
+23 22 -32 0
+-1 28 -12 0
+-12 -20 23 0
+5 -32 21 0
+-27 41 39 0
+28 30 -44 0
+37 -47 -12 0
+-15 -1 -35 0
+-44 7 12 0
+42 50 -24 0
+12 -31 1 0
+37 23 -9 0
+-38 31 28 0
+38 46 8 0
+-42 -18 -9 0
+49 7 10 0
+31 34 -23 0
+7 -22 41 0
+16 -2 42 0
+-19 28 17 0
+-46 31 -15 0
+41 -26 9 0
+45 3 -7 0
+-17 -36 11 0
+-22 -1 47 0
+36 -31 -41 0
+-24 34 19 0
+-9 -35 -38 0
+48 18 12 0
+-35 12 17 0
+-10 9 23 0
+-40 48 7 0
+-40 -1 29 0
+-8 47 -13 0
+27 -5 -39 0
+-1 -22 -47 0
+-15 17 14 0
+-35 -43 -17 0
+-30 26 -9 0
+-41 -23 50 0
+-9 -27 26 0
+-21 -13 8 0
+25 -9 32 0
+-19 15 36 0
+-8 38 -29 0
+15 -49 35 0
+-15 -38 45 0
+-23 -44 -41 0
+
+c GPT solve time: 44.02 seconds
+
+1. Start with an empty assignment.
+2. Choose a variable to assign a truth value to. Let's start with x1 = True.
+3. Update the formula based on the assignment:
+   (¬False ∨ x47 ∨ x39)
+   (False ∨ x9 ∨ x40)
+   (x22 ∨ x50 ∨ x42)
+   (x19 ∨ ¬x22 ∨ x28)
+   (x4 ∨ x14 ∨ ¬x50)
+   (¬x26 ∨ x6 ∨ x24)
+   (x5 ∨ False ∨ ¬x46)
+   (x31 ∨ ¬x40 ∨ ¬False)
+   (¬x30 ∨ x50 ∨ ¬x46)
+   (¬x35 ∨ x22 ∨ x21)
+   (x50 ∨ x43 ∨ x36)
+   (¬x14 ∨ x47 ∨ x46)
+   (¬x10 ∨ x33 ∨ x32)
+   (False ∨ x49 ∨ x31)
+   (x11 ∨ ¬x17 ∨ ¬x10)
+   (¬x29 ∨ x18 ∨ x31)
+   (True ∨ x15 ∨ ¬x4)
+   (x41 ∨ x5 ∨ x2)
+   (¬x4 ∨ x35 ∨ ¬x20)
+   (¬x44 ∨ ¬x41 ∨ x33)
+   (x25 ∨ x29 ∨ ¬x31)
+   (¬x34 ∨ x39 ∨ ¬x13)
+   (x48 ∨ x10 ∨ x2)
+   (¬x23 ∨ x38 ∨ ¬x43)
+   (x35 ∨ x40 ∨ ¬x50)
+   (x34 ∨ x35 ∨ x49)
+   (False ∨ x4 ∨ x13)
+   (x6 ∨ ¬x32 ∨ x36)
+   (x43 ∨ False ∨ x44)
+   (x30 ∨ x34 ∨ x39)
+   (x37 ∨ False ∨ ¬False)
+   (x24 ∨ ¬x23 ∨ ¬x35)
+   (x22 ∨ ¬x47 ∨ x37)
+   (¬x36 ∨ x13 ∨ x42)
+   (¬x16 ∨ x20 ∨ ¬x26)
+   (False ∨ x43 ∨ x2)
+   (¬x22 ∨ ¬x47 ∨ ¬x27)
+   (¬x21 ∨ ¬x42 ∨ x46)
+   (x5 ∨ ¬x22 ∨ x34)
+   (¬x9 ∨ ¬x42 ∨ ¬x10)
+   (x6 ∨ ¬x43 ∨ ¬x39)
+   (True ∨ ¬x45 ∨ ¬x6)
+   (¬False ∨ ¬x36 ∨ True)
+   (x20 ∨ x47 ∨ x46)
+   (x2 ∨ False ∨ x11)
+   (¬x32 ∨ ¬x31 ∨ x38)
+   (¬x49 ∨ x22 ∨ ¬x28)
+   (x20 ∨ x43 ∨ ¬x2)
+   (¬x48 ∨ ¬x19 ∨ ¬True)
+   (False ∨ True ∨ x47)
+   (x14 ∨ ¬x5 ∨ ¬x47)
+   (x16 ∨ ¬x44 ∨ ¬x20)
+   (x17 ∨ x46 ∨ ¬x10)
+   (x29 ∨ True ∨ ¬x16)
+   (¬x48 ∨ x32 ∨ x25)
+   (¬x49 ∨ ¬False ∨ x2)
+   (True ∨ ¬x37 ∨ ¬x5)
+   (¬x50 ∨ True ∨ False)
+   (¬x37 ∨ x18 ∨ x23)
+   (¬True ∨ ¬x31 ∨ ¬False)
+   (x3 ∨ True ∨ ¬x41)
+   (¬x44 ∨ ¬x23 ∨ True)
+   (True ∨ ¬x22 ∨ ¬x3)
+   (x42 ∨ x47 ∨ ¬True)
+   (¬x2 ∨ ¬x37 ∨ False)
+   (¬x23 ∨ ¬x38 ∨ ¬x32)
+   (¬x38 ∨ ¬x44 ∨ True)
+   (x22 ∨ ¬x37 ∨ True)
+   (False ∨ ¬x40 ∨ ¬x43)
+   (x20 ∨ x49 ∨ ¬x48)
+   (False ∨ x38 ∨ ¬x34)
+   (¬x14 ∨ ¬True ∨ True)
+   (True ∨ x43 ∨ x2)
+   (¬x22 ∨ ¬False ∨ ¬x27)
+   (¬x21 ∨ ¬x42 ∨ False)
+   (True ∨ ¬x22 ∨ x34)
+   (¬True ∨ ¬x42 ∨ ¬True)
+   (True ∨ ¬x43 ∨ ¬x39)
+   (True ∨ ¬x45 ∨ ¬True)
+   (¬False ∨ ¬False ∨ True)
+   (x20 ∨ x49 ∨ ¬x48)
+   (x43 ∨ x38 ∨ ¬x34)
+   (¬True ∨ ¬x22 ∨ True)
+   (x27 ∨ x43 ∨ ¬False)
+   (¬x10 ∨ True ∨ True)
+   (¬x46 ∨ ¬False ∨ x24)
+   (¬False ∨ True ∨ ¬True)
+   (¬True ∨ True ∨ True)
+   (¬x25 ∨ True ∨ True)
+   (True ∨ ¬False ∨ True)
+   (¬False ∨ True ∨ ¬True)
+   (¬False ∨ ¬False ∨ True)
+   (True ∨ ¬True ∨ True)
+   (True ∨ True ∨ ¬False)
+   (True ∨ ¬True ∨ ¬True)
+   (¬True ∨ ¬True ∨ ¬True)
+   (True ∨ ¬True ∨ True)
+   (¬False ∨ True ∨ True)
+   (True ∨ True ∨ ¬False)
+   (True ∨ ¬False ∨ True)
+   (¬False ∨ True ∨ ¬True)
+   (¬False ∨ ¬False ∨ True)
+   (True ∨ ¬False ∨ ¬True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False ∨ ¬False ∨ True)
+   (¬False

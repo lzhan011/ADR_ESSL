@@ -1,0 +1,198 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1619
+p cnf 5 17
+5 -4 2 0
+-1 5 3 0
+3 -1 -4 0
+-3 -2 4 0
+1 2 -5 0
+4 2 1 0
+-1 -5 -4 0
+4 -1 -5 0
+1 4 -2 0
+1 2 -5 0
+4 3 -1 0
+-3 -1 5 0
+-2 -5 1 0
+-4 3 -1 0
+-4 -2 1 0
+-5 -2 -1 0
+4 -5 -1 0
+
+c GPT solve time: 30.07 seconds
+
+Step-by-step SAT solving using DPLL (Davis–Putnam–Logemann–Loveland) algorithm:
+
+We are given a 3-CNF formula with variables x1 through x5.
+
+Clauses:
+1. (x5 ∨ ¬x4 ∨ x2)  
+2. (¬x1 ∨ x5 ∨ x3)  
+3. (x3 ∨ ¬x1 ∨ ¬x4)  
+4. (¬x3 ∨ ¬x2 ∨ x4)  
+5. (x1 ∨ x2 ∨ ¬x5)  
+6. (x4 ∨ x2 ∨ x1)  
+7. (¬x1 ∨ ¬x5 ∨ ¬x4)  
+8. (x4 ∨ ¬x1 ∨ ¬x5)  
+9. (x1 ∨ x4 ∨ ¬x2)  
+10. (x1 ∨ x2 ∨ ¬x5)  
+11. (x4 ∨ x3 ∨ ¬x1)  
+12. (¬x3 ∨ ¬x1 ∨ x5)  
+13. (¬x2 ∨ ¬x5 ∨ x1)  
+14. (¬x4 ∨ x3 ∨ ¬x1)  
+15. (¬x4 ∨ ¬x2 ∨ x1)  
+16. (¬x5 ∨ ¬x2 ∨ ¬x1)  
+17. (x4 ∨ ¬x5 ∨ ¬x1)
+
+We will use DPLL with unit propagation and backtracking.
+
+Step 1: Choose x1 = True (Branch 1)
+
+Propagate:
+- Clause 2: (¬x1 ∨ x5 ∨ x3) → satisfied
+- Clause 5: (x1 ∨ x2 ∨ ¬x5) → satisfied
+- Clause 6: (x4 ∨ x2 ∨ x1) → satisfied
+- Clause 9: (x1 ∨ x4 ∨ ¬x2) → satisfied
+- Clause 10: (x1 ∨ x2 ∨ ¬x5) → satisfied
+- Clause 11: (x4 ∨ x3 ∨ ¬x1) → (x4 ∨ x3 ∨ False)
+- Clause 12: (¬x3 ∨ ¬x1 ∨ x5) → (¬x3 ∨ False ∨ x5)
+- Clause 13: (¬x2 ∨ ¬x5 ∨ x1) → satisfied
+- Clause 14: (¬x4 ∨ x3 ∨ ¬x1) → (¬x4 ∨ x3 ∨ False)
+- Clause 15: (¬x4 ∨ ¬x2 ∨ x1) → satisfied
+- Clause 16: (¬x5 ∨ ¬x2 ∨ ¬x1) → (¬x5 ∨ ¬x2 ∨ False)
+- Clause 17: (x4 ∨ ¬x5 ∨ ¬x1) → (x4 ∨ ¬x5 ∨ False)
+
+Step 2: Choose x2 = True (Branch 2)
+
+Propagate:
+- Clause 1: (x5 ∨ ¬x4 ∨ x2) → satisfied
+- Clause 4: (¬x3 ∨ ¬x2 ∨ x4) → (¬x3 ∨ False ∨ x4)
+- Clause 13: (¬x2 ∨ ¬x5 ∨ x1) → (False ∨ ¬x5 ∨ True) → satisfied
+- Clause 15: (¬x4 ∨ ¬x2 ∨ x1) → (¬x4 ∨ False ∨ True) → satisfied
+- Clause 16: (¬x5 ∨ ¬x2 ∨ ¬x1) → (¬x5 ∨ False ∨ False) → (¬x5)
+
+Unit clause: ¬x5 → x5 = False
+
+Step 3: Propagate x5 = False
+
+- Clause 2: (¬x1 ∨ x5 ∨ x3) → (False ∨ False ∨ x3) → (x3)
+- Clause 3: (x3 ∨ ¬x1 ∨ ¬x4) → (x3 ∨ False ∨ ¬x4)
+- Clause 5: (x1 ∨ x2 ∨ ¬x5) → (True ∨ True ∨ True) → satisfied
+- Clause 7: (¬x1 ∨ ¬x5 ∨ ¬x4) → (False ∨ True ∨ ¬x4) → satisfied
+- Clause 8: (x4 ∨ ¬x1 ∨ ¬x5) → (x4 ∨ False ∨ True) → satisfied
+- Clause 10: (x1 ∨ x2 ∨ ¬x5) → satisfied
+- Clause 12: (¬x3 ∨ ¬x1 ∨ x5) → (¬x3 ∨ False ∨ False) → (¬x3)
+- Clause 13: already satisfied
+- Clause 16: already used
+- Clause 17: (x4 ∨ ¬x5 ∨ ¬x1) → (x4 ∨ True ∨ False) → satisfied
+
+Now we have:
+- x1 = True
+- x2 = True
+- x5 = False
+- Unit clause x3 from clause 2 → x3 = True
+- Clause 12: (¬x3) → x3 = False → CONFLICT
+
+Conflict between x3 = True and x3 = False → backtrack
+
+Step 4: Backtrack to x2 = False (Conflict 1, Branch 3)
+
+Now x1 = True, x2 = False
+
+Clause 1: (x5 ∨ ¬x4 ∨ x2) → (x5 ∨ ¬x4 ∨ False)  
+Clause 4: (¬x3 ∨ ¬x2 ∨ x4) → (¬x3 ∨ True ∨ x4) → satisfied  
+Clause 9: (x1 ∨ x4 ∨ ¬x2) → (True ∨ x4 ∨ True) → satisfied  
+Clause 13: (¬x2 ∨ ¬x5 ∨ x1) → (True ∨ ¬x5 ∨ True) → satisfied  
+Clause 15: (¬x4 ∨ ¬x2 ∨ x1) → (¬x4 ∨ True ∨ True) → satisfied  
+Clause 16: (¬x5 ∨ ¬x2 ∨ ¬x1) → (¬x5 ∨ True ∨ False) → satisfied
+
+Now try x5 = True (Branch 4)
+
+Clause 1: (x5 ∨ ¬x4 ∨ x2) → (True ∨ ¬x4 ∨ False) → satisfied  
+Clause 2: (¬x1 ∨ x5 ∨ x3) → (False ∨ True ∨ x3) → satisfied  
+Clause 5: (x1 ∨ x2 ∨ ¬x5) → (True ∨ False ∨ False) → satisfied  
+Clause 7: (¬x1 ∨ ¬x5 ∨ ¬x4) → (False ∨ False ∨ ¬x4) → (¬x4)  
+Clause 8: (x4 ∨ ¬x1 ∨ ¬x5) → (x4 ∨ False ∨ False) → (x4)  
+Conflict between x4 and ¬x4 → Conflict 2
+
+Backtrack x5 = False (Branch 5)
+
+Now x1 = True, x2 = False, x5 = False
+
+Clause 2: (¬x1 ∨ x5 ∨ x3) → (False ∨ False ∨ x3) → (x3)  
+Clause 12: (¬x3 ∨ ¬x1 ∨ x5) → (¬x3 ∨ False ∨ False) → (¬x3)  
+Conflict between x3 and ¬x3 → Conflict 3
+
+Backtrack x1 = False (Branch 6)
+
+Now try x1 = False
+
+Clause 2: (¬x1 ∨ x5 ∨ x3) → (True ∨ x5 ∨ x3) → satisfied  
+Clause 3: (x3 ∨ ¬x1 ∨ ¬x4) → (x3 ∨ True ∨ ¬x4) → satisfied  
+Clause 5: (x1 ∨ x2 ∨ ¬x5) → (False ∨ x2 ∨ ¬x5)  
+Clause 6: (x4 ∨ x2 ∨ x1) → (x4 ∨ x2 ∨ False)  
+Clause 7: (¬x1 ∨ ¬x5 ∨ ¬x4) → (True ∨ ¬x5 ∨ ¬x4) → satisfied  
+Clause 8: (x4 ∨ ¬x1 ∨ ¬x5) → (x4 ∨ True ∨ ¬x5) → satisfied  
+Clause 9: (x1 ∨ x4 ∨ ¬x2) → (False ∨ x4 ∨ ¬x2)  
+Clause 10: (x1 ∨ x2 ∨ ¬x5) → (False ∨ x2 ∨ ¬x5)  
+Clause 11: (x4 ∨ x3 ∨ ¬x1) → (x4 ∨ x3 ∨ True) → satisfied  
+Clause 12: (¬x3 ∨ ¬x1 ∨ x5) → (¬x3 ∨ True ∨ x5) → satisfied  
+Clause 13: (¬x2 ∨ ¬x5 ∨ x1) → (¬x2 ∨ ¬x5 ∨ False)  
+Clause 14: (¬x4 ∨ x3 ∨ ¬x1) → (¬x4 ∨ x3 ∨ True) → satisfied  
+Clause 15: (¬x4 ∨ ¬x2 ∨ x1) → (¬x4 ∨ ¬x2 ∨ False)  
+Clause 16: (¬x5 ∨ ¬x2 ∨ ¬x1) → (¬x5 ∨ ¬x2 ∨ True) → satisfied  
+Clause 17: (x4 ∨ ¬x5 ∨ ¬x1) → (x4 ∨ ¬x5 ∨ True) → satisfied
+
+Now try x2 = True (Branch 7)
+
+Clause 5: (x1 ∨ x2 ∨ ¬x5) → (False ∨ True ∨ ¬x5) → satisfied  
+Clause 6: (x4 ∨ x2 ∨ x1) → (x4 ∨ True ∨ False) → satisfied  
+Clause 9: (x1 ∨ x4 ∨ ¬x2) → (False ∨ x4 ∨ False) → (x4)  
+Clause 13: (¬x2 ∨ ¬x5 ∨ x1) → (False ∨ ¬x5 ∨ False) → (¬x5)  
+Clause 15: (¬x4 ∨ ¬x2 ∨ x1) → (¬x4 ∨ False ∨ False) → (¬x4)
+
+Conflict between x4 and ¬x4 → Conflict 4
+
+Backtrack x2 = False (Branch 8)
+
+Clause 5: (x1 ∨ x2 ∨ ¬x5) → (False ∨ False ∨ ¬x5) → (¬x5)  
+Clause 6: (x4 ∨ x2 ∨ x1) → (x4 ∨ False ∨ False) → (x4)  
+Clause 9: (x1 ∨ x4 ∨ ¬x2) → (False ∨ x4 ∨ True) → satisfied  
+Clause 13: (¬x2 ∨ ¬x5 ∨ x1) → (True ∨ True ∨ False) → satisfied  
+Clause 15: (¬x4 ∨ ¬x2 ∨ x1) → (¬x4 ∨ True ∨ False) → satisfied
+
+Now we have:
+x1 = False  
+x2 = False  
+x4 = True  
+x5 = False
+
+Now check clause 2: (¬x1 ∨ x5 ∨ x3) → (True ∨ False ∨ x3) → satisfied  
+Clause 3: (x3 ∨ ¬x1 ∨ ¬x4) → (x3 ∨ True ∨ False) → satisfied  
+Clause 4: (¬x3 ∨ ¬x2 ∨ x4) → (¬x3 ∨ True ∨ True) → satisfied  
+Clause 11: (x4 ∨ x3 ∨ ¬x1) → (True ∨ x3 ∨ True) → satisfied  
+Clause 12: (¬x3 ∨ ¬x1 ∨ x5) → (¬x3 ∨ True ∨ False) → satisfied  
+Clause 14: (¬x4 ∨ x3 ∨ ¬x1) → (False ∨ x3 ∨ True) → satisfied  
+Clause 17: (x4 ∨ ¬x5 ∨ ¬x1) → (True ∨ True ∨ True) → satisfied
+
+All clauses satisfied with x3 = False
+
+Final assignment:
+x1 = False  
+x2 = False  
+x3 = False  
+x4 = True  
+x5 = False
+
+✅ All clauses satisfied.
+
+Final Output:
+* SATISFIABLE  
+* Number of branches: 8  
+* Number of conflicts: 4  
+* Assignment:  
+  x1 = False  
+  x2 = False  
+  x3 = False  
+  x4 = True  
+  x5 = False

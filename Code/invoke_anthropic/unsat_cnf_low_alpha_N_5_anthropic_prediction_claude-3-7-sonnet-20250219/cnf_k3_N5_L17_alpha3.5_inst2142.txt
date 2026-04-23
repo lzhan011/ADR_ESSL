@@ -1,0 +1,138 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2142
+p cnf 5 17
+-3 2 4 0
+5 -2 3 0
+-2 3 4 0
+2 -1 -5 0
+2 5 4 0
+-3 -2 -1 0
+-4 -5 -2 0
+-4 -3 1 0
+3 2 -5 0
+-4 2 -5 0
+1 -5 3 0
+-2 -5 1 0
+1 -2 4 0
+5 -2 1 0
+2 -3 -1 0
+-5 -1 -2 0
+2 -4 3 0
+
+c GPT solve time: 33.03 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let's start by assigning variables and checking for unit clauses or pure literals.
+
+Step 1: Let's try x1 = true
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x1) becomes (¬x3 ∨ ¬x2)
+- Clause (¬x4 ∨ ¬x3 ∨ x1) is satisfied
+- Clause (x1 ∨ ¬x5 ∨ x3) is satisfied
+- Clause (¬x2 ∨ ¬x5 ∨ x1) is satisfied
+- Clause (x1 ∨ ¬x2 ∨ x4) is satisfied
+- Clause (x5 ∨ ¬x2 ∨ x1) is satisfied
+- Clause (x2 ∨ ¬x3 ∨ ¬x1) becomes (x2 ∨ ¬x3)
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x2) becomes (¬x5 ∨ ¬x2)
+
+Step 2: Let's try x2 = false
+- Clause (¬x3 ∨ x2 ∨ x4) becomes (¬x3 ∨ x4)
+- Clause (x5 ∨ ¬x2 ∨ x3) is satisfied
+- Clause (¬x2 ∨ x3 ∨ x4) is satisfied
+- Clause (x2 ∨ ¬x1 ∨ ¬x5) becomes (¬x5)
+- Clause (x2 ∨ x5 ∨ x4) becomes (x5 ∨ x4)
+- Clause (¬x3 ∨ ¬x2) is satisfied
+- Clause (¬x4 ∨ ¬x5 ∨ ¬x2) is satisfied
+- Clause (x3 ∨ x2 ∨ ¬x5) becomes (x3 ∨ ¬x5)
+- Clause (¬x4 ∨ x2 ∨ ¬x5) becomes (¬x4 ∨ ¬x5)
+- Clause (¬x2 ∨ ¬x5 ∨ x1) is satisfied
+- Clause (x2 ∨ ¬x3 ∨ ¬x1) becomes (¬x3)
+- Clause (¬x5 ∨ ¬x2) is satisfied
+- Clause (x2 ∨ ¬x4 ∨ x3) becomes (¬x4 ∨ x3)
+
+Step 3: From (¬x5), we must set x5 = false
+- Clause (x5 ∨ x4) becomes (x4)
+- Clause (x3 ∨ ¬x5) is satisfied
+- Clause (¬x4 ∨ ¬x5) is satisfied
+
+Step 4: From (x4), we must set x4 = true
+- Clause (¬x3 ∨ x4) is satisfied
+- Clause (¬x4 ∨ ¬x5) becomes a conflict since x4 = true, x5 = false
+
+This is a conflict, so we need to backtrack.
+
+Step 5: Let's try x2 = true
+- Clause (¬x3 ∨ x2 ∨ x4) is satisfied
+- Clause (x5 ∨ ¬x2 ∨ x3) becomes (x5 ∨ x3)
+- Clause (¬x2 ∨ x3 ∨ x4) becomes (x3 ∨ x4)
+- Clause (x2 ∨ ¬x1 ∨ ¬x5) is satisfied
+- Clause (x2 ∨ x5 ∨ x4) is satisfied
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x1) becomes (¬x3)
+- Clause (¬x4 ∨ ¬x5 ∨ ¬x2) becomes (¬x4 ∨ ¬x5)
+- Clause (x3 ∨ x2 ∨ ¬x5) is satisfied
+- Clause (¬x4 ∨ x2 ∨ ¬x5) is satisfied
+- Clause (x2 ∨ ¬x3 ∨ ¬x1) is satisfied
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x2) becomes (¬x5)
+- Clause (x2 ∨ ¬x4 ∨ x3) is satisfied
+
+Step 6: From (¬x3) and (¬x5), we must set x3 = false and x5 = false
+- Clause (x5 ∨ x3) becomes unsatisfied - conflict!
+
+Let's backtrack and try x1 = false.
+
+Step 7: Let's try x1 = false
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x1) is satisfied
+- Clause (¬x4 ∨ ¬x3 ∨ x1) becomes (¬x4 ∨ ¬x3)
+- Clause (x1 ∨ ¬x5 ∨ x3) becomes (¬x5 ∨ x3)
+- Clause (¬x2 ∨ ¬x5 ∨ x1) becomes (¬x2 ∨ ¬x5)
+- Clause (x1 ∨ ¬x2 ∨ x4) becomes (¬x2 ∨ x4)
+- Clause (x5 ∨ ¬x2 ∨ x1) becomes (x5 ∨ ¬x2)
+- Clause (x2 ∨ ¬x3 ∨ ¬x1) is satisfied
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x2) is satisfied
+
+Step 8: Let's try x2 = false
+- Clause (¬x3 ∨ x2 ∨ x4) becomes (¬x3 ∨ x4)
+- Clause (x5 ∨ ¬x2 ∨ x3) is satisfied
+- Clause (¬x2 ∨ x3 ∨ x4) is satisfied
+- Clause (x2 ∨ ¬x1 ∨ ¬x5) becomes (¬x5)
+- Clause (x2 ∨ x5 ∨ x4) becomes (x5 ∨ x4)
+- Clause (¬x4 ∨ ¬x5 ∨ ¬x2) is satisfied
+- Clause (x3 ∨ x2 ∨ ¬x5) becomes (x3 ∨ ¬x5)
+- Clause (¬x4 ∨ x2 ∨ ¬x5) becomes (¬x4 ∨ ¬x5)
+- Clause (¬x2 ∨ ¬x5) is satisfied
+- Clause (¬x2 ∨ x4) is satisfied
+- Clause (x5 ∨ ¬x2) is satisfied
+- Clause (x2 ∨ ¬x4 ∨ x3) becomes (¬x4 ∨ x3)
+
+Step 9: From (¬x5), we must set x5 = false
+- Clause (x5 ∨ x4) becomes (x4)
+- Clause (x3 ∨ ¬x5) is satisfied
+- Clause (¬x4 ∨ ¬x5) is satisfied
+- Clause (¬x5 ∨ x3) becomes (x3)
+
+Step 10: From (x4) and (x3), we must set x4 = true and x3 = true
+- Clause (¬x3 ∨ x4) is satisfied
+- Clause (¬x4 ∨ ¬x3) becomes unsatisfied - conflict!
+
+Let's backtrack and try x2 = true.
+
+Step 11: Let's try x2 = true
+- Clause (¬x3 ∨ x2 ∨ x4) is satisfied
+- Clause (x5 ∨ ¬x2 ∨ x3) becomes (x5 ∨ x3)
+- Clause (¬x2 ∨ x3 ∨ x4) becomes (x3 ∨ x4)
+- Clause (x2 ∨ ¬x1 ∨ ¬x5) is satisfied
+- Clause (x2 ∨ x5 ∨ x4) is satisfied
+- Clause (¬x4 ∨ ¬x5 ∨ ¬x2) becomes (¬x4 ∨ ¬x5)
+- Clause (x3 ∨ x2 ∨ ¬x5) is satisfied
+- Clause (¬x4 ∨ x2 ∨ ¬x5) is satisfied
+- Clause (¬x2 ∨ ¬x5) becomes (¬x5)
+- Clause (¬x2 ∨ x4) becomes (x4)
+- Clause (x5 ∨ ¬x2) becomes (x5)
+
+This creates a contradiction: we have both (¬x5) and (x5).
+
+After exploring all possibilities, I've found that the formula is unsatisfiable.
+
+UNSATISFIABLE
+Number of branches: 3
+Number of conflicts: 3

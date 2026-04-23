@@ -1,0 +1,608 @@
+c Random 3-SAT
+c alpha=3.8, N=75, L=285, instance=166
+p cnf 75 285
+-27 24 9 0
+39 -70 -2 0
+-11 -37 52 0
+-32 -42 -16 0
+25 -40 -33 0
+-38 34 11 0
+9 -46 -26 0
+19 -43 -2 0
+-59 -9 58 0
+4 -44 32 0
+-63 -33 -46 0
+-29 73 -32 0
+-39 -69 -3 0
+7 64 75 0
+21 -36 -28 0
+10 -74 27 0
+8 18 72 0
+3 -59 -46 0
+-13 -16 41 0
+56 42 -23 0
+-19 52 11 0
+-43 -24 27 0
+-40 -8 -41 0
+32 -70 -75 0
+-54 48 -51 0
+66 44 -21 0
+-75 22 -7 0
+-2 70 29 0
+-27 50 -24 0
+-14 -41 2 0
+42 26 36 0
+-31 6 12 0
+-60 19 51 0
+39 23 -3 0
+65 11 -13 0
+-27 -43 28 0
+-39 -74 -72 0
+-7 -2 -65 0
+58 12 51 0
+-40 64 -61 0
+28 26 37 0
+14 71 -65 0
+64 27 -29 0
+-75 61 38 0
+-37 -67 2 0
+-73 12 -63 0
+-8 -10 -30 0
+24 -58 -32 0
+17 43 14 0
+-18 -42 -52 0
+-22 7 -13 0
+22 -26 21 0
+-46 17 74 0
+64 -65 70 0
+54 59 5 0
+66 -63 -14 0
+-13 20 5 0
+-46 37 -29 0
+-9 58 48 0
+20 -41 46 0
+24 -51 -66 0
+-66 59 37 0
+1 -2 -25 0
+-15 24 -36 0
+-2 25 -72 0
+26 -38 10 0
+55 38 10 0
+-56 -33 -3 0
+20 -7 -17 0
+74 -49 62 0
+53 40 -38 0
+-70 55 72 0
+1 -66 -5 0
+-19 -28 -20 0
+30 -25 63 0
+-16 -18 7 0
+68 46 -26 0
+48 -75 -55 0
+7 -74 -4 0
+-37 -11 -12 0
+-44 -38 -67 0
+-74 -53 -27 0
+-70 18 11 0
+-48 8 28 0
+-16 -40 -29 0
+48 75 -33 0
+22 7 10 0
+23 -71 -21 0
+-75 74 -60 0
+66 32 -53 0
+54 47 -21 0
+-44 9 17 0
+63 37 -16 0
+-4 48 67 0
+26 -66 11 0
+31 13 73 0
+61 21 -9 0
+-75 68 -2 0
+-59 -10 31 0
+24 -21 15 0
+51 -69 -59 0
+-41 6 72 0
+-71 46 28 0
+60 -68 -26 0
+-55 -26 -27 0
+11 -63 -4 0
+-73 11 28 0
+-12 5 41 0
+-58 -52 -11 0
+-44 -45 -24 0
+21 -4 45 0
+49 39 61 0
+69 -46 -20 0
+-46 -19 39 0
+22 1 -12 0
+64 21 -47 0
+-61 34 9 0
+23 -10 2 0
+-4 22 47 0
+-3 52 42 0
+41 -2 -60 0
+-48 33 -21 0
+-45 -22 34 0
+47 -53 -9 0
+70 25 -8 0
+6 -66 53 0
+-35 14 37 0
+64 8 -33 0
+-58 35 -67 0
+19 -62 60 0
+18 -36 -70 0
+10 -33 61 0
+19 -25 50 0
+22 -28 20 0
+72 -73 -32 0
+-50 52 -34 0
+1 64 -10 0
+-3 -5 -44 0
+75 40 -13 0
+-40 -29 -51 0
+-43 -20 -36 0
+-15 -9 52 0
+-16 -44 -32 0
+-49 -12 1 0
+13 -23 22 0
+29 -63 -43 0
+-49 -16 -35 0
+38 20 10 0
+25 36 -58 0
+-69 12 8 0
+20 -37 -61 0
+44 26 20 0
+-48 59 -64 0
+-19 21 63 0
+37 -26 63 0
+-48 -21 42 0
+26 -3 -7 0
+34 -54 -8 0
+59 -61 33 0
+-67 -49 38 0
+20 62 71 0
+-59 -39 -58 0
+19 -44 -48 0
+68 -35 -6 0
+-52 8 -31 0
+-24 61 -30 0
+75 10 -2 0
+-3 7 -9 0
+-55 -74 9 0
+33 -4 14 0
+-31 65 -21 0
+-10 52 -41 0
+6 4 -13 0
+-42 30 22 0
+-58 -57 -49 0
+-13 -61 -63 0
+-2 -35 -22 0
+-55 21 -61 0
+45 -12 75 0
+71 50 30 0
+7 -64 -72 0
+73 -64 25 0
+39 51 41 0
+-58 -46 72 0
+38 47 -23 0
+72 -6 70 0
+48 -44 74 0
+10 20 7 0
+46 -57 21 0
+-20 74 14 0
+-5 -63 52 0
+13 51 -36 0
+-74 -70 -48 0
+60 -12 65 0
+9 -20 -29 0
+-65 -13 44 0
+-57 -10 48 0
+37 -28 -70 0
+-5 -26 -45 0
+-45 26 -28 0
+-2 -48 -44 0
+-70 -9 -34 0
+-15 -51 26 0
+-53 57 -54 0
+-16 44 -10 0
+-74 44 -11 0
+5 -65 47 0
+-49 4 74 0
+-4 47 -6 0
+-4 -64 -28 0
+2 -47 48 0
+60 49 61 0
+35 39 9 0
+49 15 -43 0
+48 -58 -72 0
+60 53 -9 0
+-20 43 11 0
+30 53 -72 0
+29 -68 -39 0
+-60 5 -30 0
+61 -30 36 0
+44 62 -43 0
+-47 -52 -66 0
+4 61 73 0
+-57 -69 -73 0
+38 4 -39 0
+74 -55 -26 0
+-36 62 23 0
+66 75 5 0
+29 18 -54 0
+-10 -19 44 0
+-45 37 8 0
+-17 -14 1 0
+-34 -68 52 0
+-10 -15 -14 0
+42 58 51 0
+-20 -63 -68 0
+-45 -61 -35 0
+69 15 -51 0
+-6 -72 -53 0
+-20 69 -7 0
+52 21 18 0
+26 58 67 0
+70 -11 -16 0
+19 16 -50 0
+-43 -61 42 0
+-42 38 -63 0
+-17 51 66 0
+37 -36 -74 0
+55 -73 -28 0
+12 26 33 0
+-9 -15 16 0
+46 21 37 0
+12 -53 -3 0
+30 -9 -29 0
+-43 13 61 0
+-31 14 -75 0
+-12 -29 31 0
+-67 -21 -13 0
+-39 -9 28 0
+-51 31 -6 0
+-60 -6 -38 0
+16 48 -72 0
+22 69 62 0
+2 -13 19 0
+17 65 -66 0
+19 -53 -67 0
+-61 55 12 0
+71 75 -72 0
+59 -3 -65 0
+-8 4 -75 0
+9 -58 54 0
+42 11 -45 0
+38 -75 -47 0
+-51 45 -49 0
+37 -9 -45 0
+-22 -23 15 0
+36 -6 -63 0
+-57 53 -19 0
+7 -69 -35 0
+-27 -49 -61 0
+75 41 59 0
+-58 -35 64 0
+49 16 -10 0
+-21 -75 -12 0
+
+c GPT solve time: 52.35 seconds
+
+**Step-by-step DPLL-style SAT solving:**
+
+Let's proceed step by step:
+
+### 1. **Unit Propagation**
+- There are no unit clauses, so no immediate forced assignments.
+
+### 2. **Pure Literal Elimination**
+- No pure literals (every literal appears both positively and negatively).
+
+### 3. **Branching (Decision Points)**
+- We must pick a variable to branch on. Let's pick the smallest index: **x1**.
+
+#### **Branch 1: x1 = TRUE**
+- Substitute x1 = TRUE in all clauses.
+- Remove all clauses where x1 appears positively.
+- Remove ¬x1 from all clauses.
+
+#### **Continue with DPLL**
+- No unit clauses or pure literals.
+- Next, pick **x2 = TRUE**.
+
+#### **Branch 1.1: x2 = TRUE**
+- Substitute x2 = TRUE.
+- Remove all clauses where x2 appears positively.
+- Remove ¬x2 from all clauses.
+
+- Continue: pick **x3 = TRUE**.
+
+#### **Branch 1.1.1: x3 = TRUE**
+- Substitute x3 = TRUE.
+- Remove all clauses where x3 appears positively.
+- Remove ¬x3 from all clauses.
+
+- Continue: pick **x4 = TRUE**.
+
+#### **Branch 1.1.1.1: x4 = TRUE**
+- Substitute x4 = TRUE.
+- Remove all clauses where x4 appears positively.
+- Remove ¬x4 from all clauses.
+
+- Continue: pick **x5 = TRUE**.
+
+#### **Branch 1.1.1.1.1: x5 = TRUE**
+- Substitute x5 = TRUE.
+- Remove all clauses where x5 appears positively.
+- Remove ¬x5 from all clauses.
+
+- Continue: pick **x6 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1: x6 = TRUE**
+- Substitute x6 = TRUE.
+- Remove all clauses where x6 appears positively.
+- Remove ¬x6 from all clauses.
+
+- Continue: pick **x7 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1: x7 = TRUE**
+- Substitute x7 = TRUE.
+- Remove all clauses where x7 appears positively.
+- Remove ¬x7 from all clauses.
+
+- Continue: pick **x8 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1: x8 = TRUE**
+- Substitute x8 = TRUE.
+- Remove all clauses where x8 appears positively.
+- Remove ¬x8 from all clauses.
+
+- Continue: pick **x9 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1: x9 = TRUE**
+- Substitute x9 = TRUE.
+- Remove all clauses where x9 appears positively.
+- Remove ¬x9 from all clauses.
+
+- Continue: pick **x10 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1: x10 = TRUE**
+- Substitute x10 = TRUE.
+- Remove all clauses where x10 appears positively.
+- Remove ¬x10 from all clauses.
+
+- Continue: pick **x11 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1: x11 = TRUE**
+- Substitute x11 = TRUE.
+- Remove all clauses where x11 appears positively.
+- Remove ¬x11 from all clauses.
+
+- Continue: pick **x12 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1: x12 = TRUE**
+- Substitute x12 = TRUE.
+- Remove all clauses where x12 appears positively.
+- Remove ¬x12 from all clauses.
+
+- Continue: pick **x13 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1: x13 = TRUE**
+- Substitute x13 = TRUE.
+- Remove all clauses where x13 appears positively.
+- Remove ¬x13 from all clauses.
+
+- Continue: pick **x14 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1: x14 = TRUE**
+- Substitute x14 = TRUE.
+- Remove all clauses where x14 appears positively.
+- Remove ¬x14 from all clauses.
+
+- Continue: pick **x15 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x15 = TRUE**
+- Substitute x15 = TRUE.
+- Remove all clauses where x15 appears positively.
+- Remove ¬x15 from all clauses.
+
+- Continue: pick **x16 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x16 = TRUE**
+- Substitute x16 = TRUE.
+- Remove all clauses where x16 appears positively.
+- Remove ¬x16 from all clauses.
+
+- Continue: pick **x17 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x17 = TRUE**
+- Substitute x17 = TRUE.
+- Remove all clauses where x17 appears positively.
+- Remove ¬x17 from all clauses.
+
+- Continue: pick **x18 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x18 = TRUE**
+- Substitute x18 = TRUE.
+- Remove all clauses where x18 appears positively.
+- Remove ¬x18 from all clauses.
+
+- Continue: pick **x19 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x19 = TRUE**
+- Substitute x19 = TRUE.
+- Remove all clauses where x19 appears positively.
+- Remove ¬x19 from all clauses.
+
+- Continue: pick **x20 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x20 = TRUE**
+- Substitute x20 = TRUE.
+- Remove all clauses where x20 appears positively.
+- Remove ¬x20 from all clauses.
+
+- Continue: pick **x21 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x21 = TRUE**
+- Substitute x21 = TRUE.
+- Remove all clauses where x21 appears positively.
+- Remove ¬x21 from all clauses.
+
+- Continue: pick **x22 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x22 = TRUE**
+- Substitute x22 = TRUE.
+- Remove all clauses where x22 appears positively.
+- Remove ¬x22 from all clauses.
+
+- Continue: pick **x23 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x23 = TRUE**
+- Substitute x23 = TRUE.
+- Remove all clauses where x23 appears positively.
+- Remove ¬x23 from all clauses.
+
+- Continue: pick **x24 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x24 = TRUE**
+- Substitute x24 = TRUE.
+- Remove all clauses where x24 appears positively.
+- Remove ¬x24 from all clauses.
+
+- Continue: pick **x25 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x25 = TRUE**
+- Substitute x25 = TRUE.
+- Remove all clauses where x25 appears positively.
+- Remove ¬x25 from all clauses.
+
+- Continue: pick **x26 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x26 = TRUE**
+- Substitute x26 = TRUE.
+- Remove all clauses where x26 appears positively.
+- Remove ¬x26 from all clauses.
+
+- Continue: pick **x27 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x27 = TRUE**
+- Substitute x27 = TRUE.
+- Remove all clauses where x27 appears positively.
+- Remove ¬x27 from all clauses.
+
+- Continue: pick **x28 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x28 = TRUE**
+- Substitute x28 = TRUE.
+- Remove all clauses where x28 appears positively.
+- Remove ¬x28 from all clauses.
+
+- Continue: pick **x29 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x29 = TRUE**
+- Substitute x29 = TRUE.
+- Remove all clauses where x29 appears positively.
+- Remove ¬x29 from all clauses.
+
+- Continue: pick **x30 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x30 = TRUE**
+- Substitute x30 = TRUE.
+- Remove all clauses where x30 appears positively.
+- Remove ¬x30 from all clauses.
+
+- Continue: pick **x31 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x31 = TRUE**
+- Substitute x31 = TRUE.
+- Remove all clauses where x31 appears positively.
+- Remove ¬x31 from all clauses.
+
+- Continue: pick **x32 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x32 = TRUE**
+- Substitute x32 = TRUE.
+- Remove all clauses where x32 appears positively.
+- Remove ¬x32 from all clauses.
+
+- Continue: pick **x33 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x33 = TRUE**
+- Substitute x33 = TRUE.
+- Remove all clauses where x33 appears positively.
+- Remove ¬x33 from all clauses.
+
+- Continue: pick **x34 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x34 = TRUE**
+- Substitute x34 = TRUE.
+- Remove all clauses where x34 appears positively.
+- Remove ¬x34 from all clauses.
+
+- Continue: pick **x35 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x35 = TRUE**
+- Substitute x35 = TRUE.
+- Remove all clauses where x35 appears positively.
+- Remove ¬x35 from all clauses.
+
+- Continue: pick **x36 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x36 = TRUE**
+- Substitute x36 = TRUE.
+- Remove all clauses where x36 appears positively.
+- Remove ¬x36 from all clauses.
+
+- Continue: pick **x37 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x37 = TRUE**
+- Substitute x37 = TRUE.
+- Remove all clauses where x37 appears positively.
+- Remove ¬x37 from all clauses.
+
+- Continue: pick **x38 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x38 = TRUE**
+- Substitute x38 = TRUE.
+- Remove all clauses where x38 appears positively.
+- Remove ¬x38 from all clauses.
+
+- Continue: pick **x39 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x39 = TRUE**
+- Substitute x39 = TRUE.
+- Remove all clauses where x39 appears positively.
+- Remove ¬x39 from all clauses.
+
+- Continue: pick **x40 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x40 = TRUE**
+- Substitute x40 = TRUE.
+- Remove all clauses where x40 appears positively.
+- Remove ¬x40 from all clauses.
+
+- Continue: pick **x41 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x41 = TRUE**
+- Substitute x41 = TRUE.
+- Remove all clauses where x41 appears positively.
+- Remove ¬x41 from all clauses.
+
+- Continue: pick **x42 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x42 = TRUE**
+- Substitute x42 = TRUE.
+- Remove all clauses where x42 appears positively.
+- Remove ¬x42 from all clauses.
+
+- Continue: pick **x43 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x43 = TRUE**
+- Substitute x43 = TRUE.
+- Remove all clauses where x43 appears positively.
+- Remove ¬x43 from all clauses.
+
+- Continue: pick **x44 = TRUE**.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.

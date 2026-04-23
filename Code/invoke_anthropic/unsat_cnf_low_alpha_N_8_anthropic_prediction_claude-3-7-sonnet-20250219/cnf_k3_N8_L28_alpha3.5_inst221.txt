@@ -1,0 +1,163 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=221
+p cnf 8 28
+-6 -4 3 0
+-1 8 -5 0
+3 -8 -7 0
+-5 -2 -4 0
+-6 -4 -3 0
+1 2 8 0
+3 -5 -4 0
+-6 -2 3 0
+-8 5 3 0
+-1 7 8 0
+7 1 8 0
+6 1 -7 0
+4 5 6 0
+6 5 -4 0
+-8 -3 7 0
+3 -7 6 0
+-2 8 -6 0
+-1 -6 5 0
+-6 -8 4 0
+4 1 -8 0
+-8 4 -1 0
+8 4 6 0
+-4 -5 -1 0
+7 4 8 0
+7 4 1 0
+3 -8 -4 0
+2 4 -1 0
+-8 -6 -7 0
+
+c GPT solve time: 48.26 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by assigning x1 = true.
+
+Step 2: Looking for unit clauses after setting x1 = true:
+- From (x7 ∨ x1 ∨ x8), this clause is satisfied.
+- From (x6 ∨ x1 ∨ ¬x7), this clause is satisfied.
+- From (x4 ∨ x1 ∨ ¬x8), this clause is satisfied.
+- From (x7 ∨ x4 ∨ x1), this clause is satisfied.
+- From (x2 ∨ x4 ∨ ¬x1), since x1 = true, we need (x2 ∨ x4) to be true.
+No unit clauses yet.
+
+Step 3: Let's assign x2 = true.
+- From (¬x5 ∨ ¬x2 ∨ ¬x4), since x2 = true, we need (¬x5 ∨ ¬x4) to be true.
+- From (¬x6 ∨ ¬x2 ∨ x3), since x2 = true, we need (¬x6 ∨ x3) to be true.
+- From (¬x2 ∨ x8 ∨ ¬x6), since x2 = true, we need (x8 ∨ ¬x6) to be true.
+No unit clauses yet.
+
+Step 4: Let's assign x3 = true.
+- From (¬x6 ∨ ¬x4 ∨ x3), this clause is satisfied.
+- From (x3 ∨ ¬x8 ∨ ¬x7), this clause is satisfied.
+- From (¬x6 ∨ ¬x4 ∨ ¬x3), since x3 = true, we need (¬x6 ∨ ¬x4) to be true.
+- From (x3 ∨ ¬x5 ∨ ¬x4), this clause is satisfied.
+- From (¬x6 ∨ ¬x2 ∨ x3), this clause is satisfied.
+- From (¬x8 ∨ x5 ∨ x3), this clause is satisfied.
+- From (¬x8 ∨ ¬x3 ∨ x7), since x3 = true, we need (¬x8 ∨ x7) to be true.
+- From (x3 ∨ ¬x7 ∨ x6), this clause is satisfied.
+- From (x3 ∨ ¬x8 ∨ ¬x4), this clause is satisfied.
+No unit clauses yet.
+
+Step 5: Let's assign x4 = false.
+- From (¬x6 ∨ ¬x4 ∨ x3), this clause is satisfied.
+- From (¬x5 ∨ ¬x2 ∨ ¬x4), this clause is simplified to (¬x5 ∨ ¬x2), and since x2 = true, we need ¬x5 to be true, so x5 = false.
+- From (¬x6 ∨ ¬x4 ∨ ¬x3), this clause is satisfied.
+- From (x3 ∨ ¬x5 ∨ ¬x4), this clause is satisfied.
+- From (x4 ∨ x5 ∨ x6), since x4 = false and x5 = false, we need x6 = true.
+- From (x6 ∨ x5 ∨ ¬x4), this clause is satisfied.
+- From (¬x6 ∨ ¬x8 ∨ x4), since x4 = false and x6 = true, we need ¬x8 to be true, so x8 = false.
+- From (x4 ∨ x1 ∨ ¬x8), this clause is satisfied.
+- From (¬x8 ∨ x4 ∨ ¬x1), this clause is satisfied.
+- From (x8 ∨ x4 ∨ x6), since x8 = false and x4 = false, we need x6 = true (already set).
+- From (¬x4 ∨ ¬x5 ∨ ¬x1), since x4 = false, this clause is satisfied.
+- From (x7 ∨ x4 ∨ x8), since x4 = false and x8 = false, we need x7 = true.
+- From (x7 ∨ x4 ∨ x1), this clause is satisfied.
+- From (x3 ∨ ¬x8 ∨ ¬x4), this clause is satisfied.
+- From (x2 ∨ x4 ∨ ¬x1), since x4 = false and x1 = true, we need x2 = true (already set).
+
+Step 6: Let's check if all clauses are satisfied with our current assignment:
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = false, x6 = true, x7 = true, x8 = false
+
+Checking remaining clauses:
+- (¬x1 ∨ x8 ∨ ¬x5): x1 = true, x8 = false, x5 = false → (false ∨ false ∨ true) = true ✓
+- (x3 ∨ ¬x8 ∨ ¬x7): x3 = true, x8 = false, x7 = true → (true ∨ true ∨ false) = true ✓
+- (x1 ∨ x2 ∨ x8): x1 = true, x2 = true, x8 = false → (true ∨ true ∨ false) = true ✓
+- (¬x8 ∨ x5 ∨ x3): x8 = false, x5 = false, x3 = true → (true ∨ false ∨ true) = true ✓
+- (¬x1 ∨ x7 ∨ x8): x1 = true, x7 = true, x8 = false → (false ∨ true ∨ false) = true ✓
+- (x7 ∨ x1 ∨ x8): x7 = true, x1 = true, x8 = false → (true ∨ true ∨ false) = true ✓
+- (x6 ∨ x1 ∨ ¬x7): x6 = true, x1 = true, x7 = true → (true ∨ true ∨ false) = true ✓
+- (¬x8 ∨ ¬x3 ∨ x7): x8 = false, x3 = true, x7 = true → (true ∨ false ∨ true) = true ✓
+- (x3 ∨ ¬x7 ∨ x6): x3 = true, x7 = true, x6 = true → (true ∨ false ∨ true) = true ✓
+- (¬x2 ∨ x8 ∨ ¬x6): x2 = true, x8 = false, x6 = true → (false ∨ false ∨ false) = false ✗
+
+We have a conflict! We need to backtrack.
+
+Step 7: Let's backtrack and try x4 = true instead.
+- From (¬x6 ∨ ¬x4 ∨ x3), since x3 = true, this clause is satisfied.
+- From (¬x5 ∨ ¬x2 ∨ ¬x4), since x2 = true and x4 = true, we need ¬x5 to be true, so x5 = false.
+- From (¬x6 ∨ ¬x4 ∨ ¬x3), since x3 = true and x4 = true, we need ¬x6 to be true, so x6 = false.
+- From (x3 ∨ ¬x5 ∨ ¬x4), since x3 = true, this clause is satisfied.
+- From (x4 ∨ x5 ∨ x6), this clause is satisfied.
+- From (x6 ∨ x5 ∨ ¬x4), since x4 = true, x5 = false, and x6 = false, this clause is not satisfied. ✗
+
+We have another conflict! Let's backtrack further.
+
+Step 8: Let's backtrack and try x3 = false.
+- From (¬x6 ∨ ¬x4 ∨ x3), since x3 = false, we need (¬x6 ∨ ¬x4) to be true.
+- From (x3 ∨ ¬x8 ∨ ¬x7), since x3 = false, we need (¬x8 ∨ ¬x7) to be true.
+- From (¬x6 ∨ ¬x4 ∨ ¬x3), this clause is satisfied.
+- From (x3 ∨ ¬x5 ∨ ¬x4), since x3 = false, we need (¬x5 ∨ ¬x4) to be true.
+- From (¬x6 ∨ ¬x2 ∨ x3), since x2 = true and x3 = false, we need ¬x6 to be true, so x6 = false.
+- From (¬x8 ∨ x5 ∨ x3), since x3 = false, we need (¬x8 ∨ x5) to be true.
+- From (x3 ∨ ¬x7 ∨ x6), since x3 = false and x6 = false, we need ¬x7 to be true, so x7 = false.
+- From (x3 ∨ ¬x8 ∨ ¬x4), since x3 = false, we need (¬x8 ∨ ¬x4) to be true.
+
+Let's continue with x4 = false:
+- From (¬x6 ∨ ¬x4 ∨ x3), this clause is satisfied.
+- From (¬x5 ∨ ¬x2 ∨ ¬x4), since x2 = true and x4 = false, this clause is simplified to ¬x5, so x5 = false.
+- From (x3 ∨ ¬x5 ∨ ¬x4), this clause is satisfied.
+- From (x4 ∨ x5 ∨ x6), since x4 = false, x5 = false, and x6 = false, this clause is not satisfied. ✗
+
+Another conflict! Let's try x4 = true:
+- From (¬x6 ∨ ¬x4 ∨ x3), since x3 = false, x4 = true, and x6 = false, this clause is satisfied.
+- From (¬x5 ∨ ¬x2 ∨ ¬x4), since x2 = true and x4 = true, we need ¬x5 to be true, so x5 = false.
+- From (x3 ∨ ¬x5 ∨ ¬x4), since x3 = false, x5 = false, and x4 = true, this clause is not satisfied. ✗
+
+We have conflicts in all branches with x3. Let's backtrack further.
+
+Step 9: Let's backtrack and try x2 = false.
+- From (x1 ∨ x2 ∨ x8), since x1 = true, this clause is satisfied.
+- From (¬x5 ∨ ¬x2 ∨ ¬x4), this clause is satisfied.
+- From (¬x6 ∨ ¬x2 ∨ x3), this clause is satisfied.
+- From (¬x2 ∨ x8 ∨ ¬x6), this clause is satisfied.
+- From (x2 ∨ x4 ∨ ¬x1), since x1 = true and x2 = false, we need x4 = true.
+
+Let's continue with x3 = true:
+- From (¬x6 ∨ ¬x4 ∨ x3), since x4 = true and x3 = true, we need ¬x6 to be true, so x6 = false.
+- From (x3 ∨ ¬x8 ∨ ¬x7), this clause is satisfied.
+- From (¬x6 ∨ ¬x4 ∨ ¬x3), since x4 = true, x3 = true, and x6 = false, this clause is satisfied.
+- From (x3 ∨ ¬x5 ∨ ¬x4), since x3 = true, this clause is satisfied.
+- From (¬x8 ∨ x5 ∨ x3), this clause is satisfied.
+- From (¬x8 ∨ ¬x3 ∨ x7), since x3 = true, we need (¬x8 ∨ x7) to be true.
+- From (x3 ∨ ¬x7 ∨ x6), since x3 = true, this clause is satisfied.
+- From (x3 ∨ ¬x8 ∨ ¬x4), since x3 = true, this clause is satisfied.
+
+Let's try x5 = true:
+- From (¬x1 ∨ x8 ∨ ¬x5), since x1 = true and x5 = true, we need x8 = true.
+- From (¬x5 ∨ ¬x2 ∨ ¬x4), since x5 = true, x2 = false, and x4 = true, this clause is not satisfied. ✗
+
+Let's try x5 = false:
+- From (¬x1 ∨ x8 ∨ ¬x5), since x5 = false, this clause is satisfied.
+- From (x4 ∨ x5 ∨ x6), since x4 = true, this clause is satisfied.
+- From (x6 ∨ x5 ∨ ¬x4), since x4 = true, x5 = false, and x6 = false, this clause is not satisfied. ✗
+
+We have conflicts in all branches. Let's backtrack further.
+
+Step 10: Let's backtrack and try x1 = false.
+- From (¬x1 ∨ x8 ∨ ¬x5), this clause is satisfied.
+- From (x1 ∨ x2 ∨ x8), since x1 = false, we need (x2 ∨ x8) to be true.
+- From (¬x1 ∨ x7 ∨ x8), this clause is satisfie

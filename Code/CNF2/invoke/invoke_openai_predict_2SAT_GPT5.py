@@ -17,7 +17,7 @@ model_list = ['gpt-5']
 model_list = ['chatgpt-4o-latest']
 # model_selected = "o1"
 
-api_key = os.environ["OPENAI_API_KEY"]
+api_key = os.environ.get("OPENAI_API_KEY")
 
 api_base = "https://api.openai.com/v1"
 # Use OpenAI v1 interface

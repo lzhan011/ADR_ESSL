@@ -12,9 +12,9 @@ import re
 
 
 # 设置 OpenAI API KEY
-# openai.api_key = os.environ["OPENAI_API_KEY"]  # 你的API KEY
+# openai.api_key = os.environ.get("OPENAI_API_KEY")  # 你的API KEY
 
-api_key = os.environ["OPENAI_API_KEY"]
+api_key = os.environ.get("OPENAI_API_KEY")
 
 api_base = "https://api.openai.com/v1"
 # Use OpenAI v1 interface

@@ -1,0 +1,55 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1041
+p cnf 8 28
+1 -2 8 0
+8 1 -2 0
+5 -7 -3 0
+-6 -3 1 0
+4 -2 -1 0
+4 -5 -3 0
+7 -1 5 0
+4 -7 1 0
+1 7 4 0
+5 2 3 0
+-7 -5 -6 0
+-1 2 -4 0
+-4 -7 -6 0
+3 -1 -5 0
+2 6 -8 0
+-1 6 -2 0
+2 8 1 0
+3 6 -4 0
+-2 -1 -7 0
+7 -2 -5 0
+5 8 1 0
+-6 8 7 0
+-1 7 -3 0
+-1 -6 2 0
+-8 7 -4 0
+-2 -8 -5 0
+8 4 7 0
+8 2 -4 0
+
+c GPT solve time: 11.27 seconds
+
+Step 1: Choose x1 to be true. This satisfies clauses 1, 2, 4, 7, 8, 9, 21.
+Step 2: Choose x2 to be false. This satisfies clauses 5, 12, 16, 19, 24, 26.
+Step 3: Choose x8 to be true. This satisfies clauses 15, 17, 22, 25, 27, 28.
+Step 4: Choose x5 to be true. This satisfies clauses 3, 10, 20.
+Step 5: Choose x7 to be true. This satisfies clauses 11, 13, 23.
+Step 6: Choose x3 to be false. This satisfies clause 14.
+Step 7: Choose x6 to be true. This satisfies clause 18.
+Step 8: Choose x4 to be false. This satisfies clause 6.
+
+SATISFIABLE
+x1 = true
+x2 = false
+x3 = false
+x4 = false
+x5 = true
+x6 = true
+x7 = true
+x8 = true
+
+Number of branches: 8
+Number of conflicts: 0

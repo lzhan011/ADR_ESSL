@@ -1,0 +1,122 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=3448
+p cnf 25 87
+25 6 19 0
+13 19 4 0
+-12 -24 15 0
+-17 -11 7 0
+-8 -6 -11 0
+-10 25 -4 0
+-22 -17 -14 0
+-16 12 -9 0
+2 -5 -15 0
+15 -23 25 0
+-18 16 20 0
+17 6 9 0
+-6 -11 -21 0
+-6 15 25 0
+8 -4 20 0
+6 -15 -19 0
+-21 -19 24 0
+24 5 -21 0
+10 24 19 0
+16 22 -10 0
+-13 1 22 0
+2 3 9 0
+-2 16 13 0
+19 14 20 0
+3 -18 1 0
+-10 17 -21 0
+-13 -7 -22 0
+-21 -10 1 0
+-13 -1 -7 0
+1 15 10 0
+-3 -23 -16 0
+-2 -24 12 0
+-5 3 -19 0
+25 19 18 0
+-20 -21 -11 0
+9 -7 -21 0
+13 19 22 0
+-6 -15 14 0
+-10 19 14 0
+-7 14 -15 0
+-18 -19 7 0
+-7 -13 15 0
+9 -7 -14 0
+-24 1 -4 0
+-17 -9 -6 0
+-20 4 -3 0
+-11 5 -23 0
+15 20 -8 0
+-16 19 -10 0
+4 -17 -15 0
+-9 12 15 0
+5 13 -14 0
+-7 14 12 0
+17 7 -4 0
+4 -1 5 0
+6 -20 4 0
+16 13 15 0
+-8 25 21 0
+19 2 -7 0
+13 -5 -3 0
+6 7 -2 0
+11 13 9 0
+-10 21 -16 0
+-14 17 -5 0
+-21 24 18 0
+11 10 -20 0
+10 -17 23 0
+7 1 24 0
+14 20 6 0
+10 8 15 0
+1 2 7 0
+-1 -8 17 0
+-19 -2 -4 0
+-5 14 -19 0
+25 -16 -14 0
+-15 -23 14 0
+-19 -9 -8 0
+11 -17 7 0
+-6 11 1 0
+-1 -4 3 0
+16 -21 1 0
+-21 -18 -1 0
+24 20 2 0
+-2 -20 15 0
+16 -15 -19 0
+11 -24 15 0
+4 21 -22 0
+
+c GPT solve time: 37.58 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Step 1: Assign x25 = 1 based on the unit clause (x25 ∨ x6 ∨ x19). This satisfies clauses 1, 10, 14, 34, 59 and 77.
+
+Step 2: Assign x19 = 1 based on the unit clause (x13 ∨ x19 ∨ x4). This satisfies clauses 2, 6, 16, 19, 24, 37, 40, 50, 60, 74, 83 and 85.
+
+Step 3: Assign x15 = 1 based on the unit clause (¬x12 ∨ ¬x24 ∨ x15). This satisfies clauses 3, 9, 30, 41, 43, 49, 51, 58, 69, 76 and 84.
+
+Step 4: Assign x6 = 0 based on the unit clause (¬x6 ∨ ¬x11 ∨ ¬x21). This satisfies clauses 5, 12, 14, 16, 39, 46, 57, 62, 78 and 80.
+
+Step 5: Assign x4 = 1 based on the unit clause (¬x10 ∨ x25 ∨ ¬x4). This satisfies clauses 6, 15, 45, 47, 52, 54, 56 and 73.
+
+Step 6: Assign x20 = 1 based on the unit clause (x8 ∨ ¬x4 ∨ x20). This satisfies clauses 11, 15, 19, 24, 35, 49, 64, 70, 82 and 86.
+
+Step 7: Assign x24 = 1 based on the unit clause (¬x21 ∨ ¬x19 ∨ x24). This satisfies clauses 17, 18, 32, 44, 65, 81 and 87.
+
+Step 8: Assign x22 = 1 based on the unit clause (x16 ∨ x22 ∨ ¬x10). This satisfies clauses 7, 20, 21, 27, 37 and 88.
+
+Step 9: Assign x13 = 1 based on the unit clause (¬x13 ∨ x1 ∨ x22). This satisfies clauses 21, 23, 27, 29, 37, 53, 58, 61 and 63.
+
+Step 10: Assign x1 = 1 based on the unit clause (¬x21 ∨ ¬x10 ∨ x1). This satisfies clauses 21, 25, 28, 29, 30, 44, 55, 67, 68, 79 and 80.
+
+Step 11: Assign x2 = 1 based on the unit clause (x2 ∨ x3 ∨ x9). This satisfies clauses 9, 22, 23, 32, 60, 68, 71, 82 and 86.
+
+Step 12: Assign x16 = 1 based on the unit clause (¬x2 ∨ x16 ∨ x13). This satisfies clauses 8, 11, 20, 23, 31, 50, 58, 64, 79 and 84.
+
+Step 13: Assign x14 = 1 based on the unit clause (x19 ∨ x14 ∨ x20). This satisfies clauses 7, 24, 39, 40, 42, 43, 53, 64 and 76.
+
+Step 14: Assign x3 = 1 based on the unit clause (x3 ∨ ¬x18 ∨ x1). This satisfies clauses 22,

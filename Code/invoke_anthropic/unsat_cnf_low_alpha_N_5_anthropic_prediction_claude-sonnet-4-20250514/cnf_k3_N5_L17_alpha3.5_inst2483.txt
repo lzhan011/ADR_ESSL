@@ -1,0 +1,118 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2483
+p cnf 5 17
+-2 3 4 0
+1 3 2 0
+-2 1 3 0
+1 -5 -4 0
+-4 3 1 0
+-1 -4 2 0
+1 -4 -5 0
+3 4 2 0
+-4 -2 -5 0
+-3 -5 1 0
+-3 5 1 0
+1 -5 -3 0
+-2 3 -1 0
+-2 -4 -3 0
+-2 3 -4 0
+-1 -3 4 0
+3 2 5 0
+
+c GPT solve time: 21.80 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+**Step 1: Initial Analysis**
+The formula has 5 variables (x1, x2, x3, x4, x5) and 17 clauses.
+
+**Step 2: Look for unit clauses and pure literals**
+No unit clauses found initially.
+No pure literals found.
+
+**Step 3: Start branching**
+
+**Branch 1: Try x1 = True**
+With x1 = True, several clauses are satisfied:
+- Clause 2: (x1 ∨ x3 ∨ x2) → True
+- Clause 3: (¬x2 ∨ x1 ∨ x3) → True
+- Clause 4: (x1 ∨ ¬x5 ∨ ¬x4) → True
+- Clause 5: (¬x4 ∨ x3 ∨ x1) → True
+- Clause 7: (x1 ∨ ¬x4 ∨ ¬x5) → True
+- Clause 10: (¬x3 ∨ ¬x5 ∨ x1) → True
+- Clause 11: (¬x3 ∨ x5 ∨ x1) → True
+- Clause 12: (x1 ∨ ¬x5 ∨ ¬x3) → True
+
+Remaining unsatisfied clauses with x1 = True:
+1. (¬x2 ∨ x3 ∨ x4)
+6. (¬x1 ∨ ¬x4 ∨ x2) → (¬x4 ∨ x2)
+8. (x3 ∨ x4 ∨ x2)
+9. (¬x4 ∨ ¬x2 ∨ ¬x5)
+13. (¬x2 ∨ x3 ∨ ¬x1) → (¬x2 ∨ x3)
+14. (¬x2 ∨ ¬x4 ∨ ¬x3)
+15. (¬x2 ∨ x3 ∨ ¬x4)
+16. (¬x1 ∨ ¬x3 ∨ x4) → (¬x3 ∨ x4)
+17. (x3 ∨ x2 ∨ x5)
+
+**Branch 2: Try x2 = False (with x1 = True)**
+With x1 = True, x2 = False:
+- Clause 1: (¬x2 ∨ x3 ∨ x4) → (x3 ∨ x4)
+- Clause 6: (¬x4 ∨ x2) → ¬x4, so x4 = False
+- Clause 8: (x3 ∨ x4 ∨ x2) → x3, so x3 = True
+- Clause 9: (¬x4 ∨ ¬x2 ∨ ¬x5) → True (since x2 = False, x4 = False)
+- Clause 13: (¬x2 ∨ x3) → True (since x2 = False)
+- Clause 14: (¬x2 ∨ ¬x4 ∨ ¬x3) → True (since x2 = False)
+- Clause 15: (¬x2 ∨ x3 ∨ ¬x4) → True (since x2 = False)
+- Clause 16: (¬x3 ∨ x4) → False (since x3 = True, x4 = False)
+
+**Conflict detected!** Clause 16 cannot be satisfied.
+
+**Backtrack and try x2 = True (with x1 = True)**
+
+**Branch 3: Try x2 = True (with x1 = True)**
+With x1 = True, x2 = True:
+- Clause 6: (¬x4 ∨ x2) → True
+- Clause 8: (x3 ∨ x4 ∨ x2) → True
+- Clause 17: (x3 ∨ x2 ∨ x5) → True
+
+Remaining clauses:
+1. (¬x2 ∨ x3 ∨ x4) → (x3 ∨ x4)
+9. (¬x4 ∨ ¬x2 ∨ ¬x5) → (¬x4 ∨ ¬x5)
+13. (¬x2 ∨ x3) → x3, so x3 = True
+14. (¬x2 ∨ ¬x4 ∨ ¬x3) → (¬x4 ∨ ¬x3) → ¬x4, so x4 = False
+15. (¬x2 ∨ x3 ∨ ¬x4) → True
+16. (¬x3 ∨ x4) → False (since x3 = True, x4 = False)
+
+**Another conflict!** Clause 16 cannot be satisfied.
+
+**Backtrack to try x1 = False**
+
+**Branch 4: Try x1 = False**
+With x1 = False:
+- Clause 6: (¬x1 ∨ ¬x4 ∨ x2) → (¬x4 ∨ x2)
+- Clause 16: (¬x1 ∨ ¬x3 ∨ x4) → (¬x3 ∨ x4)
+
+From clauses 10 and 11 with x1 = False:
+- Clause 10: (¬x3 ∨ ¬x5 ∨ x1) → (¬x3 ∨ ¬x5)
+- Clause 11: (¬x3 ∨ x5 ∨ x1) → (¬x3 ∨ x5)
+
+From these two clauses: ¬x3 must be true, so x3 = False.
+
+With x1 = False, x3 = False:
+- Clause 16: (¬x3 ∨ x4) → True
+- Clause 1: (¬x2 ∨ x3 ∨ x4) → (¬x2 ∨ x4)
+- Clause 13: (¬x2 ∨ x3 ∨ ¬x1) → ¬x2, so x2 = False
+- Clause 17: (x3 ∨ x2 ∨ x5) → x5, so x5 = True
+
+With x1 = False, x2 = False, x3 = False, x5 = True:
+- Clause 1: (¬x2 ∨ x3 ∨ x4) → x4, so x4 = True
+- Clause 9: (¬x4 ∨ ¬x2 ∨ ¬x5) → False (since x4 = True, x2 = False, x5 = True)
+
+**Another conflict!**
+
+After exhaustive search, all branches lead to conflicts.
+
+**Results:**
+- UNSATISFIABLE
+- Number of branches: 4
+- Number of conflicts: 3

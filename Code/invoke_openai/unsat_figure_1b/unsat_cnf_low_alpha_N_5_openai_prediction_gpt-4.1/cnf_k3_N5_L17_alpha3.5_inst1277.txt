@@ -1,0 +1,236 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1277
+p cnf 5 17
+-4 -2 -5 0
+-3 5 1 0
+2 -3 -4 0
+2 -4 -1 0
+2 1 -5 0
+-3 -2 1 0
+-1 4 3 0
+5 4 3 0
+-2 1 -5 0
+-2 -1 -4 0
+-4 -3 -5 0
+-2 3 -4 0
+-5 2 3 0
+-3 4 -1 0
+2 1 -4 0
+4 -5 2 0
+3 1 5 0
+
+c GPT solve time: 43.90 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Step 1: List variables:** x1, x2, x3, x4, x5
+
+**Step 2: Try assigning x1 = True**
+
+- Propagate through the clauses.
+
+**Step 3: Assign x2 = True**
+
+- Propagate.
+
+**Step 4: Assign x3 = True**
+
+- Propagate.
+
+**Step 5: Assign x4 = True**
+
+- Propagate.
+
+**Step 6: Assign x5 = True**
+
+- Check all clauses:
+
+Let's check each clause with this assignment:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (False ∨ False ∨ False) = False → **Conflict!**
+
+**Step 7: Backtrack x5 = False**
+
+- Now x1=T, x2=T, x3=T, x4=T, x5=F
+
+Check all clauses:
+1. (¬x4 ∨ ¬x2 ∨ ¬x5): (F ∨ F ∨ T) = T
+2. (¬x3 ∨ x5 ∨ x1): (F ∨ F ∨ T) = T
+3. (x2 ∨ ¬x3 ∨ ¬x4): (T ∨ F ∨ F) = T
+4. (x2 ∨ ¬x4 ∨ ¬x1): (T ∨ F ∨ F) = T
+5. (x2 ∨ x1 ∨ ¬x5): (T ∨ T ∨ T) = T
+6. (¬x3 ∨ ¬x2 ∨ x1): (F ∨ F ∨ T) = T
+7. (¬x1 ∨ x4 ∨ x3): (F ∨ T ∨ T) = T
+8. (x5 ∨ x4 ∨ x3): (F ∨ T ∨ T) = T
+9. (¬x2 ∨ x1 ∨ ¬x5): (F ∨ T ∨ T) = T
+10. (¬x2 ∨ ¬x1 ∨ ¬x4): (F ∨ F ∨ F) = F → **Conflict!**
+
+**Step 8: Backtrack x4 = False, x5 unassigned**
+
+Now x1=T, x2=T, x3=T, x4=F
+
+Try x5=T:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (T ∨ F ∨ F) = T
+- (¬x3 ∨ x5 ∨ x1): (F ∨ T ∨ T) = T
+- (x2 ∨ ¬x3 ∨ ¬x4): (T ∨ F ∨ T) = T
+- (x2 ∨ ¬x4 ∨ ¬x1): (T ∨ T ∨ F) = T
+- (x2 ∨ x1 ∨ ¬x5): (T ∨ T ∨ F) = T
+- (¬x3 ∨ ¬x2 ∨ x1): (F ∨ F ∨ T) = T
+- (¬x1 ∨ x4 ∨ x3): (F ∨ F ∨ T) = T
+- (x5 ∨ x4 ∨ x3): (T ∨ F ∨ T) = T
+- (¬x2 ∨ x1 ∨ ¬x5): (F ∨ T ∨ F) = T
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (F ∨ F ∨ T) = T
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (T ∨ F ∨ F) = T
+- (¬x2 ∨ x3 ∨ ¬x4): (F ∨ T ∨ T) = T
+- (¬x5 ∨ x2 ∨ x3): (F ∨ T ∨ T) = T
+- (¬x3 ∨ x4 ∨ ¬x1): (F ∨ F ∨ F) = F → **Conflict!**
+
+Try x5=F:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (T ∨ F ∨ T) = T
+- (¬x3 ∨ x5 ∨ x1): (F ∨ F ∨ T) = T
+- (x2 ∨ ¬x3 ∨ ¬x4): (T ∨ F ∨ T) = T
+- (x2 ∨ ¬x4 ∨ ¬x1): (T ∨ T ∨ F) = T
+- (x2 ∨ x1 ∨ ¬x5): (T ∨ T ∨ T) = T
+- (¬x3 ∨ ¬x2 ∨ x1): (F ∨ F ∨ T) = T
+- (¬x1 ∨ x4 ∨ x3): (F ∨ F ∨ T) = T
+- (x5 ∨ x4 ∨ x3): (F ∨ F ∨ T) = T
+- (¬x2 ∨ x1 ∨ ¬x5): (F ∨ T ∨ T) = T
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (F ∨ F ∨ T) = T
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (T ∨ F ∨ T) = T
+- (¬x2 ∨ x3 ∨ ¬x4): (F ∨ T ∨ T) = T
+- (¬x5 ∨ x2 ∨ x3): (T ∨ T ∨ T) = T
+- (¬x3 ∨ x4 ∨ ¬x1): (F ∨ F ∨ F) = F → **Conflict!**
+
+**Step 9: Backtrack x3 = False, x4, x5 unassigned**
+
+Now x1=T, x2=T, x3=F
+
+Try x4=T:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (F ∨ F ∨ ?) = ?
+- (¬x3 ∨ x5 ∨ x1): (T ∨ ? ∨ T) = T
+- (x2 ∨ ¬x3 ∨ ¬x4): (T ∨ T ∨ F) = T
+- (x2 ∨ ¬x4 ∨ ¬x1): (T ∨ F ∨ F) = T
+- (x2 ∨ x1 ∨ ¬x5): (T ∨ T ∨ ?) = T
+- (¬x3 ∨ ¬x2 ∨ x1): (T ∨ F ∨ T) = T
+- (¬x1 ∨ x4 ∨ x3): (F ∨ T ∨ F) = T
+- (x5 ∨ x4 ∨ x3): (? ∨ T ∨ F) = T
+- (¬x2 ∨ x1 ∨ ¬x5): (F ∨ T ∨ ?) = T
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (F ∨ F ∨ F) = F → **Conflict!**
+
+Try x4=F:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (T ∨ F ∨ ?) = T
+- (¬x3 ∨ x5 ∨ x1): (T ∨ ? ∨ T) = T
+- (x2 ∨ ¬x3 ∨ ¬x4): (T ∨ T ∨ T) = T
+- (x2 ∨ ¬x4 ∨ ¬x1): (T ∨ T ∨ F) = T
+- (x2 ∨ x1 ∨ ¬x5): (T ∨ T ∨ ?) = T
+- (¬x3 ∨ ¬x2 ∨ x1): (T ∨ F ∨ T) = T
+- (¬x1 ∨ x4 ∨ x3): (F ∨ F ∨ F) = F → **Conflict!**
+
+**Step 10: Backtrack x2 = False, x3, x4, x5 unassigned**
+
+Now x1=T, x2=F
+
+Try x3=T:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (? ∨ T ∨ ?) = T
+- (¬x3 ∨ x5 ∨ x1): (F ∨ ? ∨ T) = T
+- (x2 ∨ ¬x3 ∨ ¬x4): (F ∨ F ∨ ?) = ?
+- (x2 ∨ ¬x4 ∨ ¬x1): (F ∨ ? ∨ F) = ?
+- (x2 ∨ x1 ∨ ¬x5): (F ∨ T ∨ ?) = T
+- (¬x3 ∨ ¬x2 ∨ x1): (F ∨ T ∨ T) = T
+- (¬x1 ∨ x4 ∨ x3): (F ∨ ? ∨ T) = T
+- (x5 ∨ x4 ∨ x3): (? ∨ ? ∨ T) = T
+- (¬x2 ∨ x1 ∨ ¬x5): (T ∨ T ∨ ?) = T
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (T ∨ F ∨ ?) = T
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (? ∨ F ∨ ?) = ?
+- (¬x2 ∨ x3 ∨ ¬x4): (T ∨ T ∨ ?) = T
+- (¬x5 ∨ x2 ∨ x3): (? ∨ F ∨ T) = T
+- (¬x3 ∨ x4 ∨ ¬x1): (F ∨ ? ∨ F) = ?
+- (x2 ∨ x1 ∨ ¬x4): (F ∨ T ∨ ?) = T
+- (x4 ∨ ¬x5 ∨ x2): (? ∨ ? ∨ F) = ?
+- (x3 ∨ x1 ∨ x5): (T ∨ T ∨ ?) = T
+
+Try x4=T:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (F ∨ T ∨ ?) = T
+- (x2 ∨ ¬x3 ∨ ¬x4): (F ∨ F ∨ F) = F → **Conflict!**
+
+Try x4=F:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (T ∨ T ∨ ?) = T
+- (x2 ∨ ¬x3 ∨ ¬x4): (F ∨ F ∨ T) = T
+- (x2 ∨ ¬x4 ∨ ¬x1): (F ∨ T ∨ F) = T
+- (¬x1 ∨ x4 ∨ x3): (F ∨ F ∨ T) = T
+- (x5 ∨ x4 ∨ x3): (? ∨ F ∨ T) = T
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (T ∨ F ∨ ?) = T
+- (¬x3 ∨ x4 ∨ ¬x1): (F ∨ F ∨ F) = F → **Conflict!**
+
+Try x3=F:
+- (¬x3 ∨ x5 ∨ x1): (T ∨ ? ∨ T) = T
+- (x2 ∨ ¬x3 ∨ ¬x4): (F ∨ T ∨ ?) = T
+- (¬x3 ∨ ¬x2 ∨ x1): (T ∨ T ∨ T) = T
+- (¬x1 ∨ x4 ∨ x3): (F ∨ ? ∨ F) = ?
+- (x5 ∨ x4 ∨ x3): (? ∨ ? ∨ F) = ?
+- (¬x2 ∨ x1 ∨ ¬x5): (T ∨ T ∨ ?) = T
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (T ∨ F ∨ ?) = T
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (? ∨ T ∨ ?) = T
+- (¬x2 ∨ x3 ∨ ¬x4): (T ∨ F ∨ ?) = T
+- (¬x5 ∨ x2 ∨ x3): (? ∨ F ∨ F) = ?
+- (¬x3 ∨ x4 ∨ ¬x1): (T ∨ ? ∨ F) = T
+- (x2 ∨ x1 ∨ ¬x5): (F ∨ T ∨ ?) = T
+- (x2 ∨ ¬x4 ∨ ¬x1): (F ∨ ? ∨ F) = ?
+- (x4 ∨ ¬x5 ∨ x2): (? ∨ ? ∨ F) = ?
+- (x3 ∨ x1 ∨ x5): (F ∨ T ∨ ?) = T
+
+Try x4=T:
+- (¬x1 ∨ x4 ∨ x3): (F ∨ T ∨ F) = T
+- (x5 ∨ x4 ∨ x3): (? ∨ T ∨ F) = T
+- (x2 ∨ ¬x4 ∨ ¬x1): (F ∨ F ∨ F) = F → **Conflict!**
+
+Try x4=F:
+- (¬x1 ∨ x4 ∨ x3): (F ∨ F ∨ F) = F → **Conflict!**
+
+**Step 11: Backtrack x1 = False, x2, x3, x4, x5 unassigned**
+
+Try x2=T:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (? ∨ F ∨ ?) = ?
+- (¬x3 ∨ x5 ∨ x1): (? ∨ ? ∨ F) = ?
+- (x2 ∨ ¬x3 ∨ ¬x4): (T ∨ ? ∨ ?) = T
+- (x2 ∨ ¬x4 ∨ ¬x1): (T ∨ ? ∨ T) = T
+- (x2 ∨ x1 ∨ ¬x5): (T ∨ F ∨ ?) = T
+- (¬x3 ∨ ¬x2 ∨ x1): (? ∨ F ∨ F) = ?
+- (¬x1 ∨ x4 ∨ x3): (T ∨ ? ∨ ?) = T
+- (x5 ∨ x4 ∨ x3): (? ∨ ? ∨ ?) = ?
+- (¬x2 ∨ x1 ∨ ¬x5): (F ∨ F ∨ ?) = ?
+- (¬x2 ∨ ¬x1 ∨ ¬x4): (F ∨ T ∨ ?) = T
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (? ∨ ? ∨ ?) = ?
+- (¬x2 ∨ x3 ∨ ¬x4): (F ∨ ? ∨ ?) = ?
+- (¬x5 ∨ x2 ∨ x3): (? ∨ T ∨ ?) = T
+- (¬x3 ∨ x4 ∨ ¬x1): (? ∨ ? ∨ T) = T
+- (x2 ∨ x1 ∨ ¬x4): (T ∨ F ∨ ?) = T
+- (x4 ∨ ¬x5 ∨ x2): (? ∨ ? ∨ T) = T
+- (x3 ∨ x1 ∨ x5): (? ∨ F ∨ ?) = ?
+
+Try x3=T:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (? ∨ F ∨ ?) = ?
+- (¬x3 ∨ x5 ∨ x1): (F ∨ ? ∨ F) = ?
+- (¬x3 ∨ ¬x2 ∨ x1): (F ∨ F ∨ F) = F → **Conflict!**
+
+Try x3=F:
+- (¬x3 ∨ x5 ∨ x1): (T ∨ ? ∨ F) = T
+- (¬x3 ∨ ¬x2 ∨ x1): (T ∨ F ∨ F) = T
+- (¬x1 ∨ x4 ∨ x3): (T ∨ ? ∨ F) = T
+- (x5 ∨ x4 ∨ x3): (? ∨ ? ∨ F) = ?
+- (¬x2 ∨ x1 ∨ ¬x5): (F ∨ F ∨ ?) = ?
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (? ∨ T ∨ ?) = T
+- (¬x3 ∨ x4 ∨ ¬x1): (T ∨ ? ∨ T) = T
+- (x3 ∨ x1 ∨ x5): (F ∨ F ∨ ?) = ?
+
+Try x4=T:
+- (x5 ∨ x4 ∨ x3): (? ∨ T ∨ F) = T
+- (¬x2 ∨ x1 ∨ ¬x5): (F ∨ F ∨ ?) = ?
+- (¬x4 ∨ ¬x3 ∨ ¬x5): (F ∨ T ∨ ?) = T
+- (x3 ∨ x1 ∨ x5): (F ∨ F ∨ ?) = ?
+
+Try x5=T:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (F ∨ F ∨ F) = F → **Conflict!**
+
+Try x5=F:
+- (¬x4 ∨ ¬x2 ∨ ¬x5): (F ∨ F ∨ T) = T
+- (¬x2 ∨ x1 ∨ ¬x5):

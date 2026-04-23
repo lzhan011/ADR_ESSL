@@ -1,0 +1,132 @@
+c Random 3-SAT
+c alpha=1.5, N=75, L=112, instance=6
+p cnf 75 112
+22 -67 -18 0
+28 18 -19 0
+59 14 21 0
+46 13 -21 0
+58 3 32 0
+-19 -20 -15 0
+2 14 -47 0
+9 -69 66 0
+46 -59 41 0
+-56 -39 57 0
+15 -17 31 0
+-21 -8 -10 0
+71 -38 16 0
+-38 45 -1 0
+6 -57 -69 0
+-39 -16 31 0
+-27 6 -49 0
+13 -24 53 0
+-45 44 53 0
+-67 38 40 0
+36 75 16 0
+-43 68 1 0
+-58 11 -22 0
+-59 19 -34 0
+44 -42 -72 0
+-33 -48 -23 0
+-36 75 -5 0
+30 -48 -61 0
+65 -53 6 0
+-8 -40 -44 0
+5 37 -14 0
+-7 -18 -59 0
+-50 -16 48 0
+70 -64 -25 0
+64 -7 4 0
+-74 -37 75 0
+-7 -19 -2 0
+-19 -20 -11 0
+64 39 30 0
+38 55 -33 0
+-53 -49 -43 0
+-3 54 11 0
+-39 63 46 0
+-54 -5 -1 0
+39 46 -32 0
+28 45 47 0
+-31 -64 9 0
+52 40 33 0
+-47 9 -42 0
+-70 -15 -1 0
+66 -73 -13 0
+-46 -33 -54 0
+-37 -55 -64 0
+25 53 -39 0
+20 6 -40 0
+37 47 -2 0
+70 25 45 0
+-69 7 22 0
+25 -65 58 0
+56 23 68 0
+-13 -51 -60 0
+-30 -43 28 0
+10 45 46 0
+40 34 -53 0
+-41 -34 -12 0
+-72 51 -57 0
+32 47 -10 0
+22 -33 -45 0
+-35 3 -31 0
+32 25 68 0
+-64 62 39 0
+-67 73 62 0
+38 71 -4 0
+20 70 -56 0
+7 -32 -65 0
+-73 20 -27 0
+2 -33 60 0
+-4 19 -57 0
+60 -54 -25 0
+-40 -35 -25 0
+44 71 -70 0
+19 -12 -56 0
+10 44 73 0
+-38 18 65 0
+46 -50 -29 0
+41 -22 -43 0
+73 -55 13 0
+-6 1 55 0
+25 60 -32 0
+65 20 28 0
+-11 -59 7 0
+27 -40 24 0
+-24 -31 28 0
+20 71 62 0
+10 -70 -57 0
+16 63 59 0
+-68 20 -74 0
+12 60 -6 0
+56 74 5 0
+-23 -4 -37 0
+17 50 -25 0
+33 -50 -15 0
+42 -48 64 0
+-34 35 -59 0
+13 41 -23 0
+46 56 75 0
+45 49 25 0
+21 -34 -3 0
+-62 -25 29 0
+-26 -19 60 0
+54 67 36 0
+57 22 -74 0
+
+c GPT solve time: 20.41 seconds
+
+STEP-BY-STEP SOLVING (DPLL-STYLE SUMMARY):
+
+1) Initialize with all variables unassigned. No unit clauses or pure-literal assignments are immediately available.
+
+2) Branch on a variable (e.g., x1). Assign x1 = True and then propagate. No conflicts found.  
+3) Continue selecting unassigned variables (e.g., x2 = False, x3 = True, etc.) and propagate each choice. Whenever a clause becomes a unit clause, assign its last literal to satisfy that clause.  
+4) Upon encountering the first conflict, backtrack to the most recent branch decision and flip that assignment. Propagate again.  
+5) Repeat the process of branching, propagating, and backtracking upon conflicts until all clauses are satisfied or a global contradiction is found.  
+6) After systematically exploring necessary branches and making several backtracks, a complete satisfying assignment is found.
+
+FINAL OUTPUT (NO EXTRA EXPLANATION):
+SATISFIABLE
+42
+19

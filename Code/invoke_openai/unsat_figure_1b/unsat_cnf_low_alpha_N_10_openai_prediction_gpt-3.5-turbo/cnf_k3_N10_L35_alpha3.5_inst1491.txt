@@ -1,0 +1,124 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1491
+p cnf 10 35
+-1 9 3 0
+-3 4 10 0
+9 4 3 0
+2 -3 -7 0
+-3 -7 -2 0
+6 10 2 0
+-7 8 -3 0
+6 9 8 0
+5 8 -9 0
+3 -6 -4 0
+3 -9 8 0
+6 2 -7 0
+2 10 3 0
+2 -6 -5 0
+4 3 -10 0
+-7 -2 3 0
+2 -10 -5 0
+10 -6 7 0
+-5 -3 -9 0
+8 -2 4 0
+-2 -4 -3 0
+5 -4 -6 0
+-6 9 4 0
+-8 -6 1 0
+-7 6 1 0
+7 -8 -3 0
+7 -8 -4 0
+5 8 -4 0
+-3 -1 8 0
+-7 5 -2 0
+4 7 10 0
+-6 -10 4 0
+-5 7 -8 0
+8 7 -10 0
+7 -9 -10 0
+
+c GPT solve time: 9.21 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the formula based on the assignment:
+   (¬True ∨ x9 ∨ x3)
+   (¬x3 ∨ x4 ∨ x10)
+   (x9 ∨ x4 ∨ x3)
+   (x2 ∨ ¬x3 ∨ ¬x7)
+   (¬x3 ∨ ¬x7 ∨ ¬x2)
+   (x6 ∨ x10 ∨ x2)
+   (¬x7 ∨ x8 ∨ ¬x3)
+   (x6 ∨ x9 ∨ x8)
+   (x5 ∨ x8 ∨ ¬x9)
+   (x3 ∨ ¬x6 ∨ ¬x4)
+   (x3 ∨ ¬x9 ∨ x8)
+   (x6 ∨ x2 ∨ ¬x7)
+   (x2 ∨ x10 ∨ x3)
+   (x2 ∨ ¬x6 ∨ ¬x5)
+   (x4 ∨ x3 ∨ ¬x10)
+   (¬x7 ∨ ¬x2 ∨ x3)
+   (x2 ∨ ¬x10 ∨ ¬x5)
+   (x10 ∨ ¬x6 ∨ x7)
+   (¬x5 ∨ ¬x3 ∨ ¬x9)
+   (x8 ∨ ¬x2 ∨ x4)
+   (¬x2 ∨ ¬x4 ∨ ¬x3)
+   (x5 ∨ ¬x4 ∨ ¬x6)
+   (¬x6 ∨ x9 ∨ x4)
+   (¬x8 ∨ ¬x6 ∨ True)
+   (¬x7 ∨ True ∨ True)
+   (True ∨ ¬x8 ∨ ¬x3)
+   (True ∨ ¬x8 ∨ ¬x4)
+   (x5 ∨ x8 ∨ ¬x4)
+   (¬x3 ∨ ¬True ∨ x8)
+   (¬True ∨ x5 ∨ ¬x2)
+   (x4 ∨ True ∨ x10)
+   (¬True ∨ ¬x10 ∨ x4)
+   (¬x5 ∨ True ∨ ¬x8)
+   (x8 ∨ True ∨ ¬x10)
+   (True ∨ ¬x9 ∨ ¬x10)
+4. Choose another literal to assign. Let's choose x9 = True.
+5. Update the formula based on the assignment:
+   (¬True ∨ True ∨ x3)
+   (¬x3 ∨ x4 ∨ x10)
+   (True ∨ x4 ∨ x3)
+   (x2 ∨ ¬x3 ∨ ¬x7)
+   (¬x3 ∨ ¬x7 ∨ ¬x2)
+   (x6 ∨ x10 ∨ x2)
+   (¬x7 ∨ x8 ∨ ¬x3)
+   (x6 ∨ True ∨ x8)
+   (x5 ∨ x8 ∨ ¬True)
+   (x3 ∨ ¬x6 ∨ ¬x4)
+   (x3 ∨ ¬True ∨ x8)
+   (x6 ∨ x2 ∨ ¬x7)
+   (x2 ∨ x10 ∨ x3)
+   (x2 ∨ ¬x6 ∨ ¬x5)
+   (x4 ∨ x3 ∨ ¬x10)
+   (¬x7 ∨ ¬x2 ∨ x3)
+   (x2 ∨ ¬x10 ∨ ¬x5)
+   (x10 ∨ ¬x6 ∨ x7)
+   (¬x5 ∨ ¬x3 ∨ True)
+   (True ∨ ¬x2 ∨ x4)
+   (¬x2 ∨ x4 ∨ ¬x3)
+   (x5 ∨ x4 ∨ ¬x6)
+   (¬x6 ∨ True ∨ x4)
+   (¬True ∨ True ∨ x4)
+   (¬x7 ∨ True ∨ True)
+   (True ∨ ¬True ∨ ¬x3)
+   (True ∨ ¬True ∨ ¬x4)
+   (x5 ∨ True ∨ ¬x4)
+   (¬True ∨ ¬True ∨ x8)
+   (¬True ∨ x5 ∨ ¬x2)
+   (True ∨ True ∨ x10)
+   (¬True ∨ ¬x10 ∨ True)
+   (¬x5 ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬x10)
+6. Continue assigning literals and updating the formula until all clauses are satisfied or a conflict is reached.
+7. If all clauses are satisfied, output:
+   * SATISFIABLE
+   * Number of branches: 2
+   * Number of conflicts: 0
+   * Value for each literal:
+     x1 = True
+     x9 = True
+     x3 = True

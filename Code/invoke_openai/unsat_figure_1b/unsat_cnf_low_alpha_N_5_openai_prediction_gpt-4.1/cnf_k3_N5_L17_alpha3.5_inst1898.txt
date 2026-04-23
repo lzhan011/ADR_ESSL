@@ -1,0 +1,258 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1898
+p cnf 5 17
+5 1 4 0
+-2 -5 3 0
+-4 5 -3 0
+-2 1 -5 0
+-5 1 -2 0
+4 -1 5 0
+-3 -1 2 0
+-1 3 -4 0
+-1 4 -2 0
+4 3 2 0
+-5 2 3 0
+1 4 -5 0
+-1 -3 -5 0
+-5 1 3 0
+-2 3 5 0
+-4 2 3 0
+-4 1 -3 0
+
+c GPT solve time: 20.08 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Step 1: List variables:**  
+x1, x2, x3, x4, x5
+
+**Step 2: Choose a variable to branch on.**  
+Let’s start with x1 = True.
+
+---
+
+### Branch 1: x1 = True
+
+**Substitute x1 = True into all clauses:**
+
+- Any clause with x1 is satisfied.
+- Remove ¬x1 from clauses.
+
+**Simplified formula:**
+(¬x2 ∨ ¬x5 ∨ x3)  
+(¬x4 ∨ x5 ∨ ¬x3)  
+(¬x2 ∨ ¬x5)  
+(x4 ∨ x5)  
+(¬x3 ∨ x2)  
+(x4 ∨ x3 ∨ x2)  
+(¬x5 ∨ x2 ∨ x3)  
+(¬x1 ∨ ¬x3 ∨ ¬x5) → (¬x3 ∨ ¬x5)  
+(¬x5 ∨ x3)  
+(¬x2 ∨ x3 ∨ x5)  
+(¬x4 ∨ x2 ∨ x3)  
+(¬x4 ∨ ¬x3)
+
+---
+
+#### Branch 1.1: x2 = True
+
+Substitute x2 = True:
+
+- Any clause with x2 is satisfied.
+- Remove ¬x2 from clauses.
+
+Remaining:
+(¬x4 ∨ x5 ∨ ¬x3)  
+(x4 ∨ x5)  
+(¬x3)  
+(x4 ∨ x3)  
+(¬x5 ∨ x3)  
+(¬x4 ∨ ¬x3)
+
+---
+
+##### Branch 1.1.1: x3 = False
+
+Substitute x3 = False:
+
+- Any clause with ¬x3 is satisfied.
+- Remove x3 from clauses.
+
+Remaining:
+(¬x4 ∨ x5)  
+(x4 ∨ x5)  
+(¬x5)  
+
+Now, (¬x5) and (¬x4 ∨ x5) and (x4 ∨ x5):
+
+- (¬x5) → x5 = False
+
+Substitute x5 = False:
+
+- (¬x4 ∨ x5) → (¬x4)
+- (x4 ∨ x5) → (x4)
+- (¬x5) is satisfied.
+
+So, (¬x4) and (x4): Contradiction.
+
+**Conflict!**
+
+---
+
+##### Branch 1.1.2: x3 = True
+
+Substitute x3 = True:
+
+- Any clause with x3 is satisfied.
+- Remove ¬x3 from clauses.
+
+Remaining:
+(¬x4 ∨ x5)  
+(x4 ∨ x5)  
+(¬x5)  
+
+Same as above: (¬x5) → x5 = False
+
+Substitute x5 = False:
+
+- (¬x4 ∨ x5) → (¬x4)
+- (x4 ∨ x5) → (x4)
+
+Again, (¬x4) and (x4): Contradiction.
+
+**Conflict!**
+
+---
+
+#### Branch 1.2: x2 = False
+
+Substitute x2 = False:
+
+- Any clause with ¬x2 is satisfied.
+- Remove x2 from clauses.
+
+Remaining:
+(¬x4 ∨ x5 ∨ ¬x3)  
+(x4 ∨ x5)  
+(¬x3)  
+(x4 ∨ x3)  
+(¬x5 ∨ x3)  
+(¬x4 ∨ ¬x3)
+
+This is the same as the previous subcase after x2 = True, so both branches under x1 = True lead to conflict.
+
+---
+
+### Branch 2: x1 = False
+
+Substitute x1 = False:
+
+- Any clause with ¬x1 is satisfied.
+- Remove x1 from clauses.
+
+Remaining:
+(x5 ∨ x4)  
+(¬x2 ∨ ¬x5 ∨ x3)  
+(¬x4 ∨ x5 ∨ ¬x3)  
+(¬x2 ∨ ¬x5)  
+(x4 ∨ x5)  
+(¬x3 ∨ x2)  
+(x4 ∨ x3 ∨ x2)  
+(¬x5 ∨ x2 ∨ x3)  
+(x4 ∨ ¬x5)  
+(¬x3 ∨ ¬x5)  
+(¬x5 ∨ x3)  
+(¬x2 ∨ x3 ∨ x5)  
+(¬x4 ∨ x2 ∨ x3)  
+(¬x4 ∨ ¬x3)
+
+---
+
+#### Branch 2.1: x5 = True
+
+Substitute x5 = True:
+
+- Any clause with x5 is satisfied.
+- Remove ¬x5 from clauses.
+
+Remaining:
+(¬x3 ∨ x2)  
+(x4 ∨ x3 ∨ x2)  
+(x4 ∨ ¬x5) → (x4)  
+(¬x3 ∨ ¬x5) → (¬x3)  
+(¬x5 ∨ x3) → (x3)  
+(¬x2 ∨ x3 ∨ x5) → (¬x2 ∨ x3)  
+(¬x4 ∨ x2 ∨ x3)  
+(¬x4 ∨ ¬x3)
+
+Now, (x4), (¬x3), (x3), (¬x4 ∨ ¬x3):
+
+- (x4) → x4 = True
+- (¬x3), (x3): Contradiction.
+
+**Conflict!**
+
+---
+
+#### Branch 2.2: x5 = False
+
+Substitute x5 = False:
+
+- Any clause with ¬x5 is satisfied.
+- Remove x5 from clauses.
+
+Remaining:
+(x4)  
+(¬x3 ∨ x2)  
+(x4 ∨ x3 ∨ x2)  
+(¬x3)  
+(¬x2 ∨ x3)  
+(¬x4 ∨ x2 ∨ x3)  
+(¬x4 ∨ ¬x3)
+
+(x4) → x4 = True
+
+Substitute x4 = True:
+
+- Any clause with x4 is satisfied.
+- Remove ¬x4 from clauses.
+
+Remaining:
+(¬x3 ∨ x2)  
+(¬x3)  
+(¬x2 ∨ x3)
+
+Now, (¬x3), (¬x3 ∨ x2), (¬x2 ∨ x3):
+
+- (¬x3) → x3 = False
+
+Substitute x3 = False:
+
+- (¬x3 ∨ x2) → (x2)
+- (¬x2 ∨ x3) → (¬x2)
+
+So, (x2), (¬x2): Contradiction.
+
+**Conflict!**
+
+---
+
+## Summary
+
+All branches lead to conflict.
+
+---
+
+**Final answers:**
+
+- UNSATISFIABLE
+- Number of branches (decision points): 2 (x1, x5)
+- Number of conflicts (backtracking steps): 4
+
+---
+
+**Output:**
+
+UNSATISFIABLE  
+2  
+4

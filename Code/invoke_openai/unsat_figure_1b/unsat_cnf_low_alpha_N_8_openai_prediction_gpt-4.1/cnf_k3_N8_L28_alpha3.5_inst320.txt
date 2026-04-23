@@ -1,0 +1,296 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=320
+p cnf 8 28
+5 3 6 0
+-8 -6 -2 0
+8 6 4 0
+-6 -4 -7 0
+1 -3 5 0
+-5 7 6 0
+7 -5 3 0
+5 2 3 0
+8 -3 -1 0
+2 -5 -8 0
+-7 -5 -4 0
+7 -3 -6 0
+-8 -1 -2 0
+-1 7 4 0
+-8 -4 1 0
+4 2 5 0
+-5 4 -7 0
+-2 8 -6 0
+7 4 8 0
+-1 5 6 0
+-6 -3 -1 0
+8 1 5 0
+-5 -1 8 0
+-4 5 7 0
+2 -8 1 0
+2 -4 -1 0
+-6 2 5 0
+7 5 4 0
+
+c GPT solve time: 62.45 seconds
+
+**Step-by-step SAT solving:**
+
+Let's denote variables: x1, x2, x3, x4, x5, x6, x7, x8.
+
+**Step 1: Choose a variable to branch on.**  
+Let's start with x1 = True.
+
+**Branch 1: x1 = True**
+
+- Clause 5: (x1 ∨ ¬x3 ∨ x5) → Satisfied
+- Clause 9: (x8 ∨ ¬x3 ∨ ¬x1) → (x8 ∨ ¬x3 ∨ False) → (x8 ∨ ¬x3)
+- Clause 13: (¬x8 ∨ ¬x1 ∨ ¬x2) → (¬x8 ∨ False ∨ ¬x2) → (¬x8 ∨ ¬x2)
+- Clause 14: (¬x1 ∨ x7 ∨ x4) → (False ∨ x7 ∨ x4) → (x7 ∨ x4)
+- Clause 15: (¬x8 ∨ ¬x4 ∨ x1) → (¬x8 ∨ ¬x4 ∨ True) → Satisfied
+- Clause 20: (¬x1 ∨ x5 ∨ x6) → (False ∨ x5 ∨ x6) → (x5 ∨ x6)
+- Clause 22: (x8 ∨ x1 ∨ x5) → Satisfied
+- Clause 23: (¬x5 ∨ ¬x1 ∨ x8) → (¬x5 ∨ False ∨ x8) → (¬x5 ∨ x8)
+- Clause 25: (x2 ∨ ¬x8 ∨ x1) → Satisfied
+- Clause 26: (x2 ∨ ¬x4 ∨ ¬x1) → (x2 ∨ ¬x4 ∨ False) → (x2 ∨ ¬x4)
+
+**Step 2: Next variable. Try x2 = True.**
+
+- Clause 2: (¬x8 ∨ ¬x6 ∨ ¬x2) → (¬x8 ∨ ¬x6 ∨ False) → (¬x8 ∨ ¬x6)
+- Clause 8: (x5 ∨ x2 ∨ x3) → Satisfied
+- Clause 10: (x2 ∨ ¬x5 ∨ ¬x8) → Satisfied
+- Clause 13: (¬x8 ∨ ¬x2) → (¬x8 ∨ False) → (¬x8)
+- Clause 16: (x4 ∨ x2 ∨ x5) → Satisfied
+- Clause 18: (¬x2 ∨ x8 ∨ ¬x6) → (False ∨ x8 ∨ ¬x6) → (x8 ∨ ¬x6)
+- Clause 25: Satisfied
+- Clause 26: (x2 ∨ ¬x4) → (True ∨ ¬x4) → Satisfied
+- Clause 27: (¬x6 ∨ x2 ∨ x5) → Satisfied
+
+**Step 3: Next variable. Try x3 = True.**
+
+- Clause 1: (x5 ∨ x3 ∨ x6) → Satisfied
+- Clause 5: Satisfied
+- Clause 7: (x7 ∨ ¬x5 ∨ x3) → Satisfied
+- Clause 8: Satisfied
+- Clause 9: (x8 ∨ ¬x3) → (x8 ∨ False) → (x8)
+- Clause 12: (x7 ∨ ¬x3 ∨ ¬x6) → (x7 ∨ False ∨ ¬x6) → (x7 ∨ ¬x6)
+- Clause 21: (¬x6 ∨ ¬x3 ∨ ¬x1) → (¬x6 ∨ False ∨ False) → (¬x6)
+
+**Step 4: Next variable. Try x4 = True.**
+
+- Clause 3: (x8 ∨ x6 ∨ x4) → Satisfied
+- Clause 4: (¬x6 ∨ ¬x4 ∨ ¬x7) → (¬x6 ∨ False ∨ ¬x7) → (¬x6 ∨ ¬x7)
+- Clause 14: Satisfied
+- Clause 15: Satisfied
+- Clause 16: Satisfied
+- Clause 17: (¬x5 ∨ x4 ∨ ¬x7) → (¬x5 ∨ True ∨ ¬x7) → Satisfied
+- Clause 19: (x7 ∨ x4 ∨ x8) → Satisfied
+- Clause 24: (¬x4 ∨ x5 ∨ x7) → (False ∨ x5 ∨ x7) → (x5 ∨ x7)
+- Clause 26: Satisfied
+- Clause 28: (x7 ∨ x5 ∨ x4) → Satisfied
+
+**Step 5: Next variable. Try x5 = True.**
+
+- Clause 1: Satisfied
+- Clause 5: Satisfied
+- Clause 6: (¬x5 ∨ x7 ∨ x6) → (False ∨ x7 ∨ x6) → (x7 ∨ x6)
+- Clause 7: Satisfied
+- Clause 8: Satisfied
+- Clause 16: Satisfied
+- Clause 17: Satisfied
+- Clause 20: Satisfied
+- Clause 23: (¬x5 ∨ x8) → (False ∨ x8) → (x8)
+- Clause 24: (x5 ∨ x7) → Satisfied
+- Clause 27: Satisfied
+- Clause 28: Satisfied
+
+**Step 6: Next variable. Try x6 = True.**
+
+- Clause 1: Satisfied
+- Clause 2: (¬x8 ∨ ¬x6) → (¬x8 ∨ False) → (¬x8)
+- Clause 3: Satisfied
+- Clause 4: (¬x6 ∨ ¬x4 ∨ ¬x7) → (False ∨ False ∨ ¬x7) → (¬x7)
+- Clause 6: (x7 ∨ x6) → Satisfied
+- Clause 12: (x7 ∨ ¬x6) → (x7 ∨ False) → (x7)
+- Clause 18: (x8 ∨ ¬x6) → (x8 ∨ False) → (x8)
+- Clause 21: (¬x6) → (False)
+- Clause 27: Satisfied
+
+**Conflict!** Clause 21: (¬x6) is False if x6 = True.
+
+**Backtrack: x6 = False** (1 conflict, 1 branch)
+
+- Clause 1: (x5 ∨ x3 ∨ x6) → (True ∨ True ∨ False) → Satisfied
+- Clause 2: (¬x8 ∨ ¬x6) → (¬x8 ∨ True) → Satisfied
+- Clause 3: (x8 ∨ x6 ∨ x4) → (x8 ∨ False ∨ True) → Satisfied
+- Clause 4: (¬x6 ∨ ¬x4 ∨ ¬x7) → (True ∨ False ∨ ¬x7) → Satisfied
+- Clause 6: (x7 ∨ x6) → (x7 ∨ False) → (x7)
+- Clause 12: (x7 ∨ ¬x6) → (x7 ∨ True) → Satisfied
+- Clause 18: (x8 ∨ ¬x6) → (x8 ∨ True) → Satisfied
+- Clause 21: (¬x6) → (True)
+- Clause 27: (¬x6 ∨ x2 ∨ x5) → (True ∨ True ∨ True) → Satisfied
+
+**Step 7: Next variable. Try x7 = True.**
+
+- Clause 4: (¬x6 ∨ ¬x4 ∨ ¬x7) → (True ∨ False ∨ False) → Satisfied
+- Clause 6: (x7 ∨ x6) → (True ∨ False) → Satisfied
+- Clause 7: (x7 ∨ ¬x5 ∨ x3) → (True ∨ False ∨ True) → Satisfied
+- Clause 12: Satisfied
+- Clause 14: Satisfied
+- Clause 17: (¬x5 ∨ x4 ∨ ¬x7) → (False ∨ True ∨ False) → Satisfied
+- Clause 19: Satisfied
+- Clause 24: (x5 ∨ x7) → Satisfied
+- Clause 28: Satisfied
+
+**Step 8: Next variable. Try x8 = True.**
+
+- Clause 2: (¬x8 ∨ ¬x6) → (False ∨ True) → Satisfied
+- Clause 3: Satisfied
+- Clause 9: (x8 ∨ ¬x3) → (True ∨ False) → Satisfied
+- Clause 13: (¬x8 ∨ ¬x2) → (False ∨ False) → False
+
+**Conflict!** Clause 13: (¬x8 ∨ ¬x2) is False if x8 = True, x2 = True.
+
+**Backtrack: x8 = False** (2 conflicts, 2 branches)
+
+- Clause 2: (¬x8 ∨ ¬x6) → (True ∨ True) → Satisfied
+- Clause 3: (False ∨ False ∨ True) → Satisfied
+- Clause 9: (False ∨ False) → False
+
+**Conflict!** Clause 9: (x8 ∨ ¬x3) is False if x8 = False, x3 = True.
+
+**Backtrack: x7 = False** (3 conflicts, 3 branches)
+
+- Clause 4: (¬x6 ∨ ¬x4 ∨ ¬x7) → (True ∨ False ∨ True) → Satisfied
+- Clause 6: (x7 ∨ x6) → (False ∨ False) → False
+
+**Conflict!** Clause 6: (x7 ∨ x6) is False if x7 = False, x6 = False.
+
+**Backtrack: x5 = False** (4 conflicts, 4 branches)
+
+- Clause 1: (False ∨ True ∨ False) → True
+- Clause 5: (True ∨ ¬x3 ∨ False) → True
+- Clause 6: (True ∨ x7 ∨ x6) → (True ∨ x7 ∨ x6) → True
+- Clause 7: (x7 ∨ True ∨ True) → True
+- Clause 8: (False ∨ True ∨ True) → True
+- Clause 10: (True ∨ True ∨ ¬x8) → True
+- Clause 16: (x4 ∨ x2 ∨ False) → (x4 ∨ x2)
+- Clause 17: (True ∨ x4 ∨ ¬x7) → True
+- Clause 20: (x5 ∨ x6) → (False ∨ x6)
+- Clause 23: (True ∨ x8) → True
+- Clause 24: (False ∨ x7) → x7
+- Clause 27: (True ∨ x2) → True
+- Clause 28: (x7 ∨ False ∨ x4) → (x7 ∨ x4)
+
+**Try x6 = True.**
+
+- Clause 20: (False ∨ True) → True
+- Clause 6: (x7 ∨ True) → True
+- Clause 12: (x7 ∨ False) → x7
+- Clause 18: (x8 ∨ False) → x8
+- Clause 21: (False)
+- Clause 27: (False ∨ x2) → x2
+
+**Conflict!** Clause 21: (¬x6) is False if x6 = True.
+
+**Backtrack: x6 = False** (5 conflicts, 5 branches)
+
+- Clause 20: (False ∨ False) → False
+
+**Conflict!** Clause 20: (x5 ∨ x6) is False if x5 = False, x6 = False.
+
+**Backtrack: x4 = False** (6 conflicts, 6 branches)
+
+- Clause 16: (False ∨ True) → True
+- Clause 24: (False ∨ x7) → x7
+- Clause 28: (x7 ∨ False) → x7
+
+**Try x7 = True.**
+
+- Clause 24: (True) → True
+- Clause 28: (True) → True
+- Clause 6: (True ∨ x6) → True
+- Clause 12: (True ∨ ¬x6) → True
+- Clause 17: (True ∨ False ∨ False) → True
+- Clause 19: (True ∨ False ∨ x8) → True
+
+**Try x8 = True.**
+
+- Clause 2: (False ∨ ¬x6 ∨ False) → (¬x6)
+- Clause 3: (True ∨ x6 ∨ False) → True
+- Clause 9: (True ∨ False) → True
+- Clause 13: (False ∨ False ∨ False) → False
+
+**Conflict!** Clause 13: (¬x8 ∨ ¬x1 ∨ ¬x2) is False if x8 = True, x1 = True, x2 = True.
+
+**Backtrack: x8 = False** (7 conflicts, 7 branches)
+
+- Clause 2: (True ∨ ¬x6 ∨ False) → True
+- Clause 3: (False ∨ x6 ∨ False) → x6
+- Clause 9: (False ∨ False) → False
+
+**Conflict!** Clause 9: (x8 ∨ ¬x3 ∨ ¬x1) is False if x8 = False, x3 = True, x1 = True.
+
+**Backtrack: x7 = False** (8 conflicts, 8 branches)
+
+- Clause 24: (False ∨ False) → False
+
+**Conflict!** Clause 24: (¬x4 ∨ x5 ∨ x7) is False if x4 = False, x5 = False, x7 = False.
+
+**Backtrack: x3 = False** (9 conflicts, 9 branches)
+
+- Clause 1: (x5 ∨ False ∨ x6)
+- Clause 5: (True ∨ True ∨ x5) → True
+- Clause 7: (x7 ∨ ¬x5 ∨ False) → (x7 ∨ ¬x5)
+- Clause 8: (x5 ∨ x2 ∨ False) → (x5 ∨ x2)
+- Clause 9: (x8 ∨ True ∨ ¬x1) → True
+- Clause 12: (x7 ∨ True ∨ ¬x6) → True
+- Clause 21: (¬x6 ∨ True ∨ False) → True
+
+**Try x4 = True.**
+
+- Clause 3: (x8 ∨ x6 ∨ True) → True
+- Clause 4: (¬x6 ∨ False ∨ ¬x7) → (¬x6 ∨ ¬x7)
+- Clause 14: (x7 ∨ True) → True
+- Clause 15: (¬x8 ∨ False ∨ True) → True
+- Clause 16: (True ∨ x2 ∨ x5) → True
+- Clause 17: (¬x5 ∨ True ∨ ¬x7) → True
+- Clause 19: (x7 ∨ True ∨ x8) → True
+- Clause 24: (False ∨ x5 ∨ x7) → (x5 ∨ x7)
+- Clause 26: (x2 ∨ False ∨ False) → x2
+- Clause 28: (x7 ∨ x5 ∨ True) → True
+
+**Try x5 = True.**
+
+- Clause 1: (True ∨ False ∨ x6) → True
+- Clause 6: (False ∨ x7 ∨ x6) → (x7 ∨ x6)
+- Clause 7: (x7 ∨ False) → x7
+- Clause 8: (True ∨ x2) → True
+- Clause 16: True
+- Clause 17: (False ∨ True ∨ ¬x7) → True
+- Clause 20: (False ∨ x6) → x6
+- Clause 23: (False ∨ ¬x1 ∨ x8) → (¬x1 ∨ x8)
+- Clause 24: (True ∨ x7) → True
+- Clause 27: (¬x6 ∨ x2 ∨ True) → True
+- Clause 28: True
+
+**Try x6 = True.**
+
+- Clause 1: True
+- Clause 2: (¬x8 ∨ False ∨ ¬x2) → (¬x8 ∨ ¬x2)
+- Clause 3: True
+- Clause 4: (False ∨ False ∨ ¬x7) → (¬x7)
+- Clause 6: (x7 ∨ True) → True
+- Clause 7: x7
+- Clause 12: (x7 ∨ False) → x7
+- Clause 18: (x8 ∨ False) → x8
+- Clause 20: (x6) → True
+- Clause 21: (False ∨ True ∨ False) → True
+- Clause 23: (¬x1 ∨ x8)
+- Clause 27: True
+
+**Try x7 = True.**
+
+- Clause 4: (¬x6 ∨ ¬x4 ∨ ¬x7) → (False ∨ False ∨ False) → False
+
+**Conflict!** Clause 4: (¬x6 ∨ ¬x4 ∨ ¬x7) is False if x6 = True, x4 = True, x7 = True.
+
+**Backtrack: x7 = False

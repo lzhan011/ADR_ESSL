@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 # 设置 API KEY
-openai.api_key = os.environ["DEEPSEEK_API_KEY"]
+openai.api_key = os.environ.get("DeepSeek_API_KEY")
 openai.api_base = "https://api.deepseek.com/v1"
 model_selected =  "deepseek-chat"  # 或 deepseek-coder
 

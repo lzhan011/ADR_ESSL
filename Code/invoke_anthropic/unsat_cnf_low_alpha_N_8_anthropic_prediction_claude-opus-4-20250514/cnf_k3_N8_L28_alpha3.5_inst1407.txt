@@ -1,0 +1,85 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1407
+p cnf 8 28
+3 5 -7 0
+1 6 -7 0
+-8 -1 2 0
+-6 -5 1 0
+3 -6 -1 0
+-3 -7 -1 0
+-3 8 7 0
+3 -1 -5 0
+1 7 6 0
+2 3 6 0
+-7 3 4 0
+5 -7 1 0
+-3 1 -4 0
+-5 3 -7 0
+8 -3 -1 0
+8 -5 -2 0
+-5 -7 -6 0
+-8 -6 -4 0
+4 5 3 0
+5 7 1 0
+5 8 4 0
+-3 -6 -7 0
+-6 -7 1 0
+-3 -5 4 0
+7 -1 -2 0
+7 4 -2 0
+-5 6 1 0
+8 6 -5 0
+
+c GPT solve time: 21.68 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Formula:**
+1. (x3 ∨ x5 ∨ ¬x7)
+2. (x1 ∨ x6 ∨ ¬x7)
+3. (¬x8 ∨ ¬x1 ∨ x2)
+4. (¬x6 ∨ ¬x5 ∨ x1)
+5. (x3 ∨ ¬x6 ∨ ¬x1)
+6. (¬x3 ∨ ¬x7 ∨ ¬x1)
+7. (¬x3 ∨ x8 ∨ x7)
+8. (x3 ∨ ¬x1 ∨ ¬x5)
+9. (x1 ∨ x7 ∨ x6)
+10. (x2 ∨ x3 ∨ x6)
+11. (¬x7 ∨ x3 ∨ x4)
+12. (x5 ∨ ¬x7 ∨ x1)
+13. (¬x3 ∨ x1 ∨ ¬x4)
+14. (¬x5 ∨ x3 ∨ ¬x7)
+15. (x8 ∨ ¬x3 ∨ ¬x1)
+16. (x8 ∨ ¬x5 ∨ ¬x2)
+17. (¬x5 ∨ ¬x7 ∨ ¬x6)
+18. (¬x8 ∨ ¬x6 ∨ ¬x4)
+19. (x4 ∨ x5 ∨ x3)
+20. (x5 ∨ x7 ∨ x1)
+21. (x5 ∨ x8 ∨ x4)
+22. (¬x3 ∨ ¬x6 ∨ ¬x7)
+23. (¬x6 ∨ ¬x7 ∨ x1)
+24. (¬x3 ∨ ¬x5 ∨ x4)
+25. (x7 ∨ ¬x1 ∨ ¬x2)
+26. (x7 ∨ x4 ∨ ¬x2)
+27. (¬x5 ∨ x6 ∨ x1)
+28. (x8 ∨ x6 ∨ ¬x5)
+
+**Branch 1:** x1 = true
+After unit propagation:
+- Clauses 2, 4, 9, 12, 13, 20, 23, 27 are satisfied
+- Clause 3 becomes (¬x8 ∨ x2)
+- Clause 5 becomes (x3 ∨ ¬x6)
+- Clause 6 becomes (¬x3 ∨ ¬x7)
+- Clause 8 becomes (x3 ∨ ¬x5)
+- Clause 15 becomes (x8 ∨ ¬x3)
+- Clause 25 becomes (x7 ∨ ¬x2)
+
+**Branch 2:** x2 = true
+After unit propagation:
+- Clauses 3, 10, 25, 26 are satisfied
+- Clause 16 becomes (x8 ∨ ¬x5)
+
+**Branch 3:** x3 = true
+After unit propagation:
+- Clauses 1, 5, 8, 10, 11, 14, 19 are satisfied
+- Clause 6 becomes (

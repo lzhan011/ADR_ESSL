@@ -1,0 +1,74 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=659
+p cnf 8 28
+2 -4 3 0
+-7 -1 -2 0
+-7 5 8 0
+-1 3 6 0
+-5 1 4 0
+-3 2 -7 0
+-6 -1 5 0
+6 7 -4 0
+1 7 5 0
+-1 2 -3 0
+-2 -3 4 0
+-2 -5 8 0
+-1 -5 3 0
+-2 5 7 0
+-2 8 -1 0
+7 -1 -4 0
+-6 1 7 0
+6 -7 5 0
+3 8 -7 0
+6 -2 1 0
+-8 -2 -7 0
+8 -3 2 0
+1 3 -8 0
+8 -7 -4 0
+-6 -1 -7 0
+8 5 2 0
+-5 4 6 0
+-4 6 8 0
+
+c GPT solve time: 17.90 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+Starting with the formula, I'll make decisions and propagate constraints:
+
+**Branch 1**: x1 = true
+- From clause 9 (x1 ∨ x7 ∨ x5): satisfied
+- From clause 23 (x1 ∨ x3 ∨ ¬x8): satisfied
+- From clause 2 (¬x7 ∨ ¬x1 ∨ ¬x2): forces ¬x7 ∨ ¬x2
+- From clause 4 (¬x1 ∨ x3 ∨ x6): forces x3 ∨ x6
+- From clause 7 (¬x6 ∨ ¬x1 ∨ x5): forces ¬x6 ∨ x5
+- From clause 10 (¬x1 ∨ x2 ∨ ¬x3): forces x2 ∨ ¬x3
+- From clause 13 (¬x1 ∨ ¬x5 ∨ x3): forces ¬x5 ∨ x3
+- From clause 15 (¬x2 ∨ x8 ∨ ¬x1): forces ¬x2 ∨ x8
+- From clause 16 (x7 ∨ ¬x1 ∨ ¬x4): forces x7 ∨ ¬x4
+- From clause 25 (¬x6 ∨ ¬x1 ∨ ¬x7): forces ¬x6 ∨ ¬x7
+
+**Branch 2**: x2 = true (with x1 = true)
+- From clause 1 (x2 ∨ ¬x4 ∨ x3): satisfied
+- From clause 2: forces ¬x7
+- From clause 15: forces x8
+- From clause 10: forces ¬x3
+- From clause 11 (¬x2 ∨ ¬x3 ∨ x4): satisfied (¬x3 is true)
+- From clause 12 (¬x2 ∨ ¬x5 ∨ x8): satisfied (x8 is true)
+- From clause 14 (¬x2 ∨ x5 ∨ x7): forces x5 (since x7 is false)
+- From clause 21 (¬x8 ∨ ¬x2 ∨ ¬x7): satisfied (¬x7 is true)
+
+With x1=true, x2=true, x3=false, x7=false, x8=true, x5=true:
+- From clause 4: forces x6 = true
+- From clause 7: satisfied (x5 is true)
+- From clause 25: satisfied (¬x7 is true)
+
+**Branch 3**: x4 = true (continuing from above)
+- Checking all clauses with current assignment:
+  x1=true, x2=true, x3=false, x4=true, x5=true, x6=true, x7=false, x8=true
+
+Verifying all clauses:
+1. (x2 ∨ ¬x4 ∨ x3) = (T ∨ F ∨ F) = T ✓
+2. (¬x7 ∨ ¬x1 ∨ ¬x2) = (T ∨ F ∨ F) = T ✓
+3. (¬x7 ∨ x5 ∨ x8) = (T ∨ T ∨ T) = T ✓
+4. (¬x1 ∨ x3 ∨ x6) = (F ∨ F

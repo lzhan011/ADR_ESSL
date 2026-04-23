@@ -1,0 +1,95 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=877
+p cnf 8 28
+5 8 2 0
+2 8 6 0
+3 8 -6 0
+3 2 -4 0
+-2 8 6 0
+-5 1 6 0
+8 7 1 0
+-1 -4 -6 0
+3 -7 -1 0
+5 7 -2 0
+2 -7 -4 0
+-8 -1 -2 0
+-1 -5 -3 0
+-8 1 -2 0
+5 6 2 0
+-3 6 5 0
+-2 1 -5 0
+-2 6 -1 0
+1 -2 8 0
+4 -8 2 0
+-3 -8 2 0
+-3 7 6 0
+-1 8 -7 0
+-7 -2 -4 0
+-6 4 -1 0
+7 4 3 0
+-3 1 -6 0
+-2 8 5 0
+
+c GPT solve time: 18.84 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Formula Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8
+- 28 clauses total
+
+**Step-by-step Solution:**
+
+**Branch 1: x1 = true**
+- Unit propagation from (¬x1 ∨ ¬x4 ∨ ¬x6):
+  - Forces: ¬x4 ∨ ¬x6
+- Unit propagation from (¬x1 ∨ ¬x5 ∨ ¬x3):
+  - Forces: ¬x5 ∨ ¬x3
+- Unit propagation from (¬x1 ∨ x8 ∨ ¬x7):
+  - Forces: x8 ∨ ¬x7
+
+**Branch 2: x2 = true**
+- From (¬x2 ∨ x8 ∨ x6): Forces x8 ∨ x6
+- From (¬x2 ∨ x1 ∨ ¬x5): Already satisfied (x1 = true)
+- From (¬x2 ∨ x6 ∨ ¬x1): Forces x6 (since x1 = true)
+- With x6 = true and x1 = true:
+  - From (¬x1 ∨ ¬x4 ∨ ¬x6): Forces x4 = false
+  - From (¬x6 ∨ x4 ∨ ¬x1): CONFLICT! (all literals false)
+
+**Backtrack: x2 = false**
+- From (x2 ∨ x8 ∨ x6): Forces x8 ∨ x6
+- From (x2 ∨ ¬x7 ∨ ¬x4): Forces ¬x7 ∨ ¬x4
+- Multiple propagations lead to x8 = true
+
+**Branch 3: x3 = true**
+- From (¬x3 ∨ x6 ∨ x5): Forces x6 ∨ x5
+- From (¬x3 ∨ ¬x8 ∨ x2): Forces false (conflict with x8 = true, x2 = false)
+
+**Backtrack: x3 = false**
+- From (x3 ∨ x8 ∨ ¬x6): Satisfied (x8 = true)
+- From (x3 ∨ x2 ∨ ¬x4): Forces ¬x4 (since x2 = false, x3 = false)
+- So x4 = false
+
+**Branch 4: x5 = true**
+- From (¬x1 ∨ ¬x5 ∨ ¬x3): Satisfied (x3 = false)
+- From (¬x2 ∨ x1 ∨ ¬x5): Satisfied (x1 = true)
+- Continuing propagation...
+
+**Branch 5: x6 = true**
+- From (¬x1 ∨ ¬x4 ∨ ¬x6): Satisfied (x4 = false)
+- All remaining clauses can be satisfied
+
+**Branch 6: x7 = false**
+- From (x8 ∨ x7 ∨ x1): Satisfied (x8 = true)
+- From (¬x1 ∨ x8 ∨ ¬x7): Satisfied (x8 = true)
+- All clauses satisfied!
+
+**Final Assignment:**
+- x1 = true
+- x2 = false  
+- x3 = false
+- x4 = false
+- x5 = true
+- x6 = true
+- x7 = false
+- x8 = true

@@ -1,0 +1,342 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1251
+p cnf 10 35
+-9 3 -5 0
+-8 -1 -5 0
+-8 -9 6 0
+9 -5 4 0
+-10 -3 -4 0
+-4 6 -8 0
+3 -10 -9 0
+-5 -8 -1 0
+1 -9 10 0
+1 9 6 0
+8 -10 -3 0
+10 -4 9 0
+4 -9 -3 0
+-1 9 7 0
+5 -8 -6 0
+9 -7 2 0
+3 9 7 0
+-9 -6 5 0
+10 -1 -4 0
+-6 5 9 0
+-6 -4 3 0
+1 -6 -5 0
+2 9 -3 0
+7 -2 5 0
+-2 10 -3 0
+5 7 -10 0
+-10 7 -3 0
+-2 7 -3 0
+4 1 9 0
+10 -5 -9 0
+8 -10 -2 0
+-10 2 5 0
+3 8 5 0
+-6 7 10 0
+-2 -1 6 0
+
+c GPT solve time: 32.19 seconds
+
+**Step-by-step SAT solving (DPLL-style):**
+
+Let's denote variables: x1, x2, ..., x10.
+
+---
+
+### 1. **Unit Propagation and Pure Literal Elimination**
+
+No unit clauses or pure literals at the start.
+
+---
+
+### 2. **Branching**
+
+Let's branch on x1 = True.
+
+#### **Branch 1: x1 = True**
+
+- Substitute x1 = True in all clauses:
+    - Any clause with x1 is satisfied.
+    - Any clause with ¬x1: remove ¬x1 from those clauses.
+
+Update formula:
+
+- Remove satisfied clauses:
+    - (¬x8 ∨ ¬x1 ∨ ¬x5) [contains ¬x1]
+    - (¬x5 ∨ ¬x8 ∨ ¬x1)
+    - (x1 ∨ ¬x9 ∨ x10)
+    - (x1 ∨ x9 ∨ x6)
+    - (¬x1 ∨ x9 ∨ x7)
+    - (x1 ∨ ¬x6 ∨ ¬x5)
+    - (x4 ∨ x1 ∨ x9)
+
+- Remove ¬x1 from remaining clauses.
+
+New formula:
+
+1. (¬x9 ∨ x3 ∨ ¬x5)
+2. (¬x8 ∨ ¬x9 ∨ x6)
+3. (x9 ∨ ¬x5 ∨ x4)
+4. (¬x10 ∨ ¬x3 ∨ ¬x4)
+5. (¬x4 ∨ x6 ∨ ¬x8)
+6. (x3 ∨ ¬x10 ∨ ¬x9)
+7. (x8 ∨ ¬x10 ∨ ¬x3)
+8. (x10 ∨ ¬x4 ∨ x9)
+9. (x4 ∨ ¬x9 ∨ ¬x3)
+10. (x5 ∨ ¬x8 ∨ ¬x6)
+11. (x9 ∨ ¬x7 ∨ x2)
+12. (x3 ∨ x9 ∨ x7)
+13. (¬x9 ∨ ¬x6 ∨ x5)
+14. (x10 ∨ ¬x1 ∨ ¬x4) → (x10 ∨ ¬x4)
+15. (¬x6 ∨ x5 ∨ x9)
+16. (¬x6 ∨ ¬x4 ∨ x3)
+17. (x2 ∨ x9 ∨ ¬x3)
+18. (x7 ∨ ¬x2 ∨ x5)
+19. (¬x2 ∨ x10 ∨ ¬x3)
+20. (x5 ∨ x7 ∨ ¬x10)
+21. (¬x10 ∨ x7 ∨ ¬x3)
+22. (¬x2 ∨ x7 ∨ ¬x3)
+23. (x10 ∨ ¬x5 ∨ ¬x9)
+24. (x8 ∨ ¬x10 ∨ ¬x2)
+25. (¬x10 ∨ x2 ∨ x5)
+26. (x3 ∨ x8 ∨ x5)
+27. (¬x6 ∨ x7 ∨ x10)
+28. (¬x2 ∨ ¬x1 ∨ x6) → (¬x2 ∨ x6)
+
+---
+
+#### **Branch 1.1: x2 = True**
+
+Substitute x2 = True:
+
+- Remove clauses with x2:
+    - (x2 ∨ x9 ∨ ¬x3)
+    - (x7 ∨ ¬x2 ∨ x5)
+    - (¬x2 ∨ x10 ∨ ¬x3)
+    - (¬x2 ∨ x7 ∨ ¬x3)
+    - (x8 ∨ ¬x10 ∨ ¬x2)
+    - (¬x2 ∨ ¬x1 ∨ x6) → (¬x2 ∨ x6)
+
+- Remove ¬x2 from remaining clauses.
+
+Remaining formula:
+
+1. (¬x9 ∨ x3 ∨ ¬x5)
+2. (¬x8 ∨ ¬x9 ∨ x6)
+3. (x9 ∨ ¬x5 ∨ x4)
+4. (¬x10 ∨ ¬x3 ∨ ¬x4)
+5. (¬x4 ∨ x6 ∨ ¬x8)
+6. (x3 ∨ ¬x10 ∨ ¬x9)
+7. (x8 ∨ ¬x10 ∨ ¬x3)
+8. (x10 ∨ ¬x4 ∨ x9)
+9. (x4 ∨ ¬x9 ∨ ¬x3)
+10. (x5 ∨ ¬x8 ∨ ¬x6)
+11. (x9 ∨ ¬x7 ∨ x2) [contains x2, so satisfied, remove]
+12. (x3 ∨ x9 ∨ x7)
+13. (¬x9 ∨ ¬x6 ∨ x5)
+14. (x10 ∨ ¬x4)
+15. (¬x6 ∨ x5 ∨ x9)
+16. (¬x6 ∨ ¬x4 ∨ x3)
+17. (x5 ∨ x7 ∨ ¬x10)
+18. (x10 ∨ ¬x5 ∨ ¬x9)
+19. (¬x10 ∨ x2 ∨ x5) [contains x2, so satisfied, remove]
+20. (x3 ∨ x8 ∨ x5)
+21. (¬x6 ∨ x7 ∨ x10)
+
+---
+
+#### **Branch 1.1.1: x3 = True**
+
+Substitute x3 = True:
+
+- Remove clauses with x3:
+    - (¬x9 ∨ x3 ∨ ¬x5)
+    - (x3 ∨ ¬x10 ∨ ¬x9)
+    - (x3 ∨ x9 ∨ x7)
+    - (x3 ∨ x8 ∨ x5)
+
+- Remove ¬x3 from remaining clauses.
+
+Remaining formula:
+
+1. (¬x8 ∨ ¬x9 ∨ x6)
+2. (x9 ∨ ¬x5 ∨ x4)
+3. (¬x10 ∨ ¬x3 ∨ ¬x4) → (¬x10 ∨ ¬x4)
+4. (¬x4 ∨ x6 ∨ ¬x8)
+5. (x8 ∨ ¬x10 ∨ ¬x3) → (x8 ∨ ¬x10)
+6. (x10 ∨ ¬x4 ∨ x9)
+7. (x4 ∨ ¬x9 ∨ ¬x3) → (x4 ∨ ¬x9)
+8. (x5 ∨ ¬x8 ∨ ¬x6)
+9. (¬x9 ∨ ¬x6 ∨ x5)
+10. (x10 ∨ ¬x4)
+11. (¬x6 ∨ x5 ∨ x9)
+12. (¬x6 ∨ ¬x4 ∨ x3) → (¬x6 ∨ ¬x4)
+13. (x5 ∨ x7 ∨ ¬x10)
+14. (x10 ∨ ¬x5 ∨ ¬x9)
+15. (¬x10 ∨ x7 ∨ ¬x3) → (¬x10 ∨ x7)
+16. (x5 ∨ x7 ∨ ¬x10)
+17. (¬x6 ∨ x7 ∨ x10)
+
+---
+
+#### **Branch 1.1.1.1: x4 = True**
+
+Substitute x4 = True:
+
+- Remove clauses with x4:
+    - (x9 ∨ ¬x5 ∨ x4)
+    - (x10 ∨ ¬x4 ∨ x9)
+    - (x4 ∨ ¬x9)
+    - (x10 ∨ ¬x4)
+    - (¬x6 ∨ ¬x4) [from (¬x6 ∨ ¬x4 ∨ x3), x3=True, so (¬x6 ∨ ¬x4), x4=True, so (¬x6)]
+
+- Remove ¬x4 from remaining clauses.
+
+Remaining formula:
+
+1. (¬x8 ∨ ¬x9 ∨ x6)
+2. (¬x10 ∨ ¬x4) → (¬x10)
+3. (¬x4 ∨ x6 ∨ ¬x8) → (x6 ∨ ¬x8)
+4. (x8 ∨ ¬x10)
+5. (x5 ∨ ¬x8 ∨ ¬x6)
+6. (¬x9 ∨ ¬x6 ∨ x5)
+7. (¬x6 ∨ x5 ∨ x9)
+8. (¬x6) [from above]
+9. (x5 ∨ x7 ∨ ¬x10)
+10. (x10 ∨ ¬x5 ∨ ¬x9)
+11. (¬x10 ∨ x7)
+12. (x5 ∨ x7 ∨ ¬x10)
+13. (¬x6 ∨ x7 ∨ x10)
+
+Now, (¬x6) is a unit clause, so x6 = False.
+
+---
+
+#### **Propagate x6 = False**
+
+- Remove clauses with ¬x6:
+    - (¬x6 ∨ x5 ∨ x9)
+    - (¬x6 ∨ x7 ∨ x10)
+    - (¬x6) [already used]
+
+- Remove x6 from remaining clauses.
+
+Update:
+
+1. (¬x8 ∨ ¬x9 ∨ x6) → (¬x8 ∨ ¬x9)
+2. (¬x10)
+3. (x6 ∨ ¬x8) → (¬x8)
+4. (x8 ∨ ¬x10)
+5. (x5 ∨ ¬x8 ∨ ¬x6) → (x5 ∨ ¬x8)
+6. (¬x9 ∨ ¬x6 ∨ x5) → (¬x9 ∨ x5)
+7. (x5 ∨ x7 ∨ ¬x10)
+8. (x10 ∨ ¬x5 ∨ ¬x9)
+9. (¬x10 ∨ x7)
+10. (x5 ∨ x7 ∨ ¬x10)
+
+Now, (¬x8) is a unit clause, so x8 = False.
+
+---
+
+#### **Propagate x8 = False**
+
+- Remove clauses with ¬x8:
+    - (¬x8 ∨ ¬x9)
+    - (x6 ∨ ¬x8) [already used]
+    - (x5 ∨ ¬x8)
+- Remove x8 from remaining clauses.
+
+Remaining:
+
+1. (¬x10)
+2. (x8 ∨ ¬x10) → (¬x10)
+3. (¬x9 ∨ x5)
+4. (x5 ∨ x7 ∨ ¬x10)
+5. (x10 ∨ ¬x5 ∨ ¬x9)
+6. (¬x10 ∨ x7)
+7. (x5 ∨ x7 ∨ ¬x10)
+
+Now, (¬x10) is a unit clause, so x10 = False.
+
+---
+
+#### **Propagate x10 = False**
+
+- Remove clauses with ¬x10:
+    - (¬x10)
+    - (¬x10)
+    - (¬x10 ∨ x7)
+    - (x5 ∨ x7 ∨ ¬x10)
+
+- Remove x10 from remaining clauses.
+
+Remaining:
+
+1. (¬x9 ∨ x5)
+2. (x5 ∨ x7)
+3. (x10 ∨ ¬x5 ∨ ¬x9) → (¬x5 ∨ ¬x9)
+
+Now, let's look for unit clauses.
+
+No unit clauses, so let's branch.
+
+---
+
+#### **Branch 1.1.1.1.1: x5 = True**
+
+- (¬x9 ∨ x5): satisfied
+- (x5 ∨ x7): satisfied
+- (¬x5 ∨ ¬x9): (¬x9)
+
+So, (¬x9) is a unit clause, so x9 = False.
+
+Now, all clauses are satisfied.
+
+---
+
+### **Summary of assignments:**
+
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = False
+- x7 = (unassigned, but can be anything, say True)
+- x8 = False
+- x9 = False
+- x10 = False
+
+---
+
+### **Counting branches and conflicts:**
+
+- Branch 1: x1 = True
+- Branch 1.1: x2 = True
+- Branch 1.1.1: x3 = True
+- Branch 1.1.1.1: x4 = True
+- Branch 1.1.1.1.1: x5 = True
+
+No conflicts occurred (no need to backtrack).
+
+---
+
+## **Final Output**
+
+- SATISFIABLE
+- Number of branches: 5
+- Number of conflicts: 0
+
+**Assignment:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = False
+- x7 = True
+- x8 = False
+- x9 = False
+- x10 = False

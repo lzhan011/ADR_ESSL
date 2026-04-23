@@ -1,0 +1,103 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=330
+p cnf 8 28
+1 -8 -3 0
+-6 4 2 0
+7 -6 -1 0
+8 -2 4 0
+3 -5 -7 0
+3 -8 2 0
+6 1 -2 0
+3 5 -1 0
+-3 -4 2 0
+7 1 -5 0
+-2 4 8 0
+5 4 3 0
+1 -6 -4 0
+5 -2 7 0
+6 -7 -5 0
+1 -5 7 0
+-5 8 -3 0
+7 -4 5 0
+-1 2 4 0
+-3 -2 5 0
+-5 -2 -6 0
+-1 -2 -5 0
+4 8 7 0
+1 2 4 0
+-4 -7 -5 0
+-4 -7 6 0
+-3 6 8 0
+-1 -4 2 0
+
+c GPT solve time: 7.30 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1.
+3. Assign x1 = True.
+4. Update the formula based on the assignment:
+   (True ∨ ¬x8 ∨ ¬x3)
+   (¬x6 ∨ x4 ∨ x2)
+   (x7 ∨ ¬x6 ∨ False)
+   (x8 ∨ ¬x2 ∨ x4)
+   (False ∨ ¬x5 ∨ ¬x7)
+   (False ∨ ¬x8 ∨ x2)
+   (x6 ∨ True ∨ ¬x2)
+   (False ∨ x5 ∨ ¬True)
+   (¬False ∨ ¬x4 ∨ x2)
+   (x7 ∨ True ∨ ¬x5)
+   (¬x2 ∨ x4 ∨ x8)
+   (x5 ∨ x4 ∨ False)
+   (True ∨ ¬x6 ∨ ¬x4)
+   (x5 ∨ ¬x2 ∨ x7)
+   (True ∨ ¬x7 ∨ ¬x5)
+   (True ∨ ¬x5 ∨ x7)
+   (¬x5 ∨ x8 ∨ ¬True)
+   (x7 ∨ ¬x4 ∨ x5)
+   (¬True ∨ x2 ∨ x4)
+   (¬False ∨ ¬x2 ∨ x5)
+   (¬x5 ∨ ¬x2 ∨ ¬x6)
+   (¬True ∨ ¬x2 ∨ ¬x5)
+   (x4 ∨ x8 ∨ x7)
+   (True ∨ x2 ∨ x4)
+   (¬x4 ∨ ¬x7 ∨ ¬x5)
+   (¬x4 ∨ ¬x7 ∨ x6)
+   (¬False ∨ x6 ∨ x8)
+   (¬True ∨ ¬x4 ∨ x2)
+5. Choose a literal to assign. Let's choose ¬x8.
+6. Assign ¬x8 = True.
+7. Update the formula based on the assignment:
+   (True ∨ True ∨ ¬x3)
+   (¬x6 ∨ x4 ∨ x2)
+   (x7 ∨ ¬x6 ∨ False)
+   (True ∨ ¬x2 ∨ x4)
+   (False ∨ ¬x5 ∨ ¬x7)
+   (False ∨ True ∨ x2)
+   (x6 ∨ True ∨ ¬x2)
+   (False ∨ x5 ∨ ¬True)
+   (¬False ∨ ¬x4 ∨ x2)
+   (x7 ∨ True ∨ ¬x5)
+   (¬x2 ∨ x4 ∨ True)
+   (x5 ∨ x4 ∨ False)
+   (True ∨ ¬x6 ∨ ¬x4)
+   (x5 ∨ True ∨ x7)
+   (True ∨ ¬x7 ∨ ¬x5)
+   (True ∨ ¬x5 ∨ True)
+   (¬x5 ∨ True ∨ ¬True)
+   (True ∨ ¬x4 ∨ True)
+   (¬True ∨ True ∨ x4)
+   (¬False ∨ True ∨ x5)
+   (¬True ∨ True ∨ ¬True)
+   (x4 ∨ True ∨ x7)
+   (True ∨ True ∨ x4)
+   (¬True ∨ ¬True ∨ ¬True)
+   (¬True ∨ ¬True ∨ True)
+   (¬False ∨ True ∨ True)
+   (¬True ∨ ¬True ∨ True)
+8. All clauses are satisfied. The formula is SATISFIABLE.
+9. Number of branches (decision points): 2
+10. Number of conflicts (backtracking steps): 0
+11. Values for literals:
+    x1 = True
+    x8 = True
+    x3 = True

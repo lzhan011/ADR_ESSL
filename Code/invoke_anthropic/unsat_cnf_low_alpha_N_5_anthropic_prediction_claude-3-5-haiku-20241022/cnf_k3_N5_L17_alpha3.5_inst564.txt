@@ -1,0 +1,36 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=564
+p cnf 5 17
+1 5 4 0
+3 1 2 0
+-3 -5 -2 0
+4 5 -1 0
+3 1 5 0
+5 2 4 0
+4 -2 1 0
+1 -2 -4 0
+1 -3 -5 0
+5 -1 2 0
+4 -5 -1 0
+4 -5 -1 0
+-1 -2 4 0
+-5 -4 2 0
+2 1 5 0
+3 2 -1 0
+-2 -4 -1 0
+
+c GPT solve time: 2.06 seconds
+
+I'll solve this using the DPLL (Davis-Putnam-Logemann-Loveland) algorithm:
+
+SATISFIABLE
+
+5
+3
+
+Satisfying assignment:
+x1 = true
+x2 = false
+x3 = true
+x4 = true
+x5 = true

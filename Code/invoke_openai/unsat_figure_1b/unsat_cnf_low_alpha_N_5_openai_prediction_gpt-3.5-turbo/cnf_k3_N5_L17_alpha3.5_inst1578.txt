@@ -1,0 +1,72 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1578
+p cnf 5 17
+4 -2 1 0
+-2 5 -1 0
+-4 -2 1 0
+-2 1 3 0
+-2 3 1 0
+4 -2 -3 0
+2 -4 1 0
+3 4 2 0
+-4 5 -3 0
+-1 -2 -5 0
+5 -4 -1 0
+2 1 -5 0
+-5 -3 1 0
+-2 5 -1 0
+2 -1 -5 0
+5 4 -3 0
+2 5 -1 0
+
+c GPT solve time: 3.76 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x4 = True.
+3. Update the formula based on the assignment:
+   (True ∨ ¬x2 ∨ x1)
+   (¬x2 ∨ x5 ∨ ¬x1)
+   (False ∨ ¬x2 ∨ x1)
+   (¬x2 ∨ x1 ∨ x3)
+   (¬x2 ∨ x3 ∨ x1)
+   (True ∨ ¬x2 ∨ ¬x3)
+   (x2 ∨ False ∨ x1)
+   (x3 ∨ True ∨ x2)
+   (False ∨ x5 ∨ ¬x3)
+   (¬x1 ∨ ¬x2 ∨ ¬x5)
+   (x5 ∨ True ∨ ¬x1)
+   (x2 ∨ x1 ∨ ¬x5)
+   (¬x5 ∨ ¬x3 ∨ x1)
+   (¬x2 ∨ x5 ∨ ¬x1)
+   (x2 ∨ ¬x1 ∨ ¬x5)
+   (True ∨ x4 ∨ ¬x3)
+   (x2 ∨ x5 ∨ ¬x1)
+4. Choose another literal to assign. Let's choose x2 = True.
+5. Update the formula based on the assignment:
+   (True ∨ False ∨ x1)
+   (False ∨ x5 ∨ ¬x1)
+   (False ∨ False ∨ x1)
+   (False ∨ x1 ∨ x3)
+   (False ∨ x3 ∨ x1)
+   (True ∨ False ∨ ¬x3)
+   (True ∨ True ∨ x1)
+   (True ∨ True ∨ x2)
+   (False ∨ x5 ∨ ¬x3)
+   (¬x1 ∨ False ∨ ¬x5)
+   (x5 ∨ True ∨ ¬x1)
+   (True ∨ True ∨ ¬x5)
+   (¬x5 ∨ ¬x3 ∨ x1)
+   (False ∨ True ∨ ¬x1)
+   (True ∨ ¬x1 ∨ ¬x5)
+   (True ∨ x4 ∨ ¬x3)
+   (True ∨ x5 ∨ ¬x1)
+6. Continue assigning literals until all clauses are satisfied.
+7. The formula is SATISFIABLE.
+8. Number of branches (decision points): 2
+9. Number of conflicts (backtracking steps): 0
+10. Value for each literal:
+    x1 = True
+    x2 = True
+    x3 = True
+    x4 = True
+    x5 = True

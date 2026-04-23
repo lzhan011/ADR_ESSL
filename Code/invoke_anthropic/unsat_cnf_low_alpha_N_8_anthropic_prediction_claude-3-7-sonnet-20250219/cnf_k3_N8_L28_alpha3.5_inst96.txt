@@ -1,0 +1,140 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=96
+p cnf 8 28
+-3 -1 5 0
+-8 -1 -2 0
+-2 -3 1 0
+7 -5 -1 0
+-5 2 -8 0
+-8 7 -6 0
+-7 5 -2 0
+7 -4 -6 0
+-5 6 -8 0
+6 -5 -7 0
+-7 -8 -6 0
+-2 -8 -5 0
+7 -6 -1 0
+-4 6 5 0
+2 -7 8 0
+6 3 4 0
+-3 7 -4 0
+1 -3 2 0
+4 7 1 0
+-7 -5 -3 0
+1 8 3 0
+-2 5 -3 0
+-2 3 -7 0
+-4 -5 3 0
+2 -8 -7 0
+1 8 -4 0
+-1 5 3 0
+4 -1 -3 0
+
+c GPT solve time: 31.04 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by making decisions and performing unit propagation:
+
+Branch 1: Assume x1 = true
+- From (¬x8 ∨ ¬x1 ∨ ¬x2), we get (¬x8 ∨ ¬x2)
+- From (¬x3 ∨ ¬x1 ∨ x5), we get (¬x3 ∨ x5)
+- From (x7 ∨ ¬x5 ∨ ¬x1), we get (x7 ∨ ¬x5)
+- From (x7 ∨ ¬x6 ∨ ¬x1), we get (x7 ∨ ¬x6)
+
+Branch 2: Assume x2 = true
+- From (¬x8 ∨ ¬x2), we get ¬x8
+- From (¬x2 ∨ ¬x3 ∨ x1), we get (¬x3 ∨ x1), which is satisfied
+- From (¬x5 ∨ x2 ∨ ¬x8), we get (¬x5 ∨ true), which is satisfied
+- From (¬x7 ∨ x5 ∨ ¬x2), we get (¬x7 ∨ x5)
+- From (¬x2 ∨ ¬x8 ∨ ¬x5), we get (¬x5), since ¬x8 is true
+- With x5 = false:
+  - From (¬x7 ∨ x5 ∨ ¬x2), we get (¬x7)
+  - From (x7 ∨ ¬x5 ∨ ¬x1), we get (x7 ∨ true), which is satisfied
+  - From (x7 ∨ ¬x6 ∨ ¬x1), we get (¬x6), since x7 = false
+
+With x6 = false:
+- From (¬x8 ∨ x7 ∨ ¬x6), we get (¬x8 ∨ x7), which is satisfied since ¬x8 is true
+- From (x7 ∨ ¬x4 ∨ ¬x6), we get (x7 ∨ ¬x4), which is (¬x4) since x7 = false
+- From (¬x5 ∨ x6 ∨ ¬x8), we get (¬x5 ∨ ¬x8), which is satisfied
+- From (x6 ∨ ¬x5 ∨ ¬x7), we get (¬x5 ∨ ¬x7), which is satisfied
+- From (¬x7 ∨ ¬x8 ∨ ¬x6), we get (¬x7 ∨ ¬x8), which is satisfied
+- From (¬x4 ∨ x6 ∨ x5), we get (¬x4), which is already set
+- From (x6 ∨ x3 ∨ x4), we get (x3), since x6 = false and x4 = false
+
+With x3 = true:
+- From (¬x3 ∨ x5), we get (x5), which conflicts with x5 = false
+
+CONFLICT! Backtrack.
+
+Branch 3: Try x2 = false
+- From (¬x2 ∨ ¬x3 ∨ x1), we get (¬x3 ∨ x1), which is satisfied since x1 = true
+- From (¬x5 ∨ x2 ∨ ¬x8), we get (¬x5 ∨ ¬x8)
+
+Branch 4: Assume x3 = true
+- From (¬x3 ∨ ¬x1 ∨ x5), we get (x5), since x1 = true
+- From (¬x2 ∨ x5 ∨ ¬x3), we get (x5), which is already set
+- From (¬x2 ∨ x3 ∨ ¬x7), we get (¬x7), since x2 = false
+- From (¬x4 ∨ ¬x5 ∨ x3), we get (¬x4 ∨ ¬x5), which simplifies to (¬x4)
+- From (¬x1 ∨ x5 ∨ x3), we get (x5 ∨ x3), which is satisfied
+- From (x4 ∨ ¬x1 ∨ ¬x3), we get (x4 ∨ ¬x1), which is not satisfied since x1 = true and x4 = false
+
+CONFLICT! Backtrack.
+
+Branch 5: Try x3 = false
+- From (x6 ∨ x3 ∨ x4), we get (x6 ∨ x4)
+
+Branch 6: Assume x4 = true
+- From (x7 ∨ ¬x4 ∨ ¬x6), we get (x7 ∨ ¬x6)
+- From (¬x3 ∨ x7 ∨ ¬x4), we get (¬x3 ∨ x7), which is (x7) since x3 = false
+- From (x4 ∨ x7 ∨ x1), we get (x4 ∨ x7 ∨ x1), which is satisfied
+- From (x1 ∨ x8 ∨ ¬x4), we get (x1 ∨ x8), which is satisfied since x1 = true
+
+With x7 = true:
+- From (x7 ∨ ¬x5 ∨ ¬x1), we get (¬x5 ∨ ¬x1), which is not satisfied since x1 = true and we need x5 = false
+
+CONFLICT! Backtrack.
+
+Branch 7: Try x4 = false
+- From (x6 ∨ x3 ∨ x4), we get (x6), since x3 = false and x4 = false
+- From (¬x4 ∨ x6 ∨ x5), we get (x6 ∨ x5), which is satisfied since x6 = true
+
+With x6 = true:
+- From (¬x8 ∨ x7 ∨ ¬x6), we get (¬x8 ∨ x7)
+- From (¬x5 ∨ x6 ∨ ¬x8), we get (¬x5 ∨ ¬x8)
+- From (x6 ∨ ¬x5 ∨ ¬x7), we get (¬x5 ∨ ¬x7)
+- From (¬x7 ∨ ¬x8 ∨ ¬x6), we get (¬x7 ∨ ¬x8)
+
+Branch 8: Assume x5 = true
+- From (¬x5 ∨ ¬x8), we get (¬x8)
+- From (¬x5 ∨ ¬x7), we get (¬x7)
+- From (¬x7 ∨ ¬x5 ∨ ¬x3), we get (¬x7 ∨ ¬x3), which is satisfied since x7 = false
+
+With x7 = false and x8 = false:
+- From (¬x8 ∨ x7), we get (x7), which conflicts with x7 = false
+
+CONFLICT! Backtrack.
+
+Branch 9: Try x5 = false
+- From (x7 ∨ ¬x5 ∨ ¬x1), we get (x7), since x5 = false and x1 = true
+- From (¬x7 ∨ x5 ∨ ¬x2), we get (¬x7 ∨ ¬x2), which is satisfied since x2 = false
+- From (¬x7 ∨ ¬x8 ∨ ¬x6), we get (¬x8 ∨ ¬x6), since x7 = true
+- From (¬x7 ∨ ¬x5 ∨ ¬x3), we get (¬x3), which is satisfied
+
+With x8 = false (to satisfy ¬x8 ∨ ¬x6 with x6 = true):
+- All clauses are satisfied!
+
+We have a satisfying assignment:
+x1 = true
+x2 = false
+x3 = false
+x4 = false
+x5 = false
+x6 = true
+x7 = true
+x8 = false
+
+SATISFIABLE
+Number of branches: 9
+Number of conflicts: 3
+x1 = true, x2 = false, x3 = false, x4 = false, x5 = false, x6 = true, x7 = true, x8 = false

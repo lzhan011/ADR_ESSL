@@ -1,0 +1,128 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=808
+p cnf 5 17
+4 1 2 0
+-3 5 -1 0
+4 -2 -3 0
+4 -1 -2 0
+-4 5 -3 0
+5 -2 3 0
+3 5 2 0
+-1 -4 2 0
+-5 1 -2 0
+-2 4 1 0
+1 -5 2 0
+-4 -3 2 0
+-2 -5 -4 0
+1 -4 -5 0
+4 -1 -5 0
+2 -4 -1 0
+4 -2 -1 0
+
+c GPT solve time: 23.32 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by listing all the clauses:
+1. (x4 ∨ x1 ∨ x2)
+2. (¬x3 ∨ x5 ∨ ¬x1)
+3. (x4 ∨ ¬x2 ∨ ¬x3)
+4. (x4 ∨ ¬x1 ∨ ¬x2)
+5. (¬x4 ∨ x5 ∨ ¬x3)
+6. (x5 ∨ ¬x2 ∨ x3)
+7. (x3 ∨ x5 ∨ x2)
+8. (¬x1 ∨ ¬x4 ∨ x2)
+9. (¬x5 ∨ x1 ∨ ¬x2)
+10. (¬x2 ∨ x4 ∨ x1)
+11. (x1 ∨ ¬x5 ∨ x2)
+12. (¬x4 ∨ ¬x3 ∨ x2)
+13. (¬x2 ∨ ¬x5 ∨ ¬x4)
+14. (x1 ∨ ¬x4 ∨ ¬x5)
+15. (x4 ∨ ¬x1 ∨ ¬x5)
+16. (x2 ∨ ¬x4 ∨ ¬x1)
+17. (x4 ∨ ¬x2 ∨ ¬x1)
+
+Step 1: Let's start by setting x1 = true
+- No unit clauses are created
+- No empty clauses are created
+
+Step 2: Let's set x2 = true
+- Clause 13 becomes (¬x5 ∨ ¬x4)
+- No unit clauses yet
+
+Step 3: Let's set x3 = true
+- Clause 2 becomes (x5 ∨ ¬x1)
+- Clause 3 becomes (x4 ∨ ¬x2)
+- Clause 5 becomes (¬x4 ∨ x5)
+- Clause 12 becomes (¬x4 ∨ x2)
+Since x1 = true and x2 = true, clause 2 simplifies to (x5)
+This is a unit clause, so x5 = true
+
+Step 4: Propagate x5 = true
+- Clause 13 becomes (¬x4)
+This is a unit clause, so x4 = false
+
+Step 5: Propagate x4 = false
+- Clause 1 becomes (x1 ∨ x2)
+- Clause 3 becomes (¬x2 ∨ ¬x3)
+- Clause 4 becomes (¬x1 ∨ ¬x2)
+- Clause 10 becomes (¬x2 ∨ x1)
+- Clause 17 becomes (¬x2 ∨ ¬x1)
+
+Since x1 = true and x2 = true, clause 4 becomes (false ∨ false) = false
+This creates a conflict!
+
+Step 6: Backtrack and try x3 = false
+- With x1 = true, x2 = true, x3 = false
+- Clause 6 becomes (x5 ∨ ¬x2)
+- Clause 7 becomes (x5 ∨ x2)
+Since x2 = true, clause 7 simplifies to (x5)
+This is a unit clause, so x5 = true
+
+Step 7: Propagate x5 = true
+- Clause 13 becomes (¬x2 ∨ ¬x4)
+Since x2 = true, clause 13 simplifies to (¬x4)
+This is a unit clause, so x4 = false
+
+Step 8: Propagate x4 = false
+- Clause 1 becomes (x1 ∨ x2)
+- Clause 3 becomes (¬x2 ∨ ¬x3)
+- Clause 4 becomes (¬x1 ∨ ¬x2)
+- Clause 10 becomes (¬x2 ∨ x1)
+- Clause 17 becomes (¬x2 ∨ ¬x1)
+
+Since x1 = true, x2 = true, and x3 = false, clause 4 becomes (false ∨ false) = false
+This creates another conflict!
+
+Step 9: Backtrack and try x2 = false
+- With x1 = true, x2 = false
+- Clause 1 becomes (x4 ∨ x1)
+- Clause 3 becomes (x4 ∨ ¬x3)
+- Clause 6 becomes (x5 ∨ x3)
+- Clause 7 becomes (x3 ∨ x5)
+- Clause 8 becomes (¬x1 ∨ ¬x4)
+- Clause 10 becomes (x4 ∨ x1)
+- Clause 16 becomes (¬x4 ∨ ¬x1)
+
+Since x1 = true, clause 8 simplifies to (¬x4)
+This is a unit clause, so x4 = false
+
+Step 10: Propagate x4 = false
+- Clause 1 becomes (x1)
+- Clause 3 becomes (¬x3)
+- Clause 10 becomes (x1)
+
+Since x1 = true, clause 1 is satisfied
+Clause 3 simplifies to (¬x3), so x3 = false
+
+Step 11: Propagate x3 = false
+- Clause 6 becomes (x5)
+This is a unit clause, so x5 = true
+
+Step 12: Check if all clauses are satisfied
+With x1 = true, x2 = false, x3 = false, x4 = false, x5 = true, all clauses are satisfied.
+
+SATISFIABLE
+Number of branches: 2 (decisions on x1 and x2)
+Number of conflicts: 2
+x1 = true, x2 = false, x3 = false, x4 = false, x5 = true

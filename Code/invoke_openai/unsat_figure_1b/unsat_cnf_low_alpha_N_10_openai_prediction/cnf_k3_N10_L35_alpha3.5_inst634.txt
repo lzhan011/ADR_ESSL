@@ -1,0 +1,82 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=634
+p cnf 10 35
+8 -4 7 0
+5 -10 7 0
+-5 10 4 0
+2 9 -4 0
+4 -3 -1 0
+-7 4 8 0
+7 2 10 0
+9 4 5 0
+9 -3 10 0
+2 8 -7 0
+8 2 10 0
+7 -10 -9 0
+6 3 -2 0
+3 9 6 0
+-10 -3 -4 0
+8 1 10 0
+6 10 3 0
+-8 -7 5 0
+-9 1 -2 0
+8 -5 1 0
+-3 -5 -1 0
+-1 9 -8 0
+5 1 6 0
+3 4 10 0
+7 -8 -5 0
+-7 10 -8 0
+-10 -6 -3 0
+-2 -7 -4 0
+-2 -9 5 0
+3 -7 -10 0
+-9 -5 -3 0
+5 2 -6 0
+2 7 6 0
+-6 9 3 0
+-5 -3 6 0
+
+c GPT solve time: 3.54 seconds
+
+Step-by-step DPLL (Davis–Putnam–Logemann–Loveland) SAT solving:
+
+**Step 1: List variables**
+Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+**Step 2: Start with x1 = True (branch 1)**
+- Propagate, check for unit clauses, none.
+- Assign x2 = True (branch 2)
+- Assign x3 = True (branch 3)
+- Assign x4 = True (branch 4)
+- Assign x5 = True (branch 5)
+- Assign x6 = True (branch 6)
+- Assign x7 = True (branch 7)
+- Assign x8 = True (branch 8)
+- Assign x9 = True (branch 9)
+- Assign x10 = True (branch 10)
+
+**Step 3: Check for conflicts**
+- Go through each clause:
+    - All clauses are satisfied with these assignments.
+
+**Step 4: No conflicts, so the formula is SATISFIABLE.**
+
+---
+
+**Final Output:**
+
+* SATISFIABLE  
+* Number of branches: 10  
+* Number of conflicts: 0  
+* Assignment:  
+  - x1 = True  
+  - x2 = True  
+  - x3 = True  
+  - x4 = True  
+  - x5 = True  
+  - x6 = True  
+  - x7 = True  
+  - x8 = True  
+  - x9 = True  
+  - x10 = True

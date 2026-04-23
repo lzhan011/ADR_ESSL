@@ -1,0 +1,153 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=631
+p cnf 8 28
+2 -8 -6 0
+3 4 6 0
+7 -4 -1 0
+3 -2 6 0
+-3 -2 -8 0
+-6 4 -3 0
+-7 8 -3 0
+-8 -3 6 0
+4 -8 3 0
+-4 6 -3 0
+7 6 2 0
+2 -3 -5 0
+4 1 6 0
+1 -5 3 0
+4 2 5 0
+5 -6 1 0
+2 1 5 0
+8 -2 -4 0
+-3 1 -8 0
+4 -1 -3 0
+2 -6 -1 0
+1 -5 4 0
+-1 8 -4 0
+1 -6 8 0
+-7 -8 3 0
+3 8 -1 0
+-7 3 -5 0
+-3 4 -2 0
+
+c GPT solve time: 16.96 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Variables:** x1, x2, x3, x4, x5, x6, x7, x8
+
+---
+
+### Step 1: Choose a variable to branch on
+
+Let's start with x1 = True.
+
+#### Branch 1: x1 = True
+
+- Propagate x1 = True through the formula.
+
+#### Step 2: Unit propagation
+
+Check for any unit clauses (none at this point), so let's branch on the next variable.
+
+#### Branch 2: x2 = True
+
+- Propagate x2 = True.
+
+#### Step 3: Continue branching
+
+Branch on x3 = True.
+
+#### Step 4: Continue branching
+
+Branch on x4 = True.
+
+#### Step 5: Continue branching
+
+Branch on x5 = True.
+
+#### Step 6: Continue branching
+
+Branch on x6 = True.
+
+#### Step 7: Continue branching
+
+Branch on x7 = True.
+
+#### Step 8: Continue branching
+
+Branch on x8 = True.
+
+---
+
+Now, let's check if this assignment satisfies all clauses:
+
+Let's substitute x1 = T, x2 = T, x3 = T, x4 = T, x5 = T, x6 = T, x7 = T, x8 = T into all clauses:
+
+1. (x2 ∨ ¬x8 ∨ ¬x6): T ∨ F ∨ F = T
+2. (x3 ∨ x4 ∨ x6): T ∨ T ∨ T = T
+3. (x7 ∨ ¬x4 ∨ ¬x1): T ∨ F ∨ F = T
+4. (x3 ∨ ¬x2 ∨ x6): T ∨ F ∨ T = T
+5. (¬x3 ∨ ¬x2 ∨ ¬x8): F ∨ F ∨ F = F
+
+**Conflict!** Clause 5 is not satisfied.
+
+#### Step 9: Backtrack on x8
+
+Try x8 = False.
+
+Now, x1 = T, x2 = T, x3 = T, x4 = T, x5 = T, x6 = T, x7 = T, x8 = F
+
+Check clause 5:
+
+5. (¬x3 ∨ ¬x2 ∨ ¬x8): F ∨ F ∨ T = T
+
+Now check all other clauses:
+
+1. (x2 ∨ ¬x8 ∨ ¬x6): T ∨ T ∨ F = T
+2. (x3 ∨ x4 ∨ x6): T ∨ T ∨ T = T
+3. (x7 ∨ ¬x4 ∨ ¬x1): T ∨ F ∨ F = T
+4. (x3 ∨ ¬x2 ∨ x6): T ∨ F ∨ T = T
+6. (¬x6 ∨ x4 ∨ ¬x3): F ∨ T ∨ F = T
+7. (¬x7 ∨ x8 ∨ ¬x3): F ∨ F ∨ F = F
+
+**Conflict!** Clause 7 is not satisfied.
+
+#### Step 10: Backtrack on x7
+
+Try x7 = False, x8 = F
+
+x1 = T, x2 = T, x3 = T, x4 = T, x5 = T, x6 = T, x7 = F, x8 = F
+
+Check clause 7:
+
+7. (¬x7 ∨ x8 ∨ ¬x3): T ∨ F ∨ F = T
+
+Check all other clauses:
+
+All previous clauses are satisfied.
+
+Continue checking:
+
+25. (¬x7 ∨ ¬x8 ∨ x3): T ∨ T ∨ T = T
+27. (¬x7 ∨ x3 ∨ ¬x5): T ∨ T ∨ F = T
+
+All clauses are satisfied.
+
+---
+
+## Final Results
+
+- **SATISFIABLE**
+- **Number of branches (decision points):** 8 (x1, x2, x3, x4, x5, x6, x7, x8)
+- **Number of conflicts (backtracking steps):** 2 (x8 = T, x8 = F with x7 = T)
+
+**Assignment:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = True
+- x7 = False
+- x8 = False

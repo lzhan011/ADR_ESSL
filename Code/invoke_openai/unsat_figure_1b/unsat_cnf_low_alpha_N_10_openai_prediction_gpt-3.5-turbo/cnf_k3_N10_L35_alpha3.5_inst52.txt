@@ -1,0 +1,80 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=52
+p cnf 10 35
+5 8 -6 0
+-3 5 -8 0
+3 1 2 0
+4 -1 6 0
+-4 -3 8 0
+-8 2 -5 0
+-2 -3 -6 0
+9 -2 5 0
+-10 4 8 0
+-2 -1 4 0
+-2 -4 -3 0
+10 1 5 0
+-3 -1 -2 0
+2 10 4 0
+6 -10 2 0
+6 -10 -5 0
+3 8 4 0
+3 -8 -2 0
+4 2 -10 0
+2 9 10 0
+-7 10 9 0
+10 -8 -7 0
+-5 -9 -2 0
+2 7 6 0
+10 -6 3 0
+-10 -2 6 0
+10 -6 7 0
+6 5 -8 0
+3 6 -9 0
+2 -10 5 0
+8 -6 3 0
+-5 -4 -1 0
+6 -5 3 0
+8 10 -5 0
+9 10 6 0
+
+c GPT solve time: 6.51 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x5.
+3. Assign x5 = True.
+4. Update the clauses based on the assignment of x5:
+   - (x5 ∨ x8 ∨ ¬x6) becomes (True ∨ x8 ∨ ¬x6) which simplifies to True.
+   - (¬x3 ∨ x5 ∨ ¬x8) becomes (¬x3 ∨ True ∨ ¬x8) which simplifies to True.
+   - (x9 ∨ ¬x2 ∨ x5) becomes (x9 ∨ ¬x2 ∨ True) which simplifies to True.
+   - (x6 ∨ ¬x5 ∨ x3) becomes (x6 ∨ ¬True ∨ x3) which simplifies to x6 ∨ False ∨ x3 which simplifies to x6 ∨ x3.
+   - (x8 ∨ ¬x6 ∨ x3) becomes (True ∨ ¬x6 ∨ x3) which simplifies to True.
+5. Choose the next unassigned literal, let's choose x8.
+6. Assign x8 = True.
+7. Update the clauses based on the assignment of x8:
+   - (¬x3 ∨ x5 ∨ ¬x8) becomes (¬x3 ∨ True ∨ ¬True) which simplifies to True.
+   - (¬x4 ∨ ¬x3 ∨ x8) becomes (¬x4 ∨ ¬True ∨ True) which simplifies to True.
+   - (¬x8 ∨ x2 ∨ ¬x5) becomes (¬True ∨ x2 ∨ ¬True) which simplifies to True.
+   - (x8 ∨ x10 ∨ ¬x5) becomes (True ∨ x10 ∨ ¬True) which simplifies to True.
+   - (x6 ∨ x5 ∨ ¬x8) becomes (x6 ∨ True ∨ ¬True) which simplifies to True.
+8. Choose the next unassigned literal, let's choose x6.
+9. Assign x6 = True.
+10. Update the clauses based on the assignment of x6:
+    - (x6 ∨ ¬x5 ∨ x3) becomes (True ∨ ¬True ∨ x3) which simplifies to x3.
+    - (¬x2 ∨ ¬x3 ∨ ¬x6) becomes (¬x2 ∨ ¬True ∨ ¬True) which simplifies to ¬x2.
+    - (x6 ∨ ¬x10 ∨ x2) becomes (True ∨ ¬x10 ∨ True) which simplifies to True.
+    - (x6 ∨ ¬x10 ∨ ¬x5) becomes (True ∨ ¬x10 ∨ ¬True) which simplifies to ¬x10.
+    - (x6 ∨ x5 ∨ ¬x8) becomes (True ∨ True ∨ ¬True) which simplifies to True.
+11. Choose the next unassigned literal, let's choose x3.
+12. Assign x3 = True.
+13. Update the clauses based on the assignment of x3:
+    - (x3 ∨ x1 ∨ x2) becomes (True ∨ x1 ∨ x2) which simplifies to True.
+    - (x3 ∨ x8 ∨ x4) becomes (True ∨ True ∨ x4) which simplifies to True.
+    - (x3 ∨ ¬x8 ∨ ¬x2) becomes (True ∨ ¬True ∨ ¬True) which simplifies to True.
+14. All clauses are now satisfied, so the formula is SATISFIABLE.
+15. Number of branches (decision points): 3
+16. Number of conflicts (backtracking steps): 0
+17. Values for literals:
+    x5 = True
+    x8 = True
+    x6 = True
+    x3 = True

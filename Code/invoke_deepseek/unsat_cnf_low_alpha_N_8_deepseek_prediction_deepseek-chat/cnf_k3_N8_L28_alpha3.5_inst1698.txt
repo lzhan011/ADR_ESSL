@@ -1,0 +1,38 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1698
+p cnf 8 28
+8 1 4 0
+-4 -1 -6 0
+-8 -6 4 0
+6 -2 -7 0
+-3 1 8 0
+7 -3 4 0
+1 -6 -4 0
+2 -5 4 0
+2 -8 -1 0
+5 4 -3 0
+-5 6 3 0
+5 2 3 0
+1 -8 4 0
+-7 4 -5 0
+-8 2 -4 0
+-6 1 2 0
+1 6 7 0
+5 3 -1 0
+2 -3 -1 0
+-2 -4 -3 0
+-1 4 6 0
+-5 -6 3 0
+-6 -1 5 0
+4 -1 -8 0
+4 -2 -8 0
+-2 7 -5 0
+6 -2 7 0
+1 8 -6 0
+
+c GPT solve time: 6.48 seconds
+
+* SATISFIABLE  
+* Branches: 8  
+* Conflicts: 4  
+* Literals: x1=True, x2=False, x3=True, x4=False, x5=True, x6=False, x7=True, x8=True

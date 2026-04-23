@@ -1,0 +1,329 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=229
+p cnf 8 28
+8 -2 1 0
+6 -8 3 0
+-6 8 -4 0
+6 1 -4 0
+-2 8 5 0
+-3 -7 -5 0
+-1 -3 6 0
+-8 -7 -5 0
+-3 -6 7 0
+2 7 4 0
+-2 7 5 0
+-3 -5 -7 0
+-3 5 2 0
+-7 -4 -2 0
+6 7 -5 0
+4 -7 3 0
+-7 2 5 0
+-1 -5 4 0
+-3 5 2 0
+1 4 -2 0
+-2 4 -6 0
+-3 -8 -4 0
+-5 4 -6 0
+-1 3 6 0
+-1 3 -7 0
+-5 -6 2 0
+-4 -8 7 0
+7 -4 3 0
+
+c GPT solve time: 52.22 seconds
+
+**Step-by-step SAT solving (DPLL-style):**
+
+Let's denote the variables: x1, x2, x3, x4, x5, x6, x7, x8.
+
+### Step 1: Choose a variable to branch on.
+Let's start with x1 = True.
+
+#### Branch 1: x1 = True
+
+- Propagate x1 = True.
+- Check for unit clauses and propagate.
+
+#### Step 2: Assign x2 = True
+
+- Propagate x2 = True.
+
+#### Step 3: Assign x3 = True
+
+- Propagate x3 = True.
+
+#### Step 4: Assign x4 = True
+
+- Propagate x4 = True.
+
+#### Step 5: Assign x5 = True
+
+- Propagate x5 = True.
+
+#### Step 6: Assign x6 = True
+
+- Propagate x6 = True.
+
+#### Step 7: Assign x7 = True
+
+- Propagate x7 = True.
+
+#### Step 8: Assign x8 = True
+
+- Propagate x8 = True.
+
+Now, check all clauses for satisfaction:
+
+Let's check each clause with the current assignment (all variables True):
+
+1. (x8 ∨ ¬x2 ∨ x1) → True
+2. (x6 ∨ ¬x8 ∨ x3) → True
+3. (¬x6 ∨ x8 ∨ ¬x4) → x6=False? No, but x8=True, so True
+4. (x6 ∨ x1 ∨ ¬x4) → True
+5. (¬x2 ∨ x8 ∨ x5) → x2=False? No, but x8=True, so True
+6. (¬x3 ∨ ¬x7 ∨ ¬x5) → all False, so this clause is False (conflict!)
+
+#### Conflict! (Clause 6: (¬x3 ∨ ¬x7 ∨ ¬x5) = (False ∨ False ∨ False) = False)
+
+### Step 9: Backtrack (first conflict)
+Let's flip x5 = False (first decision point for x5).
+
+#### Branch 2: x1=True, x2=True, x3=True, x4=True, x5=False
+
+- Propagate x5 = False.
+
+Check clause 5: (¬x2 ∨ x8 ∨ x5) = (False ∨ True ∨ False) = True
+Check clause 6: (¬x3 ∨ ¬x7 ∨ ¬x5) = (False ∨ False ∨ True) = True
+
+Continue with x6 = True, x7 = True, x8 = True.
+
+Check all clauses:
+
+- Clause 1: True
+- Clause 2: True
+- Clause 3: True
+- Clause 4: True
+- Clause 5: True
+- Clause 6: True
+- Clause 7: (¬x1 ∨ ¬x3 ∨ x6) = (False ∨ False ∨ True) = True
+- Clause 8: (¬x8 ∨ ¬x7 ∨ ¬x5) = (False ∨ False ∨ True) = True
+- Clause 9: (¬x3 ∨ ¬x6 ∨ x7) = (False ∨ False ∨ True) = True
+- Clause 10: (x2 ∨ x7 ∨ x4) = True
+- Clause 11: (¬x2 ∨ x7 ∨ x5) = (False ∨ True ∨ False) = True
+- Clause 12: (¬x3 ∨ ¬x5 ∨ ¬x7) = (False ∨ True ∨ False) = True
+- Clause 13: (¬x3 ∨ x5 ∨ x2) = (False ∨ False ∨ True) = True
+- Clause 14: (¬x7 ∨ ¬x4 ∨ ¬x2) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 14: (¬x7 ∨ ¬x4 ∨ ¬x2) = (False ∨ False ∨ False) = False)
+
+### Step 10: Backtrack (second conflict)
+Let's flip x4 = False (since x4 was set True, now try False).
+
+#### Branch 3: x1=True, x2=True, x3=True, x4=False, x5=False
+
+Check clause 4: (x6 ∨ x1 ∨ ¬x4) = (x6 ∨ True ∨ True) = True
+Check clause 14: (¬x7 ∨ ¬x4 ∨ ¬x2) = (¬x7 ∨ True ∨ False) = True
+
+Continue with x6 = True, x7 = True, x8 = True.
+
+Check clause 3: (¬x6 ∨ x8 ∨ ¬x4) = (False ∨ True ∨ True) = True
+
+Check clause 16: (x4 ∨ ¬x7 ∨ x3) = (False ∨ False ∨ True) = True
+
+Check clause 20: (x1 ∨ x4 ∨ ¬x2) = (True ∨ False ∨ False) = True
+
+Check clause 21: (¬x2 ∨ x4 ∨ ¬x6) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 21: (¬x2 ∨ x4 ∨ ¬x6) = (False ∨ False ∨ False) = False)
+
+### Step 11: Backtrack (third conflict)
+Let's flip x6 = False.
+
+#### Branch 4: x1=True, x2=True, x3=True, x4=False, x5=False, x6=False
+
+Check clause 2: (x6 ∨ ¬x8 ∨ x3) = (False ∨ False ∨ True) = True
+
+Check clause 21: (¬x2 ∨ x4 ∨ ¬x6) = (False ∨ False ∨ True) = True
+
+Continue with x7 = True, x8 = True.
+
+Check clause 9: (¬x3 ∨ ¬x6 ∨ x7) = (False ∨ True ∨ True) = True
+
+Check clause 15: (x6 ∨ x7 ∨ ¬x5) = (False ∨ True ∨ True) = True
+
+Check clause 23: (¬x5 ∨ x4 ∨ ¬x6) = (True ∨ False ∨ True) = True
+
+Check clause 26: (¬x5 ∨ ¬x6 ∨ x2) = (True ∨ True ∨ True) = True
+
+Check clause 27: (¬x4 ∨ ¬x8 ∨ x7) = (True ∨ False ∨ True) = True
+
+Check clause 28: (x7 ∨ ¬x4 ∨ x3) = (True ∨ True ∨ True) = True
+
+Now, check all other clauses:
+
+- Clause 1: (x8 ∨ ¬x2 ∨ x1) = (True ∨ False ∨ True) = True
+- Clause 5: (¬x2 ∨ x8 ∨ x5) = (False ∨ True ∨ False) = True
+- Clause 6: (¬x3 ∨ ¬x7 ∨ ¬x5) = (False ∨ False ∨ True) = True
+- Clause 7: (¬x1 ∨ ¬x3 ∨ x6) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 7: (¬x1 ∨ ¬x3 ∨ x6) = (False ∨ False ∨ False) = False)
+
+### Step 12: Backtrack (fourth conflict)
+Let's flip x3 = False.
+
+#### Branch 5: x1=True, x2=True, x3=False, x4=False, x5=False, x6=False
+
+Check clause 7: (¬x1 ∨ ¬x3 ∨ x6) = (False ∨ True ∨ False) = True
+
+Check clause 6: (¬x3 ∨ ¬x7 ∨ ¬x5) = (True ∨ False ∨ True) = True
+
+Check clause 9: (¬x3 ∨ ¬x6 ∨ x7) = (True ∨ True ∨ True) = True
+
+Check clause 12: (¬x3 ∨ ¬x5 ∨ ¬x7) = (True ∨ True ∨ False) = True
+
+Check clause 13: (¬x3 ∨ x5 ∨ x2) = (True ∨ False ∨ True) = True
+
+Check clause 19: (¬x3 ∨ x5 ∨ x2) = (True ∨ False ∨ True) = True
+
+Check clause 22: (¬x3 ∨ ¬x8 ∨ ¬x4) = (True ∨ False ∨ True) = True
+
+Check clause 24: (¬x1 ∨ x3 ∨ x6) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 24: (¬x1 ∨ x3 ∨ x6) = (False ∨ False ∨ False) = False)
+
+### Step 13: Backtrack (fifth conflict)
+Let's flip x2 = False.
+
+#### Branch 6: x1=True, x2=False, x3=False, x4=False, x5=False, x6=False
+
+Check clause 1: (x8 ∨ ¬x2 ∨ x1) = (True ∨ True ∨ True) = True
+
+Check clause 5: (¬x2 ∨ x8 ∨ x5) = (True ∨ True ∨ False) = True
+
+Check clause 10: (x2 ∨ x7 ∨ x4) = (False ∨ True ∨ False) = True
+
+Check clause 11: (¬x2 ∨ x7 ∨ x5) = (True ∨ True ∨ False) = True
+
+Check clause 13: (¬x3 ∨ x5 ∨ x2) = (True ∨ False ∨ False) = True
+
+Check clause 14: (¬x7 ∨ ¬x4 ∨ ¬x2) = (False ∨ True ∨ True) = True
+
+Check clause 16: (x4 ∨ ¬x7 ∨ x3) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 16: (x4 ∨ ¬x7 ∨ x3) = (False ∨ False ∨ False) = False)
+
+### Step 14: Backtrack (sixth conflict)
+Let's flip x1 = False.
+
+#### Branch 7: x1=False
+
+Now, try x2 = True.
+
+Continue with x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True.
+
+Check clause 1: (x8 ∨ ¬x2 ∨ x1) = (True ∨ False ∨ False) = True
+
+Check clause 7: (¬x1 ∨ ¬x3 ∨ x6) = (True ∨ False ∨ True) = True
+
+Check clause 18: (¬x1 ∨ ¬x5 ∨ x4) = (True ∨ False ∨ True) = True
+
+Check clause 24: (¬x1 ∨ x3 ∨ x6) = (True ∨ True ∨ True) = True
+
+Check clause 25: (¬x1 ∨ x3 ∨ ¬x7) = (True ∨ True ∨ False) = True
+
+Check clause 20: (x1 ∨ x4 ∨ ¬x2) = (False ∨ True ∨ False) = True
+
+Check clause 21: (¬x2 ∨ x4 ∨ ¬x6) = (False ∨ True ∨ False) = True
+
+Check clause 6: (¬x3 ∨ ¬x7 ∨ ¬x5) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 6: (¬x3 ∨ ¬x7 ∨ ¬x5) = (False ∨ False ∨ False) = False)
+
+### Step 15: Backtrack (seventh conflict)
+Try x5 = False.
+
+#### Branch 8: x1=False, x2=True, x3=True, x4=True, x5=False, x6=True, x7=True, x8=True
+
+Check clause 6: (¬x3 ∨ ¬x7 ∨ ¬x5) = (False ∨ False ∨ True) = True
+
+Check clause 12: (¬x3 ∨ ¬x5 ∨ ¬x7) = (False ∨ True ∨ False) = True
+
+Check clause 14: (¬x7 ∨ ¬x4 ∨ ¬x2) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 14: (¬x7 ∨ ¬x4 ∨ ¬x2) = (False ∨ False ∨ False) = False)
+
+### Step 16: Backtrack (eighth conflict)
+Try x4 = False.
+
+#### Branch 9: x1=False, x2=True, x3=True, x4=False, x5=False, x6=True, x7=True, x8=True
+
+Check clause 14: (¬x7 ∨ ¬x4 ∨ ¬x2) = (False ∨ True ∨ False) = True
+
+Check clause 16: (x4 ∨ ¬x7 ∨ x3) = (False ∨ False ∨ True) = True
+
+Check clause 21: (¬x2 ∨ x4 ∨ ¬x6) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 21: (¬x2 ∨ x4 ∨ ¬x6) = (False ∨ False ∨ False) = False)
+
+### Step 17: Backtrack (ninth conflict)
+Try x6 = False.
+
+#### Branch 10: x1=False, x2=True, x3=True, x4=False, x5=False, x6=False, x7=True, x8=True
+
+Check clause 21: (¬x2 ∨ x4 ∨ ¬x6) = (False ∨ False ∨ True) = True
+
+Check clause 7: (¬x1 ∨ ¬x3 ∨ x6) = (True ∨ False ∨ False) = True
+
+Check clause 15: (x6 ∨ x7 ∨ ¬x5) = (False ∨ True ∨ True) = True
+
+Check clause 23: (¬x5 ∨ x4 ∨ ¬x6) = (True ∨ False ∨ True) = True
+
+Check clause 26: (¬x5 ∨ ¬x6 ∨ x2) = (True ∨ True ∨ True) = True
+
+Check clause 27: (¬x4 ∨ ¬x8 ∨ x7) = (True ∨ False ∨ True) = True
+
+Check clause 28: (x7 ∨ ¬x4 ∨ x3) = (True ∨ True ∨ True) = True
+
+Check clause 24: (¬x1 ∨ x3 ∨ x6) = (True ∨ True ∨ False) = True
+
+Check clause 25: (¬x1 ∨ x3 ∨ ¬x7) = (True ∨ True ∨ False) = True
+
+Check clause 20: (x1 ∨ x4 ∨ ¬x2) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 20: (x1 ∨ x4 ∨ ¬x2) = (False ∨ False ∨ False) = False)
+
+### Step 18: Backtrack (tenth conflict)
+Try x3 = False.
+
+#### Branch 11: x1=False, x2=True, x3=False, x4=False, x5=False, x6=False, x7=True, x8=True
+
+Check clause 24: (¬x1 ∨ x3 ∨ x6) = (True ∨ False ∨ False) = True
+
+Check clause 25: (¬x1 ∨ x3 ∨ ¬x7) = (True ∨ False ∨ False) = True
+
+Check clause 6: (¬x3 ∨ ¬x7 ∨ ¬x5) = (True ∨ False ∨ True) = True
+
+Check clause 9: (¬x3 ∨ ¬x6 ∨ x7) = (True ∨ True ∨ True) = True
+
+Check clause 12: (¬x3 ∨ ¬x5 ∨ ¬x7) = (True ∨ True ∨ False) = True
+
+Check clause 13: (¬x3 ∨ x5 ∨ x2) = (True ∨ False ∨ True) = True
+
+Check clause 19: (¬x3 ∨ x5 ∨ x2) = (True ∨ False ∨ True) = True
+
+Check clause 22: (¬x3 ∨ ¬x8 ∨ ¬x4) = (True ∨ False ∨ True) = True
+
+Check clause 16: (x4 ∨ ¬x7 ∨ x3) = (False ∨ False ∨ False) = False (conflict!)
+
+#### Conflict! (Clause 16: (x4 ∨ ¬x7 ∨ x3) = (False ∨ False ∨ False) = False)
+
+### Step 19: Backtrack (eleventh conflict)
+Try x2 = False.
+
+#### Branch 12: x1=False, x2=False, x3=False, x4=False, x5=False, x6=False, x7=True, x8=True
+
+Check clause 1: (x8 ∨ ¬x2 ∨ x1) = (True ∨ True ∨ False) = True
+
+Check clause 5: (¬x2 ∨ x8 ∨ x5) = (True ∨ True ∨ False) = True
+
+Check clause 10: (x2 ∨ x7 ∨ x4) = (False ∨ True ∨ False) = True

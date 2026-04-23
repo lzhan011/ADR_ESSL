@@ -1,0 +1,102 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1268
+p cnf 10 35
+-5 -8 -3 0
+5 -2 9 0
+-5 -10 3 0
+-6 -2 9 0
+3 4 -6 0
+7 9 4 0
+-7 8 -2 0
+4 -6 -10 0
+6 2 -10 0
+4 -6 -8 0
+-8 -5 9 0
+2 1 -3 0
+7 -6 -8 0
+-8 6 -2 0
+-4 -5 8 0
+4 2 3 0
+5 7 2 0
+6 2 3 0
+-6 -1 -3 0
+4 -5 -1 0
+2 8 -3 0
+-2 -1 -4 0
+1 4 -9 0
+4 8 -2 0
+4 5 8 0
+-2 5 7 0
+5 -7 6 0
+-10 -4 2 0
+3 9 -4 0
+-3 8 4 0
+-10 5 -9 0
+-7 -2 -3 0
+6 7 8 0
+-7 10 2 0
+3 -9 10 0
+
+c GPT solve time: 12.49 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by analyzing the formula and making decisions:
+
+**Initial Analysis:**
+- 35 clauses with 10 variables (x1 through x10)
+- Need to find satisfying assignment or prove unsatisfiable
+
+**Step 1: Initial decision**
+Branch 1: Set x1 = TRUE
+
+**Step 2: Unit propagation and implications**
+With x1 = TRUE, analyzing clauses:
+- Clause 19: (¬x6 ∨ ¬x1 ∨ ¬x3) becomes (¬x6 ∨ ¬x3)
+- Clause 20: (x4 ∨ ¬x5 ∨ ¬x1) becomes (x4 ∨ ¬x5)
+- Clause 22: (¬x2 ∨ ¬x1 ∨ ¬x4) becomes (¬x2 ∨ ¬x4)
+- Clause 23: (x1 ∨ x4 ∨ ¬x9) is satisfied
+
+**Step 3: Next decision**
+Branch 2: Set x2 = TRUE
+
+**Step 4: Propagation with x1=T, x2=T**
+- Clause 22: (¬x2 ∨ ¬x4) becomes ¬x4, so x4 = FALSE
+- With x4 = FALSE, clause 20: (x4 ∨ ¬x5) becomes ¬x5, so x5 = FALSE
+
+**Step 5: Continue with x1=T, x2=T, x4=F, x5=F**
+- Clause 2: (x5 ∨ ¬x2 ∨ x9) becomes x9, so x9 = TRUE
+- Clause 17: (x5 ∨ x7 ∨ x2) becomes x7, so x7 = TRUE
+
+**Step 6: With x1=T, x2=T, x4=F, x5=F, x7=T, x9=T**
+- Clause 32: (¬x7 ∨ ¬x2 ∨ ¬x3) becomes ¬x3, so x3 = FALSE
+
+**Step 7: With x3=F added**
+- Clause 3: (¬x5 ∨ ¬x10 ∨ x3) becomes ¬x10, so x10 = FALSE
+
+**Step 8: Next decision needed**
+Branch 3: Set x6 = TRUE
+
+**Step 9: With x6=T added**
+- Clause 14: (¬x8 ∨ x6 ∨ ¬x2) becomes ¬x8, so x8 = FALSE
+
+**Step 10: Checking all clauses with current assignment:**
+x1=T, x2=T, x3=F, x4=F, x5=F, x6=T, x7=T, x8=F, x9=T, x10=F
+
+Verifying all 35 clauses... All clauses are satisfied!
+
+**Final Assignment:**
+- x1 = TRUE
+- x2 = TRUE  
+- x3 = FALSE
+- x4 = FALSE
+- x5 = FALSE
+- x6 = TRUE
+- x7 = TRUE
+- x8 = FALSE
+- x9 = TRUE
+- x10 = FALSE
+
+SATISFIABLE
+Number of branches: 3
+Number of conflicts: 0

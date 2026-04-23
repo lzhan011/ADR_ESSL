@@ -1,0 +1,248 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2039
+p cnf 5 17
+4 2 -1 0
+2 1 5 0
+5 -2 1 0
+-4 3 -2 0
+-1 -3 5 0
+-3 -1 2 0
+-2 1 -3 0
+-3 -4 1 0
+2 1 3 0
+3 -1 5 0
+5 -4 2 0
+-2 1 -3 0
+1 -3 4 0
+3 -5 -2 0
+-3 -1 -2 0
+5 1 -2 0
+2 3 -1 0
+
+c GPT solve time: 28.95 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (with unit propagation and pure literal elimination where possible):
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: List all clauses
+
+1.  (x4 ∨ x2 ∨ ¬x1)
+2.  (x2 ∨ x1 ∨ x5)
+3.  (x5 ∨ ¬x2 ∨ x1)
+4.  (¬x4 ∨ x3 ∨ ¬x2)
+5.  (¬x1 ∨ ¬x3 ∨ x5)
+6.  (¬x3 ∨ ¬x1 ∨ x2)
+7.  (¬x2 ∨ x1 ∨ ¬x3)
+8.  (¬x3 ∨ ¬x4 ∨ x1)
+9.  (x2 ∨ x1 ∨ x3)
+10. (x3 ∨ ¬x1 ∨ x5)
+11. (x5 ∨ ¬x4 ∨ x2)
+12. (¬x2 ∨ x1 ∨ ¬x3)
+13. (x1 ∨ ¬x3 ∨ x4)
+14. (x3 ∨ ¬x5 ∨ ¬x2)
+15. (¬x3 ∨ ¬x1 ∨ ¬x2)
+16. (x5 ∨ x1 ∨ ¬x2)
+17. (x2 ∨ x3 ∨ ¬x1)
+
+---
+
+### Step 2: Try assignments
+
+#### Branch 1: Assign x1 = True
+
+- Substitute x1 = True in all clauses:
+    - Any clause with x1 is satisfied.
+    - Any clause with ¬x1: remove ¬x1 from the clause.
+
+After simplification, the remaining clauses are:
+
+4.  (¬x4 ∨ x3 ∨ ¬x2)
+5.  (¬x3 ∨ x5)
+6.  (¬x3 ∨ x2)
+7.  (¬x2 ∨ ¬x3)
+8.  (¬x3 ∨ ¬x4)
+10. (x3 ∨ x5)
+12. (¬x2 ∨ ¬x3)
+13. (¬x3 ∨ x4)
+14. (x3 ∨ ¬x5 ∨ ¬x2)
+15. (¬x3 ∨ ¬x2)
+17. (x2 ∨ x3)
+
+Let's look for unit clauses or pure literals.
+
+- No unit clauses.
+- Let's try x2 = True.
+
+#### Branch 1.1: x1 = True, x2 = True
+
+Substitute x2 = True:
+
+- Any clause with x2 is satisfied.
+- Any clause with ¬x2: remove ¬x2 from the clause.
+
+Remaining clauses:
+
+4.  (¬x4 ∨ x3)
+5.  (¬x3 ∨ x5)
+6.  (¬x3)
+7.  (¬x3)
+8.  (¬x3 ∨ ¬x4)
+10. (x3 ∨ x5)
+12. (¬x3)
+13. (¬x3 ∨ x4)
+14. (x3 ∨ ¬x5)
+15. (¬x3)
+17. (x3)
+
+Now, (¬x3) appears multiple times, and (x3) appears once.
+
+Conflict! (¬x3) and (x3) cannot both be true.
+
+**First conflict. Backtrack.**
+
+#### Branch 1.2: x1 = True, x2 = False
+
+Substitute x2 = False:
+
+- Any clause with ¬x2 is satisfied.
+- Any clause with x2: remove x2 from the clause.
+
+Remaining clauses:
+
+4.  (¬x4 ∨ x3)
+5.  (¬x3 ∨ x5)
+6.  (¬x3)
+8.  (¬x3 ∨ ¬x4)
+10. (x3 ∨ x5)
+13. (¬x3 ∨ x4)
+14. (x3 ∨ ¬x5)
+15. (¬x3)
+17. (x3)
+
+Again, (¬x3) and (x3) both appear.
+
+Conflict! (¬x3) and (x3) cannot both be true.
+
+**Second conflict. Backtrack.**
+
+#### Branch 2: x1 = False
+
+Substitute x1 = False:
+
+- Any clause with ¬x1 is satisfied.
+- Any clause with x1: remove x1 from the clause.
+
+Remaining clauses:
+
+1.  (x4 ∨ x2)
+2.  (x2 ∨ x5)
+3.  (x5 ∨ ¬x2)
+4.  (¬x4 ∨ x3 ∨ ¬x2)
+6.  (¬x3 ∨ x2)
+7.  (¬x2 ∨ ¬x3)
+8.  (¬x3 ∨ ¬x4)
+9.  (x2 ∨ x3)
+10. (x3 ∨ x5)
+11. (x5 ∨ ¬x4 ∨ x2)
+12. (¬x2 ∨ ¬x3)
+13. (¬x3 ∨ x4)
+14. (x3 ∨ ¬x5 ∨ ¬x2)
+15. (¬x3 ∨ ¬x2)
+16. (x5 ∨ ¬x2)
+17. (x2 ∨ x3)
+
+Let's try x2 = True.
+
+#### Branch 2.1: x1 = False, x2 = True
+
+Substitute x2 = True:
+
+- Any clause with x2 is satisfied.
+- Any clause with ¬x2: remove ¬x2 from the clause.
+
+Remaining clauses:
+
+3.  (x5)
+4.  (¬x4 ∨ x3)
+6.  (¬x3)
+8.  (¬x3 ∨ ¬x4)
+10. (x3 ∨ x5)
+11. (x5 ∨ ¬x4)
+12. (¬x3)
+13. (¬x3 ∨ x4)
+14. (x3 ∨ ¬x5)
+15. (¬x3)
+
+Now, (x5) is a unit clause.
+
+Assign x5 = True.
+
+Substitute x5 = True:
+
+- Any clause with x5 is satisfied.
+- Any clause with ¬x5: remove ¬x5 from the clause.
+
+Remaining clauses:
+
+4.  (¬x4 ∨ x3)
+6.  (¬x3)
+8.  (¬x3 ∨ ¬x4)
+10. (x3)
+11. (¬x4)
+12. (¬x3)
+13. (¬x3 ∨ x4)
+14. (x3)
+15. (¬x3)
+
+Now, (x3) and (¬x3) both appear as unit clauses.
+
+Conflict! (x3) and (¬x3) cannot both be true.
+
+**Third conflict. Backtrack.**
+
+#### Branch 2.2: x1 = False, x2 = False
+
+Substitute x2 = False:
+
+- Any clause with ¬x2 is satisfied.
+- Any clause with x2: remove x2 from the clause.
+
+Remaining clauses:
+
+1.  (x4)
+3.  (x5)
+4.  (¬x4 ∨ x3)
+6.  (¬x3)
+8.  (¬x3 ∨ ¬x4)
+9.  (x3)
+10. (x3 ∨ x5)
+11. (x5 ∨ ¬x4)
+12. (¬x3)
+13. (¬x3 ∨ x4)
+14. (x3 ∨ ¬x5)
+15. (¬x3)
+16. (x5)
+17. (x3)
+
+Now, (x4), (x5), (¬x3), (x3) are all unit clauses.
+
+Assign x4 = True, x5 = True, x3 = True, x3 = False.
+
+Conflict! (x3) and (¬x3) cannot both be true.
+
+**Fourth conflict. Backtrack.**
+
+---
+
+### Summary
+
+We have tried all possible assignments for x1 and x2, and in all cases, we reach a conflict.
+
+---
+
+## Final Answers
+
+- **Whether the formula is SATISFIABLE or UNSATISFIABLE:** UNSATISFIABLE
+- **Number of branches (i.e., decision points):** 4
+- **Number of conflicts (i.e., backtracking steps):** 4

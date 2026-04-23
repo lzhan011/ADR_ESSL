@@ -1,0 +1,128 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=13
+p cnf 5 17
+4 -5 1 0
+1 -4 2 0
+3 -1 4 0
+-3 -5 4 0
+2 3 1 0
+-5 -4 3 0
+5 2 -3 0
+-2 5 -1 0
+-3 -4 -5 0
+4 3 1 0
+-3 -4 2 0
+-3 -5 1 0
+-5 1 2 0
+4 3 1 0
+4 2 1 0
+3 5 2 0
+-5 -4 1 0
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in the order \( x1, x2, x3, x4, x5 \), assigning values and propagating implications.
+
+#### Branch 1: \( x1 = \text{True} \)
+- Propagate \( x1 = \text{True} \):
+  - Clause 1: \( (x4 ∨ ¬x5 ∨ \text{True}) \) → satisfied.
+  - Clause 2: \( (\text{True} ∨ ¬x4 ∨ x2) \) → satisfied.
+  - Clause 3: \( (x3 ∨ ¬\text{True} ∨ x4) \) → simplifies to \( (x3 ∨ x4) \).
+  - Clause 5: \( (x2 ∨ x3 ∨ \text{True}) \) → satisfied.
+  - Clause 8: \( (¬x2 ∨ x5 ∨ ¬\text{True}) \) → simplifies to \( (¬x2 ∨ x5) \).
+  - Clause 12: \( (¬x3 ∨ ¬x5 ∨ \text{True}) \) → satisfied.
+  - Clause 13: \( (¬x5 ∨ \text{True} ∨ x2) \) → satisfied.
+  - Clause 14: \( (x4 ∨ x3 ∨ \text{True}) \) → satisfied.
+  - Clause 15: \( (x4 ∨ x2 ∨ \text{True}) \) → satisfied.
+  - Clause 17: \( (¬x5 ∨ ¬x4 ∨ \text{True}) \) → satisfied.
+  - Clause 10: \( (x4 ∨ x3 ∨ \text{True}) \) → satisfied.
+  - Remaining clauses: 3, 4, 6, 7, 9, 11, 16.
+
+#### Branch 2: \( x2 = \text{True} \)
+- Propagate \( x2 = \text{True} \):
+  - Clause 8: \( (¬\text{True} ∨ x5) \) → simplifies to \( x5 \). Assign \( x5 = \text{True} \).
+  - Clause 7: \( (\text{True} ∨ \text{True} ∨ ¬x3) \) → satisfied.
+  - Clause 16: \( (x3 ∨ \text{True} ∨ \text{True}) \) → satisfied.
+  - Clause 11: \( (¬x3 ∨ ¬x4 ∨ \text{True}) \) → satisfied.
+  - Clause 4: \( (¬x3 ∨ ¬\text{True} ∨ x4) \) → simplifies to \( (¬x3 ∨ x4) \).
+  - Clause 6: \( (¬\text{True} ∨ ¬x4 ∨ x3) \) → simplifies to \( (¬x4 ∨ x3) \).
+  - Clause 9: \( (¬x3 ∨ ¬x4 ∨ ¬\text{True}) \) → simplifies to \( (¬x3 ∨ ¬x4) \).
+  - Clause 3: \( (x3 ∨ x4) \).
+  - Now, combine \( (x3 ∨ x4) \), \( (¬x3 ∨ x4) \), \( (¬x4 ∨ x3) \), and \( (¬x3 ∨ ¬x4) \):
+    - From \( (¬x3 ∨ ¬x4) \) and \( (x3 ∨ x4) \), we get a conflict (no satisfying assignment for \( x3 \) and \( x4 \)).
+
+#### Conflict detected. Backtrack to Branch 2 and try \( x2 = \text{False} \).
+
+#### Branch 2: \( x2 = \text{False} \)
+- Propagate \( x2 = \text{False} \):
+  - Clause 11: \( (¬x3 ∨ ¬x4 ∨ \text{False}) \) → simplifies to \( (¬x3 ∨ ¬x4) \).
+  - Clause 16: \( (x3 ∨ x5 ∨ \text{False}) \) → simplifies to \( (x3 ∨ x5) \).
+  - Clause 7: \( (x5 ∨ \text{False} ∨ ¬x3) \) → simplifies to \( (x5 ∨ ¬x3) \).
+  - Clause 8: \( (¬\text{False} ∨ x5 ∨ ¬x1) \) → simplifies to \( (x5 ∨ ¬x1) \). Already \( x1 = \text{True} \), so \( (x5 ∨ \text{False}) \) → simplifies to \( x5 \). Assign \( x5 = \text{True} \).
+  - Now, propagate \( x5 = \text{True} \):
+    - Clause 4: \( (¬x3 ∨ ¬\text{True} ∨ x4) \) → simplifies to \( (¬x3 ∨ x4) \).
+    - Clause 6: \( (¬\text{True} ∨ ¬x4 ∨ x3) \) → simplifies to \( (¬x4 ∨ x3) \).
+    - Clause 9: \( (¬x3 ∨ ¬x4 ∨ ¬\text{True}) \) → simplifies to \( (¬x3 ∨ ¬x4) \).
+    - Clause 3: \( (x3 ∨ x4) \).
+    - Combine \( (x3 ∨ x4) \), \( (¬x3 ∨ x4) \), \( (¬x4 ∨ x3) \), and \( (¬x3 ∨ ¬x4) \):
+      - From \( (¬x3 ∨ ¬x4) \) and \( (x3 ∨ x4) \), we get a conflict.
+
+#### Conflict detected. Backtrack to Branch 1 and try \( x1 = \text{False} \).
+
+#### Branch 1: \( x1 = \text{False} \)
+- Propagate \( x1 = \text{False} \):
+  - Clause 1: \( (x4 ∨ ¬x5 ∨ \text{False}) \) → simplifies to \( (x4 ∨ ¬x5) \).
+  - Clause 2: \( (\text{False} ∨ ¬x4 ∨ x2) \) → simplifies to \( (¬x4 ∨ x2) \).
+  - Clause 3: \( (x3 ∨ ¬\text{False} ∨ x4) \) → simplifies to \( (x3 ∨ \text{True} ∨ x4) \) → satisfied.
+  - Clause 5: \( (x2 ∨ x3 ∨ \text{False}) \) → simplifies to \( (x2 ∨ x3) \).
+  - Clause 8: \( (¬x2 ∨ x5 ∨ ¬\text{False}) \) → simplifies to \( (¬x2 ∨ x5 ∨ \text{True}) \) → satisfied.
+  - Clause 12: \( (¬x3 ∨ ¬x5 ∨ \text{False}) \) → simplifies to \( (¬x3 ∨ ¬x5) \).
+  - Clause 13: \( (¬x5 ∨ \text{False} ∨ x2) \) → simplifies to \( (¬x5 ∨ x2) \).
+  - Clause 14: \( (x4 ∨ x3 ∨ \text{False}) \) → simplifies to \( (x4 ∨ x3) \).
+  - Clause 15: \( (x4 ∨ x2 ∨ \text{False}) \) → simplifies to \( (x4 ∨ x2) \).
+  - Clause 17: \( (¬x5 ∨ ¬x4 ∨ \text{False}) \) → simplifies to \( (¬x5 ∨ ¬x4) \).
+  - Clause 10: \( (x4 ∨ x3 ∨ \text{False}) \) → simplifies to \( (x4 ∨ x3) \).
+  - Remaining clauses: 1, 2, 4, 5, 6, 7, 9, 11, 12, 13, 14, 15, 16, 17.
+
+#### Branch 2: \( x2 = \text{True} \)
+- Propagate \( x2 = \text{True} \):
+  - Clause 2: \( (¬x4 ∨ \text{True}) \) → satisfied.
+  - Clause 5: \( (\text{True} ∨ x3) \) → satisfied.
+  - Clause 13: \( (¬x5 ∨ \text{True}) \) → satisfied.
+  - Clause 15: \( (x4 ∨ \text{True}) \) → satisfied.
+  - Clause 16: \( (x3 ∨ x5 ∨ \text{True}) \) → satisfied.
+  - Clause 7: \( (x5 ∨ \text{True} ∨ ¬x3) \) → satisfied.
+  - Clause 11: \( (¬x3 ∨ ¬x4 ∨ \text{True}) \) → satisfied.
+  - Remaining clauses: 1, 4, 6, 9, 12, 14, 17.
+
+#### Branch 3: \( x3 = \text{True} \)
+- Propagate \( x3 = \text{True} \):
+  - Clause 12: \( (¬\text{True} ∨ ¬x5) \) → simplifies to \( ¬x5 \). Assign \( x5 = \text{False} \).
+  - Clause 1: \( (x4 ∨ ¬\text{False}) \) → simplifies to \( (x4 ∨ \text{True}) \) → satisfied.
+  - Clause 4: \( (¬\text{True} ∨ ¬x5 ∨ x4) \) → simplifies to \( (¬x5 ∨ x4) \). Already \( x5 = \text{False} \), so \( (\text{True} ∨ x4) \) → satisfied.
+  - Clause 6: \( (¬x5 ∨ ¬x4 ∨ \text{True}) \) → satisfied.
+  - Clause 9: \( (¬\text{True} ∨ ¬x4 ∨ ¬x5) \) → simplifies to \( (¬x4 ∨ ¬x5) \). Already \( x5 = \text{False} \), so \( (¬x4 ∨ \text{True}) \) → satisfied.
+  - Clause 14: \( (x4 ∨ \text{True}) \) → satisfied.
+  - Clause 17: \( (¬\text{False} ∨ ¬x4) \) → simplifies to \( (¬x4) \). Assign \( x4 = \text{False} \).
+  - No conflicts. All clauses are satisfied.
+
+### Final Assignment:
+- \( x1 = \text{False} \)
+- \( x2 = \text{True} \)
+- \( x3 = \text{True} \)
+- \( x4 = \text{False} \)
+- \( x5 = \text{False} \)
+
+### Results:
+- SATISFIABLE
+- Number of branches: 3
+- Number of conflicts: 2
+
+### Output:
+SATISFIABLE  
+3  
+2

@@ -1,0 +1,367 @@
+c Random 3-SAT
+c alpha=1.0, N=75, L=75, instance=4
+p cnf 75 75
+39 -52 -11 0
+69 64 -34 0
+-20 40 -58 0
+-40 16 21 0
+5 -73 -29 0
+-46 4 51 0
+41 54 -73 0
+-18 41 75 0
+-25 53 28 0
+39 -6 -4 0
+67 -10 53 0
+-43 -9 31 0
+-23 50 12 0
+14 -39 42 0
+7 25 21 0
+-28 -36 5 0
+59 53 -51 0
+-11 41 71 0
+56 11 -13 0
+-26 -62 -73 0
+5 -51 -53 0
+-29 -31 -9 0
+-63 -65 -73 0
+30 -55 -75 0
+-73 64 -61 0
+14 -9 -19 0
+17 42 -23 0
+56 -32 63 0
+4 -24 -7 0
+37 54 -35 0
+-9 42 11 0
+-72 -43 70 0
+-39 -20 42 0
+-2 38 61 0
+-68 -51 57 0
+55 39 65 0
+6 10 -25 0
+-13 66 -36 0
+13 35 59 0
+-75 -59 -60 0
+43 -10 26 0
+56 15 -49 0
+-9 -53 47 0
+-50 -8 43 0
+34 69 -14 0
+-33 40 -68 0
+-64 70 67 0
+69 4 47 0
+68 23 56 0
+35 -38 64 0
+10 37 -38 0
+-39 -59 -57 0
+57 31 -47 0
+57 -30 17 0
+-3 63 8 0
+-23 -44 9 0
+-55 51 37 0
+-54 -49 -69 0
+18 3 54 0
+72 47 8 0
+64 60 -26 0
+-70 20 32 0
+55 -60 15 0
+-7 21 -30 0
+-26 27 70 0
+11 33 -70 0
+59 41 58 0
+37 -13 -8 0
+-62 37 68 0
+14 16 -13 0
+12 37 43 0
+69 -73 -58 0
+73 -27 -40 0
+-41 4 68 0
+-46 47 75 0
+
+c GPT solve time: 40.95 seconds
+
+Let's proceed step by step using the DPLL algorithm (with unit propagation and pure literal elimination where possible):
+
+**Step 1: List all variables.**  
+Variables: x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x46, x47, x49, x50, x51, x52, x53, x54, x55, x56, x57, x58, x59, x60, x61, x62, x63, x64, x65, x66, x67, x68, x69, x70, x71, x72, x73, x75
+
+**Step 2: Look for unit clauses and pure literals.**  
+There are no unit clauses or pure literals at the start.
+
+**Step 3: Make a decision (branch).**  
+Let's pick x39 = True (arbitrary choice).
+
+**Step 4: Propagate x39 = True.**  
+- (x39 ∨ ¬x52 ∨ ¬x11) → satisfied  
+- (x39 ∨ ¬x6 ∨ ¬x4) → satisfied  
+- (x14 ∨ ¬x39 ∨ x42) → (x14 ∨ x42)  
+- (¬x39 ∨ ¬x20 ∨ x42) → (¬x20 ∨ x42)  
+- (x55 ∨ x39 ∨ x65) → satisfied  
+- (¬x39 ∨ ¬x59 ∨ ¬x57) → (¬x59 ∨ ¬x57)  
+
+**Step 5: No new unit clauses. Make another decision.**  
+Pick x69 = True.
+
+**Step 6: Propagate x69 = True.**  
+- (x69 ∨ x64 ∨ ¬x34) → satisfied  
+- (x69 ∨ x4 ∨ x47) → satisfied  
+- (x34 ∨ x69 ∨ ¬x14) → satisfied  
+- (x69 ∨ ¬x73 ∨ ¬x58) → satisfied  
+
+**Step 7: No new unit clauses. Make another decision.**  
+Pick x40 = True.
+
+**Step 8: Propagate x40 = True.**  
+- (¬x20 ∨ x40 ∨ ¬x58) → satisfied  
+- (¬x40 ∨ x16 ∨ x21) → (x16 ∨ x21)  
+- (¬x33 ∨ x40 ∨ ¬x68) → satisfied  
+- (¬x73 ∨ x64 ∨ ¬x61) → unchanged  
+- (¬x70 ∨ x20 ∨ x32) → unchanged  
+- (x73 ∨ ¬x27 ∨ ¬x40) → (x73 ∨ ¬x27)  
+
+**Step 9: No new unit clauses. Make another decision.**  
+Pick x41 = True.
+
+**Step 10: Propagate x41 = True.**  
+- (x41 ∨ x54 ∨ ¬x73) → satisfied  
+- (¬x18 ∨ x41 ∨ x75) → satisfied  
+- (¬x11 ∨ x41 ∨ x71) → satisfied  
+- (x59 ∨ x41 ∨ x58) → satisfied  
+- (¬x41 ∨ x4 ∨ x68) → (x4 ∨ x68)  
+
+**Step 11: No new unit clauses. Make another decision.**  
+Pick x5 = True.
+
+**Step 12: Propagate x5 = True.**  
+- (x5 ∨ ¬x73 ∨ ¬x29) → satisfied  
+- (¬x28 ∨ ¬x36 ∨ x5) → satisfied  
+- (x5 ∨ ¬x51 ∨ ¬x53) → satisfied  
+
+**Step 13: No new unit clauses. Make another decision.**  
+Pick x4 = True.
+
+**Step 14: Propagate x4 = True.**  
+- (¬x46 ∨ x4 ∨ x51) → satisfied  
+- (x4 ∨ ¬x24 ∨ ¬x7) → satisfied  
+- (¬x41 ∨ x4 ∨ x68) → satisfied  
+- (x69 ∨ x4 ∨ x47) → already satisfied  
+
+**Step 15: No new unit clauses. Make another decision.**  
+Pick x16 = True.
+
+**Step 16: Propagate x16 = True.**  
+- (¬x40 ∨ x16 ∨ x21) → satisfied  
+- (x14 ∨ x16 ∨ ¬x13) → (x14 ∨ ¬x13)  
+
+**Step 17: No new unit clauses. Make another decision.**  
+Pick x14 = True.
+
+**Step 18: Propagate x14 = True.**  
+- (x14 ∨ ¬x39 ∨ x42) → already reduced to (x14 ∨ x42), now satisfied  
+- (x14 ∨ ¬x9 ∨ ¬x19) → satisfied  
+- (x14 ∨ x16 ∨ ¬x13) → already reduced to (x14 ∨ ¬x13), now satisfied  
+
+**Step 19: No new unit clauses. Make another decision.**  
+Pick x64 = True.
+
+**Step 20: Propagate x64 = True.**  
+- (¬x64 ∨ x70 ∨ x67) → (x70 ∨ x67)  
+- (x35 ∨ ¬x38 ∨ x64) → satisfied  
+- (x64 ∨ x60 ∨ ¬x26) → satisfied  
+- (¬x73 ∨ x64 ∨ ¬x61) → satisfied  
+
+**Step 21: No new unit clauses. Make another decision.**  
+Pick x53 = True.
+
+**Step 22: Propagate x53 = True.**  
+- (¬x25 ∨ x53 ∨ x28) → satisfied  
+- (x67 ∨ ¬x10 ∨ x53) → satisfied  
+- (x59 ∨ x53 ∨ ¬x51) → satisfied  
+- (x5 ∨ ¬x51 ∨ ¬x53) → already satisfied  
+- (¬x9 ∨ ¬x53 ∨ x47) → (¬x9 ∨ x47)  
+
+**Step 23: No new unit clauses. Make another decision.**  
+Pick x47 = True.
+
+**Step 24: Propagate x47 = True.**  
+- (¬x9 ∨ ¬x53 ∨ x47) → already reduced to (¬x9 ∨ x47), now satisfied  
+- (x69 ∨ x4 ∨ x47) → already satisfied  
+- (x57 ∨ x31 ∨ ¬x47) → (x57 ∨ x31)  
+- (x72 ∨ x47 ∨ x8) → satisfied  
+- (¬x46 ∨ x47 ∨ x75) → satisfied  
+
+**Step 25: No new unit clauses. Make another decision.**  
+Pick x31 = True.
+
+**Step 26: Propagate x31 = True.**  
+- (¬x43 ∨ ¬x9 ∨ x31) → satisfied  
+- (¬x29 ∨ ¬x31 ∨ ¬x9) → (¬x29 ∨ ¬x9)  
+- (x57 ∨ x31 ∨ ¬x47) → already reduced to (x57 ∨ x31), now satisfied  
+
+**Step 27: No new unit clauses. Make another decision.**  
+Pick x57 = True.
+
+**Step 28: Propagate x57 = True.**  
+- (¬x68 ∨ ¬x51 ∨ x57) → satisfied  
+- (¬x39 ∨ ¬x59 ∨ ¬x57) → already reduced to (¬x59 ∨ ¬x57), now (¬x59)  
+- (x57 ∨ x31 ∨ ¬x47) → already satisfied  
+- (x57 ∨ ¬x30 ∨ x17) → satisfied  
+
+**Step 29: No new unit clauses. Make another decision.**  
+Pick x59 = True.
+
+**Step 30: Propagate x59 = True.**  
+- (x59 ∨ x53 ∨ ¬x51) → already satisfied  
+- (x59 ∨ x41 ∨ x58) → already satisfied  
+- (x13 ∨ x35 ∨ x59) → satisfied  
+- (¬x39 ∨ ¬x59 ∨ ¬x57) → already reduced to (¬x59), now (False)  
+- (¬x75 ∨ ¬x59 ∨ ¬x60) → (¬x75 ∨ ¬x60)  
+
+**Step 31: No new unit clauses. Make another decision.**  
+Pick x75 = True.
+
+**Step 32: Propagate x75 = True.**  
+- (¬x18 ∨ x41 ∨ x75) → already satisfied  
+- (x30 ∨ ¬x55 ∨ ¬x75) → (x30 ∨ ¬x55)  
+- (¬x75 ∨ ¬x59 ∨ ¬x60) → (¬x59 ∨ ¬x60), but x59 = True, so (¬x60)  
+
+**Step 33: No new unit clauses. Make another decision.**  
+Pick x60 = False (from (¬x60)).
+
+**Step 34: Propagate x60 = False.**  
+- (x64 ∨ x60 ∨ ¬x26) → already satisfied  
+- (x55 ∨ ¬x60 ∨ x15) → (x55 ∨ x15)  
+
+**Step 35: No new unit clauses. Make another decision.**  
+Pick x55 = True.
+
+**Step 36: Propagate x55 = True.**  
+- (x30 ∨ ¬x55 ∨ ¬x75) → already reduced to (x30 ∨ ¬x55), now (x30)  
+- (x55 ∨ x39 ∨ x65) → already satisfied  
+- (x55 ∨ ¬x60 ∨ x15) → already reduced to (x55 ∨ x15), now satisfied  
+
+**Step 37: No new unit clauses. Make another decision.**  
+Pick x30 = True.
+
+**Step 38: Propagate x30 = True.**  
+- (x30 ∨ ¬x55 ∨ ¬x75) → already satisfied  
+- (x57 ∨ ¬x30 ∨ x17) → already satisfied  
+- (¬x7 ∨ x21 ∨ ¬x30) → (¬x7 ∨ x21)  
+
+**Step 39: No new unit clauses. Make another decision.**  
+Pick x21 = True.
+
+**Step 40: Propagate x21 = True.**  
+- (¬x40 ∨ x16 ∨ x21) → already satisfied  
+- (x7 ∨ x25 ∨ x21) → satisfied  
+- (¬x7 ∨ x21 ∨ ¬x30) → already reduced to (¬x7 ∨ x21), now satisfied  
+
+**Step 41: No new unit clauses. Make another decision.**  
+Pick x25 = True.
+
+**Step 42: Propagate x25 = True.**  
+- (x7 ∨ x25 ∨ x21) → already satisfied  
+- (¬x28 ∨ ¬x36 ∨ x5) → already satisfied  
+- (¬x29 ∨ ¬x31 ∨ ¬x9) → already reduced to (¬x29 ∨ ¬x9)  
+
+**Step 43: No new unit clauses. Make another decision.**  
+Pick x29 = False (from (¬x29 ∨ ¬x9)).
+
+**Step 44: Propagate x29 = False.**  
+- (x5 ∨ ¬x73 ∨ ¬x29) → already satisfied  
+- (¬x29 ∨ ¬x31 ∨ ¬x9) → already reduced to (¬x9)  
+
+**Step 45: No new unit clauses. Make another decision.**  
+Pick x9 = False (from (¬x9)).
+
+**Step 46: Propagate x9 = False.**  
+- (¬x43 ∨ ¬x9 ∨ x31) → already satisfied  
+- (¬x29 ∨ ¬x31 ∨ ¬x9) → already satisfied  
+- (x14 ∨ ¬x9 ∨ ¬x19) → already satisfied  
+- (¬x9 ∨ x42 ∨ x11) → (x42 ∨ x11)  
+- (¬x9 ∨ ¬x53 ∨ x47) → already satisfied  
+
+**Step 47: No new unit clauses. Make another decision.**  
+Pick x42 = True (from (x42 ∨ x11)).
+
+**Step 48: Propagate x42 = True.**  
+- (x14 ∨ ¬x39 ∨ x42) → already satisfied  
+- (¬x39 ∨ ¬x20 ∨ x42) → already reduced to (¬x20 ∨ x42), now satisfied  
+- (¬x23 ∨ x50 ∨ x12) → unchanged  
+- (x17 ∨ x42 ∨ ¬x23) → satisfied  
+- (¬x9 ∨ x42 ∨ x11) → already satisfied  
+
+**Step 49: No new unit clauses. Make another decision.**  
+Pick x17 = True.
+
+**Step 50: Propagate x17 = True.**  
+- (x17 ∨ x42 ∨ ¬x23) → already satisfied  
+- (x57 ∨ ¬x30 ∨ x17) → already satisfied  
+
+**Step 51: No new unit clauses. Make another decision.**  
+Pick x23 = False (from (¬x23 ∨ x50 ∨ x12)).
+
+**Step 52: Propagate x23 = False.**  
+- (¬x23 ∨ x50 ∨ x12) → satisfied  
+- (x17 ∨ x42 ∨ ¬x23) → already satisfied  
+- (¬x23 ∨ ¬x44 ∨ x9) → (¬x44 ∨ x9), but x9 = False, so (¬x44)  
+- (x68 ∨ x23 ∨ x56) → (x68 ∨ x56)  
+
+**Step 53: No new unit clauses. Make another decision.**  
+Pick x44 = False (from (¬x44)).
+
+**Step 54: Propagate x44 = False.**  
+- (¬x23 ∨ ¬x44 ∨ x9) → already satisfied  
+
+**Step 55: No new unit clauses. Make another decision.**  
+Pick x68 = True (from (x68 ∨ x56)).
+
+**Step 56: Propagate x68 = True.**  
+- (¬x68 ∨ ¬x51 ∨ x57) → already satisfied  
+- (¬x33 ∨ x40 ∨ ¬x68) → already satisfied  
+- (¬x41 ∨ x4 ∨ x68) → already satisfied  
+- (x68 ∨ x23 ∨ x56) → already satisfied  
+- (¬x62 ∨ x37 ∨ x68) → satisfied  
+
+**Step 57: No new unit clauses. Make another decision.**  
+Pick x56 = True.
+
+**Step 58: Propagate x56 = True.**  
+- (x56 ∨ x11 ∨ ¬x13) → satisfied  
+- (x56 ∨ ¬x32 ∨ x63) → satisfied  
+- (x56 ∨ x15 ∨ ¬x49) → satisfied  
+- (x68 ∨ x23 ∨ x56) → already satisfied  
+
+**Step 59: No new unit clauses. Make another decision.**  
+Pick x11 = True.
+
+**Step 60: Propagate x11 = True.**  
+- (x39 ∨ ¬x52 ∨ ¬x11) → already satisfied  
+- (¬x11 ∨ x41 ∨ x71) → already satisfied  
+- (x56 ∨ x11 ∨ ¬x13) → already satisfied  
+- (x11 ∨ x33 ∨ ¬x70) → satisfied  
+- (¬x9 ∨ x42 ∨ x11) → already satisfied  
+
+**Step 61: No new unit clauses. Make another decision.**  
+Pick x13 = False (from (x14 ∨ x16 ∨ ¬x13) and (x56 ∨ x11 ∨ ¬x13)).
+
+**Step 62: Propagate x13 = False.**  
+- (x56 ∨ x11 ∨ ¬x13) → already satisfied  
+- (x13 ∨ x35 ∨ x59) → (x35 ∨ x59)  
+- (¬x13 ∨ x66 ∨ ¬x36) → satisfied  
+- (x14 ∨ x16 ∨ ¬x13) → already satisfied  
+- (x37 ∨ ¬x13 ∨ ¬x8) → (x37 ∨ ¬x8)  
+
+**Step 63: No new unit clauses. Make another decision.**  
+Pick x35 = True (from (x35 ∨ x59)).
+
+**Step 64: Propagate x35 = True.**  
+- (x30 ∨ ¬x55 ∨ ¬x75) → already satisfied  
+- (x37 ∨ x54 ∨ ¬x35) → (x37 ∨ x54)  
+- (x13 ∨ x35 ∨ x59) → already satisfied  
+- (x35 ∨ ¬x38 ∨ x64) → already satisfied  
+
+**Step 65: No new unit clauses. Make another decision.**  
+Pick x37 = True (from (x37 ∨ x54)).
+
+**Step 66: Propagate x37 = True.**  
+-

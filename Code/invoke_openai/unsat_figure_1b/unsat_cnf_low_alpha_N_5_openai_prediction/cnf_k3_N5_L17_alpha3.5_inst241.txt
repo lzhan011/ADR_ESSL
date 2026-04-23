@@ -1,0 +1,179 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=241
+p cnf 5 17
+-5 -2 3 0
+4 -2 -5 0
+2 5 4 0
+-2 -4 1 0
+2 -5 -1 0
+5 2 -4 0
+-5 1 -4 0
+-4 5 -2 0
+4 1 -5 0
+4 -2 -1 0
+-1 -4 -2 0
+-4 5 2 0
+5 1 4 0
+-1 2 4 0
+5 -2 3 0
+-3 4 -2 0
+-4 -1 -2 0
+
+c GPT solve time: 27.88 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Assign x2 = True (branch 1)
+- Substitute x2 = True into all clauses.
+
+#### Simplify:
+- Any clause with x2 is satisfied: (x2 ∨ x5 ∨ x4), (x2 ∨ ¬x5 ∨ ¬x1), (x5 ∨ x2 ∨ ¬x4), (¬x1 ∨ x2 ∨ x4), (x5 ∨ ¬x2 ∨ x3), (¬x3 ∨ x4 ∨ ¬x2), (¬x4 ∨ x5 ∨ x2)
+- Remove all satisfied clauses.
+
+#### Remaining clauses (after removing those satisfied by x2 = True):
+1. (¬x5 ∨ ¬x2 ∨ x3) → (¬x5 ∨ x3) [since ¬x2 is False]
+2. (x4 ∨ ¬x2 ∨ ¬x5) → (x4 ∨ ¬x5)
+3. (¬x2 ∨ ¬x4 ∨ x1) → (¬x4 ∨ x1)
+4. (¬x5 ∨ x1 ∨ ¬x4)
+5. (x4 ∨ x1 ∨ ¬x5)
+6. (x4 ∨ ¬x2 ∨ ¬x1) → (x4 ∨ ¬x1)
+7. (¬x1 ∨ ¬x4 ∨ ¬x2) → (¬x1 ∨ ¬x4)
+8. (x5 ∨ x1 ∨ x4)
+9. (¬x4 ∨ ¬x1 ∨ ¬x2) → (¬x4 ∨ ¬x1)
+
+### Step 2: Assign x4 = True (branch 2)
+- Substitute x4 = True into all remaining clauses.
+
+#### Simplify:
+- Any clause with x4 is satisfied: (x4 ∨ ¬x5), (x4 ∨ ¬x1), (x4 ∨ x1 ∨ ¬x5), (x5 ∨ x1 ∨ x4)
+- Remove all satisfied clauses.
+
+#### Remaining clauses:
+1. (¬x5 ∨ x3)
+2. (¬x4 ∨ x1) → (x1)
+3. (¬x5 ∨ x1 ∨ ¬x4) → (¬x5 ∨ x1)
+4. (¬x1 ∨ ¬x4) → (¬x1)
+5. (¬x4 ∨ ¬x1) → (¬x1)
+
+### Step 3: Unit propagation
+- (x1) and (¬x1) are both present → **Conflict!**
+
+### Step 4: Backtrack to previous branch, try x4 = False (branch 3, conflict 1)
+- x2 = True, x4 = False
+
+#### Substitute x4 = False:
+- Any clause with ¬x4 is satisfied: (¬x4 ∨ x1), (¬x5 ∨ x1 ∨ ¬x4), (¬x1 ∨ ¬x4), (¬x4 ∨ x5 ∨ x2), (¬x4 ∨ ¬x1 ∨ ¬x2)
+- Remove all satisfied clauses.
+
+#### Remaining clauses:
+1. (¬x5 ∨ x3)
+2. (x4 ∨ ¬x5) → (¬x5)
+3. (x4 ∨ ¬x1) → (¬x1)
+4. (x5 ∨ x1 ∨ x4) → (x5 ∨ x1)
+5. (x4 ∨ x1 ∨ ¬x5) → (x1 ∨ ¬x5)
+
+### Step 5: Unit propagation
+- (¬x5) and (¬x1) are unit clauses.
+
+Assign x5 = False, x1 = False.
+
+#### Substitute x5 = False, x1 = False:
+- (¬x5 ∨ x3) → (True ∨ x3) = True
+- (x5 ∨ x1) → (False ∨ False) = False → **Conflict!**
+
+### Step 6: Backtrack to x2 = False (branch 4, conflict 2)
+- x2 = False
+
+#### Substitute x2 = False:
+- Any clause with ¬x2 is satisfied: (¬x2 ∨ ¬x4 ∨ x1), (x4 ∨ ¬x2 ∨ ¬x5), (x4 ∨ ¬x2 ∨ ¬x1), (¬x1 ∨ ¬x4 ∨ ¬x2), (¬x3 ∨ x4 ∨ ¬x2), (¬x4 ∨ ¬x1 ∨ ¬x2)
+- Remove all satisfied clauses.
+
+#### Remaining clauses:
+1. (¬x5 ∨ ¬x2 ∨ x3) → (¬x5 ∨ x3)
+2. (x2 ∨ x5 ∨ x4) → (x5 ∨ x4)
+3. (x2 ∨ ¬x5 ∨ ¬x1) → (¬x5 ∨ ¬x1)
+4. (x5 ∨ x2 ∨ ¬x4) → (x5 ∨ ¬x4)
+5. (¬x5 ∨ x1 ∨ ¬x4)
+6. (¬x4 ∨ x5 ∨ x2) → (¬x4 ∨ x5)
+7. (x5 ∨ x1 ∨ x4)
+8. (¬x1 ∨ x2 ∨ x4) → (¬x1 ∨ x4)
+9. (x5 ∨ ¬x2 ∨ x3) → (x5 ∨ x3)
+
+### Step 7: Assign x5 = True (branch 5)
+- Substitute x5 = True:
+
+#### Simplify:
+- Any clause with x5 is satisfied: (x5 ∨ x4), (x5 ∨ ¬x4), (¬x4 ∨ x5), (x5 ∨ x1 ∨ x4), (x5 ∨ x3)
+- Remove all satisfied clauses.
+
+#### Remaining clauses:
+1. (¬x5 ∨ x3) → (x3)
+2. (¬x5 ∨ ¬x1) → (¬x1)
+3. (¬x5 ∨ x1 ∨ ¬x4) → (x1 ∨ ¬x4)
+4. (¬x1 ∨ x4)
+
+### Step 8: Unit propagation
+- (x3) → x3 = True
+- (¬x1) → x1 = False
+
+#### Substitute x1 = False:
+- (x1 ∨ ¬x4) → (¬x4)
+- (¬x1 ∨ x4) → (True ∨ x4) = True
+
+#### Now, (¬x4) → x4 = False
+
+### Step 9: All variables assigned:
+- x1 = False
+- x2 = False
+- x3 = True
+- x4 = False
+- x5 = True
+
+### Step 10: Check all original clauses for satisfaction
+
+Let's check each clause:
+1. (¬x5 ∨ ¬x2 ∨ x3): (False ∨ True ∨ True) = True
+2. (x4 ∨ ¬x2 ∨ ¬x5): (False ∨ True ∨ False) = True
+3. (x2 ∨ x5 ∨ x4): (False ∨ True ∨ False) = True
+4. (¬x2 ∨ ¬x4 ∨ x1): (True ∨ True ∨ False) = True
+5. (x2 ∨ ¬x5 ∨ ¬x1): (False ∨ False ∨ True) = True
+6. (x5 ∨ x2 ∨ ¬x4): (True ∨ False ∨ True) = True
+7. (¬x5 ∨ x1 ∨ ¬x4): (False ∨ False ∨ True) = True
+8. (¬x4 ∨ x5 ∨ ¬x2): (True ∨ True ∨ True) = True
+9. (x4 ∨ x1 ∨ ¬x5): (False ∨ False ∨ False) = False
+
+Wait, clause 9: (x4 ∨ x1 ∨ ¬x5): (False ∨ False ∨ False) = False
+
+So, this assignment does **not** satisfy all clauses. There must be a mistake in the propagation. Let's check the previous step.
+
+#### Let's try x5 = False (branch 6, conflict 3)
+- x2 = False, x5 = False
+
+#### Substitute x5 = False:
+- (¬x5 ∨ x3) → (True ∨ x3) = True
+- (x5 ∨ x4) → (x4)
+- (¬x5 ∨ ¬x1) → (True ∨ ¬x1) = True
+- (x5 ∨ ¬x4) → (¬x4)
+- (¬x5 ∨ x1 ∨ ¬x4) → (True ∨ x1 ∨ ¬x4) = True
+- (¬x4 ∨ x5) → (¬x4)
+- (x5 ∨ x1 ∨ x4) → (x1 ∨ x4)
+- (¬x1 ∨ x4)
+- (x5 ∨ x3) → (x3)
+
+#### Remaining clauses:
+1. (x4)
+2. (¬x4)
+3. (x1 ∨ x4)
+4. (¬x1 ∨ x4)
+
+Unit clauses (x4) and (¬x4) → **Conflict!**
+
+### Step 11: All branches exhausted
+
+## Final Answers
+
+- **SATISFIABLE or UNSATISFIABLE:** UNSATISFIABLE
+- **Number of branches (decision points):** 6
+- **Number of conflicts (backtracking steps):** 3

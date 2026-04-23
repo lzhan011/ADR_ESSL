@@ -1,0 +1,322 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=368
+p cnf 10 35
+-4 8 -9 0
+-8 10 7 0
+-2 -3 5 0
+-6 9 4 0
+-3 -7 9 0
+-9 10 2 0
+4 -9 5 0
+-3 6 -4 0
+-1 5 4 0
+4 -6 10 0
+9 -2 6 0
+-1 3 4 0
+-1 9 6 0
+-8 6 -10 0
+-7 -6 10 0
+8 5 -4 0
+-7 4 -2 0
+1 5 7 0
+-9 5 -10 0
+-1 10 7 0
+9 -10 6 0
+3 1 -2 0
+-10 5 -3 0
+8 -6 10 0
+3 8 1 0
+-3 1 -4 0
+-10 -3 -9 0
+-9 -4 -2 0
+-10 -8 -6 0
+-10 -6 -1 0
+4 1 -7 0
+-8 9 10 0
+8 9 7 0
+1 8 -5 0
+10 -4 -5 0
+
+c GPT solve time: 89.92 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Step 1: List variables**
+Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+**Step 2: Try assignments (branching on variables, propagating, and backtracking on conflicts)**
+
+Let's proceed with a simple variable order: x1, x2, ..., x10.
+
+---
+
+**Branch 1: x1 = True**
+
+- Propagate x1 = True:
+    - Clause (¬x1 ∨ x5 ∨ x4): satisfied
+    - Clause (¬x1 ∨ x3 ∨ x4): satisfied
+    - Clause (¬x1 ∨ x9 ∨ x6): satisfied
+    - Clause (¬x1 ∨ x10 ∨ x7): satisfied
+    - Clause (x3 ∨ x1 ∨ ¬x2): satisfied
+    - Clause (x3 ∨ x8 ∨ x1): satisfied
+    - Clause (¬x3 ∨ x1 ∨ ¬x4): satisfied
+    - Clause (¬x10 ∨ ¬x6 ∨ ¬x1): (¬x10 ∨ ¬x6 ∨ False) → (¬x10 ∨ ¬x6)
+    - Clause (x4 ∨ x1 ∨ ¬x7): satisfied
+    - Clause (x1 ∨ x8 ∨ ¬x5): satisfied
+
+Continue with x2 = True.
+
+---
+
+**Branch 1.1: x2 = True**
+
+- Propagate x2 = True:
+    - Clause (¬x2 ∨ ¬x3 ∨ x5): (False ∨ ¬x3 ∨ x5) → (¬x3 ∨ x5)
+    - Clause (x9 ∨ ¬x2 ∨ x6): (x9 ∨ False ∨ x6) → (x9 ∨ x6)
+    - Clause (¬x7 ∨ x4 ∨ ¬x2): (¬x7 ∨ x4 ∨ False) → (¬x7 ∨ x4)
+    - Clause (x3 ∨ x1 ∨ ¬x2): already satisfied
+
+Continue with x3 = True.
+
+---
+
+**Branch 1.1.1: x3 = True**
+
+- Propagate x3 = True:
+    - Clause (¬x2 ∨ ¬x3 ∨ x5): (¬x2 ∨ False ∨ x5) → (¬x2 ∨ x5) → (False ∨ x5) → x5
+    - Clause (¬x3 ∨ ¬x7 ∨ x9): (False ∨ ¬x7 ∨ x9) → (¬x7 ∨ x9)
+    - Clause (¬x3 ∨ x6 ∨ ¬x4): (False ∨ x6 ∨ ¬x4) → (x6 ∨ ¬x4)
+    - Clause (¬x10 ∨ x5 ∨ ¬x3): (¬x10 ∨ x5 ∨ False) → (¬x10 ∨ x5)
+    - Clause (¬x10 ∨ ¬x3 ∨ ¬x9): (¬x10 ∨ False ∨ ¬x9) → (¬x10 ∨ ¬x9)
+    - Clause (¬x3 ∨ x1 ∨ ¬x4): (False ∨ x1 ∨ ¬x4) → (x1 ∨ ¬x4): already satisfied
+
+From above, x5 must be True.
+
+---
+
+**Branch 1.1.1.1: x5 = True**
+
+- Propagate x5 = True:
+    - Clause (x8 ∨ x5 ∨ ¬x4): satisfied
+    - Clause (x1 ∨ x5 ∨ x7): satisfied
+    - Clause (¬x9 ∨ x5 ∨ ¬x10): (¬x9 ∨ True ∨ ¬x10): satisfied
+    - Clause (¬x10 ∨ x5 ∨ ¬x3): satisfied
+    - Clause (x1 ∨ x8 ∨ ¬x5): (True ∨ x8 ∨ False): satisfied
+    - Clause (x10 ∨ ¬x4 ∨ ¬x5): (x10 ∨ ¬x4 ∨ False): (x10 ∨ ¬x4)
+
+Continue with x4 = True.
+
+---
+
+**Branch 1.1.1.1.1: x4 = True**
+
+- Propagate x4 = True:
+    - Clause (¬x4 ∨ x8 ∨ ¬x9): (False ∨ x8 ∨ ¬x9): (x8 ∨ ¬x9)
+    - Clause (¬x6 ∨ x9 ∨ x4): (¬x6 ∨ x9 ∨ True): satisfied
+    - Clause (x4 ∨ ¬x9 ∨ x5): satisfied
+    - Clause (¬x3 ∨ x6 ∨ ¬x4): (False ∨ x6 ∨ False): (x6)
+    - Clause (x4 ∨ ¬x6 ∨ x10): (True ∨ ¬x6 ∨ x10): satisfied
+    - Clause (¬x7 ∨ x4 ∨ ¬x2): (¬x7 ∨ True ∨ False): satisfied
+    - Clause (x4 ∨ x1 ∨ ¬x7): satisfied
+
+From above, x6 must be True.
+
+---
+
+**Branch 1.1.1.1.1.1: x6 = True**
+
+- Propagate x6 = True:
+    - Clause (¬x6 ∨ x9 ∨ x4): (False ∨ x9 ∨ x4): satisfied
+    - Clause (¬x6 ∨ x10 ∨ x7): (False ∨ x10 ∨ x7): (x10 ∨ x7)
+    - Clause (¬x8 ∨ x6 ∨ ¬x10): (¬x8 ∨ True ∨ ¬x10): satisfied
+    - Clause (¬x7 ∨ ¬x6 ∨ x10): (¬x7 ∨ False ∨ x10): (¬x7 ∨ x10)
+    - Clause (x8 ∨ ¬x6 ∨ x10): (x8 ∨ False ∨ x10): (x8 ∨ x10)
+    - Clause (¬x10 ∨ ¬x8 ∨ ¬x6): (¬x10 ∨ ¬x8 ∨ False): (¬x10 ∨ ¬x8)
+    - Clause (¬x10 ∨ ¬x6 ∨ ¬x1): (¬x10 ∨ False ∨ False): (¬x10)
+
+From above, (¬x10) → x10 = False.
+
+---
+
+**Branch 1.1.1.1.1.1.1: x10 = False**
+
+- Propagate x10 = False:
+    - Clause (¬x8 ∨ x10 ∨ x7): (¬x8 ∨ False ∨ x7): (¬x8 ∨ x7)
+    - Clause (¬x9 ∨ x10 ∨ x2): (¬x9 ∨ False ∨ x2): (¬x9 ∨ x2)
+    - Clause (x4 ∨ ¬x6 ∨ x10): (True ∨ False ∨ False): satisfied
+    - Clause (¬x9 ∨ x5 ∨ ¬x10): (¬x9 ∨ True ∨ True): satisfied
+    - Clause (x9 ∨ ¬x10 ∨ x6): (x9 ∨ True ∨ True): satisfied
+    - Clause (¬x10 ∨ x5 ∨ ¬x3): (True ∨ x5 ∨ ¬x3): satisfied
+    - Clause (¬x10 ∨ ¬x3 ∨ ¬x9): (True ∨ ¬x3 ∨ ¬x9): satisfied
+    - Clause (¬x10 ∨ ¬x8 ∨ ¬x6): (True ∨ ¬x8 ∨ False): satisfied
+    - Clause (¬x10 ∨ ¬x6 ∨ ¬x1): (True ∨ False ∨ False): satisfied
+    - Clause (x10 ∨ ¬x4 ∨ ¬x5): (False ∨ False ∨ False): conflict!
+
+**Conflict!** (Clause (x10 ∨ ¬x4 ∨ ¬x5): all literals are False)
+
+---
+
+**Backtrack: x4 = False** (since x10 = False led to conflict, try x4 = False at previous level)
+
+---
+
+**Branch 1.1.1.1.2: x4 = False**
+
+- Propagate x4 = False:
+    - Clause (¬x4 ∨ x8 ∨ ¬x9): (True ∨ x8 ∨ ¬x9): satisfied
+    - Clause (x4 ∨ ¬x9 ∨ x5): (False ∨ ¬x9 ∨ True): satisfied
+    - Clause (¬x3 ∨ x6 ∨ ¬x4): (False ∨ x6 ∨ True): satisfied
+    - Clause (x4 ∨ ¬x6 ∨ x10): (False ∨ ¬x6 ∨ x10): (¬x6 ∨ x10)
+    - Clause (x8 ∨ x5 ∨ ¬x4): (x8 ∨ True ∨ True): satisfied
+    - Clause (¬x7 ∨ x4 ∨ ¬x2): (¬x7 ∨ False ∨ False): (¬x7)
+    - Clause (x4 ∨ x1 ∨ ¬x7): (False ∨ True ∨ ¬x7): satisfied
+
+From above, (¬x7) → x7 = False.
+
+---
+
+**Branch 1.1.1.1.2.1: x7 = False**
+
+- Propagate x7 = False:
+    - Clause (¬x8 ∨ x10 ∨ x7): (¬x8 ∨ x10 ∨ False): (¬x8 ∨ x10)
+    - Clause (¬x3 ∨ ¬x7 ∨ x9): (False ∨ True ∨ x9): satisfied
+    - Clause (¬x7 ∨ ¬x6 ∨ x10): (True ∨ ¬x6 ∨ x10): satisfied
+    - Clause (x4 ∨ x1 ∨ ¬x7): (False ∨ True ∨ True): satisfied
+
+Now, continue with x6.
+
+---
+
+**Branch 1.1.1.1.2.1.1: x6 = True**
+
+- Clause (¬x6 ∨ x10 ∨ x7): (False ∨ x10 ∨ False): (x10)
+- Clause (x8 ∨ ¬x6 ∨ x10): (x8 ∨ False ∨ x10): (x8 ∨ x10)
+- Clause (¬x10 ∨ ¬x8 ∨ ¬x6): (¬x10 ∨ ¬x8 ∨ False): (¬x10 ∨ ¬x8)
+- Clause (¬x10 ∨ ¬x6 ∨ ¬x1): (¬x10 ∨ False ∨ False): (¬x10)
+
+From above, (x10), (¬x10) → conflict!
+
+---
+
+**Branch 1.1.1.1.2.1.2: x6 = False**
+
+- Clause (¬x6 ∨ x10 ∨ x7): (True ∨ x10 ∨ False): satisfied
+- Clause (x4 ∨ ¬x6 ∨ x10): (False ∨ True ∨ x10): satisfied
+- Clause (x8 ∨ ¬x6 ∨ x10): (x8 ∨ True ∨ x10): satisfied
+- Clause (¬x10 ∨ ¬x8 ∨ ¬x6): (¬x10 ∨ ¬x8 ∨ True): satisfied
+- Clause (¬x10 ∨ ¬x6 ∨ ¬x1): (¬x10 ∨ True ∨ False): satisfied
+
+Now, continue with x8.
+
+---
+
+**Branch 1.1.1.1.2.1.2.1: x8 = True**
+
+- Clause (¬x8 ∨ x10 ∨ x7): (False ∨ x10 ∨ False): (x10)
+- Clause (¬x8 ∨ x6 ∨ ¬x10): (False ∨ False ∨ ¬x10): (¬x10)
+- Clause (x8 ∨ x9 ∨ x7): (True ∨ x9 ∨ False): satisfied
+- Clause (x8 ∨ x5 ∨ ¬x4): (True ∨ True ∨ True): satisfied
+- Clause (x8 ∨ ¬x6 ∨ x10): (True ∨ True ∨ x10): satisfied
+- Clause (x3 ∨ x8 ∨ x1): (True ∨ True ∨ True): satisfied
+
+From above, (x10), (¬x10) → conflict!
+
+---
+
+**Branch 1.1.1.1.2.1.2.2: x8 = False**
+
+- Clause (¬x8 ∨ x10 ∨ x7): (True ∨ x10 ∨ False): satisfied
+- Clause (¬x8 ∨ x6 ∨ ¬x10): (True ∨ False ∨ ¬x10): satisfied
+- Clause (x8 ∨ x9 ∨ x7): (False ∨ x9 ∨ False): (x9)
+- Clause (x8 ∨ x5 ∨ ¬x4): (False ∨ True ∨ True): satisfied
+- Clause (x8 ∨ ¬x6 ∨ x10): (False ∨ True ∨ x10): satisfied
+- Clause (x3 ∨ x8 ∨ x1): (True ∨ False ∨ True): satisfied
+
+From above, x9 = True.
+
+---
+
+**Branch 1.1.1.1.2.1.2.2.1: x9 = True**
+
+- Clause (¬x4 ∨ x8 ∨ ¬x9): (True ∨ False ∨ False): satisfied
+- Clause (¬x6 ∨ x9 ∨ x4): (True ∨ True ∨ False): satisfied
+- Clause (¬x3 ∨ ¬x7 ∨ x9): (False ∨ True ∨ True): satisfied
+- Clause (¬x9 ∨ x10 ∨ x2): (False ∨ x10 ∨ True): satisfied
+- Clause (x4 ∨ ¬x9 ∨ x5): (False ∨ False ∨ True): satisfied
+- Clause (x9 ∨ ¬x2 ∨ x6): (True ∨ False ∨ False): satisfied
+- Clause (¬x1 ∨ x9 ∨ x6): (False ∨ True ∨ False): satisfied
+- Clause (x8 ∨ x9 ∨ x7): (False ∨ True ∨ False): satisfied
+- Clause (¬x10 ∨ ¬x3 ∨ ¬x9): (¬x10 ∨ False ∨ False): (¬x10)
+- Clause (¬x9 ∨ ¬x4 ∨ ¬x2): (False ∨ True ∨ False): satisfied
+- Clause (x9 ∨ ¬x10 ∨ x6): (True ∨ True ∨ False): satisfied
+
+From above, (¬x10) → x10 = False.
+
+---
+
+**Branch 1.1.1.1.2.1.2.2.1.1: x10 = False**
+
+- All clauses are satisfied (checked above).
+
+---
+
+**Assignment found:**
+
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = False  
+x5 = True  
+x6 = False  
+x7 = False  
+x8 = False  
+x9 = True  
+x10 = False  
+
+---
+
+**Count branches and conflicts:**
+
+Branches (decision points):  
+x1, x2, x3, x5, x4, x7, x6, x8, x9, x10  
+But some were forced by propagation. Let's count only the actual decisions:
+
+1. x1 = True  
+2. x2 = True  
+3. x3 = True  
+4. x5 = True (forced by propagation)  
+5. x4 = False (after x4 = True led to conflict)  
+6. x7 = False (forced by propagation)  
+7. x6 = False (after x6 = True led to conflict)  
+8. x8 = False (after x8 = True led to conflict)  
+9. x9 = True (forced by propagation)  
+10. x10 = False (forced by propagation)  
+
+So, actual decision branches:  
+x1, x2, x3, x4, x6, x8 (since x5, x7, x9, x10 were forced by propagation)
+
+Conflicts (backtracking steps):  
+- x10 = False (conflict at x4 = True, x6 = True, x10 = False)  
+- x6 = True (conflict at x4 = False, x7 = False, x6 = True)  
+- x8 = True (conflict at x4 = False, x7 = False, x6 = False, x8 = True)  
+
+So, 3 conflicts.
+
+---
+
+**Final output:**
+
+SATISFIABLE  
+Branches: 6  
+Conflicts: 3  
+Assignment:  
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = False  
+x5 = True  
+x6 = False  
+x7 = False  
+x8 = False  
+x9 = True  
+x10 = False

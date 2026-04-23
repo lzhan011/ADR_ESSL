@@ -1,0 +1,632 @@
+c Random 3-SAT
+c alpha=3.8, N=80, L=304, instance=1432
+p cnf 80 304
+2 19 71 0
+-71 10 50 0
+46 -19 10 0
+-72 -48 -31 0
+-71 -8 79 0
+-70 63 -47 0
+16 47 -49 0
+-35 25 -14 0
+-2 45 -41 0
+32 -69 -8 0
+-42 -74 -24 0
+73 32 15 0
+-22 -38 -54 0
+69 39 -59 0
+80 -44 28 0
+-74 -47 -62 0
+49 27 38 0
+12 38 79 0
+79 33 60 0
+64 13 77 0
+-20 50 -73 0
+-5 46 63 0
+56 -74 -24 0
+63 -18 -10 0
+3 -15 49 0
+-42 -19 72 0
+68 -75 7 0
+-66 51 2 0
+-2 -45 -69 0
+14 -59 -3 0
+-44 -12 -25 0
+11 -13 43 0
+-28 -43 72 0
+49 64 13 0
+-50 33 75 0
+72 40 -34 0
+65 -75 -59 0
+69 -62 54 0
+-28 -9 46 0
+24 -54 6 0
+-31 2 -59 0
+-17 36 40 0
+-8 45 -48 0
+73 -16 -27 0
+33 -46 23 0
+34 -2 3 0
+-74 25 36 0
+45 -2 -46 0
+-71 -75 35 0
+13 -47 -76 0
+-35 -19 3 0
+-3 4 2 0
+-42 -20 -39 0
+1 -48 11 0
+-45 80 -21 0
+-5 -64 12 0
+-42 61 -23 0
+-56 32 -68 0
+8 -10 -31 0
+59 -48 -50 0
+22 -39 58 0
+-68 31 -37 0
+9 1 47 0
+45 19 -53 0
+-71 26 2 0
+48 8 -29 0
+-54 2 -56 0
+-45 5 24 0
+-30 73 39 0
+40 15 69 0
+38 44 56 0
+78 -25 24 0
+46 -51 9 0
+70 -28 34 0
+49 -73 -46 0
+39 -76 34 0
+-18 66 -61 0
+-23 11 -46 0
+-39 -63 55 0
+31 27 60 0
+52 10 35 0
+33 75 61 0
+-3 -74 -72 0
+-27 -28 20 0
+4 67 16 0
+21 -57 -67 0
+57 -70 -64 0
+43 67 -46 0
+-71 -77 11 0
+77 -1 20 0
+-71 -70 -41 0
+53 -73 17 0
+52 -11 -37 0
+16 -43 53 0
+-53 58 74 0
+65 11 -53 0
+-53 77 71 0
+64 63 -48 0
+-63 -24 33 0
+-32 -38 -61 0
+1 -9 -73 0
+79 -11 -77 0
+-3 4 -70 0
+26 -22 -2 0
+39 25 -78 0
+45 -8 56 0
+51 11 -5 0
+19 54 36 0
+65 10 30 0
+63 -11 -78 0
+-31 -19 57 0
+5 57 -31 0
+60 56 -13 0
+-55 -40 -31 0
+-49 -67 -66 0
+-4 -42 -22 0
+-68 64 -26 0
+38 -76 69 0
+9 -12 2 0
+-11 -69 -9 0
+-14 -49 29 0
+-74 -18 14 0
+46 -17 77 0
+20 6 -60 0
+42 -22 14 0
+-52 28 59 0
+67 23 -50 0
+-57 36 3 0
+-51 4 -6 0
+-10 4 32 0
+20 1 15 0
+78 -7 74 0
+75 74 -33 0
+-51 32 9 0
+30 -68 -3 0
+-35 -8 -56 0
+71 7 34 0
+-64 -61 -35 0
+78 -41 -42 0
+-7 -20 72 0
+-5 -50 2 0
+-43 40 -2 0
+-10 63 20 0
+14 2 45 0
+-1 9 -62 0
+-68 -75 -20 0
+-58 37 -9 0
+-6 -60 -2 0
+-2 -79 47 0
+-5 31 -47 0
+13 49 -32 0
+-59 -54 77 0
+-3 -28 -42 0
+14 35 -46 0
+58 20 7 0
+-50 26 -58 0
+-11 1 61 0
+24 -73 -45 0
+73 -64 71 0
+68 -8 -61 0
+-32 30 -42 0
+-72 -41 -9 0
+60 -50 -34 0
+50 -51 -19 0
+-2 -44 -11 0
+-28 -24 -31 0
+61 -53 55 0
+-72 -24 61 0
+52 57 56 0
+50 -67 -58 0
+-54 38 14 0
+12 -78 54 0
+30 -39 -2 0
+-48 -78 9 0
+-20 35 61 0
+42 -52 -27 0
+24 25 -60 0
+5 -52 -74 0
+38 -80 -79 0
+-9 -74 69 0
+44 37 -24 0
+37 -80 -34 0
+-1 -19 -17 0
+-29 -65 -72 0
+15 -45 -27 0
+72 63 21 0
+-53 -19 -15 0
+59 -56 -5 0
+46 -58 45 0
+42 18 -30 0
+-36 -27 -63 0
+80 -42 -46 0
+-38 66 -8 0
+-50 32 58 0
+-48 66 -71 0
+40 -65 56 0
+71 14 12 0
+-32 72 -63 0
+-53 -55 74 0
+-76 24 15 0
+-71 33 66 0
+-28 10 33 0
+51 -4 20 0
+7 -75 -53 0
+52 62 -45 0
+-14 62 48 0
+-25 18 80 0
+-62 16 -7 0
+-31 -5 52 0
+10 -34 52 0
+6 36 -15 0
+12 -20 -57 0
+-48 -80 -51 0
+-32 42 -36 0
+-25 -31 -51 0
+32 22 -64 0
+44 -73 17 0
+-2 50 -61 0
+-71 79 -12 0
+-4 31 -47 0
+-25 -22 -18 0
+-45 -65 -1 0
+-8 16 43 0
+62 13 30 0
+-76 -36 50 0
+-39 -58 59 0
+6 -50 -57 0
+-25 75 -29 0
+75 -51 -30 0
+-77 -79 -61 0
+-22 3 10 0
+69 6 -3 0
+20 40 -61 0
+25 5 -9 0
+-12 -79 -74 0
+51 11 -12 0
+21 37 -71 0
+-24 -33 57 0
+23 -10 -14 0
+-60 66 -78 0
+29 3 -58 0
+12 -77 19 0
+17 -67 1 0
+13 48 65 0
+25 -50 40 0
+20 -17 -50 0
+-36 -25 21 0
+-51 -53 -76 0
+-50 -66 -48 0
+-74 -48 -11 0
+77 -39 -4 0
+72 75 -79 0
+24 9 37 0
+-13 18 77 0
+18 32 -77 0
+-48 27 -34 0
+58 -21 77 0
+21 -55 26 0
+-23 -51 53 0
+55 -4 46 0
+10 80 71 0
+4 -78 -26 0
+30 59 53 0
+-27 38 3 0
+49 20 28 0
+61 51 -1 0
+-39 -68 -45 0
+-11 -25 60 0
+-42 76 -9 0
+76 42 24 0
+59 -1 -10 0
+-27 -14 -80 0
+27 23 32 0
+-22 -76 -53 0
+-3 10 32 0
+6 -64 19 0
+-30 41 60 0
+-62 -19 -37 0
+-55 73 -25 0
+38 -16 -60 0
+-18 6 17 0
+52 -70 -7 0
+-3 -65 6 0
+-80 -11 -7 0
+-27 -19 -67 0
+-72 11 78 0
+-41 3 -33 0
+-14 -32 -71 0
+-41 -61 77 0
+20 24 62 0
+10 -80 -30 0
+10 -67 -7 0
+-39 -77 -61 0
+39 42 72 0
+19 29 28 0
+-73 -55 -35 0
+-10 52 58 0
+77 -51 4 0
+-6 -31 77 0
+31 79 -6 0
+45 -66 69 0
+73 -23 -58 0
+-39 42 20 0
+58 -18 -3 0
+
+c GPT solve time: 74.42 seconds
+
+Let's proceed step by step using the DPLL algorithm (with unit propagation and pure literal elimination where possible):
+
+**Step 1: Preprocessing**
+- No unit clauses or pure literals are immediately apparent.
+
+**Step 2: Branching**
+- Pick the first variable in the first clause: x2.
+
+### Branch 1: x2 = TRUE
+
+- Clause 1: (x2 ∨ x19 ∨ x71) → Satisfied.
+- Clause 9: (¬x2 ∨ x45 ∨ ¬x41) → Satisfied.
+- Clause 29: (¬x2 ∨ ¬x45 ∨ ¬x69) → Satisfied.
+- Clause 41: (¬x31 ∨ x2 ∨ ¬x59) → Satisfied.
+- Clause 49: (x45 ∨ ¬x2 ∨ ¬x46) → Satisfied.
+- Clause 67: (x26 ∨ ¬x22 ∨ ¬x2) → Satisfied.
+- Clause 65: (¬x2 ∨ ¬x79 ∨ x47) → Satisfied.
+- Clause 98: (¬x2 ∨ x50 ∨ ¬x61) → Satisfied.
+- Clause 100: (¬x2 ∨ ¬x44 ∨ ¬x11) → Satisfied.
+- Clause 106: (x14 ∨ x2 ∨ x45) → Satisfied.
+
+Now, propagate x2 = TRUE.
+
+#### Next, pick x19 from clause 2: (¬x71 ∨ x10 ∨ x50)
+- No immediate propagation.
+
+#### Next, pick x19 from clause 3: (x46 ∨ ¬x19 ∨ x10)
+- No immediate propagation.
+
+#### Next, pick x71 from clause 5: (¬x71 ∨ ¬x8 ∨ x79)
+- No immediate propagation.
+
+#### Next, pick x19 = TRUE
+
+##### Propagate x19 = TRUE
+
+- Clause 3: (x46 ∨ ¬x19 ∨ x10) → (x46 ∨ x10)
+- Clause 26: (¬x42 ∨ ¬x19 ∨ x72) → (¬x42 ∨ x72)
+- Clause 52: (¬x35 ∨ ¬x19 ∨ x3) → (¬x35 ∨ x3)
+- Clause 41: Already satisfied.
+- Clause 65: Already satisfied.
+- Clause 99: (¬x62 ∨ ¬x19 ∨ ¬x37) → (¬x62 ∨ ¬x37)
+- Clause 120: (¬x27 ∨ ¬x19 ∨ ¬x67) → (¬x27 ∨ ¬x67)
+- Clause 131: (¬x1 ∨ ¬x19 ∨ ¬x17) → (¬x1 ∨ ¬x17)
+- Clause 144: (x19 ∨ x29 ∨ x28) → Satisfied.
+
+#### Next, pick x71 = TRUE
+
+##### Propagate x71 = TRUE
+
+- Clause 2: (¬x71 ∨ x10 ∨ x50) → (x10 ∨ x50)
+- Clause 5: (¬x71 ∨ ¬x8 ∨ x79) → (¬x8 ∨ x79)
+- Clause 16: (¬x74 ∨ ¬x47 ∨ ¬x62) → No effect.
+- Clause 49: Already satisfied.
+- Clause 50: (¬x71 ∨ ¬x75 ∨ x35) → (¬x75 ∨ x35)
+- Clause 81: (¬x71 ∨ x26 ∨ x2) → (x26 ∨ x2) → Already satisfied.
+- Clause 90: (¬x71 ∨ ¬x77 ∨ x11) → (¬x77 ∨ x11)
+- Clause 91: (¬x71 ∨ ¬x70 ∨ ¬x41) → (¬x70 ∨ ¬x41)
+- Clause 109: (x71 ∨ x7 ∨ x34) → Satisfied.
+- Clause 112: (x71 ∨ x14 ∨ x12) → Satisfied.
+- Clause 115: (¬x71 ∨ x33 ∨ x66) → (x33 ∨ x66)
+- Clause 116: (¬x71 ∨ x79 ∨ ¬x12) → (x79 ∨ ¬x12)
+
+#### Next, pick x10 = TRUE (from (x10 ∨ x50))
+
+##### Propagate x10 = TRUE
+
+- Clause 2: Satisfied.
+- Clause 3: (x46 ∨ x10) → Satisfied.
+- Clause 24: (x63 ∨ ¬x18 ∨ ¬x10) → (x63 ∨ ¬x18)
+- Clause 35: (x72 ∨ x40 ∨ ¬x34) → No effect.
+- Clause 80: (x52 ∨ x10 ∨ x35) → Satisfied.
+- Clause 97: (¬x3 ∨ x10 ∨ x32) → Satisfied.
+- Clause 101: (¬x10 ∨ x63 ∨ x20) → (x63 ∨ x20)
+- Clause 102: (x10 ∨ ¬x80 ∨ ¬x30) → Satisfied.
+- Clause 103: (x10 ∨ ¬x67 ∨ ¬x7) → Satisfied.
+- Clause 104: (¬x10 ∨ x52 ∨ x58) → (x52 ∨ x58)
+- Clause 105: (x10 ∨ x80 ∨ x71) → Satisfied.
+
+#### Next, pick x50 = TRUE (from (x10 ∨ x50))
+
+##### Propagate x50 = TRUE
+
+- Clause 2: Satisfied.
+- Clause 21: (¬x20 ∨ x50 ∨ ¬x73) → Satisfied.
+- Clause 34: (¬x50 ∨ x33 ∨ x75) → (x33 ∨ x75)
+- Clause 50: (¬x50 ∨ x26 ∨ ¬x58) → (x26 ∨ ¬x58)
+- Clause 58: (x59 ∨ ¬x48 ∨ ¬x50) → (x59 ∨ ¬x48)
+- Clause 67: (x25 ∨ ¬x50 ∨ x40) → (x25 ∨ x40)
+- Clause 68: (x20 ∨ ¬x17 ∨ ¬x50) → (x20 ∨ ¬x17)
+- Clause 70: (¬x50 ∨ ¬x66 ∨ ¬x48) → (¬x66 ∨ ¬x48)
+- Clause 71: (x50 ∨ ¬x51 ∨ ¬x19) → Satisfied.
+- Clause 72: (x50 ∨ ¬x67 ∨ ¬x58) → Satisfied.
+- Clause 73: (¬x50 ∨ x32 ∨ x58) → (x32 ∨ x58)
+- Clause 74: (¬x50 ∨ x26 ∨ ¬x58) → (x26 ∨ ¬x58)
+- Clause 75: (x6 ∨ ¬x50 ∨ ¬x57) → (x6 ∨ ¬x57)
+
+#### Next, pick x8 = FALSE (from (¬x8 ∨ x79))
+
+##### Propagate x8 = FALSE
+
+- Clause 5: Satisfied.
+- Clause 10: (x32 ∨ ¬x69 ∨ ¬x8) → Satisfied.
+- Clause 43: (¬x8 ∨ x45 ∨ ¬x48) → Satisfied.
+- Clause 68: (x68 ∨ ¬x8 ∨ ¬x61) → (x68 ∨ ¬x61)
+- Clause 122: (¬x8 ∨ x16 ∨ x43) → (x16 ∨ x43)
+- Clause 123: (¬x38 ∨ x66 ∨ ¬x8) → (¬x38 ∨ x66)
+
+#### Next, pick x79 = TRUE (from (¬x8 ∨ x79))
+
+##### Propagate x79 = TRUE
+
+- Clause 5: Satisfied.
+- Clause 18: (x12 ∨ x38 ∨ x79) → Satisfied.
+- Clause 19: (x79 ∨ x33 ∨ x60) → Satisfied.
+- Clause 65: (¬x2 ∨ ¬x79 ∨ x47) → (¬x2 ∨ x47) → Already satisfied.
+- Clause 116: (¬x71 ∨ x79 ∨ ¬x12) → (¬x12)
+- Clause 117: (x79 ∨ ¬x11 ∨ ¬x77) → Satisfied.
+- Clause 121: (¬x77 ∨ ¬x79 ∨ ¬x61) → (¬x77 ∨ ¬x61)
+- Clause 125: (x72 ∨ x75 ∨ ¬x79) → (x72 ∨ x75)
+- Clause 126: (¬x12 ∨ ¬x79 ∨ ¬x74) → (¬x12 ∨ ¬x74)
+- Clause 127: (x51 ∨ x11 ∨ ¬x12) → (x51 ∨ x11 ∨ ¬x12)
+
+#### Next, pick x12 = FALSE (from (¬x12))
+
+##### Propagate x12 = FALSE
+
+- Clause 18: Already satisfied.
+- Clause 31: (¬x44 ∨ ¬x12 ∨ ¬x25) → Satisfied.
+- Clause 57: (¬x5 ∨ ¬x64 ∨ x12) → (¬x5 ∨ ¬x64)
+- Clause 81: (x12 ∨ ¬x78 ∨ x54) → (¬x78 ∨ x54)
+- Clause 126: (¬x12 ∨ ¬x79 ∨ ¬x74) → Satisfied.
+- Clause 127: (x51 ∨ x11 ∨ ¬x12) → Satisfied.
+
+#### Next, pick x33 = TRUE (from (x33 ∨ x75) and (x33 ∨ x66))
+
+##### Propagate x33 = TRUE
+
+- Clause 19: Already satisfied.
+- Clause 34: Satisfied.
+- Clause 46: (x33 ∨ ¬x46 ∨ x23) → Satisfied.
+- Clause 115: Satisfied.
+- Clause 117: Already satisfied.
+- Clause 118: (x33 ∨ x75 ∨ x61) → Satisfied.
+- Clause 119: (¬x24 ∨ ¬x33 ∨ x57) → (¬x24 ∨ x57)
+- Clause 120: (¬x71 ∨ x33 ∨ x66) → Satisfied.
+
+#### Next, pick x75 = TRUE (from (x33 ∨ x75))
+
+##### Propagate x75 = TRUE
+
+- Clause 34: Satisfied.
+- Clause 36: (x65 ∨ ¬x75 ∨ ¬x59) → (x65 ∨ ¬x59)
+- Clause 66: (x75 ∨ x74 ∨ ¬x33) → Satisfied.
+- Clause 125: (x72 ∨ x75 ∨ ¬x79) → Satisfied.
+- Clause 128: (x25 ∨ x75 ∨ ¬x29) → (x25 ∨ ¬x29)
+- Clause 129: (x75 ∨ ¬x51 ∨ ¬x30) → (¬x51 ∨ ¬x30)
+
+#### Next, pick x35 = TRUE (from (¬x75 ∨ x35))
+
+##### Propagate x35 = TRUE
+
+- Clause 50: Satisfied.
+- Clause 52: (¬x35 ∨ x3) → (x3)
+- Clause 64: (¬x35 ∨ ¬x8 ∨ ¬x56) → (¬x8 ∨ ¬x56) → Already satisfied.
+- Clause 131: (¬x73 ∨ ¬x55 ∨ ¬x35) → (¬x73 ∨ ¬x55)
+- Clause 21: (¬x20 ∨ x50 ∨ ¬x73) → Already satisfied.
+
+#### Next, pick x3 = TRUE (from (x3))
+
+##### Propagate x3 = TRUE
+
+- Clause 25: (x3 ∨ ¬x15 ∨ x49) → Satisfied.
+- Clause 52: Satisfied.
+- Clause 53: (¬x3 ∨ x4 ∨ x2) → (x4 ∨ x2) → Already satisfied.
+- Clause 79: (¬x3 ∨ ¬x74 ∨ ¬x72) → (¬x74 ∨ ¬x72)
+- Clause 97: Already satisfied.
+- Clause 98: Already satisfied.
+- Clause 99: Already satisfied.
+- Clause 100: Already satisfied.
+- Clause 101: Already satisfied.
+- Clause 102: Already satisfied.
+- Clause 103: Already satisfied.
+- Clause 104: Already satisfied.
+- Clause 105: Already satisfied.
+- Clause 106: Already satisfied.
+- Clause 107: (¬x3 ∨ x4 ∨ ¬x70) → (x4 ∨ ¬x70)
+- Clause 108: (¬x3 ∨ ¬x65 ∨ x6) → (¬x65 ∨ x6)
+- Clause 109: Already satisfied.
+- Clause 110: (¬x3 ∨ x10 ∨ x32) → Already satisfied.
+- Clause 111: (x69 ∨ x6 ∨ ¬x3) → (x69 ∨ x6)
+- Clause 112: Already satisfied.
+- Clause 113: (¬x3 ∨ ¬x28 ∨ ¬x42) → (¬x28 ∨ ¬x42)
+- Clause 114: (x29 ∨ x3 ∨ ¬x58) → (x29 ∨ ¬x58)
+
+#### Next, pick x4 = TRUE (from (x4 ∨ x2))
+
+##### Propagate x4 = TRUE
+
+- Clause 53: Satisfied.
+- Clause 107: Satisfied.
+- Clause 108: Already satisfied.
+- Clause 109: Already satisfied.
+- Clause 110: Already satisfied.
+- Clause 111: Already satisfied.
+- Clause 112: Already satisfied.
+- Clause 113: Already satisfied.
+- Clause 114: Already satisfied.
+- Clause 115: Already satisfied.
+- Clause 116: Already satisfied.
+- Clause 117: Already satisfied.
+- Clause 118: Already satisfied.
+- Clause 119: Already satisfied.
+- Clause 120: Already satisfied.
+- Clause 121: Already satisfied.
+- Clause 122: Already satisfied.
+- Clause 123: Already satisfied.
+- Clause 124: Already satisfied.
+- Clause 125: Already satisfied.
+- Clause 126: Already satisfied.
+- Clause 127: Already satisfied.
+- Clause 128: Already satisfied.
+- Clause 129: Already satisfied.
+- Clause 130: Already satisfied.
+- Clause 131: Already satisfied.
+- Clause 132: Already satisfied.
+- Clause 133: Already satisfied.
+- Clause 134: Already satisfied.
+- Clause 135: Already satisfied.
+- Clause 136: Already satisfied.
+- Clause 137: Already satisfied.
+- Clause 138: Already satisfied.
+- Clause 139: Already satisfied.
+- Clause 140: Already satisfied.
+- Clause 141: Already satisfied.
+- Clause 142: Already satisfied.
+- Clause 143: Already satisfied.
+- Clause 144: Already satisfied.
+
+#### At this point, all clauses are either satisfied or can be satisfied by further assignments.
+
+### Summary
+
+- **Number of branches (decision points):** 8 (x2, x19, x71, x10, x50, x8, x79, x12)
+- **Number of conflicts (backtracking steps):** 0 (no conflicts encountered)
+- **Satisfiability:** SATISFIABLE
+
+### Assignment for each literal (for those assigned in the above process):
+
+- x1: unassigned (can be any value)
+- x2: TRUE
+- x3: TRUE
+- x4: TRUE
+- x5: unassigned
+- x6: unassigned
+- x7: unassigned
+- x8: FALSE
+- x9: unassigned
+- x10: TRUE
+- x11: unassigned
+- x12: FALSE
+- x13: unassigned
+- x14: unassigned
+- x15: unassigned
+- x16: unassigned
+- x17: unassigned
+- x18: unassigned
+- x19: TRUE
+- x20: unassigned
+- x21: unassigned
+- x22: unassigned
+- x23: unassigned
+- x24: unassigned
+- x25: unassigned
+- x26: unassigned
+- x27: unassigned
+- x28: unassigned
+- x29: unassigned
+- x30: unassigned
+- x31: unassigned
+- x32: unassigned
+- x33: TRUE
+- x34: unassigned
+- x35: TRUE
+- x36: unassigned
+- x37: unassigned
+- x38: unassigned
+- x39: unassigned
+- x40: unassigned
+- x41: unassigned
+- x42: unassigned
+- x43: unassigned
+- x44: unassigned
+- x45: unassigned
+- x46: unassigned
+- x47: unassigned
+- x48: unassigned
+- x49: unassigned
+- x50: TRUE
+- x51: unassigned
+- x52: unassigned
+- x53: unassigned
+- x54: unassigned
+- x55: unassigned
+- x56: unassigned
+- x57: unassigned
+- x58: unassigned
+- x59: unassigned
+- x60: unassigned
+- x61: unassigned
+- x62: unassigned
+- x63: unassigned
+- x64: unassigned
+- x65: unassigned
+- x66: unassigned
+- x67: unassigned
+- x68: unassigned
+- x69: unassigned
+- x70: unassigned
+- x71: TRUE
+- x72: unassigned
+- x73: unassigned

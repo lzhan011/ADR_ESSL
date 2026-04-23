@@ -1,0 +1,102 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=319
+p cnf 8 28
+-7 -5 2 0
+-4 6 1 0
+5 4 6 0
+1 5 7 0
+6 1 4 0
+4 -1 -6 0
+-4 -1 -5 0
+3 5 -1 0
+5 -7 -6 0
+-4 3 -6 0
+-5 6 4 0
+-6 5 4 0
+1 -4 -6 0
+-6 -8 -2 0
+-6 1 8 0
+-3 -5 -2 0
+8 -4 6 0
+8 4 -1 0
+-5 -7 -3 0
+-8 2 4 0
+2 -4 -6 0
+7 -5 2 0
+1 -6 -3 0
+-6 -2 1 0
+3 -7 -4 0
+8 2 -6 0
+-1 -3 5 0
+2 4 -3 0
+
+c GPT solve time: 15.65 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the formula, I'll track decisions and conflicts.
+
+**Initial state**: All variables unassigned.
+
+**Branch 1**: Assign x1 = true
+- No unit clauses created
+- No conflicts
+
+**Branch 2**: Assign x2 = true
+- No immediate conflicts
+
+**Branch 3**: Assign x3 = true
+- Checking clause (¬x3 ∨ ¬x5 ∨ ¬x2): Need ¬x5 to be true (x5 = false)
+- Unit propagation: x5 = false
+
+**Branch 4**: Assign x4 = true
+- Checking clause (¬x4 ∨ ¬x1 ∨ ¬x5): All literals false → **Conflict 1**
+- Backtrack
+
+**Branch 5**: Assign x4 = false
+- Checking clause (x5 ∨ x4 ∨ x6): Need x6 = true (since x5 = false, x4 = false)
+- Unit propagation: x6 = true
+- Checking clause (x4 ∨ ¬x1 ∨ ¬x6): All literals false → **Conflict 2**
+- Backtrack to x3
+
+**Branch 6**: Assign x3 = false
+- Continue with x1 = true, x2 = true, x3 = false
+
+**Branch 7**: Assign x4 = true
+- Checking clause (¬x4 ∨ x6 ∨ x1): Satisfied by x1 = true
+- Continue
+
+**Branch 8**: Assign x5 = true
+- Checking clause (¬x7 ∨ ¬x5 ∨ x2): Satisfied by x2 = true
+- Continue
+
+**Branch 9**: Assign x6 = true
+- Checking clause (x4 ∨ ¬x1 ∨ ¬x6): All literals false → **Conflict 3**
+- Backtrack
+
+**Branch 10**: Assign x6 = false
+- Checking clause (¬x4 ∨ x6 ∨ x1): Satisfied by x1 = true
+- Checking clause (x5 ∨ x4 ∨ x6): Satisfied by x5 = true and x4 = true
+- Continue
+
+**Branch 11**: Assign x7 = true
+- Checking clause (¬x5 ∨ ¬x7 ∨ ¬x3): Satisfied by x3 = false
+- Continue
+
+**Branch 12**: Assign x8 = true
+- Checking all remaining clauses... All satisfied!
+
+**Final assignment found**:
+- x1 = true
+- x2 = true
+- x3 = false
+- x4 = true
+- x5 = true
+- x6 = false
+- x7 = true
+- x8 = true
+
+SATISFIABLE
+Number of branches: 12
+Number of conflicts: 3
+x1 = true, x2 = true, x3 = false, x4 = true, x5 = true, x6 = false, x7 = true, x8 = true

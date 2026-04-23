@@ -1,0 +1,115 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=970
+p cnf 5 17
+-3 -4 5 0
+-4 1 2 0
+5 -4 -2 0
+3 1 -2 0
+2 4 -3 0
+1 5 -3 0
+2 5 -1 0
+-1 4 5 0
+-1 -4 -5 0
+-3 5 2 0
+-2 -5 -3 0
+4 2 3 0
+5 -1 -4 0
+4 5 3 0
+-5 3 -4 0
+4 1 -2 0
+-2 3 -5 0
+
+c GPT solve time: 79.87 seconds
+
+To solve the given 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching) and backtracking (conflicts) when contradictions are found. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in order (x1, x2, ..., x5) and assign values, propagating implications.
+
+#### Branch 1: Assign x1 = True
+- From (¬x1 ∨ x4 ∨ x5), x4 ∨ x5 must be true.
+- From (¬x1 ∨ ¬x4 ∨ ¬x5), ¬x4 ∨ ¬x5 must be true.
+  - This implies x4 and x5 cannot both be true or both be false. So, one must be true, and the other false.
+- From (x5 ∨ ¬x1 ∨ ¬x4), since x1 is true, this simplifies to x5 ∨ ¬x4.
+  - If x4 is true, x5 must be true (but this contradicts ¬x4 ∨ ¬x5). So, x4 must be false, and x5 must be true.
+- Assign x4 = False, x5 = True.
+- Now propagate:
+  - From (¬x3 ∨ ¬x4 ∨ x5): ¬x3 ∨ True ∨ True → satisfied.
+  - From (¬x4 ∨ x1 ∨ x2): True ∨ True ∨ x2 → satisfied.
+  - From (x5 ∨ ¬x4 ∨ ¬x2): True ∨ True ∨ ¬x2 → satisfied.
+  - From (x3 ∨ x1 ∨ ¬x2): x3 ∨ True ∨ ¬x2 → satisfied unless x3 = False and x2 = True.
+  - From (x2 ∨ x4 ∨ ¬x3): x2 ∨ False ∨ ¬x3 → x2 ∨ ¬x3 must be true.
+  - From (x1 ∨ x5 ∨ ¬x3): True ∨ True ∨ ¬x3 → satisfied.
+  - From (x2 ∨ x5 ∨ ¬x1): x2 ∨ True ∨ False → satisfied.
+  - From (¬x3 ∨ x5 ∨ x2): ¬x3 ∨ True ∨ x2 → satisfied.
+  - From (¬x2 ∨ ¬x5 ∨ ¬x3): ¬x2 ∨ False ∨ ¬x3 → ¬x2 ∨ ¬x3 must be true.
+  - From (x4 ∨ x2 ∨ x3): False ∨ x2 ∨ x3 → x2 ∨ x3 must be true.
+  - From (x5 ∨ ¬x1 ∨ ¬x4): True ∨ False ∨ True → satisfied.
+  - From (x4 ∨ x5 ∨ x3): False ∨ True ∨ x3 → satisfied.
+  - From (¬x5 ∨ x3 ∨ ¬x4): False ∨ x3 ∨ True → satisfied.
+  - From (x4 ∨ x1 ∨ ¬x2): False ∨ True ∨ ¬x2 → satisfied.
+  - From (¬x2 ∨ x3 ∨ ¬x5): ¬x2 ∨ x3 ∨ False → ¬x2 ∨ x3 must be true.
+  
+Now, we have x1 = True, x4 = False, x5 = True. We need to assign x2 and x3.
+From earlier:
+- x2 ∨ ¬x3 must be true (from x2 ∨ ¬x3).
+- ¬x2 ∨ ¬x3 must be true (from ¬x2 ∨ ¬x3).
+- x2 ∨ x3 must be true (from x2 ∨ x3).
+- ¬x2 ∨ x3 must be true (from ¬x2 ∨ x3).
+
+Let’s assign x2 = True:
+- From x2 ∨ ¬x3: True ∨ ¬x3 → satisfied.
+- From ¬x2 ∨ ¬x3: False ∨ ¬x3 → ¬x3 must be true (x3 = False).
+- From x2 ∨ x3: True ∨ x3 → satisfied.
+- From ¬x2 ∨ x3: False ∨ x3 → x3 must be true. But we have x3 = False from ¬x3, which is a conflict.
+
+Backtrack: Assign x2 = False.
+- From x2 ∨ ¬x3: False ∨ ¬x3 → ¬x3 must be true (x3 = False).
+- From ¬x2 ∨ ¬x3: True ∨ ¬x3 → satisfied.
+- From x2 ∨ x3: False ∨ x3 → x3 must be true. But we have x3 = False, which is a conflict.
+
+This branch leads to a conflict, so we backtrack.
+
+#### Branch 2: Assign x1 = False
+- From (¬x1 ∨ x4 ∨ x5): True ∨ x4 ∨ x5 → satisfied.
+- From (¬x1 ∨ ¬x4 ∨ ¬x5): True ∨ ¬x4 ∨ ¬x5 → satisfied.
+- From (x5 ∨ ¬x1 ∨ ¬x4): x5 ∨ True ∨ ¬x4 → satisfied.
+- From (x1 ∨ x5 ∨ ¬x3): False ∨ x5 ∨ ¬x3 → x5 ∨ ¬x3 must be true.
+- From (x2 ∨ x5 ∨ ¬x1): x2 ∨ x5 ∨ True → satisfied.
+- From (x4 ∨ x1 ∨ ¬x2): x4 ∨ False ∨ ¬x2 → x4 ∨ ¬x2 must be true.
+- From (x5 ∨ ¬x1 ∨ ¬x4): x5 ∨ True ∨ ¬x4 → satisfied.
+- From (x4 ∨ x5 ∨ x3): x4 ∨ x5 ∨ x3 must be true.
+
+Let’s assign x2 = True:
+- From (¬x4 ∨ x1 ∨ x2): ¬x4 ∨ False ∨ True → satisfied.
+- From (x5 ∨ ¬x4 ∨ ¬x2): x5 ∨ ¬x4 ∨ False → x5 ∨ ¬x4 must be true.
+- From (x3 ∨ x1 ∨ ¬x2): x3 ∨ False ∨ False → x3 must be true.
+- Assign x3 = True.
+- From (x2 ∨ x4 ∨ ¬x3): True ∨ x4 ∨ False → satisfied.
+- From (x1 ∨ x5 ∨ ¬x3): False ∨ x5 ∨ False → x5 must be true.
+- Assign x5 = True.
+- From (¬x2 ∨ ¬x5 ∨ ¬x3): False ∨ False ∨ False → conflict.
+
+Backtrack: Assign x2 = False.
+- From (¬x4 ∨ x1 ∨ x2): ¬x4 ∨ False ∨ False → ¬x4 must be true (x4 = False).
+- From (x5 ∨ ¬x4 ∨ ¬x2): x5 ∨ True ∨ True → satisfied.
+- From (x3 ∨ x1 ∨ ¬x2): x3 ∨ False ∨ True → satisfied.
+- From (x2 ∨ x4 ∨ ¬x3): False ∨ False ∨ ¬x3 → ¬x3 must be true (x3 = False).
+- Assign x3 = False.
+- From (x1 ∨ x5 ∨ ¬x3): False ∨ x5 ∨ True → satisfied.
+- From (¬x3 ∨ x5 ∨ x2): True ∨ x5 ∨ False → satisfied.
+- From (¬x2 ∨ ¬x5 ∨ ¬x3): True ∨ ¬x5 ∨ True → satisfied.
+- From (x4 ∨ x2 ∨ x3): False ∨ False ∨ False → conflict.
+
+This branch also leads to a conflict. 
+
+### Step 3: Conclusion
+All branches lead to conflicts, so the formula is unsatisfiable.
+
+### Final Answer:
+* UNSATISFIABLE  
+* 2  
+* 3

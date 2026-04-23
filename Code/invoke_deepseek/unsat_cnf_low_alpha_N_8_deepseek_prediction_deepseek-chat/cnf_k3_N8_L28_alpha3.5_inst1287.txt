@@ -1,0 +1,141 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1287
+p cnf 8 28
+1 -4 5 0
+-1 6 5 0
+-2 1 7 0
+-3 -7 -2 0
+-6 8 -1 0
+-7 5 -4 0
+6 -8 -2 0
+1 4 8 0
+-1 -2 -4 0
+-5 -6 -4 0
+-7 6 3 0
+-2 -3 -6 0
+4 -2 -5 0
+7 8 5 0
+2 3 7 0
+-4 -3 7 0
+6 -7 -5 0
+-8 2 -6 0
+8 5 -6 0
+-5 -1 4 0
+6 -2 -3 0
+-7 8 2 0
+5 -7 -8 0
+3 -6 -8 0
+2 -7 8 0
+5 -3 -1 0
+1 4 6 0
+7 -5 4 0
+
+c GPT solve time: 92.92 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching) and backtracking (conflicts) when contradictions are found. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables and assign values, propagating implications until a conflict or satisfaction is reached. Here's a summary of the process:
+
+1. **Decision**: Assign \( x1 = \text{True} \).
+   - From clause 1: \( x1 \) is True, so no implications.
+   - From clause 2: \( \neg x1 \) is False, so \( x6 \lor x5 \) must be True.
+   - From clause 8: \( x1 \) is True, so \( x4 \lor x8 \) must be True.
+   - From clause 9: \( \neg x1 \) is False, so \( \neg x2 \lor \neg x4 \) must be True.
+   - From clause 20: \( \neg x1 \) is False, so \( \neg x5 \lor x4 \) must be True.
+   - From clause 26: \( \neg x1 \) is False, so \( x5 \lor \neg x3 \) must be True.
+   - From clause 27: \( x1 \) is True, so \( x4 \lor x6 \) must be True.
+
+2. **Decision**: Assign \( x4 = \text{True} \).
+   - From clause 1: \( \neg x4 \) is False, so \( x1 \lor x5 \) must be True (already satisfied by \( x1 \)).
+   - From clause 6: \( \neg x4 \) is False, so \( \neg x7 \lor x5 \) must be True.
+   - From clause 9: \( \neg x4 \) is False, so \( \neg x2 \) must be True (i.e., \( x2 = \text{False} \)).
+   - From clause 10: \( \neg x4 \) is False, so \( \neg x5 \lor \neg x6 \) must be True.
+   - From clause 16: \( \neg x4 \) is False, so \( \neg x3 \lor x7 \) must be True.
+   - From clause 20: \( x4 \) is True, so \( \neg x5 \lor x4 \) is satisfied.
+   - From clause 27: \( x4 \) is True, so \( x4 \lor x6 \) is satisfied.
+   - From clause 28: \( x4 \) is True, so \( x7 \lor \neg x5 \lor x4 \) is satisfied.
+
+3. **Implications from \( x2 = \text{False} \)**:
+   - From clause 3: \( \neg x2 \) is True, so \( x1 \lor x7 \) must be True (already satisfied by \( x1 \)).
+   - From clause 4: \( \neg x2 \) is True, so \( \neg x3 \lor \neg x7 \) must be True.
+   - From clause 7: \( \neg x2 \) is True, so \( x6 \lor \neg x8 \) must be True.
+   - From clause 13: \( \neg x2 \) is True, so \( x4 \lor \neg x5 \) must be True (already satisfied by \( x4 \)).
+   - From clause 18: \( \neg x2 \) is True, so \( \neg x8 \lor \neg x6 \) must be True.
+   - From clause 21: \( \neg x2 \) is True, so \( x6 \lor \neg x3 \) must be True.
+   - From clause 22: \( \neg x2 \) is True, so \( \neg x7 \lor x8 \) must be True.
+   - From clause 25: \( \neg x2 \) is True, so \( \neg x7 \lor x8 \) must be True (same as above).
+
+4. **Decision**: Assign \( x5 = \text{True} \).
+   - From clause 2: \( x5 \) is True, so \( \neg x1 \lor x6 \lor x5 \) is satisfied.
+   - From clause 6: \( x5 \) is True, so \( \neg x7 \lor x5 \) is satisfied.
+   - From clause 10: \( \neg x5 \) is False, so \( \neg x6 \) must be True (i.e., \( x6 = \text{False} \)).
+   - From clause 17: \( \neg x5 \) is False, so \( x6 \lor \neg x7 \) must be True.
+   - From clause 19: \( x5 \) is True, so \( x8 \lor x5 \lor \neg x6 \) is satisfied.
+   - From clause 20: \( \neg x5 \) is False, so \( x4 \) must be True (already True).
+   - From clause 23: \( x5 \) is True, so \( x5 \lor \neg x7 \lor \neg x8 \) is satisfied.
+   - From clause 26: \( x5 \) is True, so \( x5 \lor \neg x3 \lor \neg x1 \) is satisfied.
+   - From clause 28: \( \neg x5 \) is False, so \( x7 \lor x4 \) must be True (already satisfied by \( x4 \)).
+
+5. **Implications from \( x6 = \text{False} \)**:
+   - From clause 5: \( \neg x6 \) is True, so \( \neg x1 \lor x8 \) must be True (already satisfied by \( \neg x1 \) is False and \( x8 \) is unassigned).
+   - From clause 7: \( x6 \) is False, so \( \neg x8 \) must be True (i.e., \( x8 = \text{False} \)).
+   - From clause 11: \( x6 \) is False, so \( \neg x7 \lor x3 \) must be True.
+   - From clause 12: \( \neg x6 \) is True, so \( \neg x2 \lor \neg x3 \) must be True (already satisfied by \( x2 = \text{False} \)).
+   - From clause 18: \( \neg x6 \) is True, so \( \neg x8 \) must be True (consistent with \( x8 = \text{False} \)).
+   - From clause 21: \( x6 \) is False, so \( \neg x3 \) must be True (i.e., \( x3 = \text{False} \)).
+   - From clause 24: \( x6 \) is False, so \( x3 \lor \neg x8 \) must be True (already satisfied by \( x8 = \text{False} \)).
+
+6. **Implications from \( x3 = \text{False} \)**:
+   - From clause 4: \( \neg x3 \) is True, so \( \neg x7 \) must be True (i.e., \( x7 = \text{False} \)).
+   - From clause 11: \( x3 \) is False, so \( \neg x7 \) must be True (consistent with \( x7 = \text{False} \)).
+   - From clause 15: \( x3 \) is False, so \( x2 \lor x7 \) must be True (already satisfied by \( x2 = \text{False} \) and \( x7 = \text{False} \) is a conflict).
+
+### Conflict Detected:
+At this point, we have:
+- \( x1 = \text{True} \),
+- \( x4 = \text{True} \),
+- \( x2 = \text{False} \),
+- \( x5 = \text{True} \),
+- \( x6 = \text{False} \),
+- \( x8 = \text{False} \),
+- \( x3 = \text{False} \),
+- \( x7 = \text{False} \).
+
+Clause 15: \( (x2 \lor x3 \lor x7) \) evaluates to \( (\text{False} \lor \text{False} \lor \text{False}) = \text{False} \), which is a conflict.
+
+### Backtracking:
+We backtrack to the last decision point where \( x5 = \text{True} \) and try \( x5 = \text{False} \).
+
+1. **Assign \( x5 = \text{False} \)**:
+   - From clause 1: \( x5 \) is False, so \( x1 \lor \neg x4 \) must be True (already satisfied by \( x1 = \text{True} \)).
+   - From clause 6: \( x5 \) is False, so \( \neg x7 \lor \neg x4 \) must be True.
+   - From clause 10: \( \neg x5 \) is True, so \( \neg x6 \lor \neg x4 \) must be True.
+   - From clause 14: \( x5 \) is False, so \( x7 \lor x8 \) must be True.
+   - From clause 17: \( \neg x5 \) is True, so \( x6 \lor \neg x7 \) must be True.
+   - From clause 19: \( x5 \) is False, so \( x8 \lor \neg x6 \) must be True.
+   - From clause 20: \( \neg x5 \) is True, so \( x4 \) must be True (already True).
+   - From clause 23: \( x5 \) is False, so \( \neg x7 \lor \neg x8 \) must be True.
+   - From clause 26: \( x5 \) is False, so \( \neg x3 \lor \neg x1 \) must be True.
+   - From clause 28: \( \neg x5 \) is True, so \( x7 \lor x4 \) must be True (already satisfied by \( x4 = \text{True} \)).
+
+2. **Implications from \( x5 = \text{False} \)**:
+   - From clause 26: \( \neg x1 \) is False, so \( \neg x3 \) must be True (i.e., \( x3 = \text{False} \)).
+   - From clause 4: \( \neg x3 \) is True, so \( \neg x7 \) must be True (i.e., \( x7 = \text{False} \)).
+   - From clause 6: \( x7 = \text{False} \), so \( \neg x4 \) must be True (conflict with \( x4 = \text{True} \)).
+
+### Conflict Detected:
+Clause 6: \( (\neg x7 \lor \neg x4) \) evaluates to \( (\text{True} \lor \text{False}) = \text{True} \), but earlier implications lead to \( x4 \) being both True and False, which is a conflict.
+
+### Final Result:
+The formula is **UNSATISFIABLE** after exploring all possible branches and encountering conflicts.
+
+### Output:
+```
+UNSATISFIABLE
+2
+2
+```

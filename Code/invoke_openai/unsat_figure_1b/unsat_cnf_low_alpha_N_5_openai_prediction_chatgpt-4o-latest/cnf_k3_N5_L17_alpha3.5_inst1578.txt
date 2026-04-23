@@ -1,0 +1,148 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1578
+p cnf 5 17
+4 -2 1 0
+-2 5 -1 0
+-4 -2 1 0
+-2 1 3 0
+-2 3 1 0
+4 -2 -3 0
+2 -4 1 0
+3 4 2 0
+-4 5 -3 0
+-1 -2 -5 0
+5 -4 -1 0
+2 1 -5 0
+-5 -3 1 0
+-2 5 -1 0
+2 -1 -5 0
+5 4 -3 0
+2 5 -1 0
+
+c GPT solve time: 10.37 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking on conflicts
+
+Let’s denote the variables: x1, x2, x3, x4, x5.
+
+Step-by-step DPLL:
+
+Step 1: No unit clauses or pure literals initially. Start branching.
+
+Branch 1: Assign x1 = True (Decision Point 1)
+
+→ Simplify clauses:
+- Any clause with x1 becomes satisfied.
+- Any clause with ¬x1 has that literal removed.
+
+Simplified clauses:
+(¬x2 ∨ x5 ∨ ¬x1) → (¬x2 ∨ x5) [¬x1 removed]
+(¬x4 ∨ ¬x2 ∨ x1) → satisfied
+(¬x2 ∨ x1 ∨ x3) → satisfied
+(¬x2 ∨ x3 ∨ x1) → satisfied
+(x4 ∨ ¬x2 ∨ ¬x3)
+(x2 ∨ ¬x4 ∨ x1) → satisfied
+(x3 ∨ x4 ∨ x2)
+(¬x4 ∨ x5 ∨ ¬x3)
+(¬x1 ∨ ¬x2 ∨ ¬x5) → (¬x2 ∨ ¬x5)
+(x5 ∨ ¬x4 ∨ ¬x1) → (x5 ∨ ¬x4)
+(x2 ∨ x1 ∨ ¬x5) → satisfied
+(¬x5 ∨ ¬x3 ∨ x1) → satisfied
+(¬x2 ∨ x5 ∨ ¬x1) → (¬x2 ∨ x5)
+(x2 ∨ ¬x1 ∨ ¬x5) → (x2 ∨ ¬x5)
+(x5 ∨ x4 ∨ ¬x3)
+(x2 ∨ x5 ∨ ¬x1) → (x2 ∨ x5)
+
+Step 2: No unit clauses. Continue branching.
+
+Branch 2: Assign x2 = False (Decision Point 2)
+
+→ Simplify:
+- Any clause with ¬x2 is satisfied.
+- Any clause with x2 has that literal removed.
+
+Remaining clauses:
+(¬x2 ∨ x5) → satisfied
+(x4 ∨ ¬x2 ∨ ¬x3) → satisfied
+(x3 ∨ x4 ∨ x2) → (x3 ∨ x4)
+(¬x4 ∨ x5 ∨ ¬x3)
+(¬x2 ∨ ¬x5) → satisfied
+(x5 ∨ ¬x4)
+(x2 ∨ ¬x5) → (¬x5)
+(x5 ∨ x4 ∨ ¬x3)
+(x2 ∨ x5) → (x5)
+
+Now we have a unit clause: (x5)
+
+Assign x5 = True
+
+→ Simplify:
+- Clauses with x5 are satisfied.
+- Clauses with ¬x5 have that literal removed.
+
+Remaining:
+(x3 ∨ x4)
+(¬x4 ∨ x5 ∨ ¬x3) → satisfied
+(x5 ∨ ¬x4) → satisfied
+(¬x5) → conflict! x5 = True, but clause (¬x5) is now False.
+
+Conflict → Backtrack
+
+Backtrack 1: x5 = False (Conflict 1)
+
+Now x5 = False
+
+→ Simplify:
+- Clauses with ¬x5 are satisfied.
+- Clauses with x5 have that literal removed.
+
+Remaining:
+(x3 ∨ x4)
+(¬x4 ∨ ¬x3)
+(¬x5) → satisfied
+(x5 ∨ ¬x4) → (¬x4)
+(x2 ∨ x5) → (x2) → x2 = False already
+
+Now we have unit clause: (¬x4)
+
+Assign x4 = False
+
+→ Simplify:
+- Clauses with ¬x4 are satisfied.
+- Clauses with x4 are removed.
+
+Remaining:
+(x3)
+(¬x4 ∨ ¬x3) → satisfied
+
+Unit clause: (x3)
+
+Assign x3 = True
+
+→ All clauses satisfied.
+
+Final assignment:
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = False  
+x5 = False
+
+✅ All clauses satisfied.
+
+Final Output:
+
+- SATISFIABLE  
+- Number of branches: 3  
+- Number of conflicts: 1  
+- Assignment:
+  - x1 = True  
+  - x2 = False  
+  - x3 = True  
+  - x4 = False  
+  - x5 = False

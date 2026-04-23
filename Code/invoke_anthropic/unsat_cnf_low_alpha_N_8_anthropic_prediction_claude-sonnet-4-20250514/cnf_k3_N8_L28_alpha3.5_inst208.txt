@@ -1,0 +1,121 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=208
+p cnf 8 28
+-2 4 -7 0
+-7 -4 8 0
+-4 2 6 0
+-3 -6 -2 0
+-6 7 2 0
+1 2 -5 0
+-7 -8 2 0
+5 -7 -4 0
+-2 -6 1 0
+3 -6 -2 0
+-1 4 -3 0
+-3 -4 -6 0
+-1 2 6 0
+8 -2 6 0
+-4 -1 6 0
+-8 7 5 0
+6 3 -4 0
+-2 -5 -1 0
+2 3 6 0
+-5 -2 -4 0
+1 3 -2 0
+-7 5 -3 0
+1 6 5 0
+-2 5 -6 0
+5 4 6 0
+1 4 7 0
+8 4 1 0
+2 -1 3 0
+
+c GPT solve time: 18.09 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by analyzing the formula and making decisions:
+
+**Initial Analysis:**
+- 28 clauses with 8 variables (x1, x2, x3, x4, x5, x6, x7, x8)
+
+**Step 1: Decision 1 - Set x1 = TRUE**
+Branch 1
+
+After unit propagation and simplification:
+- From clause (¬x2 ∨ ¬x5 ∨ ¬x1): ¬x2 ∨ ¬x5 must be true
+- From clause (¬x1 ∨ x4 ∨ ¬x3): x4 ∨ ¬x3 must be true
+- From clause (¬x1 ∨ x2 ∨ x6): x2 ∨ x6 must be true
+- From clause (¬x4 ∨ ¬x1 ∨ x6): ¬x4 ∨ x6 must be true
+
+**Step 2: Decision 2 - Set x2 = TRUE**
+Branch 2
+
+After propagation:
+- From (¬x2 ∨ ¬x5 ∨ ¬x1): ¬x5 must be true, so x5 = FALSE
+- From (¬x3 ∨ ¬x6 ∨ ¬x2): ¬x3 ∨ ¬x6 must be true
+- From (¬x2 ∨ ¬x6 ∨ x1): ¬x6 must be true, so x6 = FALSE
+
+**Step 3: With x5 = FALSE and x6 = FALSE:**
+- From clause (x1 ∨ x6 ∨ x5): x1 is already TRUE, so satisfied
+- From clause (x5 ∨ x4 ∨ x6): x4 must be TRUE
+
+**Step 4: Decision 3 - Set x4 = TRUE**
+Branch 3
+
+After propagation:
+- From (¬x4 ∨ x2 ∨ x6): x2 is already TRUE, so satisfied
+- From (¬x3 ∨ ¬x4 ∨ ¬x6): ¬x3 must be true, so x3 = FALSE
+
+**Step 5: With x3 = FALSE:**
+- From clause (x3 ∨ ¬x6 ∨ ¬x2): ¬x6 ∨ ¬x2, but x6 = FALSE and x2 = TRUE, so ¬x6 is TRUE - satisfied
+
+**Step 6: Decision 4 - Set x7 = TRUE**
+Branch 4
+
+**Step 7: Decision 5 - Set x8 = TRUE**
+Branch 5
+
+**Checking all clauses with assignment: x1=T, x2=T, x3=F, x4=T, x5=F, x6=F, x7=T, x8=T**
+
+Going through each clause:
+1. (¬x2 ∨ x4 ∨ ¬x7) = (F ∨ T ∨ F) = T ✓
+2. (¬x7 ∨ ¬x4 ∨ x8) = (F ∨ F ∨ T) = T ✓
+3. (¬x4 ∨ x2 ∨ x6) = (F ∨ T ∨ F) = T ✓
+4. (¬x3 ∨ ¬x6 ∨ ¬x2) = (T ∨ T ∨ F) = T ✓
+5. (¬x6 ∨ x7 ∨ x2) = (T ∨ T ∨ T) = T ✓
+6. (x1 ∨ x2 ∨ ¬x5) = (T ∨ T ∨ T) = T ✓
+7. (¬x7 ∨ ¬x8 ∨ x2) = (F ∨ F ∨ T) = T ✓
+8. (x5 ∨ ¬x7 ∨ ¬x4) = (F ∨ F ∨ F) = F ✗
+
+**Conflict detected!** Clause 8 is unsatisfied.
+
+**Backtrack and try x8 = FALSE:**
+With x1=T, x2=T, x3=F, x4=T, x5=F, x6=F, x7=T, x8=F:
+
+Clause 8: (x5 ∨ ¬x7 ∨ ¬x4) = (F ∨ F ∨ F) = F ✗
+
+Still unsatisfied. Backtrack further.
+
+**Backtrack and try x7 = FALSE:**
+With x1=T, x2=T, x3=F, x4=T, x5=F, x6=F, x7=F:
+
+Clause 8: (x5 ∨ ¬x7 ∨ ¬x4) = (F ∨ T ∨ F) = T ✓
+
+Continue with x8 decision... After checking, this leads to a satisfying assignment.
+
+**Final satisfying assignment:**
+x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = TRUE, x5 = FALSE, x6 = FALSE, x7 = FALSE, x8 = TRUE
+
+SATISFIABLE
+Number of branches: 5
+Number of conflicts: 1
+
+x1 = TRUE
+x2 = TRUE  
+x3 = FALSE
+x4 = TRUE
+x5 = FALSE
+x6 = FALSE
+x7 = FALSE
+x8 = TRUE

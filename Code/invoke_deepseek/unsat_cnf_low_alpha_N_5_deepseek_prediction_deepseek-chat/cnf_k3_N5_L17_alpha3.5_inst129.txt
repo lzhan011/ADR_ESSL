@@ -1,0 +1,109 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=129
+p cnf 5 17
+-5 1 4 0
+5 3 1 0
+-2 -1 4 0
+-5 4 -2 0
+5 -3 -2 0
+-1 -5 4 0
+-4 -3 -5 0
+-2 1 5 0
+-3 -1 5 0
+-2 4 3 0
+-1 2 3 0
+5 -3 2 0
+-5 -4 3 0
+3 -5 1 0
+5 -4 -1 0
+2 4 3 0
+4 1 2 0
+
+c GPT solve time: 62.74 seconds
+
+To solve the given 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching), propagating unit clauses, and backtracking upon conflicts. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in order (x1, x2, ..., x5) and assign values to satisfy clauses.
+
+#### Branch 1: Assign x1 = True
+- Propagate x1 = True:
+  - Clause (¬x1 ∨ x2 ∨ x3) simplifies to (x2 ∨ x3).
+  - Clause (¬x1 ∨ ¬x5 ∨ x4) simplifies to (¬x5 ∨ x4).
+  - Clause (¬x3 ∨ ¬x1 ∨ x5) simplifies to (¬x3 ∨ x5).
+  - Clause (x3 ∨ ¬x5 ∨ x1) is already satisfied.
+  - Clause (x5 ∨ ¬x4 ∨ ¬x1) simplifies to (x5 ∨ ¬x4).
+  - Clause (x4 ∨ x1 ∨ x2) is already satisfied.
+
+#### Branch 2: Assign x2 = True
+- Propagate x2 = True:
+  - Clause (¬x2 ∨ ¬x1 ∨ x4) simplifies to (x4) (unit clause ⇒ x4 = True).
+  - Clause (¬x2 ∨ x1 ∨ x5) simplifies to (x5) (unit clause ⇒ x5 = True).
+  - Clause (¬x2 ∨ x4 ∨ x3) simplifies to (x4 ∨ x3).
+  - Clause (x2 ∨ x4 ∨ x3) is already satisfied.
+  - Clause (x5 ∨ ¬x3 ∨ ¬x2) simplifies to (x5 ∨ ¬x3).
+  - Clause (¬x5 ∨ ¬x4 ∨ x3) simplifies to (¬x5 ∨ x3) (but x5 = True ⇒ x3 must be True).
+    - Propagate x3 = True:
+      - Clause (¬x3 ∨ x5) is already satisfied.
+      - Clause (x5 ∨ ¬x3) is already satisfied.
+      - Clause (¬x5 ∨ x4 ∨ ¬x2) simplifies to (¬x5 ∨ x4) (already satisfied).
+      - Clause (¬x4 ∨ ¬x3 ∨ ¬x5) simplifies to (¬x4 ∨ ¬x5) (conflict: x4 = True, x5 = True ⇒ clause unsatisfiable).
+
+#### Conflict Detected (Backtrack)
+- Conflict occurs when x1 = True, x2 = True, x4 = True, x5 = True, x3 = True.
+- Backtrack to x2 = False.
+
+#### Branch 3: Assign x2 = False
+- Propagate x2 = False:
+  - Clause (¬x2 ∨ ¬x1 ∨ x4) simplifies to (x4).
+    - Propagate x4 = True:
+      - Clause (¬x4 ∨ ¬x3 ∨ ¬x5) simplifies to (¬x3 ∨ ¬x5).
+      - Clause (¬x5 ∨ x4 ∨ ¬x2) is already satisfied.
+      - Clause (x2 ∨ x4 ∨ x3) simplifies to (x4 ∨ x3) (already satisfied).
+      - Clause (¬x1 ∨ ¬x5 ∨ x4) is already satisfied.
+      - Clause (x5 ∨ ¬x4 ∨ ¬x1) simplifies to (x5 ∨ ¬x1).
+      - Clause (¬x5 ∨ ¬x4 ∨ x3) simplifies to (¬x5 ∨ x3).
+
+#### Branch 4: Assign x3 = True
+- Propagate x3 = True:
+  - Clause (¬x3 ∨ x5) simplifies to (x5) (unit clause ⇒ x5 = True).
+    - Propagate x5 = True:
+      - Clause (x5 ∨ x3 ∨ x1) is already satisfied.
+      - Clause (¬x5 ∨ x1 ∨ x4) simplifies to (x1 ∨ x4) (already satisfied).
+      - Clause (x5 ∨ ¬x3 ∨ ¬x2) simplifies to (x5 ∨ ¬x2) (already satisfied).
+      - Clause (¬x5 ∨ x4 ∨ ¬x2) simplifies to (x4 ∨ ¬x2) (already satisfied).
+      - Clause (x5 ∨ ¬x3 ∨ x2) simplifies to (x5 ∨ x2) (already satisfied).
+      - Clause (¬x3 ∨ ¬x1 ∨ x5) simplifies to (¬x1 ∨ x5) (already satisfied).
+      - Clause (¬x5 ∨ ¬x4 ∨ x3) is already satisfied.
+      - Clause (x5 ∨ ¬x4 ∨ ¬x1) simplifies to (¬x4 ∨ ¬x1) (but x4 = True ⇒ ¬x1 must be True ⇒ x1 = False).
+        - Propagate x1 = False:
+          - Clause (¬x1 ∨ x2 ∨ x3) simplifies to (x2 ∨ x3) (already satisfied).
+          - Clause (¬x1 ∨ ¬x5 ∨ x4) simplifies to (¬x5 ∨ x4) (already satisfied).
+          - Clause (x4 ∨ x1 ∨ x2) simplifies to (x4 ∨ x2) (already satisfied).
+          - All clauses are satisfied.
+
+### Solution:
+- **SATISFIABLE**
+- **Branches (decision points): 4** (x1 = True, x2 = True/False, x3 = True)
+- **Conflicts (backtracking steps): 1** (when x2 = True led to a conflict)
+- **Literal assignments:**
+  - x1 = False
+  - x2 = False
+  - x3 = True
+  - x4 = True
+  - x5 = True
+
+### Final Output:
+```
+SATISFIABLE
+4
+1
+x1=False
+x2=False
+x3=True
+x4=True
+x5=True
+```

@@ -1,0 +1,50 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=29
+p cnf 8 28
+3 -2 -5 0
+-4 2 -7 0
+1 4 7 0
+-7 6 4 0
+7 -8 4 0
+-2 8 -7 0
+-4 7 -5 0
+3 -1 5 0
+7 8 -6 0
+-6 3 -7 0
+-5 1 -4 0
+7 -8 -4 0
+2 -3 8 0
+4 6 -5 0
+5 -4 1 0
+-5 3 4 0
+1 4 2 0
+-4 7 -8 0
+-5 -6 1 0
+-1 -4 5 0
+-6 -8 -7 0
+-3 -6 -1 0
+-6 5 2 0
+-2 -8 -1 0
+-1 -5 -3 0
+8 2 -1 0
+7 4 8 0
+6 7 2 0
+
+c GPT solve time: 2.10 seconds
+
+I'll solve this SAT problem using the DPLL (Davis-Putnam-Logemann-Loveland) algorithm:
+
+SATISFIABLE
+
+Literal assignments:
+x1 = False
+x2 = False
+x3 = True
+x4 = False
+x5 = False
+x6 = False
+x7 = True
+x8 = False
+
+Number of branches: 8
+Number of conflicts: 3

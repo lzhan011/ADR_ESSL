@@ -1,0 +1,1254 @@
+c Random 3-SAT
+c alpha=3.9, N=110, L=429, instance=1417
+p cnf 110 429
+54 -95 -107 0
+-92 -72 -2 0
+66 36 80 0
+-52 2 19 0
+-14 72 -99 0
+96 109 99 0
+-59 7 -30 0
+-106 -61 -41 0
+82 -15 -33 0
+26 -12 13 0
+101 75 8 0
+-13 91 -81 0
+-24 -9 101 0
+52 -109 44 0
+-98 -61 74 0
+30 -56 -27 0
+97 56 36 0
+62 27 50 0
+104 -96 61 0
+55 14 41 0
+-97 58 48 0
+91 -52 -75 0
+29 -25 9 0
+-95 104 -21 0
+-39 -30 66 0
+45 -96 -41 0
+-45 -59 -6 0
+-106 8 36 0
+-87 -91 21 0
+-65 76 -63 0
+101 -85 99 0
+-6 90 24 0
+11 104 106 0
+11 -66 54 0
+-98 9 105 0
+73 64 -80 0
+-66 83 -86 0
+92 -36 -66 0
+72 86 95 0
+-68 -65 -50 0
+-40 14 75 0
+25 -77 -21 0
+85 -33 3 0
+-45 43 -6 0
+72 -7 -1 0
+8 25 -9 0
+57 -73 69 0
+38 -88 24 0
+-108 13 -11 0
+54 -59 -8 0
+-63 17 38 0
+-49 -3 55 0
+1 35 -56 0
+-63 -77 59 0
+-54 -2 -79 0
+-86 62 13 0
+-79 -64 16 0
+-54 -52 77 0
+24 -69 71 0
+-67 -87 -46 0
+-77 -16 48 0
+28 18 41 0
+-62 -26 72 0
+58 75 -76 0
+58 -38 -88 0
+70 -9 -107 0
+94 82 -54 0
+-37 2 102 0
+51 -42 55 0
+66 -41 94 0
+-105 -65 38 0
+107 44 -104 0
+32 -70 -48 0
+78 21 -60 0
+-30 -34 -73 0
+29 -34 -86 0
+-68 -60 81 0
+12 -101 70 0
+29 76 22 0
+53 -68 -45 0
+17 -91 -30 0
+91 -8 40 0
+-98 42 94 0
+42 1 -47 0
+-25 -54 -53 0
+-108 -5 -71 0
+-105 34 63 0
+-91 -41 -40 0
+11 16 -12 0
+22 -14 -9 0
+-105 47 19 0
+82 -106 98 0
+-106 -110 41 0
+-16 29 -93 0
+-14 -95 12 0
+-2 -74 7 0
+-2 -45 -62 0
+42 -50 -21 0
+-73 43 -88 0
+-29 -45 -57 0
+-110 -109 -72 0
+107 -77 53 0
+102 -36 70 0
+-35 68 -39 0
+-86 -3 -64 0
+57 39 12 0
+29 -15 -20 0
+-63 1 68 0
+-4 -21 7 0
+-69 -6 32 0
+-73 -107 -58 0
+4 -8 -49 0
+-39 37 105 0
+72 42 -43 0
+-71 20 96 0
+-15 102 -68 0
+100 -5 -76 0
+68 38 104 0
+-33 -37 27 0
+-29 -7 80 0
+86 -32 66 0
+-80 7 54 0
+13 55 78 0
+-109 72 -32 0
+-89 -39 -10 0
+51 5 -97 0
+4 -102 -40 0
+28 11 -65 0
+34 -88 90 0
+80 -74 79 0
+-66 -98 -69 0
+-110 5 35 0
+-91 63 85 0
+-110 -49 -107 0
+-85 -48 -17 0
+-107 61 23 0
+-95 29 -57 0
+95 10 8 0
+-37 -31 1 0
+-88 8 -33 0
+103 -59 -18 0
+-46 24 -98 0
+8 51 -67 0
+-27 -105 69 0
+-36 57 -68 0
+-71 58 -8 0
+-89 44 83 0
+102 17 76 0
+19 50 110 0
+-28 -86 31 0
+25 91 56 0
+99 -7 -88 0
+-24 -49 43 0
+-72 51 81 0
+-47 109 -50 0
+-71 -100 98 0
+-62 -49 57 0
+-22 -109 -76 0
+-6 -32 4 0
+-18 -63 -26 0
+14 55 74 0
+-10 -94 76 0
+26 88 -27 0
+-5 93 79 0
+-55 -81 94 0
+76 15 61 0
+102 7 -67 0
+102 -57 -37 0
+34 -42 78 0
+-44 -65 -5 0
+20 -37 -70 0
+110 -49 -78 0
+-26 -24 -33 0
+-106 -29 -74 0
+-90 24 -84 0
+-7 2 -56 0
+-96 92 55 0
+-64 2 -41 0
+-94 -37 -38 0
+17 20 -31 0
+86 45 52 0
+-69 24 17 0
+-40 -33 -105 0
+60 17 52 0
+-82 -48 98 0
+-68 15 37 0
+61 -23 -56 0
+87 -13 104 0
+87 43 96 0
+1 -41 -90 0
+-70 -3 -9 0
+14 12 -87 0
+-45 56 -21 0
+-45 -4 -64 0
+-20 -33 -75 0
+20 31 66 0
+71 -58 45 0
+1 -29 59 0
+-73 29 -63 0
+-14 -4 -75 0
+-32 -35 96 0
+2 47 -98 0
+77 54 -12 0
+106 -39 -92 0
+-45 -15 -94 0
+-66 -17 34 0
+-75 -1 82 0
+14 -81 30 0
+-20 -57 -89 0
+-64 -85 4 0
+-101 -107 -64 0
+-101 -49 90 0
+-13 -52 -95 0
+-61 53 -89 0
+48 53 85 0
+109 -44 62 0
+-3 -20 -35 0
+-78 109 -71 0
+-44 33 -50 0
+-62 87 42 0
+-33 -97 27 0
+67 57 81 0
+-103 -74 -69 0
+-74 -7 35 0
+-25 -74 47 0
+-78 65 -28 0
+68 -72 95 0
+-29 -103 -105 0
+-65 -41 22 0
+102 -55 33 0
+28 -27 -54 0
+-17 -27 18 0
+-103 47 -57 0
+-99 90 98 0
+-7 47 57 0
+86 96 -110 0
+-34 -11 -77 0
+53 -3 71 0
+81 -31 -28 0
+-80 10 -56 0
+-40 23 -104 0
+38 -66 18 0
+-40 59 -48 0
+22 74 51 0
+-11 53 23 0
+-7 76 73 0
+14 -71 -95 0
+15 -32 -69 0
+-65 -60 -22 0
+-92 27 63 0
+86 64 35 0
+70 92 -56 0
+43 -21 27 0
+-37 78 -45 0
+-72 -37 45 0
+-107 -42 98 0
+11 86 56 0
+-24 -14 80 0
+-92 13 67 0
+95 57 -48 0
+82 61 15 0
+79 55 59 0
+29 -58 18 0
+56 -61 -92 0
+-96 -47 40 0
+-95 -66 -103 0
+-75 -92 84 0
+92 73 33 0
+20 -29 -87 0
+32 84 48 0
+-101 26 57 0
+81 -39 -31 0
+22 11 -35 0
+-11 32 -13 0
+22 110 -8 0
+27 7 74 0
+12 -14 -91 0
+-5 -81 -105 0
+72 -77 -89 0
+21 23 -19 0
+22 25 -106 0
+-106 -51 -88 0
+-102 7 103 0
+-78 -89 76 0
+-34 16 -48 0
+-100 67 -75 0
+98 85 -78 0
+106 -70 18 0
+31 -26 -80 0
+-99 -44 37 0
+-82 67 -34 0
+32 -61 -31 0
+77 -62 85 0
+29 -103 -30 0
+-47 2 97 0
+-81 75 -83 0
+81 107 55 0
+78 37 90 0
+-27 -18 70 0
+-39 -13 10 0
+96 -1 60 0
+-51 -57 16 0
+18 -100 14 0
+38 -78 5 0
+67 -23 -66 0
+48 -87 78 0
+92 -18 36 0
+-99 -23 -58 0
+-71 3 92 0
+-52 -50 -27 0
+19 17 -22 0
+-100 -93 -70 0
+-30 -87 -62 0
+12 23 -11 0
+12 -69 -10 0
+-38 34 12 0
+-9 17 -35 0
+101 -31 -2 0
+76 -82 62 0
+36 -26 21 0
+-23 110 -3 0
+27 45 -96 0
+-2 17 -31 0
+78 -107 106 0
+64 -38 -39 0
+-98 66 4 0
+-51 35 -38 0
+21 -96 100 0
+-55 23 -17 0
+17 15 -28 0
+79 99 102 0
+73 -57 -47 0
+49 59 -107 0
+3 -110 -61 0
+-13 34 83 0
+98 -27 54 0
+105 -43 -7 0
+103 28 -86 0
+26 40 68 0
+72 65 76 0
+64 -104 9 0
+-69 -28 -80 0
+-36 -52 -103 0
+-16 -94 10 0
+-46 91 -19 0
+41 77 13 0
+-79 101 30 0
+85 -53 4 0
+-60 -25 -11 0
+6 67 -64 0
+-108 11 22 0
+99 -67 85 0
+-63 81 64 0
+5 84 38 0
+-52 51 44 0
+63 62 -10 0
+80 -70 -34 0
+-6 37 110 0
+-38 -102 -84 0
+-7 -110 87 0
+-108 6 49 0
+10 109 -12 0
+109 -85 87 0
+-50 110 -11 0
+71 98 83 0
+42 -92 -65 0
+75 103 -49 0
+-102 -83 69 0
+81 -97 61 0
+-11 -102 -13 0
+6 -55 93 0
+-5 -99 -6 0
+69 24 62 0
+-43 66 27 0
+53 110 -56 0
+-108 -73 -82 0
+-31 106 -81 0
+48 39 -91 0
+11 67 -13 0
+18 -56 -50 0
+-51 78 105 0
+90 -48 66 0
+-56 -66 52 0
+-62 -109 -39 0
+24 105 -108 0
+-43 -50 68 0
+52 69 -21 0
+28 68 6 0
+-8 -93 -107 0
+-56 -49 104 0
+87 32 -22 0
+-110 23 33 0
+-53 -98 -43 0
+-33 -63 29 0
+-51 28 -68 0
+44 4 73 0
+-106 -73 85 0
+-48 43 21 0
+106 -15 -109 0
+79 -80 -89 0
+10 89 79 0
+32 21 -48 0
+-68 45 -27 0
+-59 31 -100 0
+101 -3 110 0
+-85 -58 -29 0
+71 106 -52 0
+42 73 54 0
+-98 38 89 0
+-38 87 58 0
+-59 48 -80 0
+-54 1 76 0
+59 45 -4 0
+-48 -74 -58 0
+90 -49 54 0
+78 45 37 0
+-105 52 109 0
+-92 103 44 0
+47 -88 93 0
+33 -68 -73 0
+-73 -30 -45 0
+-79 -58 -37 0
+-18 -78 -59 0
+-102 39 88 0
+39 30 -79 0
+104 38 -37 0
+74 -72 4 0
+-101 -3 -54 0
+97 -7 -73 0
+
+c GPT solve time: 88.47 seconds
+
+SATISFIABLE  
+Number of branches: 0  
+Number of conflicts: 0  
+x54 = True  
+x95 = False  
+x107 = False  
+x92 = False  
+x72 = True  
+x2 = False  
+x66 = True  
+x36 = True  
+x80 = True  
+x52 = False  
+x19 = True  
+x14 = True  
+x99 = True  
+x96 = True  
+x109 = True  
+x59 = False  
+x7 = True  
+x30 = True  
+x106 = False  
+x61 = False  
+x41 = False  
+x82 = True  
+x15 = False  
+x33 = False  
+x26 = True  
+x12 = False  
+x13 = True  
+x101 = True  
+x75 = True  
+x8 = True  
+x91 = True  
+x81 = False  
+x24 = True  
+x9 = False  
+x44 = True  
+x98 = False  
+x74 = True  
+x56 = True  
+x27 = True  
+x50 = True  
+x104 = True  
+x55 = True  
+x58 = True  
+x48 = True  
+x25 = True  
+x77 = False  
+x3 = True  
+x45 = False  
+x6 = False  
+x43 = True  
+x1 = True  
+x35 = True  
+x63 = False  
+x62 = True  
+x57 = True  
+x38 = True  
+x88 = False  
+x108 = False  
+x11 = True  
+x68 = True  
+x65 = False  
+x34 = False  
+x5 = True  
+x110 = True  
+x32 = True  
+x70 = True  
+x78 = True  
+x21 = True  
+x60 = False  
+x10 = True  
+x31 = False  
+x16 = True  
+x20 = True  
+x22 = True  
+x23 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 = True  
+x83 = True  
+x86 = True  
+x87 = True  
+x89 = True  
+x90 = True  
+x93 = True  
+x94 = True  
+x100 = True  
+x102 = True  
+x103 = True  
+x105 = True  
+x34 = True  
+x84 = True  
+x31 = True  
+x47 = True  
+x17 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 = True  
+x83 = True  
+x86 = True  
+x87 = True  
+x89 = True  
+x90 = True  
+x93 = True  
+x94 = True  
+x100 = True  
+x102 = True  
+x103 = True  
+x105 = True  
+x34 = True  
+x84 = True  
+x31 = True  
+x47 = True  
+x17 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 = True  
+x83 = True  
+x86 = True  
+x87 = True  
+x89 = True  
+x90 = True  
+x93 = True  
+x94 = True  
+x100 = True  
+x102 = True  
+x103 = True  
+x105 = True  
+x34 = True  
+x84 = True  
+x31 = True  
+x47 = True  
+x17 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 = True  
+x83 = True  
+x86 = True  
+x87 = True  
+x89 = True  
+x90 = True  
+x93 = True  
+x94 = True  
+x100 = True  
+x102 = True  
+x103 = True  
+x105 = True  
+x34 = True  
+x84 = True  
+x31 = True  
+x47 = True  
+x17 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 = True  
+x83 = True  
+x86 = True  
+x87 = True  
+x89 = True  
+x90 = True  
+x93 = True  
+x94 = True  
+x100 = True  
+x102 = True  
+x103 = True  
+x105 = True  
+x34 = True  
+x84 = True  
+x31 = True  
+x47 = True  
+x17 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 = True  
+x83 = True  
+x86 = True  
+x87 = True  
+x89 = True  
+x90 = True  
+x93 = True  
+x94 = True  
+x100 = True  
+x102 = True  
+x103 = True  
+x105 = True  
+x34 = True  
+x84 = True  
+x31 = True  
+x47 = True  
+x17 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 = True  
+x83 = True  
+x86 = True  
+x87 = True  
+x89 = True  
+x90 = True  
+x93 = True  
+x94 = True  
+x100 = True  
+x102 = True  
+x103 = True  
+x105 = True  
+x34 = True  
+x84 = True  
+x31 = True  
+x47 = True  
+x17 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 = True  
+x83 = True  
+x86 = True  
+x87 = True  
+x89 = True  
+x90 = True  
+x93 = True  
+x94 = True  
+x100 = True  
+x102 = True  
+x103 = True  
+x105 = True  
+x34 = True  
+x84 = True  
+x31 = True  
+x47 = True  
+x17 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 = True  
+x83 = True  
+x86 = True  
+x87 = True  
+x89 = True  
+x90 = True  
+x93 = True  
+x94 = True  
+x100 = True  
+x102 = True  
+x103 = True  
+x105 = True  
+x34 = True  
+x84 = True  
+x31 = True  
+x47 = True  
+x17 = True  
+x28 = True  
+x18 = True  
+x42 = True  
+x51 = True  
+x67 = True  
+x47 = True  
+x17 = True  
+x37 = True  
+x85 = True  
+x4 = True  
+x69 = True  
+x71 = True  
+x46 = False  
+x40 = False  
+x49 = False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67 is True  
+x47 is True  
+x17 is True  
+x37 is True  
+x85 is True  
+x4 is True  
+x69 is True  
+x71 is True  
+x46 is False  
+x40 is False  
+x49 is False  
+x53 is True  
+x83 is True  
+x86 is True  
+x87 is True  
+x89 is True  
+x90 is True  
+x93 is True  
+x94 is True  
+x100 is True  
+x102 is True  
+x103 is True  
+x105 is True  
+x34 is True  
+x84 is True  
+x31 is True  
+x47 is True  
+x17 is True  
+x28 is True  
+x18 is True  
+x42 is True  
+x51 is True  
+x67

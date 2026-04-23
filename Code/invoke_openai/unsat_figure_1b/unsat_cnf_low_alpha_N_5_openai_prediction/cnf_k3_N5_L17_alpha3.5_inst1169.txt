@@ -1,0 +1,265 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1169
+p cnf 5 17
+-2 3 -1 0
+2 5 -3 0
+-4 -5 -2 0
+-1 -5 -3 0
+-5 1 -3 0
+4 -2 -5 0
+-1 5 -2 0
+-4 3 5 0
+-3 5 1 0
+2 3 -5 0
+5 3 -4 0
+4 5 3 0
+-4 5 3 0
+-2 1 -4 0
+-5 -2 -4 0
+-3 2 -5 0
+3 -5 -4 0
+
+c GPT solve time: 40.29 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Variables:** x1, x2, x3, x4, x5
+
+Let's proceed step by step:
+
+---
+
+### 1. Choose a variable to branch on.
+
+Let’s start with x1 = True.
+
+#### Branch 1: x1 = True
+
+- Substitute x1 = True into all clauses:
+    - (¬x2 ∨ x3 ∨ ¬x1) → (¬x2 ∨ x3 ∨ False) → (¬x2 ∨ x3)
+    - (¬x1 ∨ ¬x5 ∨ ¬x3) → (False ∨ ¬x5 ∨ ¬x3) → (¬x5 ∨ ¬x3)
+    - (¬x1 ∨ x5 ∨ ¬x2) → (False ∨ x5 ∨ ¬x2) → (x5 ∨ ¬x2)
+    - (¬x3 ∨ x5 ∨ x1) → (¬x3 ∨ x5 ∨ True) → True (clause satisfied)
+    - (¬x2 ∨ x1 ∨ ¬x4) → (¬x2 ∨ True ∨ ¬x4) → True
+    - All other clauses remain, as x1 is not present.
+
+Now, let's look for unit clauses or easy assignments.
+
+---
+
+#### 2. Next, choose x2 = True.
+
+##### Branch 1.1: x1 = True, x2 = True
+
+- (¬x2 ∨ x3) → (False ∨ x3) → (x3)
+- (x2 ∨ x5 ∨ ¬x3) → (True ∨ x5 ∨ ¬x3) → True
+- (¬x4 ∨ ¬x5 ∨ ¬x2) → (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+- (x4 ∨ ¬x2 ∨ ¬x5) → (x4 ∨ False ∨ ¬x5) → (x4 ∨ ¬x5)
+- (¬x1 ∨ x5 ∨ ¬x2) → (False ∨ x5 ∨ False) → (x5)
+- (¬x4 ∨ x3 ∨ x5) → (¬x4 ∨ x3 ∨ x5)
+- (x2 ∨ x3 ∨ ¬x5) → (True ∨ x3 ∨ ¬x5) → True
+- (x5 ∨ x3 ∨ ¬x4) → (x5 ∨ x3 ∨ ¬x4)
+- (x4 ∨ x5 ∨ x3) → (x4 ∨ x5 ∨ x3)
+- (¬x4 ∨ x5 ∨ x3) → (¬x4 ∨ x5 ∨ x3)
+- (¬x5 ∨ ¬x2 ∨ ¬x4) → (¬x5 ∨ False ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- (¬x3 ∨ x2 ∨ ¬x5) → (¬x3 ∨ True ∨ ¬x5) → True
+- (x3 ∨ ¬x5 ∨ ¬x4) → (x3 ∨ ¬x5 ∨ ¬x4)
+
+Now, we have unit clauses: (x3), (x5)
+
+Assign x3 = True.
+
+Assign x5 = True.
+
+Now substitute x3 = True, x5 = True:
+
+- (¬x4 ∨ ¬x5) → (¬x4 ∨ False) → (¬x4)
+- (x4 ∨ ¬x5) → (x4 ∨ False) → (x4)
+- (¬x4 ∨ x3 ∨ x5) → (¬x4 ∨ True ∨ True) → True
+- (x5 ∨ x3 ∨ ¬x4) → (True ∨ True ∨ ¬x4) → True
+- (x4 ∨ x5 ∨ x3) → (x4 ∨ True ∨ True) → True
+- (¬x4 ∨ x5 ∨ x3) → (¬x4 ∨ True ∨ True) → True
+- (¬x5 ∨ ¬x4) → (False ∨ ¬x4) → (¬x4)
+- (x3 ∨ ¬x5 ∨ ¬x4) → (True ∨ False ∨ ¬x4) → True
+
+Now, we have both (¬x4) and (x4) as unit clauses. **Conflict!**
+
+##### Conflict 1: Backtrack on x2
+
+---
+
+#### Branch 1.2: x1 = True, x2 = False
+
+Substitute x2 = False:
+
+- (¬x2 ∨ x3) → (True ∨ x3) → True
+- (x2 ∨ x5 ∨ ¬x3) → (False ∨ x5 ∨ ¬x3) → (x5 ∨ ¬x3)
+- (¬x4 ∨ ¬x5 ∨ ¬x2) → (¬x4 ∨ ¬x5 ∨ True) → True
+- (x4 ∨ ¬x2 ∨ ¬x5) → (x4 ∨ True ∨ ¬x5) → True
+- (¬x1 ∨ x5 ∨ ¬x2) → (False ∨ x5 ∨ True) → True
+- (¬x4 ∨ x3 ∨ x5) → (¬x4 ∨ x3 ∨ x5)
+- (x2 ∨ x3 ∨ ¬x5) → (False ∨ x3 ∨ ¬x5) → (x3 ∨ ¬x5)
+- (x5 ∨ x3 ∨ ¬x4) → (x5 ∨ x3 ∨ ¬x4)
+- (x4 ∨ x5 ∨ x3) → (x4 ∨ x5 ∨ x3)
+- (¬x4 ∨ x5 ∨ x3) → (¬x4 ∨ x5 ∨ x3)
+- (¬x5 ∨ ¬x2 ∨ ¬x4) → (¬x5 ∨ True ∨ ¬x4) → True
+- (¬x3 ∨ x2 ∨ ¬x5) → (¬x3 ∨ False ∨ ¬x5) → (¬x3 ∨ ¬x5)
+- (x3 ∨ ¬x5 ∨ ¬x4) → (x3 ∨ ¬x5 ∨ ¬x4)
+
+No unit clauses. Let's branch on x3.
+
+---
+
+##### Branch 1.2.1: x1 = True, x2 = False, x3 = True
+
+- (x5 ∨ ¬x3) → (x5 ∨ False) → (x5)
+- (¬x4 ∨ x3 ∨ x5) → (¬x4 ∨ True ∨ x5) → True
+- (x3 ∨ ¬x5) → (True ∨ ¬x5) → True
+- (x5 ∨ x3 ∨ ¬x4) → (x5 ∨ True ∨ ¬x4) → True
+- (x4 ∨ x5 ∨ x3) → (x4 ∨ x5 ∨ True) → True
+- (¬x4 ∨ x5 ∨ x3) → (¬x4 ∨ x5 ∨ True) → True
+- (¬x3 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+- (x3 ∨ ¬x5 ∨ ¬x4) → (True ∨ ¬x5 ∨ ¬x4) → True
+
+Now, (x5) and (¬x5) as unit clauses. **Conflict!**
+
+##### Conflict 2: Backtrack on x3
+
+---
+
+##### Branch 1.2.2: x1 = True, x2 = False, x3 = False
+
+- (x5 ∨ ¬x3) → (x5 ∨ True) → True
+- (¬x4 ∨ x3 ∨ x5) → (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5)
+- (x3 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+- (x5 ∨ x3 ∨ ¬x4) → (x5 ∨ False ∨ ¬x4) → (x5 ∨ ¬x4)
+- (x4 ∨ x5 ∨ x3) → (x4 ∨ x5 ∨ False) → (x4 ∨ x5)
+- (¬x4 ∨ x5 ∨ x3) → (¬x4 ∨ x5 ∨ False) → (¬x4 ∨ x5)
+- (¬x3 ∨ ¬x5) → (True ∨ ¬x5) → True
+- (x3 ∨ ¬x5 ∨ ¬x4) → (False ∨ ¬x5 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+
+Now, (¬x5), (x4 ∨ x5), (x5 ∨ ¬x4), (¬x4 ∨ x5), (¬x5 ∨ ¬x4)
+
+Assign x5 = False.
+
+Now substitute x5 = False:
+
+- (x4 ∨ x5) → (x4 ∨ False) → (x4)
+- (x5 ∨ ¬x4) → (False ∨ ¬x4) → (¬x4)
+- (¬x4 ∨ x5) → (¬x4 ∨ False) → (¬x4)
+- (¬x5 ∨ ¬x4) → (True ∨ ¬x4) → True
+
+Now, (x4), (¬x4), (¬x4): **Conflict!**
+
+##### Conflict 3: Backtrack on x1
+
+---
+
+### 2. Try x1 = False
+
+#### Branch 2: x1 = False
+
+Substitute x1 = False:
+
+- (¬x2 ∨ x3 ∨ ¬x1) → (¬x2 ∨ x3 ∨ True) → True
+- (¬x1 ∨ ¬x5 ∨ ¬x3) → (True ∨ ¬x5 ∨ ¬x3) → True
+- (¬x1 ∨ x5 ∨ ¬x2) → (True ∨ x5 ∨ ¬x2) → True
+- (¬x2 ∨ x1 ∨ ¬x4) → (¬x2 ∨ False ∨ ¬x4) → (¬x2 ∨ ¬x4)
+- All other clauses remain.
+
+Let’s branch on x2.
+
+---
+
+#### Branch 2.1: x1 = False, x2 = True
+
+- (x2 ∨ x5 ∨ ¬x3) → (True ∨ x5 ∨ ¬x3) → True
+- (¬x4 ∨ ¬x5 ∨ ¬x2) → (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+- (x4 ∨ ¬x2 ∨ ¬x5) → (x4 ∨ False ∨ ¬x5) → (x4 ∨ ¬x5)
+- (¬x4 ∨ x3 ∨ x5) → (¬x4 ∨ x3 ∨ x5)
+- (¬x3 ∨ x2 ∨ ¬x5) → (¬x3 ∨ True ∨ ¬x5) → True
+- (¬x2 ∨ ¬x4) → (False ∨ ¬x4) → (¬x4)
+- (¬x5 ∨ ¬x2 ∨ ¬x4) → (¬x5 ∨ False ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- (x3 ∨ ¬x5 ∨ ¬x4) → (x3 ∨ ¬x5 ∨ ¬x4)
+
+Now, (¬x4) is a unit clause.
+
+Assign x4 = False.
+
+Now substitute x4 = False:
+
+- (¬x4 ∨ ¬x5) → (True ∨ ¬x5) → True
+- (x4 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+- (¬x4 ∨ x3 ∨ x5) → (True ∨ x3 ∨ x5) → True
+- (¬x5 ∨ ¬x4) → (¬x5 ∨ True) → True
+- (x3 ∨ ¬x5 ∨ ¬x4) → (x3 ∨ ¬x5 ∨ True) → True
+
+Now, (¬x5) is a unit clause.
+
+Assign x5 = False.
+
+Now substitute x5 = False:
+
+- (x5 ∨ x3 ∨ ¬x4) → (False ∨ x3 ∨ True) → True
+- (x4 ∨ x5 ∨ x3) → (False ∨ False ∨ x3) → (x3)
+- (¬x4 ∨ x5 ∨ x3) → (True ∨ False ∨ x3) → True
+
+Now, (x3) is a unit clause.
+
+Assign x3 = True.
+
+Now, all clauses are satisfied.
+
+---
+
+## Solution found!
+
+### Assignments:
+- x1 = False
+- x2 = True
+- x3 = True
+- x4 = False
+- x5 = False
+
+---
+
+### Branches and Conflicts
+
+Branches (decision points):
+1. x1 = True / False
+2. x2 = True / False (under x1 = True)
+3. x3 = True / False (under x1 = True, x2 = False)
+4. x2 = True (under x1 = False)
+5. x4 = False (unit propagation)
+6. x5 = False (unit propagation)
+7. x3 = True (unit propagation)
+
+But only the main decision points count as branches (not unit propagations):
+
+- x1 = True / False (1)
+- x2 = True / False (2)
+- x3 = True / False (3, under x1 = True, x2 = False)
+- x2 = True (4, under x1 = False)
+
+So, **4 branches**.
+
+Conflicts:
+- 1. x1 = True, x2 = True → conflict
+- 2. x1 = True, x2 = False, x3 = True → conflict
+- 3. x1 = True, x2 = False, x3 = False → conflict
+
+So, **3 conflicts**.
+
+---
+
+## Final Output
+
+* SATISFIABLE
+* Number of branches: 4
+* Number of conflicts: 3
+* Assignment:
+    - x1 = False
+    - x2 = True
+    - x3 = True
+    - x4 = False
+    - x5 = False

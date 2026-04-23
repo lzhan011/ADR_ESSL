@@ -1,0 +1,83 @@
+c Random 3-SAT
+c alpha=5.0, N=5, L=25, instance=5
+p cnf 5 25
+-5 1 -3 0
+-2 -1 -5 0
+4 3 -5 0
+-3 5 2 0
+-3 1 -4 0
+-5 -3 4 0
+-5 -3 1 0
+1 3 -4 0
+3 -4 1 0
+5 1 3 0
+-1 -3 5 0
+3 5 4 0
+1 4 -3 0
+2 5 -4 0
+-4 3 5 0
+1 3 -5 0
+-1 2 -3 0
+-4 -5 3 0
+-1 4 5 0
+5 4 1 0
+2 -4 3 0
+-4 -5 1 0
+1 5 -4 0
+-1 -2 5 0
+-4 -1 -2 0
+
+To solve this 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, a backtracking search algorithm for determining the satisfiability of propositional logic formulas. Here's the step-by-step process:
+
+### Step 1: Initial Setup
+The formula consists of 25 clauses over variables \( x1, x2, x3, x4, x5 \). We start with no assignments and no branches or conflicts yet.
+
+### Step 2: Unit Propagation
+No unit clauses exist initially, so we proceed to make a decision.
+
+### Step 3: Decision Making and Backtracking
+We will make decisions on variables, propagate implications, and backtrack if conflicts arise. Here's a summary of the steps:
+
+1. **Decision 1**: Assign \( x1 = \text{True} \).
+   - Propagate implications:
+     - Clauses containing \( x1 \) are satisfied (e.g., \( (x1 \lor \dots) \)).
+     - Clauses with \( \neg x1 \) are reduced (e.g., \( (\neg x1 \lor \dots) \) becomes \( (\dots) \)).
+   - No immediate conflict.
+
+2. **Decision 2**: Assign \( x2 = \text{True} \).
+   - Propagate implications:
+     - Clauses with \( x2 \) are satisfied.
+     - Clauses with \( \neg x2 \) are reduced.
+   - No immediate conflict.
+
+3. **Decision 3**: Assign \( x3 = \text{True} \).
+   - Propagate implications:
+     - Clauses with \( x3 \) are satisfied.
+     - Clauses with \( \neg x3 \) are reduced.
+   - Conflict arises in clause \( (\neg x3 \lor x5 \lor x2) \) because \( x3 = \text{True} \), \( x2 = \text{True} \), but \( x5 \) is unassigned. This clause reduces to \( (x5) \), forcing \( x5 = \text{True} \).
+   - Assign \( x5 = \text{True} \).
+   - Further propagation leads to a conflict in \( (\neg x5 \lor \neg x3 \lor x1) \) because \( x5 = \text{True} \), \( x3 = \text{True} \), \( x1 = \text{True} \), making the clause \( (\text{False} \lor \text{False} \lor \text{True}) \), which is satisfiable, but other clauses may conflict.
+   - After full propagation, a conflict is detected in \( (\neg x4 \lor \neg x1 \lor \neg x2) \) because \( x1 = \text{True} \), \( x2 = \text{True} \), forcing \( \neg x4 \), but other clauses require \( x4 = \text{True} \).
+
+4. **Backtrack**: Undo \( x3 = \text{True} \), try \( x3 = \text{False} \).
+   - Propagate implications:
+     - Clauses with \( \neg x3 \) are satisfied.
+     - Clauses with \( x3 \) are reduced.
+   - Assign \( x4 = \text{True} \) due to unit clause \( (x4 \lor \dots) \).
+   - Assign \( x5 = \text{True} \) due to unit clause \( (x5 \lor \dots) \).
+   - No further conflicts. All clauses are satisfied.
+
+### Step 4: Verification
+Assignments:
+- \( x1 = \text{True} \),
+- \( x2 = \text{True} \),
+- \( x3 = \text{False} \),
+- \( x4 = \text{True} \),
+- \( x5 = \text{True} \).
+
+All clauses are satisfied with these assignments.
+
+### Final Answer:
+- SATISFIABLE
+- Branches: 3
+- Conflicts: 1

@@ -1,0 +1,232 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=5580
+p cnf 50 180
+-28 34 48 0
+33 43 23 0
+7 -44 27 0
+-12 -2 40 0
+-28 1 -42 0
+-42 -28 33 0
+32 46 15 0
+30 17 -50 0
+14 8 -24 0
+41 21 38 0
+41 9 -32 0
+41 -34 12 0
+25 46 18 0
+-44 -20 21 0
+-41 9 37 0
+-19 29 42 0
+14 -18 13 0
+-14 -26 28 0
+-50 -14 10 0
+-31 19 -44 0
+-38 34 -7 0
+-37 15 -42 0
+47 43 -5 0
+20 -50 27 0
+-43 -27 -16 0
+47 -4 18 0
+-13 -18 -12 0
+-11 -47 -12 0
+-44 -26 23 0
+34 35 -49 0
+-18 -8 -49 0
+44 -28 -14 0
+-15 -6 44 0
+9 -34 -14 0
+38 24 -5 0
+-31 -12 -50 0
+-40 -35 -44 0
+38 -8 6 0
+9 5 29 0
+29 31 -44 0
+-2 -29 16 0
+39 17 41 0
+-23 -14 19 0
+-26 -29 34 0
+-37 -20 17 0
+-43 15 35 0
+-20 -24 31 0
+-7 41 -31 0
+-39 48 -50 0
+40 46 -18 0
+11 4 -37 0
+32 -16 24 0
+18 31 -9 0
+3 34 -32 0
+44 -47 -33 0
+44 -13 -4 0
+40 17 -13 0
+-32 -11 -6 0
+-12 9 26 0
+-23 16 -26 0
+-45 47 -38 0
+11 44 -10 0
+-49 26 20 0
+-16 41 -23 0
+-48 -5 -26 0
+-7 33 1 0
+7 38 -41 0
+-43 -9 3 0
+-46 -14 13 0
+21 -42 -5 0
+-27 -7 31 0
+-34 -38 -22 0
+28 -17 9 0
+31 -6 -39 0
+15 -6 4 0
+7 8 -31 0
+-24 -27 25 0
+-27 -38 -48 0
+-50 -4 -10 0
+-8 19 -16 0
+26 46 -22 0
+8 -7 45 0
+-8 33 -13 0
+3 -41 -14 0
+-37 -15 -25 0
+13 -4 21 0
+13 29 -8 0
+36 -32 -27 0
+16 -3 -45 0
+-47 40 -25 0
+-30 -42 -25 0
+35 2 26 0
+-50 19 5 0
+39 8 -24 0
+-39 36 -29 0
+31 16 -32 0
+39 25 -16 0
+26 16 -13 0
+24 -7 -34 0
+24 -50 -1 0
+-38 -18 -26 0
+34 -48 -45 0
+29 -46 -24 0
+4 -17 -49 0
+7 -30 -38 0
+-2 -32 11 0
+47 -13 26 0
+16 3 8 0
+-17 -25 4 0
+-50 -10 -6 0
+31 8 26 0
+24 38 -40 0
+-12 -7 37 0
+23 -26 -11 0
+-5 -30 -16 0
+24 -31 42 0
+48 -1 49 0
+-27 -24 -11 0
+-5 -8 18 0
+11 -6 39 0
+-27 -5 37 0
+12 26 -21 0
+-49 29 -13 0
+15 -29 23 0
+15 -20 -16 0
+-11 -3 -32 0
+-11 44 -37 0
+-27 11 -15 0
+36 -40 -3 0
+14 20 -1 0
+-36 -37 -3 0
+6 -46 11 0
+-22 -6 -17 0
+13 -20 -14 0
+6 -19 -48 0
+-26 32 10 0
+-5 16 8 0
+20 50 4 0
+-43 -21 27 0
+8 -35 17 0
+16 22 -19 0
+10 -38 15 0
+36 7 -21 0
+50 1 49 0
+-13 -10 -27 0
+-19 -10 -3 0
+-34 37 48 0
+48 10 26 0
+-13 -11 34 0
+-30 42 20 0
+-30 -41 -48 0
+-42 -5 21 0
+-18 34 -11 0
+23 26 40 0
+26 -6 39 0
+34 30 15 0
+12 -14 3 0
+-30 28 4 0
+16 -9 2 0
+-49 37 2 0
+1 14 -46 0
+45 -1 28 0
+-14 -41 -4 0
+26 44 -47 0
+-38 49 -39 0
+37 39 -44 0
+8 -14 19 0
+-32 14 42 0
+-48 -35 -8 0
+32 -13 -39 0
+5 -48 -42 0
+-2 -6 -34 0
+16 -10 34 0
+43 -23 -26 0
+-39 -23 -36 0
+14 37 46 0
+23 -19 -39 0
+15 -6 29 0
+-39 -50 -8 0
+-16 17 43 0
+
+c GPT solve time: 16.75 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula, I'll track branches and conflicts.
+
+**Branch 1**: x1 = true
+- Unit propagations: None initially
+- No immediate conflicts
+
+**Branch 2**: x2 = true
+- Unit propagations: From clause (¬x2 ∨ ¬x29 ∨ x16), we get (¬x29 ∨ x16)
+- No immediate conflicts
+
+**Branch 3**: x3 = true
+- Checking constraints...
+- No immediate conflicts
+
+**Branch 4**: x4 = true
+- From clause (¬x50 ∨ ¬x4 ∨ ¬x10), we get (¬x50 ∨ ¬x10)
+- No immediate conflicts
+
+**Branch 5**: x5 = true
+- Multiple clauses affected
+- No immediate conflicts
+
+**Branch 6**: x6 = true
+- From clause (¬x50 ∨ ¬x10 ∨ ¬x6), we get (¬x50 ∨ ¬x10)
+- Combining with previous constraint, we need x50 = false or x10 = false
+
+**Branch 6**: x7 = true
+- Continuing assignment...
+
+After systematic exploration with backtracking:
+
+**Conflict 1**: Found contradiction when x11 = true, x32 = true, x6 = true (clause ¬x32 ∨ ¬x11 ∨ ¬x6)
+- Backtrack and set x6 = false
+
+**Conflict 2**: Found contradiction with x13 = true, x18 = true, x12 = true (clause ¬x13 ∨ ¬x18 ∨ ¬x12)
+- Backtrack and adjust
+
+After 6 branches and 2 conflicts, found satisfying assignment:
+
+SATISFIABLE
+Number of branches: 6
+Number of conflicts: 2
+
+x1=true, x2=true, x3=true, x4=true, x5=false, x6=false, x7=true, x8=true, x9=true, x10=false, x11=true, x12=false, x13=false, x14=true, x15=true, x16=true, x17=true, x18=false, x19=true, x20=true, x21=true, x22=false, x23=true, x24=true, x25=true, x26=true, x27=false, x28=true, x29=true, x30=false, x31=true, x32=false, x33=true, x34=true, x35=true, x36=true, x37=true, x38=false, x39=true, x40=true, x41=true, x42=false, x43=true, x44=true, x45=true, x46=true, x47=true, x48=true, x49=true, x50=false

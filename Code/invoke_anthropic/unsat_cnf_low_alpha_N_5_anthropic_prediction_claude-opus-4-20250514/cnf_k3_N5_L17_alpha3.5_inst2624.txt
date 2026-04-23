@@ -1,0 +1,77 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2624
+p cnf 5 17
+3 -5 1 0
+-3 -2 -4 0
+-3 -1 -2 0
+-4 1 -5 0
+2 4 -3 0
+-2 5 -3 0
+1 5 3 0
+2 -4 -1 0
+5 -2 3 0
+-5 -4 2 0
+3 2 4 0
+-1 -2 -4 0
+-2 3 -5 0
+4 1 -2 0
+3 -1 5 0
+-3 2 1 0
+4 -1 2 0
+
+c GPT solve time: 15.71 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm step-by-step.
+
+**Initial Formula:**
+1. (x3 ∨ ¬x5 ∨ x1)
+2. (¬x3 ∨ ¬x2 ∨ ¬x4)
+3. (¬x3 ∨ ¬x1 ∨ ¬x2)
+4. (¬x4 ∨ x1 ∨ ¬x5)
+5. (x2 ∨ x4 ∨ ¬x3)
+6. (¬x2 ∨ x5 ∨ ¬x3)
+7. (x1 ∨ x5 ∨ x3)
+8. (x2 ∨ ¬x4 ∨ ¬x1)
+9. (x5 ∨ ¬x2 ∨ x3)
+10. (¬x5 ∨ ¬x4 ∨ x2)
+11. (x3 ∨ x2 ∨ x4)
+12. (¬x1 ∨ ¬x2 ∨ ¬x4)
+13. (¬x2 ∨ x3 ∨ ¬x5)
+14. (x4 ∨ x1 ∨ ¬x2)
+15. (x3 ∨ ¬x1 ∨ x5)
+16. (¬x3 ∨ x2 ∨ x1)
+17. (x4 ∨ ¬x1 ∨ x2)
+
+**Branch 1:** x1 = true
+- Clause 3 becomes (¬x3 ∨ ¬x2)
+- Clause 8 becomes (x2 ∨ ¬x4)
+- Clause 12 becomes (¬x2 ∨ ¬x4)
+- From clauses 8 and 12: x2 = true → ¬x4, x2 = false → ¬x4
+- So x4 = false
+
+**Branch 2:** x1 = true, x4 = false
+- Clause 2 becomes (¬x3 ∨ ¬x2)
+- Clause 5 becomes (x2 ∨ ¬x3)
+- From clauses 2 and 5: x2 = true → ¬x3, x2 = false → ¬x3
+- So x3 = false
+
+**Branch 3:** x1 = true, x4 = false, x3 = false
+- Clause 11 becomes (x2) → x2 = true
+- Clause 16 becomes (x2) → x2 = true (consistent)
+
+**Branch 4:** x1 = true, x4 = false, x3 = false, x2 = true
+- Clause 6 becomes (x5)
+- So x5 = true
+
+**Verification:** x1 = true, x2 = true, x3 = false, x4 = false, x5 = true
+
+Checking all clauses:
+1. (false ∨ false ∨ true) = true ✓
+2. (true ∨ false ∨ true) = true ✓
+3. (true ∨ false ∨ false) = true ✓
+4. (true ∨ true ∨ false) = true ✓
+5. (true ∨ false ∨ true) = true ✓
+6. (false ∨ true ∨ true) = true ✓
+7. (true ∨ true ∨ false) = true ✓
+8. (true ∨ true ∨ false) = true ✓
+9. (true ∨ false ∨ false) = true

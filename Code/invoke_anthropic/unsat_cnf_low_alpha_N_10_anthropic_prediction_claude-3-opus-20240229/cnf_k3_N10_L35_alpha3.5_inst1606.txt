@@ -1,0 +1,53 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1606
+p cnf 10 35
+4 -1 -6 0
+-10 -7 -9 0
+10 -7 8 0
+-6 3 -4 0
+-9 -8 1 0
+7 -1 -3 0
+10 7 -5 0
+7 2 1 0
+-4 9 -3 0
+3 6 -1 0
+-2 -6 3 0
+-4 1 -7 0
+-9 2 4 0
+1 6 -2 0
+-9 -6 -3 0
+7 -6 9 0
+-7 9 6 0
+4 6 7 0
+-5 -1 -6 0
+5 -7 2 0
+3 9 4 0
+10 3 -5 0
+-6 -2 -4 0
+4 -5 3 0
+-4 -5 -10 0
+6 10 9 0
+8 2 1 0
+6 -1 -8 0
+-2 -9 1 0
+5 -6 -7 0
+-5 4 9 0
+-3 1 10 0
+-5 -4 10 0
+3 9 -7 0
+8 9 -7 0
+
+c GPT solve time: 38.70 seconds
+
+Here is the step-by-step solution:
+
+1. Assign x4 = 1. Clause (x4 ∨ ¬x1 ∨ ¬x6) is satisfied.
+2. Assign x10 = 0. Clause (¬x10 ∨ ¬x7 ∨ ¬x9) is satisfied. Clause (¬x4 ∨ ¬x5 ∨ ¬x10) is satisfied.
+3. Assign x6 = 0. Clause (¬x6 ∨ x3 ∨ ¬x4) is satisfied. Clause (¬x5 ∨ ¬x1 ∨ ¬x6) is satisfied. Clause (¬x6 ∨ ¬x2 ∨ ¬x4) is satisfied. Clause (x5 ∨ ¬x6 ∨ ¬x7) is satisfied.
+4. Assign x9 = 1. Clause (¬x9 ∨ ¬x8 ∨ x1) is satisfied. Clause (¬x9 ∨ x2 ∨ x4) is satisfied. Clause (¬x9 ∨ ¬x6 ∨ ¬x3) is satisfied. Clause (x6 ∨ x10 ∨ x9) is satisfied. Clause (¬x5 ∨ x4 ∨ x9) is satisfied. Clause (x3 ∨ x9 ∨ ¬x7) is satisfied. Clause (x8 ∨ x9 ∨ ¬x7) is satisfied.
+5. Assign x7 = 1. Clause (x7 ∨ ¬x1 ∨ ¬x3) is satisfied. Clause (x10 ∨ x7 ∨ ¬x5) is satisfied. Clause (x7 ∨ x2 ∨ x1) is satisfied. Clause (¬x4 ∨ x1 ∨ ¬x7) is satisfied. Clause (x7 ∨ ¬x6 ∨ x9) is satisfied. Clause (¬x7 ∨ x9 ∨ x6) is satisfied. Clause (x4 ∨ x6 ∨ x7) is satisfied.
+6. Assign x3 = 1. Clause (x3 ∨ x6 ∨ ¬x1) is satisfied. Clause (¬x2 ∨ ¬x6 ∨ x3) is satisfied. Clause (x3 ∨ x9 ∨ x4) is satisfied. Clause (x10 ∨ x3 ∨ ¬x5) is satisfied. Clause (x4 ∨ ¬x5 ∨ x3) is satisfied. Clause (¬x3 ∨ x1 ∨ x10) is satisfied.
+7. Assign x1 = 1. Clause (x1 ∨ x6 ∨ ¬x2) is satisfied. Clause (x8 ∨ x2 ∨ x1) is satisfied. Clause (x6 ∨ ¬x1 ∨ ¬x8) is satisfied. Clause (¬x2 ∨ ¬x9 ∨ x1) is satisfied.
+8. Assign x2 = 1. Clause (x5 ∨ ¬x7 ∨ x2) is satisfied.
+9. Assign x5 = 1. Clause (¬x5 ∨ ¬x4 ∨ x10) is satisfied.
+10. Assign x8 = 1. Clause (x10

@@ -1,0 +1,91 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1507
+p cnf 5 17
+-2 3 4 0
+3 4 1 0
+-5 -2 -1 0
+3 -2 5 0
+-1 3 -2 0
+-4 -3 1 0
+-2 4 1 0
+-1 -5 -4 0
+1 -3 -4 0
+-4 2 -5 0
+3 -1 -2 0
+2 3 -1 0
+1 -2 -4 0
+-5 4 2 0
+1 5 2 0
+-3 2 4 0
+-1 5 -3 0
+
+c GPT solve time: 42.29 seconds
+
+Let's solve the given 3-CNF formula step by step using the DPLL algorithm. We'll keep track of branches (decision points) and conflicts (backtracking steps).
+
+### Initial Formula:
+1. (¬x2 ∨ x3 ∨ x4)  
+2. (x3 ∨ x4 ∨ x1)  
+3. (¬x5 ∨ ¬x2 ∨ ¬x1)  
+4. (x3 ∨ ¬x2 ∨ x5)  
+5. (¬x1 ∨ x3 ∨ ¬x2)  
+6. (¬x4 ∨ ¬x3 ∨ x1)  
+7. (¬x2 ∨ x4 ∨ x1)  
+8. (¬x1 ∨ ¬x5 ∨ ¬x4)  
+9. (x1 ∨ ¬x3 ∨ ¬x4)  
+10. (¬x4 ∨ x2 ∨ ¬x5)  
+11. (x3 ∨ ¬x1 ∨ ¬x2)  
+12. (x2 ∨ x3 ∨ ¬x1)  
+13. (x1 ∨ ¬x2 ∨ ¬x4)  
+14. (¬x5 ∨ x4 ∨ x2)  
+15. (x1 ∨ x5 ∨ x2)  
+16. (¬x3 ∨ x2 ∨ x4)  
+17. (¬x1 ∨ x5 ∨ ¬x3)  
+
+### Step-by-Step Solution:
+We’ll proceed with the following steps:
+
+#### Decision 1: Assign x1 = True (Branch 1)
+- Clauses satisfied by x1=True: 2, 6, 7, 9, 12, 13, 15.
+- Simplify remaining clauses:
+  1. (¬x2 ∨ x3 ∨ x4)  
+  3. (¬x5 ∨ ¬x2) (from ¬x1 in clause 3)  
+  4. (x3 ∨ ¬x2 ∨ x5)  
+  5. (x3 ∨ ¬x2) (from ¬x1 in clause 5)  
+  8. (¬x5 ∨ ¬x4) (from ¬x1 in clause 8)  
+  10. (¬x4 ∨ x2 ∨ ¬x5)  
+  11. (x3 ∨ ¬x2)  
+  14. (¬x5 ∨ x4 ∨ x2)  
+  16. (¬x3 ∨ x2 ∨ x4)  
+  17. (x5 ∨ ¬x3) (from ¬x1 in clause 17)  
+
+#### Decision 2: Assign x2 = True (Branch 2)
+- Clauses satisfied by x2=True: 1, 4, 5, 10, 11, 14, 16.
+- Simplify remaining clauses:
+  3. (¬x5) (from ¬x2 in clause 3)  
+  8. (¬x5 ∨ ¬x4)  
+  17. (x5 ∨ ¬x3)  
+
+#### Assign x5 = False (from clause 3)
+- Clauses satisfied by x5=False: 8, 14, 17 (simplified).
+- Simplify clause 17: (¬x3).
+
+#### Assign x3 = False (from clause 17)
+- Clauses satisfied by x3=False: 16 (already satisfied by x2=True).
+- Simplify clause 8: (¬x4).
+
+#### Assign x4 = False (from clause 8)
+- No remaining clauses. All clauses are satisfied.
+
+### Solution:
+- x1 = True, x2 = True, x3 = False, x4 = False, x5 = False.
+
+### Statistics:
+- Branches (decision points): 2 (x1 and x2).
+- Conflicts (backtracking steps): 0 (no backtracking needed).
+
+### Final Output:
+SATISFIABLE  
+2  
+0  
+x1=True, x2=True, x3=False, x4=False, x5=False

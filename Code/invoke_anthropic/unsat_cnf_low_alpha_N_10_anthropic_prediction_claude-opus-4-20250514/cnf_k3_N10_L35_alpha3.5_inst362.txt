@@ -1,0 +1,88 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=362
+p cnf 10 35
+-3 9 -7 0
+3 -5 -7 0
+-4 8 5 0
+-5 -9 6 0
+7 2 -1 0
+7 8 9 0
+6 -7 10 0
+7 -1 -2 0
+-8 -7 5 0
+6 -8 4 0
+1 -7 8 0
+1 9 5 0
+3 9 5 0
+-9 -7 -6 0
+5 -3 7 0
+-6 -10 -8 0
+-10 1 7 0
+3 -10 -8 0
+-5 -3 -8 0
+-2 4 -9 0
+10 -8 7 0
+6 -2 -9 0
+-9 -5 -4 0
+10 -8 6 0
+3 1 7 0
+10 -8 -6 0
+-2 3 9 0
+-9 -6 -1 0
+5 9 7 0
+-6 -9 -7 0
+-5 2 -7 0
+8 -7 9 0
+8 4 -7 0
+-7 -8 -9 0
+2 -3 4 0
+
+c GPT solve time: 24.70 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the formula, I'll track decisions (branches) and conflicts (backtracking).
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+- 35 clauses total
+
+**Step 1: Check for unit clauses and pure literals**
+No unit clauses initially. No pure literals found.
+
+**Step 2: Make first decision**
+Branch 1: Set x7 = true
+
+After propagation:
+- Clause 5: (x7 ∨ x2 ∨ ¬x1) → satisfied
+- Clause 6: (x7 ∨ x8 ∨ x9) → satisfied
+- Clause 8: (x7 ∨ ¬x1 ∨ ¬x2) → satisfied
+- Clause 15: (x5 ∨ ¬x3 ∨ x7) → satisfied
+- Clause 17: (¬x10 ∨ x1 ∨ x7) → satisfied
+- Clause 21: (x10 ∨ ¬x8 ∨ x7) → satisfied
+- Clause 25: (x3 ∨ x1 ∨ x7) → satisfied
+- Clause 29: (x5 ∨ x9 ∨ x7) → satisfied
+
+Remaining clauses with ¬x7:
+- Clause 1: (¬x3 ∨ x9 ∨ ¬x7) → (¬x3 ∨ x9)
+- Clause 2: (x3 ∨ ¬x5 ∨ ¬x7) → (x3 ∨ ¬x5)
+- Clause 7: (x6 ∨ ¬x7 ∨ x10) → (x6 ∨ x10)
+- Clause 9: (¬x8 ∨ ¬x7 ∨ x5) → (¬x8 ∨ x5)
+- Clause 11: (x1 ∨ ¬x7 ∨ x8) → (x1 ∨ x8)
+- Clause 14: (¬x9 ∨ ¬x7 ∨ ¬x6) → (¬x9 ∨ ¬x6)
+- Clause 30: (¬x6 ∨ ¬x9 ∨ ¬x7) → (¬x6 ∨ ¬x9)
+- Clause 31: (¬x5 ∨ x2 ∨ ¬x7) → (¬x5 ∨ x2)
+- Clause 32: (x8 ∨ ¬x7 ∨ x9) → (x8 ∨ x9)
+- Clause 33: (x8 ∨ x4 ∨ ¬x7) → (x8 ∨ x4)
+- Clause 34: (¬x7 ∨ ¬x8 ∨ ¬x9) → (¬x8 ∨ ¬x9)
+
+**Step 3: Continue with decisions**
+Branch 2: Set x8 = true
+
+This satisfies clauses 11, 32, 33 and simplifies:
+- Clause 9: (¬x8 ∨ x5) → x5 = true
+- Clause 34: (¬x8 ∨ ¬x9) → x9 = false
+
+**Step 4: Propagate x5 = true, x9 = false**
+- Clause 2: (x3 ∨ ¬x5) → x3 = true
+- Clause

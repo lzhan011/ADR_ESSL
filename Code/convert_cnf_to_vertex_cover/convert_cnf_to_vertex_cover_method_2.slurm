@@ -2,7 +2,7 @@
 #SBATCH -N 1
 #SBATCH -n 16
 #SBATCH -t 71:20:00
-#SBATCH --account=loni_quantum04
+#SBATCH --account=loni_irt4llm
 #SBATCH --output=logs/convert_cnf_to_vertex_cover_method_2_output.log
 #SBATCH --error=logs/convert_cnf_to_vertex_cover_method_2_error.log
 

@@ -1,0 +1,151 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=664
+p cnf 8 28
+8 -5 2 0
+-7 4 8 0
+-8 -7 2 0
+-8 4 7 0
+-4 7 -3 0
+-8 7 3 0
+8 -6 1 0
+6 5 7 0
+-8 -1 -2 0
+-4 -1 8 0
+6 -3 1 0
+7 1 -2 0
+-3 -5 7 0
+-7 3 1 0
+1 6 4 0
+-2 6 -4 0
+-1 2 8 0
+1 -8 2 0
+2 6 -7 0
+1 3 7 0
+-6 -5 -7 0
+-7 1 -5 0
+6 -3 -4 0
+-7 4 8 0
+-8 -2 -6 0
+7 8 -3 0
+7 4 6 0
+8 4 7 0
+
+c GPT solve time: 18.61 seconds
+
+To solve the 3-CNF formula, we will use the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in conjunctive normal form (CNF). We will proceed step-by-step, making decisions (branches), propagating implications (unit propagation), and backtracking upon conflicts.
+
+We will track:
+- Branches: decision points where we choose a value for a variable.
+- Conflicts: when a clause becomes unsatisfiable under current assignments, requiring backtracking.
+
+Let’s denote the variables: x1 through x8.
+
+Step-by-step DPLL:
+
+1. Start with an empty assignment.
+2. Choose a variable to assign (branch).
+3. Propagate implications (unit propagation).
+4. If a conflict arises, backtrack and try the opposite value.
+5. Repeat until all clauses are satisfied or proven unsatisfiable.
+
+We proceed:
+
+- Branch 1: Assign x1 = True
+  - Propagate: affects clauses with x1 and ¬x1
+- Propagate through clauses:
+  - Clause (¬x1 ∨ x2 ∨ x8): satisfied
+  - Clause (x1 ∨ ¬x8 ∨ x2): satisfied
+  - Clause (x1 ∨ x6 ∨ x4): satisfied
+  - Clause (x7 ∨ x1 ∨ ¬x2): satisfied
+  - Clause (¬x4 ∨ ¬x1 ∨ x8): depends on x4, x8
+  - Clause (¬x7 ∨ x1 ∨ ¬x5): satisfied
+  - Clause (x1 ∨ x3 ∨ x7): satisfied
+- No conflict yet.
+
+- Branch 2: Assign x2 = True
+  - Propagate:
+    - Clause (x8 ∨ ¬x5 ∨ x2): satisfied
+    - Clause (¬x8 ∨ ¬x1 ∨ ¬x2): becomes (¬x8 ∨ False ∨ False) → (¬x8)
+      - Unit clause: Assign x8 = False
+        - Propagate:
+          - Clause (¬x8 ∨ ¬x7 ∨ x2): satisfied
+          - Clause (¬x8 ∨ x4 ∨ x7): satisfied
+          - Clause (¬x8 ∨ x7 ∨ x3): satisfied
+          - Clause (¬x8 ∨ ¬x1 ∨ ¬x2): satisfied
+          - Clause (¬x8 ∨ ¬x2 ∨ ¬x6): becomes (True ∨ False ∨ ¬x6) → satisfied
+          - Clause (x8 ∨ ¬x6 ∨ x1): becomes (False ∨ ¬x6 ∨ True) → satisfied
+          - Clause (x8 ∨ x4 ∨ x7): becomes (False ∨ x4 ∨ x7)
+        - Clause (x8 ∨ x4 ∨ x7): becomes (False ∨ x4 ∨ x7)
+- Continue propagating...
+
+- No conflict yet.
+
+- Branch 3: Assign x3 = True
+  - Propagate:
+    - Clause (¬x4 ∨ x7 ∨ ¬x3): becomes (¬x4 ∨ x7 ∨ False)
+    - Clause (¬x3 ∨ ¬x5 ∨ x7): becomes (False ∨ ¬x5 ∨ x7)
+    - Clause (¬x7 ∨ x3 ∨ x1): satisfied
+    - Clause (x1 ∨ x3 ∨ x7): satisfied
+    - Clause (x7 ∨ x8 ∨ ¬x3): becomes (x7 ∨ False ∨ False) → (x7)
+      - Unit clause: Assign x7 = True
+        - Propagate:
+          - Clause (¬x7 ∨ x4 ∨ x8): becomes (False ∨ x4 ∨ False) → (x4)
+            - Unit clause: Assign x4 = True
+              - Propagate:
+                - Clause (¬x4 ∨ ¬x1 ∨ x8): becomes (False ∨ False ∨ False) → CONFLICT
+
+Conflict encountered. Backtrack.
+
+- Conflict 1: Backtrack x4 = True → x4 = False
+  - Clause (x8 ∨ x4 ∨ x7): becomes (False ∨ False ∨ True) → satisfied
+  - Clause (x1 ∨ x6 ∨ x4): becomes (True ∨ x6 ∨ False) → satisfied
+  - Clause (¬x4 ∨ x7 ∨ ¬x3): becomes (True ∨ True ∨ False) → satisfied
+  - Clause (¬x4 ∨ ¬x1 ∨ x8): becomes (True ∨ False ∨ False) → satisfied
+  - Clause (x6 ∨ ¬x3 ∨ ¬x4): becomes (x6 ∨ False ∨ True) → satisfied
+  - Clause (¬x2 ∨ x6 ∨ ¬x4): becomes (False ∨ x6 ∨ True) → satisfied
+
+- No conflict now.
+
+- Continue assigning remaining variables:
+  - x5 = False (from clause (x8 ∨ ¬x5 ∨ x2): already satisfied)
+  - x6 = True (from clause (x6 ∨ x5 ∨ x7): becomes (True ∨ False ∨ True))
+  - All clauses satisfied.
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = False  
+x5 = False  
+x6 = True  
+x7 = True  
+x8 = False
+
+Summary:
+
+- SATISFIABLE
+- Number of branches: 3
+- Number of conflicts: 1
+- Assignment:
+  - x1 = True
+  - x2 = True
+  - x3 = True
+  - x4 = False
+  - x5 = False
+  - x6 = True
+  - x7 = True
+  - x8 = False
+
+Final output:
+
+SATISFIABLE  
+3  
+1  
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = False  
+x5 = False  
+x6 = True  
+x7 = True  
+x8 = False

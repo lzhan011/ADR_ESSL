@@ -1,0 +1,79 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1437
+p cnf 8 28
+4 -6 -5 0
+1 -8 5 0
+-3 5 2 0
+4 5 8 0
+-8 -3 1 0
+2 -1 4 0
+6 -7 -1 0
+8 2 -3 0
+7 -8 -2 0
+-2 3 -5 0
+1 -3 -7 0
+-4 -7 8 0
+3 6 -2 0
+3 -8 6 0
+-8 -6 -1 0
+3 -8 -7 0
+6 3 8 0
+8 -1 6 0
+-3 2 -7 0
+-4 1 -6 0
+-4 -2 -8 0
+-1 5 -4 0
+-2 -7 8 0
+4 8 -5 0
+1 -4 -2 0
+-1 -3 -4 0
+5 -2 -8 0
+-1 -5 2 0
+
+c GPT solve time: 19.08 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+Starting with the formula, I'll make decisions and propagate constraints:
+
+**Branch 1**: x1 = true
+- From clause 15 (¬x8 ∨ ¬x6 ∨ ¬x1): forces x8 = false OR x6 = false
+- From clause 26 (¬x1 ∨ ¬x3 ∨ ¬x4): forces x3 = false OR x4 = false
+- From clause 28 (¬x1 ∨ ¬x5 ∨ x2): forces x5 = false OR x2 = true
+
+**Branch 2**: x2 = true (continuing from Branch 1)
+- From clause 21 (¬x4 ∨ ¬x2 ∨ ¬x8): forces x4 = false OR x8 = false
+- From clause 25 (x1 ∨ ¬x4 ∨ ¬x2): satisfied by x1 = true
+- From clause 27 (x5 ∨ ¬x2 ∨ ¬x8): forces x5 = true OR x8 = false
+
+**Branch 3**: x8 = false (continuing from Branch 2)
+- From clause 4 (x4 ∨ x5 ∨ x8): forces x4 = true OR x5 = true
+- From clause 12 (¬x4 ∨ ¬x7 ∨ x8): forces x4 = false OR x7 = false
+- Conflict: x4 must be both true and false
+
+**Backtrack to Branch 2**
+
+**Branch 4**: x8 = true (alternative to Branch 3)
+- From clause 2 (x1 ∨ ¬x8 ∨ x5): satisfied by x1 = true
+- From clause 5 (¬x8 ∨ ¬x3 ∨ x1): forces x3 = false
+- From clause 9 (x7 ∨ ¬x8 ∨ ¬x2): forces x7 = true
+- From clause 14 (x3 ∨ ¬x8 ∨ x6): forces x6 = true
+- From clause 15 (¬x8 ∨ ¬x6 ∨ ¬x1): Conflict! All literals are false
+
+**Backtrack to Branch 1**
+
+**Branch 5**: x2 = false (alternative to Branch 2)
+- From clause 3 (¬x3 ∨ x5 ∨ x2): forces x3 = false OR x5 = true
+- From clause 10 (¬x2 ∨ x3 ∨ ¬x5): forces x3 = true OR x5 = false
+
+**Branch 6**: x3 = true (continuing from Branch 5)
+- From clause 5 (¬x8 ∨ ¬x3 ∨ x1): forces x8 = false
+- From clause 11 (x1 ∨ ¬x3 ∨ ¬x7): satisfied by x1 = true
+- From clause 16 (x3 ∨ ¬x8 ∨ ¬x7): satisfied by x3 = true
+
+**Branch 7**: x5 = true (continuing from Branch 6)
+- From clause 1 (x4 ∨ ¬x6 ∨ ¬x5): forces x4 = true OR x6 = false
+- From clause 22 (¬x1 ∨ x5 ∨ ¬x4): satisfied by x5 = true
+
+**Branch 8**: x4 = true (continuing from Branch 7)
+- From clause 20 (¬x4 ∨

@@ -1,0 +1,159 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=956
+p cnf 10 35
+9 -10 2 0
+2 6 3 0
+-8 -2 1 0
+4 3 -6 0
+3 1 7 0
+-3 -8 1 0
+9 -7 4 0
+5 8 10 0
+-10 -4 3 0
+2 -4 -5 0
+4 6 2 0
+7 -2 1 0
+1 -3 -6 0
+4 -5 -9 0
+4 6 -1 0
+-2 -3 6 0
+1 9 -2 0
+-5 -1 4 0
+-3 4 -2 0
+5 -7 -8 0
+-5 10 -2 0
+-7 -4 2 0
+-1 -6 -9 0
+5 -4 9 0
+1 -2 -4 0
+-3 10 7 0
+-2 -10 9 0
+3 2 -10 0
+-3 6 -1 0
+10 -9 6 0
+-7 -2 6 0
+-3 -7 8 0
+9 10 -7 0
+-9 7 -4 0
+-5 -4 -9 0
+
+c GPT solve time: 11.88 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List all variables:**  
+x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+**Step 2: Try assignments (branching on variables), propagate, and backtrack on conflicts.**
+
+---
+
+### Step-by-step solution
+
+#### Branch 1: Assign x1 = True
+
+- Propagate through the formula:
+    - Clauses with x1 become satisfied: (¬x8 ∨ ¬x2 ∨ x1), (x3 ∨ x1 ∨ x7), (¬x3 ∨ ¬x8 ∨ x1), (x7 ∨ ¬x2 ∨ x1), (x1 ∨ ¬x3 ∨ ¬x6), (x1 ∨ x9 ∨ ¬x2), (¬x5 ∨ ¬x1 ∨ x4), (x1 ∨ ¬x2 ∨ ¬x4), (¬x1 ∨ ¬x6 ∨ ¬x9)
+    - Remove x1 from all other clauses.
+
+#### Branch 2: Assign x2 = True
+
+- Propagate:
+    - Clauses with x2 become satisfied: (x9 ∨ ¬x10 ∨ x2), (x2 ∨ x6 ∨ x3), (x2 ∨ ¬x4 ∨ ¬x5), (x4 ∨ x6 ∨ x2), (x2 ∨ ¬x4 ∨ ¬x5), (x3 ∨ x2 ∨ ¬x10)
+    - Remove x2 from all other clauses.
+
+#### Branch 3: Assign x3 = True
+
+- Propagate:
+    - Clauses with x3 become satisfied: (x2 ∨ x6 ∨ x3), (x4 ∨ x3 ∨ ¬x6), (x3 ∨ x1 ∨ x7), (x3 ∨ x2 ∨ ¬x10)
+    - Remove x3 from all other clauses.
+
+#### Branch 4: Assign x4 = True
+
+- Propagate:
+    - Clauses with x4 become satisfied: (x4 ∨ x3 ∨ ¬x6), (x9 ∨ ¬x7 ∨ x4), (¬x10 ∨ ¬x4 ∨ x3), (x4 ∨ x6 ∨ x2), (x4 ∨ ¬x5 ∨ ¬x9), (x4 ∨ x6 ∨ ¬x1), (¬x5 ∨ ¬x1 ∨ x4), (x5 ∨ ¬x4 ∨ x9), (¬x9 ∨ x7 ∨ ¬x4), (¬x5 ∨ ¬x4 ∨ ¬x9)
+    - Remove x4 from all other clauses.
+
+#### Branch 5: Assign x5 = True
+
+- Propagate:
+    - Clauses with x5 become satisfied: (x5 ∨ x8 ∨ x10), (x5 ∨ ¬x7 ∨ ¬x8), (x5 ∨ ¬x4 ∨ x9)
+    - Remove x5 from all other clauses.
+
+#### Branch 6: Assign x6 = True
+
+- Propagate:
+    - Clauses with x6 become satisfied: (x4 ∨ x6 ∨ x2), (x2 ∨ x6 ∨ x3), (x4 ∨ x6 ∨ ¬x1), (¬x2 ∨ ¬x3 ∨ x6), (x10 ∨ ¬x9 ∨ x6), (¬x7 ∨ ¬x2 ∨ x6)
+    - Remove x6 from all other clauses.
+
+#### Branch 7: Assign x7 = True
+
+- Propagate:
+    - Clauses with x7 become satisfied: (x3 ∨ x1 ∨ x7), (¬x3 ∨ x10 ∨ x7), (x9 ∨ x10 ∨ ¬x7), (¬x9 ∨ x7 ∨ ¬x4)
+    - Remove x7 from all other clauses.
+
+#### Branch 8: Assign x8 = True
+
+- Propagate:
+    - Clauses with x8 become satisfied: (x5 ∨ x8 ∨ x10), (¬x3 ∨ ¬x7 ∨ x8)
+    - Remove x8 from all other clauses.
+
+#### Branch 9: Assign x9 = True
+
+- Propagate:
+    - Clauses with x9 become satisfied: (x9 ∨ ¬x10 ∨ x2), (x9 ∨ ¬x7 ∨ x4), (x1 ∨ x9 ∨ ¬x2), (x5 ∨ ¬x4 ∨ x9), (x9 ∨ x10 ∨ ¬x7)
+    - Remove x9 from all other clauses.
+
+#### Branch 10: Assign x10 = True
+
+- Propagate:
+    - Clauses with x10 become satisfied: (x5 ∨ x8 ∨ x10), (¬x3 ∨ x10 ∨ x7), (x10 ∨ ¬x9 ∨ x6), (¬x5 ∨ x10 ∨ ¬x2)
+    - Remove x10 from all other clauses.
+
+---
+
+Now, check if all clauses are satisfied:
+
+- All clauses are satisfied with the above assignments.
+
+---
+
+### Count branches and conflicts
+
+- We made 10 decisions (one for each variable): **10 branches**
+- No conflicts occurred (no need to backtrack): **0 conflicts**
+
+---
+
+### Final assignment
+
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = True
+- x7 = True
+- x8 = True
+- x9 = True
+- x10 = True
+
+---
+
+## Final Output
+
+* SATISFIABLE
+* Number of branches: 10
+* Number of conflicts: 0
+
+**Assignment:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = True
+- x7 = True
+- x8 = True
+- x9 = True
+- x10 = True

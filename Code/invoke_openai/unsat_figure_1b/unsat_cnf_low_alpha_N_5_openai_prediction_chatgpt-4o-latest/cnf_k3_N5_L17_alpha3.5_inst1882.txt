@@ -1,0 +1,277 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1882
+p cnf 5 17
+4 -1 5 0
+-2 3 -4 0
+-1 -4 -5 0
+2 -3 4 0
+-5 -3 -1 0
+-2 5 4 0
+-1 -2 -4 0
+3 -5 4 0
+-2 -4 5 0
+-3 -1 2 0
+2 1 -5 0
+-3 -2 5 0
+5 -4 2 0
+4 1 -2 0
+4 -3 1 0
+-4 -5 -3 0
+2 5 4 0
+
+c GPT solve time: 40.35 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in CNF.
+
+We will proceed step-by-step:
+
+Step 1: List all clauses.
+
+1. (x4 ∨ ¬x1 ∨ x5)  
+2. (¬x2 ∨ x3 ∨ ¬x4)  
+3. (¬x1 ∨ ¬x4 ∨ ¬x5)  
+4. (x2 ∨ ¬x3 ∨ x4)  
+5. (¬x5 ∨ ¬x3 ∨ ¬x1)  
+6. (¬x2 ∨ x5 ∨ x4)  
+7. (¬x1 ∨ ¬x2 ∨ ¬x4)  
+8. (x3 ∨ ¬x5 ∨ x4)  
+9. (¬x2 ∨ ¬x4 ∨ x5)  
+10. (¬x3 ∨ ¬x1 ∨ x2)  
+11. (x2 ∨ x1 ∨ ¬x5)  
+12. (¬x3 ∨ ¬x2 ∨ x5)  
+13. (x5 ∨ ¬x4 ∨ x2)  
+14. (x4 ∨ x1 ∨ ¬x2)  
+15. (x4 ∨ ¬x3 ∨ x1)  
+16. (¬x4 ∨ ¬x5 ∨ ¬x3)  
+17. (x2 ∨ x5 ∨ x4)
+
+Step 2: Initialize variables: x1, x2, x3, x4, x5
+
+We will use a backtracking search with unit propagation and pure literal elimination where possible.
+
+Step 3: Try assigning values and propagate.
+
+Let’s begin with x1 = True (Branch 1)
+
+→ Propagate:
+
+Check for unit clauses — none yet.
+
+Assign x1 = True
+
+Now simplify clauses:
+
+Clauses affected:
+
+1. (x4 ∨ ¬x1 ∨ x5) → (x4 ∨ x5) since ¬x1 is False  
+3. (¬x1 ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5)  
+5. (¬x5 ∨ ¬x3 ∨ ¬x1) → (¬x5 ∨ ¬x3)  
+7. (¬x1 ∨ ¬x2 ∨ ¬x4) → (¬x2 ∨ ¬x4)  
+10. (¬x3 ∨ ¬x1 ∨ x2) → (¬x3 ∨ x2)  
+11. (x2 ∨ x1 ∨ ¬x5) → satisfied (x1 = True)  
+14. (x4 ∨ x1 ∨ ¬x2) → satisfied  
+15. (x4 ∨ ¬x3 ∨ x1) → satisfied  
+
+Now try x2 = True (Branch 2)
+
+→ Propagate:
+
+Clauses affected:
+
+2. (¬x2 ∨ x3 ∨ ¬x4) → (x3 ∨ ¬x4)  
+4. (x2 ∨ ¬x3 ∨ x4) → satisfied  
+6. (¬x2 ∨ x5 ∨ x4) → (x5 ∨ x4)  
+7. (¬x1 ∨ ¬x2 ∨ ¬x4) → (¬x4)  
+9. (¬x2 ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)  
+10. (¬x3 ∨ ¬x1 ∨ x2) → satisfied  
+11. (x2 ∨ x1 ∨ ¬x5) → satisfied  
+12. (¬x3 ∨ ¬x2 ∨ x5) → (¬x3 ∨ x5)  
+13. (x5 ∨ ¬x4 ∨ x2) → satisfied  
+14. (x4 ∨ x1 ∨ ¬x2) → (x4 ∨ x1 ∨ False) → (x4 ∨ x1) → satisfied  
+17. (x2 ∨ x5 ∨ x4) → satisfied
+
+From clause 7: (¬x4) → x4 = False
+
+→ Propagate x4 = False
+
+Now simplify:
+
+Clause 1: (x4 ∨ x5) → (x5)  
+Clause 2: (x3 ∨ ¬x4) → (x3 ∨ True) → satisfied  
+Clause 3: (¬x4 ∨ ¬x5) → (True ∨ ¬x5) → satisfied  
+Clause 6: (x5 ∨ x4) → (x5 ∨ False) → (x5)  
+Clause 8: (x3 ∨ ¬x5 ∨ x4) → (x3 ∨ ¬x5 ∨ False) → (x3 ∨ ¬x5)  
+Clause 9: (¬x4 ∨ x5) → (True ∨ x5) → satisfied  
+Clause 13: (x5 ∨ ¬x4 ∨ x2) → satisfied  
+Clause 15: (x4 ∨ ¬x3 ∨ x1) → (False ∨ ¬x3 ∨ True) → satisfied  
+Clause 16: (¬x4 ∨ ¬x5 ∨ ¬x3) → (True ∨ ¬x5 ∨ ¬x3) → satisfied  
+Clause 17: (x2 ∨ x5 ∨ x4) → satisfied
+
+Now from clause 1 and 6: (x5) → x5 = True
+
+→ Propagate x5 = True
+
+Clause 5: (¬x5 ∨ ¬x3) → (False ∨ ¬x3) → (¬x3) → x3 = False
+
+→ Propagate x3 = False
+
+Now all variables are assigned:
+
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False  
+x5 = True
+
+Check all clauses:
+
+1. (x4 ∨ ¬x1 ∨ x5) → (False ∨ False ∨ True) → True  
+2. (¬x2 ∨ x3 ∨ ¬x4) → (False ∨ False ∨ True) → True  
+3. (¬x1 ∨ ¬x4 ∨ ¬x5) → (False ∨ True ∨ False) → True  
+4. (x2 ∨ ¬x3 ∨ x4) → (True ∨ True ∨ False) → True  
+5. (¬x5 ∨ ¬x3 ∨ ¬x1) → (False ∨ True ∨ False) → True  
+6. (¬x2 ∨ x5 ∨ x4) → (False ∨ True ∨ False) → True  
+7. (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ False ∨ True) → True  
+8. (x3 ∨ ¬x5 ∨ x4) → (False ∨ False ∨ False) → False ❌
+
+Conflict! Clause 8 is unsatisfied.
+
+→ Backtrack: x5 = True caused x3 = False → conflict
+
+→ Try x3 = True instead (Backtrack 1, Branch 3)
+
+Now x3 = True
+
+Check clause 5: (¬x5 ∨ ¬x3 ∨ ¬x1) → (False ∨ False ∨ False) → False ❌
+
+Conflict again.
+
+→ Backtrack: x5 = True is bad → try x5 = False (Backtrack 2, Branch 4)
+
+Now x5 = False
+
+Clause 1: (x4 ∨ x5) → (False ∨ False) → False ❌
+
+Conflict again.
+
+→ Backtrack: x4 = False is bad → try x4 = True (Backtrack 3, Branch 5)
+
+Now x4 = True
+
+Re-propagate with x1 = True, x2 = True, x4 = True
+
+Clause 7: (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ False ∨ False) → False ❌
+
+Conflict again.
+
+→ Backtrack: x2 = True is bad → try x2 = False (Backtrack 4, Branch 6)
+
+Now x2 = False
+
+Re-propagate with x1 = True, x2 = False
+
+Clause 2: (¬x2 ∨ x3 ∨ ¬x4) → (True ∨ x3 ∨ ¬x4) → satisfied  
+Clause 4: (x2 ∨ ¬x3 ∨ x4) → (False ∨ ¬x3 ∨ x4)  
+Clause 6: (¬x2 ∨ x5 ∨ x4) → (True ∨ x5 ∨ x4) → satisfied  
+Clause 7: (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ True ∨ ¬x4) → satisfied  
+Clause 9: (¬x2 ∨ ¬x4 ∨ x5) → (True ∨ ¬x4 ∨ x5) → satisfied  
+Clause 10: (¬x3 ∨ ¬x1 ∨ x2) → (¬x3 ∨ False ∨ False) → (¬x3) → x3 = False  
+Clause 11: (x2 ∨ x1 ∨ ¬x5) → (False ∨ True ∨ ¬x5) → satisfied  
+Clause 12: (¬x3 ∨ ¬x2 ∨ x5) → (True ∨ True ∨ x5) → satisfied  
+Clause 13: (x5 ∨ ¬x4 ∨ x2) → (x5 ∨ ¬x4 ∨ False)  
+Clause 14: (x4 ∨ x1 ∨ ¬x2) → (x4 ∨ True ∨ True) → satisfied  
+Clause 15: (x4 ∨ ¬x3 ∨ x1) → (x4 ∨ True ∨ True) → satisfied  
+Clause 16: (¬x4 ∨ ¬x5 ∨ ¬x3) → (¬x4 ∨ ¬x5 ∨ True) → satisfied  
+Clause 17: (x2 ∨ x5 ∨ x4) → (False ∨ x5 ∨ x4)
+
+From clause 10: x3 = False
+
+Now clause 4: (False ∨ True ∨ x4) → satisfied  
+Clause 8: (x3 ∨ ¬x5 ∨ x4) → (False ∨ ¬x5 ∨ x4)
+
+Try x4 = True (Branch 7)
+
+Clause 13: (x5 ∨ ¬x4 ∨ x2) → (x5 ∨ False ∨ False) → (x5)  
+Clause 8: (x3 ∨ ¬x5 ∨ x4) → (False ∨ ¬x5 ∨ True) → satisfied  
+Clause 17: (x2 ∨ x5 ∨ x4) → (False ∨ x5 ∨ True) → satisfied  
+Clause 1: (x4 ∨ ¬x1 ∨ x5) → (True ∨ False ∨ x5) → satisfied  
+Clause 3: (¬x1 ∨ ¬x4 ∨ ¬x5) → (False ∨ False ∨ ¬x5) → (¬x5)
+
+So from clause 3: (¬x5) → x5 = False
+
+Now all variables:
+
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = True  
+x5 = False
+
+Check all clauses:
+
+1. (x4 ∨ ¬x1 ∨ x5) → (True ∨ False ∨ False) → True  
+2. (¬x2 ∨ x3 ∨ ¬x4) → (True ∨ False ∨ False) → True  
+3. (¬x1 ∨ ¬x4 ∨ ¬x5) → (False ∨ False ∨ True) → True  
+4. (x2 ∨ ¬x3 ∨ x4) → (False ∨ True ∨ True) → True  
+5. (¬x5 ∨ ¬x3 ∨ ¬x1) → (True ∨ True ∨ False) → True  
+6. (¬x2 ∨ x5 ∨ x4) → (True ∨ False ∨ True) → True  
+7. (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ True ∨ False) → True  
+8. (x3 ∨ ¬x5 ∨ x4) → (False ∨ True ∨ True) → True  
+9. (¬x2 ∨ ¬x4 ∨ x5) → (True ∨ False ∨ False) → True  
+10. (¬x3 ∨ ¬x1 ∨ x2) → (True ∨ False ∨ False) → True  
+11. (x2 ∨ x1 ∨ ¬x5) → (False ∨ True ∨ True) → True  
+12. (¬x3 ∨ ¬x2 ∨ x5) → (True ∨ True ∨ False) → True  
+13. (x5 ∨ ¬x4 ∨ x2) → (False ∨ False ∨ False) → False ❌
+
+Conflict again.
+
+→ Backtrack: x5 = False is bad → try x5 = True (Backtrack 5, Branch 8)
+
+Now x5 = True
+
+Check clause 3: (¬x1 ∨ ¬x4 ∨ ¬x5) → (False ∨ False ∨ False) → False ❌
+
+Conflict again.
+
+→ Backtrack: x4 = True is bad → try x4 = False (Backtrack 6, Branch 9)
+
+Now x4 = False
+
+Clause 13: (x5 ∨ ¬x4 ∨ x2) → (x5 ∨ True ∨ False) → satisfied  
+Clause 3: (¬x1 ∨ ¬x4 ∨ ¬x5) → (False ∨ True ∨ ¬x5) → satisfied  
+Clause 1: (x4 ∨ ¬x1 ∨ x5) → (False ∨ False ∨ x5) → (x5)
+
+From clause 1: x5 = True
+
+Now all variables:
+
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = True
+
+Check all clauses — all satisfied ✅
+
+Final assignment:
+
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = True
+
+✅ SATISFIABLE  
+🔢 Number of branches: 9  
+🔁 Number of conflicts: 6  
+
+Answer:
+
+SATISFIABLE  
+Number of branches: 9  
+Number of conflicts: 6  
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = True

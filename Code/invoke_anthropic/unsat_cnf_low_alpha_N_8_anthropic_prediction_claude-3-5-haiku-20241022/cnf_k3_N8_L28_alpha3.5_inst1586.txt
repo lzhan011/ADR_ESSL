@@ -1,0 +1,48 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1586
+p cnf 8 28
+3 8 6 0
+-8 1 2 0
+-2 -6 7 0
+-3 -8 1 0
+7 6 -1 0
+-8 -1 -4 0
+7 -3 1 0
+-7 4 -5 0
+-5 7 3 0
+-5 -7 6 0
+-5 7 4 0
+8 6 4 0
+-2 -8 4 0
+3 8 5 0
+-6 -7 -8 0
+7 2 1 0
+7 -2 -3 0
+-6 5 -2 0
+3 -7 2 0
+3 7 -5 0
+8 3 -2 0
+5 3 1 0
+-3 8 -5 0
+3 -7 8 0
+-8 2 5 0
+5 -3 8 0
+8 6 -3 0
+7 -2 3 0
+
+c GPT solve time: 2.33 seconds
+
+I'll solve this using the DPLL (Davis-Putnam-Logemann-Loveland) algorithm:
+
+SATISFIABLE
+29
+17
+
+x1 = true
+x2 = false
+x3 = true
+x4 = true
+x5 = false
+x6 = false
+x7 = true
+x8 = true

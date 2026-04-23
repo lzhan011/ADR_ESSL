@@ -1,0 +1,120 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=3650
+p cnf 25 87
+-21 3 23 0
+8 -14 -10 0
+-19 -5 4 0
+3 -5 -19 0
+-12 -8 6 0
+12 16 -10 0
+7 -21 18 0
+-15 14 -19 0
+-23 -7 -10 0
+10 -18 12 0
+-10 -16 -24 0
+-21 -4 -15 0
+-7 4 25 0
+6 -3 -18 0
+1 20 23 0
+7 24 -15 0
+-8 -17 -7 0
+24 1 -9 0
+-17 -19 22 0
+11 6 -19 0
+-12 -11 9 0
+-13 -10 4 0
+3 -18 5 0
+-23 5 4 0
+6 -21 -3 0
+-5 20 -6 0
+-7 -12 -24 0
+-1 -12 15 0
+3 18 22 0
+-4 15 22 0
+8 18 -12 0
+19 10 -9 0
+-5 -22 -9 0
+21 3 7 0
+-18 -7 -19 0
+-10 -19 -21 0
+-16 -2 21 0
+-15 -10 -21 0
+15 -23 -25 0
+-5 20 8 0
+19 3 -23 0
+-24 -20 -17 0
+18 16 -1 0
+21 -8 7 0
+4 -8 11 0
+6 10 -2 0
+-22 -2 1 0
+19 -11 -9 0
+-14 -8 -16 0
+19 -4 10 0
+8 6 -18 0
+21 11 18 0
+-7 -11 2 0
+22 9 25 0
+-19 5 4 0
+21 -6 2 0
+15 -8 -22 0
+18 -16 -23 0
+-20 3 10 0
+-14 20 13 0
+13 24 14 0
+-17 -15 22 0
+17 -21 18 0
+-17 5 -20 0
+-2 3 24 0
+17 22 2 0
+6 7 9 0
+-24 16 25 0
+-24 -23 18 0
+10 9 -14 0
+-16 -3 -2 0
+-6 -2 -5 0
+17 24 5 0
+18 5 -13 0
+5 -3 18 0
+21 -24 16 0
+-13 -24 5 0
+17 9 23 0
+19 8 -7 0
+8 5 12 0
+-18 9 -12 0
+1 -14 -10 0
+1 23 6 0
+7 1 -5 0
+-21 -20 8 0
+-6 -3 -4 0
+-22 -8 -1 0
+
+c GPT solve time: 38.56 seconds
+
+Here is the step-by-step solution to the given 3-CNF formula:
+
+1. Assign x3 = 1 (satisfies clauses 1, 4, 6, 14, 23, 25, 29, 34, 41, 57, 59, 74, 75, 82)
+2. Assign x18 = 1 (satisfies clauses 7, 10, 31, 35, 43, 50, 51, 58, 69, 72, 73)
+3. Assign x5 = 1 (satisfies clauses 3, 26, 33, 40, 54, 63, 71, 72, 73, 76, 81)
+4. Assign x4 = 1 (satisfies clauses 12, 13, 22, 24, 30, 45, 49, 54)
+5. Assign x15 = 1 (satisfies clauses 8, 16, 28, 30, 38, 39, 55, 61)
+6. Assign x22 = 1 (satisfies clauses 19, 30, 33, 47, 53, 55, 62, 64)
+7. Assign x21 = 1 (satisfies clauses 34, 36, 37, 44, 56, 74, 77)
+8. Assign x7 = 1 (satisfies clauses 13, 16, 27, 34, 44, 52, 65, 78)
+9. Assign x6 = 1 (satisfies clauses 5, 11, 14, 20, 25, 45, 50, 65, 79)
+10. Assign x10 = 1 (satisfies clauses 2, 6, 19, 22, 32, 45, 46, 57, 67)
+11. Assign x12 = 1 (satisfies clauses 6, 8, 10, 21, 27, 31, 43, 77, 80)
+12. Assign x9 = 1 (satisfies clauses 18, 21, 32, 47, 53, 65, 75, 80)
+13. Assign x1 = 1 (satisfies clauses 15, 18, 28, 43, 46, 47, 79, 83)
+14. Assign x23 = 1 (satisfies clauses 15, 24, 39, 41, 58, 66, 75)
+15. Assign x20 = 1 (satisfies clauses 15, 26, 40, 57, 59, 63, 83)
+16. Assign x8 = 1 (satisfies clauses 31, 40, 44, 45, 50, 74, 78)
+17. Assign x11 = 1 (satisfies clauses 20, 21, 45, 50, 52)
+18. Assign x2 = 1 (satisfies clauses 45, 46, 52, 64, 68, 70)
+19. Assign x24 = 1 (satisfies clauses 16, 18, 27, 42, 60, 66, 68, 71, 75, 77)
+20. Assign x16 = 1 (satisfies clauses 11, 37, 43, 48, 60, 66, 70, 77)
+21. Assign x25 = 1 (satisfies clauses 13, 39, 53, 60)
+22. Assign x17 = 1 (satisfies clauses 42, 61, 62, 64, 71, 75)
+23. Assign x13 = 1 (satisfies clauses 59, 60, 76)
+24. Assign x14 = 1 (satisfies clauses 8, 48, 59, 60, 67, 79)
+25. Assign x19 = 0 (satisfies clauses 3, 4, 8, 11, 18, 19,

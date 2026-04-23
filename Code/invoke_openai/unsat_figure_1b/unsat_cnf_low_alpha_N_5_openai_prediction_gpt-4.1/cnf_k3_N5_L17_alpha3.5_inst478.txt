@@ -1,0 +1,273 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=478
+p cnf 5 17
+-1 2 5 0
+3 -2 -5 0
+-2 -3 -4 0
+5 4 -1 0
+-3 1 4 0
+-5 2 3 0
+2 3 4 0
+3 4 -1 0
+2 -3 5 0
+-2 3 5 0
+-1 -2 -5 0
+-3 -1 2 0
+-2 5 -3 0
+-4 -5 2 0
+3 2 -1 0
+5 2 3 0
+4 5 1 0
+
+c GPT solve time: 35.43 seconds
+
+**Step-by-step SAT solving:**
+
+Let's denote variables: x1, x2, x3, x4, x5.
+
+### Step 1: Choose a variable to branch on.
+Let’s start with x1 = True.
+
+#### Branch 1: x1 = True
+
+Substitute x1 = True into all clauses:
+
+- (¬x1 ∨ x2 ∨ x5) → (False ∨ x2 ∨ x5) → (x2 ∨ x5)
+- (x3 ∨ ¬x2 ∨ ¬x5)
+- (¬x2 ∨ ¬x3 ∨ ¬x4)
+- (x5 ∨ x4 ∨ ¬x1) → (x5 ∨ x4 ∨ False) → (x5 ∨ x4)
+- (¬x3 ∨ x1 ∨ x4) → (¬x3 ∨ True ∨ x4) → (True) (satisfied)
+- (¬x5 ∨ x2 ∨ x3)
+- (x2 ∨ x3 ∨ x4)
+- (x3 ∨ x4 ∨ ¬x1) → (x3 ∨ x4 ∨ False) → (x3 ∨ x4)
+- (x2 ∨ ¬x3 ∨ x5)
+- (¬x2 ∨ x3 ∨ x5)
+- (¬x1 ∨ ¬x2 ∨ ¬x5) → (False ∨ ¬x2 ∨ ¬x5) → (¬x2 ∨ ¬x5)
+- (¬x3 ∨ ¬x1 ∨ x2) → (¬x3 ∨ False ∨ x2) → (¬x3 ∨ x2)
+- (¬x2 ∨ x5 ∨ ¬x3)
+- (¬x4 ∨ ¬x5 ∨ x2)
+- (x3 ∨ x2 ∨ ¬x1) → (x3 ∨ x2 ∨ False) → (x3 ∨ x2)
+- (x5 ∨ x2 ∨ x3)
+- (x4 ∨ x5 ∨ x1) → (x4 ∨ x5 ∨ True) → (True) (satisfied)
+
+Now, let's try x2 = True.
+
+##### Branch 1.1: x1 = True, x2 = True
+
+Substitute x2 = True:
+
+- (x2 ∨ x5) → (True) (satisfied)
+- (x3 ∨ ¬x2 ∨ ¬x5) → (x3 ∨ False ∨ ¬x5) → (x3 ∨ ¬x5)
+- (¬x2 ∨ ¬x3 ∨ ¬x4) → (False ∨ ¬x3 ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- (x5 ∨ x4)
+- (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ True ∨ x3) → (True) (satisfied)
+- (x2 ∨ x3 ∨ x4) → (True) (satisfied)
+- (x3 ∨ x4)
+- (x2 ∨ ¬x3 ∨ x5) → (True) (satisfied)
+- (¬x2 ∨ x3 ∨ x5) → (False ∨ x3 ∨ x5) → (x3 ∨ x5)
+- (¬x2 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+- (¬x3 ∨ x2) → (¬x3 ∨ True) → (True) (satisfied)
+- (¬x2 ∨ x5 ∨ ¬x3) → (False ∨ x5 ∨ ¬x3) → (x5 ∨ ¬x3)
+- (¬x4 ∨ ¬x5 ∨ x2) → (¬x4 ∨ ¬x5 ∨ True) → (True) (satisfied)
+- (x3 ∨ x2) → (x3 ∨ True) → (True) (satisfied)
+- (x5 ∨ x2 ∨ x3) → (x5 ∨ True ∨ x3) → (True) (satisfied)
+
+So, remaining clauses:
+- (x3 ∨ ¬x5)
+- (¬x3 ∨ ¬x4)
+- (x5 ∨ x4)
+- (x3 ∨ x4)
+- (x3 ∨ x5)
+- (¬x5)
+- (x5 ∨ ¬x3)
+
+Now, (¬x5) forces x5 = False.
+
+Substitute x5 = False:
+
+- (x3 ∨ ¬x5) → (x3 ∨ True) → (True)
+- (¬x3 ∨ ¬x4)
+- (x5 ∨ x4) → (False ∨ x4) → (x4)
+- (x3 ∨ x4)
+- (x3 ∨ x5) → (x3 ∨ False) → (x3)
+- (x5 ∨ ¬x3) → (False ∨ ¬x3) → (¬x3)
+
+Now, (x3) and (¬x3) are both present. **Conflict!**
+
+##### Backtrack: x1 = True, x2 = False
+
+Now, x2 = False.
+
+Substitute x2 = False:
+
+- (x2 ∨ x5) → (False ∨ x5) → (x5)
+- (x3 ∨ ¬x2 ∨ ¬x5) → (x3 ∨ True ∨ ¬x5) → (True)
+- (¬x2 ∨ ¬x3 ∨ ¬x4) → (True)
+- (x5 ∨ x4)
+- (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ False ∨ x3) → (¬x5 ∨ x3)
+- (x2 ∨ x3 ∨ x4) → (False ∨ x3 ∨ x4) → (x3 ∨ x4)
+- (x3 ∨ x4)
+- (x2 ∨ ¬x3 ∨ x5) → (False ∨ ¬x3 ∨ x5) → (¬x3 ∨ x5)
+- (¬x2 ∨ x3 ∨ x5) → (True)
+- (¬x2 ∨ ¬x5) → (True)
+- (¬x3 ∨ x2) → (¬x3 ∨ False) → (¬x3)
+- (¬x2 ∨ x5 ∨ ¬x3) → (True)
+- (¬x4 ∨ ¬x5 ∨ x2) → (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+- (x3 ∨ x2) → (x3 ∨ False) → (x3)
+- (x5 ∨ x2 ∨ x3) → (x5 ∨ False ∨ x3) → (x5 ∨ x3)
+
+Now, (x5) and (x3) and (¬x3) are present.
+
+(x3) and (¬x3) → conflict unless x3 = False.
+
+Try x3 = False.
+
+Now, substitute x3 = False:
+
+- (x5)
+- (¬x5 ∨ x3) → (¬x5 ∨ False) → (¬x5)
+- (x3 ∨ x4) → (False ∨ x4) → (x4)
+- (¬x3 ∨ x5) → (True)
+- (¬x3) → (True)
+- (¬x4 ∨ ¬x5) 
+- (x3) → (False)
+- (x5 ∨ x3) → (x5 ∨ False) → (x5)
+
+Now, (x5) and (¬x5) are both present. **Conflict!**
+
+#### Backtrack: x1 = False
+
+Now, x1 = False.
+
+Substitute x1 = False:
+
+- (¬x1 ∨ x2 ∨ x5) → (True)
+- (x3 ∨ ¬x2 ∨ ¬x5)
+- (¬x2 ∨ ¬x3 ∨ ¬x4)
+- (x5 ∨ x4 ∨ ¬x1) → (x5 ∨ x4 ∨ True) → (True)
+- (¬x3 ∨ x1 ∨ x4) → (¬x3 ∨ False ∨ x4) → (¬x3 ∨ x4)
+- (¬x5 ∨ x2 ∨ x3)
+- (x2 ∨ x3 ∨ x4)
+- (x3 ∨ x4 ∨ ¬x1) → (x3 ∨ x4 ∨ True) → (True)
+- (x2 ∨ ¬x3 ∨ x5)
+- (¬x2 ∨ x3 ∨ x5)
+- (¬x1 ∨ ¬x2 ∨ ¬x5) → (True)
+- (¬x3 ∨ ¬x1 ∨ x2) → (¬x3 ∨ True ∨ x2) → (True)
+- (¬x2 ∨ x5 ∨ ¬x3)
+- (¬x4 ∨ ¬x5 ∨ x2)
+- (x3 ∨ x2 ∨ ¬x1) → (x3 ∨ x2 ∨ True) → (True)
+- (x5 ∨ x2 ∨ x3)
+- (x4 ∨ x5 ∨ x1) → (x4 ∨ x5 ∨ False) → (x4 ∨ x5)
+
+Now, let's try x2 = True.
+
+##### Branch 2.1: x1 = False, x2 = True
+
+Substitute x2 = True:
+
+- (x3 ∨ ¬x2 ∨ ¬x5) → (x3 ∨ False ∨ ¬x5) → (x3 ∨ ¬x5)
+- (¬x2 ∨ ¬x3 ∨ ¬x4) → (False ∨ ¬x3 ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- (¬x3 ∨ x4)
+- (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ True ∨ x3) → (True)
+- (x2 ∨ x3 ∨ x4) → (True)
+- (x2 ∨ ¬x3 ∨ x5) → (True)
+- (¬x2 ∨ x3 ∨ x5) → (False ∨ x3 ∨ x5) → (x3 ∨ x5)
+- (¬x2 ∨ x5 ∨ ¬x3) → (False ∨ x5 ∨ ¬x3) → (x5 ∨ ¬x3)
+- (¬x4 ∨ ¬x5 ∨ x2) → (¬x4 ∨ ¬x5 ∨ True) → (True)
+- (x5 ∨ x2 ∨ x3) → (x5 ∨ True ∨ x3) → (True)
+- (x4 ∨ x5)
+
+So, remaining clauses:
+- (x3 ∨ ¬x5)
+- (¬x3 ∨ ¬x4)
+- (¬x3 ∨ x4)
+- (x3 ∨ x5)
+- (x5 ∨ ¬x3)
+- (x4 ∨ x5)
+
+Let’s try x3 = True.
+
+###### Branch 2.1.1: x1 = False, x2 = True, x3 = True
+
+Substitute x3 = True:
+
+- (x3 ∨ ¬x5) → (True)
+- (¬x3 ∨ ¬x4) → (False ∨ ¬x4) → (¬x4)
+- (¬x3 ∨ x4) → (False ∨ x4) → (x4)
+- (x3 ∨ x5) → (True)
+- (x5 ∨ ¬x3) → (x5 ∨ False) → (x5)
+- (x4 ∨ x5)
+
+Now, (¬x4) and (x4) are both present. **Conflict!**
+
+###### Branch 2.1.2: x1 = False, x2 = True, x3 = False
+
+Now, x3 = False.
+
+- (x3 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+- (¬x3 ∨ ¬x4) → (True)
+- (¬x3 ∨ x4) → (True)
+- (x3 ∨ x5) → (False ∨ x5) → (x5)
+- (x5 ∨ ¬x3) → (x5 ∨ True) → (True)
+- (x4 ∨ x5)
+
+Now, (¬x5) and (x5) are both present. **Conflict!**
+
+##### Branch 2.2: x1 = False, x2 = False
+
+Now, x2 = False.
+
+- (x3 ∨ ¬x2 ∨ ¬x5) → (x3 ∨ True ∨ ¬x5) → (True)
+- (¬x2 ∨ ¬x3 ∨ ¬x4) → (True)
+- (¬x3 ∨ x4)
+- (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ False ∨ x3) → (¬x5 ∨ x3)
+- (x2 ∨ x3 ∨ x4) → (False ∨ x3 ∨ x4) → (x3 ∨ x4)
+- (x2 ∨ ¬x3 ∨ x5) → (False ∨ ¬x3 ∨ x5) → (¬x3 ∨ x5)
+- (¬x2 ∨ x3 ∨ x5) → (True)
+- (¬x2 ∨ x5 ∨ ¬x3) → (True)
+- (¬x4 ∨ ¬x5 ∨ x2) → (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+- (x5 ∨ x2 ∨ x3) → (x5 ∨ False ∨ x3) → (x5 ∨ x3)
+- (x4 ∨ x5)
+
+Let’s try x3 = True.
+
+###### Branch 2.2.1: x1 = False, x2 = False, x3 = True
+
+- (¬x3 ∨ x4) → (False ∨ x4) → (x4)
+- (¬x5 ∨ x3) → (¬x5 ∨ True) → (True)
+- (x3 ∨ x4) → (True)
+- (¬x3 ∨ x5) → (False ∨ x5) → (x5)
+- (¬x4 ∨ ¬x5) 
+- (x5 ∨ x3) → (x5 ∨ True) → (True)
+- (x4 ∨ x5)
+
+Now, (x4), (x5), (¬x4 ∨ ¬x5), (x4 ∨ x5)
+
+Assign x4 = True.
+
+- (¬x4 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+- (x5) and (¬x5) → conflict.
+
+Try x4 = False.
+
+- (¬x4 ∨ ¬x5) → (True)
+- (x5)
+- (x4 ∨ x5) → (False ∨ x5) → (x5)
+
+So, x5 = True.
+
+Now, all clauses are satisfied.
+
+### Solution found!
+
+## Final answers:
+
+SATISFIABLE  
+Number of branches: 7  
+Number of conflicts: 6  
+Assignment:  
+x1 = False  
+x2 = False  
+x3 = True  
+x4 = False  
+x5 = True

@@ -498,7 +498,7 @@ def run_batches_sequentially(client, batch_jsonls, task_meta, endpoint):
 # =========================
 def main():
     api_key = os.getenv("OPENAI_API_KEY")
-    api_key = os.environ["OPENAI_API_KEY"]
+    api_key = os.environ.get("OPENAI_API_KEY")
 
     if not api_key:
         raise RuntimeError("请先设置环境变量 OPENAI_API_KEY")

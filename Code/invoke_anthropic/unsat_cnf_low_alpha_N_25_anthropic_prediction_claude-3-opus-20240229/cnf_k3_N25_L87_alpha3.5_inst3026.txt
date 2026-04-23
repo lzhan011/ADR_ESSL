@@ -1,0 +1,119 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=3026
+p cnf 25 87
+21 -3 19 0
+15 9 8 0
+24 -14 -13 0
+-24 -15 -8 0
+-20 16 17 0
+-1 24 25 0
+12 -22 -15 0
+-17 -16 21 0
+9 21 25 0
+-6 -1 17 0
+20 3 17 0
+-18 -21 14 0
+9 20 11 0
+-5 -20 24 0
+3 8 22 0
+20 -10 21 0
+-5 -11 7 0
+21 -25 -15 0
+-10 4 16 0
+-15 20 -2 0
+-20 -15 -17 0
+-17 24 7 0
+1 8 20 0
+-1 -24 11 0
+4 12 25 0
+23 -19 11 0
+10 -23 22 0
+2 -19 -17 0
+-12 7 -17 0
+-15 4 16 0
+9 15 -25 0
+12 -17 21 0
+10 -20 5 0
+-9 -21 -24 0
+-9 14 2 0
+25 -18 -12 0
+-6 -16 -22 0
+-9 4 -12 0
+-21 8 -7 0
+-4 -9 3 0
+-6 23 -25 0
+-16 23 12 0
+-8 24 -23 0
+-21 -14 8 0
+7 -16 10 0
+-20 21 -9 0
+-15 22 2 0
+-20 -11 23 0
+-6 3 -22 0
+1 -22 -14 0
+-2 16 6 0
+2 -11 15 0
+-18 -10 -5 0
+-9 -11 -1 0
+-6 20 13 0
+23 -9 12 0
+-15 3 22 0
+2 3 25 0
+-18 15 16 0
+-9 17 -14 0
+-24 -8 15 0
+-23 17 3 0
+7 -19 12 0
+-11 -14 16 0
+9 22 -7 0
+18 -14 7 0
+4 10 -2 0
+3 19 2 0
+-3 4 16 0
+-4 14 17 0
+24 14 22 0
+21 1 -17 0
+20 14 -12 0
+-20 14 -12 0
+-1 -24 23 0
+3 24 -14 0
+-4 21 18 0
+24 20 -5 0
+22 -7 8 0
+11 -10 17 0
+-23 -22 -12 0
+1 -10 4 0
+-2 18 -3 0
+9 -8 5 0
+24 -9 -17 0
+7 -24 4 0
+10 -2 -17 0
+
+c GPT solve time: 24.01 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Branching on x21 = 1:
+- Unit propagation: x19 = 1 (clause 1), x25 = 0 (clause 18), x14 = 0 (clause 12), x8 = 1 (clause 44), x1 = 1 (clause 71), x17 = 1 (clause 72)
+- Conflict found in clause 8 (¬x17 ∨ ¬x16 ∨ x21)
+
+Backtracking and branching on x21 = 0:
+- Unit propagation: x3 = 0 (clause 1), x18 = 1 (clause 12), x14 = 1 (clause 44)
+- No conflicts found, continue branching
+
+Branching on x15 = 1:
+- Unit propagation: x9 = 1 (clause 2), x8 = 1 (clause 2), x12 = 0 (clause 7), x22 = 1 (clause 48), x2 = 1 (clause 48), x3 = 1 (clause 58), x4 = 0 (clause 30), x16 = 1 (clause 30), x20 = 0 (clause 21)
+- No conflicts found, continue branching
+
+Branching on x24 = 1:
+- Unit propagation: x13 = 0 (clause 3), x25 = 1 (clause 6), x11 = 0 (clause 24), x23 = 0 (clause 43), x5 = 1 (clause 73), x10 = 0 (clause 33)
+- No conflicts found, SAT solver has found a satisfying assignment
+
+SATISFIABLE
+x1 = 1, x2 = 1, x3 = 1, x4 = 0, x5 = 1, x6 = ?, x7 = ?, x8 = 1, x9 = 1, x10 = 0, 
+x11 = 0, x12 = 0, x13 = 0, x14 = 1, x15 = 1, x16 = 1, x17 = ?, x18 = 1, x19 = ?, x20 = 0,
+x21 = 0, x22 = 1, x23 = 0, x24 = 1, x25 = 1
+('?' means the variable can be either 0 or 1)
+
+Number of branches: 3
+Number of conflicts: 1

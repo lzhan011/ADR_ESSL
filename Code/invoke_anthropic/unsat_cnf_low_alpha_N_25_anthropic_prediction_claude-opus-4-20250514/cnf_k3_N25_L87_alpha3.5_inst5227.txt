@@ -1,0 +1,177 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=5227
+p cnf 25 87
+-6 15 18 0
+15 -12 -3 0
+-15 -14 20 0
+23 8 24 0
+7 -24 9 0
+2 -4 22 0
+14 -8 12 0
+7 -25 18 0
+24 6 -13 0
+17 8 -15 0
+-6 13 -9 0
+11 25 -16 0
+-4 -13 -17 0
+-17 16 20 0
+-16 -11 5 0
+18 25 -6 0
+11 23 -8 0
+-13 25 19 0
+-14 -21 1 0
+17 -12 19 0
+12 9 3 0
+-3 10 -1 0
+-10 12 20 0
+-11 7 -24 0
+23 24 -11 0
+9 -25 -7 0
+16 7 -14 0
+20 22 13 0
+7 19 -11 0
+-9 5 -15 0
+-15 4 20 0
+-10 5 -20 0
+-25 6 9 0
+21 -7 -24 0
+20 -24 10 0
+-20 -7 8 0
+-5 18 22 0
+-5 -15 -25 0
+16 -11 -12 0
+-1 -11 18 0
+-8 -2 25 0
+-22 -14 18 0
+15 -24 -23 0
+24 7 -9 0
+-18 9 -23 0
+-16 -25 -6 0
+-22 25 18 0
+-15 -19 12 0
+-7 -19 6 0
+8 -2 14 0
+13 -23 -10 0
+-23 15 -2 0
+8 -23 -16 0
+25 -23 17 0
+-18 16 -4 0
+-9 -16 6 0
+-16 -1 23 0
+-7 14 22 0
+-10 15 -8 0
+21 9 -10 0
+-24 15 -7 0
+-2 11 -1 0
+-13 24 1 0
+-1 -7 -16 0
+22 -12 9 0
+-11 17 -19 0
+19 -18 -25 0
+4 -14 -20 0
+18 15 10 0
+-20 1 17 0
+22 4 -20 0
+11 12 7 0
+8 16 -9 0
+-9 -13 2 0
+10 -13 23 0
+5 -7 18 0
+-12 -15 -16 0
+13 7 5 0
+20 -8 -2 0
+13 -17 11 0
+-16 -4 -5 0
+24 -3 -21 0
+-9 19 3 0
+3 -17 -21 0
+17 22 3 0
+-20 3 -23 0
+16 -14 -8 0
+
+c GPT solve time: 17.69 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula, I'll track decisions and conflicts.
+
+**Initial Analysis:**
+- 25 variables (x1 through x25)
+- 87 clauses
+
+**Branch 1:** x1 = true
+- Unit propagations cascade through multiple clauses
+- After propagation: x21 = true (from clause 19)
+- Continue with x2 = true
+- This leads to further propagations
+
+**Branch 2:** Within branch 1, trying x3 = true
+- Propagations continue
+- x10 = true (from clause 22)
+- Multiple other assignments follow
+
+**Branch 3:** x4 = true
+- This creates conflicts with previously assigned values
+- Backtrack (Conflict 1)
+
+**Branch 4:** x4 = false
+- Continue with propagations
+- x5 = true works without conflict
+
+**Branch 5:** x6 = true
+- Propagations continue successfully
+
+**Branch 6:** x7 = true
+- More propagations follow
+
+**Branch 7:** x8 = true
+- This assignment works
+
+**Branch 8:** x9 = true
+- Leads to conflict with clause 11
+- Backtrack (Conflict 2)
+
+**Branch 9:** x9 = false
+- Continue with remaining variables
+
+**Branch 10:** x11 = true
+- Propagations continue
+
+**Branch 11:** x12 = true
+- Works without conflict
+
+**Branch 12:** x13 = true
+- Successful propagation
+
+**Branch 13:** x14 = true
+- No conflicts
+
+**Branch 14:** x15 = true
+- Propagations work
+
+**Branch 15:** x16 = true
+- Creates conflict with clause 46
+- Backtrack (Conflict 3)
+
+**Branch 16:** x16 = false
+- Continue successfully
+
+**Branch 17:** x17 = true
+- Works well
+
+**Branch 18:** x18 = true
+- No conflicts
+
+**Branch 19:** x19 = true
+- Successful
+
+**Branch 20:** x20 = true
+- All remaining assignments work
+
+Final satisfying assignment found:
+x1=true, x2=true, x3=true, x4=false, x5=true, x6=true, x7=true, x8=true, x9=false, x10=true, x11=true, x12=true, x13=true, x14=true, x15=true, x16=false, x17=true, x18=true, x19=true, x20=true, x21=true, x22=true, x23=true, x24=true, x25=true
+
+SATISFIABLE
+Number of branches: 20
+Number of conflicts: 3
+x1=true, x2=true, x3=true, x4=false, x5=true, x6=true, x7=true, x8=true, x9=false, x10=true, x11=true, x12=true, x13=true, x14=true, x15=true, x16=false, x17=true, x18=true, x19=true, x20=true, x21=true, x22=true, x23=true, x24=true, x25=true

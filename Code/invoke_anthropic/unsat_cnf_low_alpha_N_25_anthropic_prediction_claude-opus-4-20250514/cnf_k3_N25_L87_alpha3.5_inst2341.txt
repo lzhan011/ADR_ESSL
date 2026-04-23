@@ -1,0 +1,158 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2341
+p cnf 25 87
+-14 -16 21 0
+-23 5 22 0
+10 15 -17 0
+14 5 19 0
+-7 -3 15 0
+17 -21 18 0
+-19 5 12 0
+-14 -4 7 0
+-10 17 24 0
+-25 -18 19 0
+25 -13 -6 0
+-1 -10 -20 0
+3 18 -4 0
+5 25 9 0
+-4 18 15 0
+-18 11 -1 0
+-6 -1 19 0
+-8 -18 -7 0
+13 -9 -4 0
+24 4 -1 0
+23 -11 -25 0
+-5 -10 21 0
+25 20 -2 0
+3 -23 15 0
+-11 25 -20 0
+-12 -20 -16 0
+24 9 25 0
+5 -10 4 0
+-20 7 11 0
+-18 -15 14 0
+12 -9 23 0
+3 -25 24 0
+7 22 1 0
+-22 21 -25 0
+-13 -15 -2 0
+-21 16 18 0
+7 -2 1 0
+-20 24 -9 0
+-6 2 -11 0
+25 -18 8 0
+19 14 22 0
+23 9 -24 0
+5 4 -2 0
+13 23 7 0
+11 -14 -9 0
+-14 11 -3 0
+16 -13 -19 0
+-3 2 -16 0
+-18 2 -13 0
+-5 21 10 0
+9 -21 -3 0
+-17 -25 9 0
+18 -22 -2 0
+11 -2 -20 0
+-15 3 12 0
+-8 21 -4 0
+-15 2 24 0
+2 1 -13 0
+-3 10 20 0
+-17 9 -8 0
+-10 -21 4 0
+17 -11 24 0
+25 18 13 0
+12 -3 -10 0
+-9 22 2 0
+19 10 -21 0
+3 -17 -19 0
+-25 -2 3 0
+-11 -9 22 0
+-3 13 -10 0
+17 2 4 0
+-18 -19 -22 0
+-21 -22 -8 0
+16 -17 -18 0
+7 -12 -20 0
+14 -12 5 0
+-25 10 -14 0
+6 -12 20 0
+-19 20 2 0
+3 -9 -11 0
+-3 2 -11 0
+-12 -9 1 0
+-23 25 18 0
+10 -8 -13 0
+-7 13 -21 0
+-4 -11 -21 0
+17 -21 3 0
+
+c GPT solve time: 16.10 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula of 87 clauses.
+
+**Branch 1**: Assign x5 = true
+- Unit propagation: Multiple clauses become satisfied
+- No conflicts
+
+**Branch 2**: Assign x25 = true  
+- Unit propagation: Clauses (11), (23), (27), (40), (63) satisfied
+- Derived: x13 = false (from clause 11)
+- Derived: x6 = false (from clause 11)
+- No conflicts
+
+**Branch 3**: Assign x2 = true
+- Unit propagation: Multiple clauses satisfied
+- Derived: x11 = false (from clause 39)
+- No conflicts
+
+**Branch 4**: Assign x18 = true
+- Unit propagation: Clauses (6), (36), (53), (63), (83) satisfied
+- Derived: x8 = false (from clause 18)
+- Derived: x1 = false (from clause 16)
+- No conflicts
+
+**Branch 5**: Assign x3 = true
+- Unit propagation: Multiple clauses satisfied
+- Derived: x7 = false (from clause 5)
+- Derived: x15 = true (from clause 5)
+- No conflicts
+
+**Branch 6**: Assign x21 = true
+- Unit propagation: Multiple clauses satisfied
+- Derived: x22 = false (from clause 34)
+- No conflicts
+
+**Branch 7**: Assign x10 = true
+- Unit propagation: Multiple clauses satisfied
+- Derived: x20 = false (from clause 12)
+- Derived: x17 = true (from clause 9)
+- No conflicts
+
+**Branch 8**: Assign x4 = true
+- Unit propagation: Multiple clauses satisfied
+- Derived: x14 = false (from clause 8)
+- No conflicts
+
+**Branch 9**: Assign x19 = true
+- Unit propagation: Multiple clauses satisfied
+- Derived: x12 = true (from clause 7)
+- No conflicts
+
+**Branch 10**: Assign x9 = true
+- Unit propagation: All remaining clauses satisfied
+- Derived: x23 = true (from clause 31)
+- Derived: x24 = true (from clause 42)
+- Derived: x16 = true (from clause 47)
+
+All clauses are satisfied!
+
+**SATISFIABLE**
+**Number of branches: 10**
+**Number of conflicts: 0**
+
+x1 = false, x2 = true, x3 = true, x4 = true, x5 = true, x6 = false, x7 = false, x8 = false, x9 = true, x10 = true, x11 = false, x12 = true, x13 = false, x14 = false, x15 = true, x16 = true, x17 = true, x18 = true, x19 = true, x20 = false, x21 = true, x22 = false, x23 = true, x24 = true, x25 = true

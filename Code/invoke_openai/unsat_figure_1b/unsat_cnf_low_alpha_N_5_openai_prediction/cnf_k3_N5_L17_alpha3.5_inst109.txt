@@ -1,0 +1,186 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=109
+p cnf 5 17
+4 -1 5 0
+-5 4 -2 0
+4 -1 -5 0
+-1 -2 -4 0
+3 5 2 0
+5 2 1 0
+1 2 3 0
+-2 5 1 0
+-5 2 -4 0
+4 5 1 0
+3 -5 1 0
+-3 2 5 0
+-5 1 -2 0
+-5 4 -2 0
+4 2 -3 0
+1 -4 2 0
+3 4 -2 0
+
+c GPT solve time: 22.83 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (branching on variables, unit propagation, and backtracking on conflicts).
+
+**Variables:** x1, x2, x3, x4, x5
+
+Let's start with x1 = True.
+
+---
+
+### Step 1: x1 = True (Branch 1)
+
+Substitute x1 = True into all clauses:
+
+- Any clause with x1 is satisfied: (x5 ∨ x2 ∨ x1), (x1 ∨ x2 ∨ x3), (¬x2 ∨ x5 ∨ x1), (x4 ∨ x5 ∨ x1), (x3 ∨ ¬x5 ∨ x1), (¬x5 ∨ x1 ∨ ¬x2), (x1 ∨ ¬x4 ∨ x2)
+- Remove ¬x1 from clauses: (x4 ∨ ¬x1 ∨ x5) → (x4 ∨ x5), (x4 ∨ ¬x1 ∨ ¬x5) → (x4 ∨ ¬x5)
+- Remove ¬x1 from (¬x1 ∨ ¬x2 ∨ ¬x4) → (¬x2 ∨ ¬x4)
+
+Remaining clauses:
+1. (x4 ∨ x5)
+2. (¬x5 ∨ x4 ∨ ¬x2)
+3. (x4 ∨ ¬x5)
+4. (¬x2 ∨ ¬x4)
+5. (x3 ∨ x5 ∨ x2)
+6. (¬x5 ∨ x2 ∨ ¬x4)
+7. (¬x5 ∨ x4 ∨ ¬x2)
+8. (x4 ∨ x2 ∨ ¬x3)
+9. (x3 ∨ x4 ∨ ¬x2)
+
+---
+
+### Step 2: x2 = True (Branch 2)
+
+Substitute x2 = True:
+
+- Any clause with x2 is satisfied: (x3 ∨ x5 ∨ x2), (x4 ∨ x2 ∨ ¬x3), (x3 ∨ x4 ∨ ¬x2)
+- Remove ¬x2 from clauses: (¬x2 ∨ ¬x4) → (¬x4), (¬x5 ∨ x2 ∨ ¬x4) → (¬x5 ∨ ¬x4), (¬x5 ∨ x4 ∨ ¬x2) → (¬x5 ∨ x4)
+- Remaining:
+  1. (x4 ∨ x5)
+  2. (¬x5 ∨ x4)
+  3. (x4 ∨ ¬x5)
+  4. (¬x4)
+  5. (¬x5 ∨ ¬x4)
+
+---
+
+### Step 3: x4 = False (forced by (¬x4))
+
+Substitute x4 = False:
+
+- Any clause with ¬x4 is satisfied: (¬x4), (¬x5 ∨ ¬x4)
+- Remove x4 from clauses: (x4 ∨ x5) → (x5), (x4 ∨ ¬x5) → (¬x5), (¬x5 ∨ x4) → (¬x5)
+
+Now, remaining:
+- (x5)
+- (¬x5)
+- (¬x5)
+
+---
+
+### Step 4: Conflict
+
+We have both (x5) and (¬x5): **conflict**.
+
+Backtrack to last decision: x2 = True. Try x2 = False.
+
+---
+
+### Step 5: x2 = False (Branch 3)
+
+Go back to after x1 = True, now set x2 = False.
+
+Substitute x2 = False:
+
+- Any clause with ¬x2 is satisfied: (¬x2 ∨ ¬x4), (¬x2 ∨ x5 ∨ x1), (¬x5 ∨ x1 ∨ ¬x2), (x4 ∨ x2 ∨ ¬x3), (x3 ∨ x4 ∨ ¬x2)
+- Remove x2 from clauses: (¬x5 ∨ x2 ∨ ¬x4) → (¬x5 ∨ ¬x4), (x5 ∨ x2 ∨ x1) → (x5 ∨ x1), (x1 ∨ x2 ∨ x3) → (x1 ∨ x3), (x3 ∨ x5 ∨ x2) → (x3 ∨ x5)
+- Remaining:
+  1. (x4 ∨ x5)
+  2. (¬x5 ∨ x4 ∨ ¬x2) → (¬x5 ∨ x4)
+  3. (x4 ∨ ¬x5)
+  4. (¬x5 ∨ ¬x4)
+  5. (x5 ∨ x1)
+  6. (x1 ∨ x3)
+  7. (x3 ∨ x5)
+
+---
+
+### Step 6: x4 = True (Branch 4)
+
+Try x4 = True.
+
+Substitute x4 = True:
+
+- Any clause with x4 is satisfied: (x4 ∨ x5), (¬x5 ∨ x4), (x4 ∨ ¬x5)
+- Remove ¬x4 from (¬x5 ∨ ¬x4) → (¬x5)
+- Remaining:
+  1. (¬x5)
+  2. (x5 ∨ x1)
+  3. (x1 ∨ x3)
+  4. (x3 ∨ x5)
+
+---
+
+### Step 7: x5 = False (forced by (¬x5))
+
+Substitute x5 = False:
+
+- Any clause with ¬x5 is satisfied: (¬x5)
+- Remove x5 from clauses: (x5 ∨ x1) → (x1), (x3 ∨ x5) → (x3)
+- Remaining:
+  1. (x1)
+  2. (x1 ∨ x3)
+  3. (x3)
+
+---
+
+### Step 8: x1 = True (forced by (x1))
+
+x1 is already True (from Step 1). So, continue.
+
+---
+
+### Step 9: x3 = True (forced by (x3))
+
+Assign x3 = True.
+
+All clauses are now satisfied.
+
+---
+
+### Solution
+
+Assignments:
+- x1 = True
+- x2 = False
+- x3 = True
+- x4 = True
+- x5 = False
+
+---
+
+### Counting branches and conflicts
+
+Branches (decision points):
+1. x1 = True
+2. x2 = True (conflict, backtrack)
+3. x2 = False
+4. x4 = True
+
+Conflicts (backtracks):
+1. At x2 = True, x4 = False, x5 = both True and False (conflict)
+
+---
+
+## Final Output
+
+* SATISFIABLE
+* Number of branches: 4
+* Number of conflicts: 1
+* Assignment:
+  - x1 = True
+  - x2 = False
+  - x3 = True
+  - x4 = True
+  - x5 = False

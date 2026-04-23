@@ -1,0 +1,91 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=605
+p cnf 8 28
+7 -1 4 0
+1 2 -4 0
+-7 -2 -1 0
+5 4 1 0
+3 1 -8 0
+4 -6 -5 0
+-6 -5 1 0
+8 -3 1 0
+4 -5 2 0
+5 -1 -7 0
+7 -3 -8 0
+-4 -1 7 0
+7 1 3 0
+5 -6 3 0
+-8 3 7 0
+4 -2 -1 0
+-2 -8 -5 0
+-3 -1 -7 0
+-4 -7 -5 0
+-2 7 3 0
+7 -5 4 0
+1 -5 -7 0
+-1 -3 -5 0
+3 6 1 0
+-8 -2 7 0
+1 7 -3 0
+1 -4 -2 0
+7 -8 3 0
+
+c GPT solve time: 24.76 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Starting with the formula, I'll track decisions (branches) and conflicts (backtracking).
+
+**Initial state**: All variables unassigned
+
+**Branch 1**: Assign x1 = true
+- Simplifying clauses with x1 = true:
+  - Many clauses become satisfied (containing x1)
+  - Remaining clauses after simplification:
+    - (x7 ∨ x4) from clause 1
+    - (¬x7 ∨ ¬x2) from clause 3
+    - (x4 ∨ ¬x6 ∨ ¬x5) from clause 6
+    - (x4 ∨ ¬x5 ∨ x2) from clause 9
+    - (x5 ∨ ¬x7) from clause 10
+    - (x7 ∨ ¬x3 ∨ ¬x8) from clause 11
+    - (¬x4 ∨ x7) from clause 12
+    - (x5 ∨ ¬x6 ∨ x3) from clause 14
+    - (¬x8 ∨ x3 ∨ x7) from clause 15
+    - (x4 ∨ ¬x2) from clause 16
+    - (¬x2 ∨ ¬x8 ∨ ¬x5) from clause 17
+    - (¬x3 ∨ ¬x7) from clause 18
+    - (¬x4 ∨ ¬x7 ∨ ¬x5) from clause 19
+    - (¬x2 ∨ x7 ∨ x3) from clause 20
+    - (x7 ∨ ¬x5 ∨ x4) from clause 21
+    - (¬x3 ∨ ¬x5) from clause 23
+    - (¬x8 ∨ ¬x2 ∨ x7) from clause 25
+    - (x7 ∨ ¬x8 ∨ x3) from clause 28
+
+**Branch 2**: Assign x7 = true
+- From (¬x7 ∨ ¬x2): x2 = false
+- From (x5 ∨ ¬x7): x5 = true
+- From (¬x3 ∨ ¬x7): x3 = false
+- From (¬x3 ∨ ¬x5): Conflict! (x3 = false, x5 = true makes this clause false)
+
+**Conflict 1**: Backtrack
+
+**Branch 3**: Assign x7 = false
+- From (x7 ∨ x4): x4 = true
+- From (¬x4 ∨ x7): Conflict! (x4 = true, x7 = false makes this clause false)
+
+**Conflict 2**: Backtrack to x1
+
+**Branch 4**: Assign x1 = false
+- Simplifying with x1 = false:
+  - From clause 2: (x2 ∨ ¬x4)
+  - From clause 4: (x5 ∨ x4)
+  - From clause 5: (x3 ∨ ¬x8)
+  - From clause 7: (¬x6 ∨ ¬x5)
+  - From clause 8: (x8 ∨ ¬x3)
+  - From clause 13: (x7 ∨ x3)
+  - From clause 24: (x3 ∨ x6)
+  - From clause 26: (x7 ∨ ¬x3)
+  - From clause 27: (¬x4 ∨ ¬x2)
+
+**Branch 5**: Assign x3 = true
+-

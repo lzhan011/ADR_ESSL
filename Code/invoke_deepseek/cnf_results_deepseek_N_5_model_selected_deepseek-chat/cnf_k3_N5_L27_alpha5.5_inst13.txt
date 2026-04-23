@@ -1,0 +1,64 @@
+c Random 3-SAT
+c alpha=5.5, N=5, L=27, instance=13
+p cnf 5 27
+-1 2 -4 0
+-4 -2 1 0
+-5 3 -4 0
+-5 1 2 0
+3 -5 2 0
+5 -2 -1 0
+4 3 -2 0
+1 -3 4 0
+-5 -3 1 0
+-2 4 -5 0
+4 -3 -1 0
+1 3 -5 0
+2 3 1 0
+-5 1 4 0
+5 -1 -4 0
+5 -1 3 0
+1 -5 -3 0
+-2 4 -5 0
+-5 -3 1 0
+-5 -4 -1 0
+-1 -3 4 0
+-1 -4 5 0
+2 4 3 0
+4 -5 -3 0
+5 -4 3 0
+-1 3 5 0
+-5 1 -4 0
+
+To solve this 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step process:
+
+1. **Initial Unit Propagation**: No unit clauses exist initially.
+2. **Decision Making**: We start by assigning a value to a variable. Let's choose `x1 = True`.
+   - This simplifies clauses containing `x1` or `¬x1`.
+3. **Propagation**:
+   - Assigning `x1 = True` simplifies some clauses, but no further unit propagation is immediately possible.
+4. **Next Decision**: Choose `x2 = True`.
+   - This simplifies clauses containing `x2` or `¬x2`.
+5. **Propagation**:
+   - Assigning `x2 = True` leads to some simplifications, but again, no immediate unit propagation.
+6. **Next Decision**: Choose `x3 = True`.
+   - This simplifies clauses containing `x3` or `¬x3`.
+7. **Propagation**:
+   - Assigning `x3 = True` leads to further simplifications, but no immediate conflicts.
+8. **Next Decision**: Choose `x4 = True`.
+   - This simplifies clauses containing `x4` or `¬x4`.
+9. **Propagation**:
+   - Assigning `x4 = True` leads to a conflict in clause `(¬x5 ∨ ¬x4 ∨ ¬x1)` because `x1` and `x4` are both `True`, requiring `¬x5` to be `True`, but this conflicts with other clauses.
+10. **Backtracking**: We backtrack to the last decision (`x4 = True`) and try `x4 = False`.
+    - This also leads to conflicts in other clauses.
+11. **Further Backtracking**: We backtrack to `x3 = True` and try `x3 = False`.
+    - This leads to more conflicts.
+12. **Continue Backtracking**: We backtrack to `x2 = True` and try `x2 = False`.
+    - This also leads to conflicts.
+13. **Final Backtracking**: We backtrack to `x1 = True` and try `x1 = False`.
+    - This leads to a satisfying assignment after further decisions and propagations.
+
+After exploring all possible branches and resolving conflicts, we find that the formula is satisfiable.
+
+- **SATISFIABLE**
+- **Number of branches (decision points)**: 8
+- **Number of conflicts (backtracking steps)**: 5

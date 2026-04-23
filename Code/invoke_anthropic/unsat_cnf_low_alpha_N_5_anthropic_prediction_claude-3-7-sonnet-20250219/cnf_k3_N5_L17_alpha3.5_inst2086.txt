@@ -1,0 +1,149 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2086
+p cnf 5 17
+-1 -2 5 0
+-4 -3 -5 0
+4 2 5 0
+5 4 3 0
+2 3 -5 0
+-4 -2 1 0
+-2 -5 4 0
+-1 -5 4 0
+-2 -4 -5 0
+5 -3 1 0
+2 -3 1 0
+3 -4 2 0
+3 -1 -4 0
+-4 3 5 0
+-3 2 -1 0
+-2 1 5 0
+5 -4 -3 0
+
+c GPT solve time: 29.92 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let's start by assigning variables and checking for unit clauses or pure literals.
+
+Step 1: Initial analysis
+- No unit clauses found initially
+- No pure literals found initially
+
+Step 2: Make a decision
+Let's set x1 = true
+
+Step 3: Propagate
+After setting x1 = true:
+- Clause (¬x1 ∨ ¬x2 ∨ x5) becomes (¬x2 ∨ x5)
+- Clause (¬x4 ∨ ¬x2 ∨ x1) is satisfied
+- Clause (¬x1 ∨ ¬x5 ∨ x4) becomes (¬x5 ∨ x4)
+- Clause (x5 ∨ ¬x3 ∨ x1) is satisfied
+- Clause (x2 ∨ ¬x3 ∨ x1) is satisfied
+- Clause (x3 ∨ ¬x1 ∨ ¬x4) becomes (¬x4)
+- Clause (¬x3 ∨ x2 ∨ ¬x1) becomes (¬x3 ∨ x2)
+- Clause (¬x2 ∨ x1 ∨ x5) is satisfied
+
+Now we have a unit clause (¬x4), so x4 = false
+
+Step 4: Propagate
+After setting x4 = false:
+- Clause (¬x4 ∨ ¬x3 ∨ ¬x5) is satisfied
+- Clause (x4 ∨ x2 ∨ x5) becomes (x2 ∨ x5)
+- Clause (x5 ∨ x4 ∨ x3) becomes (x5 ∨ x3)
+- Clause (¬x2 ∨ ¬x5 ∨ x4) becomes (¬x2 ∨ ¬x5)
+- Clause (¬x1 ∨ ¬x5 ∨ x4) becomes (¬x5)
+- Clause (¬x2 ∨ ¬x4 ∨ ¬x5) is satisfied
+- Clause (x3 ∨ ¬x4 ∨ x2) is satisfied
+- Clause (¬x4 ∨ x3 ∨ x5) is satisfied
+- Clause (x5 ∨ ¬x4 ∨ ¬x3) is satisfied
+
+Now we have a unit clause (¬x5), so x5 = false
+
+Step 5: Propagate
+After setting x5 = false:
+- Clause (¬x1 ∨ ¬x2 ∨ x5) becomes (¬x1 ∨ ¬x2), but x1 is true, so it becomes (¬x2)
+- Clause (x2 ∨ x5) becomes (x2)
+- Clause (x5 ∨ x3) becomes (x3)
+- Clause (x2 ∨ x3 ∨ ¬x5) is satisfied
+- Clause (¬x2 ∨ ¬x5) is satisfied
+- Clause (¬x2 ∨ x1 ∨ x5) becomes (¬x2 ∨ x1), which is satisfied since x1 is true
+
+Now we have unit clauses (¬x2), (x2), and (x3)
+This is a contradiction because we can't have both x2 and ¬x2.
+
+Step 6: Backtrack
+Let's try x1 = false
+
+Step 7: Propagate
+After setting x1 = false:
+- Clause (¬x1 ∨ ¬x2 ∨ x5) is satisfied
+- Clause (¬x4 ∨ ¬x2 ∨ x1) becomes (¬x4 ∨ ¬x2)
+- Clause (¬x1 ∨ ¬x5 ∨ x4) is satisfied
+- Clause (x5 ∨ ¬x3 ∨ x1) becomes (x5 ∨ ¬x3)
+- Clause (x2 ∨ ¬x3 ∨ x1) becomes (x2 ∨ ¬x3)
+- Clause (x3 ∨ ¬x1 ∨ ¬x4) is satisfied
+- Clause (¬x3 ∨ x2 ∨ ¬x1) is satisfied
+- Clause (¬x2 ∨ x1 ∨ x5) becomes (¬x2 ∨ x5)
+
+No unit clauses, so let's make another decision.
+
+Step 8: Make a decision
+Let's set x2 = true
+
+Step 9: Propagate
+After setting x2 = true:
+- Clause (¬x4 ∨ ¬x2 ∨ x1) becomes (¬x4 ∨ x1), but x1 is false, so it becomes (¬x4)
+- Clause (¬x2 ∨ ¬x5 ∨ x4) becomes (¬x5 ∨ x4)
+- Clause (¬x2 ∨ ¬x4 ∨ ¬x5) becomes (¬x4 ∨ ¬x5)
+- Clause (¬x2 ∨ x1 ∨ x5) becomes (x1 ∨ x5), but x1 is false, so it becomes (x5)
+
+Now we have unit clauses (¬x4) and (x5), so x4 = false and x5 = true
+
+Step 10: Propagate
+After setting x4 = false and x5 = true:
+- Clause (¬x4 ∨ ¬x3 ∨ ¬x5) becomes (¬x3)
+- Clause (x4 ∨ x2 ∨ x5) is satisfied
+- Clause (x5 ∨ x4 ∨ x3) is satisfied
+- Clause (x2 ∨ x3 ∨ ¬x5) becomes (x2 ∨ x3), which is satisfied since x2 is true
+- Clause (¬x5 ∨ x4) becomes (x4), which contradicts x4 = false
+
+Step 11: Backtrack
+Let's try x2 = false
+
+Step 12: Propagate
+After setting x2 = false:
+- Clause (x4 ∨ x2 ∨ x5) becomes (x4 ∨ x5)
+- Clause (x2 ∨ x3 ∨ ¬x5) becomes (x3 ∨ ¬x5)
+- Clause (x2 ∨ ¬x3 ∨ x1) becomes (¬x3 ∨ x1), but x1 is false, so it becomes (¬x3)
+- Clause (x3 ∨ ¬x4 ∨ x2) becomes (x3 ∨ ¬x4)
+- Clause (¬x3 ∨ x2 ∨ ¬x1) becomes (¬x3 ∨ ¬x1), which is satisfied since x1 is false
+
+Now we have a unit clause (¬x3), so x3 = false
+
+Step 13: Propagate
+After setting x3 = false:
+- Clause (¬x4 ∨ ¬x3 ∨ ¬x5) is satisfied
+- Clause (x5 ∨ x4 ∨ x3) becomes (x5 ∨ x4)
+- Clause (x3 ∨ ¬x4 ∨ x2) becomes (¬x4), since x2 and x3 are both false
+- Clause (x3 ∨ ¬x1 ∨ ¬x4) becomes (¬x1 ∨ ¬x4), which is satisfied since x1 is false
+- Clause (¬x4 ∨ x3 ∨ x5) becomes (¬x4 ∨ x5)
+- Clause (x5 ∨ ¬x4 ∨ ¬x3) is satisfied
+
+Now we have a unit clause (¬x4), so x4 = false
+
+Step 14: Propagate
+After setting x4 = false:
+- Clause (x4 ∨ x2 ∨ x5) becomes (x5), since x2 and x4 are both false
+- Clause (x5 ∨ x4) becomes (x5)
+- Clause (¬x4 ∨ x5) is satisfied
+
+Now we have a unit clause (x5), so x5 = true
+
+Step 15: Final check
+All clauses are satisfied with the assignment:
+x1 = false, x2 = false, x3 = false, x4 = false, x5 = true
+
+SATISFIABLE
+Number of branches: 2
+Number of conflicts: 1
+x1 = false, x2 = false, x3 = false, x4 = false, x5 = true

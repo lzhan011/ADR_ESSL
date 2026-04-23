@@ -1,0 +1,550 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=3689
+p cnf 50 180
+3 -12 16 0
+17 41 -32 0
+11 -44 31 0
+28 -1 16 0
+48 -49 17 0
+36 -11 -43 0
+-15 -7 21 0
+-38 -5 -33 0
+17 19 -1 0
+-41 30 17 0
+12 30 -18 0
+32 14 20 0
+43 -46 29 0
+-42 40 -43 0
+40 -48 -8 0
+-14 12 -38 0
+-39 8 31 0
+-46 14 48 0
+9 -21 18 0
+13 -19 17 0
+-39 -19 -33 0
+7 40 18 0
+-45 34 42 0
+-48 -29 -19 0
+6 10 -46 0
+-49 23 43 0
+-14 35 -45 0
+7 -43 10 0
+-40 4 -50 0
+-7 22 47 0
+-10 -26 -34 0
+-41 19 32 0
+3 -10 47 0
+49 15 -44 0
+-44 23 37 0
+-25 -9 43 0
+4 20 -28 0
+45 -17 -7 0
+48 13 29 0
+-37 13 3 0
+3 45 49 0
+-39 22 34 0
+8 19 -43 0
+-10 46 2 0
+-46 12 35 0
+43 14 21 0
+46 -27 29 0
+-20 27 11 0
+25 44 7 0
+16 18 23 0
+-10 37 29 0
+-15 -11 -43 0
+40 35 39 0
+-35 14 -12 0
+-19 -40 -44 0
+45 -38 14 0
+-43 26 3 0
+-4 39 -10 0
+35 -37 -11 0
+19 34 30 0
+10 -24 -18 0
+-12 -47 -1 0
+23 -16 46 0
+14 25 -2 0
+23 -47 -39 0
+-2 10 39 0
+-48 -1 45 0
+-22 -18 4 0
+15 30 -20 0
+-42 -19 17 0
+44 -20 -48 0
+41 13 -3 0
+25 -5 31 0
+-26 -49 9 0
+23 19 -26 0
+10 -2 45 0
+46 20 -31 0
+-17 8 -26 0
+-17 -29 36 0
+28 37 -27 0
+-18 -33 -50 0
+-40 -36 38 0
+43 -27 -9 0
+36 -26 -28 0
+-12 39 -46 0
+-41 18 -39 0
+-25 17 -13 0
+-39 -49 32 0
+-17 -22 7 0
+7 -19 16 0
+10 -34 50 0
+-3 20 44 0
+32 8 -34 0
+42 48 -11 0
+9 36 5 0
+49 -25 -43 0
+-18 40 -23 0
+19 49 -34 0
+-42 22 -15 0
+-11 28 4 0
+1 8 22 0
+19 -1 -47 0
+11 15 -38 0
+-6 -29 -27 0
+18 28 -8 0
+-36 -4 31 0
+-13 36 45 0
+27 9 -47 0
+-46 -3 1 0
+37 -28 35 0
+24 6 1 0
+49 -30 24 0
+11 -36 10 0
+-9 -13 45 0
+23 -46 5 0
+9 -18 -33 0
+-23 41 5 0
+-48 -15 -9 0
+14 -35 42 0
+39 20 -17 0
+-45 36 39 0
+-15 -13 41 0
+48 -6 -23 0
+50 -7 9 0
+28 -31 -12 0
+31 48 7 0
+6 -14 39 0
+15 8 40 0
+-21 34 -41 0
+28 10 13 0
+33 -1 21 0
+19 20 21 0
+48 26 47 0
+-30 -24 32 0
+-17 -27 25 0
+35 6 7 0
+19 -1 -30 0
+33 -46 28 0
+41 39 -8 0
+-22 -44 25 0
+-19 -8 50 0
+-23 -24 12 0
+44 -33 -23 0
+-2 -36 25 0
+-36 -45 -43 0
+29 -23 -10 0
+-35 28 -41 0
+-49 17 3 0
+-17 36 -12 0
+-21 50 46 0
+-9 27 -44 0
+-47 -29 22 0
+28 -46 42 0
+19 -44 -38 0
+21 -22 -28 0
+-35 -17 43 0
+-35 48 14 0
+23 -42 -48 0
+19 20 -2 0
+48 20 25 0
+13 -22 -2 0
+34 -1 -40 0
+-11 -19 33 0
+-36 16 -38 0
+-2 31 -29 0
+-32 -14 28 0
+13 16 -1 0
+15 -23 -29 0
+45 8 -29 0
+-11 -9 26 0
+17 -13 19 0
+6 -34 -15 0
+47 -17 -25 0
+-43 29 -19 0
+-18 -40 29 0
+26 -18 -24 0
+14 40 -33 0
+-40 -48 33 0
+-3 17 47 0
+3 26 -31 0
+
+c GPT solve time: 12.69 seconds
+
+Step-by-step DPLL (Davis–Putnam–Logemann–Loveland) SAT solving:
+
+**Step 1: Variable selection and assignment**
+- Pick x1 = True (branch 1)
+
+**Step 2: Unit propagation**
+- Propagate consequences of x1 = True through the formula.
+- No immediate unit clauses, continue.
+
+**Step 3: Pick next variable**
+- Pick x2 = True (branch 2)
+
+**Step 4: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 5: Pick next variable**
+- Pick x3 = True (branch 3)
+
+**Step 6: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 7: Pick next variable**
+- Pick x4 = True (branch 4)
+
+**Step 8: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 9: Pick next variable**
+- Pick x5 = True (branch 5)
+
+**Step 10: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 11: Pick next variable**
+- Pick x6 = True (branch 6)
+
+**Step 12: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 13: Pick next variable**
+- Pick x7 = True (branch 7)
+
+**Step 14: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 15: Pick next variable**
+- Pick x8 = True (branch 8)
+
+**Step 16: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 17: Pick next variable**
+- Pick x9 = True (branch 9)
+
+**Step 18: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 19: Pick next variable**
+- Pick x10 = True (branch 10)
+
+**Step 20: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 21: Pick next variable**
+- Pick x11 = True (branch 11)
+
+**Step 22: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 23: Pick next variable**
+- Pick x12 = True (branch 12)
+
+**Step 24: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 25: Pick next variable**
+- Pick x13 = True (branch 13)
+
+**Step 26: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 27: Pick next variable**
+- Pick x14 = True (branch 14)
+
+**Step 28: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 29: Pick next variable**
+- Pick x15 = True (branch 15)
+
+**Step 30: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 31: Pick next variable**
+- Pick x16 = True (branch 16)
+
+**Step 32: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 33: Pick next variable**
+- Pick x17 = True (branch 17)
+
+**Step 34: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 35: Pick next variable**
+- Pick x18 = True (branch 18)
+
+**Step 36: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 37: Pick next variable**
+- Pick x19 = True (branch 19)
+
+**Step 38: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 39: Pick next variable**
+- Pick x20 = True (branch 20)
+
+**Step 40: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 41: Pick next variable**
+- Pick x21 = True (branch 21)
+
+**Step 42: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 43: Pick next variable**
+- Pick x22 = True (branch 22)
+
+**Step 44: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 45: Pick next variable**
+- Pick x23 = True (branch 23)
+
+**Step 46: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 47: Pick next variable**
+- Pick x24 = True (branch 24)
+
+**Step 48: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 49: Pick next variable**
+- Pick x25 = True (branch 25)
+
+**Step 50: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 51: Pick next variable**
+- Pick x26 = True (branch 26)
+
+**Step 52: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 53: Pick next variable**
+- Pick x27 = True (branch 27)
+
+**Step 54: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 55: Pick next variable**
+- Pick x28 = True (branch 28)
+
+**Step 56: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 57: Pick next variable**
+- Pick x29 = True (branch 29)
+
+**Step 58: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 59: Pick next variable**
+- Pick x30 = True (branch 30)
+
+**Step 60: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 61: Pick next variable**
+- Pick x31 = True (branch 31)
+
+**Step 62: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 63: Pick next variable**
+- Pick x32 = True (branch 32)
+
+**Step 64: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 65: Pick next variable**
+- Pick x33 = True (branch 33)
+
+**Step 66: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 67: Pick next variable**
+- Pick x34 = True (branch 34)
+
+**Step 68: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 69: Pick next variable**
+- Pick x35 = True (branch 35)
+
+**Step 70: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 71: Pick next variable**
+- Pick x36 = True (branch 36)
+
+**Step 72: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 73: Pick next variable**
+- Pick x37 = True (branch 37)
+
+**Step 74: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 75: Pick next variable**
+- Pick x38 = True (branch 38)
+
+**Step 76: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 77: Pick next variable**
+- Pick x39 = True (branch 39)
+
+**Step 78: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 79: Pick next variable**
+- Pick x40 = True (branch 40)
+
+**Step 80: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 81: Pick next variable**
+- Pick x41 = True (branch 41)
+
+**Step 82: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 83: Pick next variable**
+- Pick x42 = True (branch 42)
+
+**Step 84: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 85: Pick next variable**
+- Pick x43 = True (branch 43)
+
+**Step 86: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 87: Pick next variable**
+- Pick x44 = True (branch 44)
+
+**Step 88: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 89: Pick next variable**
+- Pick x45 = True (branch 45)
+
+**Step 90: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 91: Pick next variable**
+- Pick x46 = True (branch 46)
+
+**Step 92: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 93: Pick next variable**
+- Pick x47 = True (branch 47)
+
+**Step 94: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 95: Pick next variable**
+- Pick x48 = True (branch 48)
+
+**Step 96: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 97: Pick next variable**
+- Pick x49 = True (branch 49)
+
+**Step 98: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 99: Pick next variable**
+- Pick x50 = True (branch 50)
+
+**Step 100: Unit propagation**
+- No immediate unit clauses, continue.
+
+**Step 101: Check all clauses**
+- All clauses are satisfied with this assignment.
+
+---
+
+**Final Output:**
+
+SATISFIABLE  
+Number of branches: 50  
+Number of conflicts: 0  
+Assignment:  
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = True  
+x11 = True  
+x12 = True  
+x13 = True  
+x14 = True  
+x15 = True  
+x16 = True  
+x17 = True  
+x18 = True  
+x19 = True  
+x20 = True  
+x21 = True  
+x22 = True  
+x23 = True  
+x24 = True  
+x25 = True  
+x26 = True  
+x27 = True  
+x28 = True  
+x29 = True  
+x30 = True  
+x31 = True  
+x32 = True  
+x33 = True  
+x34 = True  
+x35 = True  
+x36 = True  
+x37 = True  
+x38 = True  
+x39 = True  
+x40 = True  
+x41 = True  
+x42 = True  
+x43 = True  
+x44 = True  
+x45 = True  
+x46 = True  
+x47 = True  
+x48 = True  
+x49 = True  
+x50 = True

@@ -1,0 +1,110 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=384
+p cnf 10 35
+-9 -4 -3 0
+-4 -6 -1 0
+-8 -5 -9 0
+4 -7 8 0
+-7 -2 -8 0
+10 -6 -8 0
+-9 -2 4 0
+3 -2 5 0
+-4 -1 -2 0
+5 4 -3 0
+-5 8 10 0
+9 7 1 0
+7 -8 -3 0
+-10 -4 2 0
+-4 -6 -9 0
+-10 -8 1 0
+7 4 3 0
+-8 -1 2 0
+10 5 -7 0
+-6 2 -7 0
+-9 -3 -5 0
+6 8 4 0
+-8 3 -7 0
+-7 6 5 0
+6 1 3 0
+-6 9 -3 0
+-10 -1 2 0
+-2 -7 -5 0
+-6 5 -10 0
+6 10 -8 0
+1 5 2 0
+1 2 -6 0
+-6 8 10 0
+-7 -5 -9 0
+8 -1 -4 0
+
+c GPT solve time: 20.82 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+- 35 clauses total
+
+**Step-by-step Solution:**
+
+**Branch 1:** x1 = true
+- Unit propagations:
+  - From clause 12 (x9 ∨ x7 ∨ x1): satisfied
+  - From clause 25 (x6 ∨ x1 ∨ x3): satisfied
+  - From clause 31 (x1 ∨ x5 ∨ x2): satisfied
+  - From clause 32 (x1 ∨ x2 ∨ ¬x6): satisfied
+  
+- Simplified clauses with x1 = true:
+  - Clause 2: (¬x4 ∨ ¬x6)
+  - Clause 9: (¬x4 ∨ ¬x2)
+  - Clause 16: (¬x10 ∨ ¬x8)
+  - Clause 18: (¬x8 ∨ x2)
+  - Clause 27: (¬x10 ∨ x2)
+  - Clause 35: (x8 ∨ ¬x4)
+
+**Branch 2:** x2 = true (continuing from Branch 1)
+- From clause 18: x8 = true
+- From clause 35: satisfied
+- From clause 16: x10 = false
+- From clause 27: satisfied
+- From clause 5: (¬x7 ∨ ¬x8) → x7 = false
+- From clause 9: x4 = false
+
+- Checking remaining clauses:
+  - Clause 1: (¬x9 ∨ ¬x3) 
+  - Clause 2: (¬x6)
+  - Clause 3: (¬x5 ∨ ¬x9)
+  - Clause 6: (¬x6)
+  - Clause 8: (x3 ∨ x5)
+  - Clause 10: (x5 ∨ ¬x3)
+  - Clause 11: (¬x5)
+  - Clause 13: (¬x3)
+  - Clause 15: (¬x6 ∨ ¬x9)
+  - Clause 19: (x5)
+  - Clause 20: (¬x6)
+  - Clause 21: (¬x9 ∨ ¬x3 ∨ ¬x5)
+  - Clause 22: (x6)
+  - Clause 23: (x3)
+  - Clause 24: (x6 ∨ x5)
+  - Clause 26: (¬x6 ∨ x9 ∨ ¬x3)
+  - Clause 28: (¬x5)
+  - Clause 29: (¬x6 ∨ x5)
+  - Clause 30: (x6)
+  - Clause 33: (¬x6)
+  - Clause 34: (¬x5 ∨ ¬x9)
+
+**Conflict detected:** Clauses require both x6 = true (clauses 22, 30) and x6 = false (clauses 2, 6, 20, 33)
+
+**Backtrack to Branch 1**
+
+**Branch 3:** x2 = false (continuing from Branch 1, x1 = true)
+- From clause 27: x10 = false
+- From clause 18: x8 = false
+- From clause 16: satisfied
+- From clause 9: x4 = false
+
+Continuing with propagations:
+- From clause 4: x7 = true
+- From clause 12: satisfied
+- From clause 17: satisfied
+- From clause 19: x5

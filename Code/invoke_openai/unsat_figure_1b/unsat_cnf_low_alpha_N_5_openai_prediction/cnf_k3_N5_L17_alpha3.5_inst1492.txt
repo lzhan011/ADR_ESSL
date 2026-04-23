@@ -1,0 +1,252 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1492
+p cnf 5 17
+2 -5 4 0
+5 -4 3 0
+-3 1 -2 0
+2 5 4 0
+2 -5 3 0
+-2 1 3 0
+-3 -4 -2 0
+-3 -1 5 0
+5 -4 1 0
+5 1 3 0
+3 -5 -2 0
+-5 1 3 0
+4 -1 -2 0
+2 -3 -5 0
+-3 -1 2 0
+-3 -1 2 0
+4 -2 -3 0
+
+c GPT solve time: 31.10 seconds
+
+Let's solve the formula step by step.
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Assign x1 = True (Branch 1)
+- Propagate this assignment.
+
+#### Check for unit clauses and propagate:
+- No unit clauses yet.
+
+### Step 2: Assign x2 = True (Branch 2)
+- Propagate this assignment.
+
+#### Check for unit clauses and propagate:
+- No unit clauses yet.
+
+### Step 3: Assign x3 = True (Branch 3)
+- Propagate this assignment.
+
+#### Check for unit clauses and propagate:
+- No unit clauses yet.
+
+### Step 4: Assign x4 = True (Branch 4)
+- Propagate this assignment.
+
+#### Check for unit clauses and propagate:
+- No unit clauses yet.
+
+### Step 5: Assign x5 = True (Branch 5)
+- Propagate this assignment.
+
+#### Check all clauses:
+Let's check each clause with the current assignment:
+- x1 = T, x2 = T, x3 = T, x4 = T, x5 = T
+
+1. (x2 ∨ ¬x5 ∨ x4): T ∨ F ∨ T = T
+2. (x5 ∨ ¬x4 ∨ x3): T ∨ F ∨ T = T
+3. (¬x3 ∨ x1 ∨ ¬x2): F ∨ T ∨ F = T
+4. (x2 ∨ x5 ∨ x4): T ∨ T ∨ T = T
+5. (x2 ∨ ¬x5 ∨ x3): T ∨ F ∨ T = T
+6. (¬x2 ∨ x1 ∨ x3): F ∨ T ∨ T = T
+7. (¬x3 ∨ ¬x4 ∨ ¬x2): F ∨ F ∨ F = **F**
+8. (¬x3 ∨ ¬x1 ∨ x5): F ∨ F ∨ T = T
+9. (x5 ∨ ¬x4 ∨ x1): T ∨ F ∨ T = T
+10. (x5 ∨ x1 ∨ x3): T ∨ T ∨ T = T
+11. (x3 ∨ ¬x5 ∨ ¬x2): T ∨ F ∨ F = T
+12. (¬x5 ∨ x1 ∨ x3): F ∨ T ∨ T = T
+13. (x4 ∨ ¬x1 ∨ ¬x2): T ∨ F ∨ F = T
+14. (x2 ∨ ¬x3 ∨ ¬x5): T ∨ F ∨ F = T
+15. (¬x3 ∨ ¬x1 ∨ x2): F ∨ F ∨ T = T
+16. (¬x3 ∨ ¬x1 ∨ x2): F ∨ F ∨ T = T
+17. (x4 ∨ ¬x2 ∨ ¬x3): T ∨ F ∨ F = T
+
+Clause 7 is **False**. So, we have a conflict.
+
+### Step 6: Backtrack x5 = False (Conflict 1, Branch 6)
+- x1 = T, x2 = T, x3 = T, x4 = T, x5 = F
+
+Check all clauses:
+
+1. (x2 ∨ ¬x5 ∨ x4): T ∨ T ∨ T = T
+2. (x5 ∨ ¬x4 ∨ x3): F ∨ F ∨ T = T
+3. (¬x3 ∨ x1 ∨ ¬x2): F ∨ T ∨ F = T
+4. (x2 ∨ x5 ∨ x4): T ∨ F ∨ T = T
+5. (x2 ∨ ¬x5 ∨ x3): T ∨ T ∨ T = T
+6. (¬x2 ∨ x1 ∨ x3): F ∨ T ∨ T = T
+7. (¬x3 ∨ ¬x4 ∨ ¬x2): F ∨ F ∨ F = F
+8. (¬x3 ∨ ¬x1 ∨ x5): F ∨ F ∨ F = F
+9. (x5 ∨ ¬x4 ∨ x1): F ∨ F ∨ T = T
+10. (x5 ∨ x1 ∨ x3): F ∨ T ∨ T = T
+11. (x3 ∨ ¬x5 ∨ ¬x2): T ∨ T ∨ F = T
+12. (¬x5 ∨ x1 ∨ x3): T ∨ T ∨ T = T
+13. (x4 ∨ ¬x1 ∨ ¬x2): T ∨ F ∨ F = T
+14. (x2 ∨ ¬x3 ∨ ¬x5): T ∨ F ∨ T = T
+15. (¬x3 ∨ ¬x1 ∨ x2): F ∨ F ∨ T = T
+16. (¬x3 ∨ ¬x1 ∨ x2): F ∨ F ∨ T = T
+17. (x4 ∨ ¬x2 ∨ ¬x3): T ∨ F ∨ F = T
+
+Clauses 7 and 8 are **False**. Another conflict.
+
+### Step 7: Backtrack x4 = False (Conflict 2, Branch 7)
+- x1 = T, x2 = T, x3 = T, x4 = F
+
+#### Try x5 = True (Branch 8)
+- x1 = T, x2 = T, x3 = T, x4 = F, x5 = T
+
+Check all clauses:
+
+1. (x2 ∨ ¬x5 ∨ x4): T ∨ F ∨ F = T
+2. (x5 ∨ ¬x4 ∨ x3): T ∨ T ∨ T = T
+3. (¬x3 ∨ x1 ∨ ¬x2): F ∨ T ∨ F = T
+4. (x2 ∨ x5 ∨ x4): T ∨ T ∨ F = T
+5. (x2 ∨ ¬x5 ∨ x3): T ∨ F ∨ T = T
+6. (¬x2 ∨ x1 ∨ x3): F ∨ T ∨ T = T
+7. (¬x3 ∨ ¬x4 ∨ ¬x2): F ∨ T ∨ F = T
+8. (¬x3 ∨ ¬x1 ∨ x5): F ∨ F ∨ T = T
+9. (x5 ∨ ¬x4 ∨ x1): T ∨ T ∨ T = T
+10. (x5 ∨ x1 ∨ x3): T ∨ T ∨ T = T
+11. (x3 ∨ ¬x5 ∨ ¬x2): T ∨ F ∨ F = T
+12. (¬x5 ∨ x1 ∨ x3): F ∨ T ∨ T = T
+13. (x4 ∨ ¬x1 ∨ ¬x2): F ∨ F ∨ F = F
+14. (x2 ∨ ¬x3 ∨ ¬x5): T ∨ F ∨ F = T
+15. (¬x3 ∨ ¬x1 ∨ x2): F ∨ F ∨ T = T
+16. (¬x3 ∨ ¬x1 ∨ x2): F ∨ F ∨ T = T
+17. (x4 ∨ ¬x2 ∨ ¬x3): F ∨ F ∨ F = F
+
+Clauses 13 and 17 are **False**. Conflict.
+
+#### Try x5 = False (Conflict 3, Branch 9)
+- x1 = T, x2 = T, x3 = T, x4 = F, x5 = F
+
+Check all clauses:
+
+1. (x2 ∨ ¬x5 ∨ x4): T ∨ T ∨ F = T
+2. (x5 ∨ ¬x4 ∨ x3): F ∨ T ∨ T = T
+3. (¬x3 ∨ x1 ∨ ¬x2): F ∨ T ∨ F = T
+4. (x2 ∨ x5 ∨ x4): T ∨ F ∨ F = T
+5. (x2 ∨ ¬x5 ∨ x3): T ∨ T ∨ T = T
+6. (¬x2 ∨ x1 ∨ x3): F ∨ T ∨ T = T
+7. (¬x3 ∨ ¬x4 ∨ ¬x2): F ∨ T ∨ F = T
+8. (¬x3 ∨ ¬x1 ∨ x5): F ∨ F ∨ F = F
+9. (x5 ∨ ¬x4 ∨ x1): F ∨ T ∨ T = T
+10. (x5 ∨ x1 ∨ x3): F ∨ T ∨ T = T
+11. (x3 ∨ ¬x5 ∨ ¬x2): T ∨ T ∨ F = T
+12. (¬x5 ∨ x1 ∨ x3): T ∨ T ∨ T = T
+13. (x4 ∨ ¬x1 ∨ ¬x2): F ∨ F ∨ F = F
+14. (x2 ∨ ¬x3 ∨ ¬x5): T ∨ F ∨ T = T
+15. (¬x3 ∨ ¬x1 ∨ x2): F ∨ F ∨ T = T
+16. (¬x3 ∨ ¬x1 ∨ x2): F ∨ F ∨ T = T
+17. (x4 ∨ ¬x2 ∨ ¬x3): F ∨ F ∨ F = F
+
+Clauses 8, 13, and 17 are **False**. Conflict.
+
+### Step 8: Backtrack x3 = False (Conflict 4, Branch 10)
+- x1 = T, x2 = T, x3 = F
+
+#### Try x4 = True (Branch 11)
+- x1 = T, x2 = T, x3 = F, x4 = T
+
+##### Try x5 = True (Branch 12)
+- x1 = T, x2 = T, x3 = F, x4 = T, x5 = T
+
+Check all clauses:
+
+1. (x2 ∨ ¬x5 ∨ x4): T ∨ F ∨ T = T
+2. (x5 ∨ ¬x4 ∨ x3): T ∨ F ∨ F = T
+3. (¬x3 ∨ x1 ∨ ¬x2): T ∨ T ∨ F = T
+4. (x2 ∨ x5 ∨ x4): T ∨ T ∨ T = T
+5. (x2 ∨ ¬x5 ∨ x3): T ∨ F ∨ F = T
+6. (¬x2 ∨ x1 ∨ x3): F ∨ T ∨ F = T
+7. (¬x3 ∨ ¬x4 ∨ ¬x2): T ∨ F ∨ F = T
+8. (¬x3 ∨ ¬x1 ∨ x5): T ∨ F ∨ T = T
+9. (x5 ∨ ¬x4 ∨ x1): T ∨ F ∨ T = T
+10. (x5 ∨ x1 ∨ x3): T ∨ T ∨ F = T
+11. (x3 ∨ ¬x5 ∨ ¬x2): F ∨ F ∨ F = F
+12. (¬x5 ∨ x1 ∨ x3): F ∨ T ∨ F = T
+13. (x4 ∨ ¬x1 ∨ ¬x2): T ∨ F ∨ F = T
+14. (x2 ∨ ¬x3 ∨ ¬x5): T ∨ T ∨ F = T
+15. (¬x3 ∨ ¬x1 ∨ x2): T ∨ F ∨ T = T
+16. (¬x3 ∨ ¬x1 ∨ x2): T ∨ F ∨ T = T
+17. (x4 ∨ ¬x2 ∨ ¬x3): T ∨ F ∨ T = T
+
+Only clause 11 is **False**. Conflict.
+
+##### Try x5 = False (Conflict 5, Branch 13)
+- x1 = T, x2 = T, x3 = F, x4 = T, x5 = F
+
+Check all clauses:
+
+1. (x2 ∨ ¬x5 ∨ x4): T ∨ T ∨ T = T
+2. (x5 ∨ ¬x4 ∨ x3): F ∨ F ∨ F = F
+3. (¬x3 ∨ x1 ∨ ¬x2): T ∨ T ∨ F = T
+4. (x2 ∨ x5 ∨ x4): T ∨ F ∨ T = T
+5. (x2 ∨ ¬x5 ∨ x3): T ∨ T ∨ F = T
+6. (¬x2 ∨ x1 ∨ x3): F ∨ T ∨ F = T
+7. (¬x3 ∨ ¬x4 ∨ ¬x2): T ∨ F ∨ F = T
+8. (¬x3 ∨ ¬x1 ∨ x5): T ∨ F ∨ F = T
+9. (x5 ∨ ¬x4 ∨ x1): F ∨ F ∨ T = T
+10. (x5 ∨ x1 ∨ x3): F ∨ T ∨ F = T
+11. (x3 ∨ ¬x5 ∨ ¬x2): F ∨ T ∨ F = T
+12. (¬x5 ∨ x1 ∨ x3): T ∨ T ∨ F = T
+13. (x4 ∨ ¬x1 ∨ ¬x2): T ∨ F ∨ F = T
+14. (x2 ∨ ¬x3 ∨ ¬x5): T ∨ T ∨ T = T
+15. (¬x3 ∨ ¬x1 ∨ x2): T ∨ F ∨ T = T
+16. (¬x3 ∨ ¬x1 ∨ x2): T ∨ F ∨ T = T
+17. (x4 ∨ ¬x2 ∨ ¬x3): T ∨ F ∨ T = T
+
+Clause 2 is **False**. Conflict.
+
+#### Try x4 = False (Conflict 6, Branch 14)
+- x1 = T, x2 = T, x3 = F, x4 = F
+
+##### Try x5 = True (Branch 15)
+- x1 = T, x2 = T, x3 = F, x4 = F, x5 = T
+
+Check all clauses:
+
+1. (x2 ∨ ¬x5 ∨ x4): T ∨ F ∨ F = T
+2. (x5 ∨ ¬x4 ∨ x3): T ∨ T ∨ F = T
+3. (¬x3 ∨ x1 ∨ ¬x2): T ∨ T ∨ F = T
+4. (x2 ∨ x5 ∨ x4): T ∨ T ∨ F = T
+5. (x2 ∨ ¬x5 ∨ x3): T ∨ F ∨ F = T
+6. (¬x2 ∨ x1 ∨ x3): F ∨ T ∨ F = T
+7. (¬x3 ∨ ¬x4 ∨ ¬x2): T ∨ T ∨ F = T
+8. (¬x3 ∨ ¬x1 ∨ x5): T ∨ F ∨ T = T
+9. (x5 ∨ ¬x4 ∨ x1): T ∨ T ∨ T = T
+10. (x5 ∨ x1 ∨ x3): T ∨ T ∨ F = T
+11. (x3 ∨ ¬x5 ∨ ¬x2): F ∨ F ∨ F = F
+12. (¬x5 ∨ x1 ∨ x3): F ∨ T ∨ F = T
+13. (x4 ∨ ¬x1 ∨ ¬x2): F ∨ F ∨ F = F
+14. (x2 ∨ ¬x3 ∨ ¬x5): T ∨ T ∨ F = T
+15. (¬x3 ∨ ¬x1 ∨ x2): T ∨ F ∨ T = T
+16. (¬x3 ∨ ¬x1 ∨ x2): T ∨ F ∨ T = T
+17. (x4 ∨ ¬x2 ∨ ¬x3): F ∨ F ∨ T = T
+
+Clauses 11 and 13 are **False**. Conflict.
+
+##### Try x5 = False (Conflict 7, Branch 16)
+- x1 = T, x2 = T, x3 = F, x4 = F, x5 = F
+
+Check all clauses:
+
+1. (x2 ∨ ¬x5 ∨ x4): T ∨ T ∨ F = T
+2. (x5 ∨ ¬x4 ∨ x3): F ∨ T ∨ F = T
+3. (¬x3 ∨ x1 ∨ ¬x2): T ∨ T ∨ F = T
+4. (x2 ∨ x5 ∨ x4): T ∨ F ∨ F = T
+5. (x2 ∨ ¬x5 ∨ x3): T ∨ T ∨ F = T
+6. (¬x2 ∨ x1 ∨ x3): F ∨ T ∨ F = T
+7. (¬x3

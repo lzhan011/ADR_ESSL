@@ -1,0 +1,191 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1442
+p cnf 8 28
+3 -6 -1 0
+-4 1 5 0
+-2 7 8 0
+8 5 -1 0
+1 7 -4 0
+-1 -5 -4 0
+2 -5 1 0
+2 8 1 0
+-7 -2 -4 0
+-7 -6 -2 0
+5 6 -4 0
+-6 1 -5 0
+-1 -7 -6 0
+7 6 -8 0
+-2 4 -1 0
+-6 5 -1 0
+-4 6 3 0
+5 1 4 0
+3 -8 -6 0
+1 8 -2 0
+2 -5 -4 0
+5 6 -3 0
+-1 6 -5 0
+-5 6 1 0
+2 -5 6 0
+-6 3 -2 0
+2 -7 -1 0
+-6 -1 2 0
+
+c GPT solve time: 119.91 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching), propagating unit clauses, and backtracking upon conflicts. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables and assign values, propagating implications until a conflict or satisfaction is reached. Here's a summary of the process:
+
+1. **Decision**: Assign \( x1 = \text{True} \).
+   - Propagate:
+     - From \( (x3 ∨ ¬x6 ∨ ¬x1) \): No implication (since \( \neg x1 \) is False).
+     - From \( (¬x1 ∨ ¬x5 ∨ ¬x4) \): \( \neg x5 ∨ \neg x4 \) must hold.
+     - From \( (x2 ∨ ¬x5 ∨ x1) \): Clause satisfied.
+     - From \( (x2 ∨ x8 ∨ x1) \): Clause satisfied.
+     - From \( (¬x1 ∨ ¬x7 ∨ ¬x6) \): \( \neg x7 ∨ \neg x6 \) must hold.
+     - From \( (¬x2 ∨ x4 ∨ ¬x1) \): \( \neg x2 ∨ x4 \) must hold.
+     - From \( (¬x6 ∨ x1 ∨ ¬x5) \): Clause satisfied.
+     - From \( (¬x1 ∨ x6 ∨ ¬x5) \): \( x6 ∨ \neg x5 \) must hold.
+     - From \( (¬x5 ∨ x6 ∨ x1) \): Clause satisfied.
+     - From \( (x2 ∨ ¬x7 ∨ ¬x1) \): \( x2 ∨ \neg x7 \) must hold.
+     - From \( (¬x6 ∨ ¬x1 ∨ x2) \): \( \neg x6 ∨ x2 \) must hold.
+
+2. **Decision**: Assign \( x2 = \text{True} \).
+   - Propagate:
+     - From \( (¬x2 ∨ x7 ∨ x8) \): \( x7 ∨ x8 \) must hold.
+     - From \( (¬x7 ∨ ¬x2 ∨ ¬x4) \): \( \neg x7 ∨ \neg x4 \) must hold.
+     - From \( (¬x7 ∨ ¬x6 ∨ ¬x2) \): \( \neg x7 ∨ \neg x6 \) must hold.
+     - From \( (¬x2 ∨ x4 ∨ ¬x1) \): \( x4 \) must hold (since \( x2 = \text{True} \) and \( x1 = \text{True} \)).
+     - From \( (x2 ∨ ¬x5 ∨ ¬x4) \): Clause satisfied (since \( x2 = \text{True} \)).
+     - From \( (¬x6 ∨ x3 ∨ ¬x2) \): \( \neg x6 ∨ x3 \) must hold.
+     - From \( (¬x6 ∨ ¬x1 ∨ x2) \): Clause satisfied.
+     - From \( (x1 ∨ x8 ∨ ¬x2) \): Clause satisfied.
+
+   Now, \( x4 = \text{True} \):
+   - From \( (¬x4 ∨ x1 ∨ x5) \): Clause satisfied.
+   - From \( (x1 ∨ x7 ∨ ¬x4) \): Clause satisfied.
+   - From \( (¬x1 ∨ ¬x5 ∨ ¬x4) \): \( \neg x5 \) must hold (since \( x1 = \text{True} \) and \( x4 = \text{True} \)).
+   - From \( (x5 ∨ x6 ∨ ¬x4) \): \( x5 ∨ x6 \) must hold.
+   - From \( (¬x4 ∨ x6 ∨ x3) \): \( x6 ∨ x3 \) must hold.
+   - From \( (x5 ∨ x1 ∨ x4) \): Clause satisfied.
+   - From \( (x2 ∨ ¬x5 ∨ ¬x4) \): Clause satisfied.
+
+   Now, \( x5 = \text{False} \):
+   - From \( (x5 ∨ x6 ∨ ¬x4) \): \( x6 \) must hold (since \( x5 = \text{False} \) and \( x4 = \text{True} \)).
+   - From \( (¬x6 ∨ x5 ∨ ¬x1) \): \( \neg x6 \) must hold (conflict with \( x6 = \text{True} \)).
+
+   **Conflict detected**: Backtrack.
+
+3. **Backtrack**: Undo \( x5 = \text{False} \). Try \( x5 = \text{True} \).
+   - From \( (¬x1 ∨ ¬x5 ∨ ¬x4) \): Conflict (since \( x1 = \text{True} \), \( x5 = \text{True} \), \( x4 = \text{True} \)).
+
+   **Conflict detected**: Backtrack.
+
+4. **Backtrack**: Undo \( x2 = \text{True} \). Try \( x2 = \text{False} \).
+   - Propagate:
+     - From \( (¬x2 ∨ x7 ∨ x8) \): \( x7 ∨ x8 \) must hold.
+     - From \( (¬x7 ∨ ¬x2 ∨ ¬x4) \): No implication (since \( \neg x2 \) is True).
+     - From \( (¬x7 ∨ ¬x6 ∨ ¬x2) \): No implication.
+     - From \( (¬x2 ∨ x4 ∨ ¬x1) \): \( x4 \) must hold (since \( x1 = \text{True} \) and \( x2 = \text{False} \)).
+     - From \( (x2 ∨ ¬x5 ∨ ¬x4) \): \( \neg x5 ∨ \neg x4 \) must hold.
+     - From \( (¬x6 ∨ x3 ∨ ¬x2) \): \( \neg x6 ∨ x3 \) must hold.
+     - From \( (¬x6 ∨ ¬x1 ∨ x2) \): \( \neg x6 \) must hold (since \( x1 = \text{True} \) and \( x2 = \text{False} \)).
+
+   Now, \( x4 = \text{True} \):
+   - From \( (¬x1 ∨ ¬x5 ∨ ¬x4) \): \( \neg x5 \) must hold (since \( x1 = \text{True} \) and \( x4 = \text{True} \)).
+   - From \( (x5 ∨ x6 ∨ ¬x4) \): \( x5 ∨ x6 \) must hold.
+   - From \( (¬x4 ∨ x6 ∨ x3) \): \( x6 ∨ x3 \) must hold.
+
+   Now, \( x6 = \text{False} \) (from \( \neg x6 \)):
+   - From \( (x5 ∨ x6 ∨ ¬x4) \): \( x5 \) must hold (since \( x6 = \text{False} \) and \( x4 = \text{True} \)).
+   - From \( (¬x6 ∨ x5 ∨ ¬x1) \): \( x5 \) must hold (consistent).
+   - From \( (¬x5 ∨ x6 ∨ x1) \): Clause satisfied.
+   - From \( (x5 ∨ x6 ∨ ¬x3) \): \( x5 ∨ \neg x3 \) must hold.
+   - From \( (¬x6 ∨ x3 ∨ ¬x2) \): \( x3 \) must hold (since \( x6 = \text{False} \) and \( x2 = \text{False} \)).
+
+   Now, \( x5 = \text{True} \):
+   - From \( (¬x1 ∨ ¬x5 ∨ ¬x4) \): Conflict (since \( x1 = \text{True} \), \( x5 = \text{True} \), \( x4 = \text{True} \)).
+
+   **Conflict detected**: Backtrack.
+
+5. **Backtrack**: Undo \( x1 = \text{True} \). Try \( x1 = \text{False} \).
+   - Propagate:
+     - From \( (x3 ∨ ¬x6 ∨ ¬x1) \): \( x3 ∨ \neg x6 \) must hold.
+     - From \( (¬x4 ∨ x1 ∨ x5) \): \( \neg x4 ∨ x5 \) must hold.
+     - From \( (x8 ∨ x5 ∨ ¬x1) \): \( x8 ∨ x5 \) must hold.
+     - From \( (x1 ∨ x7 ∨ ¬x4) \): \( x7 ∨ \neg x4 \) must hold.
+     - From \( (¬x1 ∨ ¬x5 ∨ ¬x4) \): Clause satisfied.
+     - From \( (x2 ∨ ¬x5 ∨ x1) \): \( x2 ∨ \neg x5 \) must hold.
+     - From \( (x2 ∨ x8 ∨ x1) \): \( x2 ∨ x8 \) must hold.
+     - From \( (¬x1 ∨ x6 ∨ ¬x5) \): \( x6 ∨ \neg x5 \) must hold.
+     - From \( (¬x5 ∨ x6 ∨ x1) \): \( \neg x5 ∨ x6 \) must hold.
+     - From \( (x2 ∨ ¬x5 ∨ x6) \): \( x2 ∨ \neg x5 ∨ x6 \) must hold.
+     - From \( (¬x1 ∨ x6 ∨ ¬x5) \): \( x6 ∨ \neg x5 \) must hold.
+     - From \( (¬x6 ∨ ¬x1 ∨ x2) \): \( \neg x6 ∨ x2 \) must hold.
+
+6. **Decision**: Assign \( x2 = \text{True} \).
+   - Propagate:
+     - From \( (¬x2 ∨ x7 ∨ x8) \): \( x7 ∨ x8 \) must hold.
+     - From \( (¬x7 ∨ ¬x2 ∨ ¬x4) \): \( \neg x7 ∨ \neg x4 \) must hold.
+     - From \( (¬x7 ∨ ¬x6 ∨ ¬x2) \): \( \neg x7 ∨ \neg x6 \) must hold.
+     - From \( (x2 ∨ ¬x5 ∨ ¬x4) \): \( \neg x5 ∨ \neg x4 \) must hold.
+     - From \( (¬x6 ∨ x3 ∨ ¬x2) \): \( \neg x6 ∨ x3 \) must hold.
+     - From \( (¬x6 ∨ ¬x1 ∨ x2) \): Clause satisfied.
+     - From \( (x1 ∨ x8 ∨ ¬x2) \): \( x8 \) must hold (since \( x1 = \text{False} \) and \( x2 = \text{True} \)).
+
+   Now, \( x8 = \text{True} \):
+   - From \( (x8 ∨ x5 ∨ ¬x1) \): Clause satisfied.
+   - From \( (x2 ∨ x8 ∨ x1) \): Clause satisfied.
+   - From \( (x7 ∨ x6 ∨ ¬x8) \): \( x7 ∨ x6 \) must hold.
+   - From \( (x3 ∨ ¬x8 ∨ ¬x6) \): \( x3 ∨ \neg x6 \) must hold.
+   - From \( (x1 ∨ x8 ∨ ¬x2) \): Clause satisfied.
+
+7. **Decision**: Assign \( x4 = \text{False} \).
+   - Propagate:
+     - From \( (¬x4 ∨ x1 ∨ x5) \): Clause satisfied.
+     - From \( (x1 ∨ x7 ∨ ¬x4) \): \( x7 \) must hold (since \( x1 = \text{False} \) and \( x4 = \text{False} \)).
+     - From \( (x5 ∨ x6 ∨ ¬x4) \): \( x5 ∨ x6 \) must hold.
+     - From \( (¬x4 ∨ x6 ∨ x3) \): \( x6 ∨ x3 \) must hold.
+     - From \( (x5 ∨ x1 ∨ x4) \): \( x5 \) must hold (since \( x1 = \text{False} \) and \( x4 = \text{False} \)).
+
+   Now, \( x7 = \text{True} \):
+   - From \( (x7 ∨ x6 ∨ ¬x8) \): Clause satisfied.
+   - From \( (¬x7 ∨ ¬x6 ∨ ¬x2) \): \( \neg x6 \) must hold (since \( x7 = \text{True} \) and \( x2 = \text{True} \)).
+
+   Now, \( x6 = \text{False} \):
+   - From \( (x5 ∨ x6 ∨ ¬x4) \): \( x5 \) must hold (consistent with earlier).
+   - From \( (¬x6 ∨ x3 ∨ ¬x2) \): \( x3 \) must hold (since \( x6 = \text{False} \) and \( x2 = \text{True} \)).
+
+   Now, \( x5 = \text{True} \):
+   - From \( (¬x5 ∨ x6 ∨ x1) \): Clause satisfied.
+   - From \( (x2 ∨ ¬x5 ∨ x6) \): Clause satisfied.
+   - From \( (¬x6 ∨ x5 ∨ ¬x1) \): Clause satisfied.
+   - From \( (x5 ∨ x6 ∨ ¬x3) \): Clause satisfied.
+
+   Now, \( x3 = \text{True} \):
+   - From \( (x3 ∨ ¬x6 ∨ ¬x1) \): Clause satisfied.
+   - From \( (x3 ∨ ¬x8 ∨ ¬x6) \): Clause satisfied.
+   - From \( (¬x6 ∨ x3 ∨ ¬x2) \): Clause satisfied.
+
+### Final Assignment:
+- \( x1 = \text{False} \)
+- \( x2 = \text{True} \)
+- \( x3 = \text{True} \)
+- \( x4 = \text{False} \)
+- \( x5 = \text{True} \)
+- \( x6 = \text{False} \)
+- \( x7 = \text{True} \)
+- \( x8 = \text{True} \)
+
+### Verification:
+All clauses are satisfied with this assignment.
+
+### Output:
+- SATISFIABLE
+- Branches: 5
+- Conflicts: 2
+- Literals: \( x1 = \text{False}, x2 = \text{True}, x3 = \text{True}, x4 = \text{False}, x5 = \text{True}, x6 = \text{False}, x7 = \text{True}, x8 = \text{True} \)

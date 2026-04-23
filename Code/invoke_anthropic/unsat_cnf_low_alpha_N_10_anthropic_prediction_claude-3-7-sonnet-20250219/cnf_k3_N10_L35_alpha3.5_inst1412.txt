@@ -1,0 +1,119 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1412
+p cnf 10 35
+5 2 -4 0
+-1 5 4 0
+-5 -2 10 0
+9 1 -6 0
+10 4 -5 0
+-1 2 -5 0
+5 1 -10 0
+2 1 8 0
+6 2 -3 0
+-10 -4 6 0
+-3 -4 8 0
+7 -10 6 0
+6 8 -5 0
+-3 -6 -2 0
+4 8 5 0
+-1 7 -6 0
+8 4 -6 0
+-10 -5 -9 0
+3 4 -7 0
+3 6 4 0
+5 -9 -4 0
+10 -3 5 0
+3 -10 7 0
+5 -6 -8 0
+-10 3 -8 0
+1 9 -8 0
+-5 -1 -6 0
+-7 9 -2 0
+-7 -4 -9 0
+-5 10 6 0
+3 -4 -1 0
+-4 2 -9 0
+6 -7 -5 0
+3 7 8 0
+3 -4 2 0
+
+c GPT solve time: 19.61 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Let me work through this step by step:
+
+Step 1: Initialize all variables as unassigned.
+
+Step 2: Start making decisions and performing unit propagation.
+
+Decision 1: Let's set x1 = true
+- No immediate unit clauses
+
+Decision 2: Let's set x2 = true
+- No immediate unit clauses
+
+Decision 3: Let's set x3 = true
+- Clause (¬x3 ∨ ¬x6 ∨ ¬x2) becomes (¬x6)
+- Unit propagation: x6 = false
+- Clause (x6 ∨ x8 ∨ ¬x5) becomes (x8 ∨ ¬x5)
+- Clause (x6 ∨ x2 ∨ ¬x3) is now unsatisfied (CONFLICT)
+
+Backtrack to Decision 3 and try x3 = false
+- Clause (x3 ∨ x4 ∨ ¬x7) becomes (x4 ∨ ¬x7)
+- Clause (x3 ∨ x6 ∨ x4) becomes (x6 ∨ x4)
+- Clause (x3 ∨ ¬x10 ∨ x7) becomes (¬x10 ∨ x7)
+- Clause (x3 ∨ ¬x4 ∨ ¬x1) becomes (¬x4 ∨ ¬x1), which with x1 = true gives (¬x4)
+- Unit propagation: x4 = false
+- Clause (x4 ∨ x8 ∨ x5) becomes (x8 ∨ x5)
+- Clause (x8 ∨ x4 ∨ ¬x6) becomes (x8 ∨ ¬x6)
+- Clause (x3 ∨ x7 ∨ x8) becomes (x7 ∨ x8)
+- Clause (x3 ∨ ¬x4 ∨ x2) is satisfied
+
+Decision 4: Let's set x5 = true
+- Clause (¬x5 ∨ ¬x2 ∨ x10) with x2 = true becomes (¬x5 ∨ x10), which with x5 = true gives (x10)
+- Unit propagation: x10 = true
+- Clause (¬x10 ∨ ¬x4 ∨ x6) with x4 = false becomes (¬x10 ∨ x6), which with x10 = true gives (x6)
+- Unit propagation: x6 = true
+- Clause (¬x3 ∨ ¬x6 ∨ ¬x2) with x3 = false, x6 = true, x2 = true becomes unsatisfied (CONFLICT)
+
+Backtrack to Decision 4 and try x5 = false
+- Clause (x5 ∨ x2 ∨ ¬x4) with x2 = true and x4 = false is satisfied
+- Clause (¬x1 ∨ x5 ∨ x4) with x1 = true and x4 = false becomes (x5), which with x5 = false is unsatisfied (CONFLICT)
+
+Backtrack to Decision 2 and try x2 = false
+- Clause (¬x1 ∨ x2 ∨ ¬x5) with x1 = true becomes (x2 ∨ ¬x5), which with x2 = false gives (¬x5)
+- Unit propagation: x5 = false
+- Clause (x5 ∨ x2 ∨ ¬x4) with x2 = false becomes (x5 ∨ ¬x4)
+- Clause (x2 ∨ x1 ∨ x8) with x2 = false and x1 = true becomes (x8)
+- Unit propagation: x8 = true
+
+Let's continue with more decisions:
+
+Decision 3: Let's set x3 = true
+- Clause (¬x3 ∨ ¬x4 ∨ x8) with x8 = true is satisfied
+- Clause (¬x3 ∨ ¬x6 ∨ ¬x2) with x2 = false is satisfied
+
+Decision 4: Let's set x4 = true
+- Clause (x5 ∨ x2 ∨ ¬x4) with x5 = false, x2 = false, x4 = true becomes unsatisfied (CONFLICT)
+
+Backtrack to Decision 4 and try x4 = false
+- Clause (x4 ∨ x8 ∨ x5) with x8 = true is satisfied
+
+Decision 5: Let's set x6 = true
+- No immediate conflicts
+
+Decision 6: Let's set x7 = true
+- No immediate conflicts
+
+Decision 7: Let's set x9 = true
+- Clause (¬x10 ∨ ¬x5 ∨ ¬x9) with x5 = false becomes (¬x10 ∨ ¬x9), which with x9 = true gives (¬x10)
+- Unit propagation: x10 = false
+
+All clauses are now satisfied with the assignment:
+x1 = true, x2 = false, x3 = true, x4 = false, x5 = false, x6 = true, x7 = true, x8 = true, x9 = true, x10 = false
+
+SATISFIABLE
+Number of branches: 7
+Number of conflicts: 4
+Values: x1=true, x2=false, x3=true, x4=false, x5=false, x6=true, x7=true, x8=true, x9=true, x10=false

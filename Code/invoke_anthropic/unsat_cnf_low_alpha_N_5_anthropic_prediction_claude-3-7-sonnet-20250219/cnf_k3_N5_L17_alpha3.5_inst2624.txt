@@ -1,0 +1,171 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2624
+p cnf 5 17
+3 -5 1 0
+-3 -2 -4 0
+-3 -1 -2 0
+-4 1 -5 0
+2 4 -3 0
+-2 5 -3 0
+1 5 3 0
+2 -4 -1 0
+5 -2 3 0
+-5 -4 2 0
+3 2 4 0
+-1 -2 -4 0
+-2 3 -5 0
+4 1 -2 0
+3 -1 5 0
+-3 2 1 0
+4 -1 2 0
+
+c GPT solve time: 35.26 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let's start by assigning variables and checking for unit clauses or pure literals.
+
+Step 1: No unit clauses initially. Let's make a decision.
+Decision 1: Set x1 = true
+
+Step 2: Simplify the formula with x1 = true:
+- (x3 ∨ ¬x5 ∨ true) is satisfied
+- (¬x3 ∨ ¬x2 ∨ ¬x4) unchanged
+- (¬x3 ∨ false ∨ ¬x2) becomes (¬x3 ∨ ¬x2)
+- (¬x4 ∨ true ∨ ¬x5) is satisfied
+- (x2 ∨ x4 ∨ ¬x3) unchanged
+- (¬x2 ∨ x5 ∨ ¬x3) unchanged
+- (true ∨ x5 ∨ x3) is satisfied
+- (x2 ∨ ¬x4 ∨ false) becomes (x2 ∨ ¬x4)
+- (x5 ∨ ¬x2 ∨ x3) unchanged
+- (¬x5 ∨ ¬x4 ∨ x2) unchanged
+- (x3 ∨ x2 ∨ x4) unchanged
+- (false ∨ ¬x2 ∨ ¬x4) becomes (¬x2 ∨ ¬x4)
+- (¬x2 ∨ x3 ∨ ¬x5) unchanged
+- (x4 ∨ true ∨ ¬x2) is satisfied
+- (x3 ∨ false ∨ x5) becomes (x3 ∨ x5)
+- (¬x3 ∨ x2 ∨ true) is satisfied
+- (x4 ∨ false ∨ x2) becomes (x4 ∨ x2)
+
+Step 3: No unit clauses yet. Let's make another decision.
+Decision 2: Set x2 = true
+
+Step 4: Simplify the formula with x2 = true:
+- (¬x3 ∨ ¬true ∨ ¬x4) becomes (¬x3 ∨ ¬x4)
+- (¬x3 ∨ ¬x2) becomes (¬x3)
+- (true ∨ x4 ∨ ¬x3) is satisfied
+- (¬true ∨ x5 ∨ ¬x3) becomes (x5 ∨ ¬x3)
+- (true ∨ ¬x4) is satisfied
+- (x5 ∨ ¬true ∨ x3) becomes (x5 ∨ x3)
+- (¬x5 ∨ ¬x4 ∨ true) is satisfied
+- (x3 ∨ true ∨ x4) is satisfied
+- (¬true ∨ ¬x4) becomes (¬x4)
+- (¬true ∨ x3 ∨ ¬x5) becomes (x3 ∨ ¬x5)
+- (x4 ∨ true ∨ ¬true) is satisfied
+- (x4 ∨ true) is satisfied
+
+Step 5: We now have a unit clause (¬x3) and (¬x4)
+Propagate: x3 = false, x4 = false
+
+Step 6: Simplify with x3 = false and x4 = false:
+- (false ∨ ¬x5) becomes (¬x5)
+- (x5 ∨ false) becomes (x5)
+
+Step 7: We have a contradiction: (¬x5) and (x5)
+Conflict detected. Backtrack.
+
+Step 8: Backtrack to Decision 2 and try x2 = false
+
+Step 9: Simplify the formula with x2 = false:
+- (¬x3 ∨ ¬false ∨ ¬x4) is satisfied
+- (¬x3 ∨ ¬x1) unchanged
+- (false ∨ x4 ∨ ¬x3) becomes (x4 ∨ ¬x3)
+- (¬false ∨ x5 ∨ ¬x3) is satisfied
+- (false ∨ ¬x4) becomes (¬x4)
+- (x5 ∨ ¬false ∨ x3) is satisfied
+- (¬x5 ∨ ¬x4 ∨ false) becomes (¬x5 ∨ ¬x4)
+- (x3 ∨ false ∨ x4) becomes (x3 ∨ x4)
+- (¬false ∨ ¬x4) is satisfied
+- (¬false ∨ x3 ∨ ¬x5) is satisfied
+- (x4 ∨ x1 ∨ ¬false) is satisfied
+- (x3 ∨ x5) unchanged
+- (x4 ∨ false) becomes (x4)
+
+Step 10: We have unit clauses (¬x4) and (x4)
+Conflict detected. Backtrack.
+
+Step 11: Backtrack to Decision 1 and try x1 = false
+
+Step 12: Simplify the formula with x1 = false:
+- (x3 ∨ ¬x5 ∨ false) becomes (x3 ∨ ¬x5)
+- (¬x3 ∨ ¬x2 ∨ ¬x4) unchanged
+- (¬x3 ∨ true ∨ ¬x2) is satisfied
+- (¬x4 ∨ false ∨ ¬x5) becomes (¬x4 ∨ ¬x5)
+- (x2 ∨ x4 ∨ ¬x3) unchanged
+- (¬x2 ∨ x5 ∨ ¬x3) unchanged
+- (false ∨ x5 ∨ x3) becomes (x5 ∨ x3)
+- (x2 ∨ ¬x4 ∨ true) is satisfied
+- (x5 ∨ ¬x2 ∨ x3) unchanged
+- (¬x5 ∨ ¬x4 ∨ x2) unchanged
+- (x3 ∨ x2 ∨ x4) unchanged
+- (true ∨ ¬x2 ∨ ¬x4) is satisfied
+- (¬x2 ∨ x3 ∨ ¬x5) unchanged
+- (x4 ∨ false ∨ ¬x2) becomes (x4 ∨ ¬x2)
+- (x3 ∨ true ∨ x5) is satisfied
+- (¬x3 ∨ x2 ∨ false) becomes (¬x3 ∨ x2)
+- (x4 ∨ true ∨ x2) is satisfied
+
+Step 13: No unit clauses. Let's make another decision.
+Decision 3: Set x3 = true
+
+Step 14: Simplify the formula with x3 = true:
+- (true ∨ ¬x5) is satisfied
+- (¬true ∨ ¬x2 ∨ ¬x4) becomes (¬x2 ∨ ¬x4)
+- (¬x4 ∨ ¬x5) unchanged
+- (x2 ∨ x4 ∨ ¬true) becomes (x2 ∨ x4)
+- (¬x2 ∨ x5 ∨ ¬true) becomes (¬x2 ∨ x5)
+- (x5 ∨ true) is satisfied
+- (x5 ∨ ¬x2 ∨ true) is satisfied
+- (¬x5 ∨ ¬x4 ∨ x2) unchanged
+- (true ∨ x2 ∨ x4) is satisfied
+- (¬x2 ∨ true ∨ ¬x5) is satisfied
+- (x4 ∨ ¬x2) unchanged
+- (¬true ∨ x2) becomes (x2)
+
+Step 15: We have a unit clause (x2)
+Propagate: x2 = true
+
+Step 16: Simplify with x2 = true:
+- (¬true ∨ ¬x4) becomes (¬x4)
+- (true ∨ x4) is satisfied
+- (¬true ∨ x5) becomes (x5)
+- (¬x5 ∨ ¬x4 ∨ true) is satisfied
+- (x4 ∨ ¬true) becomes (x4)
+
+Step 17: We have unit clauses (¬x4) and (x4)
+Conflict detected. Backtrack.
+
+Step 18: Backtrack to Decision 3 and try x3 = false
+
+Step 19: Simplify the formula with x3 = false:
+- (false ∨ ¬x5) becomes (¬x5)
+- (¬false ∨ ¬x2 ∨ ¬x4) is satisfied
+- (¬x4 ∨ ¬x5) unchanged
+- (x2 ∨ x4 ∨ ¬false) is satisfied
+- (¬x2 ∨ x5 ∨ ¬false) is satisfied
+- (x5 ∨ false) becomes (x5)
+- (x5 ∨ ¬x2 ∨ false) becomes (x5 ∨ ¬x2)
+- (¬x5 ∨ ¬x4 ∨ x2) unchanged
+- (false ∨ x2 ∨ x4) becomes (x2 ∨ x4)
+- (¬x2 ∨ false ∨ ¬x5) becomes (¬x2 ∨ ¬x5)
+- (x4 ∨ ¬x2) unchanged
+- (¬false ∨ x2) is satisfied
+
+Step 20: We have unit clauses (¬x5) and (x5)
+Conflict detected. Backtrack.
+
+Step 21: We've tried all possibilities and found conflicts in all branches.
+
+UNSATISFIABLE
+Number of branches: 3
+Number of conflicts: 4

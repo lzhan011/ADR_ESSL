@@ -1,0 +1,78 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1177
+p cnf 8 28
+-2 8 -1 0
+-6 -4 5 0
+-8 -6 -1 0
+4 -6 -5 0
+-7 1 5 0
+-6 -1 8 0
+-8 6 4 0
+6 8 -2 0
+6 -3 8 0
+1 -6 4 0
+6 8 3 0
+-2 -4 -3 0
+1 6 2 0
+-4 2 7 0
+-8 -4 -3 0
+-4 -2 -7 0
+6 -8 3 0
+-7 -2 -5 0
+-3 7 6 0
+-2 3 6 0
+-2 -4 -1 0
+6 1 -5 0
+-7 6 -2 0
+-6 7 3 0
+-5 8 -7 0
+-7 1 5 0
+-4 1 -7 0
+-4 -2 -5 0
+
+c GPT solve time: 5.86 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the clauses based on the assignment:
+   (¬x2 ∨ x8 ∨ ¬x1) -> (True ∨ x8 ∨ False) -> (True)
+   (¬x6 ∨ ¬x4 ∨ x5) -> (True ∨ True ∨ True) -> (True)
+   (¬x8 ∨ ¬x6 ∨ ¬x1) -> (True ∨ True ∨ False) -> (True)
+   (x4 ∨ ¬x6 ∨ ¬x5) -> (False ∨ True ∨ True) -> (True)
+   (¬x7 ∨ x1 ∨ x5) -> (True ∨ True ∨ True) -> (True)
+   (¬x6 ∨ ¬x1 ∨ x8) -> (True ∨ False ∨ True) -> (True)
+   (¬x8 ∨ x6 ∨ x4) -> (True ∨ True ∨ True) -> (True)
+   (x6 ∨ x8 ∨ ¬x2) -> (True ∨ True ∨ True) -> (True)
+   (x6 ∨ ¬x3 ∨ x8) -> (True ∨ True ∨ True) -> (True)
+   (x1 ∨ ¬x6 ∨ x4) -> (True ∨ False ∨ True) -> (True)
+   (x6 ∨ x8 ∨ x3) -> (True ∨ True ∨ True) -> (True)
+   (¬x2 ∨ ¬x4 ∨ ¬x3) -> (True ∨ True ∨ True) -> (True)
+   (x1 ∨ x6 ∨ x2) -> (True ∨ True ∨ True) -> (True)
+   (¬x4 ∨ x2 ∨ x7) -> (True ∨ True ∨ True) -> (True)
+   (¬x8 ∨ ¬x4 ∨ ¬x3) -> (True ∨ True ∨ True) -> (True)
+   (¬x4 ∨ ¬x2 ∨ ¬x7) -> (True ∨ True ∨ True) -> (True)
+   (x6 ∨ ¬x8 ∨ x3) -> (True ∨ True ∨ True) -> (True)
+   (¬x7 ∨ ¬x2 ∨ ¬x5) -> (True ∨ True ∨ True) -> (True)
+   (¬x3 ∨ x7 ∨ x6) -> (True ∨ True ∨ True) -> (True)
+   (¬x2 ∨ x3 ∨ x6) -> (True ∨ True ∨ True) -> (True)
+   (¬x2 ∨ ¬x4 ∨ ¬x1) -> (True ∨ True ∨ True) -> (True)
+   (x6 ∨ x1 ∨ ¬x5) -> (True ∨ True ∨ True) -> (True)
+   (¬x7 ∨ x6 ∨ ¬x2) -> (True ∨ True ∨ True) -> (True)
+   (¬x6 ∨ x7 ∨ x3) -> (True ∨ True ∨ True) -> (True)
+   (¬x5 ∨ x8 ∨ ¬x7) -> (True ∨ True ∨ True) -> (True)
+   (¬x7 ∨ x1 ∨ x5) -> (True ∨ True ∨ True) -> (True)
+   (¬x4 ∨ x1 ∨ ¬x7) -> (True ∨ True ∨ True) -> (True)
+   (¬x4 ∨ ¬x2 ∨ ¬x5) -> (True ∨ True ∨ True) -> (True)
+4. Check if any clause is False. If all clauses are True, the formula is SATISFIABLE.
+   The formula is SATISFIABLE.
+5. Number of branches (decision points): 1
+6. Number of conflicts (backtracking steps): 0
+7. Value for each literal:
+   x1 = True
+   x2 = False
+   x3 = True
+   x4 = False
+   x5 = False
+   x6 = True
+   x7 = True
+   x8 = True

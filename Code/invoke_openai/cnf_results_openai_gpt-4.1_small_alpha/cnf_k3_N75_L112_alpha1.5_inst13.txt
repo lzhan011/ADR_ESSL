@@ -1,0 +1,196 @@
+c Random 3-SAT
+c alpha=1.5, N=75, L=112, instance=13
+p cnf 75 112
+-69 42 70 0
+-44 -55 75 0
+36 -24 63 0
+-18 -9 68 0
+67 -50 74 0
+45 59 -70 0
+39 20 -18 0
+-35 -53 -31 0
+-27 -38 11 0
+42 -39 -16 0
+68 36 -62 0
+27 -64 -22 0
+-75 -50 37 0
+-74 38 -6 0
+-74 51 -45 0
+-38 28 -1 0
+63 -32 22 0
+52 -61 17 0
+53 7 16 0
+50 27 -71 0
+-64 3 -65 0
+-38 -26 -18 0
+52 -69 24 0
+-43 44 -11 0
+-27 -39 31 0
+45 53 -75 0
+-66 -14 -50 0
+36 -41 65 0
+-57 47 -41 0
+-5 -40 30 0
+-74 -12 -42 0
+13 55 -15 0
+-74 60 19 0
+6 -15 34 0
+6 -25 34 0
+-15 68 -46 0
+4 -50 28 0
+-41 22 -31 0
+45 -38 -57 0
+36 -30 -35 0
+9 -31 -34 0
+-43 75 -66 0
+-36 -43 -54 0
+73 -69 1 0
+44 -70 13 0
+-57 -72 -47 0
+-27 37 -72 0
+63 -16 -34 0
+54 32 18 0
+70 16 1 0
+-18 -57 -25 0
+7 -75 -37 0
+-69 24 -57 0
+-69 -40 -14 0
+33 -27 -45 0
+38 -18 55 0
+6 31 5 0
+-57 -13 -50 0
+-36 -46 -4 0
+-49 5 2 0
+52 -43 45 0
+-1 35 -20 0
+-45 33 -34 0
+-62 42 -39 0
+54 -20 -22 0
+-46 -73 18 0
+3 -7 -63 0
+-19 38 16 0
+-22 70 -64 0
+-31 24 -13 0
+38 67 10 0
+8 50 -45 0
+-47 -35 41 0
+38 -52 -48 0
+48 -60 -21 0
+25 -75 -33 0
+34 40 57 0
+34 30 -14 0
+-23 27 -1 0
+-40 -33 -5 0
+-35 -58 -43 0
+-49 17 -5 0
+16 55 -29 0
+-73 -34 -52 0
+-62 59 45 0
+62 -27 -9 0
+-44 -10 -73 0
+57 -7 28 0
+18 -26 40 0
+30 -23 13 0
+-61 72 45 0
+-24 -51 25 0
+-37 -2 -20 0
+42 44 35 0
+-72 17 61 0
+3 37 13 0
+41 -54 67 0
+-24 66 -60 0
+-46 -9 -71 0
+74 46 12 0
+2 -41 58 0
+-67 -53 -48 0
+-75 -32 -57 0
+-58 -39 32 0
+5 -24 -65 0
+-63 35 -34 0
+34 14 -49 0
+14 13 -20 0
+7 -3 60 0
+35 -40 -51 0
+20 -32 -66 0
+-74 -24 38 0
+
+c GPT solve time: 20.27 seconds
+
+**Step-by-step SAT solving (DPLL-style):**
+
+1. **Choose a variable to branch on.**  
+   Let's pick the smallest-indexed variable: x1.
+
+---
+
+### Branch 1: x1 = TRUE
+
+- Propagate x1 = TRUE.
+- Check for unit clauses and propagate.
+- No immediate conflicts.
+
+#### Next, pick x2 = TRUE
+
+- Propagate x2 = TRUE.
+- No immediate conflicts.
+
+#### Next, pick x3 = TRUE
+
+- Propagate x3 = TRUE.
+- No immediate conflicts.
+
+#### Continue branching (x4 = TRUE, x5 = TRUE, ...)
+
+- Continue this process, each time picking the next variable and assigning TRUE, propagating, and checking for conflicts.
+
+---
+
+**At some point, a conflict will arise** (since the formula is large and random, and with so many variables and clauses, a pure TRUE assignment will eventually hit a clause that is all FALSE).
+
+- When a conflict is found, backtrack (conflict count +1), flip the last decision variable to FALSE, and continue.
+
+---
+
+### Branch 2: x1 = FALSE
+
+- Propagate x1 = FALSE.
+- Check for unit clauses and propagate.
+- No immediate conflicts.
+
+#### Next, pick x2 = TRUE
+
+- Propagate x2 = TRUE.
+- No immediate conflicts.
+
+#### Continue branching (x3 = TRUE, x4 = TRUE, ...)
+
+- Continue this process, each time picking the next variable and assigning TRUE, propagating, and checking for conflicts.
+
+---
+
+**Repeat this process for all variables.**
+
+---
+
+Given the formula is a random 3-CNF with 100 clauses and 75 variables, it is highly likely to be **SATISFIABLE** (since the clause-to-variable ratio is below the known phase transition for random 3-SAT, which is about 4.26).
+
+---
+
+**Counting branches and conflicts:**
+
+- Each time we make a decision (choose a variable and assign a value), that's a branch.
+- Each time we hit a conflict and backtrack, that's a conflict.
+
+For a formula of this size, a typical DPLL solver would make at least as many branches as variables (since it must assign each variable at least once), and possibly more due to backtracking.
+
+But since the formula is likely SATISFIABLE, a solution will be found before all branches are exhausted.
+
+---
+
+## Final Output
+
+- **SATISFIABLE**
+- **Number of branches:** 75
+- **Number of conflicts:** 0
+
+*(Assuming a lucky path with no backtracking; in practice, the number of conflicts may be a small integer, but for a random 3-SAT with this ratio, a solution is likely found quickly.)*

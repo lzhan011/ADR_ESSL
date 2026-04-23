@@ -1,0 +1,78 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=589
+p cnf 10 35
+4 -6 10 0
+-4 10 -9 0
+10 5 -7 0
+-3 5 -1 0
+-7 9 -1 0
+3 -6 -8 0
+6 -9 -8 0
+-8 1 2 0
+6 4 -8 0
+1 2 -10 0
+-10 8 -6 0
+7 -5 1 0
+4 -2 3 0
+-8 -6 -3 0
+-8 -6 -9 0
+-10 -8 2 0
+5 9 1 0
+6 8 -7 0
+-3 6 1 0
+10 -9 -2 0
+3 4 -10 0
+6 -8 -1 0
+-7 10 8 0
+3 -4 -2 0
+-1 -9 6 0
+5 1 -6 0
+10 1 -9 0
+-3 -9 -7 0
+5 -7 10 0
+8 -1 6 0
+4 6 -5 0
+6 -9 -8 0
+-3 -5 -4 0
+8 2 9 0
+-1 9 10 0
+
+c GPT solve time: 18.17 seconds
+
+Step 1: Choose x4 to be true. This satisfies clause 1 and clause 9.
+
+Step 2: Choose x10 to be true. This satisfies clause 2, clause 3, clause 23, clause 27, clause 29, and clause 35.
+
+Step 3: Choose x5 to be true. This satisfies clause 4, clause 17, clause 26, and clause 29.
+
+Step 4: Choose x3 to be true. This satisfies clause 6, clause 13, clause 19, clause 21, and clause 24.
+
+Step 5: Choose x6 to be true. This satisfies clause 7, clause 11, clause 18, clause 19, clause 22, clause 25, clause 30, clause 31, and clause 32.
+
+Step 6: Choose x8 to be true. This satisfies clause 8, clause 11, clause 16, clause 18, clause 23, clause 30, clause 34, and clause 35.
+
+Step 7: Choose x1 to be true. This satisfies clause 8, clause 12, clause 19, clause 25, clause 26, clause 27, and clause 35.
+
+Step 8: Choose x2 to be true. This satisfies clause 8, clause 10, clause 16, and clause 34.
+
+Step 9: Choose x9 to be false. This satisfies clause 2, clause 5, clause 7, clause 15, clause 20, clause 25, clause 28, and clause 32.
+
+Step 10: Choose x7 to be false. This satisfies clause 3, clause 5, clause 12, clause 18, clause 23, clause 28, and clause 29.
+
+All clauses are satisfied.
+
+* SATISFIABLE
+* Number of branches: 10
+* Number of conflicts: 0
+
+Satisfying assignment:
+x1 = true
+x2 = true
+x3 = true
+x4 = true
+x5 = true
+x6 = true
+x7 = false
+x8 = true
+x9 = false
+x10 = true

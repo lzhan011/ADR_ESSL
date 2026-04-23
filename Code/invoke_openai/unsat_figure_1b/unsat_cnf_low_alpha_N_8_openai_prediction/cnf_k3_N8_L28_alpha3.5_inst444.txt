@@ -1,0 +1,205 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=444
+p cnf 8 28
+6 -4 5 0
+6 -8 -1 0
+-5 2 -1 0
+5 3 6 0
+-7 -4 -6 0
+-2 4 -3 0
+-4 -3 -2 0
+-6 -1 3 0
+-8 6 -2 0
+1 2 -6 0
+-7 -4 -3 0
+8 -7 2 0
+-2 -8 3 0
+-3 4 2 0
+-2 -8 -7 0
+4 -2 1 0
+-5 -6 -7 0
+3 -6 -7 0
+1 -7 8 0
+1 -4 -2 0
+-3 -2 -6 0
+6 -7 -2 0
+7 2 5 0
+2 7 -8 0
+8 -2 3 0
+2 -4 -5 0
+-5 6 3 0
+7 -2 1 0
+
+c GPT solve time: 22.78 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Variables:** x1, x2, x3, x4, x5, x6, x7, x8
+
+---
+
+### Step 1: Choose a variable to branch on
+
+Let's start with x1 = True.
+
+#### Branch 1: x1 = True
+
+- Propagate x1 = True through the formula.
+
+Check for unit clauses and propagate:
+
+- (x1 ∨ x2 ∨ ¬x6): already satisfied.
+- (x1 ∨ ¬x7 ∨ x8): already satisfied.
+- (x1 ∨ ¬x4 ∨ ¬x2): already satisfied.
+- (x7 ∨ ¬x2 ∨ x1): already satisfied.
+
+No unit clauses. Choose next variable: x2 = True.
+
+##### Branch 1.1: x2 = True
+
+Propagate x2 = True.
+
+- (¬x5 ∨ x2 ∨ ¬x1): satisfied.
+- (¬x2 ∨ x4 ∨ ¬x3): x2 = True ⇒ clause is (False ∨ x4 ∨ ¬x3) ⇒ (x4 ∨ ¬x3)
+- (¬x4 ∨ ¬x3 ∨ ¬x2): x2 = True ⇒ (¬x4 ∨ ¬x3 ∨ False) ⇒ (¬x4 ∨ ¬x3)
+- (¬x8 ∨ x6 ∨ ¬x2): x2 = True ⇒ (¬x8 ∨ x6 ∨ False) ⇒ (¬x8 ∨ x6)
+- (x1 ∨ x2 ∨ ¬x6): satisfied.
+- (¬x7 ∨ ¬x4 ∨ ¬x3): unchanged.
+- (x8 ∨ ¬x7 ∨ x2): satisfied.
+- (¬x2 ∨ ¬x8 ∨ x3): x2 = True ⇒ (False ∨ ¬x8 ∨ x3) ⇒ (¬x8 ∨ x3)
+- (¬x3 ∨ x4 ∨ x2): x2 = True ⇒ satisfied.
+- (¬x2 ∨ ¬x8 ∨ ¬x7): x2 = True ⇒ (False ∨ ¬x8 ∨ ¬x7) ⇒ (¬x8 ∨ ¬x7)
+- (x4 ∨ ¬x2 ∨ x1): x2 = True ⇒ (x4 ∨ False ∨ x1) ⇒ (x4 ∨ x1)
+- (x7 ∨ x2 ∨ x5): x2 = True ⇒ satisfied.
+- (x2 ∨ x7 ∨ ¬x8): x2 = True ⇒ satisfied.
+- (x8 ∨ ¬x2 ∨ x3): x2 = True ⇒ (x8 ∨ False ∨ x3) ⇒ (x8 ∨ x3)
+- (x2 ∨ ¬x4 ∨ ¬x5): x2 = True ⇒ satisfied.
+- (x7 ∨ ¬x2 ∨ x1): x2 = True ⇒ (x7 ∨ False ∨ x1) ⇒ (x7 ∨ x1)
+
+No unit clauses. Next, x3 = True.
+
+###### Branch 1.1.1: x3 = True
+
+Propagate x3 = True.
+
+- (x5 ∨ x3 ∨ x6): satisfied.
+- (¬x2 ∨ ¬x8 ∨ x3): satisfied.
+- (¬x3 ∨ x4 ∨ x2): x3 = True ⇒ (False ∨ x4 ∨ x2) ⇒ (x4 ∨ x2)
+- (¬x4 ∨ ¬x3 ∨ ¬x2): x3 = True ⇒ (¬x4 ∨ False ∨ ¬x2) ⇒ (¬x4 ∨ ¬x2)
+- (x8 ∨ ¬x2 ∨ x3): satisfied.
+- (¬x3 ∨ ¬x2 ∨ ¬x6): x3 = True ⇒ (False ∨ ¬x2 ∨ ¬x6) ⇒ (¬x2 ∨ ¬x6)
+- (x6 ∨ ¬x7 ∨ ¬x2): unchanged.
+- (¬x5 ∨ x6 ∨ x3): satisfied.
+
+No unit clauses. Next, x4 = True.
+
+####### Branch 1.1.1.1: x4 = True
+
+Propagate x4 = True.
+
+- (x6 ∨ ¬x4 ∨ x5): x4 = True ⇒ (x6 ∨ False ∨ x5) ⇒ (x6 ∨ x5)
+- (¬x7 ∨ ¬x4 ∨ ¬x6): x4 = True ⇒ (¬x7 ∨ False ∨ ¬x6) ⇒ (¬x7 ∨ ¬x6)
+- (¬x2 ∨ x4 ∨ ¬x3): satisfied.
+- (¬x4 ∨ ¬x3 ∨ ¬x2): x4 = True ⇒ (False ∨ ¬x3 ∨ ¬x2) ⇒ (¬x3 ∨ ¬x2)
+- (¬x7 ∨ ¬x4 ∨ ¬x3): x4 = True ⇒ (¬x7 ∨ False ∨ ¬x3) ⇒ (¬x7 ∨ ¬x3)
+- (¬x3 ∨ x4 ∨ x2): satisfied.
+- (x4 ∨ ¬x2 ∨ x1): satisfied.
+
+No unit clauses. Next, x5 = True.
+
+######## Branch 1.1.1.1.1: x5 = True
+
+Propagate x5 = True.
+
+- (x6 ∨ x5): satisfied.
+- (¬x5 ∨ x2 ∨ ¬x1): x5 = True ⇒ (False ∨ x2 ∨ ¬x1) ⇒ (x2 ∨ ¬x1)
+- (¬x5 ∨ ¬x6 ∨ ¬x7): x5 = True ⇒ (False ∨ ¬x6 ∨ ¬x7) ⇒ (¬x6 ∨ ¬x7)
+- (x2 ∨ ¬x4 ∨ ¬x5): x5 = True ⇒ (x2 ∨ ¬x4 ∨ False) ⇒ (x2 ∨ ¬x4)
+- (¬x5 ∨ x6 ∨ x3): x5 = True ⇒ (False ∨ x6 ∨ x3) ⇒ (x6 ∨ x3)
+
+No unit clauses. Next, x6 = True.
+
+######### Branch 1.1.1.1.1.1: x6 = True
+
+Propagate x6 = True.
+
+- (x6 ∨ ¬x4 ∨ x5): satisfied.
+- (x6 ∨ ¬x8 ∨ ¬x1): satisfied.
+- (x5 ∨ x3 ∨ x6): satisfied.
+- (¬x7 ∨ ¬x4 ∨ ¬x6): x6 = True ⇒ (¬x7 ∨ ¬x4 ∨ False) ⇒ (¬x7 ∨ ¬x4)
+- (¬x6 ∨ ¬x1 ∨ x3): x6 = True ⇒ (False ∨ ¬x1 ∨ x3) ⇒ (¬x1 ∨ x3)
+- (¬x3 ∨ ¬x2 ∨ ¬x6): x6 = True ⇒ (¬x3 ∨ ¬x2 ∨ False) ⇒ (¬x3 ∨ ¬x2)
+- (x6 ∨ ¬x7 ∨ ¬x2): satisfied.
+- (¬x5 ∨ x6 ∨ x3): satisfied.
+
+No unit clauses. Next, x7 = True.
+
+########## Branch 1.1.1.1.1.1.1: x7 = True
+
+Propagate x7 = True.
+
+- (¬x7 ∨ ¬x4 ∨ ¬x6): x7 = True ⇒ (False ∨ ¬x4 ∨ ¬x6) ⇒ (¬x4 ∨ ¬x6)
+- (¬x7 ∨ ¬x4 ∨ ¬x3): x7 = True ⇒ (False ∨ ¬x4 ∨ ¬x3) ⇒ (¬x4 ∨ ¬x3)
+- (x8 ∨ ¬x7 ∨ x2): x7 = True ⇒ (x8 ∨ False ∨ x2) ⇒ (x8 ∨ x2)
+- (¬x2 ∨ ¬x8 ∨ ¬x7): x7 = True ⇒ (¬x2 ∨ ¬x8 ∨ False) ⇒ (¬x2 ∨ ¬x8)
+- (x7 ∨ x2 ∨ x5): satisfied.
+- (x2 ∨ x7 ∨ ¬x8): satisfied.
+- (x7 ∨ ¬x2 ∨ x1): satisfied.
+
+No unit clauses. Next, x8 = True.
+
+########### Branch 1.1.1.1.1.1.1.1: x8 = True
+
+Propagate x8 = True.
+
+- (x6 ∨ ¬x8 ∨ ¬x1): x8 = True ⇒ (x6 ∨ False ∨ ¬x1) ⇒ (x6 ∨ ¬x1)
+- (¬x8 ∨ x6 ∨ ¬x2): x8 = True ⇒ (False ∨ x6 ∨ ¬x2) ⇒ (x6 ∨ ¬x2)
+- (¬x2 ∨ ¬x8 ∨ x3): x8 = True ⇒ (¬x2 ∨ False ∨ x3) ⇒ (¬x2 ∨ x3)
+- (¬x2 ∨ ¬x8 ∨ ¬x7): x8 = True ⇒ (¬x2 ∨ False ∨ ¬x7) ⇒ (¬x2 ∨ ¬x7)
+- (x8 ∨ ¬x2 ∨ x3): satisfied.
+
+All clauses are satisfied with the following assignment:
+
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = True
+- x7 = True
+- x8 = True
+
+---
+
+### Counting branches and conflicts
+
+Let's count the branches (decision points):
+
+1. x1 = True
+2. x2 = True
+3. x3 = True
+4. x4 = True
+5. x5 = True
+6. x6 = True
+7. x7 = True
+8. x8 = True
+
+No conflicts occurred, as we never had to backtrack.
+
+---
+
+## Final Output
+
+- SATISFIABLE
+- Number of branches: 8
+- Number of conflicts: 0
+
+**Assignment:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = True
+- x7 = True
+- x8 = True

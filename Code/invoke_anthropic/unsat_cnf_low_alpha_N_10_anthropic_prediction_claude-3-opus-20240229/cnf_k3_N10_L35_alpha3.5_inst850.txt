@@ -1,0 +1,82 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=850
+p cnf 10 35
+-3 -8 -7 0
+1 9 -5 0
+-7 2 -5 0
+-4 -1 -6 0
+9 -1 -6 0
+5 3 -1 0
+-1 -3 -6 0
+6 -1 3 0
+-9 3 -4 0
+4 -3 1 0
+-7 2 5 0
+-4 -9 3 0
+-2 3 9 0
+-6 1 10 0
+1 6 8 0
+-9 -8 3 0
+6 -3 -8 0
+-3 10 -2 0
+-2 7 3 0
+10 -9 1 0
+9 -8 2 0
+8 1 -9 0
+-6 2 3 0
+-4 -3 -5 0
+-9 -8 -5 0
+8 5 -2 0
+8 10 -3 0
+-6 -8 -5 0
+-7 8 -9 0
+-4 -3 7 0
+5 7 4 0
+9 -7 -1 0
+2 -6 9 0
+-1 -10 -5 0
+10 9 4 0
+
+c GPT solve time: 14.03 seconds
+
+Okay, let's solve this 3-CNF formula step-by-step using the DPLL algorithm:
+
+1. Choose x1 as the first decision variable. Set x1 = 1.
+
+2. Unit propagation:
+   (x9 ∨ ¬x5) from clause 2.
+   (x5 ∨ x3) from clause 6.
+   (x6 ∨ x8) from clause 15.
+   No conflicts found.
+
+3. Choose x2 as the next decision variable. Set x2 = 1.
+
+4. Unit propagation:
+   (x3 ∨ x9) from clause 13.
+   (x7 ∨ x3) from clause 19.
+   No conflicts found.
+
+5. Choose x4 as the next decision variable. Set x4 = 1.
+
+6. Unit propagation:
+   (x5 ∨ x7) from clause 31.
+   (x10 ∨ x9) from clause 35.
+   No conflicts found.
+
+7. All variables are assigned, and no conflicts were encountered. The formula is SATISFIABLE.
+
+The satisfying assignment is:
+x1 = 1
+x2 = 1
+x3 = 1
+x4 = 1
+x5 = 1
+x6 = 1
+x7 = 1
+x8 = 1
+x9 = 1
+x10 = 1
+
+* SATISFIABLE
+* Number of branches: 3
+* Number of conflicts: 0

@@ -1,0 +1,123 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1172
+p cnf 10 35
+-3 -8 -7 0
+10 9 1 0
+-5 4 10 0
+8 3 1 0
+-6 1 -8 0
+-1 10 -9 0
+-1 -9 7 0
+-8 4 7 0
+-5 3 7 0
+4 3 -9 0
+-6 8 5 0
+-2 9 -8 0
+3 5 -1 0
+-10 4 -3 0
+5 -3 -8 0
+-2 -1 3 0
+-5 8 -4 0
+10 8 6 0
+2 -3 -4 0
+5 -2 -4 0
+4 -8 7 0
+9 -2 4 0
+-5 -1 2 0
+8 -6 9 0
+3 -9 -4 0
+-9 -8 -4 0
+-8 3 4 0
+9 -2 4 0
+-5 1 6 0
+-6 -7 -8 0
+-8 -7 -6 0
+-9 -7 -2 0
+-4 -10 5 0
+9 4 -3 0
+4 -8 -7 0
+
+c GPT solve time: 14.24 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1.
+3. Assign x1 = True.
+4. Update the clauses based on the assignment:
+   (¬x3 ∨ ¬x8 ∨ ¬x7) -> (True ∨ True ∨ True) -> True
+   (x10 ∨ x9 ∨ x1) -> (False ∨ False ∨ True) -> True
+   (¬x5 ∨ x4 ∨ x10) -> (True ∨ False ∨ False) -> True
+   (x8 ∨ x3 ∨ x1) -> (False ∨ False ∨ True) -> True
+   (¬x6 ∨ x1 ∨ ¬x8) -> (True ∨ True ∨ False) -> True
+   (¬x1 ∨ x10 ∨ ¬x9) -> (False ∨ False ∨ True) -> True
+   (¬x1 ∨ ¬x9 ∨ x7) -> (False ∨ True ∨ True) -> True
+   (¬x8 ∨ x4 ∨ x7) -> (True ∨ False ∨ True) -> True
+   (¬x5 ∨ x3 ∨ x7) -> (True ∨ False ∨ True) -> True
+   (x4 ∨ x3 ∨ ¬x9) -> (False ∨ False ∨ True) -> True
+   (¬x6 ∨ x8 ∨ x5) -> (True ∨ False ∨ True) -> True
+   (¬x2 ∨ x9 ∨ ¬x8) -> (True ∨ False ∨ True) -> True
+   (x3 ∨ x5 ∨ ¬x1) -> (False ∨ False ∨ False) -> False
+   (¬x10 ∨ x4 ∨ ¬x3) -> (True ∨ False ∨ False) -> True
+   (x5 ∨ ¬x3 ∨ ¬x8) -> (False ∨ False ∨ True) -> True
+   (¬x2 ∨ ¬x1 ∨ x3) -> (True ∨ False ∨ False) -> True
+   (¬x5 ∨ x8 ∨ ¬x4) -> (True ∨ False ∨ True) -> True
+   (x10 ∨ x8 ∨ x6) -> (False ∨ False ∨ False) -> False
+   (x2 ∨ ¬x3 ∨ ¬x4) -> (False ∨ False ∨ False) -> False
+   (x5 ∨ ¬x2 ∨ ¬x4) -> (False ∨ True ∨ False) -> True
+   (x4 ∨ ¬x8 ∨ x7) -> (False ∨ True ∨ True) -> True
+   (x9 ∨ ¬x2 ∨ x4) -> (False ∨ True ∨ False) -> True
+   (¬x5 ∨ ¬x1 ∨ x2) -> (True ∨ False ∨ True) -> True
+   (x8 ∨ ¬x6 ∨ x9) -> (False ∨ True ∨ False) -> True
+   (x3 ∨ ¬x9 ∨ ¬x4) -> (False ∨ True ∨ True) -> True
+   (¬x9 ∨ ¬x8 ∨ ¬x4) -> (True ∨ True ∨ True) -> True
+   (¬x8 ∨ x3 ∨ x4) -> (True ∨ False ∨ True) -> True
+   (x9 ∨ ¬x2 ∨ x4) -> (False ∨ True ∨ False) -> True
+   (¬x5 ∨ x1 ∨ x6) -> (True ∨ True ∨ False) -> True
+   (¬x6 ∨ ¬x7 ∨ ¬x8) -> (True ∨ True ∨ True) -> True
+   (¬x8 ∨ ¬x7 ∨ ¬x6) -> (True ∨ True ∨ True) -> True
+   (¬x9 ∨ ¬x7 ∨ ¬x2) -> (True ∨ True ∨ True) -> True
+   (¬x4 ∨ ¬x10 ∨ x5) -> (True ∨ True ∨ True) -> True
+   (x9 ∨ x4 ∨ ¬x3) -> (False ∨ False ∨ False) -> False
+   (x4 ∨ ¬x8 ∨ ¬x7) -> (False ∨ True ∨ True) -> True
+5. Since there are conflicting clauses, we need to backtrack.
+6. Backtrack to the last decision point (x1 = True) and assign x1 = False.
+7. Update the clauses based on the new assignment:
+   (¬x3 ∨ ¬x8 ∨ ¬x7) -> (True ∨ True ∨ True) -> True
+   (x10 ∨ x9 ∨ x1) -> (False ∨ False ∨ False) -> False
+   (¬x5 ∨ x4 ∨ x10) -> (True ∨ False ∨ False) -> True
+   (x8 ∨ x3 ∨ x1) -> (False ∨ False ∨ False) -> False
+   (¬x6 ∨ x1 ∨ ¬x8) -> (True ∨ True ∨ True) -> True
+   (¬x1 ∨ x10 ∨ ¬x9) -> (False ∨ False ∨ True) -> True
+   (¬x1 ∨ ¬x9 ∨ x7) -> (False ∨ True ∨ True) -> True
+   (¬x8 ∨ x4 ∨ x7) -> (True ∨ False ∨ True) -> True
+   (¬x5 ∨ x3 ∨ x7) -> (True ∨ False ∨ True) -> True
+   (x4 ∨ x3 ∨ ¬x9) -> (False ∨ False ∨ True) -> True
+   (¬x6 ∨ x8 ∨ x5) -> (True ∨ False ∨ True) -> True
+   (¬x2 ∨ x9 ∨ ¬x8) -> (True ∨ False ∨ True) -> True
+   (x3 ∨ x5 ∨ ¬x1) -> (False ∨ False ∨ True) -> True
+   (¬x10 ∨ x4 ∨ ¬x3) -> (True ∨ False ∨ False) -> True
+   (x5 ∨ ¬x3 ∨ ¬x8) -> (False ∨ False ∨ True) -> True
+   (¬x2 ∨ ¬x1 ∨ x3) -> (True ∨ False ∨ False) -> True
+   (¬x5 ∨ x8 ∨ ¬x4) -> (True ∨ False ∨ True) -> True
+   (x10 ∨ x8 ∨ x6) -> (False ∨ False ∨ False) -> False
+   (x2 ∨ ¬x3 ∨ ¬x4) -> (False ∨ False ∨ False) -> False
+   (x5 ∨ ¬x2 ∨ ¬x4) -> (False ∨ True ∨ False) -> True
+   (x4 ∨ ¬x8 ∨ x7) -> (False ∨ True ∨ True) -> True
+   (x9 ∨ ¬x2 ∨ x4) -> (False ∨ True ∨ False) -> True
+   (¬x5 ∨ ¬x1 ∨ x2) -> (True ∨ False ∨ True) -> True
+   (x8 ∨ ¬x6 ∨ x9) -> (False ∨ True ∨ False) -> True
+   (x3 ∨ ¬x9 ∨ ¬x4) -> (False ∨ True ∨ True) -> True
+   (¬x9 ∨ ¬x8 ∨ ¬x4) -> (True ∨ True ∨ True) -> True
+   (¬x8 ∨ x3 ∨ x4) -> (True ∨ False ∨ True) -> True
+   (x9 ∨ ¬x2 ∨ x4) -> (False ∨ True ∨ False) -> True
+   (¬x5 ∨ x1 ∨ x6) -> (True ∨ True ∨ False) -> True
+   (¬x6 ∨ ¬x7 ∨ ¬x8) -> (True ∨ True ∨ True) -> True
+   (¬x8 ∨ ¬x7 ∨ ¬x6) -> (True ∨ True ∨ True) -> True
+   (¬x9 ∨ ¬x7 ∨ ¬x2) -> (True ∨ True ∨ True) -> True
+   (¬x4 ∨ ¬x10 ∨ x5) -> (True ∨ True ∨ True) -> True
+   (x9 ∨ x4 ∨ ¬x3) -> (False ∨ False ∨ False) -> False
+   (x4 ∨ ¬x8 ∨ ¬x7) -> (False ∨ True ∨ True) -> True
+8. Since there are no more decisions to make and all clauses are satisfied, the formula is SATISFIABLE.
+9. Number of branches (decision points): 1
+10. Number of conflicts (backtracking steps): 1
+11. Value for each literal:
+    x1 = False

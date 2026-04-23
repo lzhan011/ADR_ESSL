@@ -1,0 +1,125 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1322
+p cnf 5 17
+5 1 -2 0
+-5 1 4 0
+4 -1 -2 0
+-2 -3 5 0
+2 -4 -3 0
+2 3 1 0
+4 -1 -2 0
+5 2 1 0
+-5 3 -4 0
+3 4 -1 0
+4 -3 -1 0
+-5 -4 -3 0
+1 2 -5 0
+-2 -3 -1 0
+5 2 -3 0
+5 -1 -2 0
+-1 -4 5 0
+
+c GPT solve time: 9.13 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking (conflicts)
+
+Let’s denote the variables: x1, x2, x3, x4, x5.
+
+Step-by-step DPLL:
+
+Step 1: No unit clauses or pure literals initially. Start branching.
+
+Branch 1: Assign x1 = True (Decision Point 1)
+
+→ Simplify clauses:
+- Any clause with x1 becomes true and is removed.
+- Any clause with ¬x1 has ¬x1 removed.
+
+Simplified formula:
+(¬x2 ∨ ¬x3 ∨ x5)
+(x2 ∨ ¬x4 ∨ ¬x3)
+(x4 ∨ ¬x2)
+(x5 ∨ x2)
+(¬x5 ∨ x3 ∨ ¬x4)
+(x4 ∨ ¬x3)
+(x4 ∨ ¬x3)
+(¬x5 ∨ ¬x4 ∨ ¬x3)
+(¬x2 ∨ ¬x3)
+(x5 ∨ x2 ∨ ¬x3)
+(x5 ∨ ¬x2)
+(¬x4 ∨ x5)
+
+Step 2: No unit clauses or pure literals. Branch again.
+
+Branch 2: Assign x2 = True (Decision Point 2)
+
+→ Simplify:
+- Clauses with x2 are satisfied and removed.
+- Clauses with ¬x2 have ¬x2 removed.
+
+Remaining clauses:
+(¬x3 ∨ x5)
+(¬x4 ∨ ¬x3)
+(¬x5 ∨ x3 ∨ ¬x4)
+(x4 ∨ ¬x3)
+(x4 ∨ ¬x3)
+(¬x5 ∨ ¬x4 ∨ ¬x3)
+(¬x3)
+(x5 ∨ ¬x3)
+(x5)
+(¬x4 ∨ x5)
+
+Step 3: Unit clause (¬x3) → x3 = False
+
+→ Propagate x3 = False
+
+Simplify:
+- Clauses with ¬x3 are satisfied and removed.
+- Clauses with x3 have x3 removed.
+
+Remaining:
+(¬x4)
+(x5)
+(¬x4 ∨ x5)
+
+Step 4: Unit clause (¬x4) → x4 = False
+
+→ Propagate x4 = False
+
+Simplify:
+- Clauses with ¬x4 are satisfied and removed.
+- Clauses with x4 removed.
+
+Remaining:
+(x5)
+
+Step 5: Unit clause (x5) → x5 = True
+
+→ All clauses satisfied.
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False  
+x5 = True
+
+All clauses are satisfied.
+
+Summary:
+
+- SATISFIABLE
+- Number of branches: 2 (x1, x2)
+- Number of conflicts: 0
+
+Assignment:
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False  
+x5 = True

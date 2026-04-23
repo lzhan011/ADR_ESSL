@@ -1,0 +1,186 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1750
+p cnf 5 17
+3 2 5 0
+4 3 1 0
+-2 1 -4 0
+-4 1 3 0
+3 -5 1 0
+-5 3 -1 0
+4 -1 -3 0
+2 -1 -4 0
+-5 3 4 0
+3 1 4 0
+-3 2 -4 0
+1 -4 2 0
+4 1 -3 0
+-1 5 -2 0
+-4 -2 -3 0
+4 -3 2 0
+5 -4 3 0
+
+c GPT solve time: 44.25 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Let me start by analyzing the formula and making decisions:
+
+Branch 1: Let's set x1 = true
+- Simplifying clauses with x1:
+  - (¬x2 ∨ true ∨ ¬x4) becomes satisfied
+  - (¬x4 ∨ true ∨ x3) becomes satisfied
+  - (x3 ∨ ¬x5 ∨ true) becomes satisfied
+  - (¬x5 ∨ x3 ∨ ¬true) becomes (¬x5 ∨ x3)
+  - (x4 ∨ ¬true ∨ ¬x3) becomes (x4 ∨ ¬x3)
+  - (x2 ∨ ¬true ∨ ¬x4) becomes (x2 ∨ ¬x4)
+  - (x3 ∨ true ∨ x4) becomes satisfied
+  - (true ∨ ¬x4 ∨ x2) becomes satisfied
+  - (x4 ∨ true ∨ ¬x3) becomes satisfied
+  - (¬true ∨ x5 ∨ ¬x2) becomes (x5 ∨ ¬x2)
+
+Branch 2: Let's set x3 = true
+- Simplifying clauses with x3:
+  - (true ∨ x2 ∨ x5) becomes satisfied
+  - (x4 ∨ true ∨ x1) becomes satisfied
+  - (¬x5 ∨ true ∨ ¬x1) becomes satisfied
+  - (x4 ∨ ¬x1 ∨ ¬true) becomes (x4 ∨ ¬x1)
+  - (¬x5 ∨ true ∨ x4) becomes satisfied
+  - (¬true ∨ x2 ∨ ¬x4) becomes (x2 ∨ ¬x4)
+  - (¬x4 ∨ ¬x2 ∨ ¬true) becomes (¬x4 ∨ ¬x2)
+  - (x4 ∨ ¬true ∨ x2) becomes (x4 ∨ x2)
+  - (x5 ∨ ¬x4 ∨ true) becomes satisfied
+
+Branch 3: Let's set x2 = true
+- Simplifying clauses with x2:
+  - (x5 ∨ ¬x2) becomes (x5)
+  - Unit propagation: x5 = true
+  - (¬x4 ∨ ¬true ∨ ¬x3) becomes (¬x4)
+  - Unit propagation: x4 = false
+  - (x4 ∨ ¬x1) becomes (¬x1)
+  - This conflicts with our assignment x1 = true
+
+Conflict 1: Backtrack to Branch 2 and try x2 = false
+- With x2 = false:
+  - (x5 ∨ ¬false) becomes satisfied
+  - (¬x4 ∨ ¬false ∨ ¬x3) becomes (¬x4 ∨ ¬x3)
+  - (x4 ∨ ¬x3) and (¬x4 ∨ ¬x3) simplify to (¬x3)
+  - This conflicts with our assignment x3 = true
+
+Conflict 2: Backtrack to Branch 1 and try x3 = false
+- With x3 = false:
+  - (false ∨ x2 ∨ x5) becomes (x2 ∨ x5)
+  - (x4 ∨ false ∨ x1) becomes (x4)
+  - Unit propagation: x4 = true
+  - (¬x2 ∨ x1 ∨ ¬true) becomes (¬x2 ∨ x1)
+  - (¬true ∨ x1 ∨ false) becomes (x1)
+  - (false ∨ ¬x5 ∨ x1) becomes (¬x5 ∨ x1)
+  - (¬x5 ∨ false ∨ ¬x1) becomes (¬x5 ∨ ¬x1)
+  - (true ∨ ¬x1 ∨ ¬false) becomes satisfied
+  - (x2 ∨ ¬x1 ∨ ¬true) becomes (x2 ∨ ¬x1)
+  - (¬x5 ∨ false ∨ true) becomes (¬x5)
+  - Unit propagation: x5 = false
+  - (false ∨ x1 ∨ true) becomes satisfied
+  - (¬false ∨ x2 ∨ ¬true) becomes (x2)
+  - Unit propagation: x2 = true
+  - (x1 ∨ ¬true ∨ true) becomes satisfied
+  - (true ∨ x1 ∨ ¬false) becomes satisfied
+  - (¬x1 ∨ false ∨ ¬true) becomes (¬x1)
+  - This conflicts with our assignment x1 = true
+
+Conflict 3: Backtrack to root and try x1 = false
+- With x1 = false:
+  - (x4 ∨ x3 ∨ false) becomes (x4 ∨ x3)
+  - (¬x2 ∨ false ∨ ¬x4) becomes (¬x2 ∨ ¬x4)
+  - (¬x4 ∨ false ∨ x3) becomes (¬x4 ∨ x3)
+  - (x3 ∨ ¬x5 ∨ false) becomes (x3 ∨ ¬x5)
+  - (¬x5 ∨ x3 ∨ ¬false) becomes (¬x5 ∨ x3)
+  - (x4 ∨ ¬false ∨ ¬x3) becomes satisfied
+  - (x2 ∨ ¬false ∨ ¬x4) becomes satisfied
+  - (x3 ∨ false ∨ x4) becomes (x3 ∨ x4)
+  - (false ∨ ¬x4 ∨ x2) becomes (¬x4 ∨ x2)
+  - (x4 ∨ false ∨ ¬x3) becomes (x4 ∨ ¬x3)
+  - (¬false ∨ x5 ∨ ¬x2) becomes satisfied
+
+Branch 4: Let's set x3 = true
+- Simplifying clauses with x3:
+  - (x4 ∨ true) becomes satisfied
+  - (¬x4 ∨ true) becomes satisfied
+  - (true ∨ ¬x5) becomes satisfied
+  - (¬x5 ∨ true) becomes satisfied
+  - (true ∨ x4) becomes satisfied
+  - (¬x4 ∨ ¬x2 ∨ ¬true) becomes (¬x4 ∨ ¬x2)
+  - (x4 ∨ ¬true ∨ x2) becomes (x4 ∨ x2)
+  - (x5 ∨ ¬x4 ∨ true) becomes satisfied
+
+Branch 5: Let's set x4 = true
+- Simplifying clauses with x4:
+  - (¬x2 ∨ ¬true) becomes (¬x2)
+  - Unit propagation: x2 = false
+  - (¬true ∨ x2) becomes (x2)
+  - This conflicts with our assignment x2 = false
+
+Conflict 4: Backtrack to Branch 4 and try x4 = false
+- With x4 = false:
+  - (¬false ∨ ¬x2) becomes satisfied
+  - (¬false ∨ x2) becomes satisfied
+  - (x2 ∨ ¬false) becomes satisfied
+  - (false ∨ ¬x3) becomes (¬x3)
+  - This conflicts with our assignment x3 = true
+
+Conflict 5: Backtrack to Branch 3 and try x3 = false
+- With x3 = false:
+  - (x4 ∨ false) becomes (x4)
+  - Unit propagation: x4 = true
+  - (¬x2 ∨ ¬true) becomes (¬x2)
+  - Unit propagation: x2 = false
+  - (¬true ∨ false) becomes unsatisfiable
+
+Conflict 6: Backtrack and try x5 = true
+- Let's restart with a different assignment order: x5 = true, x3 = true, x4 = false, x2 = false, x1 = true
+- This assignment satisfies all clauses:
+  - (x3 ∨ x2 ∨ x5) = (true ∨ false ∨ true) = true
+  - (x4 ∨ x3 ∨ x1) = (false ∨ true ∨ true) = true
+  - (¬x2 ∨ x1 ∨ ¬x4) = (¬false ∨ true ∨ ¬false) = true
+  - (¬x4 ∨ x1 ∨ x3) = (¬false ∨ true ∨ true) = true
+  - (x3 ∨ ¬x5 ∨ x1) = (true ∨ ¬true ∨ true) = true
+  - (¬x5 ∨ x3 ∨ ¬x1) = (¬true ∨ true ∨ ¬true) = true
+  - (x4 ∨ ¬x1 ∨ ¬x3) = (false ∨ ¬true ∨ ¬true) = false
+  - Wait, this doesn't work.
+
+Let me try a more systematic approach with a different assignment:
+x1 = true, x2 = false, x3 = true, x4 = false, x5 = true
+
+Checking all clauses:
+1. (x3 ∨ x2 ∨ x5) = (true ∨ false ∨ true) = true
+2. (x4 ∨ x3 ∨ x1) = (false ∨ true ∨ true) = true
+3. (¬x2 ∨ x1 ∨ ¬x4) = (¬false ∨ true ∨ ¬false) = true
+4. (¬x4 ∨ x1 ∨ x3) = (¬false ∨ true ∨ true) = true
+5. (x3 ∨ ¬x5 ∨ x1) = (true ∨ ¬true ∨ true) = true
+6. (¬x5 ∨ x3 ∨ ¬x1) = (¬true ∨ true ∨ ¬true) = true
+7. (x4 ∨ ¬x1 ∨ ¬x3) = (false ∨ ¬true ∨ ¬true) = false
+
+This assignment doesn't work. Let me try another:
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = false
+
+Checking all clauses:
+1. (x3 ∨ x2 ∨ x5) = (true ∨ true ∨ false) = true
+2. (x4 ∨ x3 ∨ x1) = (false ∨ true ∨ true) = true
+3. (¬x2 ∨ x1 ∨ ¬x4) = (¬true ∨ true ∨ ¬false) = true
+4. (¬x4 ∨ x1 ∨ x3) = (¬false ∨ true ∨ true) = true
+5. (x3 ∨ ¬x5 ∨ x1) = (true ∨ ¬false ∨ true) = true
+6. (¬x5 ∨ x3 ∨ ¬x1) = (¬false ∨ true ∨ ¬true) = true
+7. (x4 ∨ ¬x1 ∨ ¬x3) = (false ∨ ¬true ∨ ¬true) = false
+
+Still not working. Let me try one more assignment:
+x1 = false, x2 = true, x3 = true, x4 = true, x5 = true
+
+Checking all clauses:
+1. (x3 ∨ x2 ∨ x5) = (true ∨ true ∨ true) = true
+2. (x4 ∨ x3 ∨ x1) = (true ∨ true ∨ false) = true
+3. (¬x2 ∨ x1 ∨ ¬x4) = (¬true ∨ false ∨ ¬true) = false
+
+This doesn't work either. After several attempts, I've found that the formula is UNSATISFIABLE.
+
+UNSATISFIABLE
+Number of branches: 5
+Number of conflicts: 6

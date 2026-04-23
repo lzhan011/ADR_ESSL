@@ -17,7 +17,7 @@ DEEPSEEK_CHAT_URL = f"{DEEPSEEK_BASE_URL}/v1/chat/completions"
 
 def _deepseek_api_key():
     key = os.environ.get("DEEPSEEK_API_KEY")
-    key = os.environ["DEEPSEEK_API_KEY"]
+    key = os.environ.get("DEEPSEEK_API_KEY")
     if not key:
         raise RuntimeError("Missing DEEPSEEK_API_KEY in environment.")
     return key

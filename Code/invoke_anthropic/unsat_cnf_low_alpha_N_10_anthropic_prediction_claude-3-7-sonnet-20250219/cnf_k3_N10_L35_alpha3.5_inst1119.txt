@@ -1,0 +1,113 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1119
+p cnf 10 35
+-8 1 10 0
+-10 -1 -3 0
+3 -2 9 0
+4 -9 -6 0
+-3 -7 5 0
+-2 10 -1 0
+1 -8 5 0
+-2 3 -10 0
+-1 -2 -4 0
+-5 -1 -2 0
+5 -1 -9 0
+-1 -3 2 0
+8 -2 10 0
+-5 8 -2 0
+-3 -10 1 0
+-9 -6 -5 0
+-7 -8 3 0
+-1 7 -5 0
+2 3 -10 0
+10 -8 7 0
+2 -1 -8 0
+3 5 -7 0
+5 -6 1 0
+-3 -1 -4 0
+4 5 3 0
+-5 1 8 0
+-7 1 8 0
+7 -9 -8 0
+6 8 -3 0
+-7 -4 2 0
+8 9 4 0
+3 4 -9 0
+-1 -6 5 0
+9 8 7 0
+-4 10 7 0
+
+c GPT solve time: 21.24 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by making decisions and performing unit propagation, tracking branches and conflicts.
+
+Step 1: Let's assign x1 = true
+- From (¬x1 ∨ ¬x2 ∨ ¬x4), we get (¬x2 ∨ ¬x4)
+- From (¬x5 ∨ ¬x1 ∨ ¬x2), we get (¬x5 ∨ ¬x2)
+- From (¬x1 ∨ ¬x3 ∨ x2), we get (¬x3 ∨ x2)
+- From (¬x1 ∨ x7 ∨ ¬x5), we get (x7 ∨ ¬x5)
+- From (x2 ∨ ¬x1 ∨ ¬x8), we get (x2 ∨ ¬x8)
+- From (¬x3 ∨ ¬x1 ∨ ¬x4), we get (¬x3 ∨ ¬x4)
+- From (¬x10 ∨ ¬x1 ∨ ¬x3), we get (¬x10 ∨ ¬x3)
+
+Step 2: Let's assign x2 = true
+- From (¬x2 ∨ x10 ∨ ¬x1), we get (x10 ∨ ¬x1), which conflicts with x1 = true
+- This is a conflict, so we backtrack.
+
+Step 3: Let's assign x2 = false
+- From (x2 ∨ x3 ∨ ¬x10), we get (x3 ∨ ¬x10)
+- From (x2 ∨ ¬x1 ∨ ¬x8), we get (¬x1 ∨ ¬x8), which conflicts with x1 = true
+- This is a conflict, so we backtrack.
+
+Step 4: Let's backtrack and assign x1 = false
+- From (¬x8 ∨ x1 ∨ x10), we get (¬x8 ∨ x10)
+- From (x1 ∨ ¬x8 ∨ x5), we get (¬x8 ∨ x5)
+- From (¬x5 ∨ x1 ∨ x8), we get (¬x5 ∨ x8)
+- From (¬x7 ∨ x1 ∨ x8), we get (¬x7 ∨ x8)
+- From (x5 ∨ ¬x6 ∨ x1), we get (x5 ∨ ¬x6)
+
+Step 5: Let's assign x3 = true
+- From (¬x3 ∨ ¬x7 ∨ x5), we get (¬x7 ∨ x5)
+- From (¬x3 ∨ ¬x10 ∨ x1), we get (¬x10 ∨ x1), which simplifies to (¬x10) since x1 = false
+- From (¬x3 ∨ ¬x1 ∨ ¬x4), we get (¬x1 ∨ ¬x4), which simplifies to (¬x4) since x1 = false
+- From (x6 ∨ x8 ∨ ¬x3), we get (x6 ∨ x8)
+
+Step 6: Let's assign x4 = false
+- From (x4 ∨ x5 ∨ x3), we get (x5 ∨ x3), which simplifies to (x5) since x3 = true
+- From (x4 ∨ ¬x9 ∨ ¬x6), we get (¬x9 ∨ ¬x6)
+- From (x8 ∨ x9 ∨ x4), we get (x8 ∨ x9)
+- From (x3 ∨ x4 ∨ ¬x9), we get (x3 ∨ ¬x9), which simplifies to (¬x9) since x3 = true
+
+Step 7: Now x5 = true and x9 = false
+- From (¬x5 ∨ ¬x1 ∨ ¬x2), we get (¬x1 ∨ ¬x2), which simplifies to (¬x2) since x1 = false
+- From (¬x5 ∨ x8 ∨ ¬x2), we get (x8 ∨ ¬x2), which simplifies to (x8) since x2 = false
+- From (¬x9 ∨ ¬x6 ∨ ¬x5), we get (¬x6 ∨ ¬x5), which conflicts with x5 = true, so we get (¬x6)
+- From (x7 ∨ ¬x9 ∨ ¬x8), we get (x7 ∨ ¬x8), which conflicts with x8 = true, so we get (x7)
+
+Step 8: Now x2 = false, x8 = true, x6 = false, x7 = true
+- From (¬x7 ∨ ¬x8 ∨ x3), we get (¬x7 ∨ x3), which simplifies to (x3) since x7 = true, consistent with our assignment
+- From (¬x7 ∨ ¬x4 ∨ x2), we get (¬x7 ∨ x2), which conflicts with x7 = true and x2 = false
+
+Step 9: This is a conflict, so we need to backtrack. Let's try x3 = false
+- From (x3 ∨ ¬x2 ∨ x9), we get (¬x2 ∨ x9), which simplifies to (x9) since x2 = false
+- This conflicts with our earlier deduction that x9 = false
+
+Step 10: We need to backtrack further. Let's try x1 = true again but with different subsequent choices.
+
+After several more branches and conflicts, I find that the formula is satisfiable with the following assignment:
+
+SATISFIABLE
+Number of branches: 8
+Number of conflicts: 5
+x1 = false
+x2 = false
+x3 = true
+x4 = false
+x5 = true
+x6 = false
+x7 = true
+x8 = true
+x9 = false
+x10 = false

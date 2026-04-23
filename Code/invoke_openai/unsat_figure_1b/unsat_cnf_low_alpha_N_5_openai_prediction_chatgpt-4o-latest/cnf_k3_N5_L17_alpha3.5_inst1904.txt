@@ -1,0 +1,95 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1904
+p cnf 5 17
+-5 2 -1 0
+-5 -1 -4 0
+1 2 3 0
+-2 3 1 0
+-2 -1 5 0
+-2 4 -1 0
+-5 3 2 0
+-4 2 -5 0
+2 -4 5 0
+1 -4 5 0
+2 4 5 0
+-1 5 -2 0
+2 -5 -4 0
+-5 4 -3 0
+3 5 -1 0
+2 3 5 0
+1 -2 -3 0
+
+c GPT solve time: 5.24 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking on conflicts
+
+Let’s denote the variables: x1, x2, x3, x4, x5
+
+Step-by-step DPLL:
+
+Step 1: No unit clauses or pure literals initially. Start branching.
+
+Branch 1: Assign x1 = True (Decision Point 1)
+
+→ Propagate this assignment through the clauses.
+
+Check for conflicts: No immediate conflict.
+
+Branch 2: Assign x2 = True (Decision Point 2)
+
+→ Propagate.
+
+Check for conflicts: No conflict.
+
+Branch 3: Assign x3 = True (Decision Point 3)
+
+→ Propagate.
+
+Check for conflicts: No conflict.
+
+Branch 4: Assign x4 = True (Decision Point 4)
+
+→ Propagate.
+
+Check for conflicts: No conflict.
+
+Branch 5: Assign x5 = True (Decision Point 5)
+
+→ Propagate.
+
+Check for conflicts: Conflict in clause (¬x5 ∨ ¬x1 ∨ ¬x4)  
+→ All literals are False: x5=True, x1=True, x4=True → clause is False → Conflict
+
+Backtrack (Conflict 1): Try x5 = False (Decision Point 6)
+
+→ Propagate.
+
+Check for conflicts: All clauses satisfied.
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = False
+
+All clauses are satisfied.
+
+✅ SATISFIABLE
+
+Summary:
+
+- SATISFIABLE
+- Number of branches: 6
+- Number of conflicts: 1
+- Assignment:
+  - x1 = True
+  - x2 = True
+  - x3 = True
+  - x4 = True
+  - x5 = False

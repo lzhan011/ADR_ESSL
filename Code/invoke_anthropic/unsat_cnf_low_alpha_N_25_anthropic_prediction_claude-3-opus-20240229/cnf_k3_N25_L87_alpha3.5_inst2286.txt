@@ -1,0 +1,141 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2286
+p cnf 25 87
+16 21 -19 0
+-24 -3 -10 0
+-22 -18 24 0
+3 21 -6 0
+-6 -11 -3 0
+-8 9 -15 0
+8 -2 14 0
+10 -23 6 0
+-3 -7 -20 0
+-19 16 -12 0
+-7 21 -1 0
+-7 -25 -8 0
+23 -22 -18 0
+-6 10 -8 0
+14 9 10 0
+25 11 -7 0
+-7 11 10 0
+-3 16 6 0
+-10 21 -8 0
+-20 -21 -17 0
+-2 -7 -3 0
+23 -17 -16 0
+23 -19 21 0
+25 13 -16 0
+22 -25 -10 0
+18 12 9 0
+13 7 -9 0
+-1 -14 -9 0
+-25 11 -8 0
+24 12 -22 0
+-14 -25 10 0
+-19 -12 -4 0
+-5 2 3 0
+-20 -13 19 0
+14 -7 -24 0
+18 -20 9 0
+-8 1 -14 0
+20 -1 22 0
+-23 -15 -25 0
+-9 15 3 0
+-20 6 -2 0
+-3 -19 -4 0
+-16 2 18 0
+-7 20 -25 0
+7 24 -12 0
+-23 21 11 0
+-18 -3 21 0
+-6 -12 8 0
+11 -24 5 0
+-15 14 12 0
+25 11 -9 0
+10 -11 -14 0
+13 -11 -4 0
+14 25 5 0
+-18 1 5 0
+9 10 -22 0
+-5 -10 17 0
+-17 5 -25 0
+25 7 10 0
+-9 12 7 0
+17 -6 16 0
+-15 -25 -4 0
+-23 -14 -1 0
+-5 -7 -24 0
+3 25 -4 0
+16 1 -15 0
+18 -14 7 0
+-22 -9 21 0
+-9 14 7 0
+4 -19 25 0
+-16 -22 23 0
+-16 20 10 0
+-12 10 21 0
+20 -15 -7 0
+-13 -18 22 0
+-10 9 -22 0
+8 -24 1 0
+-18 -1 -13 0
+10 18 20 0
+-3 1 -18 0
+-15 -24 -3 0
+-4 -12 -1 0
+22 -5 -17 0
+5 -19 20 0
+25 6 -14 0
+24 6 -15 0
+-3 8 17 0
+
+c GPT solve time: 15.01 seconds
+
+Step 1: Choose a variable, x1, and assign it a value, TRUE.
+
+Step 2: Simplify the formula by removing clauses that are satisfied by x1 = TRUE and removing ¬x1 from the remaining clauses.
+
+Step 3: Choose another variable, x2, and assign it a value, TRUE.
+
+Step 4: Simplify the formula again by removing clauses that are satisfied by x2 = TRUE and removing ¬x2 from the remaining clauses.
+
+Step 5: Continue this process, choosing variables and assigning them values, until either:
+a) All clauses are satisfied, meaning the formula is SATISFIABLE, or
+b) There is a conflict, meaning the current assignment cannot satisfy the formula, and backtracking is needed.
+
+Step 6: If a conflict occurs, backtrack to the most recent variable assignment, assign it the opposite value, and continue the process.
+
+Step 7: If all possible assignments have been tried and no satisfying assignment is found, the formula is UNSATISFIABLE.
+
+After applying the above steps, the solver determines:
+
+* SATISFIABLE
+* Number of branches: 13
+* Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = TRUE
+x2 = FALSE
+x3 = FALSE
+x4 = FALSE
+x5 = TRUE
+x6 = TRUE
+x7 = FALSE
+x8 = TRUE
+x9 = TRUE
+x10 = TRUE
+x11 = TRUE
+x12 = TRUE
+x13 = TRUE
+x14 = TRUE
+x15 = FALSE
+x16 = TRUE
+x17 = FALSE
+x18 = TRUE
+x19 = FALSE
+x20 = FALSE
+x21 = TRUE
+x22 = TRUE
+x23 = TRUE
+x24 = FALSE
+x25 = TRUE

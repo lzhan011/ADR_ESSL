@@ -1,0 +1,126 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2372
+p cnf 5 17
+-5 4 1 0
+3 -2 4 0
+1 -2 5 0
+5 1 -4 0
+-3 5 -4 0
+-1 -4 -5 0
+-4 1 -3 0
+5 4 2 0
+-4 1 -5 0
+-5 2 3 0
+4 -1 -3 0
+-4 -3 -1 0
+3 -4 -2 0
+1 5 2 0
+1 -3 2 0
+3 -1 5 0
+-1 2 -5 0
+
+c GPT solve time: 68.60 seconds
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which is a backtracking algorithm for deciding the satisfiability of propositional logic formulas in conjunctive normal form (CNF). Here's the step-by-step solution:
+
+### Step 1: Initial Formula
+The given 3-CNF formula consists of the following clauses:
+1. (¬x5 ∨ x4 ∨ x1)
+2. (x3 ∨ ¬x2 ∨ x4)
+3. (x1 ∨ ¬x2 ∨ x5)
+4. (x5 ∨ x1 ∨ ¬x4)
+5. (¬x3 ∨ x5 ∨ ¬x4)
+6. (¬x1 ∨ ¬x4 ∨ ¬x5)
+7. (¬x4 ∨ x1 ∨ ¬x3)
+8. (x5 ∨ x4 ∨ x2)
+9. (¬x4 ∨ x1 ∨ ¬x5)
+10. (¬x5 ∨ x2 ∨ x3)
+11. (x4 ∨ ¬x1 ∨ ¬x3)
+12. (¬x4 ∨ ¬x3 ∨ ¬x1)
+13. (x3 ∨ ¬x4 ∨ ¬x2)
+14. (x1 ∨ x5 ∨ x2)
+15. (x1 ∨ ¬x3 ∨ x2)
+16. (x3 ∨ ¬x1 ∨ x5)
+17. (¬x1 ∨ x2 ∨ ¬x5)
+
+### Step 2: Apply Unit Propagation and Pure Literal Elimination
+We start by assigning values to variables that are forced by unit clauses or pure literals. However, in this initial state, there are no unit clauses or pure literals, so we proceed with branching.
+
+### Step 3: Branching and Backtracking
+We choose a variable to branch on. Let's start with `x1`.
+
+#### Branch 1: Assume `x1 = True`
+- Assign `x1 = True`.
+- Simplify clauses:
+  - Clauses containing `x1` are satisfied and can be removed: 1, 3, 4, 7, 9, 11, 12, 14, 15, 16, 17.
+  - Remaining clauses: 2, 5, 6, 8, 10, 13.
+- Now, we have:
+  2. (x3 ∨ ¬x2 ∨ x4)
+  5. (¬x3 ∨ x5 ∨ ¬x4)
+  6. (¬x1 ∨ ¬x4 ∨ ¬x5) → simplifies to (¬x4 ∨ ¬x5) because `¬x1` is False.
+  8. (x5 ∨ x4 ∨ x2)
+  10. (¬x5 ∨ x2 ∨ x3)
+  13. (x3 ∨ ¬x4 ∨ ¬x2)
+
+Next, we choose `x2` to branch on.
+
+##### Sub-branch 1.1: Assume `x2 = True`
+- Assign `x2 = True`.
+- Simplify clauses:
+  - Clause 2: (x3 ∨ ¬x2 ∨ x4) → simplifies to (x3 ∨ x4).
+  - Clause 13: (x3 ∨ ¬x4 ∨ ¬x2) → simplifies to (x3 ∨ ¬x4).
+  - Remaining clauses: 5, 6, 8, 10.
+- Now, we have:
+  5. (¬x3 ∨ x5 ∨ ¬x4)
+  6. (¬x4 ∨ ¬x5)
+  8. (x5 ∨ x4 ∨ x2) → simplifies to (x5 ∨ x4).
+  10. (¬x5 ∨ x2 ∨ x3) → simplifies to (¬x5 ∨ x3).
+
+Next, we choose `x3` to branch on.
+
+###### Sub-sub-branch 1.1.1: Assume `x3 = True`
+- Assign `x3 = True`.
+- Simplify clauses:
+  - Clause 5: (¬x3 ∨ x5 ∨ ¬x4) → simplifies to (x5 ∨ ¬x4).
+  - Clause 10: (¬x5 ∨ x3) → simplifies to (¬x5 ∨ True) → satisfied.
+  - Remaining clauses: 6, 8.
+- Now, we have:
+  6. (¬x4 ∨ ¬x5)
+  8. (x5 ∨ x4).
+
+Next, we choose `x4` to branch on.
+
+####### Sub-sub-sub-branch 1.1.1.1: Assume `x4 = True`
+- Assign `x4 = True`.
+- Simplify clauses:
+  - Clause 6: (¬x4 ∨ ¬x5) → simplifies to (¬x5).
+  - Clause 8: (x5 ∨ x4) → simplifies to (x5 ∨ True) → satisfied.
+  - Now, we have:
+    6: (¬x5).
+  - This forces `x5 = False`.
+- Check all clauses with `x5 = False`:
+  - Clause 5: (x5 ∨ ¬x4) → (False ∨ False) → False. Conflict!
+- Backtrack to Sub-sub-sub-branch 1.1.1.1.
+
+####### Sub-sub-sub-branch 1.1.1.2: Assume `x4 = False`
+- Assign `x4 = False`.
+- Simplify clauses:
+  - Clause 6: (¬x4 ∨ ¬x5) → simplifies to (True ∨ ¬x5) → satisfied.
+  - Clause 8: (x5 ∨ x4) → simplifies to (x5 ∨ False) → (x5).
+  - This forces `x5 = True`.
+- Check all clauses with `x5 = True`:
+  - Clause 5: (x5 ∨ ¬x4) → (True ∨ True) → satisfied.
+  - Clause 6: satisfied.
+  - Clause 8: satisfied.
+- All clauses are satisfied.
+- Solution found: `x1 = True`, `x2 = True`, `x3 = True`, `x4 = False`, `x5 = True`.
+
+### Step 4: Count Branches and Conflicts
+- Branches (decision points): 4 (`x1`, `x2`, `x3`, `x4`).
+- Conflicts: 1 (when `x4 = True` and `x5 = False` led to a conflict).
+
+### Final Answer:
+* SATISFIABLE  
+* Number of branches: 4  
+* Number of conflicts: 1  
+* Literal values: x1 = True, x2 = True, x3 = True, x4 = False, x5 = True

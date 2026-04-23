@@ -1,0 +1,337 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1298
+p cnf 10 35
+10 4 -1 0
+-3 5 -2 0
+4 8 -6 0
+-4 -10 3 0
+-5 4 2 0
+-8 5 2 0
+-4 1 7 0
+-1 5 -10 0
+-4 10 -5 0
+6 9 -1 0
+8 -2 -5 0
+7 -3 9 0
+3 -8 -2 0
+1 -9 2 0
+2 3 -9 0
+10 8 5 0
+-4 7 1 0
+6 9 3 0
+4 7 -1 0
+-4 10 2 0
+2 -4 9 0
+5 -7 4 0
+-9 -3 -7 0
+-2 -1 6 0
+9 1 -5 0
+6 3 -10 0
+9 5 -7 0
+5 1 -7 0
+-4 -6 -5 0
+9 -6 -2 0
+-2 -4 8 0
+-9 6 4 0
+-1 -6 4 0
+9 6 -4 0
+-5 7 -9 0
+
+c GPT solve time: 54.41 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List of variables:**  
+x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+**Step 2: Try to find a satisfying assignment.**
+
+Let's start with x1 = True.
+
+### Branch 1: x1 = True
+
+- Clause 1: (x10 ∨ x4 ∨ ¬x1) → (x10 ∨ x4 ∨ False) → (x10 ∨ x4)
+- Clause 7: (¬x4 ∨ x1 ∨ x7) → (¬x4 ∨ True ∨ x7) → True
+- Clause 8: (¬x1 ∨ x5 ∨ ¬x10) → (False ∨ x5 ∨ ¬x10) → (x5 ∨ ¬x10)
+- Clause 13: (x3 ∨ ¬x8 ∨ ¬x2)
+- Clause 14: (x1 ∨ ¬x9 ∨ x2) → (True ∨ ¬x9 ∨ x2) → True
+- Clause 19: (x4 ∨ x7 ∨ ¬x1) → (x4 ∨ x7 ∨ False) → (x4 ∨ x7)
+- Clause 24: (¬x2 ∨ ¬x1 ∨ x6) → (¬x2 ∨ False ∨ x6) → (¬x2 ∨ x6)
+- Clause 25: (x9 ∨ x1 ∨ ¬x5) → (x9 ∨ True ∨ ¬x5) → True
+- Clause 28: (x5 ∨ x1 ∨ ¬x7) → (x5 ∨ True ∨ ¬x7) → True
+- Clause 33: (¬x1 ∨ ¬x6 ∨ x4) → (False ∨ ¬x6 ∨ x4) → (¬x6 ∨ x4)
+
+Let's try x2 = True.
+
+#### Branch 1.1: x1 = True, x2 = True
+
+- Clause 2: (¬x3 ∨ x5 ∨ ¬x2) → (¬x3 ∨ x5 ∨ False) → (¬x3 ∨ x5)
+- Clause 5: (¬x5 ∨ x4 ∨ x2) → (¬x5 ∨ x4 ∨ True) → True
+- Clause 6: (¬x8 ∨ x5 ∨ x2) → (¬x8 ∨ x5 ∨ True) → True
+- Clause 11: (x8 ∨ ¬x2 ∨ ¬x5) → (x8 ∨ False ∨ ¬x5) → (x8 ∨ ¬x5)
+- Clause 15: (x2 ∨ x3 ∨ ¬x9) → (True ∨ x3 ∨ ¬x9) → True
+- Clause 20: (¬x4 ∨ x10 ∨ x2) → (¬x4 ∨ x10 ∨ True) → True
+- Clause 21: (x2 ∨ ¬x4 ∨ x9) → (True ∨ ¬x4 ∨ x9) → True
+- Clause 24: (¬x2 ∨ ¬x1 ∨ x6) → (False ∨ False ∨ x6) → (x6)
+- Clause 30: (x9 ∨ ¬x6 ∨ ¬x2) → (x9 ∨ ¬x6 ∨ False) → (x9 ∨ ¬x6)
+- Clause 31: (¬x2 ∨ ¬x4 ∨ x8) → (False ∨ ¬x4 ∨ x8) → (¬x4 ∨ x8)
+
+From clause 24, x6 must be True.
+
+##### Branch 1.1.1: x1 = True, x2 = True, x6 = True
+
+- Clause 3: (x4 ∨ x8 ∨ ¬x6) → (x4 ∨ x8 ∨ False) → (x4 ∨ x8)
+- Clause 18: (x6 ∨ x9 ∨ x3) → (True ∨ x9 ∨ x3) → True
+- Clause 26: (x6 ∨ x3 ∨ ¬x10) → (True ∨ x3 ∨ ¬x10) → True
+- Clause 32: (¬x9 ∨ x6 ∨ x4) → (¬x9 ∨ True ∨ x4) → True
+- Clause 34: (x9 ∨ x6 ∨ ¬x4) → (x9 ∨ True ∨ ¬x4) → True
+
+Now, from clause 30: (x9 ∨ ¬x6) → (x9 ∨ False) → (x9)
+
+So x9 = True.
+
+###### Branch 1.1.1.1: x1 = True, x2 = True, x6 = True, x9 = True
+
+- Clause 10: (x6 ∨ x9 ∨ ¬x1) → (True ∨ True ∨ False) → True
+- Clause 12: (x7 ∨ ¬x3 ∨ x9) → (x7 ∨ ¬x3 ∨ True) → True
+- Clause 14: already satisfied
+- Clause 15: already satisfied
+- Clause 23: (¬x9 ∨ ¬x3 ∨ ¬x7) → (False ∨ ¬x3 ∨ ¬x7) → (¬x3 ∨ ¬x7)
+- Clause 25: already satisfied
+- Clause 27: (x9 ∨ x5 ∨ ¬x7) → (True ∨ x5 ∨ ¬x7) → True
+- Clause 29: (¬x4 ∨ ¬x6 ∨ ¬x5) → (¬x4 ∨ False ∨ ¬x5) → (¬x4 ∨ ¬x5)
+- Clause 34: already satisfied
+
+Now, let's look at the remaining clauses that are not yet satisfied or reduced to unit:
+
+- Clause 1: (x10 ∨ x4)
+- Clause 3: (x4 ∨ x8)
+- Clause 8: (x5 ∨ ¬x10)
+- Clause 11: (x8 ∨ ¬x5)
+- Clause 13: (x3 ∨ ¬x8 ∨ ¬x2) → (x3 ∨ ¬x8 ∨ False) → (x3 ∨ ¬x8)
+- Clause 16: (x10 ∨ x8 ∨ x5)
+- Clause 17: (¬x4 ∨ x7 ∨ x1) → (¬x4 ∨ x7 ∨ True) → True
+- Clause 19: (x4 ∨ x7)
+- Clause 22: (x5 ∨ ¬x7 ∨ x4)
+- Clause 29: (¬x4 ∨ ¬x5)
+- Clause 31: (¬x4 ∨ x8)
+- Clause 33: (¬x6 ∨ x4) → (False ∨ x4) → (x4)
+
+From clause 33: x4 = True.
+
+Now, substitute x4 = True:
+
+- Clause 1: (x10 ∨ True) → True
+- Clause 3: (True ∨ x8) → True
+- Clause 19: (True ∨ x7) → True
+- Clause 22: (x5 ∨ ¬x7 ∨ True) → True
+- Clause 29: (False ∨ ¬x5) → (¬x5)
+- Clause 31: (False ∨ x8) → (x8)
+
+So, from clause 29: ¬x5 → x5 = False.
+
+From clause 11: (x8 ∨ ¬x5) → (x8 ∨ True) → True
+
+From clause 8: (x5 ∨ ¬x10) → (False ∨ ¬x10) → (¬x10) → x10 = False
+
+From clause 16: (x10 ∨ x8 ∨ x5) → (False ∨ x8 ∨ False) → (x8)
+
+From clause 31: (x8)
+
+So x8 = True.
+
+Now, clause 13: (x3 ∨ ¬x8) → (x3 ∨ False) → (x3)
+
+So x3 = True.
+
+From clause 2: (¬x3 ∨ x5) → (False ∨ False) → False
+
+**Conflict!**
+
+#### Backtrack: x5 = False led to conflict. Let's try x5 = True.
+
+But from clause 29: (¬x4 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5) → x5 = False. Contradiction.
+
+So, the only way to satisfy clause 29 is x5 = False, but that leads to a conflict in clause 2.
+
+#### Backtrack: Try x4 = False
+
+But from clause 33: (¬x6 ∨ x4) → (False ∨ x4) → (x4), so x4 must be True.
+
+#### Backtrack: Try x9 = False
+
+But from clause 30: (x9 ∨ ¬x6) → (False ∨ False) → False
+
+#### Backtrack: Try x6 = False
+
+But from clause 24: (¬x2 ∨ ¬x1 ∨ x6) → (False ∨ False ∨ False) → False
+
+#### Backtrack: Try x2 = False
+
+Go back to branch 1: x1 = True, x2 = False
+
+From clause 24: (¬x2 ∨ ¬x1 ∨ x6) → (True ∨ False ∨ x6) → True
+
+From clause 15: (x2 ∨ x3 ∨ ¬x9) → (False ∨ x3 ∨ ¬x9) → (x3 ∨ ¬x9)
+
+From clause 11: (x8 ∨ ¬x2 ∨ ¬x5) → (x8 ∨ True ∨ ¬x5) → True
+
+From clause 21: (x2 ∨ ¬x4 ∨ x9) → (False ∨ ¬x4 ∨ x9) → (¬x4 ∨ x9)
+
+From clause 31: (¬x2 ∨ ¬x4 ∨ x8) → (True ∨ ¬x4 ∨ x8) → True
+
+From clause 30: (x9 ∨ ¬x6 ∨ ¬x2) → (x9 ∨ ¬x6 ∨ True) → True
+
+From clause 5: (¬x5 ∨ x4 ∨ x2) → (¬x5 ∨ x4 ∨ False) → (¬x5 ∨ x4)
+
+From clause 6: (¬x8 ∨ x5 ∨ x2) → (¬x8 ∨ x5 ∨ False) → (¬x8 ∨ x5)
+
+From clause 13: (x3 ∨ ¬x8 ∨ ¬x2) → (x3 ∨ ¬x8 ∨ True) → True
+
+From clause 14: (x1 ∨ ¬x9 ∨ x2) → (True ∨ ¬x9 ∨ False) → True
+
+From clause 20: (¬x4 ∨ x10 ∨ x2) → (¬x4 ∨ x10 ∨ False) → (¬x4 ∨ x10)
+
+From clause 23: (¬x9 ∨ ¬x3 ∨ ¬x7)
+
+From clause 25: (x9 ∨ x1 ∨ ¬x5) → (x9 ∨ True ∨ ¬x5) → True
+
+From clause 28: (x9 ∨ x5 ∨ ¬x7)
+
+From clause 29: (¬x4 ∨ ¬x6 ∨ ¬x5)
+
+From clause 33: (¬x1 ∨ ¬x6 ∨ x4) → (False ∨ ¬x6 ∨ x4) → (¬x6 ∨ x4)
+
+From clause 34: (x9 ∨ x6 ∨ ¬x4)
+
+From clause 3: (x4 ∨ x8 ∨ ¬x6)
+
+From clause 10: (x6 ∨ x9 ∨ ¬x1) → (x6 ∨ x9 ∨ False) → (x6 ∨ x9)
+
+From clause 18: (x6 ∨ x9 ∨ x3)
+
+From clause 26: (x6 ∨ x3 ∨ ¬x10)
+
+From clause 32: (¬x9 ∨ x6 ∨ x4)
+
+From clause 12: (x7 ∨ ¬x3 ∨ x9)
+
+From clause 19: (x4 ∨ x7 ∨ ¬x1) → (x4 ∨ x7 ∨ False) → (x4 ∨ x7)
+
+From clause 22: (x5 ∨ ¬x7 ∨ x4)
+
+From clause 27: (x9 ∨ x5 ∨ ¬x7)
+
+From clause 16: (x10 ∨ x8 ∨ x5)
+
+From clause 17: (¬x4 ∨ x7 ∨ x1) → (¬x4 ∨ x7 ∨ True) → True
+
+From clause 8: (¬x1 ∨ x5 ∨ ¬x10) → (False ∨ x5 ∨ ¬x10) → (x5 ∨ ¬x10)
+
+From clause 1: (x10 ∨ x4 ∨ ¬x1) → (x10 ∨ x4 ∨ False) → (x10 ∨ x4)
+
+From clause 7: (¬x4 ∨ x1 ∨ x7) → (¬x4 ∨ True ∨ x7) → True
+
+From clause 4: (¬x4 ∨ ¬x10 ∨ x3)
+
+From clause 9: (¬x4 ∨ x10 ∨ ¬x5)
+
+From clause 35: (¬x5 ∨ x7 ∨ ¬x9)
+
+Let's try x4 = True.
+
+##### Branch 1.2.1: x1 = True, x2 = False, x4 = True
+
+From clause 1: (x10 ∨ True) → True
+
+From clause 3: (True ∨ x8 ∨ ¬x6) → True
+
+From clause 5: (¬x5 ∨ True) → True
+
+From clause 9: (False ∨ x10 ∨ ¬x5) → (x10 ∨ ¬x5)
+
+From clause 20: (False ∨ x10) → (x10)
+
+From clause 21: (False ∨ x9) → (x9)
+
+From clause 29: (False ∨ ¬x6 ∨ ¬x5) → (¬x6 ∨ ¬x5)
+
+From clause 33: (¬x6 ∨ True) → True
+
+From clause 34: (x9 ∨ x6 ∨ False) → (x9 ∨ x6)
+
+From clause 19: (True ∨ x7) → True
+
+From clause 22: (x5 ∨ ¬x7 ∨ True) → True
+
+From clause 31: (¬x2 ∨ ¬x4 ∨ x8) → (True ∨ False ∨ x8) → True
+
+From clause 32: (¬x9 ∨ x6 ∨ True) → True
+
+From clause 4: (False ∨ ¬x10 ∨ x3) → (¬x10 ∨ x3)
+
+From clause 6: (¬x8 ∨ x5)
+
+From clause 8: (x5 ∨ ¬x10)
+
+From clause 10: (x6 ∨ x9)
+
+From clause 12: (x7 ∨ ¬x3 ∨ x9)
+
+From clause 13: (x3 ∨ ¬x8)
+
+From clause 14: already satisfied
+
+From clause 15: (x3 ∨ ¬x9)
+
+From clause 16: (x10 ∨ x8 ∨ x5)
+
+From clause 18: (x6 ∨ x9 ∨ x3)
+
+From clause 23: (¬x9 ∨ ¬x3 ∨ ¬x7)
+
+From clause 24: already satisfied
+
+From clause 25: already satisfied
+
+From clause 26: (x6 ∨ x3 ∨ ¬x10)
+
+From clause 27: (x9 ∨ x5 ∨ ¬x7)
+
+From clause 28: (x9 ∨ x5 ∨ ¬x7)
+
+From clause 30: (x9 ∨ ¬x6)
+
+From clause 35: (¬x5 ∨ x7 ∨ ¬x9)
+
+From clause 17: already satisfied
+
+Now, from clause 20: (x10), so x10 = True.
+
+From clause 9: (True ∨ ¬x5) → True
+
+From clause 8: (x5 ∨ False) → (x5)
+
+From clause 16: (True ∨ x8 ∨ x5) → True
+
+From clause 4: (¬x10 ∨ x3) → (False ∨ x3) → (x3)
+
+From clause 13: (x3 ∨ ¬x8)
+
+From clause 15: (x3 ∨ ¬x9)
+
+From clause 10: (x6 ∨ x9)
+
+From clause 21: (x9)
+
+So x9 = True.
+
+From clause 34: (True ∨ x6) → True
+
+From clause 30: (True ∨ ¬x6) → True
+
+From clause 12: (x7 ∨ ¬x3 ∨ True) → True
+
+From clause 23: (False ∨ ¬x3 ∨ ¬x7) → (¬x3 ∨ ¬x7)
+
+From clause 27: (True ∨ x5

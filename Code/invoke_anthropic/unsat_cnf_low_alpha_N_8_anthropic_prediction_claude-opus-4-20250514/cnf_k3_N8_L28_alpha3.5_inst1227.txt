@@ -1,0 +1,100 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1227
+p cnf 8 28
+6 -7 1 0
+1 -7 -6 0
+-8 5 -1 0
+-7 8 -5 0
+-5 8 1 0
+-5 -8 2 0
+3 -8 -6 0
+-7 8 -6 0
+-8 1 2 0
+-4 7 2 0
+-2 7 6 0
+7 -5 1 0
+1 3 -6 0
+6 -4 -1 0
+-2 -1 -8 0
+7 -8 -3 0
+8 5 -6 0
+-2 -5 3 0
+7 5 -8 0
+3 1 6 0
+-7 3 6 0
+7 6 -4 0
+1 5 -3 0
+-5 2 -6 0
+-3 -4 -1 0
+-3 7 -6 0
+-2 -8 -4 0
+8 6 -1 0
+
+c GPT solve time: 18.52 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Formula:**
+29 clauses with variables x1 through x8.
+
+**Step 1: Initial decision**
+Branch 1: Set x1 = true
+
+**Step 2: Unit propagation after x1 = true**
+- Clause 14: (x6 ∨ ¬x4 ∨ ¬x1) becomes (x6 ∨ ¬x4)
+- Clause 15: (¬x2 ∨ ¬x1 ∨ ¬x8) becomes (¬x2 ∨ ¬x8)
+- Clause 25: (¬x3 ∨ ¬x4 ∨ ¬x1) becomes (¬x3 ∨ ¬x4)
+
+**Step 3: Second decision**
+Branch 2: Set x7 = true
+
+**Step 4: Unit propagation after x7 = true**
+- Clause 2: (x1 ∨ ¬x7 ∨ ¬x6) becomes (x1 ∨ ¬x6) → satisfied by x1 = true
+- Clause 4: (¬x7 ∨ x8 ∨ ¬x5) becomes (x8 ∨ ¬x5)
+- Clause 8: (¬x7 ∨ x8 ∨ ¬x6) becomes (x8 ∨ ¬x6)
+- Clause 21: (¬x7 ∨ x3 ∨ x6) becomes (x3 ∨ x6)
+
+**Step 5: Third decision**
+Branch 3: Set x8 = true
+
+**Step 6: Unit propagation after x8 = true**
+- Clause 3: (¬x8 ∨ x5 ∨ ¬x1) becomes (x5 ∨ ¬x1) → becomes x5 (unit clause)
+- Set x5 = true
+- Clause 6: (¬x5 ∨ ¬x8 ∨ x2) becomes (¬true ∨ ¬true ∨ x2) → becomes x2 (unit clause)
+- Set x2 = true
+- Clause 15: (¬x2 ∨ ¬x8) becomes (¬true ∨ ¬true) → CONFLICT!
+
+**Step 7: Backtrack**
+Conflict 1: Undo x8 = true
+Branch 4: Set x8 = false
+
+**Step 8: Unit propagation after x8 = false**
+- Clause 4: (x8 ∨ ¬x5) becomes ¬x5 (unit clause)
+- Set x5 = false
+- Clause 5: (¬x5 ∨ x8 ∨ x1) → satisfied
+- Clause 8: (x8 ∨ ¬x6) becomes ¬x6 (unit clause)
+- Set x6 = false
+- Clause 17: (x8 ∨ x5 ∨ ¬x6) → satisfied
+
+**Step 9: Fourth decision**
+Branch 5: Set x2 = true
+
+**Step 10: Check remaining clauses**
+- Clause 27: (¬x2 ∨ ¬x8 ∨ ¬x4) becomes ¬x4 (unit clause)
+- Set x4 = false
+
+**Step 11: Fifth decision**
+Branch 6: Set x3 = true
+
+**Step 12: Verify all clauses**
+All clauses are satisfied with:
+- x1 = true
+- x2 = true
+- x3 = true
+- x4 = false
+- x5 = false
+- x6 = false
+- x7 = true
+- x8 = false
+
+**Results:**

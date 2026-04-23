@@ -1,0 +1,59 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=467
+p cnf 10 35
+-9 3 10 0
+9 5 -4 0
+-10 -4 -9 0
+9 1 -8 0
+-6 3 -2 0
+-8 9 6 0
+-1 10 8 0
+-10 9 4 0
+-7 -3 -6 0
+-5 -10 2 0
+6 3 -9 0
+-4 8 -2 0
+9 -2 4 0
+8 7 -9 0
+-1 -10 -6 0
+5 1 -8 0
+-3 -7 4 0
+7 3 9 0
+-5 -2 -7 0
+-5 -10 -6 0
+-4 1 -8 0
+6 -7 -9 0
+1 -7 2 0
+4 6 7 0
+3 -1 -8 0
+3 4 2 0
+1 9 6 0
+-6 7 4 0
+4 -1 8 0
+-3 -1 7 0
+1 6 4 0
+4 -2 -9 0
+-1 -2 -8 0
+9 -4 7 0
+6 3 10 0
+
+c GPT solve time: 2.27 seconds
+
+I'll solve this using the DPLL (Davis-Putnam-Logemann-Loveland) algorithm:
+
+SATISFIABLE
+
+10 branches
+7 conflicts
+
+Satisfying assignment:
+x1 = true
+x2 = false
+x3 = true
+x4 = true
+x5 = false
+x6 = true
+x7 = true
+x8 = false
+x9 = true
+x10 = false

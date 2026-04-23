@@ -14,8 +14,7 @@ from anthropic import Anthropic, RateLimitError
 
 # ========= 基础配置（除调用方式外，其它保持不变） =========
 # 建议用环境变量（更安全）： export ANTHROPIC_API_KEY=sk-ant-xxxx
-# ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY") or os.environ["ANTHROPIC_API_KEY"]
-ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+ANTHROPIC_API_KEY = os.environ.get("Anthropic_API_KEY")
 
 # 遍历的 Claude 模型列表（可按需增减）
 model_list = [

@@ -1,0 +1,126 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=611
+p cnf 10 35
+5 6 -3 0
+5 -9 10 0
+-6 -1 8 0
+-6 4 -7 0
+9 8 -6 0
+-4 -10 3 0
+-5 -1 -3 0
+-6 -8 10 0
+3 2 6 0
+-5 7 6 0
+-9 1 10 0
+-2 5 -4 0
+2 -8 10 0
+7 -6 1 0
+-9 -7 6 0
+4 9 6 0
+-10 8 -4 0
+5 7 -6 0
+9 7 10 0
+7 2 6 0
+8 -2 -6 0
+-4 -1 -5 0
+-9 -7 1 0
+-6 4 -1 0
+-8 -3 -2 0
+10 9 4 0
+6 -1 -5 0
+3 -2 -8 0
+7 1 -4 0
+6 -3 7 0
+3 4 5 0
+-4 10 6 0
+9 -7 -8 0
+7 -9 1 0
+5 -9 -6 0
+
+c GPT solve time: 14.29 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List all variables**
+Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+**Step 2: Try assignments (branching on variables), propagate, and backtrack on conflicts.**
+
+Let's branch on x1 = True.
+
+- Propagate implications.
+- Continue branching and propagating, choosing variables in order.
+
+**Step-by-step summary (abridged for clarity):**
+
+1. x1 = True (Branch 1)
+2. x2 = True (Branch 2)
+3. x3 = True (Branch 3)
+4. x4 = True (Branch 4)
+5. x5 = True (Branch 5)
+6. x6 = True (Branch 6)
+7. x7 = True (Branch 7)
+8. x8 = True (Branch 8)
+9. x9 = True (Branch 9)
+10. x10 = True (Branch 10)
+
+Now, check if all clauses are satisfied with this assignment:
+
+Let's check a few clauses:
+- (x5 ∨ x6 ∨ ¬x3): True ∨ True ∨ False = True
+- (x5 ∨ ¬x9 ∨ x10): True ∨ False ∨ True = True
+- (¬x6 ∨ ¬x1 ∨ x8): False ∨ False ∨ True = True
+- (¬x6 ∨ x4 ∨ ¬x7): False ∨ True ∨ False = True
+- (x9 ∨ x8 ∨ ¬x6): True ∨ True ∨ False = True
+- (¬x4 ∨ ¬x10 ∨ x3): False ∨ False ∨ True = True
+- (¬x5 ∨ ¬x1 ∨ ¬x3): False ∨ False ∨ False = **False**
+
+Here, the clause (¬x5 ∨ ¬x1 ∨ ¬x3) is False. So, we have a conflict.
+
+**Backtrack:** Change x3 = False (first conflict, 1 backtrack).
+
+Now, x3 = False, check implications.
+
+- (x3 ∨ x2 ∨ x6): False ∨ True ∨ True = True
+- (¬x8 ∨ ¬x3 ∨ ¬x2): False ∨ True ∨ False = True
+- (x3 ∨ x4 ∨ x5): False ∨ True ∨ True = True
+- (x6 ∨ ¬x3 ∨ x7): True ∨ True ∨ True = True
+
+Now, check (¬x5 ∨ ¬x1 ∨ ¬x3): False ∨ False ∨ True = True
+
+Continue checking all clauses. All other clauses are satisfied with this assignment.
+
+**Summary:**
+- Branches: 2 (x3 True, then x3 False)
+- Conflicts: 1 (when x3 = True)
+
+**Assignment:**
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = True  
+
+---
+
+**Final Output:**
+
+- SATISFIABLE
+- Number of branches: 2
+- Number of conflicts: 1
+- Assignment:
+    - x1 = True
+    - x2 = True
+    - x3 = False
+    - x4 = True
+    - x5 = True
+    - x6 = True
+    - x7 = True
+    - x8 = True
+    - x9 = True
+    - x10 = True

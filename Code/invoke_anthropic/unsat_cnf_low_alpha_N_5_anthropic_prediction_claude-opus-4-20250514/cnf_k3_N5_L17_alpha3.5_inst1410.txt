@@ -1,0 +1,101 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1410
+p cnf 5 17
+2 5 1 0
+-5 3 -4 0
+-3 -2 1 0
+1 -2 -3 0
+3 2 -4 0
+4 -2 -1 0
+-5 1 3 0
+-1 4 3 0
+1 3 4 0
+-4 2 -1 0
+5 -4 3 0
+1 5 -4 0
+5 -1 -3 0
+-2 5 4 0
+2 -5 -3 0
+-3 -2 -1 0
+-4 -1 5 0
+
+c GPT solve time: 18.85 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+**Step 1: Initial Analysis**
+Variables: x1, x2, x3, x4, x5
+Clauses: 17 clauses total
+
+**Step 2: Unit Propagation**
+Looking for unit clauses... None found initially.
+
+**Step 3: Pure Literal Check**
+Checking for pure literals... None found.
+
+**Step 4: Branch 1 - Decision**
+Choose x1 = TRUE
+
+**Step 5: Simplification with x1 = TRUE**
+- Clauses (1), (3), (4), (7), (9), (12) are satisfied
+- Remaining clauses after simplification:
+  - (¬x5 ∨ x3 ∨ ¬x4)
+  - (x3 ∨ x2 ∨ ¬x4)
+  - (x4 ∨ ¬x2)
+  - (x4 ∨ x3)
+  - (¬x4 ∨ x2)
+  - (x5 ∨ ¬x4 ∨ x3)
+  - (x5 ∨ ¬x3)
+  - (¬x2 ∨ x5 ∨ x4)
+  - (x2 ∨ ¬x5 ∨ ¬x3)
+  - (¬x3 ∨ ¬x2)
+  - (¬x4 ∨ x5)
+
+**Step 6: Unit Propagation**
+From (x4 ∨ ¬x2) and (¬x4 ∨ x2), we get x4 = x2
+
+**Step 7: Branch 2 - Decision**
+Choose x2 = TRUE (which means x4 = TRUE)
+
+**Step 8: Simplification with x1 = TRUE, x2 = TRUE, x4 = TRUE**
+- From (¬x3 ∨ ¬x2): x3 = FALSE
+- From (x5 ∨ ¬x3): x5 = TRUE
+- From (¬x5 ∨ x3 ∨ ¬x4): CONFLICT!
+
+**Step 9: Backtrack - Conflict 1**
+Try x2 = FALSE (which means x4 = FALSE)
+
+**Step 10: Simplification with x1 = TRUE, x2 = FALSE, x4 = FALSE**
+- From (x4 ∨ x3): x3 = TRUE
+- From (x5 ∨ ¬x3): x5 = FALSE
+- From (x2 ∨ ¬x5 ∨ ¬x3): CONFLICT!
+
+**Step 11: Backtrack - Conflict 2**
+Backtrack to x1 = FALSE
+
+**Step 12: Branch 3 - Decision**
+Choose x1 = FALSE
+
+**Step 13: Simplification with x1 = FALSE**
+- From (x2 ∨ x5): at least one must be TRUE
+- From (¬x3 ∨ ¬x2): if x2 = TRUE then x3 = FALSE
+- From (x4 ∨ ¬x2): if x2 = TRUE then x4 = TRUE
+
+**Step 14: Branch 4 - Decision**
+Choose x2 = TRUE
+
+**Step 15: Simplification with x1 = FALSE, x2 = TRUE**
+- From (¬x3 ∨ ¬x2): x3 = FALSE
+- From (x4 ∨ ¬x2): x4 = TRUE
+- From (¬x5 ∨ x3 ∨ ¬x4): x5 = FALSE
+- Checking all clauses... All satisfied!
+
+**Solution Found:**
+x1 = FALSE
+x2 = TRUE
+x3 = FALSE
+x4 = TRUE
+x5 = FALSE
+
+SATISFIABLE
+Number of branches

@@ -1,0 +1,94 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1199
+p cnf 8 28
+7 -6 -4 0
+2 -1 -5 0
+-8 1 -2 0
+-4 3 -1 0
+-4 5 2 0
+2 -3 4 0
+6 3 7 0
+4 6 -2 0
+-7 -8 1 0
+2 7 4 0
+-6 -5 3 0
+-2 4 -3 0
+-5 -3 -2 0
+-8 -1 -4 0
+5 8 7 0
+3 -1 -2 0
+-3 -5 7 0
+-5 -2 6 0
+-7 -1 4 0
+1 8 -7 0
+-8 7 -4 0
+8 5 6 0
+-1 -8 -4 0
+3 -4 5 0
+-3 -8 -2 0
+-8 -2 -1 0
+-1 -5 -8 0
+8 -3 -6 0
+
+c GPT solve time: 6.71 seconds
+
+1. Start with an empty assignment.
+2. Choose a variable to assign a truth value to. Let's start with x1 = True.
+3. Update the assignment: x1 = True
+4. Check each clause to see if any can be satisfied with the current assignment:
+   - (x2 ∨ ¬x1 ∨ ¬x5) is satisfied with x1 = True.
+   - (¬x8 ∨ x1 ∨ ¬x2) is satisfied with x1 = True.
+   - (¬x4 ∨ x3 ∨ ¬x1) is satisfied with x1 = True.
+   - (¬x7 ∨ ¬x8 ∨ x1) is satisfied with x1 = True.
+   - (x3 ∨ ¬x1 ∨ ¬x2) is satisfied with x1 = True.
+   - (¬x7 ∨ ¬x1 ∨ x4) is satisfied with x1 = True.
+   - (x1 ∨ x8 ∨ ¬x7) is satisfied with x1 = True.
+   - (¬x1 ∨ ¬x8 ∨ ¬x4) is satisfied with x1 = True.
+5. Update the assignment: x2 = True
+6. Check each clause to see if any can be satisfied with the current assignment:
+   - (¬x4 ∨ x5 ∨ x2) is satisfied with x2 = True.
+   - (x2 ∨ ¬x3 ∨ x4) is satisfied with x2 = True.
+   - (x2 ∨ x7 ∨ x4) is satisfied with x2 = True.
+   - (¬x2 ∨ x4 ∨ ¬x3) is satisfied with x2 = True.
+   - (¬x5 ∨ ¬x3 ∨ ¬x2) is satisfied with x2 = True.
+   - (¬x5 ∨ ¬x2 ∨ x6) is satisfied with x2 = True.
+7. Update the assignment: x3 = True
+8. Check each clause to see if any can be satisfied with the current assignment:
+   - (x6 ∨ x3 ∨ x7) is satisfied with x3 = True.
+   - (x5 ∨ x8 ∨ x7) is satisfied with x3 = True.
+   - (x3 ∨ ¬x4 ∨ x5) is satisfied with x3 = True.
+9. Update the assignment: x4 = True
+10. Check each clause to see if any can be satisfied with the current assignment:
+   - (x7 ∨ ¬x6 ∨ ¬x4) is satisfied with x4 = True.
+   - (¬x4 ∨ x5 ∨ x2) is satisfied with x4 = True.
+   - (¬x4 ∨ x6 ∨ ¬x2) is satisfied with x4 = True.
+   - (¬x8 ∨ ¬x1 ∨ ¬x4) is satisfied with x4 = True.
+   - (¬x3 ∨ ¬x8 ∨ ¬x2) is satisfied with x4 = True.
+   - (¬x8 ∨ x7 ∨ ¬x4) is satisfied with x4 = True.
+11. Update the assignment: x5 = True
+12. Check each clause to see if any can be satisfied with the current assignment:
+   - (x8 ∨ x5 ∨ x6) is satisfied with x5 = True.
+   - (¬x3 ∨ ¬x5 ∨ x7) is satisfied with x5 = True.
+   - (¬x1 ∨ ¬x5 ∨ ¬x8) is satisfied with x5 = True.
+13. Update the assignment: x6 = True
+14. Check each clause to see if any can be satisfied with the current assignment:
+   - (¬x6 ∨ ¬x5 ∨ x3) is satisfied with x6 = True.
+15. Update the assignment: x7 = True
+16. Check each clause to see if any can be satisfied with the current assignment:
+   - (x2 ∨ x7 ∨ x4) is satisfied with x7 = True.
+17. Update the assignment: x8 = True
+18. Check each clause to see if any can be satisfied with the current assignment:
+   - (¬x8 ∨ ¬x2 ∨ ¬x1) is satisfied with x8 = True.
+19. All clauses are satisfied with the current assignment.
+20. The formula is SATISFIABLE.
+21. Number of branches (decision points): 8
+22. Number of conflicts (backtracking steps): 0
+23. Values for literals:
+    x1 = True
+    x2 = True
+    x3 = True
+    x4 = True
+    x5 = True
+    x6 = True
+    x7 = True
+    x8 = True

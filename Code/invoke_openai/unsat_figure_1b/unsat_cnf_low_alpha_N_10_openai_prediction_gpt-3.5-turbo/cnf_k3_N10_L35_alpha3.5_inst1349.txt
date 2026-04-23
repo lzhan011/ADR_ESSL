@@ -1,0 +1,75 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1349
+p cnf 10 35
+8 -10 9 0
+10 8 2 0
+3 -10 -5 0
+-2 -3 -6 0
+-10 -3 9 0
+2 8 -6 0
+8 3 7 0
+3 -6 1 0
+-5 -6 9 0
+-1 -2 9 0
+-4 -8 -10 0
+-8 -7 -10 0
+-10 6 -9 0
+6 3 7 0
+3 -10 -5 0
+-6 -9 -3 0
+10 6 1 0
+-6 8 -5 0
+-8 -4 6 0
+3 4 -8 0
+-6 9 -4 0
+-10 -5 -2 0
+8 -3 4 0
+10 -5 8 0
+-10 3 6 0
+10 -1 -9 0
+-1 5 3 0
+9 -1 4 0
+8 -5 -4 0
+-8 -10 -6 0
+10 1 -6 0
+-8 -7 10 0
+1 -8 2 0
+9 -10 3 0
+-3 -5 -9 0
+
+c GPT solve time: 5.91 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x8.
+3. Assign x8 = True.
+4. Update the clauses based on the assignment:
+   - (x8 ∨ ¬x10 ∨ x9) becomes (True ∨ ¬x10 ∨ x9) which simplifies to True.
+   - (x2 ∨ x8 ∨ x2) becomes (x2 ∨ True ∨ x2) which simplifies to True.
+   - (x2 ∨ x8 ∨ ¬x6) becomes (x2 ∨ True ∨ ¬x6) which simplifies to True.
+   - (x8 ∨ x3 ∨ x7) becomes (True ∨ x3 ∨ x7) which simplifies to True.
+   - (¬x4 ∨ ¬x8 ∨ ¬x10) remains the same.
+   - (x8 ∨ ¬x3 ∨ x4) becomes (True ∨ ¬x3 ∨ x4) which simplifies to True.
+   - (x8 ∨ ¬x5 ∨ ¬x4) becomes (True ∨ ¬x5 ∨ ¬x4) which simplifies to True.
+   - (x9 ∨ ¬x1 ∨ x4) becomes (True ∨ ¬x1 ∨ x4) which simplifies to True.
+   - (¬x8 ∨ ¬x10 ∨ ¬x6) remains the same.
+   - (x9 ∨ ¬x10 ∨ x3) becomes (True ∨ ¬x10 ∨ x3) which simplifies to True.
+5. Choose the next unassigned literal, x10.
+6. Assign x10 = True.
+7. Update the clauses based on the assignment:
+   - (¬x10 ∨ ¬x3 ∨ x9) becomes (False ∨ ¬x3 ∨ True) which simplifies to ¬x3.
+   - (¬x10 ∨ x6 ∨ ¬x9) becomes (False ∨ x6 ∨ False) which simplifies to False.
+   - (¬x10 ∨ ¬x5 ∨ ¬x2) remains the same.
+   - (¬x10 ∨ x3 ∨ x6) becomes (False ∨ x3 ∨ True) which simplifies to x3.
+   - (¬x10 ∨ ¬x5 ∨ x8) remains the same.
+   - (¬x10 ∨ ¬x1 ∨ ¬x9) remains the same.
+   - (x9 ∨ ¬x10 ∨ x3) becomes (True ∨ False ∨ x3) which simplifies to x3.
+8. All literals are assigned, check if all clauses are satisfied:
+   - All clauses are satisfied.
+9. Output:
+   - The formula is SATISFIABLE.
+   - Number of branches: 2
+   - Number of conflicts: 0
+   - Values for literals:
+     x8 = True
+     x10 = True
+     x3 = True

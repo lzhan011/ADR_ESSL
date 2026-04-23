@@ -1,0 +1,257 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1086
+p cnf 10 35
+-7 1 -4 0
+7 5 -8 0
+-6 -7 3 0
+-10 4 -8 0
+-3 -1 2 0
+-7 2 4 0
+3 -5 1 0
+-8 10 3 0
+-2 -1 9 0
+-9 4 -7 0
+-3 4 1 0
+-9 -7 4 0
+-2 -10 7 0
+7 -5 -9 0
+-3 6 10 0
+-10 7 -1 0
+-10 8 -4 0
+8 10 3 0
+-10 -3 1 0
+-5 9 -1 0
+7 -9 5 0
+1 9 7 0
+-9 -10 -6 0
+9 -3 -6 0
+-2 -9 -6 0
+-9 -6 3 0
+-10 -5 3 0
+7 9 -1 0
+2 -7 10 0
+-10 -3 9 0
+6 4 -7 0
+-10 -1 -7 0
+-9 -3 -4 0
+-3 6 8 0
+10 -6 -3 0
+
+c GPT solve time: 28.32 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1.
+3. Assign x1 = True.
+4. Update the clauses based on the assignment:
+   (¬x7 ∨ x1 ∨ ¬x4) -> (¬True ∨ True ∨ ¬x4) -> (False ∨ True ∨ ¬x4) -> (True)
+   (¬x3 ∨ ¬x1 ∨ x2) -> (¬False ∨ ¬True ∨ x2) -> (True ∨ False ∨ x2) -> (True)
+   (x3 ∨ ¬x5 ∨ x1) -> (True ∨ True ∨ True) -> (True)
+   (x1 ∨ x9 ∨ x7) -> (True)
+   (x7 ∨ x9 ∨ ¬x1) -> (True)
+   (x7 ∨ ¬x9 ∨ x5) -> (True)
+   (¬x7 ∨ x2 ∨ x4) -> (True)
+   (¬x2 ∨ ¬x1 ∨ x9) -> (True)
+   (¬x9 ∨ x4 ∨ ¬x7) -> (True)
+   (¬x9 ∨ ¬x7 ∨ x4) -> (True)
+   (¬x7 ∨ x1 ∨ ¬x4) -> (True)
+   (x7 ∨ ¬x5 ∨ ¬x9) -> (True)
+   (x7 ∨ x5 ∨ ¬x8) -> (True)
+   (¬x8 ∨ x10 ∨ x3) -> (True)
+   (¬x10 ∨ x4 ∨ ¬x8) -> (True)
+   (¬x10 ∨ x7 ∨ ¬x1) -> (True)
+   (¬x10 ∨ x8 ∨ ¬x4) -> (True)
+   (x8 ∨ x10 ∨ x3) -> (True)
+   (¬x10 ∨ ¬x3 ∨ x1) -> (True)
+   (¬x5 ∨ x9 ∨ ¬x1) -> (True)
+   (x7 ∨ ¬x9 ∨ x5) -> (True)
+   (x2 ∨ ¬x7 ∨ x10) -> (True)
+   (¬x10 ∨ ¬x3 ∨ x9) -> (True)
+   (x6 ∨ x4 ∨ ¬x7) -> (True)
+   (¬x10 ∨ ¬x1 ∨ ¬x7) -> (True)
+   (¬x9 ∨ ¬x3 ∨ ¬x4) -> (True)
+   (¬x3 ∨ x6 ∨ x8) -> (True)
+   (x10 ∨ ¬x6 ∨ ¬x3) -> (True)
+5. Check if any clause is empty. If yes, backtrack.
+6. Choose a literal to assign. Let's assign x2 = True.
+7. Update the clauses based on the assignment:
+   (¬x2 ∨ ¬x1 ∨ x9) -> (False ∨ ¬True ∨ True) -> (True)
+   (¬x2 ∨ ¬x9 ∨ ¬x6) -> (True)
+   (¬x2 ∨ ¬x10 ∨ x7) -> (True)
+   (x2 ∨ ¬x7 ∨ x10) -> (True)
+   (¬x2 ∨ ¬x9 ∨ ¬x6) -> (True)
+8. Check if any clause is empty. If yes, backtrack.
+9. Choose a literal to assign. Let's assign x3 = True.
+10. Update the clauses based on the assignment:
+    (¬x3 ∨ ¬x1 ∨ x2) -> (False ∨ False ∨ True) -> (True)
+    (¬x3 ∨ ¬x5 ∨ x1) -> (True)
+    (¬x3 ∨ x4 ∨ x1) -> (True)
+    (¬x3 ∨ x6 ∨ x8) -> (True)
+    (¬x3 ∨ x6 ∨ x10) -> (True)
+    (¬x3 ∨ x4 ∨ x1) -> (True)
+    (¬x3 ∨ x6 ∨ x10) -> (True)
+    (¬x3 ∨ x6 ∨ x8) -> (True)
+    (¬x3 ∨ ¬x1 ∨ x2) -> (True)
+    (¬x3 ∨ x4 ∨ x1) -> (True)
+    (¬x3 ∨ ¬x5 ∨ x1) -> (True)
+    (¬x3 ∨ x6 ∨ x10) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x1) -> (True)
+    (¬x3 ∨ x6 ∨ x8) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)
+    (¬x3 ∨ ¬x10 ∨ x9) -> (True)

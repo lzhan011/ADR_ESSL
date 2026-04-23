@@ -1,0 +1,88 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1778
+p cnf 5 17
+-1 5 -2 0
+-5 1 -4 0
+-1 -4 -5 0
+4 -1 5 0
+1 5 -2 0
+-5 3 1 0
+2 3 4 0
+1 -3 2 0
+3 -2 -1 0
+1 2 3 0
+-5 2 1 0
+-1 -4 -3 0
+-3 -1 2 0
+-5 -2 -1 0
+-5 4 1 0
+2 -4 3 0
+-3 -2 5 0
+
+c GPT solve time: 8.92 seconds
+
+1. Start with an empty assignment: {}
+2. Choose a literal to assign: x1 (decision point 1)
+3. Update assignment: {x1}
+4. Simplify the formula based on the assignment:
+   (¬x1 ∨ x5 ∨ ¬x2) -> (F ∨ x5 ∨ ¬x2) -> (x5 ∨ ¬x2)
+   (¬x5 ∨ x1 ∨ ¬x4) -> (T ∨ T ∨ ¬x4) -> T
+   (¬x1 ∨ ¬x4 ∨ ¬x5) -> (F ∨ ¬x4 ∨ ¬x5) -> (¬x4 ∨ ¬x5)
+   (x4 ∨ ¬x1 ∨ x5) -> (T ∨ F ∨ T) -> T
+   (x1 ∨ x5 ∨ ¬x2) -> (T ∨ T ∨ F) -> T
+   (¬x5 ∨ x3 ∨ x1) -> (T ∨ T ∨ T) -> T
+   (x2 ∨ x3 ∨ x4) -> (T ∨ T ∨ T) -> T
+   (x1 ∨ ¬x3 ∨ x2) -> (T ∨ F ∨ T) -> T
+   (x3 ∨ ¬x2 ∨ ¬x1) -> (T ∨ F ∨ F) -> T
+   (x1 ∨ x2 ∨ x3) -> (T ∨ T ∨ T) -> T
+   (¬x5 ∨ x2 ∨ x1) -> (T ∨ T ∨ T) -> T
+   (¬x1 ∨ ¬x4 ∨ ¬x3) -> (F ∨ ¬x4 ∨ ¬x3) -> (¬x4 ∨ ¬x3)
+   (¬x3 ∨ ¬x1 ∨ x2) -> (T ∨ F ∨ T) -> T
+   (¬x5 ∨ ¬x2 ∨ ¬x1) -> (T ∨ F ∨ F) -> T
+   (¬x5 ∨ x4 ∨ x1) -> (T ∨ T ∨ T) -> T
+   (x2 ∨ ¬x4 ∨ x3) -> (T ∨ F ∨ T) -> T
+   (¬x3 ∨ ¬x2 ∨ x5) -> (T ∨ F ∨ T) -> T
+5. Choose a literal to assign: x5 (decision point 2)
+6. Update assignment: {x1, x5}
+7. Simplify the formula based on the assignment:
+   (x5 ∨ ¬x2) -> (T ∨ F) -> T
+   (¬x4 ∨ ¬x5) -> (F ∨ F) -> F
+   (¬x4 ∨ ¬x5) is a conflict, backtrack to decision point 2
+8. Choose a literal to assign: ¬x5 (decision point 3)
+9. Update assignment: {x1, ¬x5}
+10. Simplify the formula based on the assignment:
+    (¬x5 ∨ ¬x2) -> (F ∨ F) -> F
+    (¬x4 ∨ x1) -> (F ∨ T) -> T
+    (¬x4 ∨ x1) is a conflict, backtrack to decision point 1
+11. Choose a literal to assign: ¬x1 (decision point 4)
+12. Update assignment: {¬x1}
+13. Simplify the formula based on the assignment:
+    (¬x1 ∨ x5 ∨ ¬x2) -> (T ∨ x5 ∨ ¬x2) -> (x5 ∨ ¬x2)
+    (¬x1 ∨ ¬x4 ∨ ¬x5) -> (T ∨ ¬x4 ∨ ¬x5) -> (¬x4 ∨ ¬x5)
+    (¬x1 ∨ ¬x4 ∨ ¬x3) -> (T ∨ ¬x4 ∨ ¬x3) -> (¬x4 ∨ ¬x3)
+    (¬x1 ∨ ¬x4 ∨ ¬x3) is a conflict, backtrack to decision point 4
+14. Choose a literal to assign: x2 (decision point 5)
+15. Update assignment: {¬x1, x2}
+16. Simplify the formula based on the assignment:
+    (x5 ∨ ¬x2) -> (T ∨ F) -> T
+    (¬x4 ∨ ¬x5) -> (F ∨ F) -> F
+    (¬x4 ∨ ¬x5) is a conflict, backtrack to decision point 5
+17. Choose a literal to assign: ¬x2 (decision point 6)
+18. Update assignment: {¬x1, ¬x2}
+19. Simplify the formula based on the assignment:
+    (x5 ∨ ¬x2) -> (T ∨ T) -> T
+    (¬x4 ∨ ¬x5) -> (F ∨ F) -> F
+    (¬x4 ∨ ¬x5) is a conflict, backtrack to decision point 6
+20. Choose a literal to assign: x4 (decision point 7)
+21. Update assignment: {¬x1, ¬x2, x4}
+22. Simplify the formula based on the assignment:
+    (x5 ∨ ¬x2) -> (T ∨ T) -> T
+    (¬x4 ∨ ¬x5) -> (F ∨ F) -> F
+    All clauses are satisfied, the formula is SATISFIABLE
+    Number of branches: 7
+    Number of conflicts: 3
+    Value for each literal:
+    x1 = F
+    x2 = F
+    x4 = T
+    x5 = T

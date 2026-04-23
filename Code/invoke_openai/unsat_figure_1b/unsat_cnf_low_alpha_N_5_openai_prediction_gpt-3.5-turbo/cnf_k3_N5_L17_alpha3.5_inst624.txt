@@ -1,0 +1,61 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=624
+p cnf 5 17
+2 -4 3 0
+5 -1 4 0
+3 -4 1 0
+-2 -3 -4 0
+-1 3 -2 0
+3 2 -4 0
+1 -3 -5 0
+-5 -3 4 0
+1 2 3 0
+4 3 -5 0
+2 -3 -4 0
+5 4 3 0
+-4 -1 2 0
+-5 1 2 0
+-1 -5 -4 0
+-3 1 5 0
+-5 -2 -1 0
+
+c GPT solve time: 6.30 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment: x1 = True.
+4. Update the clauses based on the assignment:
+   - (x5 ∨ ¬x1 ∨ x4) becomes (x5 ∨ False ∨ x4) which simplifies to (x5 ∨ x4)
+   - (¬x1 ∨ x3 ∨ ¬x2) becomes (False ∨ x3 ∨ ¬x2) which simplifies to (x3 ∨ ¬x2)
+   - (¬x5 ∨ ¬x3 ∨ x4) remains the same
+   - (¬x5 ∨ x1 ∨ x2) becomes (¬x5 ∨ True ∨ x2) which simplifies to (¬x5 ∨ True)
+   - (¬x1 ∨ ¬x5 ∨ ¬x4) becomes (False ∨ ¬x5 ∨ ¬x4) which simplifies to (¬x5 ∨ ¬x4)
+5. Choose a literal to assign. Let's assign x5 = True.
+6. Update the assignment: x5 = True.
+7. Update the clauses based on the assignment:
+   - (x5 ∨ x4) remains the same
+   - (¬x5 ∨ ¬x3 ∨ x4) becomes (False ∨ ¬x3 ∨ True) which simplifies to (¬x3)
+   - (¬x5 ∨ True) becomes True
+   - (¬x5 ∨ ¬x4) remains the same
+8. Choose a literal to assign. Let's assign x3 = True.
+9. Update the assignment: x3 = True.
+10. Update the clauses based on the assignment:
+    - (x3 ∨ ¬x2) becomes (True ∨ ¬x2) which simplifies to True
+    - (¬x3) becomes False
+11. Choose a literal to assign. Let's assign x4 = True.
+12. Update the assignment: x4 = True.
+13. Update the clauses based on the assignment:
+    - (x5 ∨ x4) becomes True
+14. All clauses are now satisfied, so the formula is SATISFIABLE.
+15. The assignment is:
+    x1 = True
+    x2 = Not Assigned
+    x3 = True
+    x4 = True
+    x5 = True
+16. Number of branches (decision points): 3
+17. Number of conflicts (backtracking steps): 0
+
+SATISFIABLE
+Number of branches: 3
+Number of conflicts: 0

@@ -1,0 +1,252 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=804
+p cnf 10 35
+2 1 5 0
+1 7 10 0
+-2 3 -8 0
+8 -9 -6 0
+2 -10 -6 0
+6 4 -1 0
+-9 -4 -1 0
+-9 -10 -6 0
+-7 -8 -4 0
+-9 -10 7 0
+-2 6 -1 0
+-5 -2 8 0
+-6 -3 8 0
+3 -1 -6 0
+7 9 6 0
+-8 -5 -9 0
+-2 -6 -3 0
+-2 -10 3 0
+-3 4 -6 0
+9 -1 -3 0
+-5 -8 -3 0
+4 1 2 0
+4 -5 9 0
+-2 -7 1 0
+3 -9 -7 0
+-9 3 5 0
+2 9 -1 0
+2 -3 6 0
+-5 4 1 0
+4 6 -7 0
+9 -8 6 0
+6 -10 8 0
+-9 -1 -10 0
+3 10 -4 0
+-5 -4 -7 0
+
+c GPT solve time: 26.64 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1.
+3. Assign x1 = True.
+4. Update the clauses based on the assignment:
+   - (x2 ∨ x1 ∨ x5) becomes (x2 ∨ True ∨ x5) which simplifies to True.
+   - (x1 ∨ x7 ∨ x10) becomes (True ∨ x7 ∨ x10) which simplifies to True.
+   - (¬x6 ∨ x4 ∨ ¬x1) remains the same.
+   - (¬x9 ∨ ¬x4 ∨ ¬x1) remains the same.
+   - (¬x9 ∨ ¬x10 ∨ ¬x6) remains the same.
+   - (¬x7 ∨ ¬x8 ∨ ¬x4) remains the same.
+   - (¬x9 ∨ ¬x10 ∨ x7) remains the same.
+   - (¬x2 ∨ x6 ∨ ¬x1) becomes (¬x2 ∨ x6 ∨ True) which simplifies to True.
+   - (x4 ∨ x1 ∨ x2) becomes (x4 ∨ True ∨ x2) which simplifies to True.
+   - (¬x2 ∨ ¬x7 ∨ x1) becomes (¬x2 ∨ ¬x7 ∨ True) which simplifies to True.
+   - (x2 ∨ x9 ∨ ¬x1) becomes (True ∨ x9 ∨ ¬x1) which simplifies to True.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (x4 ∨ x6 ∨ ¬x7) becomes (x4 ∨ x6 ∨ True) which simplifies to True.
+   - (x9 ∨ ¬x8 ∨ x6) remains the same.
+   - (x6 ∨ ¬x10 ∨ x8) remains the same.
+   - (¬x9 ∨ ¬x1 ∨ ¬x10) remains the same.
+   - (x3 ∨ x10 ∨ ¬x4) remains the same.
+   - (¬x5 ∨ ¬x4 ∨ ¬x7) remains the same.
+5. Choose the next unassigned literal, x2.
+6. Assign x2 = True.
+7. Update the clauses based on the assignment:
+   - (¬x2 ∨ x3 ∨ ¬x8) remains the same.
+   - (x8 ∨ ¬x9 ∨ ¬x6) remains the same.
+   - (x2 ∨ ¬x10 ∨ ¬x6) becomes (True ∨ ¬x10 ∨ ¬x6) which simplifies to True.
+   - (¬x9 ∨ ¬x10 ∨ x7) remains the same.
+   - (¬x2 ∨ ¬x10 ∨ x3) becomes (¬x2 ∨ ¬x10 ∨ True) which simplifies to True.
+   - (¬x2 ∨ x6 ∨ ¬x1) remains the same.
+   - (¬x5 ∨ ¬x2 ∨ x8) remains the same.
+   - (¬x2 ∨ ¬x6 ∨ ¬x3) remains the same.
+   - (¬x2 ∨ ¬x10 ∨ x3) remains the same.
+   - (¬x2 ∨ ¬x7 ∨ x1) remains the same.
+   - (¬x5 ∨ ¬x8 ∨ ¬x3) remains the same.
+   - (¬x2 ∨ ¬x6 ∨ ¬x3) remains the same.
+   - (¬x3 ∨ x4 ∨ ¬x6) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x9 ∨ x3 ∨ x5) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5 ∨ x4 ∨ x1) remains the same.
+   - (¬x5

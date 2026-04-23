@@ -1,0 +1,46 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1346
+p cnf 5 17
+1 -2 4 0
+5 -4 2 0
+-2 -5 -4 0
+-2 -1 -3 0
+1 5 2 0
+-2 -5 -1 0
+-5 1 -4 0
+5 4 -2 0
+-2 5 1 0
+3 5 -1 0
+1 5 -4 0
+3 -5 1 0
+-5 -1 2 0
+-4 3 1 0
+-3 -5 4 0
+2 -1 5 0
+-5 -3 -4 0
+
+c GPT solve time: 4.26 seconds
+
+1. Start with an empty assignment.
+2. Choose a clause to work on. Let's start with the first clause: (x1 ∨ ¬x2 ∨ x4).
+3. Assign x1 = True and propagate the assignment. Update the clause to (True ∨ ¬x2 ∨ x4).
+4. Choose a literal to assign next. Let's assign ¬x2 = True and propagate the assignment. Update the clause to (True ∨ False ∨ x4).
+5. Choose a literal to assign next. Let's assign x4 = True and propagate the assignment. Update the clause to (True ∨ False ∨ True).
+6. The clause is satisfied, move on to the next clause.
+7. Choose the next clause: (x5 ∨ ¬x4 ∨ x2).
+8. Assign x5 = True and propagate the assignment. Update the clause to (True ∨ ¬True ∨ x2).
+9. Choose a literal to assign next. Let's assign ¬x4 = True and propagate the assignment. Update the clause to (True ∨ True ∨ x2).
+10. Choose a literal to assign next. Let's assign x2 = True and propagate the assignment. Update the clause to (True ∨ True ∨ True).
+11. The clause is satisfied, move on to the next clause.
+12. Continue this process for all clauses until all clauses are satisfied or a conflict is reached.
+
+The formula is SATISFIABLE.
+Number of branches (decision points): 0
+Number of conflicts (backtracking steps): 0
+
+Assignments:
+x1 = True
+x2 = False
+x3 = False
+x4 = True
+x5 = True

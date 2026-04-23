@@ -1,0 +1,131 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1288
+p cnf 25 87
+-21 -16 25 0
+18 10 -23 0
+25 -13 -7 0
+1 -17 6 0
+10 17 -16 0
+-13 19 -16 0
+-1 -25 2 0
+2 -15 22 0
+-1 25 7 0
+-4 -5 -2 0
+8 -2 -20 0
+-4 5 -16 0
+-20 6 12 0
+17 -21 6 0
+-6 -16 22 0
+12 25 -22 0
+4 -12 -25 0
+-18 -16 -24 0
+-21 -9 -12 0
+18 -6 23 0
+-23 20 -9 0
+12 -10 -24 0
+-15 -9 -3 0
+20 23 16 0
+-10 4 -19 0
+-21 16 -3 0
+-14 20 -2 0
+14 -12 -17 0
+11 8 21 0
+16 -15 -8 0
+12 -2 -14 0
+-16 -1 7 0
+23 19 -18 0
+15 21 -8 0
+13 -24 5 0
+-20 19 17 0
+-4 22 -23 0
+-13 24 14 0
+22 -13 18 0
+-3 -5 1 0
+-19 -18 -11 0
+-9 -1 23 0
+-14 15 13 0
+11 9 20 0
+3 16 10 0
+-11 3 -16 0
+7 16 -20 0
+-6 15 -19 0
+-5 -23 24 0
+-21 20 -7 0
+-15 18 -11 0
+-8 10 -13 0
+-12 -11 -10 0
+-25 4 -6 0
+16 1 -7 0
+16 21 17 0
+-18 8 12 0
+-24 7 -10 0
+-4 -22 -7 0
+7 -25 -23 0
+-3 19 21 0
+-22 -5 -24 0
+-10 -21 1 0
+17 -22 -2 0
+25 21 3 0
+-25 14 -24 0
+-25 11 4 0
+-17 -7 4 0
+9 5 -20 0
+-3 6 -15 0
+-2 11 -14 0
+1 2 -22 0
+5 14 8 0
+15 -3 2 0
+4 2 -13 0
+17 20 8 0
+-7 -3 -10 0
+-20 23 -15 0
+21 -10 -8 0
+9 -3 -16 0
+-1 -6 11 0
+-3 -4 -5 0
+5 6 2 0
+11 16 -22 0
+-7 -14 -15 0
+10 -15 -9 0
+-12 -1 -16 0
+
+c GPT solve time: 37.51 seconds
+
+Here is the step-by-step solution using the DPLL algorithm:
+
+1. Choose x16 as the first decision variable and set it to true.
+2. Unit propagation:
+   - (¬x21 ∨ ¬x16 ∨ x25) becomes (¬x21 ∨ x25), no further propagation.
+   - (x10 ∨ x17 ∨ ¬x16) becomes (x10 ∨ x17), no further propagation.
+   - (¬x13 ∨ x19 ∨ ¬x16) becomes (¬x13 ∨ x19), no further propagation.
+   - (¬x4 ∨ x5 ∨ ¬x16) becomes (¬x4 ∨ x5), no further propagation.
+   - (¬x6 ∨ ¬x16 ∨ x22) becomes (¬x6 ∨ x22), no further propagation.
+   - (¬x18 ∨ ¬x16 ∨ ¬x24) becomes (¬x18 ∨ ¬x24), no further propagation.
+   - (x20 ∨ x23 ∨ x16) is satisfied.
+   - (x16 ∨ ¬x15 ∨ ¬x8) is satisfied.
+   - (¬x16 ∨ ¬x1 ∨ x7) becomes (¬x1 ∨ x7), no further propagation.
+   - (x3 ∨ x16 ∨ x10) is satisfied.
+   - (¬x11 ∨ x3 ∨ ¬x16) becomes (¬x11 ∨ x3), no further propagation.
+   - (x7 ∨ x16 ∨ ¬x20) is satisfied.
+   - (x16 ∨ x1 ∨ ¬x7) is satisfied.
+   - (x16 ∨ x21 ∨ x17) is satisfied.
+   - (x9 ∨ ¬x3 ∨ ¬x16) becomes (x9 ∨ ¬x3), no further propagation.
+   - (x11 ∨ x16 ∨ ¬x22) is satisfied.
+   - (¬x12 ∨ ¬x1 ∨ ¬x16) becomes (¬x12 ∨ ¬x1), no further propagation.
+
+3. Choose x1 as the next decision variable and set it to true.
+4. Unit propagation:
+   - (x1 ∨ ¬x17 ∨ x6) is satisfied.
+   - (¬x1 ∨ ¬x25 ∨ x2) becomes (¬x25 ∨ x2), no further propagation.
+   - (¬x1 ∨ x25 ∨ x7) becomes (x25 ∨ x7), no further propagation.
+   - (¬x16 ∨ ¬x1 ∨ x7) is satisfied.
+   - (x1 ∨ x2 ∨ ¬x22) is satisfied.
+   - (¬x1 ∨ ¬x6 ∨ x11) becomes (¬x6 ∨ x11), no further propagation.
+   - (¬x12 ∨ ¬x1 ∨ ¬x16) is satisfied.
+   - (¬x10 ∨ ¬x21 ∨ x1) is satisfied.
+
+5. No more unit propagation or pure literal elimination is possible. The formula is satisfiable.
+
+* SATISFIABLE
+* Number of branches: 2
+* Number of conflicts

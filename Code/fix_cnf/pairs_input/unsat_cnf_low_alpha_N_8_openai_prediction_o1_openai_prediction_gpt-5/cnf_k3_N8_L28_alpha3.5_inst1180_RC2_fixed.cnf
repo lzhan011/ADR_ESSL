@@ -1,0 +1,33 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1181
+p cnf 8 28
+-2 -7 -5 0
+-6 5 -1 0
+8 3 -4 0
+6 3 1 0
+3 -2 5 0
+7 2 3 0
+2 -4 -8 0
+-8 5 -2 0
+-2 1 -5 0
+3 4 8 0
+2 1 8 0
+3 -5 4 0
+6 -3 4 0
+-4 -1 6 0
+-2 -1 -5 0
+4 2 -1 0
+5 -3 8 0
+-6 -4 2 0
+-2 3 4 0
+-2 -1 -4 0
+2 7 8 0
+-3 -6 4 0
+-3 -1 -7 0
+-3 -6 -7 0
+
+c GPT solve time: 317.41 seconds
+
+SATISFIABLE; x1=FALSE, x2=FALSE, x3=FALSE, x4=FALSE, x5=FALSE, x6=TRUE, x7=TRUE, x8=TRUE
+12
+5

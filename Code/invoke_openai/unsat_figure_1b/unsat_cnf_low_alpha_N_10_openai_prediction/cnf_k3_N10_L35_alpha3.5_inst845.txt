@@ -1,0 +1,245 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=845
+p cnf 10 35
+-10 -4 -2 0
+6 -9 -5 0
+-7 4 3 0
+-6 3 8 0
+10 3 4 0
+3 6 -10 0
+9 -4 -10 0
+10 -3 -4 0
+-3 -6 9 0
+3 -4 -9 0
+10 -8 1 0
+-1 7 -5 0
+-1 -5 -10 0
+-3 -7 2 0
+8 -4 7 0
+3 2 -1 0
+-1 9 2 0
+8 1 9 0
+4 -3 -1 0
+-2 3 -8 0
+8 -1 9 0
+-2 -6 -10 0
+-5 2 8 0
+2 -3 9 0
+-8 -1 7 0
+8 6 -9 0
+2 -10 -5 0
+3 1 4 0
+-10 -2 -9 0
+-8 1 2 0
+6 -2 9 0
+4 -8 -5 0
+-9 -7 8 0
+-3 8 -6 0
+8 7 6 0
+
+c GPT solve time: 45.26 seconds
+
+Step-by-step DPLL (Davis–Putnam–Logemann–Loveland) SAT solving:
+
+**Step 1: List variables**
+Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+**Step 2: Try assignments (branching on variables, unit propagation, and backtracking on conflicts)**
+
+Let’s proceed with a simple variable order: x1, x2, ..., x10.
+
+---
+
+### Branch 1: x1 = True
+
+#### Propagate x1 = True
+
+- Clause 11: (x10 ∨ ¬x8 ∨ x1) → satisfied
+- Clause 18: (x8 ∨ x1 ∨ x9) → satisfied
+- Clause 21: (x8 ∨ ¬x1 ∨ x9) → satisfied
+- Clause 28: (x3 ∨ x1 ∨ x4) → satisfied
+- Clause 30: (¬x8 ∨ x1 ∨ x2) → satisfied
+
+Other clauses with ¬x1 become shorter.
+
+#### Continue: x2 = True
+
+- Clause 1: (¬x10 ∨ ¬x4 ∨ ¬x2) → (¬x10 ∨ ¬x4 ∨ False)
+- Clause 16: (¬x1 ∨ x9 ∨ x2) → (False ∨ x9 ∨ True) → satisfied
+- Clause 20: (¬x2 ∨ x3 ∨ ¬x8) → (False ∨ x3 ∨ ¬x8) → (x3 ∨ ¬x8)
+- Clause 22: (¬x2 ∨ ¬x6 ∨ ¬x10) → (False ∨ ¬x6 ∨ ¬x10) → (¬x6 ∨ ¬x10)
+- Clause 23: (¬x5 ∨ x2 ∨ x8) → (¬x5 ∨ True ∨ x8) → satisfied
+- Clause 24: (x2 ∨ ¬x3 ∨ x9) → (True ∨ ¬x3 ∨ x9) → satisfied
+- Clause 27: (x2 ∨ ¬x10 ∨ ¬x5) → (True ∨ ¬x10 ∨ ¬x5) → satisfied
+- Clause 31: (x6 ∨ ¬x2 ∨ x9) → (x6 ∨ False ∨ x9) → (x6 ∨ x9)
+- Clause 30: already satisfied
+
+#### Continue: x3 = True
+
+- Clause 3: (¬x7 ∨ x4 ∨ x3) → (¬x7 ∨ x4 ∨ True) → satisfied
+- Clause 4: (¬x6 ∨ x3 ∨ x8) → (¬x6 ∨ True ∨ x8) → satisfied
+- Clause 5: (x10 ∨ x3 ∨ x4) → (x10 ∨ True ∨ x4) → satisfied
+- Clause 6: (x3 ∨ x6 ∨ ¬x10) → (True ∨ x6 ∨ ¬x10) → satisfied
+- Clause 8: (x10 ∨ ¬x3 ∨ ¬x4) → (x10 ∨ False ∨ ¬x4) → (x10 ∨ ¬x4)
+- Clause 9: (¬x3 ∨ ¬x6 ∨ x9) → (False ∨ ¬x6 ∨ x9) → (¬x6 ∨ x9)
+- Clause 10: (x3 ∨ ¬x4 ∨ ¬x9) → (True ∨ ¬x4 ∨ ¬x9) → satisfied
+- Clause 13: (¬x1 ∨ ¬x5 ∨ ¬x10) → (False ∨ ¬x5 ∨ ¬x10) → (¬x5 ∨ ¬x10)
+- Clause 14: (¬x3 ∨ ¬x7 ∨ x2) → (False ∨ ¬x7 ∨ True) → satisfied
+- Clause 15: (x8 ∨ ¬x4 ∨ x7) → (x8 ∨ ¬x4 ∨ x7)
+- Clause 16: already satisfied
+- Clause 19: (x4 ∨ ¬x3 ∨ ¬x1) → (x4 ∨ False ∨ False) → (x4)
+- Clause 20: (x3 ∨ ¬x8) → (True ∨ ¬x8) → satisfied
+- Clause 24: already satisfied
+- Clause 28: already satisfied
+
+#### Clause 19: (x4) → x4 = True
+
+#### Propagate x4 = True
+
+- Clause 1: (¬x10 ∨ ¬x4 ∨ ¬x2) → (¬x10 ∨ False ∨ False) → (¬x10)
+- Clause 7: (x9 ∨ ¬x4 ∨ ¬x10) → (x9 ∨ False ∨ ¬x10) → (x9 ∨ ¬x10)
+- Clause 8: (x10 ∨ ¬x3 ∨ ¬x4) → (x10 ∨ False ∨ False) → (x10)
+- Clause 10: already satisfied
+- Clause 15: (x8 ∨ ¬x4 ∨ x7) → (x8 ∨ False ∨ x7) → (x8 ∨ x7)
+- Clause 32: (x4 ∨ ¬x8 ∨ ¬x5) → (True ∨ ¬x8 ∨ ¬x5) → satisfied
+- Clause 28: already satisfied
+
+#### Clause 1: (¬x10) → x10 = False
+
+#### Propagate x10 = False
+
+- Clause 2: (x6 ∨ ¬x9 ∨ ¬x5)
+- Clause 5: (x10 ∨ x3 ∨ x4) → (False ∨ True ∨ True) → satisfied
+- Clause 6: (x3 ∨ x6 ∨ ¬x10) → (True ∨ x6 ∨ True) → satisfied
+- Clause 7: (x9 ∨ ¬x4 ∨ ¬x10) → (x9 ∨ False ∨ True) → satisfied
+- Clause 8: (x10 ∨ ¬x3 ∨ ¬x4) → (False ∨ False ∨ False) → (False) **CONFLICT**
+
+#### Conflict! Backtrack.
+
+---
+
+### Branch 2: x1 = True, x2 = True, x3 = True, x4 = False
+
+But clause 19: (x4) → x4 = True, so x4 = False is not possible.
+
+---
+
+### Branch 3: x1 = True, x2 = True, x3 = False
+
+Let’s try x3 = False.
+
+- Clause 3: (¬x7 ∨ x4 ∨ x3) → (¬x7 ∨ x4 ∨ False) → (¬x7 ∨ x4)
+- Clause 4: (¬x6 ∨ x3 ∨ x8) → (¬x6 ∨ False ∨ x8) → (¬x6 ∨ x8)
+- Clause 5: (x10 ∨ x3 ∨ x4) → (x10 ∨ False ∨ x4) → (x10 ∨ x4)
+- Clause 6: (x3 ∨ x6 ∨ ¬x10) → (False ∨ x6 ∨ ¬x10) → (x6 ∨ ¬x10)
+- Clause 8: (x10 ∨ ¬x3 ∨ ¬x4) → (x10 ∨ True ∨ ¬x4) → satisfied
+- Clause 9: (¬x3 ∨ ¬x6 ∨ x9) → (True ∨ ¬x6 ∨ x9) → satisfied
+- Clause 10: (x3 ∨ ¬x4 ∨ ¬x9) → (False ∨ ¬x4 ∨ ¬x9) → (¬x4 ∨ ¬x9)
+- Clause 13: (¬x1 ∨ ¬x5 ∨ ¬x10) → (False ∨ ¬x5 ∨ ¬x10) → (¬x5 ∨ ¬x10)
+- Clause 14: (¬x3 ∨ ¬x7 ∨ x2) → (True ∨ ¬x7 ∨ True) → satisfied
+- Clause 15: (x8 ∨ ¬x4 ∨ x7) → (x8 ∨ ¬x4 ∨ x7)
+- Clause 16: (x3 ∨ x2 ∨ ¬x1) → (False ∨ True ∨ False) → satisfied
+- Clause 19: (x4 ∨ ¬x3 ∨ ¬x1) → (x4 ∨ True ∨ False) → satisfied
+- Clause 20: (¬x2 ∨ x3 ∨ ¬x8) → (False ∨ False ∨ ¬x8) → (¬x8)
+- Clause 24: (x2 ∨ ¬x3 ∨ x9) → (True ∨ True ∨ x9) → satisfied
+- Clause 28: (x3 ∨ x1 ∨ x4) → (False ∨ True ∨ x4) → satisfied
+
+Clause 20: (¬x8) → x8 = False
+
+Propagate x8 = False
+
+- Clause 4: (¬x6 ∨ x8) → (¬x6 ∨ False) → (¬x6)
+- Clause 15: (x8 ∨ ¬x4 ∨ x7) → (False ∨ ¬x4 ∨ x7) → (¬x4 ∨ x7)
+- Clause 26: (¬x8 ∨ ¬x1 ∨ x7) → (True ∨ False ∨ x7) → satisfied
+- Clause 27: (x8 ∨ x6 ∨ ¬x9) → (False ∨ x6 ∨ ¬x9) → (x6 ∨ ¬x9)
+- Clause 30: (¬x8 ∨ x1 ∨ x2) → (True ∨ True ∨ True) → satisfied
+- Clause 32: (x4 ∨ ¬x8 ∨ ¬x5) → (x4 ∨ True ∨ ¬x5) → satisfied
+- Clause 34: (¬x3 ∨ x8 ∨ ¬x6) → (True ∨ False ∨ ¬x6) → satisfied
+- Clause 35: (x8 ∨ x7 ∨ x6) → (False ∨ x7 ∨ x6) → (x7 ∨ x6)
+
+Clause 4: (¬x6) → x6 = False
+
+Propagate x6 = False
+
+- Clause 2: (x6 ∨ ¬x9 ∨ ¬x5) → (False ∨ ¬x9 ∨ ¬x5) → (¬x9 ∨ ¬x5)
+- Clause 6: (x6 ∨ ¬x10) → (False ∨ ¬x10) → (¬x10)
+- Clause 9: already satisfied
+- Clause 22: (¬x6 ∨ ¬x10) → (True ∨ ¬x10) → satisfied
+- Clause 27: (x6 ∨ ¬x9) → (False ∨ ¬x9) → (¬x9)
+- Clause 31: (x6 ∨ x9) → (False ∨ x9) → (x9)
+- Clause 34: already satisfied
+- Clause 35: (x7 ∨ x6) → (x7 ∨ False) → (x7)
+
+Clause 6: (¬x10) → x10 = False
+
+Propagate x10 = False
+
+- Clause 1: (¬x10 ∨ ¬x4 ∨ ¬x2) → (True ∨ ¬x4 ∨ False) → satisfied
+- Clause 5: (x10 ∨ x3 ∨ x4) → (False ∨ False ∨ x4) → (x4)
+- Clause 7: (x9 ∨ ¬x4 ∨ ¬x10) → (x9 ∨ ¬x4 ∨ True) → satisfied
+- Clause 8: (x10 ∨ ¬x3 ∨ ¬x4) → (False ∨ True ∨ ¬x4) → satisfied
+- Clause 13: (¬x5 ∨ ¬x10) → (¬x5 ∨ True) → satisfied
+- Clause 22: already satisfied
+- Clause 27: already satisfied
+- Clause 29: (¬x10 ∨ ¬x2 ∨ ¬x9) → (True ∨ False ∨ ¬x9) → satisfied
+
+Clause 5: (x4) → x4 = True
+
+Propagate x4 = True
+
+- Clause 3: (¬x7 ∨ x4) → (¬x7 ∨ True) → satisfied
+- Clause 7: (x9 ∨ ¬x4 ∨ ¬x10) → (x9 ∨ False ∨ True) → satisfied
+- Clause 8: already satisfied
+- Clause 10: (¬x4 ∨ ¬x9) → (False ∨ ¬x9) → (¬x9)
+- Clause 15: (¬x4 ∨ x7) → (False ∨ x7) → (x7)
+- Clause 19: already satisfied
+- Clause 32: already satisfied
+
+Clause 10: (¬x9)
+
+Clause 27: (¬x9)
+
+Clause 31: (x9)
+
+So, (x9) and (¬x9) → **CONFLICT**
+
+---
+
+### Branch 4: x1 = True, x2 = False
+
+Let’s try x2 = False.
+
+- Clause 1: (¬x10 ∨ ¬x4 ∨ ¬x2) → (¬x10 ∨ ¬x4 ∨ True) → satisfied
+- Clause 16: (¬x1 ∨ x9 ∨ x2) → (False ∨ x9 ∨ False) → (x9)
+- Clause 20: (¬x2 ∨ x3 ∨ ¬x8) → (True ∨ x3 ∨ ¬x8) → satisfied
+- Clause 22: (¬x2 ∨ ¬x6 ∨ ¬x10) → (True ∨ ¬x6 ∨ ¬x10) → satisfied
+- Clause 23: (¬x5 ∨ x2 ∨ x8) → (¬x5 ∨ False ∨ x8) → (¬x5 ∨ x8)
+- Clause 24: (x2 ∨ ¬x3 ∨ x9) → (False ∨ ¬x3 ∨ x9) → (¬x3 ∨ x9)
+- Clause 27: (x2 ∨ ¬x10 ∨ ¬x5) → (False ∨ ¬x10 ∨ ¬x5) → (¬x10 ∨ ¬x5)
+- Clause 30: (¬x8 ∨ x1 ∨ x2) → (¬x8 ∨ True ∨ False) → satisfied
+- Clause 31: (x6 ∨ ¬x2 ∨ x9) → (x6 ∨ True ∨ x9) → satisfied
+
+Clause 16: (x9) → x9 = True
+
+Propagate x9 = True
+
+- Clause 2: (x6 ∨ ¬x9 ∨ ¬x5) → (x6 ∨ False ∨ ¬x5) → (x6 ∨ ¬x5)
+- Clause 7: (x9 ∨ ¬x4 ∨ ¬x10) → (True ∨ ¬x4 ∨ ¬x10) → satisfied
+- Clause 10: (x3 ∨ ¬x4 ∨ ¬x9) → (x3 ∨ ¬x4 ∨ False) → (x3 ∨ ¬x4)
+- Clause 24: (¬x3 ∨ x9) → (¬x3 ∨ True) → satisfied
+- Clause 27: already simplified
+- Clause 29: (¬x10 ∨ ¬x2 ∨ ¬x9) → (¬x10 ∨ True ∨ False) → satisfied
+- Clause 31: already satisfied
+
+Continue with x3 = True
+
+- Clause 3: (¬x7 ∨ x4 ∨ x3) → (¬x7 ∨ x4 ∨ True) → satisfied
+- Clause 4: (¬x6 ∨ x3 ∨ x8) → (¬x6 ∨ True ∨ x8) → satisfied
+- Clause 5: (x10 ∨ x3 ∨ x4) → (x10 ∨ True ∨ x4) → satisfied
+- Clause 6: (x3 ∨ x6 ∨ ¬x10) → (True ∨ x6 ∨ ¬x10) → satisfied
+- Clause 8: (x10 ∨ ¬x3 ∨ ¬x4) → (x10 ∨ False ∨ ¬x4) → (x10 ∨ ¬x4)
+- Clause 9: (¬x3 ∨ ¬x6 ∨ x9) → (False ∨ ¬x6 ∨ True) → satisfied
+- Clause 10: already simplified
+- Clause 13: (¬x1 ∨ ¬x5 ∨ ¬x10) → (False ∨ ¬x5 ∨ ¬x10) → (¬x5 ∨ ¬x10)
+- Clause 14: (¬x3 ∨ ¬x7 ∨ x2) → (False ∨ ¬x7 ∨ False) → (¬x7)
+- Clause 15: (x8 ∨ ¬x4 ∨ x7) → (x8 ∨

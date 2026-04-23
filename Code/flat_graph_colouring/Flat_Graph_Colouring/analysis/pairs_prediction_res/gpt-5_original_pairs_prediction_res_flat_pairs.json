@@ -1,0 +1,388 @@
+{
+    "30": {
+        "100": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "10": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "11": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "12": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "13": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "14": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": false
+        },
+        "15": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "16": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "17": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "18": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "19": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "1": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "20": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "21": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "22": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "23": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "24": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "25": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": false
+        },
+        "26": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "27": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "28": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "29": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "2": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "30": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "31": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "32": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "33": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "34": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": false
+        },
+        "35": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "36": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "37": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "38": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "39": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "3": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "40": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "41": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "43": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "44": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "45": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "46": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "47": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "48": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "49": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "4": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": false
+        },
+        "50": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "51": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": false
+        },
+        "52": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "53": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "54": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "55": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "56": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "57": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "58": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "59": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "5": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "60": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "61": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "62": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "63": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "64": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "65": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "66": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "67": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "68": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "69": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "6": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "70": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "71": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "72": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "73": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "74": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "75": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "76": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "77": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "78": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "79": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "7": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "80": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "81": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "82": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "83": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "84": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "85": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "86": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "87": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "88": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "89": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "8": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": true
+        },
+        "90": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "91": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "92": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "93": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "94": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        },
+        "95": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": false
+        },
+        "96": {
+            "Prediction_before_UNSAT": true,
+            "Prediction_after_SAT": false
+        },
+        "9": {
+            "Prediction_before_UNSAT": false,
+            "Prediction_after_SAT": true
+        }
+    }
+}

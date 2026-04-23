@@ -1,0 +1,132 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=338
+p cnf 25 87
+-11 -17 8 0
+-8 4 3 0
+-20 -13 -15 0
+19 8 2 0
+-22 -18 16 0
+-12 17 -22 0
+-16 -9 13 0
+4 -12 -5 0
+-6 16 -4 0
+2 14 13 0
+-24 -11 -15 0
+5 -1 -21 0
+-13 -12 -11 0
+-16 -2 -8 0
+19 4 -7 0
+-7 -25 5 0
+8 -14 13 0
+-17 -4 -13 0
+7 -19 -20 0
+17 16 18 0
+-4 -8 -14 0
+-4 6 15 0
+10 -23 -11 0
+2 -12 9 0
+-16 20 22 0
+9 -5 17 0
+-15 -2 -10 0
+24 6 -21 0
+-9 11 5 0
+-21 18 -25 0
+5 -11 -19 0
+-24 -4 -19 0
+-16 7 13 0
+11 -21 -17 0
+-14 2 15 0
+6 -15 5 0
+23 4 -21 0
+-17 -22 9 0
+19 13 21 0
+-10 -1 -14 0
+-10 19 -1 0
+12 -19 2 0
+12 25 2 0
+12 -20 17 0
+18 -20 11 0
+20 11 -15 0
+-15 22 5 0
+-9 7 -11 0
+-8 -14 -7 0
+-25 -14 -3 0
+-25 21 -7 0
+18 -23 2 0
+3 -25 -17 0
+9 21 -13 0
+-8 -4 5 0
+-14 4 -9 0
+-10 15 -20 0
+17 21 -13 0
+21 24 22 0
+-14 -11 -5 0
+-5 23 13 0
+-22 -19 -14 0
+-9 10 -6 0
+20 -5 15 0
+16 -2 -9 0
+2 11 -7 0
+25 -1 22 0
+-18 16 12 0
+-20 -18 21 0
+4 -2 15 0
+20 22 -4 0
+3 -14 23 0
+-11 -5 -15 0
+3 6 15 0
+-11 -4 -21 0
+-21 17 8 0
+5 13 11 0
+-22 -6 7 0
+18 5 -20 0
+18 2 -23 0
+9 20 16 0
+21 -14 -2 0
+-23 -3 -24 0
+-2 -1 -13 0
+8 -21 1 0
+9 -15 -5 0
+5 15 -24 0
+
+c GPT solve time: 32.73 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Step 1: Assign x8 = 1 (to satisfy clause 1). This satisfies clauses 1, 4, 14, 17, 21, 49, 77.
+
+Step 2: Assign x4 = 1 (to satisfy clause 2). This satisfies clauses 2, 8, 15, 18, 22, 23, 32, 37, 55, 56, 69, 74.
+
+Step 3: Assign x3 = 1 (to satisfy clause 2). This satisfies clauses 50, 54, 73.
+
+Step 4: Assign x13 = 0 (to satisfy clause 3). This satisfies clauses 3, 7, 10, 13, 33, 39, 54, 57, 84.
+
+Step 5: Assign x2 = 1 (to satisfy clause 4). This satisfies clauses 10, 24, 27, 35, 42, 43, 52, 65, 67, 78, 84.
+
+Step 6: Assign x16 = 0 (to satisfy clause 5). This satisfies clauses 5, 7, 9, 14, 25, 33, 64, 79.
+
+Step 7: Assign x17 = 1 (to satisfy clause 6). This satisfies clauses 6, 18, 20, 34, 38, 44, 76.
+
+Step 8: Assign x12 = 0 (to satisfy clause 8). This satisfies clauses 6, 8, 13, 24, 42, 66.
+
+Step 9: Assign x19 = 1 (to satisfy clause 15). This satisfies clauses 15, 19, 31, 32, 39, 41, 42, 62.
+
+Step 10: Assign x5 = 1 (to satisfy clause 16). This satisfies clauses 12, 16, 26, 29, 31, 36, 47, 53, 61, 72, 75, 82, 83.
+
+Step 11: Assign x14 = 0 (to satisfy clause 21). This satisfies clauses 10, 17, 21, 35, 40, 49, 50, 59, 62, 71, 80.
+
+Step 12: Assign x6 = 1 (to satisfy clause 22). This satisfies clauses 9, 22, 28, 36, 63, 73.
+
+Step 13: Assign x15 = 1 (to satisfy clause 22). This satisfies clauses 3, 11, 22, 27, 35, 36, 46, 47, 58, 72.
+
+Step 14: Assign x11 = 0 (to satisfy clause 23). This satisfies clauses 11, 13, 23, 29, 31, 34, 45, 48, 59, 72, 74.
+
+Step 15: Assign x20 = 1 (to satisfy clause 25). This satisfies clauses 3, 19, 25, 44, 45, 46, 58, 65, 68, 70, 79.
+
+Step 16: Assign x9 = 1 (to satisfy clause 26). This satisfies clauses 7, 24, 26, 29, 38, 48, 55, 63, 64, 79, 82.
+
+Step 17: Assign x21 = 1 (to satisfy clause 28). This satisfies clauses 12, 19, 23, 28, 30, 34, 37, 39, 57, 70, 71, 74, 76, 80.
+
+Step 18: Assign x18 = 1 (to satisfy clause 30). This satisfies clauses 20, 30, 52, 66, 68, 70, 78.
+
+Step 19: Assign x7 = 1 (to satisfy clause 33). This satisfies clauses 16, 19, 33,

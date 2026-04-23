@@ -1,0 +1,89 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1131
+p cnf 5 17
+-4 5 3 0
+-3 4 -5 0
+5 -3 -4 0
+-3 -2 -5 0
+2 3 -4 0
+-5 -2 -1 0
+-1 5 -2 0
+-2 5 -1 0
+1 3 -4 0
+2 -3 5 0
+5 -3 1 0
+-3 1 2 0
+1 -2 4 0
+1 5 3 0
+-5 -4 3 0
+-3 2 -4 0
+4 3 2 0
+
+c GPT solve time: 19.13 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+Let me start by analyzing the formula and making decisions:
+
+**Branch 1: x1 = true**
+- Simplifying clauses with x1 = true:
+  - Clauses 9, 11, 12, 13, 14 are satisfied
+  - Clause 6: (¬x5 ∨ ¬x2)
+  - Clause 7: (x5 ∨ ¬x2)
+
+From clauses 6 and 7, we need either x2 = false or (x5 = true and x5 = false), which is impossible.
+So x2 = false.
+
+**With x1 = true, x2 = false:**
+- Clauses 4, 5, 6, 7, 10, 16 are satisfied
+- Remaining clauses need checking
+
+Continuing with x3 = true:
+- Clause 1: (¬x4 ∨ x5)
+- Clause 2: (x4 ∨ ¬x5)
+
+From clauses 1 and 2, we need x4 = x5.
+
+Let x4 = x5 = true:
+- Checking all clauses... Clause 15: (¬x5 ∨ ¬x4 ∨ x3) = (false ∨ false ∨ true) = true
+- All clauses satisfied!
+
+**Solution found: x1 = true, x2 = false, x3 = true, x4 = true, x5 = true**
+
+Let me verify:
+1. (false ∨ true ∨ true) = true ✓
+2. (false ∨ true ∨ false) = true ✓
+3. (true ∨ false ∨ false) = true ✓
+4. (false ∨ true ∨ false) = true ✓
+5. (false ∨ true ∨ false) = true ✓
+6. (false ∨ true ∨ false) = true ✓
+7. (false ∨ true ∨ true) = true ✓
+8. (true ∨ true ∨ false) = true ✓
+9. (true ∨ true ∨ false) = true ✓
+10. (false ∨ false ∨ true) = true ✓
+11. (true ∨ false ∨ true) = true ✓
+12. (false ∨ true ∨ false) = true ✓
+13. (true ∨ true ∨ true) = true ✓
+14. (true ∨ true ∨ true) = true ✓
+15. (false ∨ false ∨ true) = true ✓
+16. (false ∨ false ∨ false) = false ✗
+
+Wait, clause 16 fails. Let me reconsider.
+
+**Conflict 1: Backtracking**
+
+Let me try x4 = x5 = false with x1 = true, x2 = false, x3 = true:
+- Clause 1: (true ∨ false ∨ true) = true ✓
+- Clause 3: (false ∨ false ∨ true) = true ✓
+- All other clauses check out as satisfied
+
+Actually, let me be more systematic. With x1 = true, x2 = false:
+- From clause 16: (x4 ∨ x3) must be true
+- From clause 5: x3 must be true (since x2 = false, x4 = false would make it false)
+
+So x3 = true.
+
+With x1 = true, x2 = false, x3 = true:
+- Clause 1: (¬x4 ∨ x5) must be true
+- Clause 2: (x4 ∨ ¬x5) must be true
+- This means x4 = x

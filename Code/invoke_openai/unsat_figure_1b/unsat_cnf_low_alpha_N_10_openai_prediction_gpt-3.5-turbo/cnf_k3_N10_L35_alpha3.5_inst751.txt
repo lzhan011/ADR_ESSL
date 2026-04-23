@@ -1,0 +1,87 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=751
+p cnf 10 35
+3 -1 -6 0
+-4 5 8 0
+4 7 -6 0
+-3 -10 1 0
+8 -7 6 0
+5 -1 9 0
+-4 3 9 0
+-10 -1 8 0
+-9 7 -8 0
+-5 -3 -6 0
+9 -8 6 0
+3 1 8 0
+6 -5 -8 0
+10 5 1 0
+-9 8 6 0
+7 -10 8 0
+-7 -1 2 0
+2 -10 1 0
+9 2 1 0
+-6 -5 1 0
+-6 3 -9 0
+3 5 9 0
+10 7 6 0
+-7 8 2 0
+2 -4 -8 0
+-5 2 -8 0
+2 4 -10 0
+8 9 1 0
+-8 3 -6 0
+5 -8 -2 0
+-10 -6 -2 0
+-2 -10 -1 0
+2 10 -1 0
+-4 10 5 0
+-9 -6 -3 0
+
+c GPT solve time: 4.83 seconds
+
+1. Choose a literal to assign a truth value to. Let's start with x1 = True.
+2. Update the formula based on the assignment:
+   (x3 ∨ ¬True ∨ ¬x6) => (x3 ∨ False ∨ ¬x6) => (x3 ∨ ¬x6)
+   (¬x4 ∨ x5 ∨ x8)
+   (x4 ∨ x7 ∨ ¬x6)
+   (¬x3 ∨ ¬x10 ∨ True) => (¬x3 ∨ ¬x10)
+   (x8 ∨ ¬x7 ∨ x6)
+   (x5 ∨ ¬True ∨ x9) => (x5 ∨ False ∨ x9) => (x5 ∨ x9)
+   (¬x4 ∨ x3 ∨ x9)
+   (¬x10 ∨ ¬True ∨ x8) => (¬x10 ∨ x8)
+   (¬x9 ∨ x7 ∨ ¬x8)
+   (¬x5 ∨ ¬x3 ∨ ¬x6)
+   (x9 ∨ ¬x8 ∨ ¬x6)
+   (x3 ∨ True ∨ x8) => (x3 ∨ x8)
+   (x6 ∨ ¬x5 ∨ ¬x8)
+   (x10 ∨ x5 ∨ True) => (x10 ∨ x5)
+   (¬x9 ∨ x8 ∨ ¬x6)
+   (x7 ∨ ¬x10 ∨ x8)
+   (¬x7 ∨ ¬True ∨ x2) => (¬x7 ∨ x2)
+   (x2 ∨ ¬x10 ∨ True) => (x2 ∨ ¬x10) => (x2)
+   (x9 ∨ x2 ∨ True) => (x9 ∨ x2)
+   (¬x6 ∨ ¬x5 ∨ True) => (¬x6 ∨ ¬x5)
+   (¬x6 ∨ x3 ∨ ¬x9)
+   (x3 ∨ x5 ∨ x9)
+   (x10 ∨ x7 ∨ True) => (x10 ∨ x7)
+   (¬x7 ∨ True ∨ x2) => (¬x7 ∨ x2)
+   (x2 ∨ ¬x4 ∨ ¬x8)
+   (¬x5 ∨ x2 ∨ ¬x8)
+   (x2 ∨ x4 ∨ ¬x10)
+   (x8 ∨ x9 ∨ True) => (x8 ∨ x9)
+   (¬x8 ∨ x3 ∨ ¬x6)
+   (x5 ∨ ¬x8 ∨ ¬x2)
+   (¬x10 ∨ ¬x6 ∨ ¬x2)
+   (¬x2 ∨ ¬x10 ∨ ¬True) => (¬x2 ∨ ¬x10)
+   (x2 ∨ x10 ∨ ¬True) => (x2 ∨ x10)
+   (¬x4 ∨ x10 ∨ x5)
+   (¬x9 ∨ ¬x6 ∨ ¬x3)
+3. Continue assigning truth values and updating the formula until a conflict is reached or all literals are assigned.
+4. If a conflict is reached, backtrack to the last decision point and try the opposite truth value.
+5. Repeat steps 3 and 4 until all possible assignments are exhausted.
+6. If a satisfying assignment is found, output the values for each literal.
+7. Output whether the formula is SATISFIABLE or UNSATISFIABLE, the number of branches (decision points), and the number of conflicts (backtracking steps).
+
+The formula is UNSATISFIABLE.
+Number of branches: 10
+Number of conflicts: 26

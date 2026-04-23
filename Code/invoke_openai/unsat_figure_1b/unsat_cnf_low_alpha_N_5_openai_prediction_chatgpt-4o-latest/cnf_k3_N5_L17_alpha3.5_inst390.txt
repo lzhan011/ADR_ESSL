@@ -1,0 +1,321 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=390
+p cnf 5 17
+-2 1 -3 0
+-3 2 -4 0
+1 -2 5 0
+4 5 -1 0
+3 -5 4 0
+-5 2 3 0
+2 1 -3 0
+1 -3 -2 0
+-2 -3 1 0
+-2 -4 -1 0
+3 2 -5 0
+3 -5 1 0
+3 2 5 0
+5 -2 -3 0
+-3 4 -5 0
+-3 2 -1 0
+-2 4 -5 0
+
+c GPT solve time: 27.10 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking on conflicts
+
+Let’s denote the variables: x1, x2, x3, x4, x5.
+
+Step-by-step:
+
+Step 1: No unit clauses or pure literals initially. Start branching.
+
+Branch 1: Assign x1 = True (Decision Point 1)
+
+→ Simplify clauses:
+- Any clause with x1 becomes satisfied.
+- Remove ¬x1 from clauses.
+
+Updated clauses:
+(¬x3 ∨ x2 ∨ ¬x4)  
+(x4 ∨ x5)  
+(x3 ∨ ¬x5 ∨ x4)  
+(¬x5 ∨ x2 ∨ x3)  
+(x2 ∨ ¬x3)  
+(¬x2 ∨ ¬x3)  
+(¬x2 ∨ ¬x4)  
+(x3 ∨ x2 ∨ ¬x5)  
+(x3 ∨ ¬x5)  
+(x3 ∨ x2 ∨ x5)  
+(x5 ∨ ¬x2 ∨ ¬x3)  
+(¬x3 ∨ x4 ∨ ¬x5)  
+(¬x3 ∨ x2 ∨ False) → (¬x3 ∨ x2)  
+(¬x2 ∨ x4 ∨ ¬x5)
+
+Step 2: No unit clauses. Continue.
+
+Branch 2: Assign x2 = True (Decision Point 2)
+
+→ Simplify:
+- Any clause with x2 is satisfied.
+- Remove ¬x2 from clauses.
+
+Remaining clauses:
+(¬x3 ∨ ¬x4)  
+(x4 ∨ x5)  
+(x3 ∨ ¬x5 ∨ x4)  
+(¬x5 ∨ x3)  
+(¬x3)  
+(¬x3 ∨ x4 ∨ ¬x5)  
+(x3 ∨ ¬x5)  
+(x3 ∨ x5)
+
+Step 3: Unit clause (¬x3) → x3 = False
+
+→ Propagate x3 = False
+
+Simplify:
+- Any clause with ¬x3 is satisfied.
+- Remove x3 from clauses.
+
+Remaining:
+(x4 ∨ x5)  
+(¬x5)  
+(x4 ∨ ¬x5)  
+(¬x5)  
+(x5)
+
+Conflict: (¬x5) and (x5) → Conflict
+
+Backtrack: Conflict at x3 = False
+
+Backtrack Step 1 (Conflict 1)
+
+Try x3 = True instead
+
+→ Propagate x3 = True
+
+Simplify:
+- Any clause with x3 is satisfied.
+- Remove ¬x3 from clauses.
+
+Remaining:
+(¬x4)  
+(x4 ∨ x5)  
+(x4)  
+(x5 ∨ ¬x2)  
+(x4 ∨ ¬x5)  
+(x5)
+
+Now:
+- (¬x4) and (x4) → Conflict
+
+Backtrack Step 2 (Conflict 2)
+
+Backtrack to x2 = False
+
+→ x1 = True, x2 = False
+
+Simplify:
+- Remove x1 satisfied clauses
+- Remove x2 = False → remove ¬x2 from clauses
+
+Remaining:
+(¬x3 ∨ ¬x4)  
+(x4 ∨ x5)  
+(x3 ∨ ¬x5 ∨ x4)  
+(¬x5 ∨ x3)  
+(¬x3)  
+(¬x4)  
+(x3 ∨ ¬x5)  
+(x3 ∨ x5)  
+(x5 ∨ ¬x3)  
+(¬x3 ∨ x4 ∨ ¬x5)  
+(x4 ∨ ¬x5)
+
+Unit clause: (¬x3) → x3 = False
+
+Propagate x3 = False
+
+Simplify:
+- Any clause with ¬x3 is satisfied
+- Remove x3 from clauses
+
+Remaining:
+(¬x4)  
+(x4 ∨ x5)  
+(¬x5)  
+(¬x4)  
+(¬x5)  
+(x5)
+
+Conflict: (¬x5) and (x5) → Conflict
+
+Backtrack Step 3 (Conflict 3)
+
+Try x3 = True instead
+
+→ x1 = True, x2 = False, x3 = True
+
+Simplify:
+- Any clause with x3 is satisfied
+- Remove ¬x3 from clauses
+
+Remaining:
+(¬x4)  
+(x4 ∨ x5)  
+(x4)  
+(x5 ∨ ¬x2)  
+(x4 ∨ ¬x5)  
+(x5)
+
+Now:
+- (¬x4) and (x4) → Conflict
+
+Backtrack Step 4 (Conflict 4)
+
+Backtrack to x1 = False
+
+Branch 3: x1 = False (Decision Point 3)
+
+Simplify:
+- Remove clauses with ¬x1
+- Remove x1 from clauses
+
+Remaining:
+(¬x3 ∨ x2 ∨ ¬x4)  
+(¬x3 ∨ x2)  
+(x3 ∨ ¬x5 ∨ x4)  
+(¬x5 ∨ x2 ∨ x3)  
+(x2 ∨ ¬x3)  
+(x3 ∨ ¬x5)  
+(x3 ∨ x2 ∨ x5)  
+(x5 ∨ ¬x2 ∨ ¬x3)  
+(¬x3 ∨ x4 ∨ ¬x5)  
+(¬x3 ∨ x2)  
+(¬x2 ∨ x4 ∨ ¬x5)
+
+Branch 4: x2 = True (Decision Point 4)
+
+Simplify:
+- Remove clauses with x2
+- Remove ¬x2 from clauses
+
+Remaining:
+(¬x3 ∨ ¬x4)  
+(x3 ∨ ¬x5 ∨ x4)  
+(¬x5 ∨ x3)  
+(¬x3)  
+(x3 ∨ ¬x5)  
+(x3 ∨ x5)  
+(x5 ∨ ¬x3)  
+(¬x3 ∨ x4 ∨ ¬x5)  
+(x4 ∨ ¬x5)
+
+Unit clause: (¬x3) → x3 = False
+
+Propagate x3 = False
+
+Simplify:
+- Any clause with ¬x3 is satisfied
+- Remove x3 from clauses
+
+Remaining:
+(¬x4)  
+(x4 ∨ x5)  
+(¬x5)  
+(x4 ∨ ¬x5)  
+(¬x5)  
+(x5)
+
+Conflict: (¬x5) and (x5) → Conflict
+
+Backtrack Step 5 (Conflict 5)
+
+Try x3 = True instead
+
+→ x1 = False, x2 = True, x3 = True
+
+Simplify:
+- Any clause with x3 is satisfied
+- Remove ¬x3 from clauses
+
+Remaining:
+(¬x4)  
+(x4 ∨ x5)  
+(x4)  
+(x5 ∨ ¬x2)  
+(x4 ∨ ¬x5)  
+(x5)
+
+Now:
+- (¬x4) and (x4) → Conflict
+
+Backtrack Step 6 (Conflict 6)
+
+Try x2 = False
+
+→ x1 = False, x2 = False
+
+Simplify:
+- Remove ¬x2 from clauses
+
+Remaining:
+(¬x3 ∨ ¬x4)  
+(x3 ∨ ¬x5 ∨ x4)  
+(¬x5 ∨ x3)  
+(x2 ∨ ¬x3) → becomes (¬x3)  
+(x3 ∨ ¬x5)  
+(x3 ∨ x5)  
+(x5 ∨ ¬x3)  
+(¬x3 ∨ x4 ∨ ¬x5)
+
+Unit clause: (¬x3) → x3 = False
+
+Propagate x3 = False
+
+Remaining:
+(¬x4)  
+(x4 ∨ x5)  
+(¬x5)  
+(x4 ∨ ¬x5)  
+(¬x5)  
+(x5)
+
+Conflict: (¬x5) and (x5) → Conflict
+
+Backtrack Step 7 (Conflict 7)
+
+Try x3 = True
+
+→ x1 = False, x2 = False, x3 = True
+
+Remaining:
+(¬x4)  
+(x4 ∨ x5)  
+(x4)  
+(x5 ∨ ¬x2)  
+(x4 ∨ ¬x5)  
+(x5)
+
+Now:
+- (¬x4) and (x4) → Conflict
+
+Backtrack Step 8 (Conflict 8)
+
+All branches explored.
+
+Conclusion:
+
+- All possible assignments explored
+- No satisfying assignment found
+
+Final Answer:
+
+- UNSATISFIABLE  
+- Number of branches: 4  
+- Number of conflicts: 8

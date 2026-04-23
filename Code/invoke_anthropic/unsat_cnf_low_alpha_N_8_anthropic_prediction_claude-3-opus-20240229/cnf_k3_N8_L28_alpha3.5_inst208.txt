@@ -1,0 +1,68 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=208
+p cnf 8 28
+-2 4 -7 0
+-7 -4 8 0
+-4 2 6 0
+-3 -6 -2 0
+-6 7 2 0
+1 2 -5 0
+-7 -8 2 0
+5 -7 -4 0
+-2 -6 1 0
+3 -6 -2 0
+-1 4 -3 0
+-3 -4 -6 0
+-1 2 6 0
+8 -2 6 0
+-4 -1 6 0
+-8 7 5 0
+6 3 -4 0
+-2 -5 -1 0
+2 3 6 0
+-5 -2 -4 0
+1 3 -2 0
+-7 5 -3 0
+1 6 5 0
+-2 5 -6 0
+5 4 6 0
+1 4 7 0
+8 4 1 0
+2 -1 3 0
+
+c GPT solve time: 16.04 seconds
+
+Step 1: Choose x2 to be true. This satisfies clauses 3, 5, 6, 13, 19, 21, 28.
+Remaining clauses: 1, 2, 4, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 20, 22, 23, 24, 25, 26, 27
+
+Step 2: Choose x4 to be true. This satisfies clauses 1, 8, 11, 15, 17, 20, 25, 26, 27.
+Remaining clauses: 2, 4, 7, 9, 10, 12, 14, 16, 18, 22, 23, 24
+
+Step 3: Choose x6 to be true. This satisfies clauses 9, 10, 12, 14, 15, 17, 23, 24, 25.
+Remaining clauses: 2, 4, 7, 16, 18, 22
+
+Step 4: Choose x7 to be true. This satisfies clauses 5, 16, 26.
+Remaining clauses: 2, 4, 7, 18, 22
+
+Step 5: Choose x1 to be true. This satisfies clauses 18, 22.
+Remaining clauses: 2, 4, 7
+
+Step 6: Choose x8 to be false. This satisfies clause 2.
+Remaining clauses: 4, 7
+
+Step 7: Choose x3 to be false. This satisfies clauses 4 and 7.
+
+All clauses are satisfied.
+
+* SATISFIABLE
+* Number of branches: 7
+* Number of conflicts: 0
+Satisfying assignment:
+x1 = true
+x2 = true 
+x3 = false
+x4 = true
+x5 = free variable
+x6 = true
+x7 = true
+x8 = false

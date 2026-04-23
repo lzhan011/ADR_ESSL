@@ -1,0 +1,57 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1855
+p cnf 5 17
+3 2 -4 0
+3 -2 4 0
+-3 -2 -5 0
+4 2 -5 0
+-1 -4 -5 0
+3 1 -5 0
+2 1 3 0
+5 3 -1 0
+4 -5 -2 0
+1 5 -3 0
+2 -3 -5 0
+1 5 -2 0
+5 -3 -4 0
+-5 1 -3 0
+-1 5 -4 0
+1 3 4 0
+-3 4 5 0
+
+c GPT solve time: 17.89 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+Let me start by analyzing the formula and making decisions:
+
+**Branch 1: x1 = TRUE**
+- Clause 5: (¬x1 ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5) must be satisfied
+- Clause 8: (x5 ∨ x3 ∨ ¬x1) → (x5 ∨ x3) must be satisfied
+- Clause 15: (¬x1 ∨ x5 ∨ ¬x4) → (x5 ∨ ¬x4) must be satisfied
+
+**Branch 2: x2 = TRUE**
+- Clause 3: (¬x3 ∨ ¬x2 ∨ ¬x5) → (¬x3 ∨ ¬x5) must be satisfied
+- Clause 9: (x4 ∨ ¬x5 ∨ ¬x2) → (x4 ∨ ¬x5) must be satisfied
+- Clause 11: (x2 ∨ ¬x3 ∨ ¬x5) → already satisfied
+- Clause 12: (x1 ∨ x5 ∨ ¬x2) → (x1 ∨ x5) → already satisfied (x1 = TRUE)
+
+**Branch 3: x3 = TRUE**
+- Clause 3: (¬x3 ∨ ¬x2 ∨ ¬x5) → (¬x5) must be satisfied, so x5 = FALSE
+- Clause 10: (x1 ∨ x5 ∨ ¬x3) → already satisfied (x1 = TRUE)
+- Clause 11: (x2 ∨ ¬x3 ∨ ¬x5) → already satisfied (x2 = TRUE)
+- Clause 13: (x5 ∨ ¬x3 ∨ ¬x4) → (¬x4) must be satisfied, so x4 = FALSE
+- Clause 14: (¬x5 ∨ x1 ∨ ¬x3) → already satisfied (x1 = TRUE)
+
+With x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE, x5 = FALSE:
+
+Checking all clauses:
+1. (x3 ∨ x2 ∨ ¬x4) = (T ∨ T ∨ T) = T ✓
+2. (x3 ∨ ¬x2 ∨ x4) = (T ∨ F ∨ F) = T ✓
+3. (¬x3 ∨ ¬x2 ∨ ¬x5) = (F ∨ F ∨ T) = T ✓
+4. (x4 ∨ x2 ∨ ¬x5) = (F ∨ T ∨ T) = T ✓
+5. (¬x1 ∨ ¬x4 ∨ ¬x5) = (F ∨ T ∨ T) = T ✓
+6. (x3 ∨ x1 ∨ ¬x5) = (T ∨ T ∨ T) = T ✓
+7. (x2 ∨ x1 ∨ x3) = (T ∨ T ∨ T) = T ✓
+8. (x5 ∨ x3 ∨ ¬x1) = (F ∨ T ∨ F) = T ✓
+9. (x4 ∨

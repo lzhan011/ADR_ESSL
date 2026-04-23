@@ -1,0 +1,257 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1364
+p cnf 5 17
+-4 3 1 0
+-4 -3 -1 0
+-2 -4 -1 0
+-5 2 4 0
+5 3 1 0
+-2 1 4 0
+5 3 -1 0
+5 -4 -3 0
+-1 -2 5 0
+1 -5 4 0
+1 2 3 0
+-5 -1 3 0
+3 5 4 0
+2 -3 4 0
+-3 -4 1 0
+5 2 -1 0
+4 -3 -5 0
+
+c GPT solve time: 45.80 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by assigning x1 = true.
+
+Simplifying the formula with x1 = true:
+- (¬x4 ∨ x3 ∨ true) becomes satisfied
+- (¬x4 ∨ ¬x3 ∨ ¬true) becomes (¬x4 ∨ ¬x3)
+- (¬x2 ∨ ¬x4 ∨ ¬true) becomes (¬x2 ∨ ¬x4)
+- (¬x5 ∨ x2 ∨ x4) remains unchanged
+- (x5 ∨ x3 ∨ true) becomes satisfied
+- (¬x2 ∨ true ∨ x4) becomes satisfied
+- (x5 ∨ x3 ∨ ¬true) becomes (x5 ∨ x3)
+- (x5 ∨ ¬x4 ∨ ¬x3) remains unchanged
+- (¬true ∨ ¬x2 ∨ x5) becomes (¬x2 ∨ x5)
+- (true ∨ ¬x5 ∨ x4) becomes satisfied
+- (true ∨ x2 ∨ x3) becomes satisfied
+- (¬x5 ∨ ¬true ∨ x3) becomes (¬x5 ∨ x3)
+- (x3 ∨ x5 ∨ x4) remains unchanged
+- (x2 ∨ ¬x3 ∨ x4) remains unchanged
+- (¬x3 ∨ ¬x4 ∨ true) becomes satisfied
+- (x5 ∨ x2 ∨ ¬true) becomes (x5 ∨ x2)
+- (x4 ∨ ¬x3 ∨ ¬x5) remains unchanged
+
+Remaining clauses:
+1. (¬x4 ∨ ¬x3)
+2. (¬x2 ∨ ¬x4)
+3. (¬x5 ∨ x2 ∨ x4)
+4. (x5 ∨ x3)
+5. (x5 ∨ ¬x4 ∨ ¬x3)
+6. (¬x2 ∨ x5)
+7. (¬x5 ∨ x3)
+8. (x3 ∨ x5 ∨ x4)
+9. (x2 ∨ ¬x3 ∨ x4)
+10. (x5 ∨ x2)
+11. (x4 ∨ ¬x3 ∨ ¬x5)
+
+Step 2: From clauses 4 and 7, we can deduce that x3 must be true (unit propagation).
+
+Simplifying with x3 = true:
+1. (¬x4 ∨ ¬true) becomes (¬x4)
+2. (¬x2 ∨ ¬x4) remains unchanged
+3. (¬x5 ∨ x2 ∨ x4) remains unchanged
+4. (x5 ∨ true) becomes satisfied
+5. (x5 ∨ ¬x4 ∨ ¬true) becomes (x5 ∨ ¬x4)
+6. (¬x2 ∨ x5) remains unchanged
+7. (¬x5 ∨ true) becomes satisfied
+8. (true ∨ x5 ∨ x4) becomes satisfied
+9. (x2 ∨ ¬true ∨ x4) becomes (x2 ∨ x4)
+10. (x5 ∨ x2) remains unchanged
+11. (x4 ∨ ¬true ∨ ¬x5) becomes (x4 ∨ ¬x5)
+
+Remaining clauses:
+1. (¬x4)
+2. (¬x2 ∨ ¬x4)
+3. (¬x5 ∨ x2 ∨ x4)
+4. (x5 ∨ ¬x4)
+5. (¬x2 ∨ x5)
+6. (x2 ∨ x4)
+7. (x5 ∨ x2)
+8. (x4 ∨ ¬x5)
+
+Step 3: From clause 1, we can deduce that x4 must be false (unit propagation).
+
+Simplifying with x4 = false:
+1. (¬false) becomes satisfied
+2. (¬x2 ∨ ¬false) becomes satisfied
+3. (¬x5 ∨ x2 ∨ false) becomes (¬x5 ∨ x2)
+4. (x5 ∨ ¬false) becomes satisfied
+5. (¬x2 ∨ x5) remains unchanged
+6. (x2 ∨ false) becomes (x2)
+7. (x5 ∨ x2) remains unchanged
+8. (false ∨ ¬x5) becomes (¬x5)
+
+Remaining clauses:
+1. (¬x5 ∨ x2)
+2. (¬x2 ∨ x5)
+3. (x2)
+4. (¬x5)
+
+Step 4: From clause 3, we can deduce that x2 must be true (unit propagation).
+
+Simplifying with x2 = true:
+1. (¬x5 ∨ true) becomes satisfied
+2. (¬true ∨ x5) becomes (x5)
+3. (true) becomes satisfied
+4. (¬x5) remains unchanged
+
+Remaining clauses:
+1. (x5)
+2. (¬x5)
+
+Step 5: We have a contradiction: x5 must be both true and false. We need to backtrack.
+
+Let's try x1 = false instead.
+
+Simplifying the formula with x1 = false:
+- (¬x4 ∨ x3 ∨ false) becomes (¬x4 ∨ x3)
+- (¬x4 ∨ ¬x3 ∨ ¬false) becomes satisfied
+- (¬x2 ∨ ¬x4 ∨ ¬false) becomes satisfied
+- (¬x5 ∨ x2 ∨ x4) remains unchanged
+- (x5 ∨ x3 ∨ false) becomes (x5 ∨ x3)
+- (¬x2 ∨ false ∨ x4) becomes (¬x2 ∨ x4)
+- (x5 ∨ x3 ∨ ¬false) becomes satisfied
+- (x5 ∨ ¬x4 ∨ ¬x3) remains unchanged
+- (¬false ∨ ¬x2 ∨ x5) becomes satisfied
+- (false ∨ ¬x5 ∨ x4) becomes (¬x5 ∨ x4)
+- (false ∨ x2 ∨ x3) becomes (x2 ∨ x3)
+- (¬x5 ∨ ¬false ∨ x3) becomes satisfied
+- (x3 ∨ x5 ∨ x4) remains unchanged
+- (x2 ∨ ¬x3 ∨ x4) remains unchanged
+- (¬x3 ∨ ¬x4 ∨ false) becomes (¬x3 ∨ ¬x4)
+- (x5 ∨ x2 ∨ ¬false) becomes satisfied
+- (x4 ∨ ¬x3 ∨ ¬x5) remains unchanged
+
+Remaining clauses:
+1. (¬x4 ∨ x3)
+2. (¬x5 ∨ x2 ∨ x4)
+3. (x5 ∨ x3)
+4. (¬x2 ∨ x4)
+5. (x5 ∨ ¬x4 ∨ ¬x3)
+6. (¬x5 ∨ x4)
+7. (x2 ∨ x3)
+8. (x3 ∨ x5 ∨ x4)
+9. (x2 ∨ ¬x3 ∨ x4)
+10. (¬x3 ∨ ¬x4)
+11. (x4 ∨ ¬x3 ∨ ¬x5)
+
+Step 6: Let's try assigning x2 = true.
+
+Simplifying with x2 = true:
+1. (¬x4 ∨ x3) remains unchanged
+2. (¬x5 ∨ true ∨ x4) becomes satisfied
+3. (x5 ∨ x3) remains unchanged
+4. (¬true ∨ x4) becomes (x4)
+5. (x5 ∨ ¬x4 ∨ ¬x3) remains unchanged
+6. (¬x5 ∨ x4) remains unchanged
+7. (true ∨ x3) becomes satisfied
+8. (x3 ∨ x5 ∨ x4) remains unchanged
+9. (true ∨ ¬x3 ∨ x4) becomes satisfied
+10. (¬x3 ∨ ¬x4) remains unchanged
+11. (x4 ∨ ¬x3 ∨ ¬x5) remains unchanged
+
+Remaining clauses:
+1. (¬x4 ∨ x3)
+2. (x5 ∨ x3)
+3. (x4)
+4. (x5 ∨ ¬x4 ∨ ¬x3)
+5. (¬x5 ∨ x4)
+6. (x3 ∨ x5 ∨ x4)
+7. (¬x3 ∨ ¬x4)
+8. (x4 ∨ ¬x3 ∨ ¬x5)
+
+Step 7: From clause 3, we can deduce that x4 must be true (unit propagation).
+
+Simplifying with x4 = true:
+1. (¬true ∨ x3) becomes (x3)
+2. (x5 ∨ x3) remains unchanged
+3. (true) becomes satisfied
+4. (x5 ∨ ¬true ∨ ¬x3) becomes (x5 ∨ ¬x3)
+5. (¬x5 ∨ true) becomes satisfied
+6. (x3 ∨ x5 ∨ true) becomes satisfied
+7. (¬x3 ∨ ¬true) becomes (¬x3)
+8. (true ∨ ¬x3 ∨ ¬x5) becomes satisfied
+
+Remaining clauses:
+1. (x3)
+2. (x5 ∨ x3)
+3. (x5 ∨ ¬x3)
+4. (¬x3)
+
+Step 8: We have a contradiction: x3 must be both true and false. We need to backtrack.
+
+Let's try x2 = false instead.
+
+Simplifying with x2 = false:
+1. (¬x4 ∨ x3) remains unchanged
+2. (¬x5 ∨ false ∨ x4) becomes (¬x5 ∨ x4)
+3. (x5 ∨ x3) remains unchanged
+4. (¬false ∨ x4) becomes satisfied
+5. (x5 ∨ ¬x4 ∨ ¬x3) remains unchanged
+6. (¬x5 ∨ x4) remains unchanged
+7. (false ∨ x3) becomes (x3)
+8. (x3 ∨ x5 ∨ x4) remains unchanged
+9. (false ∨ ¬x3 ∨ x4) becomes (¬x3 ∨ x4)
+10. (¬x3 ∨ ¬x4) remains unchanged
+11. (x4 ∨ ¬x3 ∨ ¬x5) remains unchanged
+
+Remaining clauses:
+1. (¬x4 ∨ x3)
+2. (¬x5 ∨ x4)
+3. (x5 ∨ x3)
+4. (x5 ∨ ¬x4 ∨ ¬x3)
+5. (¬x5 ∨ x4)
+6. (x3)
+7. (x3 ∨ x5 ∨ x4)
+8. (¬x3 ∨ x4)
+9. (¬x3 ∨ ¬x4)
+10. (x4 ∨ ¬x3 ∨ ¬x5)
+
+Step 9: From clause 6, we can deduce that x3 must be true (unit propagation).
+
+Simplifying with x3 = true:
+1. (¬x4 ∨ true) becomes satisfied
+2. (¬x5 ∨ x4) remains unchanged
+3. (x5 ∨ true) becomes satisfied
+4. (x5 ∨ ¬x4 ∨ ¬true) becomes (x5 ∨ ¬x4)
+5. (¬x5 ∨ x4) remains unchanged
+6. (true) becomes satisfied
+7. (true ∨ x5 ∨ x4) becomes satisfied
+8. (¬true ∨ x4) becomes (x4)
+9. (¬true ∨ ¬x4) becomes (¬x4)
+10. (x4 ∨ ¬true ∨ ¬x5) becomes (x4 ∨ ¬x5)
+
+Remaining clauses:
+1. (¬x5 ∨ x4)
+2. (x5 ∨ ¬x4)
+3. (¬x5 ∨ x4)
+4. (x4)
+5. (¬x4)
+6. (x4 ∨ ¬x5)
+
+Step 10: We have a contradiction: x4 must be both true and false. We need to backtrack.
+
+Let's try x1 = true again, but with different choices for the other variables.
+
+Let's try x1 = true, x3 = false.
+
+Simplifying with x1 = true and x3 = false:
+- (¬x4 ∨ false ∨ true) becomes satisfied
+- (¬x4 ∨ ¬false ∨ ¬true) becomes (¬x4)
+- (¬x2 ∨ ¬x4 ∨ ¬true) becomes (¬x2 ∨ ¬x4)
+- (¬x5 ∨ x2 ∨ x4) remains unchanged
+- (x5 ∨ false ∨ true) becomes satisfied
+- (¬x2 ∨ true

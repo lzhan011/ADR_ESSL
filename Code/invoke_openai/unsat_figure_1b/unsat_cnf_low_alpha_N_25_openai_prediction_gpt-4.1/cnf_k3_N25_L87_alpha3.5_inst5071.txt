@@ -1,0 +1,307 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=5071
+p cnf 25 87
+-7 19 14 0
+-24 1 -8 0
+-8 -25 -1 0
+5 10 -15 0
+4 -22 -16 0
+-13 6 -21 0
+-24 9 -5 0
+24 13 7 0
+16 -17 -23 0
+25 -3 -13 0
+-4 -17 8 0
+24 8 6 0
+-13 -22 9 0
+-14 -25 2 0
+-8 -12 6 0
+-12 -20 21 0
+20 12 16 0
+1 -23 -11 0
+25 -10 20 0
+10 -17 20 0
+13 -24 -1 0
+-21 16 7 0
+24 -23 -15 0
+18 12 -17 0
+8 -23 9 0
+-1 3 -18 0
+-16 -23 5 0
+15 -22 5 0
+-21 17 -2 0
+-22 -8 5 0
+-7 8 21 0
+-14 23 22 0
+3 -20 -9 0
+-22 7 -24 0
+2 -14 5 0
+-11 14 25 0
+-7 -10 1 0
+16 -21 14 0
+-16 23 -20 0
+1 -23 -16 0
+-13 18 -2 0
+16 -8 -9 0
+-3 8 12 0
+6 11 12 0
+12 -11 -25 0
+-21 3 -4 0
+-23 18 -22 0
+-16 -2 -6 0
+21 16 14 0
+4 -7 21 0
+-10 2 -16 0
+-9 11 -20 0
+16 21 10 0
+23 -3 -7 0
+14 9 -17 0
+22 -19 18 0
+-7 -16 -9 0
+-15 2 -25 0
+-7 25 -9 0
+-3 -12 9 0
+9 -20 -19 0
+1 23 -10 0
+-24 -20 17 0
+23 16 11 0
+-2 23 -11 0
+1 17 10 0
+11 -9 14 0
+20 -8 -1 0
+16 18 -3 0
+18 25 -23 0
+-25 -12 7 0
+1 23 -13 0
+-1 -7 20 0
+23 7 -1 0
+-16 -1 18 0
+15 16 -14 0
+-7 -23 -16 0
+-21 -16 -12 0
+-25 -3 -12 0
+-24 -16 -18 0
+-5 -14 -10 0
+17 7 -22 0
+15 -5 -6 0
+4 -5 -21 0
+-1 -17 -5 0
+-7 21 -16 0
+19 -9 -22 0
+
+c GPT solve time: 75.25 seconds
+
+**Step-by-step SAT solving (DPLL-style):**
+
+1. **Choose a variable to branch on.** Let's start with x1 = True.
+
+2. **Unit propagation:**  
+   - (¬x24 ∨ x1 ∨ ¬x8): satisfied  
+   - (¬x8 ∨ ¬x25 ∨ ¬x1): becomes (¬x8 ∨ ¬x25 ∨ False) → (¬x8 ∨ ¬x25)  
+   - (x1 ∨ ¬x23 ∨ ¬x11): satisfied  
+   - (x25 ∨ ¬x10 ∨ x20): no change  
+   - (x13 ∨ ¬x24 ∨ ¬x1): (x13 ∨ ¬x24 ∨ False) → (x13 ∨ ¬x24)  
+   - (x1 ∨ ¬x23 ∨ ¬x16): satisfied  
+   - (x1 ∨ x23 ∨ ¬x10): satisfied  
+   - (x1 ∨ x17 ∨ x10): satisfied  
+   - (x1 ∨ x23 ∨ ¬x13): satisfied  
+   - (¬x1 ∨ ¬x7 ∨ x20): (False ∨ ¬x7 ∨ x20) → (¬x7 ∨ x20)  
+   - (x23 ∨ x7 ∨ ¬x1): (x23 ∨ x7 ∨ False) → (x23 ∨ x7)  
+   - (¬x16 ∨ ¬x1 ∨ x18): (¬x16 ∨ False ∨ x18) → (¬x16 ∨ x18)  
+   - (¬x1 ∨ ¬x17 ∨ ¬x5): (False ∨ ¬x17 ∨ ¬x5) → (¬x17 ∨ ¬x5)  
+
+3. **No unit clauses yet.**  
+   Let's branch on x8 = True.
+
+4. **Unit propagation:**  
+   - (¬x8 ∨ ¬x25): (False ∨ ¬x25) → (¬x25)  
+   - (¬x8 ∨ ¬x12 ∨ x6): (False ∨ ¬x12 ∨ x6) → (¬x12 ∨ x6)  
+   - (x24 ∨ x8 ∨ x6): satisfied  
+   - (¬x4 ∨ ¬x17 ∨ x8): satisfied  
+   - (x8 ∨ ¬x23 ∨ x9): satisfied  
+   - (¬x22 ∨ ¬x8 ∨ x5): (¬x22 ∨ False ∨ x5) → (¬x22 ∨ x5)  
+   - (¬x7 ∨ x8 ∨ x21): satisfied  
+   - (x20 ∨ ¬x8 ∨ ¬x1): (x20 ∨ False ∨ False) → (x20)  
+
+5. **Unit clause: (¬x25)**  
+   Set x25 = False.
+
+6. **Unit propagation:**  
+   - (x25 ∨ ¬x3 ∨ ¬x13): (False ∨ ¬x3 ∨ ¬x13) → (¬x3 ∨ ¬x13)  
+   - (¬x14 ∨ ¬x25 ∨ x2): (¬x14 ∨ True ∨ x2): satisfied  
+   - (¬x15 ∨ x2 ∨ ¬x25): (¬x15 ∨ x2 ∨ True): satisfied  
+   - (¬x7 ∨ x25 ∨ ¬x9): (¬x7 ∨ False ∨ ¬x9): (¬x7 ∨ ¬x9)  
+   - (¬x25 ∨ ¬x12 ∨ x7): (True ∨ ¬x12 ∨ x7): satisfied  
+   - (¬x25 ∨ ¬x3 ∨ ¬x12): (True ∨ ¬x3 ∨ ¬x12): satisfied  
+
+7. **Unit clause: (x20)**  
+   Set x20 = True.
+
+8. **Unit propagation:**  
+   - (¬x12 ∨ ¬x20 ∨ x21): (¬x12 ∨ False ∨ x21): (¬x12 ∨ x21)  
+   - (x3 ∨ ¬x20 ∨ ¬x9): (x3 ∨ False ∨ ¬x9): (x3 ∨ ¬x9)  
+   - (¬x9 ∨ x11 ∨ ¬x20): (¬x9 ∨ x11 ∨ False): (¬x9 ∨ x11)  
+   - (¬x24 ∨ ¬x20 ∨ x17): (¬x24 ∨ False ∨ x17): (¬x24 ∨ x17)  
+   - (x20 ∨ x12 ∨ x16): satisfied  
+   - (x20 ∨ ¬x8 ∨ ¬x1): already satisfied  
+
+9. **No more unit clauses.**  
+   Let's branch on x12 = True.
+
+10. **Unit propagation:**  
+    - (¬x12 ∨ x6): (False ∨ x6): (x6)  
+    - (¬x12 ∨ ¬x20 ∨ x21): (False ∨ False ∨ x21): (x21)  
+    - (x6 ∨ x11 ∨ x12): satisfied  
+    - (x12 ∨ ¬x11 ∨ ¬x25): satisfied  
+    - (¬x3 ∨ x8 ∨ x12): satisfied  
+    - (¬x25 ∨ ¬x12 ∨ x7): (True ∨ False ∨ x7): satisfied  
+    - (¬x25 ∨ ¬x3 ∨ ¬x12): (True ∨ ¬x3 ∨ False): satisfied  
+
+11. **Unit clause: (x6)**  
+    Set x6 = True.
+
+12. **Unit propagation:**  
+    - (¬x13 ∨ x6 ∨ ¬x21): satisfied  
+    - (x24 ∨ x8 ∨ x6): already satisfied  
+    - (x6 ∨ x11 ∨ x12): already satisfied  
+    - (¬x16 ∨ ¬x2 ∨ ¬x6): (¬x16 ∨ ¬x2 ∨ False): (¬x16 ∨ ¬x2)  
+
+13. **Unit clause: (x21)**  
+    Set x21 = True.
+
+14. **Unit propagation:**  
+    - (¬x13 ∨ x6 ∨ ¬x21): (¬x13 ∨ x6 ∨ False): (¬x13 ∨ x6): already satisfied  
+    - (¬x21 ∨ x16 ∨ x7): (False ∨ x16 ∨ x7): (x16 ∨ x7)  
+    - (¬x21 ∨ x3 ∨ ¬x4): (False ∨ x3 ∨ ¬x4): (x3 ∨ ¬x4)  
+    - (¬x21 ∨ x17 ∨ ¬x2): (False ∨ x17 ∨ ¬x2): (x17 ∨ ¬x2)  
+    - (¬x21 ∨ ¬x16 ∨ ¬x12): (False ∨ ¬x16 ∨ False): (¬x16)  
+
+15. **Unit clause: (¬x16)**  
+    Set x16 = False.
+
+16. **Unit propagation:**  
+    - (x4 ∨ ¬x22 ∨ ¬x16): (x4 ∨ ¬x22 ∨ True): satisfied  
+    - (x16 ∨ ¬x17 ∨ ¬x23): (False ∨ ¬x17 ∨ ¬x23): (¬x17 ∨ ¬x23)  
+    - (¬x16 ∨ ¬x23 ∨ x5): (True ∨ ¬x23 ∨ x5): satisfied  
+    - (x15 ∨ ¬x22 ∨ x5): no change  
+    - (¬x16 ∨ x23 ∨ ¬x20): (True ∨ x23 ∨ False): satisfied  
+    - (x21 ∨ x16 ∨ x14): (True ∨ False ∨ x14): satisfied  
+    - (x16 ∨ x21 ∨ x10): (False ∨ True ∨ x10): satisfied  
+    - (x23 ∨ x16 ∨ x11): (x23 ∨ False ∨ x11): (x23 ∨ x11)  
+    - (x16 ∨ x18 ∨ ¬x3): (False ∨ x18 ∨ ¬x3): (x18 ∨ ¬x3)  
+    - (¬x16 ∨ ¬x1 ∨ x18): (True ∨ False ∨ x18): satisfied  
+    - (x15 ∨ x16 ∨ ¬x14): (x15 ∨ False ∨ ¬x14): (x15 ∨ ¬x14)  
+    - (¬x7 ∨ ¬x23 ∨ ¬x16): (¬x7 ∨ ¬x23 ∨ True): satisfied  
+    - (¬x21 ∨ ¬x16 ∨ ¬x12): (False ∨ True ∨ False): satisfied  
+    - (¬x24 ∨ ¬x16 ∨ ¬x18): (¬x24 ∨ True ∨ ¬x18): satisfied  
+
+17. **Unit clause: (¬x16 ∨ ¬x2): (True ∨ ¬x2): satisfied**  
+    (from earlier step)
+
+18. **Unit clause: (¬x17 ∨ ¬x23):**  
+    Let's branch on x17 = False.
+
+19. **Unit propagation:**  
+    - (x16 ∨ ¬x17 ∨ ¬x23): already satisfied  
+    - (x17 ∨ ¬x2): (False ∨ ¬x2): (¬x2)  
+    - (¬x17 ∨ ¬x5): (True ∨ ¬x5): satisfied  
+    - (x10 ∨ ¬x17 ∨ x20): (x10 ∨ True ∨ x20): satisfied  
+    - (x18 ∨ x12 ∨ ¬x17): (x18 ∨ x12 ∨ True): satisfied  
+    - (x2 ∨ ¬x14 ∨ x5): (x2 ∨ ¬x14 ∨ x5): (¬x2) is unit, so (False ∨ ¬x14 ∨ x5): (¬x14 ∨ x5)  
+
+20. **Unit clause: (¬x2)**  
+    Set x2 = False.
+
+21. **Unit propagation:**  
+    - (¬x13 ∨ x18 ∨ ¬x2): (¬x13 ∨ x18 ∨ True): satisfied  
+    - (¬x2 ∨ x23 ∨ ¬x11): (True ∨ x23 ∨ ¬x11): satisfied  
+    - (x17 ∨ ¬x2): already satisfied  
+    - (¬x16 ∨ ¬x2): already satisfied  
+    - (x2 ∨ ¬x14 ∨ x5): (False ∨ ¬x14 ∨ x5): (¬x14 ∨ x5)  
+
+22. **Unit clause: (¬x14 ∨ x5)**  
+    Let's branch on x14 = False.
+
+23. **Unit propagation:**  
+    - (¬x7 ∨ x19 ∨ x14): (¬x7 ∨ x19 ∨ False): (¬x7 ∨ x19)  
+    - (¬x14 ∨ ¬x25 ∨ x2): (True ∨ True ∨ False): satisfied  
+    - (x15 ∨ x16 ∨ ¬x14): (x15 ∨ False ∨ True): satisfied  
+    - (x11 ∨ ¬x9 ∨ x14): (x11 ∨ ¬x9 ∨ False): (x11 ∨ ¬x9)  
+    - (x4 ∨ ¬x5 ∨ ¬x21): (x4 ∨ ¬x5 ∨ False): (x4 ∨ ¬x5)  
+    - (¬x5 ∨ ¬x14 ∨ ¬x10): (¬x5 ∨ True ∨ ¬x10): satisfied  
+    - (x2 ∨ ¬x14 ∨ x5): already satisfied  
+    - (¬x14 ∨ x23 ∨ x22): (True ∨ x23 ∨ x22): satisfied  
+
+24. **Unit clause: (x5)**  
+    Set x5 = True.
+
+25. **Unit propagation:**  
+    - (x5 ∨ x10 ∨ ¬x15): satisfied  
+    - (¬x24 ∨ x9 ∨ ¬x5): (¬x24 ∨ x9 ∨ False): (¬x24 ∨ x9)  
+    - (¬x16 ∨ ¬x23 ∨ x5): satisfied  
+    - (x15 ∨ ¬x22 ∨ x5): satisfied  
+    - (¬x22 ∨ ¬x8 ∨ x5): (¬x22 ∨ ¬x8 ∨ True): satisfied  
+    - (x4 ∨ ¬x5 ∨ ¬x21): (x4 ∨ False ∨ False): (x4)  
+    - (¬x1 ∨ ¬x17 ∨ ¬x5): (False ∨ True ∨ False): (True)  
+    - (x15 ∨ ¬x5 ∨ ¬x6): (x15 ∨ False ∨ False): (x15)  
+
+26. **Unit clause: (x4)**  
+    Set x4 = True.
+
+27. **Unit propagation:**  
+    - (x4 ∨ ¬x22 ∨ ¬x16): already satisfied  
+    - (¬x4 ∨ ¬x17 ∨ x8): (False ∨ True ∨ True): satisfied  
+    - (¬x21 ∨ x3 ∨ ¬x4): (False ∨ x3 ∨ False): (x3)  
+
+28. **Unit clause: (x3)**  
+    Set x3 = True.
+
+29. **Unit propagation:**  
+    - (x25 ∨ ¬x3 ∨ ¬x13): (False ∨ False ∨ ¬x13): (¬x13)  
+    - (x3 ∨ ¬x20 ∨ ¬x9): (True ∨ False ∨ ¬x9): satisfied  
+    - (¬x3 ∨ x8 ∨ x12): (False ∨ True ∨ True): satisfied  
+    - (¬x3 ∨ ¬x12 ∨ x9): (False ∨ False ∨ x9): (x9)  
+    - (x18 ∨ ¬x3): (x18 ∨ False): (x18)  
+
+30. **Unit clause: (¬x13)**  
+    Set x13 = False.
+
+31. **Unit propagation:**  
+    - (¬x13 ∨ x6 ∨ ¬x21): satisfied  
+    - (x24 ∨ x13 ∨ x7): (x24 ∨ False ∨ x7): (x24 ∨ x7)  
+    - (¬x13 ∨ ¬x22 ∨ x9): (True ∨ ¬x22 ∨ x9): satisfied  
+    - (x13 ∨ ¬x24): (False ∨ ¬x24): (¬x24)  
+    - (x1 ∨ x23 ∨ ¬x13): already satisfied  
+    - (¬x13 ∨ x18 ∨ ¬x2): already satisfied  
+
+32. **Unit clause: (¬x24)**  
+    Set x24 = False.
+
+33. **Unit propagation:**  
+    - (¬x24 ∨ x1 ∨ ¬x8): already satisfied  
+    - (¬x24 ∨ x9 ∨ ¬x5): (True ∨ x9 ∨ False): satisfied  
+    - (¬x24 ∨ ¬x20 ∨ x17): (True ∨ False ∨ False): satisfied  
+    - (¬x24 ∨ ¬x16 ∨ ¬x18): (True ∨ True ∨ ¬x18): satisfied  
+    - (x24 ∨ x13 ∨ x7): (False ∨ False ∨ x7): (x7)  
+    - (x13 ∨ ¬x24): already satisfied  
+    - (¬x22 ∨ x7 ∨ ¬x24): (¬x22 ∨ x7 ∨ True): satisfied  
+
+34. **Unit clause: (x7)**  
+    Set x7 = True.
+
+35. **Unit propagation:**  
+    - (¬x7 ∨ x19 ∨ x14): (False ∨ x19 ∨ False): (x19)  
+    - (¬x7 ∨ x8 ∨ x21): (False ∨ True ∨ True): satisfied  
+    - (¬x7 ∨ ¬x10 ∨ x1): (False ∨ ¬x10 ∨ True): satisfied  
+    - (x23 ∨ x7): (x23 ∨ True): satisfied  
+    - (x24 ∨ x7): already satisfied  
+    - (¬x7 ∨ ¬x23 ∨ ¬x16): (False ∨ ¬x23 ∨ True): satisfied  
+    - (¬x7 ∨ x25 ∨ ¬x9): (False ∨ False ∨ ¬x9): (¬x9)  
+    - (¬x7 ∨ x21 ∨ ¬x16): (False ∨ True ∨ True): satisfied  
+    - (x23 ∨ x7 ∨ ¬x1): already satisfied  
+    - (x17 ∨ x7 ∨ ¬x22): (False ∨ True ∨ ¬x22): (True ∨ ¬x22): satisfied  
+
+36. **Unit clause: (x19)**  
+    Set x19 = True.
+
+37. **Unit

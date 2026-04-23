@@ -1,0 +1,91 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=837
+p cnf 10 35
+6 4 -7 0
+9 8 7 0
+1 -9 8 0
+4 -5 -2 0
+-1 7 6 0
+5 -3 -6 0
+6 -4 9 0
+4 -2 -10 0
+1 -10 9 0
+10 5 -2 0
+4 -6 2 0
+7 5 -8 0
+9 8 6 0
+3 -9 4 0
+3 -5 1 0
+-4 -3 -6 0
+-6 3 7 0
+-6 3 -10 0
+-4 -5 3 0
+-7 -9 1 0
+-3 -2 1 0
+4 -6 9 0
+-9 1 2 0
+9 -3 5 0
+7 9 8 0
+-9 -4 -7 0
+6 5 -1 0
+6 -1 5 0
+-5 2 -4 0
+4 10 3 0
+-8 1 7 0
+2 10 -8 0
+8 -3 -7 0
+-4 10 9 0
+-4 -3 10 0
+
+c GPT solve time: 6.47 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1.
+3. Assign x1 = True.
+4. Update the clauses based on the assignment:
+   (x1 ∨ ¬x9 ∨ x8) -> (True ∨ ¬x9 ∨ x8) -> (True ∨ True ∨ x8) -> True
+   (¬x1 ∨ x7 ∨ x6) -> (False ∨ x7 ∨ x6) -> (x7 ∨ x6)
+   (x1 ∨ ¬x10 ∨ x9) -> (True ∨ ¬x10 ∨ x9) -> (True ∨ True ∨ x9) -> True
+   (¬x3 ∨ ¬x2 ∨ x1) -> (True ∨ ¬x2 ∨ True) -> (True ∨ True ∨ True) -> True
+   (¬x8 ∨ x1 ∨ x7) -> (True ∨ True ∨ x7) -> True
+   (x6 ∨ x5 ∨ ¬x1) -> (True ∨ x5 ∨ False) -> True
+   (x6 ∨ ¬x1 ∨ x5) -> (True ∨ False ∨ True) -> True
+   (¬x7 ∨ ¬x9 ∨ x1) -> (True ∨ True ∨ True) -> True
+   (¬x9 ∨ x1 ∨ x2) -> (True ∨ True ∨ True) -> True
+   (x3 ∨ ¬x9 ∨ x4) -> (True ∨ True ∨ True) -> True
+   (x3 ∨ ¬x5 ∨ x1) -> (True ∨ True ∨ True) -> True
+   (¬x3 ∨ ¬x2 ∨ x1) -> (True ∨ ¬x2 ∨ True) -> (True ∨ True ∨ True) -> True
+   (x4 ∨ ¬x6 ∨ x9) -> (True ∨ True ∨ True) -> True
+   (¬x9 ∨ ¬x4 ∨ ¬x7) -> (True ∨ True ∨ True) -> True
+   (x7 ∨ x9 ∨ x8) -> (True ∨ True ∨ True) -> True
+   (¬x6 ∨ x3 ∨ x7) -> (True ∨ True ∨ True) -> True
+   (¬x6 ∨ x3 ∨ ¬x10) -> (True ∨ True ∨ True) -> True
+   (¬x4 ∨ ¬x5 ∨ x3) -> (True ∨ True ∨ True) -> True
+   (¬x4 ∨ ¬x3 ∨ ¬x6) -> (True ∨ True ∨ True) -> True
+   (x4 ∨ x10 ∨ x3) -> (True ∨ True ∨ True) -> True
+   (¬x4 ∨ x10 ∨ x9) -> (True ∨ True ∨ True) -> True
+   (¬x4 ∨ ¬x3 ∨ x10) -> (True ∨ True ∨ True) -> True
+5. Choose the next unassigned literal, x2.
+6. Assign x2 = True.
+7. Update the clauses based on the assignment:
+   (¬x3 ∨ ¬x2 ∨ x1) -> (True ∨ False ∨ True) -> True
+   (¬x5 ∨ x2 ∨ ¬x4) -> (True ∨ True ∨ True) -> True
+   (x10 ∨ x5 ∨ ¬x2) -> (True ∨ True ∨ False) -> True
+8. All clauses are satisfied with the current assignments. Therefore, the formula is SATISFIABLE.
+9. The assignments are:
+   x1 = True
+   x2 = True
+   x3 = True
+   x4 = True
+   x5 = True
+   x6 = True
+   x7 = True
+   x8 = True
+   x9 = True
+   x10 = True
+10. Number of branches: 1
+11. Number of conflicts: 0
+
+SATISFIABLE
+Number of branches: 1
+Number of conflicts: 0

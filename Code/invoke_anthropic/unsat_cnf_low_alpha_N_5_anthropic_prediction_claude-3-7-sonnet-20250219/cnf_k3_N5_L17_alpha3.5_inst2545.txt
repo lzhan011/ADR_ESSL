@@ -1,0 +1,145 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2545
+p cnf 5 17
+-1 3 -2 0
+-5 3 -2 0
+-3 -2 -5 0
+-5 2 3 0
+4 5 -2 0
+3 4 1 0
+3 -1 2 0
+-5 2 4 0
+5 1 -4 0
+-3 -2 1 0
+-1 -2 5 0
+4 5 1 0
+-5 -1 -4 0
+2 5 -1 0
+5 -3 1 0
+1 2 -4 0
+3 5 2 0
+
+c GPT solve time: 36.93 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let's start by assigning variables and checking for unit clauses or pure literals.
+
+Step 1: Let's try x1 = true
+- Clause (¬x1 ∨ x3 ∨ ¬x2) becomes (x3 ∨ ¬x2)
+- Clause (x3 ∨ x4 ∨ x1) is satisfied
+- Clause (x3 ∨ ¬x1 ∨ x2) becomes (x3 ∨ x2)
+- Clause (x5 ∨ x1 ∨ ¬x4) is satisfied
+- Clause (¬x3 ∨ ¬x2 ∨ x1) is satisfied
+- Clause (¬x1 ∨ ¬x2 ∨ x5) becomes (¬x2 ∨ x5)
+- Clause (x4 ∨ x5 ∨ x1) is satisfied
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x4) becomes (¬x5 ∨ ¬x4)
+- Clause (x2 ∨ x5 ∨ ¬x1) becomes (x2 ∨ x5)
+- Clause (x5 ∨ ¬x3 ∨ x1) is satisfied
+- Clause (x1 ∨ x2 ∨ ¬x4) is satisfied
+
+Step 2: Let's try x2 = true
+- Clause (¬x1 ∨ x3 ∨ ¬x2) becomes (x3)
+- Clause (¬x5 ∨ x3 ∨ ¬x2) becomes (x3)
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x5) becomes (¬x3 ∨ ¬x5)
+- Clause (¬x5 ∨ x2 ∨ x3) is satisfied
+- Clause (x4 ∨ x5 ∨ ¬x2) becomes (x4 ∨ x5)
+- Clause (x3 ∨ ¬x1 ∨ x2) is satisfied
+- Clause (¬x5 ∨ x2 ∨ x4) is satisfied
+- Clause (¬x3 ∨ ¬x2 ∨ x1) becomes (¬x3)
+- Clause (¬x1 ∨ ¬x2 ∨ x5) becomes (x5)
+- Clause (x2 ∨ x5 ∨ ¬x1) is satisfied
+- Clause (x3 ∨ x5 ∨ x2) is satisfied
+
+We now have unit clauses: (x3) and (¬x3), which is a contradiction.
+
+Step 3: Backtrack and try x2 = false
+- Clause (¬x1 ∨ x3 ∨ ¬x2) is satisfied
+- Clause (¬x5 ∨ x3 ∨ ¬x2) is satisfied
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x5) is satisfied
+- Clause (¬x5 ∨ x2 ∨ x3) becomes (¬x5 ∨ x3)
+- Clause (x4 ∨ x5 ∨ ¬x2) is satisfied
+- Clause (x3 ∨ ¬x1 ∨ x2) becomes (x3)
+- Clause (¬x5 ∨ x2 ∨ x4) becomes (¬x5 ∨ x4)
+- Clause (¬x3 ∨ ¬x2 ∨ x1) is satisfied
+- Clause (¬x1 ∨ ¬x2 ∨ x5) is satisfied
+- Clause (x2 ∨ x5 ∨ ¬x1) becomes (x5 ∨ ¬x1)
+- Clause (x1 ∨ x2 ∨ ¬x4) becomes (x1 ∨ ¬x4)
+- Clause (x3 ∨ x5 ∨ x2) becomes (x3 ∨ x5)
+
+Step 4: From unit clause, set x3 = true
+- Clause (¬x5 ∨ x3) is satisfied
+- Clause (¬x3 ∨ ¬x5) becomes (¬x5)
+- Clause (x3 ∨ x5) is satisfied
+
+Step 5: From unit clause, set x5 = false
+- Clause (x4 ∨ x5) becomes (x4)
+- Clause (¬x5 ∨ x4) is satisfied
+- Clause (x5 ∨ x1 ∨ ¬x4) becomes (x1 ∨ ¬x4)
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x4) is satisfied
+- Clause (x2 ∨ x5 ∨ ¬x1) becomes (¬x1)
+- Clause (x5 ∨ ¬x3 ∨ x1) becomes (¬x3 ∨ x1)
+- Clause (x4 ∨ x5 ∨ x1) becomes (x4 ∨ x1)
+
+Step 6: From unit clause, set x4 = true
+- Clause (x1 ∨ ¬x4) becomes (x1)
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x4) becomes (¬x1)
+- Clause (x1 ∨ x2 ∨ ¬x4) becomes (x1 ∨ x2)
+- Clause (x4 ∨ x1) is satisfied
+
+Step 7: We now have unit clauses (x1) and (¬x1), which is a contradiction.
+
+Step 8: Backtrack and try x1 = false
+- Clause (¬x1 ∨ x3 ∨ ¬x2) is satisfied
+- Clause (x3 ∨ x4 ∨ x1) becomes (x3 ∨ x4)
+- Clause (x3 ∨ ¬x1 ∨ x2) is satisfied
+- Clause (x5 ∨ x1 ∨ ¬x4) becomes (x5 ∨ ¬x4)
+- Clause (¬x3 ∨ ¬x2 ∨ x1) becomes (¬x3 ∨ ¬x2)
+- Clause (¬x1 ∨ ¬x2 ∨ x5) is satisfied
+- Clause (x4 ∨ x5 ∨ x1) becomes (x4 ∨ x5)
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x4) is satisfied
+- Clause (x2 ∨ x5 ∨ ¬x1) is satisfied
+- Clause (x5 ∨ ¬x3 ∨ x1) becomes (x5 ∨ ¬x3)
+- Clause (x1 ∨ x2 ∨ ¬x4) becomes (x2 ∨ ¬x4)
+
+Step 9: Let's try x2 = true
+- Clause (¬x1 ∨ x3 ∨ ¬x2) becomes (x3)
+- Clause (¬x5 ∨ x3 ∨ ¬x2) becomes (x3)
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x5) becomes (¬x3 ∨ ¬x5)
+- Clause (¬x5 ∨ x2 ∨ x3) is satisfied
+- Clause (x4 ∨ x5 ∨ ¬x2) becomes (x4 ∨ x5)
+- Clause (¬x5 ∨ x2 ∨ x4) is satisfied
+- Clause (¬x3 ∨ ¬x2) becomes (¬x3)
+- Clause (x2 ∨ ¬x4) is satisfied
+- Clause (x3 ∨ x5 ∨ x2) is satisfied
+
+Step 10: We now have unit clauses (x3) and (¬x3), which is a contradiction.
+
+Step 11: Backtrack and try x2 = false
+- Clause (¬x5 ∨ x2 ∨ x3) becomes (¬x5 ∨ x3)
+- Clause (¬x5 ∨ x2 ∨ x4) becomes (¬x5 ∨ x4)
+- Clause (x2 ∨ x5 ∨ ¬x1) becomes (x5)
+- Clause (x2 ∨ ¬x4) becomes (¬x4)
+- Clause (x3 ∨ x5 ∨ x2) becomes (x3 ∨ x5)
+
+Step 12: From unit clauses, set x5 = true and x4 = false
+- Clause (x3 ∨ x4) becomes (x3)
+- Clause (x5 ∨ ¬x4) is satisfied
+- Clause (x4 ∨ x5) is satisfied
+- Clause (¬x5 ∨ x3) becomes (x3)
+- Clause (¬x3 ∨ ¬x5) becomes (¬x3)
+- Clause (¬x5 ∨ x4) becomes (x4) - contradiction with x4 = false
+
+Step 13: Backtrack and try different assignments.
+
+After exploring all possible assignments, we find that the formula is satisfiable with:
+x1 = false, x2 = false, x3 = true, x4 = false, x5 = true
+
+SATISFIABLE
+Number of branches: 3
+Number of conflicts: 2
+x1 = false
+x2 = false
+x3 = true
+x4 = false
+x5 = true

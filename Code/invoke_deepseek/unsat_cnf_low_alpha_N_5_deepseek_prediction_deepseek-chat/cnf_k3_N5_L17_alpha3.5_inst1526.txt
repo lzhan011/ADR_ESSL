@@ -1,0 +1,151 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1526
+p cnf 5 17
+3 -4 1 0
+-1 4 -2 0
+-3 -4 1 0
+-1 2 -3 0
+4 5 -3 0
+-1 -4 2 0
+-5 3 -2 0
+3 2 4 0
+3 -2 5 0
+-1 5 3 0
+-1 2 4 0
+-5 -2 1 0
+3 4 -1 0
+-3 -2 -1 0
+2 4 -5 0
+3 -1 -2 0
+1 5 -2 0
+
+c GPT solve time: 98.65 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm. We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to make a decision.
+
+### Step 2: Decision and Propagation
+1. **Decision**: Let’s assign \( x1 = \text{True} \).
+   - Clauses containing \( x1 \) are satisfied and can be removed:
+     - (x3 ∨ ¬x4 ∨ x1) → satisfied
+     - (¬x3 ∨ ¬x4 ∨ x1) → satisfied
+     - (¬x1 ∨ x5 ∨ x3) → becomes (x5 ∨ x3)
+     - (¬x1 ∨ x2 ∨ x4) → becomes (x2 ∨ x4)
+     - (x3 ∨ x4 ∨ ¬x1) → becomes (x3 ∨ x4)
+     - (¬x3 ∨ ¬x2 ∨ ¬x1) → becomes (¬x3 ∨ ¬x2)
+     - (x3 ∨ ¬x1 ∨ ¬x2) → becomes (x3 ∨ ¬x2)
+     - (x1 ∨ x5 ∨ ¬x2) → satisfied
+   - Clauses containing \( \neg x1 \) are simplified:
+     - (¬x1 ∨ x4 ∨ ¬x2) → becomes (x4 ∨ ¬x2)
+     - (¬x1 ∨ x2 ∨ ¬x3) → becomes (x2 ∨ ¬x3)
+     - (¬x1 ∨ ¬x4 ∨ x2) → becomes (¬x4 ∨ x2)
+     - (¬x5 ∨ ¬x2 ∨ x1) → becomes (¬x5 ∨ ¬x2 ∨ True) → satisfied
+
+2. **Propagation**:
+   - From (x2 ∨ x4) and (¬x4 ∨ x2), we infer \( x2 = \text{True} \).
+     - Assign \( x2 = \text{True} \).
+     - Simplify clauses:
+       - (x4 ∨ ¬x2) → becomes (x4 ∨ False) → (x4)
+       - (x2 ∨ ¬x3) → satisfied
+       - (¬x3 ∨ ¬x2) → becomes (¬x3 ∨ False) → (¬x3)
+       - (x3 ∨ ¬x2) → becomes (x3 ∨ False) → (x3)
+       - (¬x5 ∨ x3 ∨ ¬x2) → becomes (¬x5 ∨ x3 ∨ False) → (¬x5 ∨ x3)
+       - (x3 ∨ x2 ∨ x4) → satisfied
+       - (x3 ∨ ¬x2 ∨ x5) → becomes (x3 ∨ False ∨ x5) → (x3 ∨ x5)
+       - (¬x5 ∨ ¬x2 ∨ x1) → satisfied
+       - (x2 ∨ x4 ∨ ¬x5) → satisfied
+   - From (x4) and (¬x3), we assign:
+     - \( x4 = \text{True} \)
+     - \( x3 = \text{False} \)
+   - Simplify further:
+     - (x5 ∨ x3) → becomes (x5 ∨ False) → (x5)
+     - (¬x5 ∨ x3) → becomes (¬x5 ∨ False) → (¬x5)
+     - (x3 ∨ x5) → becomes (False ∨ x5) → (x5)
+     - (x4 ∨ x5 ∨ ¬x3) → becomes (True ∨ x5 ∨ True) → satisfied
+   - From (x5) and (¬x5), we have a conflict: \( x5 \) cannot be both True and False.
+
+### Step 3: Backtracking
+Conflict detected, so backtrack to the last decision (\( x1 = \text{True} \)) and try \( x1 = \text{False} \).
+
+### Step 4: Assign \( x1 = \text{False} \)
+- Clauses containing \( \neg x1 \) are satisfied and can be removed:
+  - (¬x1 ∨ x4 ∨ ¬x2) → satisfied
+  - (¬x1 ∨ x2 ∨ ¬x3) → satisfied
+  - (¬x1 ∨ ¬x4 ∨ x2) → satisfied
+  - (¬x1 ∨ x5 ∨ x3) → satisfied
+  - (¬x1 ∨ x2 ∨ x4) → satisfied
+  - (¬x5 ∨ ¬x2 ∨ x1) → becomes (¬x5 ∨ ¬x2 ∨ False) → (¬x5 ∨ ¬x2)
+  - (x3 ∨ x4 ∨ ¬x1) → satisfied
+  - (¬x3 ∨ ¬x2 ∨ ¬x1) → satisfied
+  - (x3 ∨ ¬x1 ∨ ¬x2) → satisfied
+  - (x1 ∨ x5 ∨ ¬x2) → becomes (False ∨ x5 ∨ ¬x2) → (x5 ∨ ¬x2)
+- Remaining clauses:
+  - (x3 ∨ ¬x4 ∨ x1) → becomes (x3 ∨ ¬x4 ∨ False) → (x3 ∨ ¬x4)
+  - (¬x3 ∨ ¬x4 ∨ x1) → becomes (¬x3 ∨ ¬x4 ∨ False) → (¬x3 ∨ ¬x4)
+  - (x4 ∨ x5 ∨ ¬x3)
+  - (¬x5 ∨ x3 ∨ ¬x2)
+  - (x3 ∨ x2 ∨ x4)
+  - (x3 ∨ ¬x2 ∨ x5)
+  - (x2 ∨ x4 ∨ ¬x5)
+
+### Step 5: Decision and Propagation
+1. **Decision**: Assign \( x2 = \text{True} \).
+   - Simplify clauses:
+     - (¬x5 ∨ ¬x2) → becomes (¬x5 ∨ False) → (¬x5)
+     - (x5 ∨ ¬x2) → becomes (x5 ∨ False) → (x5)
+     - (¬x5 ∨ x3 ∨ ¬x2) → becomes (¬x5 ∨ x3 ∨ False) → (¬x5 ∨ x3)
+     - From (¬x5) and (x5), we have a conflict.
+
+### Step 6: Backtracking
+Conflict detected, so backtrack to \( x2 = \text{True} \) and try \( x2 = \text{False} \).
+
+### Step 7: Assign \( x2 = \text{False} \)
+- Simplify clauses:
+  - (¬x5 ∨ ¬x2) → becomes (¬x5 ∨ True) → satisfied
+  - (x5 ∨ ¬x2) → becomes (x5 ∨ True) → satisfied
+  - (¬x5 ∨ x3 ∨ ¬x2) → becomes (¬x5 ∨ x3 ∨ True) → satisfied
+  - (x3 ∨ x2 ∨ x4) → becomes (x3 ∨ False ∨ x4) → (x3 ∨ x4)
+  - (x3 ∨ ¬x2 ∨ x5) → becomes (x3 ∨ True ∨ x5) → satisfied
+  - (x2 ∨ x4 ∨ ¬x5) → becomes (False ∨ x4 ∨ ¬x5) → (x4 ∨ ¬x5)
+- Remaining clauses:
+  - (x3 ∨ ¬x4)
+  - (¬x3 ∨ ¬x4)
+  - (x4 ∨ x5 ∨ ¬x3)
+  - (x3 ∨ x4)
+  - (x4 ∨ ¬x5)
+
+### Step 8: Decision and Propagation
+1. **Decision**: Assign \( x3 = \text{True} \).
+   - Simplify clauses:
+     - (x3 ∨ ¬x4) → satisfied
+     - (¬x3 ∨ ¬x4) → becomes (False ∨ ¬x4) → (¬x4)
+     - (x4 ∨ x5 ∨ ¬x3) → becomes (x4 ∨ x5 ∨ False) → (x4 ∨ x5)
+     - (x3 ∨ x4) → satisfied
+     - (x4 ∨ ¬x5)
+   - From (¬x4), assign \( x4 = \text{False} \).
+   - Simplify further:
+     - (x4 ∨ x5) → becomes (False ∨ x5) → (x5)
+     - (x4 ∨ ¬x5) → becomes (False ∨ ¬x5) → (¬x5)
+   - From (x5) and (¬x5), we have a conflict.
+
+### Step 9: Backtracking
+Conflict detected, so backtrack to \( x3 = \text{True} \) and try \( x3 = \text{False} \).
+
+### Step 10: Assign \( x3 = \text{False} \)
+- Simplify clauses:
+  - (x3 ∨ ¬x4) → becomes (False ∨ ¬x4) → (¬x4)
+  - (¬x3 ∨ ¬x4) → becomes (True ∨ ¬x4) → satisfied
+  - (x4 ∨ x5 ∨ ¬x3) → becomes (x4 ∨ x5 ∨ True) → satisfied
+  - (x3 ∨ x4) → becomes (False ∨ x4) → (x4)
+  - (x4 ∨ ¬x5)
+- From (¬x4) and (x4), we have a conflict.
+
+### Step 11: Conclusion
+All branches lead to conflicts, so the formula is unsatisfiable.
+
+### Final Answer:
+* UNSATISFIABLE  
+* 3  
+* 3

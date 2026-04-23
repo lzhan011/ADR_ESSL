@@ -1,0 +1,163 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1321
+p cnf 5 17
+2 1 3 0
+-1 -2 -4 0
+-2 3 4 0
+-2 -3 -5 0
+2 4 1 0
+-4 3 2 0
+-4 5 1 0
+-5 -1 -3 0
+1 4 3 0
+4 5 -3 0
+-4 1 2 0
+-1 4 2 0
+4 -2 5 0
+3 1 -4 0
+2 -3 -1 0
+2 -5 -3 0
+-3 5 2 0
+
+c GPT solve time: 34.82 seconds
+
+Step-by-step SAT solving:
+
+**Step 1: List variables:** x1, x2, x3, x4, x5
+
+**Step 2: Try assignment x1 = True**
+- Clause 1: (x2 ∨ x1 ∨ x3) → Satisfied
+- Clause 2: (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ ¬x2 ∨ ¬x4) → needs ¬x2 or ¬x4
+- Clause 5: (x2 ∨ x4 ∨ x1) → Satisfied
+- Clause 8: (¬x5 ∨ ¬x1 ∨ ¬x3) → (¬x5 ∨ False ∨ ¬x3) → needs ¬x5 or ¬x3
+- Clause 9: (x1 ∨ x4 ∨ x3) → Satisfied
+- Clause 12: (¬x1 ∨ x4 ∨ x2) → (False ∨ x4 ∨ x2) → needs x4 or x2
+- Clause 14: (x3 ∨ x1 ∨ ¬x4) → Satisfied
+- Clause 15: (x2 ∨ ¬x3 ∨ ¬x1) → (x2 ∨ ¬x3 ∨ False) → needs x2 or ¬x3
+
+**Step 3: Try x2 = True**
+- Clause 2: (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ False ∨ ¬x4) → needs ¬x4
+- Clause 3: (¬x2 ∨ x3 ∨ x4) → (False ∨ x3 ∨ x4) → needs x3 or x4
+- Clause 4: (¬x2 ∨ ¬x3 ∨ ¬x5) → (False ∨ ¬x3 ∨ ¬x5) → needs ¬x3 or ¬x5
+- Clause 5: Satisfied
+- Clause 6: (¬x4 ∨ x3 ∨ x2) → (¬x4 ∨ x3 ∨ True) → Satisfied
+- Clause 10: (x4 ∨ x5 ∨ ¬x3) → needs x4 or x5 or ¬x3
+- Clause 11: (¬x4 ∨ x1 ∨ x2) → (¬x4 ∨ True ∨ True) → Satisfied
+- Clause 12: (¬x1 ∨ x4 ∨ x2) → Satisfied
+- Clause 13: (x4 ∨ ¬x2 ∨ x5) → (x4 ∨ False ∨ x5) → needs x4 or x5
+- Clause 15: Satisfied
+- Clause 16: (x2 ∨ ¬x5 ∨ ¬x3) → Satisfied
+- Clause 17: (¬x3 ∨ x5 ∨ x2) → Satisfied
+
+**Step 4: From above, clause 2 needs ¬x4, so x4 = False**
+
+**Step 5: Substitute x4 = False**
+- Clause 3: (¬x2 ∨ x3 ∨ x4) → (False ∨ x3 ∨ False) → x3
+- Clause 4: (¬x2 ∨ ¬x3 ∨ ¬x5) → (False ∨ ¬x3 ∨ ¬x5) → needs ¬x3 or ¬x5
+- Clause 10: (x4 ∨ x5 ∨ ¬x3) → (False ∨ x5 ∨ ¬x3) → x5 or ¬x3
+- Clause 13: (x4 ∨ ¬x2 ∨ x5) → (False ∨ False ∨ x5) → x5
+
+**Step 6: Clause 3 needs x3 = True**
+
+**Step 7: Substitute x3 = True**
+- Clause 4: (¬x2 ∨ ¬x3 ∨ ¬x5) → (False ∨ False ∨ ¬x5) → ¬x5
+- Clause 10: (x4 ∨ x5 ∨ ¬x3) → (False ∨ x5 ∨ False) → x5
+- Clause 13: (x4 ∨ ¬x2 ∨ x5) → (False ∨ False ∨ x5) → x5
+
+**Step 8: Clause 4 needs ¬x5, so x5 = False**
+
+**Step 9: Check clause 10 and 13 with x5 = False**
+- Clause 10: (x4 ∨ x5 ∨ ¬x3) → (False ∨ False ∨ False) → False
+
+**Conflict!**
+
+**Step 10: Backtrack. Last decision was x3 = True. Try x3 = False**
+
+**Step 11: x3 = False**
+- Clause 3: (¬x2 ∨ x3 ∨ x4) → (False ∨ False ∨ False) → False
+
+**Conflict!**
+
+**Step 12: Backtrack. Last decision was x4 = False. Try x4 = True**
+
+**Step 13: x4 = True**
+- Clause 2: (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ False ∨ False) → False
+
+**Conflict!**
+
+**Step 14: Backtrack. Last decision was x2 = True. Try x2 = False**
+
+**Step 15: x2 = False**
+- Clause 1: (x2 ∨ x1 ∨ x3) → (False ∨ x1 ∨ x3) → needs x1 or x3
+- Clause 3: (¬x2 ∨ x3 ∨ x4) → (True ∨ x3 ∨ x4) → Satisfied
+- Clause 4: (¬x2 ∨ ¬x3 ∨ ¬x5) → (True ∨ ¬x3 ∨ ¬x5) → Satisfied
+- Clause 5: (x2 ∨ x4 ∨ x1) → (False ∨ x4 ∨ x1) → x4 or x1
+- Clause 6: (¬x4 ∨ x3 ∨ x2) → (¬x4 ∨ x3 ∨ False) → ¬x4 or x3
+- Clause 11: (¬x4 ∨ x1 ∨ x2) → (¬x4 ∨ x1 ∨ False) → ¬x4 or x1
+- Clause 12: (¬x1 ∨ x4 ∨ x2) → (¬x1 ∨ x4 ∨ False) → ¬x1 or x4
+- Clause 13: (x4 ∨ ¬x2 ∨ x5) → (x4 ∨ True ∨ x5) → Satisfied
+- Clause 14: (x3 ∨ x1 ∨ ¬x4) → x3 or x1 or ¬x4
+- Clause 15: (x2 ∨ ¬x3 ∨ ¬x1) → (False ∨ ¬x3 ∨ ¬x1) → ¬x3 or ¬x1
+- Clause 16: (x2 ∨ ¬x5 ∨ ¬x3) → (False ∨ ¬x5 ∨ ¬x3) → ¬x5 or ¬x3
+- Clause 17: (¬x3 ∨ x5 ∨ x2) → (¬x3 ∨ x5 ∨ False) → ¬x3 or x5
+
+**Step 16: Try x1 = True**
+- Clause 1: Satisfied
+- Clause 5: (False ∨ x4 ∨ True) → Satisfied
+- Clause 6: (¬x4 ∨ x3 ∨ False) → ¬x4 or x3
+- Clause 11: (¬x4 ∨ True ∨ False) → Satisfied
+- Clause 12: (¬True ∨ x4 ∨ False) → (False ∨ x4 ∨ False) → x4
+- Clause 14: (x3 ∨ True ∨ ¬x4) → Satisfied
+- Clause 15: (False ∨ ¬x3 ∨ ¬True) → (¬x3 ∨ False) → ¬x3
+- Clause 16: (False ∨ ¬x5 ∨ ¬x3) → (¬x5 ∨ ¬x3)
+- Clause 17: (¬x3 ∨ x5 ∨ False) → (¬x3 ∨ x5)
+
+**Step 17: Clause 12 needs x4 = True**
+
+**Step 18: x4 = True**
+- Clause 6: (¬x4 ∨ x3 ∨ False) → (False ∨ x3 ∨ False) → x3
+- Clause 15: ¬x3
+- Clause 16: (¬x5 ∨ ¬x3)
+- Clause 17: (¬x3 ∨ x5)
+
+**Step 19: Clause 6 needs x3 = True, but clause 15 needs x3 = False**
+
+**Conflict!**
+
+**Step 20: Backtrack. Last decision was x1 = True. Try x1 = False**
+
+**Step 21: x1 = False**
+- Clause 1: (False ∨ False ∨ x3) → x3
+- Clause 5: (False ∨ x4 ∨ False) → x4
+- Clause 11: (¬x4 ∨ False ∨ False) → ¬x4
+- Clause 12: (True ∨ x4 ∨ False) → Satisfied
+- Clause 14: (x3 ∨ False ∨ ¬x4) → x3 or ¬x4
+- Clause 15: (False ∨ ¬x3 ∨ True) → Satisfied
+
+**Step 22: Clause 1 needs x3 = True**
+
+**Step 23: x3 = True**
+- Clause 5: (False ∨ x4 ∨ False) → x4
+- Clause 11: (¬x4 ∨ False ∨ False) → ¬x4
+- Clause 14: (True ∨ False ∨ ¬x4) → Satisfied
+- Clause 16: (False ∨ ¬x5 ∨ False) → ¬x5
+- Clause 17: (False ∨ x5 ∨ False) → x5
+
+**Step 24: Clause 5 needs x4 = True, clause 11 needs ¬x4, conflict!**
+
+**Step 25: Backtrack. Last decision was x3 = True. Try x3 = False**
+
+**Step 26: x3 = False**
+- Clause 1: (False ∨ False ∨ False) → False
+
+**Conflict!**
+
+**Step 27: All branches tried.**
+
+---
+
+**Final answers:**
+
+- UNSATISFIABLE
+- Number of branches (decision points): 5
+- Number of conflicts (backtracking steps): 7

@@ -1,0 +1,80 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=435
+p cnf 8 28
+-4 5 -7 0
+6 2 1 0
+3 -2 -8 0
+2 3 4 0
+8 -1 -4 0
+2 -4 -1 0
+-4 1 -7 0
+3 -7 1 0
+-1 -2 -3 0
+-1 -6 -3 0
+5 4 -7 0
+4 7 1 0
+-8 -1 -6 0
+-3 8 -5 0
+2 7 -8 0
+8 -6 2 0
+1 -2 8 0
+-1 7 8 0
+3 -5 1 0
+-1 -5 -7 0
+-7 -4 6 0
+4 1 -5 0
+-6 7 1 0
+-5 -7 6 0
+-1 4 5 0
+-3 -2 7 0
+1 7 8 0
+8 7 -3 0
+
+c GPT solve time: 17.07 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+Starting with the formula, I'll make decisions and propagate consequences:
+
+**Branch 1**: Let x1 = true
+- From clause 9 (¬x1 ∨ ¬x2 ∨ ¬x3): forces x2 = false or x3 = false
+- From clause 10 (¬x1 ∨ ¬x6 ∨ ¬x3): forces x6 = false or x3 = false
+- From clause 13 (¬x8 ∨ ¬x1 ∨ ¬x6): forces x8 = false or x6 = false
+- From clause 20 (¬x1 ∨ ¬x5 ∨ ¬x7): forces x5 = false or x7 = false
+
+**Branch 2**: Let x2 = false (from clause 9)
+- From clause 2 (x6 ∨ x2 ∨ x1): satisfied by x1 = true
+- From clause 4 (x2 ∨ x3 ∨ x4): forces x3 = true or x4 = true
+- From clause 6 (x2 ∨ ¬x4 ∨ ¬x1): forces x4 = false
+
+**Branch 3**: Let x4 = false (forced)
+- From clause 4 (x2 ∨ x3 ∨ x4): forces x3 = true
+- From clause 12 (x4 ∨ x7 ∨ x1): satisfied by x1 = true
+- From clause 22 (x4 ∨ x1 ∨ ¬x5): satisfied by x1 = true
+
+Since x3 = true and x1 = true, clause 9 (¬x1 ∨ ¬x2 ∨ ¬x3) is violated.
+**Conflict 1**: Backtrack
+
+**Branch 4**: Let x1 = false
+- From clause 2 (x6 ∨ x2 ∨ x1): forces x6 = true or x2 = true
+- From clause 12 (x4 ∨ x7 ∨ x1): forces x4 = true or x7 = true
+- From clause 27 (x1 ∨ x7 ∨ x8): forces x7 = true or x8 = true
+
+**Branch 5**: Let x7 = true
+- From clause 20 (¬x1 ∨ ¬x5 ∨ ¬x7): forces x5 = false
+- From clause 26 (¬x3 ∨ ¬x2 ∨ x7): satisfied
+
+**Branch 6**: Let x2 = true (to satisfy clause 2)
+- From clause 3 (x3 ∨ ¬x2 ∨ ¬x8): forces x3 = true or x8 = false
+- From clause 9 (¬x1 ∨ ¬x2 ∨ ¬x3): forces x3 = false
+
+**Branch 7**: Let x3 = false (forced)
+- From clause 3 (x3 ∨ ¬x2 ∨ ¬x8): forces x8 = false
+- From clause 4 (x2 ∨ x3 ∨ x4): forces x4 = true
+- From clause 8 (x3 ∨ ¬x7 ∨ x1): violated
+
+**Conflict 2**: Backtrack
+
+**Branch 8**: Let x6 = true, x2 = false
+- From clause 4 (x2 ∨ x3 ∨ x4): forces x3 = true or x4 = true
+- From clause 16 (x8

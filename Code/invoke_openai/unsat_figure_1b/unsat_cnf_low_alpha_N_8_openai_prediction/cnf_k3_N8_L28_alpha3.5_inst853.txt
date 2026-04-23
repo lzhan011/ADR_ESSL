@@ -1,0 +1,265 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=853
+p cnf 8 28
+7 2 -4 0
+-2 -5 -6 0
+-8 -2 -3 0
+-5 8 2 0
+3 -4 7 0
+6 -5 2 0
+-4 2 -8 0
+-5 1 7 0
+2 7 -1 0
+6 -4 -3 0
+7 -3 6 0
+2 -4 -7 0
+7 1 2 0
+-4 2 7 0
+4 1 -2 0
+4 5 -1 0
+8 -4 -7 0
+-4 -5 -2 0
+1 2 -3 0
+7 3 -1 0
+8 5 3 0
+-2 5 -6 0
+-4 3 -8 0
+-8 6 -5 0
+-4 -7 1 0
+3 4 -7 0
+8 4 -2 0
+-5 -1 -7 0
+
+c GPT solve time: 65.90 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List of variables:**  
+x1, x2, x3, x4, x5, x6, x7, x8
+
+**Step 2: Try to assign values. Let's start with x2 = True (arbitrary choice).**
+
+---
+
+### Branch 1: x2 = True
+
+#### Propagate x2 = True:
+
+- (x7 ∨ x2 ∨ ¬x4) → satisfied
+- (¬x2 ∨ ¬x5 ∨ ¬x6) → (¬x5 ∨ ¬x6)
+- (¬x8 ∨ ¬x2 ∨ ¬x3) → (¬x8 ∨ ¬x3)
+- (¬x5 ∨ x8 ∨ x2) → satisfied
+- (x3 ∨ ¬x4 ∨ x7) → unchanged
+- (x6 ∨ ¬x5 ∨ x2) → satisfied
+- (¬x4 ∨ x2 ∨ ¬x8) → satisfied
+- (¬x5 ∨ x1 ∨ x7) → unchanged
+- (x2 ∨ x7 ∨ ¬x1) → satisfied
+- (x6 ∨ ¬x4 ∨ ¬x3) → unchanged
+- (x7 ∨ ¬x3 ∨ x6) → unchanged
+- (x2 ∨ ¬x4 ∨ ¬x7) → satisfied
+- (x7 ∨ x1 ∨ x2) → satisfied
+- (¬x4 ∨ x2 ∨ x7) → satisfied
+- (x4 ∨ x1 ∨ ¬x2) → (x4 ∨ x1)
+- (x4 ∨ x5 ∨ ¬x1) → unchanged
+- (x8 ∨ ¬x4 ∨ ¬x7) → unchanged
+- (¬x4 ∨ ¬x5 ∨ ¬x2) → (¬x4 ∨ ¬x5)
+- (x1 ∨ x2 ∨ ¬x3) → satisfied
+- (x7 ∨ x3 ∨ ¬x1) → unchanged
+- (x8 ∨ x5 ∨ x3) → unchanged
+- (¬x2 ∨ x5 ∨ ¬x6) → (x5 ∨ ¬x6)
+- (¬x4 ∨ x3 ∨ ¬x8) → unchanged
+- (¬x8 ∨ x6 ∨ ¬x5) → unchanged
+- (¬x4 ∨ ¬x7 ∨ x1) → unchanged
+- (x3 ∨ x4 ∨ ¬x7) → unchanged
+- (x8 ∨ x4 ∨ ¬x2) → (x8 ∨ x4)
+- (¬x5 ∨ ¬x1 ∨ ¬x7) → unchanged
+
+#### No unit clauses yet. Let's try x4 = False.
+
+---
+
+### Branch 1.1: x2 = True, x4 = False
+
+#### Propagate x4 = False:
+
+- (x7 ∨ x2 ∨ ¬x4) → satisfied
+- (¬x2 ∨ ¬x5 ∨ ¬x6) → (¬x5 ∨ ¬x6)
+- (¬x8 ∨ ¬x2 ∨ ¬x3) → (¬x8 ∨ ¬x3)
+- (¬x5 ∨ x8 ∨ x2) → satisfied
+- (x3 ∨ ¬x4 ∨ x7) → satisfied
+- (x6 ∨ ¬x5 ∨ x2) → satisfied
+- (¬x4 ∨ x2 ∨ ¬x8) → satisfied
+- (¬x5 ∨ x1 ∨ x7) → unchanged
+- (x2 ∨ x7 ∨ ¬x1) → satisfied
+- (x6 ∨ ¬x4 ∨ ¬x3) → satisfied
+- (x7 ∨ ¬x3 ∨ x6) → unchanged
+- (x2 ∨ ¬x4 ∨ ¬x7) → satisfied
+- (x7 ∨ x1 ∨ x2) → satisfied
+- (¬x4 ∨ x2 ∨ x7) → satisfied
+- (x4 ∨ x1 ∨ ¬x2) → (x1)
+- (x4 ∨ x5 ∨ ¬x1) → (x5 ∨ ¬x1)
+- (x8 ∨ ¬x4 ∨ ¬x7) → (x8 ∨ ¬x7)
+- (¬x4 ∨ ¬x5 ∨ ¬x2) → satisfied
+- (x1 ∨ x2 ∨ ¬x3) → satisfied
+- (x7 ∨ x3 ∨ ¬x1) → unchanged
+- (x8 ∨ x5 ∨ x3) → unchanged
+- (¬x2 ∨ x5 ∨ ¬x6) → (x5 ∨ ¬x6)
+- (¬x4 ∨ x3 ∨ ¬x8) → satisfied
+- (¬x8 ∨ x6 ∨ ¬x5) → unchanged
+- (¬x4 ∨ ¬x7 ∨ x1) → satisfied
+- (x3 ∨ x4 ∨ ¬x7) → (x3 ∨ ¬x7)
+- (x8 ∨ x4 ∨ ¬x2) → (x8)
+- (¬x5 ∨ ¬x1 ∨ ¬x7) → unchanged
+
+Now, (x1) is a unit clause. Set x1 = True.
+
+---
+
+### Branch 1.1.1: x2 = True, x4 = False, x1 = True
+
+#### Propagate x1 = True:
+
+- (¬x5 ∨ x1 ∨ x7) → satisfied
+- (x4 ∨ x5 ∨ ¬x1) → (x4 ∨ x5 ∨ False) → (x4 ∨ x5) → but x4 = False, so (x5)
+- (x7 ∨ x3 ∨ ¬x1) → (x7 ∨ x3 ∨ False) → (x7 ∨ x3)
+- (¬x5 ∨ ¬x1 ∨ ¬x7) → (¬x5 ∨ False ∨ ¬x7) → (¬x5 ∨ ¬x7)
+
+Now, (x5) is a unit clause. Set x5 = True.
+
+---
+
+### Branch 1.1.1.1: x2 = True, x4 = False, x1 = True, x5 = True
+
+#### Propagate x5 = True:
+
+- (¬x2 ∨ ¬x5 ∨ ¬x6) → (¬x2 ∨ False ∨ ¬x6) → (¬x2 ∨ ¬x6) → x2 = True, so (¬x6)
+- (¬x5 ∨ x1 ∨ x7) → satisfied
+- (x4 ∨ x5 ∨ ¬x1) → satisfied
+- (¬x4 ∨ ¬x5 ∨ ¬x2) → (¬x4 ∨ False ∨ ¬x2) → (¬x4 ∨ ¬x2) → both x4 = False, x2 = True, so (True ∨ False) = True
+- (x8 ∨ x5 ∨ x3) → (x8 ∨ x3)
+- (¬x2 ∨ x5 ∨ ¬x6) → (¬x2 ∨ True ∨ ¬x6) → True
+- (¬x8 ∨ x6 ∨ ¬x5) → (¬x8 ∨ x6 ∨ False) → (¬x8 ∨ x6)
+- (¬x5 ∨ ¬x1 ∨ ¬x7) → (False ∨ False ∨ ¬x7) → (¬x7)
+
+Now, (¬x6) and (¬x7) are unit clauses. Set x6 = False, x7 = False.
+
+---
+
+### Branch 1.1.1.1.1: x2 = True, x4 = False, x1 = True, x5 = True, x6 = False, x7 = False
+
+#### Propagate x6 = False, x7 = False:
+
+- (x7 ∨ ¬x3 ∨ x6) → (False ∨ ¬x3 ∨ False) → (¬x3)
+- (x3 ∨ ¬x7) → (x3 ∨ True) → True
+- (x8 ∨ ¬x7) → (x8 ∨ True) → True
+- (x3 ∨ x4 ∨ ¬x7) → (x3 ∨ False ∨ True) → True
+- (¬x5 ∨ ¬x1 ∨ ¬x7) → (False ∨ False ∨ True) → True
+
+Now, (¬x3) is a unit clause. Set x3 = False.
+
+---
+
+### Branch 1.1.1.1.1.1: x2 = True, x4 = False, x1 = True, x5 = True, x6 = False, x7 = False, x3 = False
+
+#### Propagate x3 = False:
+
+- (¬x8 ∨ ¬x3) → (¬x8 ∨ True) → True
+- (x8 ∨ x3) → (x8 ∨ False) → (x8)
+- (x8 ∨ x5 ∨ x3) → (x8 ∨ True ∨ False) → True
+
+Now, (x8) is a unit clause. Set x8 = True.
+
+---
+
+### Branch 1.1.1.1.1.1.1: x2 = True, x4 = False, x1 = True, x5 = True, x6 = False, x7 = False, x3 = False, x8 = True
+
+Now, all variables are assigned. Let's check if all clauses are satisfied:
+
+Let's check a few critical ones:
+
+- (x7 ∨ x2 ∨ ¬x4): (False ∨ True ∨ True) = True
+- (¬x2 ∨ ¬x5 ∨ ¬x6): (False ∨ False ∨ True) = True
+- (¬x8 ∨ ¬x2 ∨ ¬x3): (False ∨ False ∨ True) = True
+- (¬x5 ∨ x8 ∨ x2): (False ∨ True ∨ True) = True
+- (x3 ∨ ¬x4 ∨ x7): (False ∨ True ∨ False) = True
+- (x6 ∨ ¬x5 ∨ x2): (False ∨ False ∨ True) = True
+- (¬x4 ∨ x2 ∨ ¬x8): (True ∨ True ∨ False) = True
+- (¬x5 ∨ x1 ∨ x7): (False ∨ True ∨ False) = True
+- (x2 ∨ x7 ∨ ¬x1): (True ∨ False ∨ False) = True
+- (x6 ∨ ¬x4 ∨ ¬x3): (False ∨ True ∨ True) = True
+- (x7 ∨ ¬x3 ∨ x6): (False ∨ True ∨ False) = True
+- (x2 ∨ ¬x4 ∨ ¬x7): (True ∨ True ∨ True) = True
+- (x7 ∨ x1 ∨ x2): (False ∨ True ∨ True) = True
+- (¬x4 ∨ x2 ∨ x7): (True ∨ True ∨ False) = True
+- (x4 ∨ x1 ∨ ¬x2): (False ∨ True ∨ False) = True
+- (x4 ∨ x5 ∨ ¬x1): (False ∨ True ∨ False) = True
+- (x8 ∨ ¬x4 ∨ ¬x7): (True ∨ True ∨ True) = True
+- (¬x4 ∨ ¬x5 ∨ ¬x2): (True ∨ False ∨ False) = True
+- (x1 ∨ x2 ∨ ¬x3): (True ∨ True ∨ True) = True
+- (x7 ∨ x3 ∨ ¬x1): (False ∨ False ∨ False) = **False**
+
+Wait, this clause: (x7 ∨ x3 ∨ ¬x1): (False ∨ False ∨ False) = False
+
+So, this assignment leads to a **conflict**.
+
+---
+
+### Backtrack: Last decision was x5 = True. Try x5 = False.
+
+#### Branch 1.1.1.2: x2 = True, x4 = False, x1 = True, x5 = False
+
+- (¬x2 ∨ ¬x5 ∨ ¬x6): (¬x2 ∨ True ∨ ¬x6) → True
+- (¬x5 ∨ x1 ∨ x7): (True ∨ x1 ∨ x7) → True
+- (x4 ∨ x5 ∨ ¬x1): (x4 ∨ False ∨ False) → (x4) → x4 = False, so False
+- (¬x4 ∨ ¬x5 ∨ ¬x2): (True ∨ True ∨ False) → True
+- (x8 ∨ x5 ∨ x3): (x8 ∨ False ∨ x3)
+- (¬x2 ∨ x5 ∨ ¬x6): (¬x2 ∨ False ∨ ¬x6) → (¬x2 ∨ ¬x6) → x2 = True, so (¬x6)
+- (¬x8 ∨ x6 ∨ ¬x5): (¬x8 ∨ x6 ∨ True) → True
+- (¬x5 ∨ ¬x1 ∨ ¬x7): (True ∨ ¬x1 ∨ ¬x7) → True
+
+But (x4) is a unit clause, and x4 = False, so this clause is False. **Conflict**.
+
+---
+
+### Backtrack: Last decision was x1 = True. Try x1 = False.
+
+#### Branch 1.1.2: x2 = True, x4 = False, x1 = False
+
+- (x4 ∨ x1 ∨ ¬x2): (x4 ∨ False ∨ False) → (x4) → x4 = False, so False
+
+Immediate **conflict**.
+
+---
+
+### Backtrack: Last decision was x4 = False. Try x4 = True.
+
+#### Branch 1.2: x2 = True, x4 = True
+
+- (x7 ∨ x2 ∨ ¬x4): (x7 ∨ x2 ∨ False) → (x7 ∨ x2) → x2 = True, so True
+- (¬x2 ∨ ¬x5 ∨ ¬x6): (¬x5 ∨ ¬x6)
+- (¬x8 ∨ ¬x2 ∨ ¬x3): (¬x8 ∨ ¬x3)
+- (¬x5 ∨ x8 ∨ x2): True
+- (x3 ∨ ¬x4 ∨ x7): (x3 ∨ False ∨ x7) → (x3 ∨ x7)
+- (x6 ∨ ¬x5 ∨ x2): True
+- (¬x4 ∨ x2 ∨ ¬x8): (False ∨ True ∨ ¬x8) → True
+- (¬x5 ∨ x1 ∨ x7): unchanged
+- (x2 ∨ x7 ∨ ¬x1): True
+- (x6 ∨ ¬x4 ∨ ¬x3): (x6 ∨ False ∨ ¬x3) → (x6 ∨ ¬x3)
+- (x7 ∨ ¬x3 ∨ x6): unchanged
+- (x2 ∨ ¬x4 ∨ ¬x7): (True ∨ False ∨ ¬x7) → True
+- (x7 ∨ x1 ∨ x2): True
+- (¬x4 ∨ x2 ∨ x7): (False ∨ True ∨ x7) → True
+- (x4 ∨ x1 ∨ ¬x2): (True ∨ x1 ∨ False) → True
+- (x4 ∨ x5 ∨ ¬x1): (True ∨ x5 ∨ ¬x1) → True
+- (x8 ∨ ¬x4 ∨ ¬x7): (x8 ∨ False ∨ ¬x7) → (x8 ∨ ¬x7)
+- (¬x4 ∨ ¬x5 ∨ ¬x2): (False ∨ ¬x5 ∨ False) → (¬x5)
+- (x1 ∨ x2 ∨ ¬x3): True
+- (x7 ∨ x3 ∨ ¬x1): unchanged
+- (x8 ∨ x5 ∨ x3): unchanged
+- (¬x2 ∨ x5 ∨ ¬x6): (x5 ∨ ¬x6)
+- (¬x4 ∨ x3 ∨ ¬x8): (False ∨ x3 ∨ ¬x8) → (x3 ∨ ¬x8)
+- (¬x8 ∨ x6 ∨ ¬x5): unchanged
+- (¬x4 ∨ ¬x7 ∨ x1): (False ∨ ¬x7 ∨ x1) → (¬x7 ∨ x1)
+- (x3 ∨ x4 ∨ ¬x7): (x3 ∨ True ∨ ¬x7) → True
+- (x8 ∨ x4 ∨ ¬x2): (x8 ∨ True ∨ False) → True
+- (¬

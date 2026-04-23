@@ -1,0 +1,283 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1619
+p cnf 5 17
+5 -4 2 0
+-1 5 3 0
+3 -1 -4 0
+-3 -2 4 0
+1 2 -5 0
+4 2 1 0
+-1 -5 -4 0
+4 -1 -5 0
+1 4 -2 0
+1 2 -5 0
+4 3 -1 0
+-3 -1 5 0
+-2 -5 1 0
+-4 3 -1 0
+-4 -2 1 0
+-5 -2 -1 0
+4 -5 -1 0
+
+c GPT solve time: 54.70 seconds
+
+Let's solve the formula step by step.
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Assign x1 = True
+
+#### Propagate:
+- (¬x1 ∨ x5 ∨ x3): Satisfied
+- (x3 ∨ ¬x1 ∨ ¬x4): Satisfied
+- (x1 ∨ x2 ∨ ¬x5): Satisfied
+- (x4 ∨ x2 ∨ x1): Satisfied
+- (¬x1 ∨ ¬x5 ∨ ¬x4): (¬x5 ∨ ¬x4)
+- (x4 ∨ ¬x1 ∨ ¬x5): (x4 ∨ ¬x5)
+- (x1 ∨ x4 ∨ ¬x2): Satisfied
+- (x1 ∨ x2 ∨ ¬x5): Satisfied
+- (x4 ∨ x3 ∨ ¬x1): (x4 ∨ x3)
+- (¬x3 ∨ ¬x1 ∨ x5): (¬x3 ∨ x5)
+- (¬x2 ∨ ¬x5 ∨ x1): Satisfied
+- (¬x4 ∨ x3 ∨ ¬x1): (¬x4 ∨ x3)
+- (¬x4 ∨ ¬x2 ∨ x1): Satisfied
+- (¬x5 ∨ ¬x2 ∨ ¬x1): (¬x5 ∨ ¬x2)
+- (x4 ∨ ¬x5 ∨ ¬x1): (x4 ∨ ¬x5)
+- (x5 ∨ ¬x4 ∨ x2): (x5 ∨ ¬x4 ∨ x2)
+
+### Step 2: Assign x2 = True
+
+#### Propagate:
+- (¬x3 ∨ ¬x2 ∨ x4): (¬x3 ∨ x4)
+- (¬x5 ∨ ¬x2 ∨ ¬x1): (¬x5) (since x2 = True, x1 = True)
+- (x5 ∨ ¬x4 ∨ x2): Satisfied
+
+### Step 3: Assign x3 = True
+
+#### Propagate:
+- (¬x3 ∨ x5): (x5)
+- (¬x3 ∨ x4): (x4)
+- (¬x4 ∨ x3): Satisfied
+- (x4 ∨ x3): Satisfied
+
+### Step 4: Assign x4 = True
+
+#### Propagate:
+- (¬x5 ∨ ¬x4): (¬x5)
+- (x4 ∨ ¬x5): Satisfied
+- (x4 ∨ ¬x5): Satisfied
+
+### Step 5: Assign x5 = False (from (¬x5) and (¬x5))
+
+#### Check all clauses:
+- (x5 ∨ ¬x4 ∨ x2): (False ∨ False ∨ True) = True
+- (¬x1 ∨ x5 ∨ x3): (False ∨ False ∨ True) = True
+- (x3 ∨ ¬x1 ∨ ¬x4): (True ∨ False ∨ False) = True
+- (¬x3 ∨ ¬x2 ∨ x4): (False ∨ False ∨ True) = True
+- (x1 ∨ x2 ∨ ¬x5): (True ∨ True ∨ True) = True
+- (x4 ∨ x2 ∨ x1): (True ∨ True ∨ True) = True
+- (¬x1 ∨ ¬x5 ∨ ¬x4): (False ∨ True ∨ False) = True
+- (x4 ∨ ¬x1 ∨ ¬x5): (True ∨ False ∨ True) = True
+- (x1 ∨ x4 ∨ ¬x2): (True ∨ True ∨ False) = True
+- (x1 ∨ x2 ∨ ¬x5): (True ∨ True ∨ True) = True
+- (x4 ∨ x3 ∨ ¬x1): (True ∨ True ∨ False) = True
+- (¬x3 ∨ ¬x1 ∨ x5): (False ∨ False ∨ False) = **False**
+
+**Conflict!** (¬x3 ∨ ¬x1 ∨ x5) = (False ∨ False ∨ False) = False
+
+### Step 6: Backtrack (Conflict 1, Branch 1)
+Backtrack to last decision: x5 = False was forced. Backtrack to x4 = True.
+
+Try x4 = False.
+
+#### Propagate:
+- (¬x5 ∨ ¬x4): (¬x5 ∨ True) = True
+- (x4 ∨ ¬x5): (False ∨ ¬x5) = (¬x5)
+- (x4 ∨ ¬x5): (False ∨ ¬x5) = (¬x5)
+- (x4 ∨ x3): (False ∨ True) = True
+- (¬x4 ∨ x3): (True ∨ True) = True
+- (¬x4 ∨ ¬x2 ∨ x1): (True ∨ False ∨ True) = True
+- (x5 ∨ ¬x4 ∨ x2): (x5 ∨ True ∨ True) = True
+- (x3 ∨ ¬x1 ∨ ¬x4): (True ∨ False ∨ True) = True
+
+Now, (¬x5) is unit, so x5 = False.
+
+#### Check all clauses:
+- (x5 ∨ ¬x4 ∨ x2): (False ∨ True ∨ True) = True
+- (¬x1 ∨ x5 ∨ x3): (False ∨ False ∨ True) = True
+- (x3 ∨ ¬x1 ∨ ¬x4): (True ∨ False ∨ True) = True
+- (¬x3 ∨ ¬x2 ∨ x4): (False ∨ False ∨ False) = False
+
+**Conflict!** (¬x3 ∨ ¬x2 ∨ x4) = (False ∨ False ∨ False) = False
+
+### Step 7: Backtrack (Conflict 2, Branch 2)
+Backtrack to x3 = True. Try x3 = False.
+
+#### Propagate:
+- (¬x3 ∨ x5): (True ∨ x5) = True
+- (¬x3 ∨ x4): (True ∨ x4) = True
+- (¬x4 ∨ x3): (¬x4 ∨ False)
+- (x4 ∨ x3): (x4 ∨ False)
+- (¬x3 ∨ ¬x1 ∨ x5): (True ∨ False ∨ x5) = True
+
+Now, assign x4 = True.
+
+#### Propagate:
+- (¬x4 ∨ x3): (False ∨ False) = False
+
+**Conflict!** (¬x4 ∨ x3) = (False ∨ False) = False
+
+### Step 8: Backtrack (Conflict 3, Branch 3)
+Backtrack to x4 = False.
+
+#### Propagate:
+- (¬x4 ∨ x3): (True ∨ False) = True
+- (x4 ∨ x3): (False ∨ False) = False
+
+**Conflict!** (x4 ∨ x3) = (False ∨ False) = False
+
+### Step 9: Backtrack (Conflict 4, Branch 4)
+Backtrack to x2 = True. Try x2 = False.
+
+#### Propagate:
+- (¬x3 ∨ ¬x2 ∨ x4): (¬x3 ∨ True ∨ x4) = True
+- (¬x2 ∨ ¬x5 ∨ x1): (True ∨ ¬x5 ∨ True) = True
+- (¬x5 ∨ ¬x2 ∨ ¬x1): (¬x5 ∨ True ∨ False) = True
+- (x5 ∨ ¬x4 ∨ x2): (x5 ∨ ¬x4 ∨ False)
+- (x1 ∨ x2 ∨ ¬x5): (True ∨ False ∨ ¬x5) = (True ∨ ¬x5) = True
+
+Continue with x3 = True.
+
+#### Propagate:
+- (¬x3 ∨ x5): (False ∨ x5) = (x5)
+- (¬x3 ∨ x4): (False ∨ x4) = (x4)
+- (¬x4 ∨ x3): (¬x4 ∨ True) = True
+- (x4 ∨ x3): (x4 ∨ True) = True
+
+Assign x4 = True.
+
+#### Propagate:
+- (x5 ∨ ¬x4 ∨ x2): (x5 ∨ False ∨ False) = (x5)
+- (x4 ∨ ¬x5): (True ∨ ¬x5) = True
+- (x4 ∨ ¬x5): (True ∨ ¬x5) = True
+
+Assign x5 = True.
+
+#### Check all clauses:
+- (x5 ∨ ¬x4 ∨ x2): (True ∨ False ∨ False) = True
+- (¬x1 ∨ x5 ∨ x3): (¬x1 ∨ True ∨ True) = True
+- (x3 ∨ ¬x1 ∨ ¬x4): (True ∨ ¬x1 ∨ False)
+- (¬x3 ∨ ¬x2 ∨ x4): (False ∨ True ∨ True) = True
+- (x1 ∨ x2 ∨ ¬x5): (x1 ∨ False ∨ False)
+- (x4 ∨ x2 ∨ x1): (True ∨ False ∨ x1)
+- (¬x1 ∨ ¬x5 ∨ ¬x4): (¬x1 ∨ False ∨ False)
+- (x4 ∨ ¬x1 ∨ ¬x5): (True ∨ ¬x1 ∨ False)
+- (x1 ∨ x4 ∨ ¬x2): (x1 ∨ True ∨ True) = True
+- (x1 ∨ x2 ∨ ¬x5): (x1 ∨ False ∨ False)
+- (x4 ∨ x3 ∨ ¬x1): (True ∨ True ∨ ¬x1)
+- (¬x3 ∨ ¬x1 ∨ x5): (False ∨ ¬x1 ∨ True) = True
+- (¬x2 ∨ ¬x5 ∨ x1): (True ∨ False ∨ x1) = True
+- (¬x4 ∨ x3 ∨ ¬x1): (False ∨ True ∨ ¬x1) = True
+- (¬x4 ∨ ¬x2 ∨ x1): (False ∨ True ∨ x1) = True
+- (¬x5 ∨ ¬x2 ∨ ¬x1): (False ∨ True ∨ ¬x1) = True
+- (x4 ∨ ¬x5 ∨ ¬x1): (True ∨ False ∨ ¬x1) = True
+
+Now, assign x1 = True.
+
+Check all remaining clauses:
+- (x1 ∨ x2 ∨ ¬x5): (True ∨ False ∨ False) = True
+- (x4 ∨ x2 ∨ x1): (True ∨ False ∨ True) = True
+- (¬x1 ∨ ¬x5 ∨ ¬x4): (False ∨ False ∨ False) = False
+
+**Conflict!** (¬x1 ∨ ¬x5 ∨ ¬x4) = (False ∨ False ∨ False) = False
+
+### Step 10: Backtrack (Conflict 5, Branch 5)
+Try x1 = False.
+
+#### Propagate:
+- (¬x1 ∨ x5 ∨ x3): (True ∨ x5 ∨ x3) = True
+- (x3 ∨ ¬x1 ∨ ¬x4): (x3 ∨ True ∨ ¬x4) = True
+- (x1 ∨ x2 ∨ ¬x5): (False ∨ False ∨ ¬x5) = (¬x5)
+- (x4 ∨ x2 ∨ x1): (x4 ∨ False ∨ False) = (x4)
+- (¬x1 ∨ ¬x5 ∨ ¬x4): (True ∨ ¬x5 ∨ ¬x4) = True
+- (x4 ∨ ¬x1 ∨ ¬x5): (x4 ∨ True ∨ ¬x5) = True
+- (x1 ∨ x4 ∨ ¬x2): (False ∨ x4 ∨ True) = True
+- (x1 ∨ x2 ∨ ¬x5): (False ∨ False ∨ ¬x5) = (¬x5)
+- (x4 ∨ x3 ∨ ¬x1): (x4 ∨ x3 ∨ True) = True
+- (¬x3 ∨ ¬x1 ∨ x5): (¬x3 ∨ True ∨ x5) = True
+- (¬x2 ∨ ¬x5 ∨ x1): (¬x2 ∨ ¬x5 ∨ False) = (¬x2 ∨ ¬x5)
+- (¬x4 ∨ x3 ∨ ¬x1): (¬x4 ∨ x3 ∨ True) = True
+- (¬x4 ∨ ¬x2 ∨ x1): (¬x4 ∨ ¬x2 ∨ False) = (¬x4 ∨ ¬x2)
+- (¬x5 ∨ ¬x2 ∨ ¬x1): (¬x5 ∨ ¬x2 ∨ True) = True
+- (x4 ∨ ¬x5 ∨ ¬x1): (x4 ∨ ¬x5 ∨ True) = True
+- (x5 ∨ ¬x4 ∨ x2): (x5 ∨ ¬x4 ∨ False) = (x5 ∨ ¬x4)
+
+Now, (¬x5) is unit, so x5 = False.
+
+Now, (x4) is unit, so x4 = True.
+
+Now, (x5 ∨ ¬x4): (False ∨ False) = False
+
+**Conflict!** (x5 ∨ ¬x4) = (False ∨ False) = False
+
+### Step 11: Backtrack (Conflict 6, Branch 6)
+Try x4 = False.
+
+Now, (x5 ∨ ¬x4): (x5 ∨ True) = True
+
+Now, (¬x4 ∨ ¬x2): (True ∨ ¬x2) = True
+
+Now, (x4): False
+
+Now, (¬x2 ∨ ¬x5): (¬x2 ∨ True) = True
+
+All unit clauses are satisfied.
+
+Now, assign x3 = True.
+
+Check all clauses:
+- (x5 ∨ ¬x4 ∨ x2): (False ∨ True ∨ False) = True
+- (¬x1 ∨ x5 ∨ x3): (True ∨ False ∨ True) = True
+- (x3 ∨ ¬x1 ∨ ¬x4): (True ∨ True ∨ True) = True
+- (¬x3 ∨ ¬x2 ∨ x4): (False ∨ True ∨ False) = True
+- (x1 ∨ x2 ∨ ¬x5): (False ∨ False ∨ True) = True
+- (x4 ∨ x2 ∨ x1): (False ∨ False ∨ False) = False
+
+**Conflict!** (x4 ∨ x2 ∨ x1) = (False ∨ False ∨ False) = False
+
+### Step 12: Backtrack (Conflict 7, Branch 7)
+Try x3 = False.
+
+Check all clauses:
+- (x5 ∨ ¬x4 ∨ x2): (False ∨ True ∨ False) = True
+- (¬x1 ∨ x5 ∨ x3): (True ∨ False ∨ False) = True
+- (x3 ∨ ¬x1 ∨ ¬x4): (False ∨ True ∨ True) = True
+- (¬x3 ∨ ¬x2 ∨ x4): (True ∨ True ∨ False) = True
+- (x1 ∨ x2 ∨ ¬x5): (False ∨ False ∨ True) = True
+- (x4 ∨ x2 ∨ x1): (False ∨ False ∨ False) = False
+
+**Conflict!** (x4 ∨ x2 ∨ x1) = (False ∨ False ∨ False) = False
+
+### Step 13: Backtrack (Conflict 8, Branch 8)
+Try x2 = False.
+
+Already tried above.
+
+### Step 14: Backtrack (Conflict 9, Branch 9)
+Try x1 = False.
+
+Already tried above.
+
+---
+
+## Summary
+
+### All possible branches have been explored and all lead to conflicts.
+
+---
+
+**Final Answers:**
+
+* UNSATISFIABLE
+* Number of branches: 9
+* Number of conflicts: 9

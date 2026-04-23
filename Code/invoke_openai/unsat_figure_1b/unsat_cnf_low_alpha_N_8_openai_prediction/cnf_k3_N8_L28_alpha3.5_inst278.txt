@@ -1,0 +1,131 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=278
+p cnf 8 28
+8 7 1 0
+-1 7 -3 0
+2 3 7 0
+-8 -2 4 0
+7 6 2 0
+-2 6 7 0
+-4 5 7 0
+3 -5 -7 0
+-3 8 -7 0
+5 2 -7 0
+8 5 3 0
+8 -7 -5 0
+-5 -3 -4 0
+-1 -4 8 0
+2 4 -3 0
+-7 -5 2 0
+-8 3 -1 0
+3 7 -5 0
+-7 -8 -4 0
+-2 -3 -5 0
+7 -4 8 0
+2 -5 3 0
+-3 -7 -8 0
+3 -4 -5 0
+1 7 -3 0
+-6 1 3 0
+-3 7 -8 0
+-8 4 2 0
+
+c GPT solve time: 17.83 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List all variables:**  
+x1, x2, x3, x4, x5, x6, x7, x8
+
+**Step 2: Try assigning x7 = True (since x7 appears most frequently and positively):**
+
+- Propagate x7 = True:
+    - Clauses with x7 are satisfied: (x8 ∨ x7 ∨ x1), (¬x1 ∨ x7 ∨ ¬x3), (x2 ∨ x3 ∨ x7), (x7 ∨ x6 ∨ x2), (¬x2 ∨ x6 ∨ x7), (¬x4 ∨ x5 ∨ x7), (x3 ∨ ¬x5 ∨ ¬x7), (x5 ∨ x2 ∨ ¬x7), (x8 ∨ x5 ∨ x3), (x2 ∨ x4 ∨ ¬x3), (x3 ∨ x7 ∨ ¬x5), (x7 ∨ ¬x4 ∨ x8), (x1 ∨ x7 ∨ ¬x3), (¬x3 ∨ x7 ∨ ¬x8), (¬x6 ∨ x1 ∨ x3)
+    - Remove all satisfied clauses.
+
+- Remaining clauses (with x7 = True):
+    - (¬x8 ∨ ¬x2 ∨ x4)
+    - (x8 ∨ ¬x7 ∨ ¬x5) → (x8 ∨ ¬x5) [since x7 = True, ¬x7 = False]
+    - (¬x5 ∨ ¬x3 ∨ ¬x4)
+    - (¬x1 ∨ ¬x4 ∨ x8)
+    - (¬x8 ∨ x3 ∨ ¬x1)
+    - (¬x7 ∨ ¬x8 ∨ ¬x4) → (¬x8 ∨ ¬x4) [since x7 = True, ¬x7 = False]
+    - (¬x2 ∨ ¬x3 ∨ ¬x5)
+    - (x2 ∨ ¬x5 ∨ x3)
+    - (¬x3 ∨ ¬x7 ∨ ¬x8) → (¬x3 ∨ ¬x8) [since x7 = True, ¬x7 = False]
+    - (x3 ∨ ¬x4 ∨ ¬x5)
+    - (¬x8 ∨ x4 ∨ x2)
+
+**Step 3: Next, try x5 = False (since x5 appears often negatively):**
+
+- Propagate x5 = False:
+    - (x8 ∨ ¬x5) → (x8 ∨ True) → satisfied
+    - (¬x5 ∨ ¬x3 ∨ ¬x4) → (True ∨ ¬x3 ∨ ¬x4) → satisfied
+    - (¬x2 ∨ ¬x3 ∨ ¬x5) → (¬x2 ∨ ¬x3 ∨ True) → satisfied
+    - (x2 ∨ ¬x5 ∨ x3) → (x2 ∨ True ∨ x3) → satisfied
+    - (x3 ∨ ¬x4 ∨ ¬x5) → (x3 ∨ ¬x4 ∨ True) → satisfied
+
+- Remaining clauses:
+    - (¬x8 ∨ ¬x2 ∨ x4)
+    - (¬x1 ∨ ¬x4 ∨ x8)
+    - (¬x8 ∨ x3 ∨ ¬x1)
+    - (¬x8 ∨ ¬x4)
+    - (¬x3 ∨ ¬x8)
+    - (¬x8 ∨ x4 ∨ x2)
+
+**Step 4: Try x8 = False (since ¬x8 appears in many remaining clauses):**
+
+- Propagate x8 = False:
+    - (¬x8 ∨ ¬x2 ∨ x4) → (True ∨ ¬x2 ∨ x4) → satisfied
+    - (¬x1 ∨ ¬x4 ∨ x8) → (¬x1 ∨ ¬x4 ∨ False) → (¬x1 ∨ ¬x4)
+    - (¬x8 ∨ x3 ∨ ¬x1) → (True ∨ x3 ∨ ¬x1) → satisfied
+    - (¬x8 ∨ ¬x4) → (True ∨ ¬x4) → satisfied
+    - (¬x3 ∨ ¬x8) → (¬x3 ∨ True) → satisfied
+    - (¬x8 ∨ x4 ∨ x2) → (True ∨ x4 ∨ x2) → satisfied
+
+- Remaining clause:
+    - (¬x1 ∨ ¬x4)
+
+**Step 5: Try x1 = False:**
+
+- (¬x1 ∨ ¬x4) → (True ∨ ¬x4) → satisfied
+
+**All clauses are satisfied!**
+
+**Step 6: Assign remaining variables arbitrarily (since they are not constrained):**
+
+- x2, x3, x4, x6: can be anything. Let's set them all to False for simplicity.
+
+**Summary of assignments:**
+- x1 = False
+- x2 = False
+- x3 = False
+- x4 = False
+- x5 = False
+- x6 = False
+- x7 = True
+- x8 = False
+
+**Count branches and conflicts:**
+- Branch 1: x7 = True
+- Branch 2: x5 = False
+- Branch 3: x8 = False
+- Branch 4: x1 = False
+
+No conflicts occurred (no need to backtrack).
+
+---
+
+**Final Output:**
+
+SATISFIABLE  
+Number of branches: 4  
+Number of conflicts: 0  
+x1 = False  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = False  
+x6 = False  
+x7 = True  
+x8 = False

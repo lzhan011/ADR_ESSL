@@ -12,9 +12,9 @@ from typing import Tuple, List, Optional
 from openai import OpenAI, RateLimitError
 
 # ========= 基础配置 =========
-# 建议用环境变量（更安全）： export DEEPSEEK_API_KEY=sk-xxxx
+# 建议用环境变量（更安全）： export DEEPSEEK_API_KEY=""
 # DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY") or "REPLACE_WITH_YOUR_DEEPSEEK_KEY"
-DEEPSEEK_API_KEY = os.environ["DEEPSEEK_API_KEY"]
+DEEPSEEK_API_KEY = os.environ.get("DeepSeek_API_KEY")
 # 遍历的 DeepSeek 模型列表（按需保留/调整）
 model_list = [
     "deepseek-chat",

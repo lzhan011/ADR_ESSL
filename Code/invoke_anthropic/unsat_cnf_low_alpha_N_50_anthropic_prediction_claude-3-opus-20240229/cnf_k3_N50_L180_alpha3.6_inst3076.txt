@@ -1,0 +1,221 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=3076
+p cnf 50 180
+-11 -37 -24 0
+-43 23 25 0
+-11 -8 -49 0
+-33 -14 -13 0
+-33 29 -46 0
+-21 8 2 0
+34 3 9 0
+-3 33 -23 0
+-41 -20 11 0
+33 34 -5 0
+28 3 -10 0
+50 -33 40 0
+11 -32 -3 0
+-9 36 13 0
+-20 2 22 0
+26 42 -11 0
+-42 44 12 0
+3 -28 40 0
+22 43 26 0
+-26 27 50 0
+9 35 48 0
+-40 20 25 0
+47 -4 7 0
+50 30 -4 0
+46 35 -15 0
+-18 -43 -33 0
+11 -6 -37 0
+44 -4 -18 0
+-30 -43 -20 0
+35 26 -37 0
+-23 -21 -46 0
+-33 32 34 0
+-35 -46 26 0
+-8 -26 -17 0
+-9 -28 44 0
+-18 -23 26 0
+-15 39 48 0
+10 -49 -1 0
+32 3 31 0
+-28 5 43 0
+23 14 -9 0
+32 35 9 0
+-18 -10 -24 0
+25 48 -22 0
+12 -7 14 0
+46 5 -30 0
+-41 -6 -13 0
+-16 22 -33 0
+-40 3 -43 0
+50 1 -22 0
+-19 -47 16 0
+37 45 32 0
+-2 6 -22 0
+32 -48 20 0
+9 -13 7 0
+9 24 28 0
+-39 26 -32 0
+39 -15 43 0
+-41 -11 -48 0
+17 -49 20 0
+17 -25 -40 0
+18 1 -26 0
+-50 -48 34 0
+-17 -47 39 0
+50 7 -40 0
+9 -29 -33 0
+-37 32 -41 0
+9 -41 -15 0
+-7 -25 18 0
+-33 15 -39 0
+-36 -39 2 0
+13 -22 -21 0
+-25 10 29 0
+41 27 -38 0
+-47 9 -18 0
+-2 38 4 0
+-21 -12 -35 0
+-9 10 -7 0
+20 33 48 0
+4 9 -23 0
+-25 -13 24 0
+-47 -39 18 0
+16 -2 -43 0
+11 47 -27 0
+-47 12 43 0
+-18 -23 -26 0
+8 -12 -28 0
+-34 30 -9 0
+43 -48 16 0
+-1 -41 7 0
+-30 9 28 0
+17 -15 -22 0
+49 14 -27 0
+20 2 -17 0
+23 50 27 0
+17 -18 50 0
+-4 29 37 0
+-14 7 5 0
+17 6 35 0
+-29 -47 -23 0
+48 32 29 0
+44 14 -13 0
+-7 10 47 0
+33 -16 -4 0
+-7 13 28 0
+40 -42 -33 0
+-41 -3 1 0
+47 27 -7 0
+13 21 5 0
+36 -28 15 0
+46 28 30 0
+-26 42 2 0
+24 33 20 0
+28 43 33 0
+-34 -12 -28 0
+-13 -33 29 0
+-27 -40 -8 0
+46 -43 41 0
+-46 -50 44 0
+-30 -48 2 0
+32 40 29 0
+-32 -9 43 0
+43 -25 -34 0
+-19 12 28 0
+-2 -29 -8 0
+-19 13 39 0
+12 -7 39 0
+-24 -10 17 0
+-42 -17 -30 0
+-18 -50 -7 0
+33 -23 3 0
+-20 -13 12 0
+-42 -7 47 0
+-5 -2 20 0
+6 20 -41 0
+9 8 48 0
+-29 32 10 0
+-43 -36 -48 0
+37 8 -13 0
+-29 -48 6 0
+40 50 41 0
+15 -50 -47 0
+36 -2 22 0
+44 -46 13 0
+-27 -14 33 0
+49 -33 4 0
+12 -8 -47 0
+21 -26 -7 0
+31 -38 -10 0
+22 3 40 0
+-30 47 3 0
+-27 -34 -48 0
+-4 -15 -46 0
+25 3 -19 0
+42 -33 23 0
+20 41 -44 0
+12 44 22 0
+-41 -26 47 0
+-25 -46 32 0
+-4 -1 -49 0
+40 6 1 0
+23 46 27 0
+49 -39 -22 0
+-19 3 23 0
+21 10 -22 0
+4 7 -10 0
+-42 34 9 0
+36 2 18 0
+-28 43 -2 0
+-22 40 45 0
+-39 -46 -6 0
+-40 5 35 0
+-1 36 -37 0
+28 -41 -1 0
+12 -50 40 0
+-22 -47 -43 0
+-40 -26 -33 0
+-44 39 -12 0
+-17 -12 49 0
+-43 -19 -42 0
+
+c GPT solve time: 34.81 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+1. Assign x11 = 0. This satisfies clause 1 and clause 3.
+
+2. Assign x43 = 0. This satisfies clause 2 and clause 26.
+
+3. Assign x33 = 0. This satisfies clause 4, clause 5, clause 8, clause 10, clause 12, clause 18, clause 26, clause 32, clause 47, clause 49, clause 64, clause 69, clause 101, clause 112, clause 132, clause 140, and clause 149.
+
+4. Assign x3 = 1. This satisfies clause 7, clause 8, clause 11, clause 13, clause 18, clause 32, clause 39, clause 48, clause 80, clause 81, clause 113, clause 133, clause 135, clause 137, and clause 141.
+
+5. Assign x9 = 1. This satisfies clause 7, clause 14, clause 21, clause 35, clause 41, clause 42, clause 55, clause 56, clause 64, clause 67, clause 75, clause 80, clause 84, clause 90, clause 112, clause 117, clause 128, and clause 142.
+
+6. Assign x26 = 1. This satisfies clause 16, clause 19, clause 20, clause 30, clause 33, clause 34, clause 35, clause 36, clause 54, clause 57, clause 61, clause 83, clause 110, and clause 143.
+
+7. Assign x50 = 1. This satisfies clause 12, clause 20, clause 24, clause 49, clause 62, clause 65, clause 92, clause 93, clause 114, clause 116, clause 127, and clause 139.
+
+8. Assign x35 = 1. This satisfies clause 21, clause 25, clause 30, clause 33, clause 42, clause 46, clause 74, clause 96, clause 140, and clause 145.
+
+9. Assign x44 = 1. This satisfies clause 17, clause 28, clause 35, clause 82, clause 97, clause 129, and clause 146.
+
+10. Assign x22 = 1. This satisfies clause 15, clause 44, clause 49, clause 50, clause 72, clause 89, clause 136, clause 138, clause 147, and clause 148.
+
+11. Assign x32 = 1. This satisfies clause 13, clause 33, clause 39, clause 42, clause 51, clause 54, clause 55, clause 63, clause 66, clause 98, clause 113, clause 125, and clause 130.
+
+12. Assign x20 = 1. This satisfies clause 9, clause 15, clause 22, clause 29, clause 47, clause 52, clause 53, clause 60, clause 79, clause 81, clause 91, clause 108, clause 124, and clause 144.
+
+13. Assign x48 = 1. This satisfies clause 21, clause 37, clause 44, clause 53, clause 58, clause 60, clause 62, clause 81, clause 98, clause 115, clause 128, clause 132, and clause 134.
+
+14. Assign x40 = 1. This satisfies clause 12, clause 17, clause 18, clause 22, clause 48, clause 50, clause 65, clause 103, clause 113, clause 122, clause 148, and clause 149.
+
+15. Assign x2 = 1. This satisfies clause 6, clause 15, clause 36, clause 52, clause 71, clause 78, clause 83, clause 110, clause 111, clause 136, and clause 143.
+
+16. Assign x28 = 1. This satisfies clause 11, clause 18, clause 35, clause 40, clause 82, clause 85, clause 107, clause 109, clause 119, clause 120, clause 143, and clause 145.
+
+17. Assign x47 = 1. This satisfies

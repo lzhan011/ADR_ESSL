@@ -1,0 +1,76 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1087
+p cnf 8 28
+4 7 6 0
+8 -7 1 0
+5 1 -7 0
+-3 7 1 0
+-4 1 -8 0
+-6 -3 -4 0
+6 3 4 0
+-8 -7 1 0
+5 -1 8 0
+-1 -5 7 0
+-4 -2 7 0
+-8 -6 1 0
+2 1 5 0
+-4 -8 6 0
+-5 -1 -8 0
+-5 -1 -6 0
+7 4 3 0
+8 -2 -1 0
+-4 -1 -8 0
+4 -5 -2 0
+-2 -4 -6 0
+-1 2 -3 0
+8 -5 3 0
+-8 3 -2 0
+7 8 -2 0
+4 3 -8 0
+-2 4 -8 0
+-4 3 7 0
+
+c GPT solve time: 16.42 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Let me start by analyzing the formula and making decisions:
+
+**Branch 1: x1 = true**
+- Clause 2: (x8 ∨ ¬x7 ∨ x1) → satisfied
+- Clause 3: (x5 ∨ x1 ∨ ¬x7) → satisfied
+- Clause 4: (¬x3 ∨ x7 ∨ x1) → satisfied
+- Clause 5: (¬x4 ∨ x1 ∨ ¬x8) → satisfied
+- Clause 8: (¬x8 ∨ ¬x7 ∨ x1) → satisfied
+- Clause 12: (¬x8 ∨ ¬x6 ∨ x1) → satisfied
+- Clause 13: (x2 ∨ x1 ∨ x5) → satisfied
+
+Remaining clauses with ¬x1:
+- Clause 9: (x5 ∨ ¬x1 ∨ x8) → (x5 ∨ x8)
+- Clause 10: (¬x1 ∨ ¬x5 ∨ x7) → (¬x5 ∨ x7)
+- Clause 15: (¬x5 ∨ ¬x1 ∨ ¬x8) → (¬x5 ∨ ¬x8)
+- Clause 16: (¬x5 ∨ ¬x1 ∨ ¬x6) → (¬x5 ∨ ¬x6)
+- Clause 18: (x8 ∨ ¬x2 ∨ ¬x1) → (x8 ∨ ¬x2)
+- Clause 19: (¬x4 ∨ ¬x1 ∨ ¬x8) → (¬x4 ∨ ¬x8)
+- Clause 22: (¬x1 ∨ x2 ∨ ¬x3) → (x2 ∨ ¬x3)
+
+From clause 15: (¬x5 ∨ ¬x8), at least one of x5 or x8 must be false.
+
+**Branch 2: x5 = false**
+- Clause 9: (x5 ∨ x8) → x8 = true
+- Clause 10: (¬x5 ∨ x7) → satisfied
+- Clause 15: (¬x5 ∨ ¬x8) → satisfied
+- Clause 16: (¬x5 ∨ ¬x6) → satisfied
+
+With x8 = true:
+- Clause 18: (x8 ∨ ¬x2) → satisfied
+- Clause 19: (¬x4 ∨ ¬x8) → x4 = false
+
+With x4 = false:
+- Clause 1: (x4 ∨ x7 ∨ x6) → (x7 ∨ x6)
+- Clause 6: (¬x6 ∨ ¬x3 ∨ ¬x4) → satisfied
+- Clause 7: (x6 ∨ x3 ∨ x4) → (x6 ∨ x3)
+- Clause 11: (¬x4 ∨ ¬x2 ∨ x7) → satisfied
+- Clause 14: (¬x4 ∨ ¬x8 ∨ x6) → satisfied
+- Clause 20: (x4 ∨ ¬x5 ∨ ¬x2) → satisfied
+- Clause 21: (

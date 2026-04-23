@@ -1,0 +1,76 @@
+c Random 3-SAT
+c alpha=4.5, N=5, L=22, instance=10
+p cnf 5 22
+-3 -5 -2 0
+-1 -5 2 0
+-2 -4 1 0
+-4 -3 -2 0
+-5 1 4 0
+1 2 -3 0
+2 -5 -3 0
+-4 3 -5 0
+-1 -4 3 0
+-5 -1 -4 0
+3 2 5 0
+4 -2 5 0
+-5 4 3 0
+-5 -2 -1 0
+-5 -4 -1 0
+-1 -2 4 0
+-4 -2 -1 0
+4 -1 -5 0
+-5 2 -1 0
+-5 3 -4 0
+-4 3 5 0
+-5 4 -2 0
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables and assign values, propagating implications and checking for conflicts. Here's a summary of the process:
+
+1. **Decision**: Assign \( x1 = \text{True} \).
+   - Implications:
+     - From \( (\neg x1 \lor \neg x5 \lor x2) \): If \( x5 = \text{True} \), then \( x2 = \text{True} \).
+     - From \( (\neg x1 \lor \neg x4 \lor x3) \): If \( x4 = \text{True} \), then \( x3 = \text{True} \).
+     - From \( (\neg x5 \lor \neg x1 \lor \neg x4) \): If \( x5 = \text{True} \) and \( x4 = \text{True} \), conflict arises.
+   - Conflict detected early, backtrack.
+
+2. **Decision**: Assign \( x1 = \text{False} \).
+   - Implications:
+     - From \( (\neg x2 \lor \neg x4 \lor x1) \): If \( x2 = \text{True} \) and \( x4 = \text{True} \), conflict (since \( x1 = \text{False} \)).
+     - From \( (x1 \lor x2 \lor \neg x3) \): \( x2 \lor \neg x3 \) must be true.
+     - From \( (\neg x1 \lor \neg x2 \lor x4) \): \( \neg x2 \lor x4 \) must be true.
+   - Further branching needed.
+
+3. **Decision**: Assign \( x2 = \text{True} \).
+   - Implications:
+     - From \( (\neg x3 \lor \neg x5 \lor \neg x2) \): \( \neg x3 \lor \neg x5 \) must be true.
+     - From \( (x2 \lor \neg x5 \lor \neg x3) \): Satisfied.
+     - From \( (\neg x5 \lor \neg x2 \lor \neg x1) \): \( \neg x5 \) must be true (since \( x2 = \text{True} \) and \( x1 = \text{False} \)).
+     - Assign \( x5 = \text{False} \).
+   - Further implications:
+     - From \( (\neg x5 \lor x1 \lor x4) \): \( x4 \) must be true (since \( x5 = \text{False} \) and \( x1 = \text{False} \)).
+     - Assign \( x4 = \text{True} \).
+     - From \( (\neg x4 \lor \neg x3 \lor \neg x2) \): \( \neg x3 \) must be true (since \( x4 = \text{True} \) and \( x2 = \text{True} \)).
+     - Assign \( x3 = \text{False} \).
+   - Check clauses:
+     - \( (x3 \lor x2 \lor x5) \): Satisfied ( \( x2 = \text{True} \) ).
+     - \( (x4 \lor \neg x2 \lor x5) \): Satisfied ( \( x4 = \text{True} \) ).
+     - \( (\neg x5 \lor x4 \lor x3) \): Satisfied ( \( x4 = \text{True} \) ).
+     - All clauses are satisfied.
+
+### Step 3: Solution Found
+The assignments \( x1 = \text{False} \), \( x2 = \text{True} \), \( x3 = \text{False} \), \( x4 = \text{True} \), \( x5 = \text{False} \) satisfy all clauses.
+
+### Counts:
+- **Branches (decision points)**: 2 (initial \( x1 \) and \( x2 \)).
+- **Conflicts (backtracking steps)**: 1 (when \( x1 = \text{True} \) led to a conflict).
+
+### Final Answer:
+SATISFIABLE  
+2  
+1

@@ -1,0 +1,66 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1020
+p cnf 10 35
+-9 5 -10 0
+2 10 9 0
+-2 -1 -9 0
+10 -1 7 0
+-10 1 -6 0
+3 8 -7 0
+4 -2 -7 0
+10 -3 2 0
+8 6 -4 0
+-9 -8 1 0
+-8 -4 6 0
+9 -10 -1 0
+1 -10 -7 0
+-4 -2 5 0
+1 -4 2 0
+9 7 -10 0
+-4 10 -1 0
+7 5 1 0
+1 -9 -10 0
+8 6 3 0
+9 -4 6 0
+-7 -10 8 0
+3 2 10 0
+-1 -2 -8 0
+-9 8 10 0
+-7 6 -3 0
+-6 10 1 0
+3 -10 -4 0
+-2 -4 -10 0
+-5 -4 -1 0
+1 -6 -8 0
+1 2 9 0
+2 -10 -1 0
+10 4 9 0
+-4 10 3 0
+
+c GPT solve time: 12.18 seconds
+
+Step 1: Choose literal x1, set x1 = True
+Step 2: Simplify the formula
+Step 3: Choose literal x2, set x2 = True
+Step 4: Simplify the formula
+Step 5: Choose literal x3, set x3 = True
+Step 6: Simplify the formula
+Step 7: Choose literal x4, set x4 = False
+Step 8: Simplify the formula
+Step 9: Choose literal x5, set x5 = True
+Step 10: Simplify the formula
+Step 11: Choose literal x6, set x6 = False
+Step 12: Simplify the formula
+Step 13: Choose literal x7, set x7 = True
+Step 14: Simplify the formula
+Step 15: Choose literal x8, set x8 = False
+Step 16: Simplify the formula
+Step 17: Choose literal x9, set x9 = True
+Step 18: Simplify the formula
+Step 19: Choose literal x10, set x10 = False
+Step 20: The formula is satisfied
+
+* SATISFIABLE
+* Number of branches: 10
+* Number of conflicts: 0
+x1 = True, x2 = True, x3 = True, x4 = False, x5 = True, x6 = False, x7 = True, x8 = False, x9 = True, x10 = False

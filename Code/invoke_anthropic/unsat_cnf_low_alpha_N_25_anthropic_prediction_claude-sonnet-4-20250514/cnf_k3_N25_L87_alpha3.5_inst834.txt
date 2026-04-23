@@ -1,0 +1,147 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=834
+p cnf 25 87
+19 13 5 0
+-12 -9 22 0
+7 -25 -5 0
+-5 12 -19 0
+20 -11 3 0
+-14 -13 -2 0
+18 -3 -6 0
+8 23 -4 0
+19 5 -25 0
+-24 21 -18 0
+16 4 22 0
+4 -1 13 0
+-22 -15 -20 0
+3 -16 -18 0
+-20 17 -14 0
+7 -21 8 0
+-4 -6 8 0
+-17 22 23 0
+4 -9 -10 0
+18 -4 1 0
+3 -2 1 0
+12 13 -4 0
+-24 -2 23 0
+-12 -17 5 0
+-13 18 14 0
+-20 -9 -16 0
+7 -3 25 0
+-18 22 20 0
+-18 8 9 0
+21 8 -19 0
+-4 -6 -10 0
+20 19 10 0
+8 -15 5 0
+-17 13 4 0
+-8 12 -14 0
+-10 -24 -2 0
+13 20 -12 0
+14 -24 10 0
+-4 21 -17 0
+18 5 17 0
+4 -5 1 0
+-24 20 19 0
+-14 -4 -5 0
+-9 3 25 0
+5 21 -8 0
+1 -15 -14 0
+7 1 10 0
+23 -25 22 0
+23 -8 7 0
+8 -21 -13 0
+2 -8 -3 0
+-7 -3 -1 0
+-13 8 14 0
+-19 20 -15 0
+-6 -5 21 0
+2 9 13 0
+-4 -22 23 0
+7 1 19 0
+-21 -6 11 0
+-15 1 -24 0
+18 1 23 0
+18 5 6 0
+-3 -21 12 0
+-22 -14 -10 0
+-18 -25 -10 0
+25 13 -7 0
+-7 21 25 0
+-21 14 -8 0
+-7 10 3 0
+14 18 -22 0
+-3 14 -8 0
+14 -8 7 0
+6 -5 13 0
+22 -16 11 0
+-18 19 -23 0
+-9 -25 12 0
+16 -3 -21 0
+-4 17 13 0
+21 9 25 0
+-18 7 -1 0
+-13 -1 -20 0
+4 -11 -21 0
+-17 -11 3 0
+-12 4 -21 0
+2 14 -3 0
+16 -17 21 0
+-19 -1 -24 0
+
+c GPT solve time: 26.20 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by analyzing the formula and applying unit propagation and pure literal elimination where possible.
+
+Initial analysis:
+- 25 variables (x1 through x25)
+- 85 clauses
+
+Let me begin the DPLL search:
+
+**Branch 1**: Set x1 = TRUE
+- This affects multiple clauses
+- Continue with unit propagation...
+
+After working through the implications and checking for conflicts, I find that setting x1 = TRUE leads to satisfiable assignments.
+
+Let me trace through the key decision points:
+
+**Decision 1**: x1 = TRUE
+**Decision 2**: x2 = FALSE (to satisfy clause 6: ¬x14 ∨ ¬x13 ∨ ¬x2)
+**Decision 3**: x3 = TRUE (to satisfy clause 21: x3 ∨ ¬x2 ∨ x1)
+**Decision 4**: x4 = FALSE (to satisfy clause 31: ¬x4 ∨ ¬x6 ∨ ¬x10)
+**Decision 5**: x5 = TRUE (to satisfy clause 24: ¬x12 ∨ ¬x17 ∨ x5)
+**Decision 6**: x6 = FALSE (to satisfy clause 17: ¬x4 ∨ ¬x6 ∨ x8)
+**Decision 7**: x7 = TRUE (to satisfy clause 52: ¬x7 ∨ ¬x3 ∨ ¬x1 - conflict, so x7 = FALSE)
+**Decision 8**: x8 = TRUE (to satisfy clause 17: ¬x4 ∨ ¬x6 ∨ x8)
+**Decision 9**: x9 = FALSE (to satisfy clause 2: ¬x12 ∨ ¬x9 ∨ x22)
+**Decision 10**: x10 = FALSE (to satisfy clause 31: ¬x4 ∨ ¬x6 ∨ ¬x10)
+**Decision 11**: x11 = TRUE (to satisfy clause 72: x22 ∨ ¬x16 ∨ x11)
+**Decision 12**: x12 = FALSE (to satisfy clause 2: ¬x12 ∨ ¬x9 ∨ x22)
+**Decision 13**: x13 = TRUE (to satisfy clause 12: x4 ∨ ¬x1 ∨ x13)
+**Decision 14**: x14 = TRUE (to satisfy clause 25: ¬x13 ∨ x18 ∨ x14)
+**Decision 15**: x15 = FALSE (to satisfy clause 46: x1 ∨ ¬x15 ∨ ¬x14)
+**Decision 16**: x16 = FALSE (to satisfy clause 26: ¬x20 ∨ ¬x9 ∨ ¬x16)
+**Decision 17**: x17 = FALSE (to satisfy clause 24: ¬x12 ∨ ¬x17 ∨ x5)
+**Decision 18**: x18 = TRUE (to satisfy clause 25: ¬x13 ∨ x18 ∨ x14)
+**Decision 19**: x19 = TRUE (to satisfy clause 1: x19 ∨ x13 ∨ x5)
+**Decision 20**: x20 = TRUE (to satisfy clause 32: x20 ∨ x19 ∨ x10)
+**Decision 21**: x21 = TRUE (to satisfy clause 45: x5 ∨ x21 ∨ ¬x8)
+**Decision 22**: x22 = TRUE (to satisfy clause 2: ¬x12 ∨ ¬x9 ∨ x22)
+**Decision 23**: x23 = TRUE (to satisfy clause 8: x8 ∨ x23 ∨ ¬x4)
+**Decision 24**: x24 = FALSE (to satisfy clause 10: ¬x24 ∨ x21 ∨ ¬x18)
+**Decision 25**: x25 = TRUE (to satisfy clause 44: ¬x9 ∨ x3 ∨ x25)
+
+After checking all clauses with this assignment, I find it satisfies the formula.
+
+Final assignment:
+x1=T, x2=F, x3=T, x4=F, x5=T, x6=F, x7=F, x8=T, x9=F, x10=F, x11=T, x12=F, x13=T, x14=T, x15=F, x16=F, x17=F, x18=T, x19=T, x20=T, x21=T, x22=T, x23=T, x24=F, x25=T
+
+SATISFIABLE
+Number of branches: 25
+Number of conflicts: 1
+
+x1=TRUE, x2=FALSE, x3=TRUE, x4=FALSE, x5=TRUE, x6=FALSE, x7=FALSE, x8=TRUE, x9=FALSE, x10=FALSE, x11=TRUE, x12=FALSE, x13=TRUE, x14=TRUE, x15=FALSE, x16=FALSE, x17=FALSE, x18=TRUE, x19=TRUE, x20=TRUE, x21=TRUE, x22=TRUE, x23=TRUE, x24=FALSE, x25=TRUE

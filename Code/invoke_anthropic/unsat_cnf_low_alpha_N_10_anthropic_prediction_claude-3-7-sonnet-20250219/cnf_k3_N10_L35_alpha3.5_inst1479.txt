@@ -1,0 +1,165 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1479
+p cnf 10 35
+-2 -4 7 0
+-2 8 9 0
+-4 7 8 0
+-2 -7 1 0
+-6 -5 10 0
+3 4 -8 0
+-2 -7 4 0
+-6 -3 -5 0
+-10 -7 4 0
+8 4 3 0
+-2 1 4 0
+4 -6 -9 0
+9 10 2 0
+8 -3 10 0
+-2 -1 10 0
+2 9 -5 0
+-8 -1 -10 0
+5 1 7 0
+-10 -9 8 0
+-3 8 4 0
+-2 10 -9 0
+-8 9 3 0
+-9 -5 -2 0
+-10 -3 6 0
+-8 10 -7 0
+5 10 -2 0
+-9 -4 2 0
+-5 -4 9 0
+-10 -4 2 0
+2 -6 4 0
+7 10 -3 0
+3 6 4 0
+8 6 -3 0
+-4 8 -9 0
+-2 -9 5 0
+
+c GPT solve time: 45.83 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by making decisions and performing unit propagation:
+
+Decision 1: x1 = true
+No unit clauses created.
+
+Decision 2: x2 = false
+From (¬x2 ∨ x8 ∨ x9), we get (x8 ∨ x9) as a unit clause.
+No further unit propagation possible.
+
+Decision 3: x3 = true
+From (¬x6 ∨ ¬x3 ∨ ¬x5), we get (¬x6 ∨ ¬x5) as a unit clause.
+No further unit propagation possible.
+
+Decision 4: x4 = true
+From (¬x2 ∨ ¬x4 ∨ x7), since x2 = false and x4 = true, we get x7 = true.
+From (¬x4 ∨ x7 ∨ x8), since x4 = true and x7 = true, this clause is satisfied.
+From (¬x2 ∨ ¬x7 ∨ x1), since x2 = false, x7 = true, and x1 = true, this clause is satisfied.
+From (¬x2 ∨ ¬x7 ∨ x4), since x2 = false, x7 = true, and x4 = true, this clause is satisfied.
+From (¬x10 ∨ ¬x7 ∨ x4), since x7 = true and x4 = true, this clause is satisfied.
+From (x8 ∨ x4 ∨ x3), since x4 = true and x3 = true, this clause is satisfied.
+From (¬x2 ∨ x1 ∨ x4), since x2 = false, x1 = true, and x4 = true, this clause is satisfied.
+From (x4 ∨ ¬x6 ∨ ¬x9), since x4 = true, this clause is satisfied.
+From (¬x4 ∨ x8 ∨ ¬x9), since x4 = true, we get (x8 ∨ ¬x9) as a unit clause.
+From (¬x5 ∨ ¬x4 ∨ x9), since x4 = true, we get (¬x5 ∨ x9) as a unit clause.
+From (¬x10 ∨ ¬x4 ∨ x2), since x4 = true and x2 = false, we get ¬x10 = true, so x10 = false.
+From (x2 ∨ ¬x6 ∨ x4), since x2 = false and x4 = true, this clause is satisfied.
+From (x3 ∨ x6 ∨ x4), since x3 = true and x4 = true, this clause is satisfied.
+
+Now with x10 = false:
+From (¬x6 ∨ ¬x5 ∨ x10), since x10 = false, we get (¬x6 ∨ ¬x5) which we already had.
+From (x9 ∨ x10 ∨ x2), since x10 = false and x2 = false, we get x9 = true.
+From (x8 ∨ ¬x3 ∨ x10), since x3 = true and x10 = false, we get x8 = true.
+From (¬x2 ∨ ¬x1 ∨ x10), since x2 = false, x1 = true, and x10 = false, this clause is satisfied.
+From (¬x8 ∨ ¬x1 ∨ ¬x10), since x1 = true, x10 = false, and now x8 = true, we get a contradiction.
+
+Backtrack to Decision 4 and try x4 = false:
+From (x3 ∨ x4 ∨ ¬x8), since x3 = true and x4 = false, this clause is satisfied.
+From (¬x2 ∨ x1 ∨ x4), since x2 = false and x1 = true, this clause is satisfied.
+From (x8 ∨ x4 ∨ x3), since x3 = true and x4 = false, this clause is satisfied.
+From (¬x9 ∨ ¬x4 ∨ x2), since x4 = false, this clause is satisfied.
+From (¬x5 ∨ ¬x4 ∨ x9), since x4 = false, this clause is satisfied.
+From (¬x10 ∨ ¬x4 ∨ x2), since x4 = false, this clause is satisfied.
+From (x2 ∨ ¬x6 ∨ x4), since x2 = false and x4 = false, we get ¬x6 = true, so x6 = false.
+From (x3 ∨ x6 ∨ x4), since x3 = true, x6 = false, and x4 = false, this clause is satisfied.
+
+Now with x6 = false:
+From (¬x6 ∨ ¬x5 ∨ x10), since x6 = false, this clause is satisfied.
+From (¬x6 ∨ ¬x3 ∨ ¬x5), since x6 = false, this clause is satisfied.
+From (x4 ∨ ¬x6 ∨ ¬x9), since x6 = false, this clause is satisfied.
+From (¬x10 ∨ ¬x3 ∨ x6), since x3 = true and x6 = false, we get ¬x10 = true, so x10 = false.
+From (x8 ∨ x6 ∨ ¬x3), since x3 = true and x6 = false, we get x8 = true.
+
+Continuing with x8 = true and x10 = false:
+From (¬x2 ∨ x8 ∨ x9), since x2 = false and x8 = true, this clause is satisfied.
+From (¬x4 ∨ x7 ∨ x8), since x8 = true, this clause is satisfied.
+From (¬x8 ∨ ¬x1 ∨ ¬x10), since x8 = true, x1 = true, and x10 = false, we get a contradiction.
+
+Backtrack to Decision 3 and try x3 = false:
+Let's continue with x1 = true, x2 = false, x3 = false, and make new decisions.
+
+From (x3 ∨ x4 ∨ ¬x8), since x3 = false, we get (x4 ∨ ¬x8) as a unit clause.
+From (x8 ∨ x4 ∨ x3), since x3 = false, we get (x8 ∨ x4) as a unit clause.
+From (¬x3 ∨ x8 ∨ x4), since x3 = false, this clause is satisfied.
+From (¬x8 ∨ x9 ∨ x3), since x3 = false, we get (¬x8 ∨ x9) as a unit clause.
+From (¬x10 ∨ ¬x3 ∨ x6), since x3 = false, this clause is satisfied.
+From (x7 ∨ x10 ∨ ¬x3), since x3 = false, this clause is satisfied.
+From (x3 ∨ x6 ∨ x4), since x3 = false, we get (x6 ∨ x4) as a unit clause.
+From (x8 ∨ x6 ∨ ¬x3), since x3 = false, this clause is satisfied.
+
+Decision 5: x4 = true
+From (¬x2 ∨ ¬x4 ∨ x7), since x2 = false and x4 = true, we get x7 = true.
+From (¬x4 ∨ x7 ∨ x8), since x4 = true and x7 = true, this clause is satisfied.
+From (¬x2 ∨ ¬x7 ∨ x1), since x2 = false, x7 = true, and x1 = true, this clause is satisfied.
+From (¬x2 ∨ ¬x7 ∨ x4), since x2 = false, x7 = true, and x4 = true, this clause is satisfied.
+From (¬x10 ∨ ¬x7 ∨ x4), since x7 = true and x4 = true, this clause is satisfied.
+From (¬x2 ∨ x1 ∨ x4), since x2 = false, x1 = true, and x4 = true, this clause is satisfied.
+From (x4 ∨ ¬x6 ∨ ¬x9), since x4 = true, this clause is satisfied.
+From (¬x4 ∨ x8 ∨ ¬x9), since x4 = true, we get (x8 ∨ ¬x9) as a unit clause.
+From (¬x5 ∨ ¬x4 ∨ x9), since x4 = true, we get (¬x5 ∨ x9) as a unit clause.
+From (¬x10 ∨ ¬x4 ∨ x2), since x4 = true and x2 = false, we get ¬x10 = true, so x10 = false.
+From (x2 ∨ ¬x6 ∨ x4), since x2 = false and x4 = true, this clause is satisfied.
+From (x6 ∨ x4), since x4 = true, this clause is satisfied.
+
+With x7 = true and x10 = false:
+From (¬x6 ∨ ¬x5 ∨ x10), since x10 = false, we get (¬x6 ∨ ¬x5) as a unit clause.
+From (x9 ∨ x10 ∨ x2), since x10 = false and x2 = false, we get x9 = true.
+From (x8 ∨ ¬x3 ∨ x10), since x3 = false and x10 = false, we get x8 = true.
+From (¬x2 ∨ ¬x1 ∨ x10), since x2 = false, x1 = true, and x10 = false, this clause is satisfied.
+From (¬x8 ∨ ¬x1 ∨ ¬x10), since x8 = true, x1 = true, and x10 = false, we get a contradiction.
+
+Let's backtrack to Decision 2 and try x2 = true:
+With x1 = true, x2 = true:
+
+From (¬x2 ∨ ¬x4 ∨ x7), since x2 = true, we get (¬x4 ∨ x7) as a unit clause.
+From (¬x2 ∨ x8 ∨ x9), since x2 = true, we get (x8 ∨ x9) as a unit clause.
+From (¬x2 ∨ ¬x7 ∨ x1), since x2 = true and x1 = true, we get ¬x7 = true, so x7 = false.
+From (¬x2 ∨ ¬x7 ∨ x4), since x2 = true and x7 = false, this clause is satisfied.
+From (¬x2 ∨ x1 ∨ x4), since x2 = true and x1 = true, this clause is satisfied.
+From (¬x2 ∨ ¬x1 ∨ x10), since x2 = true and x1 = true, we get x10 = true.
+From (¬x2 ∨ x10 ∨ ¬x9), since x2 = true and x10 = true, this clause is satisfied.
+From (¬x9 ∨ ¬x5 ∨ ¬x2), since x2 = true, we get (¬x9 ∨ ¬x5) as a unit clause.
+From (x5 ∨ x10 ∨ ¬x2), since x2 = true, we get (x5 ∨ x10) as a unit clause, which is satisfied since x10 = true.
+From (¬x9 ∨ ¬x4 ∨ x2), since x2 = true, this clause is satisfied.
+From (¬x10 ∨ ¬x4 ∨ x2), since x2 = true and x10 = true, this clause is satisfied.
+From (x2 ∨ ¬x6 ∨ x4), since x2 = true, this clause is satisfied.
+From (x2 ∨ x9 ∨ ¬x5), since x2 = true, this clause is satisfied.
+
+With x7 = false and x10 = true:
+From (¬x4 ∨ x7 ∨ x8), since x7 = false, we get (¬x4 ∨ x8) as a unit clause.
+From (¬x10 ∨ ¬x7 ∨ x4), since x10 = true and x7 = false, this clause is satisfied.
+From (x5 ∨ x1 ∨ x7), since x1 = true and x7 = false, this clause is satisfied.
+From (¬x8 ∨ x10 ∨ ¬x7), since x10 = true and x7 = false, this clause is satisfied.
+From (x7 ∨ x10 ∨ ¬x3), since x10 = true and x7 = false, this clause is satisfied.
+
+Decision 6: x3 = true
+From (x3 ∨ x4 ∨ ¬x8), since x3 = true, this clause is satisfied.
+From (¬x6 ∨ ¬x3 ∨ ¬x5), since x3 = true, we get (¬x6 ∨ ¬x5) as a unit clause.
+From (x8 ∨ x4 ∨ x3), since x3 = true, this clause is satisfied.
+From (x8 ∨ ¬x3 ∨ x10), since x3 = true and x10 = true, this clause is satisfied.
+From (¬x3 ∨ x8 ∨ x4), since x3 = true, we get (x8 ∨ x4) as a unit clause.
+From (¬x10 ∨ ¬x3 ∨ x6), since x10 = true and x3 = true, we get x6 = true.
+From (x7 ∨ x10 ∨ ¬x3), since x3 = true and x10 = true, this

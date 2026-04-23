@@ -1,0 +1,86 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=318
+p cnf 5 17
+-4 5 2 0
+-2 3 -1 0
+4 1 -3 0
+1 -5 3 0
+1 5 3 0
+2 3 -5 0
+-1 -5 -2 0
+3 -4 -1 0
+-2 -3 -4 0
+-2 -5 4 0
+-1 -3 5 0
+-3 -1 2 0
+-1 2 -5 0
+-3 2 -1 0
+4 -1 2 0
+3 -5 -4 0
+-4 -5 1 0
+
+c GPT solve time: 56.50 seconds
+
+To solve the given 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching) and backtracking (conflicts) when contradictions are found. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in order (x1, x2, x3, x4, x5) and assign values, propagating implications.
+
+#### Branch 1: Assign x1 = True
+- From (¬x1 ∨ ¬x5 ∨ ¬x2), if x1=True, then (¬x5 ∨ ¬x2) must be true.
+- From (¬x1 ∨ ¬x3 ∨ x5), if x1=True, then (¬x3 ∨ x5) must be true.
+- From (¬x3 ∨ ¬x1 ∨ x2), if x1=True, then (¬x3 ∨ x2) must be true.
+- From (¬x1 ∨ x2 ∨ ¬x5), if x1=True, then (x2 ∨ ¬x5) must be true.
+- From (¬x3 ∨ x2 ∨ ¬x1), if x1=True, then (¬x3 ∨ x2) must be true.
+- From (x4 ∨ ¬x1 ∨ x2), if x1=True, then (x4 ∨ x2) must be true.
+- From (¬x4 ∨ ¬x5 ∨ x1), if x1=True, this clause is satisfied.
+
+Now, assign x2 = True (arbitrary choice):
+- From (¬x5 ∨ ¬x2), if x2=True, then ¬x5 must be true (x5=False).
+- From (x2 ∨ x3 ∨ ¬x5), if x2=True, this clause is satisfied.
+- From (¬x2 ∨ x3 ∨ ¬x1), if x2=True, this clause is satisfied.
+- From (¬x2 ∨ ¬x3 ∨ ¬x4), if x2=True, this clause is satisfied.
+- From (¬x2 ∨ ¬x5 ∨ x4), if x2=True, then (¬x5 ∨ x4) must be true. Since x5=False, this is satisfied.
+- From (x4 ∨ x2), if x2=True, this clause is satisfied.
+
+Now, assign x5 = False (from ¬x5):
+- From (¬x3 ∨ x5), if x5=False, then ¬x3 must be true (x3=False).
+- From (x1 ∨ ¬x5 ∨ x3), if x5=False, then (x1 ∨ x3) must be true. x1=True satisfies this.
+- From (x1 ∨ x5 ∨ x3), if x5=False, then (x1 ∨ x3) must be true. x1=True satisfies this.
+- From (x3 ∨ ¬x5 ∨ ¬x4), if x5=False, then (x3 ∨ ¬x4) must be true. x3=False, so ¬x4 must be true (x4=False).
+- From (¬x4 ∨ x5 ∨ x2), if x5=False and x2=True, then (¬x4 ∨ True) is satisfied.
+- From (x4 ∨ x1 ∨ ¬x3), if x4=False and x3=False, then (False ∨ True ∨ True) is satisfied.
+- From (¬x3 ∨ x2), if x3=False and x2=True, this is satisfied.
+- From (x4 ∨ x2), if x4=False and x2=True, this is satisfied.
+
+Now, assign x3 = False (from ¬x3):
+- From (¬x3 ∨ x2), if x3=False, this is satisfied.
+- From (x3 ∨ ¬x4 ∨ ¬x1), if x3=False, then (¬x4 ∨ ¬x1) must be true. x4=False and x1=True, so (True ∨ False) is satisfied.
+
+Now, assign x4 = False (from ¬x4):
+- From (¬x4 ∨ x5 ∨ x2), if x4=False, this is satisfied.
+- From (x4 ∨ x1 ∨ ¬x3), if x4=False, this is satisfied.
+- From (¬x2 ∨ ¬x3 ∨ ¬x4), if x4=False, this is satisfied.
+- From (x3 ∨ ¬x5 ∨ ¬x4), if x4=False, this is satisfied.
+- From (¬x4 ∨ ¬x5 ∨ x1), if x4=False, this is satisfied.
+
+### Step 3: Verify All Clauses
+All clauses are satisfied with:
+- x1 = True
+- x2 = True
+- x3 = False
+- x4 = False
+- x5 = False
+
+### Step 4: Count Branches and Conflicts
+- Branches (decision points): 2 (x1=True, x2=True)
+- Conflicts (backtracking steps): 0 (no backtracking needed)
+
+### Final Answer:
+SATISFIABLE  
+Branches: 2  
+Conflicts: 0  
+x1=True, x2=True, x3=False, x4=False, x5=False

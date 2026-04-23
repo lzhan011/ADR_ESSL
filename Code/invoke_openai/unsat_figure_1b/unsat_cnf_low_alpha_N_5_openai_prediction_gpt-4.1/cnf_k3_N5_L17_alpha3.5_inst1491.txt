@@ -1,0 +1,280 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1491
+p cnf 5 17
+3 -5 -4 0
+-4 3 -1 0
+-2 -3 -5 0
+-5 -4 1 0
+-4 -3 5 0
+5 -3 4 0
+2 -3 4 0
+4 -1 3 0
+4 1 -2 0
+-5 -1 2 0
+2 -4 -5 0
+3 -4 1 0
+2 5 1 0
+-5 4 1 0
+3 1 -5 0
+-5 4 -1 0
+-3 5 -1 0
+
+c GPT solve time: 53.25 seconds
+
+Step-by-step SAT solving:
+
+**Step 1: List variables**
+Variables: x1, x2, x3, x4, x5
+
+**Step 2: Try assignment x1 = True (Branch 1)**
+
+- Substitute x1 = True into all clauses:
+
+1. (x3 ∨ ¬x5 ∨ ¬x4)
+2. (¬x4 ∨ x3 ∨ ¬x1) → (¬x4 ∨ x3 ∨ False) → (¬x4 ∨ x3)
+3. (¬x2 ∨ ¬x3 ∨ ¬x5)
+4. (¬x5 ∨ ¬x4 ∨ x1) → (¬x5 ∨ ¬x4 ∨ True) → True (remove)
+5. (¬x4 ∨ ¬x3 ∨ x5)
+6. (x5 ∨ ¬x3 ∨ x4)
+7. (x2 ∨ ¬x3 ∨ x4)
+8. (x4 ∨ ¬x1 ∨ x3) → (x4 ∨ False ∨ x3) → (x4 ∨ x3)
+9. (x4 ∨ x1 ∨ ¬x2) → (x4 ∨ True ∨ ¬x2) → True (remove)
+10. (¬x5 ∨ ¬x1 ∨ x2) → (¬x5 ∨ False ∨ x2) → (¬x5 ∨ x2)
+11. (x2 ∨ ¬x4 ∨ ¬x5)
+12. (x3 ∨ ¬x4 ∨ x1) → (x3 ∨ ¬x4 ∨ True) → True (remove)
+13. (x2 ∨ x5 ∨ x1) → (x2 ∨ x5 ∨ True) → True (remove)
+14. (¬x5 ∨ x4 ∨ x1) → (¬x5 ∨ x4 ∨ True) → True (remove)
+15. (x3 ∨ x1 ∨ ¬x5) → (x3 ∨ True ∨ ¬x5) → True (remove)
+16. (¬x5 ∨ x4 ∨ ¬x1) → (¬x5 ∨ x4 ∨ False) → (¬x5 ∨ x4)
+17. (¬x3 ∨ x5 ∨ ¬x1) → (¬x3 ∨ x5 ∨ False) → (¬x3 ∨ x5)
+
+**Step 3: Try x2 = True (Branch 2)**
+
+- Substitute x2 = True:
+
+1. (x3 ∨ ¬x5 ∨ ¬x4)
+2. (¬x4 ∨ x3)
+3. (¬x2 ∨ ¬x3 ∨ ¬x5) → (False ∨ ¬x3 ∨ ¬x5) → (¬x3 ∨ ¬x5)
+4. (¬x4 ∨ ¬x3 ∨ x5)
+5. (x5 ∨ ¬x3 ∨ x4)
+6. (x2 ∨ ¬x3 ∨ x4) → (True ∨ ¬x3 ∨ x4) → True (remove)
+7. (x4 ∨ x3)
+8. (¬x5 ∨ x2) → (¬x5 ∨ True) → True (remove)
+9. (x2 ∨ ¬x4 ∨ ¬x5) → (True ∨ ¬x4 ∨ ¬x5) → True (remove)
+10. (¬x5 ∨ x4)
+11. (¬x3 ∨ x5)
+
+**Step 4: Try x3 = True (Branch 3)**
+
+- Substitute x3 = True:
+
+1. (x3 ∨ ¬x5 ∨ ¬x4) → True (remove)
+2. (¬x4 ∨ x3) → (¬x4 ∨ True) → True (remove)
+3. (¬x3 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+4. (¬x4 ∨ ¬x3 ∨ x5) → (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5)
+5. (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ False ∨ x4) → (x5 ∨ x4)
+6. (x4 ∨ x3) → (x4 ∨ True) → True (remove)
+7. (¬x5 ∨ x4)
+8. (¬x3 ∨ x5) → (False ∨ x5) → (x5)
+
+**Step 5: Unit propagation**
+
+- (¬x5)
+- (x5)
+Conflict! (x5 must be both True and False)
+
+**Step 6: Backtrack to x3 = False (Conflict 1, Branch 4)**
+
+- Substitute x3 = False:
+
+1. (¬x5 ∨ ¬x4)
+2. (¬x4)
+3. (¬x3 ∨ ¬x5) → (True ∨ ¬x5) → True (remove)
+4. (¬x4 ∨ x5)
+5. (x5 ∨ x4)
+6. (x4)
+7. (¬x5 ∨ x4)
+8. (¬x3 ∨ x5) → (True ∨ x5) → True (remove)
+
+- (¬x4) and (x4) → Conflict! (x4 must be both True and False)
+
+**Step 7: Backtrack to x2 = False (Conflict 2, Branch 5)**
+
+- Substitute x2 = False (with x1 = True):
+
+1. (x3 ∨ ¬x5 ∨ ¬x4)
+2. (¬x4 ∨ x3)
+3. (¬x2 ∨ ¬x3 ∨ ¬x5) → (True ∨ ¬x3 ∨ ¬x5) → True (remove)
+4. (¬x4 ∨ ¬x3 ∨ x5)
+5. (x5 ∨ ¬x3 ∨ x4)
+6. (x2 ∨ ¬x3 ∨ x4) → (False ∨ ¬x3 ∨ x4) → (¬x3 ∨ x4)
+7. (x4 ∨ x3)
+8. (¬x5 ∨ x2) → (¬x5 ∨ False) → (¬x5)
+9. (x2 ∨ ¬x4 ∨ ¬x5) → (False ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5)
+10. (¬x5 ∨ x4)
+11. (¬x3 ∨ x5)
+
+**Step 8: Try x3 = True (Branch 6)**
+
+- Substitute x3 = True:
+
+1. (x3 ∨ ¬x5 ∨ ¬x4) → True (remove)
+2. (¬x4 ∨ x3) → True (remove)
+3. (¬x4 ∨ ¬x3 ∨ x5) → (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5)
+4. (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ False ∨ x4) → (x5 ∨ x4)
+5. (¬x3 ∨ x4) → (False ∨ x4) → (x4)
+6. (x4 ∨ x3) → True (remove)
+7. (¬x5)
+8. (¬x4 ∨ ¬x5)
+9. (¬x5 ∨ x4)
+10. (¬x3 ∨ x5) → (False ∨ x5) → (x5)
+
+- (x4)
+- (¬x5)
+- (x5)
+
+Conflict! (x5 must be both True and False)
+
+**Step 9: Backtrack to x3 = False (Conflict 3, Branch 7)**
+
+- Substitute x3 = False:
+
+1. (¬x5 ∨ ¬x4)
+2. (¬x4)
+3. (¬x4 ∨ x5)
+4. (x5 ∨ x4)
+5. (¬x3 ∨ x4) → (True ∨ x4) → True (remove)
+6. (x4 ∨ x3) → (x4 ∨ False) → (x4)
+7. (¬x5)
+8. (¬x4 ∨ ¬x5)
+9. (¬x5 ∨ x4)
+10. (¬x3 ∨ x5) → (True ∨ x5) → True (remove)
+
+- (¬x4)
+- (x4)
+
+Conflict! (x4 must be both True and False)
+
+**Step 10: Backtrack to x1 = False (Conflict 4, Branch 8)**
+
+- Substitute x1 = False:
+
+1. (x3 ∨ ¬x5 ∨ ¬x4)
+2. (¬x4 ∨ x3 ∨ ¬x1) → (¬x4 ∨ x3 ∨ True) → True (remove)
+3. (¬x2 ∨ ¬x3 ∨ ¬x5)
+4. (¬x5 ∨ ¬x4 ∨ x1) → (¬x5 ∨ ¬x4 ∨ False) → (¬x5 ∨ ¬x4)
+5. (¬x4 ∨ ¬x3 ∨ x5)
+6. (x5 ∨ ¬x3 ∨ x4)
+7. (x2 ∨ ¬x3 ∨ x4)
+8. (x4 ∨ ¬x1 ∨ x3) → (x4 ∨ True ∨ x3) → True (remove)
+9. (x4 ∨ x1 ∨ ¬x2) → (x4 ∨ False ∨ ¬x2) → (x4 ∨ ¬x2)
+10. (¬x5 ∨ ¬x1 ∨ x2) → (¬x5 ∨ True ∨ x2) → True (remove)
+11. (x2 ∨ ¬x4 ∨ ¬x5)
+12. (x3 ∨ ¬x4 ∨ x1) → (x3 ∨ ¬x4 ∨ False) → (x3 ∨ ¬x4)
+13. (x2 ∨ x5 ∨ x1) → (x2 ∨ x5 ∨ False) → (x2 ∨ x5)
+14. (¬x5 ∨ x4 ∨ x1) → (¬x5 ∨ x4 ∨ False) → (¬x5 ∨ x4)
+15. (x3 ∨ x1 ∨ ¬x5) → (x3 ∨ False ∨ ¬x5) → (x3 ∨ ¬x5)
+16. (¬x5 ∨ x4 ∨ ¬x1) → (¬x5 ∨ x4 ∨ True) → True (remove)
+17. (¬x3 ∨ x5 ∨ ¬x1) → (¬x3 ∨ x5 ∨ True) → True (remove)
+
+**Step 11: Try x2 = True (Branch 9)**
+
+- Substitute x2 = True:
+
+1. (x3 ∨ ¬x5 ∨ ¬x4)
+2. (¬x2 ∨ ¬x3 ∨ ¬x5) → (False ∨ ¬x3 ∨ ¬x5) → (¬x3 ∨ ¬x5)
+3. (¬x5 ∨ ¬x4)
+4. (¬x4 ∨ ¬x3 ∨ x5)
+5. (x5 ∨ ¬x3 ∨ x4)
+6. (x2 ∨ ¬x3 ∨ x4) → (True ∨ ¬x3 ∨ x4) → True (remove)
+7. (x4 ∨ ¬x2) → (x4 ∨ False) → (x4)
+8. (x2 ∨ ¬x4 ∨ ¬x5) → (True ∨ ¬x4 ∨ ¬x5) → True (remove)
+9. (x3 ∨ ¬x4)
+10. (x2 ∨ x5) → (True ∨ x5) → True (remove)
+11. (¬x5 ∨ x4)
+
+**Step 12: Try x3 = True (Branch 10)**
+
+- Substitute x3 = True:
+
+1. (x3 ∨ ¬x5 ∨ ¬x4) → True (remove)
+2. (¬x3 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+3. (¬x5 ∨ ¬x4)
+4. (¬x4 ∨ ¬x3 ∨ x5) → (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5)
+5. (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ False ∨ x4) → (x5 ∨ x4)
+6. (x4)
+7. (x3 ∨ ¬x4) → (True ∨ ¬x4) → True (remove)
+8. (¬x5 ∨ x4)
+
+- (x4)
+- (¬x5)
+- (x5 ∨ x4) → (¬x5 ∨ x4) → (x4) (already set)
+- (¬x5 ∨ ¬x4) → (¬x5 ∨ False) → (¬x5) (already set)
+- (¬x4 ∨ x5) → (False ∨ x5) → (x5)
+- (¬x5 ∨ x4) → (¬x5 ∨ x4)
+
+- (¬x5) and (x5) → Conflict!
+
+**Step 13: Backtrack to x3 = False (Conflict 5, Branch 11)**
+
+- Substitute x3 = False:
+
+1. (¬x5 ∨ ¬x4)
+2. (¬x3 ∨ ¬x5) → (True ∨ ¬x5) → True (remove)
+3. (¬x4 ∨ ¬x3 ∨ x5) → (¬x4 ∨ True ∨ x5) → True (remove)
+4. (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ True ∨ x4) → True (remove)
+5. (x4)
+6. (x3 ∨ ¬x4) → (False ∨ ¬x4) → (¬x4)
+7. (¬x5 ∨ x4)
+
+- (x4)
+- (¬x4)
+
+Conflict!
+
+**Step 14: Backtrack to x2 = False (Conflict 6, Branch 12)**
+
+- Substitute x2 = False (with x1 = False):
+
+1. (x3 ∨ ¬x5 ∨ ¬x4)
+2. (¬x2 ∨ ¬x3 ∨ ¬x5) → (True ∨ ¬x3 ∨ ¬x5) → True (remove)
+3. (¬x5 ∨ ¬x4)
+4. (¬x4 ∨ ¬x3 ∨ x5)
+5. (x5 ∨ ¬x3 ∨ x4)
+6. (x2 ∨ ¬x3 ∨ x4) → (False ∨ ¬x3 ∨ x4) → (¬x3 ∨ x4)
+7. (x4 ∨ ¬x2) → (x4 ∨ True) → True (remove)
+8. (x2 ∨ ¬x4 ∨ ¬x5) → (False ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5)
+9. (x3 ∨ ¬x4)
+10. (x2 ∨ x5) → (False ∨ x5) → (x5)
+11. (¬x5 ∨ x4)
+
+**Step 15: Try x3 = True (Branch 13)**
+
+- Substitute x3 = True:
+
+1. (x3 ∨ ¬x5 ∨ ¬x4) → True (remove)
+2. (¬x5 ∨ ¬x4)
+3. (¬x4 ∨ ¬x3 ∨ x5) → (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5)
+4. (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ False ∨ x4) → (x5 ∨ x4)
+5. (¬x3 ∨ x4) → (False ∨ x4) → (x4)
+6. (x3 ∨ ¬x4) → (True ∨ ¬x4) → True (remove)
+7. (x5)
+8. (¬x5 ∨ x4)
+
+- (x4)
+- (x5)
+- (¬x5 ∨ ¬x4) → (False ∨ ¬x4) → (¬x4)
+- (¬x4 ∨ x5) → (False ∨ x5) → (x5)
+- (x5 ∨ x4) → (True)
+- (¬x5 ∨ x4) → (False ∨ x4) → (x4)
+
+- (x4) and (¬x4) → Conflict!
+
+**Step 16: Backtrack to x3 = False (Conflict 7, Branch 14)**
+
+- Substitute x3 = False:
+
+1. (¬x5 ∨ ¬x4)
+2. (¬x4 ∨ ¬x3 ∨ x5) → (¬x4 ∨ True ∨ x5) → True (remove)
+3. (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ True ∨ x4) → True (remove)
+4. (¬x3 ∨ x4) → (True ∨ x4) → True (remove)

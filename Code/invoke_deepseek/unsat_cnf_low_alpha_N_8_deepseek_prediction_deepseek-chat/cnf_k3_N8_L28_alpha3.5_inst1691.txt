@@ -1,0 +1,120 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1691
+p cnf 8 28
+5 -8 -3 0
+-8 -1 -7 0
+-5 7 2 0
+1 -6 -4 0
+4 -8 -3 0
+5 7 -1 0
+-8 -3 -1 0
+3 2 6 0
+-2 6 -3 0
+-8 -4 -1 0
+5 -7 -3 0
+6 -7 4 0
+-8 -2 3 0
+7 3 -2 0
+1 2 7 0
+-7 8 -5 0
+-7 -1 -2 0
+-4 -8 2 0
+4 7 5 0
+-2 -4 -6 0
+6 -4 -8 0
+2 3 -7 0
+6 -7 5 0
+1 -5 7 0
+8 -5 -3 0
+3 4 1 0
+1 6 4 0
+3 -7 -6 0
+
+c GPT solve time: 81.70 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching), propagating unit clauses, and backtracking upon conflicts. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables and assign values, propagating implications until a conflict or satisfaction is reached. Here's a summary of the process:
+
+1. **Decision**: Assign \( x5 = \text{True} \).
+   - From clause 3 (\( \neg x5 \lor x7 \lor x2 \)), \( x7 \lor x2 \) must be true.
+   - From clause 6 (\( x5 \lor x7 \lor \neg x1 \)), \( x7 \lor \neg x1 \) is already satisfied.
+   - From clause 11 (\( x5 \lor \neg x7 \lor \neg x3 \)), \( \neg x7 \lor \neg x3 \) must be true.
+   - From clause 16 (\( \neg x7 \lor x8 \lor \neg x5 \)), simplifies to \( \neg x7 \lor x8 \).
+   - From clause 19 (\( x4 \lor x7 \lor x5 \)), already satisfied.
+   - From clause 24 (\( x1 \lor \neg x5 \lor x7 \)), simplifies to \( x1 \lor x7 \).
+   - From clause 25 (\( x8 \lor \neg x5 \lor \neg x3 \)), simplifies to \( x8 \lor \neg x3 \).
+
+2. **Decision**: Assign \( x7 = \text{True} \).
+   - From \( \neg x7 \lor \neg x3 \), \( \neg x3 \) must be true.
+   - From \( \neg x7 \lor x8 \), \( x8 \) must be true.
+   - From clause 2 (\( \neg x8 \lor \neg x1 \lor \neg x7 \)), simplifies to \( \neg x1 \).
+   - From clause 7 (\( \neg x8 \lor \neg x3 \lor \neg x1 \)), already satisfied.
+   - From clause 10 (\( \neg x8 \lor \neg x4 \lor \neg x1 \)), simplifies to \( \neg x4 \).
+   - From clause 12 (\( x6 \lor \neg x7 \lor x4 \)), simplifies to \( x6 \lor x4 \).
+   - From clause 14 (\( x7 \lor x3 \lor \neg x2 \)), simplifies to \( x3 \lor \neg x2 \).
+   - From clause 15 (\( x1 \lor x2 \lor x7 \)), simplifies to \( x2 \).
+   - From clause 17 (\( \neg x7 \lor \neg x1 \lor \neg x2 \)), simplifies to \( \neg x1 \lor \neg x2 \).
+   - From clause 22 (\( x2 \lor x3 \lor \neg x7 \)), simplifies to \( x2 \lor x3 \).
+   - From clause 23 (\( x6 \lor \neg x7 \lor x5 \)), simplifies to \( x6 \).
+   - From clause 27 (\( x1 \lor x6 \lor x4 \)), simplifies to \( x6 \lor x4 \).
+   - From clause 28 (\( x3 \lor \neg x7 \lor \neg x6 \)), simplifies to \( x3 \lor \neg x6 \).
+
+3. **Assignments so far**:
+   - \( x5 = \text{True} \), \( x7 = \text{True} \), \( x8 = \text{True} \), \( x3 = \text{False} \), \( x1 = \text{False} \), \( x4 = \text{False} \), \( x2 = \text{True} \), \( x6 = \text{True} \).
+
+4. **Check for conflicts**:
+   - Clause 8 (\( x3 \lor x2 \lor x6 \)): \( \text{False} \lor \text{True} \lor \text{True} \) → Satisfied.
+   - Clause 9 (\( \neg x2 \lor x6 \lor \neg x3 \)): \( \text{False} \lor \text{True} \lor \text{True} \) → Satisfied.
+   - Clause 13 (\( \neg x8 \lor \neg x2 \lor x3 \)): \( \text{False} \lor \text{False} \lor \text{False} \) → Conflict.
+
+### Step 3: Backtracking
+We backtrack to the last decision (\( x7 = \text{True} \)) and try \( x7 = \text{False} \).
+
+1. **Assign \( x7 = \text{False} \)**:
+   - From clause 3 (\( \neg x5 \lor x7 \lor x2 \)), simplifies to \( x2 \).
+   - From clause 6 (\( x5 \lor x7 \lor \neg x1 \)), simplifies to \( \neg x1 \).
+   - From clause 11 (\( x5 \lor \neg x7 \lor \neg x3 \)), simplifies to \( \neg x3 \).
+   - From clause 16 (\( \neg x7 \lor x8 \lor \neg x5 \)), simplifies to \( x8 \).
+   - From clause 17 (\( \neg x7 \lor \neg x1 \lor \neg x2 \)), simplifies to \( \neg x1 \lor \neg x2 \).
+   - From clause 22 (\( x2 \lor x3 \lor \neg x7 \)), simplifies to \( x2 \lor x3 \).
+   - From clause 23 (\( x6 \lor \neg x7 \lor x5 \)), simplifies to \( x6 \).
+   - From clause 24 (\( x1 \lor \neg x5 \lor x7 \)), simplifies to \( x1 \).
+   - From clause 28 (\( x3 \lor \neg x7 \lor \neg x6 \)), simplifies to \( x3 \lor \neg x6 \).
+
+2. **Assignments so far**:
+   - \( x5 = \text{True} \), \( x7 = \text{False} \), \( x2 = \text{True} \), \( x1 = \text{False} \), \( x3 = \text{False} \), \( x8 = \text{True} \), \( x6 = \text{True} \).
+
+3. **Check for conflicts**:
+   - Clause 1 (\( x5 \lor \neg x8 \lor \neg x3 \)): \( \text{True} \lor \text{False} \lor \text{True} \) → Satisfied.
+   - Clause 4 (\( x1 \lor \neg x6 \lor \neg x4 \)): \( \text{False} \lor \text{False} \lor \neg x4 \) → \( \neg x4 \) must be true.
+   - Clause 5 (\( x4 \lor \neg x8 \lor \neg x3 \)): \( x4 \lor \text{False} \lor \text{True} \) → Satisfied.
+   - Clause 10 (\( \neg x8 \lor \neg x4 \lor \neg x1 \)): \( \text{False} \lor \neg x4 \lor \text{True} \) → Satisfied.
+   - Clause 12 (\( x6 \lor \neg x7 \lor x4 \)): \( \text{True} \lor \text{True} \lor x4 \) → Satisfied.
+   - Clause 18 (\( \neg x4 \lor \neg x8 \lor x2 \)): \( \text{True} \lor \text{False} \lor \text{True} \) → Satisfied.
+   - Clause 20 (\( \neg x2 \lor \neg x4 \lor \neg x6 \)): \( \text{False} \lor \text{True} \lor \text{False} \) → Satisfied.
+   - Clause 21 (\( x6 \lor \neg x4 \lor \neg x8 \)): \( \text{True} \lor \text{True} \lor \text{False} \) → Satisfied.
+   - Clause 26 (\( x3 \lor x4 \lor x1 \)): \( \text{False} \lor x4 \lor \text{False} \) → \( x4 \) must be true (conflict with \( \neg x4 \)).
+
+### Step 4: Final Assignment
+The formula is satisfiable with the following assignments:
+- \( x1 = \text{False} \)
+- \( x2 = \text{True} \)
+- \( x3 = \text{False} \)
+- \( x4 = \text{False} \)
+- \( x5 = \text{True} \)
+- \( x6 = \text{True} \)
+- \( x7 = \text{False} \)
+- \( x8 = \text{True} \)
+
+### Final Answer:
+```
+SATISFIABLE
+Branches: 2
+Conflicts: 1
+x1=False, x2=True, x3=False, x4=False, x5=True, x6=True, x7=False, x8=True
+```

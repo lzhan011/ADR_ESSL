@@ -1,0 +1,462 @@
+c Random 3-SAT
+c alpha=3.7, N=50, L=185, instance=825
+p cnf 50 185
+44 -16 -24 0
+45 33 23 0
+-10 -19 -36 0
+-8 -17 20 0
+39 -8 -33 0
+12 -50 -29 0
+-41 -40 -13 0
+-6 -49 -36 0
+40 -22 39 0
+-13 -15 -48 0
+-41 -21 -26 0
+36 -39 -37 0
+-32 -8 -14 0
+38 37 48 0
+11 36 -14 0
+-41 7 -2 0
+-39 2 -23 0
+44 -8 -23 0
+-14 28 23 0
+-50 -48 8 0
+8 28 5 0
+-25 30 48 0
+1 37 -21 0
+12 -16 29 0
+-27 32 -47 0
+-45 -26 -3 0
+5 27 49 0
+4 8 -20 0
+4 -30 44 0
+-14 -1 -23 0
+-5 8 -40 0
+22 31 -26 0
+10 -43 -39 0
+-16 38 -41 0
+40 -8 -5 0
+21 48 -41 0
+31 -8 -14 0
+1 13 -2 0
+19 38 36 0
+41 -37 49 0
+25 2 46 0
+43 -2 1 0
+-33 1 23 0
+43 39 22 0
+17 -50 2 0
+30 10 -46 0
+-24 -50 -17 0
+35 -9 -50 0
+44 -24 25 0
+21 -29 7 0
+-31 21 -47 0
+4 13 35 0
+-2 6 18 0
+-11 -38 -47 0
+23 49 34 0
+-20 -9 46 0
+-21 -9 -30 0
+4 14 34 0
+-44 -35 -17 0
+-12 -47 19 0
+25 37 11 0
+-4 -31 -10 0
+2 -48 46 0
+6 -37 3 0
+-32 -12 26 0
+50 49 46 0
+-40 19 -35 0
+13 -22 -4 0
+-4 -8 -19 0
+-26 -29 10 0
+-39 26 -23 0
+8 33 -30 0
+-20 44 -49 0
+-39 -26 -20 0
+-8 -22 -48 0
+14 36 -40 0
+-30 -45 -10 0
+-21 -25 19 0
+44 38 -18 0
+-29 25 1 0
+14 -47 -45 0
+29 40 -14 0
+36 -19 41 0
+-18 34 -49 0
+24 20 -45 0
+16 -34 -2 0
+-48 -6 -39 0
+-12 -3 45 0
+-32 -13 18 0
+36 16 27 0
+-49 -1 -6 0
+-17 25 28 0
+11 24 1 0
+-25 8 31 0
+39 31 -19 0
+20 -38 -18 0
+-8 -5 -18 0
+-19 -13 -15 0
+-22 21 20 0
+9 40 -1 0
+-29 16 -13 0
+-8 -19 4 0
+-26 -37 -33 0
+-28 -6 26 0
+37 -21 41 0
+-7 -46 -31 0
+-46 -13 1 0
+-49 -46 21 0
+-40 -19 48 0
+-37 -48 21 0
+-48 -32 16 0
+20 36 46 0
+-50 15 18 0
+-31 13 -45 0
+43 30 -45 0
+50 10 1 0
+37 21 23 0
+39 10 -42 0
+-5 -22 -10 0
+45 31 -36 0
+-4 11 2 0
+-50 -8 2 0
+17 -35 45 0
+7 -37 -27 0
+-34 -18 8 0
+-38 -36 -23 0
+-27 30 7 0
+-29 7 10 0
+-16 47 12 0
+-34 3 -10 0
+5 7 -41 0
+39 -25 22 0
+-11 -43 4 0
+-31 45 23 0
+23 47 -29 0
+41 -47 -2 0
+-29 -24 -50 0
+-6 44 39 0
+-22 -45 -13 0
+13 -3 47 0
+-48 45 -30 0
+-23 8 -1 0
+-42 -5 -43 0
+-15 46 -14 0
+25 -22 9 0
+-16 -34 48 0
+-48 -35 -27 0
+-16 47 42 0
+-46 -4 -26 0
+36 -18 1 0
+12 -47 46 0
+-47 -38 -49 0
+11 24 46 0
+-7 26 -3 0
+11 28 -23 0
+-24 -31 -14 0
+-20 -47 -1 0
+-24 4 49 0
+-19 46 -21 0
+-44 14 -26 0
+-1 33 22 0
+-25 4 -41 0
+-10 25 -9 0
+-33 -31 -25 0
+-6 -36 -11 0
+45 25 -27 0
+-29 4 -2 0
+18 30 -25 0
+13 -27 -9 0
+-21 44 1 0
+20 1 6 0
+6 9 22 0
+-39 -46 45 0
+-20 49 -42 0
+-12 24 -38 0
+-41 -33 24 0
+7 -42 -37 0
+22 31 50 0
+48 -31 -22 0
+-3 -23 16 0
+10 -33 -21 0
+-42 46 50 0
+15 -35 -49 0
+25 -4 19 0
+-37 30 -44 0
+
+c GPT solve time: 52.66 seconds
+
+Let's proceed step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List all variables**
+- The variables are x1, x2, ..., x50.
+
+**Step 2: Try to find a satisfying assignment using unit propagation, pure literal elimination, and branching.**
+
+Given the size of the formula (many variables and clauses), let's proceed with a systematic approach:
+
+---
+
+### Step-by-step DPLL (high-level, as the formula is large):
+
+#### 1. **Unit Propagation and Pure Literal Elimination**
+- No unit clauses or pure literals are immediately apparent.
+
+#### 2. **Branching**
+- Let's branch on x1 = True.
+
+#### 3. **Propagate consequences**
+- Substitute x1 = True into all clauses, simplify.
+
+#### 4. **Continue with next variable**
+- Branch on x2 = True.
+
+#### 5. **Continue recursively**
+- Repeat the process, backtracking on conflicts.
+
+#### 6. **Count branches and conflicts**
+- Each time we make a decision (choose a variable's value), that's a branch.
+- Each time we hit a conflict and must backtrack, that's a conflict.
+
+#### 7. **Check for satisfiability**
+- If we find a full assignment with no conflicts, the formula is SATISFIABLE.
+
+---
+
+Given the formula's size, let's use a systematic assignment (x1=True, x2=True, ..., x50=True) and check for conflicts. If a conflict is found, backtrack and try the opposite value.
+
+#### **Let's try the following assignment:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = True
+- x7 = True
+- x8 = True
+- x9 = True
+- x10 = True
+- x11 = True
+- x12 = True
+- x13 = True
+- x14 = True
+- x15 = True
+- x16 = True
+- x17 = True
+- x18 = True
+- x19 = True
+- x20 = True
+- x21 = True
+- x22 = True
+- x23 = True
+- x24 = True
+- x25 = True
+- x26 = True
+- x27 = True
+- x28 = True
+- x29 = True
+- x30 = True
+- x31 = True
+- x32 = True
+- x33 = True
+- x34 = True
+- x35 = True
+- x36 = True
+- x37 = True
+- x38 = True
+- x39 = True
+- x40 = True
+- x41 = True
+- x42 = True
+- x43 = True
+- x44 = True
+- x45 = True
+- x46 = True
+- x47 = True
+- x48 = True
+- x49 = True
+- x50 = True
+
+**Check for conflicts:**
+- Clause (¬x10 ∨ ¬x19 ∨ ¬x36): All literals are False (since x10, x19, x36 are True) → CONFLICT.
+
+**Backtrack:**
+- Try x10 = False, keep others True.
+
+**Check for conflicts:**
+- Clause (x10 ∨ ¬x43 ∨ ¬x39): x10=False, x43=True, x39=True → (False ∨ False ∨ False) → CONFLICT.
+
+**Backtrack:**
+- Try x43 = False, x10 = False, others True.
+
+**Check for conflicts:**
+- Clause (¬x11 ∨ ¬x38 ∨ ¬x47): x11=True, x38=True, x47=True → (False ∨ False ∨ False) → CONFLICT.
+
+**Backtrack:**
+- Try x11 = False, x43 = False, x10 = False, others True.
+
+**Check for conflicts:**
+- Clause (x11 ∨ x36 ∨ ¬x14): x11=False, x36=True, x14=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x6 ∨ ¬x49 ∨ ¬x36): x6=True, x49=True, x36=True → (False ∨ False ∨ False) → CONFLICT.
+
+**Backtrack:**
+- Try x6 = False, x11 = False, x43 = False, x10 = False, others True.
+
+**Check for conflicts:**
+- Clause (¬x6 ∨ ¬x49 ∨ ¬x36): x6=False, x49=True, x36=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (¬x49 ∨ ¬x1 ∨ ¬x6): x49=True, x1=True, x6=False → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x48 ∨ ¬x6 ∨ ¬x39): x48=True, x6=False, x39=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x12 ∨ ¬x3 ∨ x45): x12=True, x3=True, x45=True → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x31 ∨ x45 ∨ x23): x31=True, x45=True, x23=True → (False ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x4 ∨ x11 ∨ x2): x4=True, x11=False, x2=True → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x5 ∨ x8 ∨ ¬x40): x5=True, x8=True, x40=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x8 ∨ ¬x5 ∨ ¬x18): x8=True, x5=True, x18=True → (False ∨ False ∨ False) → CONFLICT.
+
+**Backtrack:**
+- Try x8 = False, x6 = False, x11 = False, x43 = False, x10 = False, others True.
+
+**Check for conflicts:**
+- Clause (x8 ∨ x28 ∨ x5): x8=False, x28=True, x5=True → (False ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x8 ∨ ¬x5 ∨ ¬x18): x8=False, x5=True, x18=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (¬x4 ∨ ¬x8 ∨ ¬x19): x4=True, x8=False, x19=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (x39 ∨ ¬x8 ∨ ¬x33): x39=True, x8=False, x33=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x44 ∨ ¬x8 ∨ ¬x23): x44=True, x8=False, x23=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x40 ∨ ¬x8 ∨ ¬x5): x40=True, x8=False, x5=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x31 ∨ ¬x8 ∨ ¬x14): x31=True, x8=False, x14=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x32 ∨ ¬x8 ∨ ¬x14): x32=True, x8=False, x14=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x8 ∨ ¬x22 ∨ ¬x48): x8=False, x22=True, x48=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (¬x50 ∨ ¬x48 ∨ x8): x50=True, x48=True, x8=False → (False ∨ False ∨ False) → CONFLICT.
+
+**Backtrack:**
+- Try x48 = False, x8 = False, x6 = False, x11 = False, x43 = False, x10 = False, others True.
+
+**Check for conflicts:**
+- Clause (x38 ∨ x37 ∨ x48): x38=True, x37=True, x48=False → (True ∨ True ∨ False) → Satisfied.
+
+- Clause (x21 ∨ x48 ∨ ¬x41): x21=True, x48=False, x41=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (¬x37 ∨ ¬x48 ∨ x21): x37=True, x48=False, x21=True → (False ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x48 ∨ ¬x32 ∨ x16): x48=False, x32=True, x16=True → (True ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x48 ∨ x45 ∨ ¬x30): x48=False, x45=True, x30=True → (True ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x50 ∨ ¬x48 ∨ x8): x50=True, x48=False, x8=False → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x8 ∨ ¬x5 ∨ ¬x18): x8=False, x5=True, x18=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (¬x8 ∨ ¬x22 ∨ ¬x48): x8=False, x22=True, x48=False → (True ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x4 ∨ ¬x8 ∨ ¬x19): x4=True, x8=False, x19=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (x39 ∨ ¬x8 ∨ ¬x33): x39=True, x8=False, x33=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x44 ∨ ¬x8 ∨ ¬x23): x44=True, x8=False, x23=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x40 ∨ ¬x8 ∨ ¬x5): x40=True, x8=False, x5=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x31 ∨ ¬x8 ∨ ¬x14): x31=True, x8=False, x14=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x32 ∨ ¬x8 ∨ ¬x14): x32=True, x8=False, x14=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x50 ∨ ¬x48 ∨ x8): x50=True, x48=False, x8=False → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x6 ∨ ¬x49 ∨ ¬x36): x6=False, x49=True, x36=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (¬x49 ∨ ¬x1 ∨ ¬x6): x49=True, x1=True, x6=False → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x48 ∨ ¬x6 ∨ ¬x39): x48=False, x6=False, x39=True → (True ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x12 ∨ ¬x3 ∨ x45): x12=True, x3=True, x45=True → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x31 ∨ x45 ∨ x23): x31=True, x45=True, x23=True → (False ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x4 ∨ x11 ∨ x2): x4=True, x11=False, x2=True → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x5 ∨ x8 ∨ ¬x40): x5=True, x8=False, x40=True → (False ∨ False ∨ False) → CONFLICT.
+
+**Backtrack:**
+- Try x5 = False, x48 = False, x8 = False, x6 = False, x11 = False, x43 = False, x10 = False, others True.
+
+**Check for conflicts:**
+- Clause (x8 ∨ x28 ∨ x5): x8=False, x28=True, x5=False → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x8 ∨ ¬x5 ∨ ¬x18): x8=False, x5=False, x18=True → (True ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x5 ∨ x8 ∨ ¬x40): x5=False, x8=False, x40=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (x40 ∨ ¬x8 ∨ ¬x5): x40=True, x8=False, x5=False → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x31 ∨ ¬x8 ∨ ¬x14): x31=True, x8=False, x14=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x32 ∨ ¬x8 ∨ ¬x14): x32=True, x8=False, x14=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x50 ∨ ¬x48 ∨ x8): x50=True, x48=False, x8=False → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x6 ∨ ¬x49 ∨ ¬x36): x6=False, x49=True, x36=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (¬x49 ∨ ¬x1 ∨ ¬x6): x49=True, x1=True, x6=False → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x48 ∨ ¬x6 ∨ ¬x39): x48=False, x6=False, x39=True → (True ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x12 ∨ ¬x3 ∨ x45): x12=True, x3=True, x45=True → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x31 ∨ x45 ∨ x23): x31=True, x45=True, x23=True → (False ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x4 ∨ x11 ∨ x2): x4=True, x11=False, x2=True → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x8 ∨ ¬x5 ∨ ¬x18): x8=False, x5=False, x18=True → (True ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x4 ∨ ¬x8 ∨ ¬x19): x4=True, x8=False, x19=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (x39 ∨ ¬x8 ∨ ¬x33): x39=True, x8=False, x33=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x44 ∨ ¬x8 ∨ ¬x23): x44=True, x8=False, x23=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x40 ∨ ¬x8 ∨ ¬x5): x40=True, x8=False, x5=False → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (x31 ∨ ¬x8 ∨ ¬x14): x31=True, x8=False, x14=True → (True ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x32 ∨ ¬x8 ∨ ¬x14): x32=True, x8=False, x14=True → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x50 ∨ ¬x48 ∨ x8): x50=True, x48=False, x8=False → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x6 ∨ ¬x49 ∨ ¬x36): x6=False, x49=True, x36=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (¬x49 ∨ ¬x1 ∨ ¬x6): x49=True, x1=True, x6=False → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x48 ∨ ¬x6 ∨ ¬x39): x48=False, x6=False, x39=True → (True ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x12 ∨ ¬x3 ∨ x45): x12=True, x3=True, x45=True → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x31 ∨ x45 ∨ x23): x31=True, x45=True, x23=True → (False ∨ True ∨ True) → Satisfied.
+
+- Clause (¬x4 ∨ x11 ∨ x2): x4=True, x11=False, x2=True → (False ∨ False ∨ True) → Satisfied.
+
+- Clause (¬x5 ∨ x8 ∨ ¬x40): x5=False, x8=False, x40=True → (True ∨ False ∨ False) → Satisfied.
+
+- Clause (x8 ∨ x28 ∨ x5): x8=False, x28=True, x5=False → (False ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x8 ∨ ¬x5 ∨ ¬x18): x8=False, x5=False, x18=True → (True ∨ True ∨ False) → Satisfied.
+
+- Clause (¬x8 ∨ ¬x22 ∨ ¬x48): x8

@@ -1,0 +1,152 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1385
+p cnf 10 35
+-5 9 1 0
+-4 5 2 0
+-4 2 -7 0
+-5 1 8 0
+-4 2 5 0
+-8 -10 -9 0
+-10 -2 5 0
+-2 4 -5 0
+3 -5 -8 0
+6 -7 5 0
+10 4 2 0
+-3 4 -2 0
+-1 -2 -4 0
+8 7 -5 0
+5 -3 -1 0
+-10 2 9 0
+-4 5 9 0
+10 3 -1 0
+-7 -1 4 0
+6 8 3 0
+10 -1 -5 0
+8 -10 1 0
+6 -9 -10 0
+-4 -3 1 0
+-10 7 5 0
+-6 -4 -7 0
+3 -2 -7 0
+-2 -1 -10 0
+2 8 -6 0
+-6 -5 -10 0
+7 10 -1 0
+8 6 -3 0
+-3 -10 -2 0
+1 5 7 0
+1 4 -2 0
+
+c GPT solve time: 19.77 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by looking for unit clauses and applying unit propagation. If there are no unit clauses, I'll make a decision and branch.
+
+Step 1: Initial check for unit clauses
+There are no unit clauses in the original formula.
+
+Step 2: Make a decision
+Let's set x1 = true and see what happens.
+
+Step 3: Apply unit propagation
+No immediate unit clauses are created.
+
+Step 4: Make another decision
+Let's set x2 = true.
+
+Step 5: Apply unit propagation
+Looking at clause (¬x1 ∨ ¬x2 ∨ ¬x4), with x1 = true and x2 = true, we must have x4 = false.
+
+Step 6: Continue unit propagation
+With x4 = false:
+- From (¬x4 ∨ x5 ∨ x2), since x4 is false, this clause is satisfied.
+- From (¬x4 ∨ x2 ∨ ¬x7), since x4 is false, this clause is satisfied.
+- From (¬x4 ∨ x2 ∨ x5), since x4 is false, this clause is satisfied.
+- From (¬x2 ∨ x4 ∨ ¬x5), with x2 = true and x4 = false, we must have x5 = false.
+
+Step 7: Continue unit propagation
+With x5 = false:
+- From (¬x5 ∨ x9 ∨ x1), since x5 is false, this clause is satisfied.
+- From (¬x5 ∨ x1 ∨ x8), since x5 is false, this clause is satisfied.
+- From (¬x10 ∨ ¬x2 ∨ x5), with x2 = true and x5 = false, we must have x10 = false.
+- From (x3 ∨ ¬x5 ∨ ¬x8), since x5 is false, this clause is satisfied.
+- From (x6 ∨ ¬x7 ∨ x5), with x5 = false, we have (x6 ∨ ¬x7).
+- From (x5 ∨ ¬x3 ∨ ¬x1), with x5 = false and x1 = true, we must have x3 = false.
+- From (x8 ∨ x7 ∨ ¬x5), since x5 is false, this clause is satisfied.
+- From (x10 ∨ ¬x1 ∨ ¬x5), since x5 is false, this clause is satisfied.
+- From (¬x6 ∨ ¬x5 ∨ ¬x10), since x5 is false, this clause is satisfied.
+
+Step 8: Continue unit propagation
+With x3 = false and x10 = false:
+- From (¬x3 ∨ x4 ∨ ¬x2), with x3 = false, this clause is satisfied.
+- From (¬x4 ∨ ¬x3 ∨ x1), with x3 = false, this clause is satisfied.
+- From (x10 ∨ x3 ∨ ¬x1), with x10 = false, x3 = false, and x1 = true, we have a contradiction.
+
+Step 9: Backtrack
+We need to backtrack and try x2 = false.
+
+Step 10: Apply unit propagation with x1 = true, x2 = false
+From (x1 ∨ x4 ∨ ¬x2), with x1 = true, this clause is satisfied.
+From (¬x2 ∨ x4 ∨ ¬x5), since x2 is false, this clause is satisfied.
+From (¬x2 ∨ ¬x1 ∨ ¬x10), with x2 = false, this clause is satisfied.
+From (¬x3 ∨ ¬x10 ∨ ¬x2), since x2 is false, this clause is satisfied.
+
+Step 11: Make another decision
+Let's set x4 = true.
+
+Step 12: Apply unit propagation
+No immediate unit clauses are created.
+
+Step 13: Make another decision
+Let's set x5 = true.
+
+Step 14: Apply unit propagation
+No immediate unit clauses are created.
+
+Step 15: Make another decision
+Let's set x6 = true.
+
+Step 16: Apply unit propagation
+No immediate unit clauses are created.
+
+Step 17: Make another decision
+Let's set x7 = true.
+
+Step 18: Apply unit propagation
+From (¬x6 ∨ ¬x4 ∨ ¬x7), with x6 = true, x4 = true, and x7 = true, we have a contradiction.
+
+Step 19: Backtrack
+Let's try x7 = false.
+
+Step 20: Apply unit propagation
+No immediate unit clauses are created.
+
+Step 21: Make another decision
+Let's set x8 = true.
+
+Step 22: Apply unit propagation
+No immediate unit clauses are created.
+
+Step 23: Make another decision
+Let's set x9 = true.
+
+Step 24: Apply unit propagation
+From (¬x8 ∨ ¬x10 ∨ ¬x9), with x8 = true and x9 = true, we must have x10 = false.
+
+Step 25: Check if all clauses are satisfied
+With the assignment {x1 = true, x2 = false, x3 = false, x4 = true, x5 = true, x6 = true, x7 = false, x8 = true, x9 = true, x10 = false}, all clauses are satisfied.
+
+SATISFIABLE
+Number of branches: 7
+Number of conflicts: 2
+x1 = true
+x2 = false
+x3 = false
+x4 = true
+x5 = true
+x6 = true
+x7 = false
+x8 = true
+x9 = true
+x10 = false

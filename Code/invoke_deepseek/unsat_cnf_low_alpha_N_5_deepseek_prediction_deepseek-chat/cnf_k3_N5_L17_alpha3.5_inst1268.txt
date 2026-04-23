@@ -1,0 +1,239 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1268
+p cnf 5 17
+5 -4 -2 0
+3 -4 5 0
+5 1 2 0
+-1 5 -2 0
+4 -3 1 0
+2 -4 3 0
+5 4 1 0
+3 2 -4 0
+-5 -1 -2 0
+-3 -5 -2 0
+-3 -1 2 0
+5 1 -3 0
+1 -3 -5 0
+4 3 2 0
+-5 -1 2 0
+2 3 -5 0
+-5 1 -2 0
+
+c GPT solve time: 190.80 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm (a backtracking-based search algorithm for SAT solving). We'll keep track of the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Setup
+The formula consists of 17 clauses over variables \( x_1, x_2, x_3, x_4, x_5 \). We start with no assignments.
+
+### Step 2: Unit Propagation
+No unit clauses exist initially, so we proceed to make a decision.
+
+### Step 3: Decision and Propagation
+We’ll use the following heuristic: choose the variable that appears most frequently (in this case, \( x_5 \), which appears in 12 clauses). We’ll first try \( x_5 = \text{True} \).
+
+#### Branch 1: \( x_5 = \text{True} \)
+- Assign \( x_5 = \text{True} \).
+- Simplify clauses:
+  - Clauses containing \( x_5 \) are satisfied and can be removed.
+  - Clauses containing \( \neg x_5 \) have \( \neg x_5 \) removed.
+- Remaining clauses:
+  - \( (x_3 \lor \neg x_4) \) (from \( (x_3 \lor \neg x_4 \lor x_5) \))
+  - \( (x_1 \lor x_2) \) (from \( (x_5 \lor x_1 \lor x_2) \))
+  - \( (\neg x_1 \lor \neg x_2) \) (from \( (\neg x_1 \lor x_5 \lor \neg x_2) \))
+  - \( (x_4 \lor \neg x_3 \lor x_1) \)
+  - \( (x_2 \lor \neg x_4 \lor x_3) \)
+  - \( (x_4 \lor x_1) \) (from \( (x_5 \lor x_4 \lor x_1) \))
+  - \( (x_3 \lor x_2 \lor \neg x_4) \)
+  - \( (\neg x_3 \lor \neg x_2) \) (from \( (\neg x_3 \lor \neg x_5 \lor \neg x_2) \))
+  - \( (\neg x_3 \lor \neg x_1 \lor x_2) \)
+  - \( (x_1 \lor \neg x_3) \) (from \( (x_5 \lor x_1 \lor \neg x_3) \))
+  - \( (x_1 \lor \neg x_3) \) (from \( (x_1 \lor \neg x_3 \lor \neg x_5) \))
+  - \( (x_4 \lor x_3 \lor x_2) \)
+  - \( (\neg x_1 \lor x_2) \) (from \( (\neg x_5 \lor \neg x_1 \lor x_2) \))
+  - \( (x_2 \lor x_3) \) (from \( (x_2 \lor x_3 \lor \neg x_5) \))
+  - \( (x_1 \lor \neg x_2) \) (from \( (\neg x_5 \lor x_1 \lor \neg x_2) \))
+
+Now, we look for unit clauses:
+- No unit clauses yet, so we make another decision. Next, choose \( x_1 \).
+
+#### Branch 1.1: \( x_1 = \text{True} \)
+- Assign \( x_1 = \text{True} \).
+- Simplify clauses:
+  - Clauses containing \( x_1 \) are satisfied and can be removed.
+  - Clauses containing \( \neg x_1 \) have \( \neg x_1 \) removed.
+- Remaining clauses:
+  - \( (x_3 \lor \neg x_4) \)
+  - \( (x_2) \) (from \( (x_1 \lor x_2) \))
+  - \( (\neg x_2) \) (from \( (\neg x_1 \lor \neg x_2) \))
+  - \( (x_4 \lor \neg x_3) \) (from \( (x_4 \lor \neg x_3 \lor x_1) \))
+  - \( (x_2 \lor \neg x_4 \lor x_3) \)
+  - \( (x_4) \) (from \( (x_4 \lor x_1) \))
+  - \( (x_3 \lor x_2 \lor \neg x_4) \)
+  - \( (\neg x_3 \lor \neg x_2) \)
+  - \( (\neg x_3 \lor x_2) \) (from \( (\neg x_3 \lor \neg x_1 \lor x_2) \))
+  - \( (\neg x_3) \) (from \( (x_1 \lor \neg x_3) \))
+  - \( (x_2) \) (from \( (\neg x_1 \lor x_2) \))
+  - \( (x_2 \lor x_3) \)
+  - \( (\neg x_2) \) (from \( (x_1 \lor \neg x_2) \))
+
+Now, we have unit clauses:
+1. \( (x_2) \): Assign \( x_2 = \text{True} \).
+   - Simplify:
+     - \( (\neg x_2) \) becomes \( (\text{False}) \), which is a conflict (contradiction).
+   - Conflict detected. Backtrack.
+
+#### Conflict at Branch 1.1: \( x_1 = \text{True} \) leads to a conflict. Try \( x_1 = \text{False} \).
+
+#### Branch 1.2: \( x_1 = \text{False} \)
+- Assign \( x_1 = \text{False} \).
+- Simplify clauses:
+  - Clauses containing \( \neg x_1 \) are satisfied and can be removed.
+  - Clauses containing \( x_1 \) have \( x_1 \) removed.
+- Remaining clauses:
+  - \( (x_3 \lor \neg x_4) \)
+  - \( (x_2) \) (from \( (x_1 \lor x_2) \))
+  - \( (\neg x_2) \) (from \( (\neg x_1 \lor \neg x_2) \))
+  - \( (x_4 \lor \neg x_3) \)
+  - \( (x_2 \lor \neg x_4 \lor x_3) \)
+  - \( (x_4) \) (from \( (x_4 \lor x_1) \))
+  - \( (x_3 \lor x_2 \lor \neg x_4) \)
+  - \( (\neg x_3 \lor \neg x_2) \)
+  - \( (x_2) \) (from \( (\neg x_1 \lor x_2) \))
+  - \( (x_2 \lor x_3) \)
+  - \( (\neg x_2) \) (from \( (x_1 \lor \neg x_2) \))
+
+Now, we have unit clauses:
+1. \( (x_2) \): Assign \( x_2 = \text{True} \).
+   - Simplify:
+     - \( (\neg x_2) \) becomes \( (\text{False}) \), which is a conflict (contradiction).
+   - Conflict detected. Backtrack.
+
+#### Conflict at Branch 1.2: \( x_1 = \text{False} \) also leads to a conflict. Thus, \( x_5 = \text{True} \) leads to no solution. Backtrack.
+
+### Step 4: Try \( x_5 = \text{False} \)
+#### Branch 2: \( x_5 = \text{False} \)
+- Assign \( x_5 = \text{False} \).
+- Simplify clauses:
+  - Clauses containing \( \neg x_5 \) are satisfied and can be removed.
+  - Clauses containing \( x_5 \) have \( x_5 \) removed.
+- Remaining clauses:
+  - \( (\neg x_4 \lor \neg x_2) \) (from \( (x_5 \lor \neg x_4 \lor \neg x_2) \))
+  - \( (x_3 \lor \neg x_4) \) (from \( (x_3 \lor \neg x_4 \lor x_5) \))
+  - \( (x_1 \lor x_2) \) (from \( (x_5 \lor x_1 \lor x_2) \))
+  - \( (\neg x_1 \lor \neg x_2) \) (from \( (\neg x_1 \lor x_5 \lor \neg x_2) \))
+  - \( (x_4 \lor \neg x_3 \lor x_1) \)
+  - \( (x_2 \lor \neg x_4 \lor x_3) \)
+  - \( (x_4 \lor x_1) \) (from \( (x_5 \lor x_4 \lor x_1) \))
+  - \( (x_3 \lor x_2 \lor \neg x_4) \)
+  - \( (\neg x_3 \lor \neg x_2) \) (from \( (\neg x_3 \lor \neg x_5 \lor \neg x_2) \))
+  - \( (\neg x_3 \lor \neg x_1 \lor x_2) \)
+  - \( (x_1 \lor \neg x_3) \) (from \( (x_5 \lor x_1 \lor \neg x_3) \))
+  - \( (x_4 \lor x_3 \lor x_2) \)
+  - \( (x_2 \lor x_3) \) (from \( (x_2 \lor x_3 \lor \neg x_5) \))
+  - \( (x_1 \lor \neg x_2) \) (from \( (\neg x_5 \lor x_1 \lor \neg x_2) \))
+
+Now, we look for unit clauses:
+- No unit clauses yet, so we make another decision. Next, choose \( x_4 \).
+
+#### Branch 2.1: \( x_4 = \text{True} \)
+- Assign \( x_4 = \text{True} \).
+- Simplify clauses:
+  - Clauses containing \( x_4 \) are satisfied and can be removed.
+  - Clauses containing \( \neg x_4 \) have \( \neg x_4 \) removed.
+- Remaining clauses:
+  - \( (\neg x_2) \) (from \( (\neg x_4 \lor \neg x_2) \))
+  - \( (x_3) \) (from \( (x_3 \lor \neg x_4) \))
+  - \( (x_1 \lor x_2) \)
+  - \( (\neg x_1 \lor \neg x_2) \)
+  - \( (\neg x_3 \lor x_1) \) (from \( (x_4 \lor \neg x_3 \lor x_1) \))
+  - \( (x_2 \lor x_3) \) (from \( (x_2 \lor \neg x_4 \lor x_3) \))
+  - \( (x_1) \) (from \( (x_4 \lor x_1) \))
+  - \( (x_3 \lor x_2) \) (from \( (x_3 \lor x_2 \lor \neg x_4) \))
+  - \( (\neg x_3 \lor \neg x_2) \)
+  - \( (\neg x_3 \lor \neg x_1 \lor x_2) \)
+  - \( (x_1 \lor \neg x_3) \)
+  - \( (x_3 \lor x_2) \) (from \( (x_4 \lor x_3 \lor x_2) \))
+  - \( (x_2 \lor x_3) \)
+  - \( (x_1 \lor \neg x_2) \)
+
+Now, we have unit clauses:
+1. \( (\neg x_2) \): Assign \( x_2 = \text{False} \).
+   - Simplify:
+     - \( (x_1 \lor x_2) \) becomes \( (x_1) \).
+     - \( (\neg x_1 \lor \neg x_2) \) becomes \( (\neg x_1) \).
+     - \( (x_2 \lor x_3) \) becomes \( (x_3) \).
+     - \( (x_3 \lor x_2) \) becomes \( (x_3) \).
+     - \( (\neg x_3 \lor \neg x_2) \) becomes \( (\neg x_3) \).
+     - \( (\neg x_3 \lor \neg x_1 \lor x_2) \) becomes \( (\neg x_3 \lor \neg x_1) \).
+     - \( (x_1 \lor \neg x_3) \).
+     - \( (x_1 \lor \neg x_2) \) becomes \( (x_1) \).
+   - New unit clauses:
+     - \( (x_1) \): Assign \( x_1 = \text{True} \).
+       - Simplify:
+         - \( (\neg x_1) \) becomes \( (\text{False}) \), which is a conflict.
+       - Conflict detected. Backtrack.
+
+#### Conflict at Branch 2.1: \( x_4 = \text{True} \) leads to a conflict. Try \( x_4 = \text{False} \).
+
+#### Branch 2.2: \( x_4 = \text{False} \)
+- Assign \( x_4 = \text{False} \).
+- Simplify clauses:
+  - Clauses containing \( \neg x_4 \) are satisfied and can be removed.
+  - Clauses containing \( x_4 \) have \( x_4 \) removed.
+- Remaining clauses:
+  - \( (x_1 \lor x_2) \)
+  - \( (\neg x_1 \lor \neg x_2) \)
+  - \( (\neg x_3 \lor x_1) \) (from \( (x_4 \lor \neg x_3 \lor x_1) \))
+  - \( (x_3 \lor x_2) \) (from \( (x_3 \lor x_2 \lor \neg x_4) \))
+  - \( (\neg x_3 \lor \neg x_2) \)
+  - \( (\neg x_3 \lor \neg x_1 \lor x_2) \)
+  - \( (x_1 \lor \neg x_3) \)
+  - \( (x_2 \lor x_3) \)
+  - \( (x_1 \lor \neg x_2) \)
+
+Now, we look for unit clauses:
+- No unit clauses yet, so we make another decision. Next, choose \( x_3 \).
+
+#### Branch 2.2.1: \( x_3 = \text{True} \)
+- Assign \( x_3 = \text{True} \).
+- Simplify clauses:
+  - Clauses containing \( x_3 \) are satisfied and can be removed.
+  - Clauses containing \( \neg x_3 \) have \( \neg x_3 \) removed.
+- Remaining clauses:
+  - \( (x_1 \lor x_2) \)
+  - \( (\neg x_1 \lor \neg x_2) \)
+  - \( (x_1) \) (from \( (\neg x_3 \lor x_1) \))
+  - \( (\neg x_2) \) (from \( (\neg x_3 \lor \neg x_2) \))
+  - \( (\neg x_1 \lor x_2) \) (from \( (\neg x_3 \lor \neg x_1 \lor x_2) \))
+  - \( (x_1) \) (from \( (x_1 \lor \neg x_3) \))
+  - \( (x_1 \lor \neg x_2) \)
+
+Now, we have unit clauses:
+1. \( (x_1) \): Assign \( x_1 = \text{True} \).
+   - Simplify:
+     - \( (x_1 \lor x_2) \) becomes \( (\text{True}) \), removed.
+     - \( (\neg x_1 \lor \neg x_2) \) becomes \( (\neg x_2) \).
+     - \( (\neg x_1 \lor x_2) \) becomes \( (x_2) \).
+     - \( (x_1 \lor \neg x_2) \) becomes \( (\text{True}) \), removed.
+   - New unit clauses:
+     - \( (\neg x_2) \): Assign \( x_2 = \text{False} \).
+       - Simplify:
+         - \( (x_2) \) becomes \( (\text{False}) \), which is a conflict.
+       - Conflict detected. Backtrack.
+
+#### Conflict at Branch 2.2.1: \( x_3 = \text{True} \) leads to a conflict. Try \( x_3 = \text{False} \).
+
+#### Branch 2.2.2: \( x_3 = \text{False} \)
+- Assign \( x_3 = \text{False} \).
+- Simplify clauses:
+  - Clauses containing \( \neg x_3 \) are satisfied and can be removed.
+  - Clauses containing \( x_3 \) have \( x_3 \) removed.
+- Remaining clauses:
+  - \( (x_1 \lor x_2) \)
+  - \( (\neg x_1 \lor \neg x_2) \)
+  - \( (x_2) \) (from \( (x_3 \lor x_2) \))
+  - \( (\neg x_1 \lor x_2) \) (from \( (\neg x_3 \lor \neg x_1 \lor x_2) \))
+  - \( (x_1) \) (from \( (x_1 \lor \neg x_3) \))
+  - \( (x_2) \) (from \( (x_2 \lor x_3) \))
+  - \( (x_1 \lor \neg

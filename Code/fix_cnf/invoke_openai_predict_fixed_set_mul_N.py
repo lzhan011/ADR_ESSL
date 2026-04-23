@@ -20,7 +20,7 @@ model_list = ['o1']
 model_list = ['gpt-5']
 # model_selected = "o1"
 
-api_key = os.environ["OPENAI_API_KEY"]
+api_key = os.environ.get("OPENAI_API_KEY")
 
 api_base = "https://api.openai.com/v1"
 # Use OpenAI v1 interface
@@ -69,7 +69,7 @@ def safe_call_chatgpt(prompt, model_selected):
     except Exception as e:
         if "rate limit" in str(e).lower():
             print("Rate limit hit. Sleeping 20s...")
-            time.sleep(20)
+            time.sleep(60)
         else:
             print("Unexpected error:", e)
             raise e
@@ -202,8 +202,8 @@ O1_input_dir_root = 'fixed_set_mul_N'
 
 for model_selected in model_list:
 
-    for N in [5,8,10,25,50,60]:
-    # for N in [10, 25, 50]:
+    # for N in [5,8,10,25,50,60]:
+    for N in [50]:
         N = str(N)
         dir_name = f"unsat_cnf_low_alpha_N_{N}_openai_prediction_o1"
         O1_input_dir = os.path.join(O1_input_dir_root, dir_name)

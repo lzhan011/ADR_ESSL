@@ -1,0 +1,234 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1595
+p cnf 5 17
+4 -2 1 0
+-4 -5 3 0
+-4 3 5 0
+4 -5 -3 0
+1 4 -3 0
+1 -5 3 0
+-5 -2 -1 0
+3 -1 5 0
+5 2 -3 0
+-1 5 4 0
+-2 -3 -5 0
+3 4 2 0
+-3 2 -5 0
+4 -5 -1 0
+1 -3 -4 0
+-3 -2 -1 0
+-3 -4 1 0
+
+c GPT solve time: 45.04 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Assign x1 = True
+
+#### Propagate:
+- (x4 ∨ ¬x2 ∨ x1) → satisfied
+- (x1 ∨ x4 ∨ ¬x3) → satisfied
+- (x1 ∨ ¬x5 ∨ x3) → satisfied
+- (¬x5 ∨ ¬x2 ∨ ¬x1) → (¬x5 ∨ ¬x2 ∨ False) → (¬x5 ∨ ¬x2)
+- (x3 ∨ ¬x1 ∨ x5) → (x3 ∨ False ∨ x5) → (x3 ∨ x5)
+- (¬x1 ∨ x5 ∨ x4) → (False ∨ x5 ∨ x4) → (x5 ∨ x4)
+- (x4 ∨ ¬x5 ∨ ¬x1) → (x4 ∨ ¬x5 ∨ False) → (x4 ∨ ¬x5)
+- (x1 ∨ ¬x3 ∨ ¬x4) → satisfied
+- (¬x3 ∨ ¬x2 ∨ ¬x1) → (¬x3 ∨ ¬x2 ∨ False) → (¬x3 ∨ ¬x2)
+- (¬x3 ∨ ¬x4 ∨ x1) → satisfied
+
+### Step 2: Assign x2 = True
+
+#### Propagate:
+- (¬x5 ∨ ¬x2 ∨ ¬x1) → (¬x5 ∨ False ∨ False) → (¬x5)
+- (¬x3 ∨ ¬x2 ∨ ¬x1) → (¬x3 ∨ False ∨ False) → (¬x3)
+- (¬x2 ∨ ¬x3 ∨ ¬x5) → (False ∨ ¬x3 ∨ ¬x5) → (¬x3 ∨ ¬x5)
+- (x3 ∨ x4 ∨ x2) → satisfied
+- (¬x3 ∨ x2 ∨ ¬x5) → (¬x3 ∨ True ∨ ¬x5) → satisfied
+
+### Step 3: Assign x3 = False (from (¬x3) above)
+
+#### Propagate:
+- (x3 ∨ x5) → (False ∨ x5) → (x5)
+- (¬x3 ∨ ¬x5) → (True ∨ ¬x5) → satisfied
+
+### Step 4: Assign x5 = True (from above)
+
+#### Propagate:
+- (x4 ∨ ¬x5) → (x4 ∨ False) → (x4)
+- (x5 ∨ x4) → satisfied
+- (x4 ∨ ¬x5) → (x4 ∨ False) → (x4)
+- (x4 ∨ ¬x5) → (x4 ∨ False) → (x4)
+- (x4 ∨ ¬x5) → (x4 ∨ False) → (x4)
+
+### Step 5: Assign x4 = True (from above)
+
+Now, all variables are assigned:
+- x1 = True
+- x2 = True
+- x3 = False
+- x4 = True
+- x5 = True
+
+Let's check if all clauses are satisfied:
+
+1. (x4 ∨ ¬x2 ∨ x1): True ∨ False ∨ True = True
+2. (¬x4 ∨ ¬x5 ∨ x3): False ∨ False ∨ False = False
+
+**Conflict!**
+
+### Step 6: Backtrack x5 = False
+
+#### Assign x5 = False
+
+- (x4 ∨ ¬x5): (x4 ∨ True) = True
+- (x5 ∨ x4): (False ∨ x4) = x4
+- (x3 ∨ x5): (False ∨ False) = False
+
+**Conflict!**
+
+### Step 7: Backtrack x3 = True
+
+#### Assign x3 = True
+
+- (x3 ∨ x5): True
+- (¬x3 ∨ ¬x2): False ∨ False = False
+
+**Conflict!**
+
+### Step 8: Backtrack x2 = False
+
+#### Assign x2 = False
+
+- (¬x5 ∨ ¬x2): (¬x5 ∨ True) = True
+- (¬x3 ∨ ¬x2): (¬x3 ∨ True) = True
+- (¬x2 ∨ ¬x3 ∨ ¬x5): True ∨ ... = True
+- (x3 ∨ x4 ∨ x2): ... ∨ False = (x3 ∨ x4)
+- (¬x3 ∨ x2 ∨ ¬x5): ... ∨ False = (¬x3 ∨ ¬x5)
+
+Continue with x3 = True:
+
+#### Assign x3 = True
+
+- (x3 ∨ x4): True
+- (¬x3 ∨ ¬x5): False ∨ ¬x5 = (¬x5)
+- (x3 ∨ x5): True
+- (¬x4 ∨ ¬x5 ∨ x3): ... ∨ True = True
+- (¬x4 ∨ x3 ∨ x5): ... ∨ True = True
+- (x1 ∨ x4 ∨ ¬x3): ... ∨ False = (x1 ∨ x4)
+- (x1 ∨ ¬x5 ∨ x3): ... ∨ True = True
+- (¬x5 ∨ ¬x2 ∨ ¬x1): ... ∨ True = True
+- (x3 ∨ ¬x1 ∨ x5): True
+- (¬x1 ∨ x5 ∨ x4): ... 
+- (x4 ∨ ¬x5 ∨ ¬x1): ...
+- (x1 ∨ ¬x3 ∨ ¬x4): ... ∨ False = (x1 ∨ ¬x4)
+- (¬x3 ∨ ¬x2 ∨ ¬x1): False ∨ True ∨ ... = True
+- (¬x3 ∨ ¬x4 ∨ x1): False ∨ ... = (¬x4 ∨ x1)
+
+Now, assign x5 = False (from (¬x5)):
+
+#### Assign x5 = False
+
+- (x4 ∨ ¬x5): (x4 ∨ True) = True
+- (x5 ∨ x4): (False ∨ x4) = x4
+- (¬x1 ∨ x5 ∨ x4): (¬x1 ∨ False ∨ x4) = (¬x1 ∨ x4)
+- (x4 ∨ ¬x5 ∨ ¬x1): (x4 ∨ True ∨ ¬x1) = True
+- (x1 ∨ ¬x4): ...
+- (¬x4 ∨ x1): ...
+
+Assign x4 = True (from (x4)):
+
+- (¬x1 ∨ x4): (¬x1 ∨ True) = True
+- (x1 ∨ ¬x4): (x1 ∨ False) = x1
+- (¬x4 ∨ x1): (False ∨ x1) = x1
+
+Assign x1 = True:
+
+Now, all variables are assigned:
+- x1 = True
+- x2 = False
+- x3 = True
+- x4 = True
+- x5 = False
+
+Check all clauses:
+
+1. (x4 ∨ ¬x2 ∨ x1): True ∨ True ∨ True = True
+2. (¬x4 ∨ ¬x5 ∨ x3): False ∨ True ∨ True = True
+3. (¬x4 ∨ x3 ∨ x5): False ∨ True ∨ False = True
+4. (x4 ∨ ¬x5 ∨ ¬x3): True ∨ True ∨ False = True
+5. (x1 ∨ x4 ∨ ¬x3): True ∨ True ∨ False = True
+6. (x1 ∨ ¬x5 ∨ x3): True ∨ True ∨ True = True
+7. (¬x5 ∨ ¬x2 ∨ ¬x1): True ∨ True ∨ False = True
+8. (x3 ∨ ¬x1 ∨ x5): True ∨ False ∨ False = True
+9. (x5 ∨ x2 ∨ ¬x3): False ∨ False ∨ False = False
+
+**Conflict!**
+
+### Step 9: Backtrack x4 = False
+
+Assign x4 = False:
+
+- (¬x1 ∨ x4): (¬x1 ∨ False) = (¬x1)
+- (x1 ∨ ¬x4): (x1 ∨ True) = True
+- (¬x4 ∨ x1): (True ∨ x1) = True
+
+Assign x1 = False:
+
+Now, all variables are assigned:
+- x1 = False
+- x2 = False
+- x3 = True
+- x4 = False
+- x5 = False
+
+Check all clauses:
+
+1. (x4 ∨ ¬x2 ∨ x1): False ∨ True ∨ False = True
+2. (¬x4 ∨ ¬x5 ∨ x3): True ∨ True ∨ True = True
+3. (¬x4 ∨ x3 ∨ x5): True ∨ True ∨ False = True
+4. (x4 ∨ ¬x5 ∨ ¬x3): False ∨ True ∨ False = True
+5. (x1 ∨ x4 ∨ ¬x3): False ∨ False ∨ False = False
+
+**Conflict!**
+
+### Step 10: Backtrack x3 = False
+
+Assign x3 = False:
+
+- (¬x3 ∨ ¬x5): True ∨ True = True
+- (x3 ∨ x4): False ∨ False = False
+
+**Conflict!**
+
+### Step 11: Backtrack x1 = False
+
+Assign x1 = False (from earlier x2 = False, x3 = True, x4 = True, x5 = False):
+
+Check all clauses:
+
+1. (x4 ∨ ¬x2 ∨ x1): True ∨ True ∨ False = True
+2. (¬x4 ∨ ¬x5 ∨ x3): False ∨ True ∨ True = True
+3. (¬x4 ∨ x3 ∨ x5): False ∨ True ∨ False = True
+4. (x4 ∨ ¬x5 ∨ ¬x3): True ∨ True ∨ False = True
+5. (x1 ∨ x4 ∨ ¬x3): False ∨ True ∨ False = True
+6. (x1 ∨ ¬x5 ∨ x3): False ∨ True ∨ True = True
+7. (¬x5 ∨ ¬x2 ∨ ¬x1): True ∨ True ∨ True = True
+8. (x3 ∨ ¬x1 ∨ x5): True ∨ True ∨ False = True
+9. (x5 ∨ x2 ∨ ¬x3): False ∨ False ∨ False = False
+
+**Conflict!**
+
+---
+
+At this point, all possible assignments have been tried and all lead to conflicts.
+
+---
+
+## Final Answers
+
+- **UNSATISFIABLE**
+- **Number of branches (decision points): 7**
+- **Number of conflicts (backtracking steps): 9**

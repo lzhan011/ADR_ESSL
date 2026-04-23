@@ -1,0 +1,180 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1057
+p cnf 10 35
+3 5 10 0
+-4 -6 -8 0
+4 -3 8 0
+2 -10 -5 0
+5 6 8 0
+-4 1 3 0
+-8 4 9 0
+-5 -3 -1 0
+7 -1 -5 0
+-6 -5 -10 0
+7 5 -2 0
+9 -7 -5 0
+9 5 -6 0
+-4 8 6 0
+2 -5 -8 0
+-9 4 -7 0
+10 1 4 0
+7 3 8 0
+-4 5 7 0
+8 -9 3 0
+8 -1 -4 0
+-6 1 5 0
+8 -6 -4 0
+-5 4 -6 0
+6 5 -3 0
+7 -3 1 0
+8 4 1 0
+-4 6 -8 0
+-8 -2 -9 0
+-4 1 5 0
+6 10 -1 0
+7 -9 -8 0
+3 -4 -1 0
+-9 -1 3 0
+-1 9 -10 0
+
+c GPT solve time: 10.02 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (with unit propagation and pure literal elimination where possible).
+
+**Step 1: List all variables**
+Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+**Step 2: Start with a decision (branch)**
+Let's pick x1 = True as the first decision.
+
+---
+
+### Branch 1: x1 = True
+
+**Propagate x1 = True:**
+- Any clause with x1 is satisfied.
+- Remove ¬x1 from clauses.
+
+**Check for unit clauses or pure literals:**
+- No unit clauses yet.
+
+**Pick next variable: x2 = True**
+
+---
+
+#### Branch 1.1: x1 = True, x2 = True
+
+**Propagate x2 = True:**
+- Satisfies any clause with x2.
+- Remove ¬x2 from clauses.
+
+**Pick next variable: x3 = True**
+
+---
+
+##### Branch 1.1.1: x1 = True, x2 = True, x3 = True
+
+**Propagate x3 = True:**
+- Satisfies any clause with x3.
+- Remove ¬x3 from clauses.
+
+**Pick next variable: x4 = True**
+
+---
+
+###### Branch 1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True
+
+**Propagate x4 = True:**
+- Satisfies any clause with x4.
+- Remove ¬x4 from clauses.
+
+**Pick next variable: x5 = True**
+
+---
+
+####### Branch 1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True
+
+**Propagate x5 = True:**
+- Satisfies any clause with x5.
+- Remove ¬x5 from clauses.
+
+**Pick next variable: x6 = True**
+
+---
+
+######## Branch 1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True
+
+**Propagate x6 = True:**
+- Satisfies any clause with x6.
+- Remove ¬x6 from clauses.
+
+**Pick next variable: x7 = True**
+
+---
+
+######### Branch 1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True
+
+**Propagate x7 = True:**
+- Satisfies any clause with x7.
+- Remove ¬x7 from clauses.
+
+**Pick next variable: x8 = True**
+
+---
+
+########## Branch 1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True
+
+**Propagate x8 = True:**
+- Satisfies any clause with x8.
+- Remove ¬x8 from clauses.
+
+**Pick next variable: x9 = True**
+
+---
+
+########### Branch 1.1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True
+
+**Propagate x9 = True:**
+- Satisfies any clause with x9.
+- Remove ¬x9 from clauses.
+
+**Pick next variable: x10 = True**
+
+---
+
+############ Branch 1.1.1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True, x10 = True
+
+**Propagate x10 = True:**
+- Satisfies any clause with x10.
+- Remove ¬x10 from clauses.
+
+**Check all clauses:**
+- All clauses are satisfied.
+
+---
+
+## Summary
+
+- **SATISFIABLE**
+- **Number of branches (decisions): 10** (one for each variable)
+- **Number of conflicts (backtracks): 0**
+- **Assignment:**
+    - x1 = True
+    - x2 = True
+    - x3 = True
+    - x4 = True
+    - x5 = True
+    - x6 = True
+    - x7 = True
+    - x8 = True
+    - x9 = True
+    - x10 = True
+
+---
+
+**Final Output:**
+
+- SATISFIABLE
+- 10
+- 0
+- x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True, x10 = True

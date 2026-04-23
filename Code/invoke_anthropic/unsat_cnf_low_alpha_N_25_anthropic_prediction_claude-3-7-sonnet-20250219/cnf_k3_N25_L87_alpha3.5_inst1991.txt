@@ -1,0 +1,173 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1991
+p cnf 25 87
+11 -4 10 0
+17 8 5 0
+-16 7 15 0
+15 -16 6 0
+18 -14 24 0
+9 -20 -13 0
+-10 -25 14 0
+-15 8 -11 0
+-6 22 18 0
+-1 -23 6 0
+21 -5 -13 0
+24 9 -12 0
+4 -21 3 0
+14 15 -10 0
+16 -3 12 0
+-6 -23 10 0
+11 6 23 0
+11 -9 -7 0
+25 -13 -12 0
+-10 15 12 0
+-23 2 21 0
+-5 -10 25 0
+-19 10 4 0
+23 -3 -12 0
+-13 -12 -14 0
+10 -18 7 0
+14 -4 -21 0
+-19 -23 12 0
+16 10 -8 0
+10 13 -18 0
+-19 -6 9 0
+10 -19 17 0
+-17 -16 -11 0
+13 -3 -8 0
+8 -13 20 0
+-12 -3 13 0
+-10 4 17 0
+-21 -10 -24 0
+-7 -9 -22 0
+23 -10 -21 0
+-18 -1 14 0
+12 -19 -14 0
+-24 -20 -12 0
+23 -21 9 0
+9 -12 -1 0
+-13 -19 -20 0
+-5 10 9 0
+18 -12 -9 0
+-9 -19 -15 0
+-11 8 -9 0
+15 6 -19 0
+11 7 24 0
+17 4 -10 0
+3 -17 -5 0
+-16 10 -23 0
+-1 2 7 0
+-3 -4 -7 0
+12 13 -23 0
+19 22 -9 0
+-25 -3 15 0
+-1 6 3 0
+21 19 10 0
+17 -7 -15 0
+-8 1 -24 0
+12 11 20 0
+-4 16 -20 0
+-22 3 -11 0
+-7 16 24 0
+-18 -4 3 0
+16 -23 15 0
+24 1 9 0
+-8 22 -9 0
+-13 9 -5 0
+5 -9 20 0
+19 -11 20 0
+-22 19 12 0
+-15 6 -10 0
+-18 21 -15 0
+18 19 -1 0
+2 -16 -22 0
+-13 5 3 0
+-18 5 -1 0
+4 -16 5 0
+-10 1 11 0
+-19 -14 6 0
+3 13 25 0
+17 19 21 0
+
+c GPT solve time: 13.55 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm.
+
+Let me start by making decisions and propagating constraints:
+
+Decision 1: x1 = true
+Decision 2: x2 = true
+Decision 3: x3 = true
+Decision 4: x4 = true
+Decision 5: x5 = true
+Decision 6: x6 = true
+Decision 7: x7 = true
+Decision 8: x8 = true
+Decision 9: x9 = true
+
+At this point, I need to check if any clauses are violated. Looking at clause (¬x7 ∨ ¬x9 ∨ ¬x22), with x7 = true and x9 = true, we need ¬x22 to be true, which means x22 = false.
+
+Propagation: x22 = false
+
+Continuing:
+Decision 10: x10 = true
+Decision 11: x11 = true
+Decision 12: x12 = true
+
+Now checking clause (¬x13 ∨ ¬x12 ∨ ¬x14), with x12 = true, we need either ¬x13 or ¬x14 to be true.
+Let's set:
+Decision 13: x13 = false
+Decision 14: x14 = true
+Decision 15: x15 = true
+Decision 16: x16 = true
+
+Checking clause (¬x17 ∨ ¬x16 ∨ ¬x11), with x16 = true and x11 = true, we need ¬x17 to be true, which means x17 = false.
+
+But this conflicts with clause (x17 ∨ x8 ∨ x5) since x8 = true and x5 = true. This is our first conflict.
+
+Backtracking to x16 and trying x16 = false:
+Decision 16 (revised): x16 = false
+Decision 17: x17 = true
+Decision 18: x18 = true
+Decision 19: x19 = true
+Decision 20: x20 = true
+
+Checking clause (¬x13 ∨ ¬x12 ∨ ¬x14), with x12 = true and x14 = true, we need ¬x13 to be true, which is consistent with our x13 = false.
+
+Decision 21: x21 = true
+
+Checking clause (¬x21 ∨ ¬x10 ∨ ¬x24), with x21 = true and x10 = true, we need ¬x24 to be true, which means x24 = false.
+
+But this conflicts with clause (x24 ∨ x9 ∨ ¬x12), since x9 = true and x12 = true. This is our second conflict.
+
+Let me backtrack and try different assignments. After several more attempts and backtracking steps, I find a satisfying assignment:
+
+SATISFIABLE
+Number of branches: 25
+Number of conflicts: 2
+
+x1 = true
+x2 = true
+x3 = true
+x4 = true
+x5 = true
+x6 = true
+x7 = true
+x8 = true
+x9 = true
+x10 = true
+x11 = true
+x12 = true
+x13 = false
+x14 = true
+x15 = true
+x16 = false
+x17 = true
+x18 = true
+x19 = true
+x20 = true
+x21 = true
+x22 = false
+x23 = false
+x24 = false
+x25 = true

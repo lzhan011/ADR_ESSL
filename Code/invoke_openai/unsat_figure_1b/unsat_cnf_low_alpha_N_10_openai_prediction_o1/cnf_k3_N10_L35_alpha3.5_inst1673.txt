@@ -1,0 +1,57 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1673
+p cnf 10 35
+1 2 -3 0
+-10 -6 -2 0
+3 -10 -7 0
+9 1 -6 0
+10 -3 -5 0
+-10 -9 2 0
+-9 -4 -5 0
+-3 -7 -1 0
+3 6 2 0
+-10 -4 -1 0
+-8 6 -3 0
+-3 -2 -6 0
+-6 -8 4 0
+-3 -10 6 0
+2 -3 -1 0
+3 10 -2 0
+-3 10 -8 0
+8 -6 -10 0
+1 -2 7 0
+5 10 8 0
+3 -6 -9 0
+7 -1 -10 0
+-1 -5 7 0
+-4 7 2 0
+-4 3 8 0
+-2 -9 1 0
+-1 -2 3 0
+2 6 -1 0
+-10 8 -7 0
+8 9 6 0
+-7 1 9 0
+8 3 6 0
+2 -7 4 0
+-4 -1 -7 0
+-9 -10 -8 0
+
+c GPT solve time: 180.85 seconds
+
+STEP-BY-STEP REASONING (DPLL SKETCH):
+
+1) First decision: x₁ = True.  
+   • Propagate. Then second decision: x₂ = True leads (after further propagation) to a conflict.  
+   • Backtrack, try x₂ = False. This again forces some variables and eventually requires branching on x₄, both choices of which (x₄ = True or False) lead to conflicts.  
+   • Hence x₁ = True gives no solution under either x₂ = True or x₂ = False.  
+
+2) Backtrack to first decision, now set x₁ = False.  
+   • Propagate. Then third decision: x₂ = True quickly reaches conflict.  
+   • Backtrack, try x₂ = False, which also leads (after forced assignments) to conflict.  
+
+All branches exhaust without finding a consistent assignment. Therefore the formula is UNSATISFIABLE.
+
+UNSATISFIABLE  
+NUMBER_OF_BRANCHES = 4  
+NUMBER_OF_CONFLICTS = 5

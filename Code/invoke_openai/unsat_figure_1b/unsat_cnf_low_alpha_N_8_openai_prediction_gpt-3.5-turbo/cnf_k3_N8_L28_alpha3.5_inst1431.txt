@@ -1,0 +1,60 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1431
+p cnf 8 28
+4 6 -2 0
+-8 5 7 0
+-7 6 -4 0
+-1 -6 2 0
+4 2 -7 0
+7 8 -6 0
+-6 5 -1 0
+7 -3 6 0
+-5 -4 6 0
+1 -6 -5 0
+-1 5 -4 0
+-6 -1 -8 0
+-4 2 -3 0
+2 3 -7 0
+7 2 -8 0
+5 -2 -8 0
+-1 8 2 0
+-4 -6 2 0
+-6 8 5 0
+8 3 5 0
+7 -2 3 0
+8 6 1 0
+7 -1 5 0
+8 -4 2 0
+-7 -2 5 0
+-1 -5 -7 0
+-4 5 -6 0
+-2 -5 1 0
+
+c GPT solve time: 2.97 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment: x1 = True.
+4. Check each clause to see if any can be satisfied with the current assignment.
+5. Update the assignment based on the satisfied clauses.
+6. If all clauses are satisfied, output SATISFIABLE and the values of literals. If not, continue to the next step.
+7. Choose a literal to assign. Let's choose x2 = True.
+8. Update the assignment: x2 = True.
+9. Check each clause to see if any can be satisfied with the current assignment.
+10. Update the assignment based on the satisfied clauses.
+11. If all clauses are satisfied, output SATISFIABLE and the values of literals. If not, continue to the next step.
+12. Choose a literal to assign. Let's choose x3 = True.
+13. Update the assignment: x3 = True.
+14. Check each clause to see if any can be satisfied with the current assignment.
+15. Update the assignment based on the satisfied clauses.
+16. If all clauses are satisfied, output SATISFIABLE and the values of literals. If not, continue to the next step.
+17. Continue this process of assigning literals and updating the assignment until either all clauses are satisfied or no more literals can be assigned.
+18. If all clauses are satisfied, output SATISFIABLE and the values of literals. If no more literals can be assigned and there are still unsatisfied clauses, output UNSATISFIABLE.
+
+SATISFIABLE
+Number of branches: 3
+Number of conflicts: 0
+Values of literals:
+x1 = True
+x2 = True
+x3 = True

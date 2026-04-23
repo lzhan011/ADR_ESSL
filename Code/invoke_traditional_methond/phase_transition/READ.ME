@@ -1,0 +1,7 @@
+## Figure 1(a)
+
+`Code/invoke_traditional_methond/phase_transition_generate_and_draw_Minisat22_only_draw_median.py` generates Figure 1(a).
+
+This script uses `Minisat22` to evaluate random 3-SAT instances with `N = 75` over clause-to-variable ratios `L / N` from `1.0` to `9.5` in steps of `0.5`. For each ratio, it generates `300` random instances, records the number of solver decisions as the branch count, computes the median number of branches, and estimates `Prob(SAT)`.
+
+The script then plots the median branch count together with `Prob(SAT)` and saves the figure in `.png`, `.pdf`, `.svg`, and `.eps` formats under `cnf_results_CDCL/figures_CDCL_phase_transition`.

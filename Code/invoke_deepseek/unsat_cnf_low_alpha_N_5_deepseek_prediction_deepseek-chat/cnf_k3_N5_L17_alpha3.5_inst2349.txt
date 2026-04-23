@@ -1,0 +1,213 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2349
+p cnf 5 17
+2 -4 -3 0
+-3 2 -1 0
+2 -1 -5 0
+4 -3 -2 0
+4 5 2 0
+3 5 1 0
+4 -1 2 0
+-1 2 -5 0
+-5 4 3 0
+-2 -3 1 0
+-3 -2 -4 0
+-5 4 2 0
+4 1 3 0
+-5 -4 -1 0
+-4 3 5 0
+4 5 3 0
+-5 -4 3 0
+
+c GPT solve time: 169.39 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in order (x1, x2, ..., x5) and assign values, propagating implications.
+
+#### Branch 1: Assign x1 = True
+- Clause (¬x3 ∨ x2 ∨ ¬x1) simplifies to (¬x3 ∨ x2).
+- Clause (x2 ∨ ¬x1 ∨ ¬x5) simplifies to (x2 ∨ ¬x5).
+- Clause (¬x1 ∨ x2 ∨ ¬x5) simplifies to (x2 ∨ ¬x5).
+- Clause (¬x2 ∨ ¬x3 ∨ x1) simplifies to (¬x2 ∨ ¬x3 ∨ True) → satisfied.
+- Clause (¬x5 ∨ ¬x4 ∨ ¬x1) simplifies to (¬x5 ∨ ¬x4 ∨ False) → (¬x5 ∨ ¬x4).
+
+No further simplifications, so we branch on x2.
+
+##### Branch 1.1: Assign x2 = True
+- Clause (x2 ∨ ¬x4 ∨ ¬x3) simplifies to (True ∨ ¬x4 ∨ ¬x3) → satisfied.
+- Clause (¬x3 ∨ x2) simplifies to (¬x3 ∨ True) → satisfied.
+- Clause (x2 ∨ ¬x5) simplifies to (True ∨ ¬x5) → satisfied.
+- Clause (x4 ∨ ¬x3 ∨ ¬x2) simplifies to (x4 ∨ ¬x3 ∨ False) → (x4 ∨ ¬x3).
+- Clause (x4 ∨ x5 ∨ x2) simplifies to (x4 ∨ x5 ∨ True) → satisfied.
+- Clause (x4 ∨ ¬x1 ∨ x2) simplifies to (x4 ∨ False ∨ True) → satisfied.
+- Clause (¬x5 ∨ x4 ∨ x2) simplifies to (¬x5 ∨ x4 ∨ True) → satisfied.
+- Clause (¬x5 ∨ x4 ∨ x3) remains.
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x4) simplifies to (¬x3 ∨ False ∨ ¬x4) → (¬x3 ∨ ¬x4).
+- Clause (x4 ∨ x1 ∨ x3) simplifies to (x4 ∨ True ∨ x3) → satisfied.
+- Clause (¬x4 ∨ x3 ∨ x5) remains.
+- Clause (x4 ∨ x5 ∨ x3) remains.
+- Clause (¬x5 ∨ ¬x4 ∨ x3) remains.
+
+Now, we have unresolved clauses:
+1. (x4 ∨ ¬x3)
+2. (¬x5 ∨ x4 ∨ x3)
+3. (¬x3 ∨ ¬x4)
+4. (¬x4 ∨ x3 ∨ x5)
+5. (x4 ∨ x5 ∨ x3)
+6. (¬x5 ∨ ¬x4 ∨ x3)
+
+##### Branch 1.1.1: Assign x3 = True
+- Clause (x4 ∨ ¬x3) simplifies to (x4 ∨ False) → x4 must be True.
+- Clause (¬x3 ∨ ¬x4) simplifies to (False ∨ ¬x4) → ¬x4 must be True → Conflict (x4 and ¬x4).
+
+Backtrack to Branch 1.1.1 and assign x3 = False.
+- Clause (x4 ∨ ¬x3) simplifies to (x4 ∨ True) → satisfied.
+- Clause (¬x3 ∨ ¬x4) simplifies to (True ∨ ¬x4) → satisfied.
+- Clause (¬x5 ∨ x4 ∨ x3) simplifies to (¬x5 ∨ x4 ∨ False) → (¬x5 ∨ x4).
+- Clause (¬x4 ∨ x3 ∨ x5) simplifies to (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5).
+- Clause (x4 ∨ x5 ∨ x3) simplifies to (x4 ∨ x5 ∨ False) → (x4 ∨ x5).
+- Clause (¬x5 ∨ ¬x4 ∨ x3) simplifies to (¬x5 ∨ ¬x4 ∨ False) → (¬x5 ∨ ¬x4).
+
+Now, unresolved clauses:
+1. (¬x5 ∨ x4)
+2. (¬x4 ∨ x5)
+3. (x4 ∨ x5)
+4. (¬x5 ∨ ¬x4)
+
+##### Branch 1.1.1.1: Assign x4 = True
+- Clause (¬x5 ∨ x4) simplifies to (¬x5 ∨ True) → satisfied.
+- Clause (¬x4 ∨ x5) simplifies to (False ∨ x5) → x5 must be True.
+- Clause (x4 ∨ x5) simplifies to (True ∨ x5) → satisfied.
+- Clause (¬x5 ∨ ¬x4) simplifies to (¬x5 ∨ False) → ¬x5 must be True → Conflict (x5 and ¬x5).
+
+Backtrack to Branch 1.1.1.1 and assign x4 = False.
+- Clause (¬x5 ∨ x4) simplifies to (¬x5 ∨ False) → ¬x5 must be True.
+- Clause (¬x4 ∨ x5) simplifies to (True ∨ x5) → satisfied.
+- Clause (x4 ∨ x5) simplifies to (False ∨ x5) → x5 must be True → Conflict (¬x5 and x5).
+
+No solution found in this branch. Backtrack to Branch 1.1 and try x2 = False.
+
+##### Branch 1.2: Assign x2 = False
+- Clause (x2 ∨ ¬x4 ∨ ¬x3) simplifies to (False ∨ ¬x4 ∨ ¬x3) → (¬x4 ∨ ¬x3).
+- Clause (¬x3 ∨ x2) simplifies to (¬x3 ∨ False) → ¬x3 must be True.
+- Clause (x2 ∨ ¬x5) simplifies to (False ∨ ¬x5) → ¬x5 must be True.
+- Clause (x4 ∨ ¬x3 ∨ ¬x2) simplifies to (x4 ∨ ¬x3 ∨ True) → satisfied.
+- Clause (x4 ∨ x5 ∨ x2) simplifies to (x4 ∨ x5 ∨ False) → (x4 ∨ x5).
+- Clause (x4 ∨ ¬x1 ∨ x2) simplifies to (x4 ∨ False ∨ False) → x4 must be True.
+- Clause (¬x1 ∨ x2 ∨ ¬x5) simplifies to (False ∨ False ∨ ¬x5) → ¬x5 must be True (already set).
+- Clause (¬x5 ∨ x4 ∨ x3) simplifies to (¬x5 ∨ x4 ∨ x3).
+- Clause (¬x2 ∨ ¬x3 ∨ x1) simplifies to (True ∨ ¬x3 ∨ True) → satisfied.
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x4) simplifies to (¬x3 ∨ True ∨ ¬x4) → satisfied.
+- Clause (¬x5 ∨ x4 ∨ x2) simplifies to (¬x5 ∨ x4 ∨ False) → (¬x5 ∨ x4).
+- Clause (x4 ∨ x1 ∨ x3) simplifies to (x4 ∨ True ∨ x3) → satisfied.
+- Clause (¬x5 ∨ ¬x4 ∨ ¬x1) simplifies to (¬x5 ∨ ¬x4 ∨ False) → (¬x5 ∨ ¬x4).
+- Clause (¬x4 ∨ x3 ∨ x5) simplifies to (¬x4 ∨ x3 ∨ x5).
+- Clause (x4 ∨ x5 ∨ x3) simplifies to (x4 ∨ x5 ∨ x3).
+- Clause (¬x5 ∨ ¬x4 ∨ x3) simplifies to (¬x5 ∨ ¬x4 ∨ x3).
+
+From earlier, ¬x3 = True (x3 = False), ¬x5 = True (x5 = False), x4 = True.
+Now, unresolved clauses:
+1. (¬x4 ∨ ¬x3) simplifies to (¬True ∨ True) → satisfied.
+2. (x4 ∨ x5) simplifies to (True ∨ False) → satisfied.
+3. (¬x5 ∨ x4 ∨ x3) simplifies to (True ∨ True ∨ False) → satisfied.
+4. (¬x5 ∨ x4) simplifies to (True ∨ True) → satisfied.
+5. (¬x5 ∨ ¬x4) simplifies to (True ∨ False) → satisfied.
+6. (¬x4 ∨ x3 ∨ x5) simplifies to (False ∨ False ∨ False) → Conflict.
+
+No solution found in this branch. Backtrack to Branch 1 and try x1 = False.
+
+#### Branch 2: Assign x1 = False
+- Clause (¬x3 ∨ x2 ∨ ¬x1) simplifies to (¬x3 ∨ x2 ∨ True) → satisfied.
+- Clause (x2 ∨ ¬x1 ∨ ¬x5) simplifies to (x2 ∨ True ∨ ¬x5) → satisfied.
+- Clause (¬x1 ∨ x2 ∨ ¬x5) simplifies to (True ∨ x2 ∨ ¬x5) → satisfied.
+- Clause (¬x2 ∨ ¬x3 ∨ x1) simplifies to (¬x2 ∨ ¬x3 ∨ False) → (¬x2 ∨ ¬x3).
+- Clause (¬x5 ∨ ¬x4 ∨ ¬x1) simplifies to (¬x5 ∨ ¬x4 ∨ True) → satisfied.
+- Clause (x3 ∨ x5 ∨ x1) simplifies to (x3 ∨ x5 ∨ False) → (x3 ∨ x5).
+
+Now, unresolved clauses:
+1. (x2 ∨ ¬x4 ∨ ¬x3)
+2. (x4 ∨ ¬x3 ∨ ¬x2)
+3. (x4 ∨ x5 ∨ x2)
+4. (x4 ∨ ¬x1 ∨ x2) simplifies to (x4 ∨ True ∨ x2) → satisfied.
+5. (¬x5 ∨ x4 ∨ x3)
+6. (¬x3 ∨ ¬x2 ∨ ¬x4)
+7. (¬x5 ∨ x4 ∨ x2)
+8. (x4 ∨ x1 ∨ x3) simplifies to (x4 ∨ False ∨ x3) → (x4 ∨ x3).
+9. (¬x4 ∨ x3 ∨ x5)
+10. (x4 ∨ x5 ∨ x3)
+11. (¬x5 ∨ ¬x4 ∨ x3)
+12. (¬x2 ∨ ¬x3)
+
+##### Branch 2.1: Assign x2 = True
+- Clause (x2 ∨ ¬x4 ∨ ¬x3) simplifies to (True ∨ ¬x4 ∨ ¬x3) → satisfied.
+- Clause (x4 ∨ ¬x3 ∨ ¬x2) simplifies to (x4 ∨ ¬x3 ∨ False) → (x4 ∨ ¬x3).
+- Clause (x4 ∨ x5 ∨ x2) simplifies to (x4 ∨ x5 ∨ True) → satisfied.
+- Clause (¬x5 ∨ x4 ∨ x2) simplifies to (¬x5 ∨ x4 ∨ True) → satisfied.
+- Clause (¬x2 ∨ ¬x3) simplifies to (False ∨ ¬x3) → ¬x3 must be True (x3 = False).
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x4) simplifies to (¬x3 ∨ False ∨ ¬x4) → (¬x3 ∨ ¬x4).
+
+Now, with x3 = False:
+- Clause (x4 ∨ ¬x3) simplifies to (x4 ∨ True) → satisfied.
+- Clause (¬x3 ∨ ¬x4) simplifies to (True ∨ ¬x4) → satisfied.
+- Clause (¬x5 ∨ x4 ∨ x3) simplifies to (¬x5 ∨ x4 ∨ False) → (¬x5 ∨ x4).
+- Clause (x4 ∨ x3) simplifies to (x4 ∨ False) → x4 must be True.
+- Clause (¬x4 ∨ x3 ∨ x5) simplifies to (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5).
+- Clause (x4 ∨ x5 ∨ x3) simplifies to (x4 ∨ x5 ∨ False) → (x4 ∨ x5).
+- Clause (¬x5 ∨ ¬x4 ∨ x3) simplifies to (¬x5 ∨ ¬x4 ∨ False) → (¬x5 ∨ ¬x4).
+
+Now, with x4 = True:
+- Clause (¬x5 ∨ x4) simplifies to (¬x5 ∨ True) → satisfied.
+- Clause (¬x4 ∨ x5) simplifies to (False ∨ x5) → x5 must be True.
+- Clause (x4 ∨ x5) simplifies to (True ∨ x5) → satisfied.
+- Clause (¬x5 ∨ ¬x4) simplifies to (¬x5 ∨ False) → ¬x5 must be True → Conflict (x5 and ¬x5).
+
+Backtrack to Branch 2.1 and try x2 = False.
+##### Branch 2.2: Assign x2 = False
+- Clause (x2 ∨ ¬x4 ∨ ¬x3) simplifies to (False ∨ ¬x4 ∨ ¬x3) → (¬x4 ∨ ¬x3).
+- Clause (x4 ∨ ¬x3 ∨ ¬x2) simplifies to (x4 ∨ ¬x3 ∨ True) → satisfied.
+- Clause (x4 ∨ x5 ∨ x2) simplifies to (x4 ∨ x5 ∨ False) → (x4 ∨ x5).
+- Clause (¬x5 ∨ x4 ∨ x2) simplifies to (¬x5 ∨ x4 ∨ False) → (¬x5 ∨ x4).
+- Clause (¬x2 ∨ ¬x3) simplifies to (True ∨ ¬x3) → satisfied.
+- Clause (¬x3 ∨ ¬x2 ∨ ¬x4) simplifies to (¬x3 ∨ True ∨ ¬x4) → satisfied.
+- Clause (x3 ∨ x5) remains.
+- Clause (¬x5 ∨ x4 ∨ x3) remains.
+- Clause (x4 ∨ x3) remains.
+- Clause (¬x4 ∨ x3 ∨ x5) remains.
+- Clause (x4 ∨ x5 ∨ x3) remains.
+- Clause (¬x5 ∨ ¬x4 ∨ x3) remains.
+
+##### Branch 2.2.1: Assign x3 = True
+- Clause (¬x4 ∨ ¬x3) simplifies to (¬x4 ∨ False) → ¬x4 must be True (x4 = False).
+- Clause (x3 ∨ x5) simplifies to (True ∨ x5) → satisfied.
+- Clause (¬x5 ∨ x4 ∨ x3) simplifies to (¬x5 ∨ False ∨ True) → satisfied.
+- Clause (x4 ∨ x3) simplifies to (False ∨ True) → satisfied.
+- Clause (¬x4 ∨ x3 ∨ x5) simplifies to (True ∨ True ∨ x5) → satisfied.
+- Clause (x4 ∨ x5 ∨ x3) simplifies to (False ∨ x5 ∨ True) → satisfied.
+- Clause (¬x5 ∨ ¬x4 ∨ x3) simplifies to (¬x5 ∨ True ∨ True) → satisfied.
+- Clause (x4 ∨ x5) simplifies to (False ∨ x5) → x5 must be True.
+- Clause (¬x5 ∨ x4) simplifies to (¬x5 ∨ False) → ¬x5 must be True → Conflict (x5 and ¬x5).
+
+Backtrack to Branch 2.2.1 and assign x3 = False.
+- Clause (¬x4 ∨ ¬x3) simplifies to (¬x4 ∨ True) → satisfied.
+- Clause (x3 ∨ x5) simplifies to (False ∨ x5) → x5 must be True.
+- Clause (¬x5 ∨ x4 ∨ x3) simplifies to (¬x5 ∨ x4 ∨ False) → (¬x5 ∨ x4).
+- Clause (x4 ∨ x3) simplifies to (x4 ∨ False) → x4 must be True.
+- Clause (¬x4 ∨ x3 ∨ x5) simplifies to (¬x4 ∨ False ∨ True) → satisfied.
+- Clause (x4 ∨ x5 ∨ x3) simplifies to (x4 ∨ True ∨ False) → satisfied.
+- Clause (¬x5 ∨ ¬x4 ∨ x3) simplifies to (¬x5 ∨ ¬x4 ∨ False) → (¬x5 ∨ ¬x4).
+
+Now, with x5 = True and x4 = True:
+- Clause (¬x5 ∨ x4) simplifies to (False ∨ True) → satisfied.
+- Clause (¬x5 ∨ ¬x4) simplifies to (False ∨ False) → Conflict.
+
+No solution found in this branch. The formula is UNSATISFIABLE.
+
+### Final Answer:
+- **SATISFIABLE or UNSATISFIABLE**: UNSATISFIABLE  
+- **Number of branches (decision points)**: 6  
+- **Number of conflicts (backtracking steps)**: 5

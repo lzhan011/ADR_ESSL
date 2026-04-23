@@ -1,0 +1,314 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1882
+p cnf 5 17
+4 -1 5 0
+-2 3 -4 0
+-1 -4 -5 0
+2 -3 4 0
+-5 -3 -1 0
+-2 5 4 0
+-1 -2 -4 0
+3 -5 4 0
+-2 -4 5 0
+-3 -1 2 0
+2 1 -5 0
+-3 -2 5 0
+5 -4 2 0
+4 1 -2 0
+4 -3 1 0
+-4 -5 -3 0
+2 5 4 0
+
+c GPT solve time: 55.23 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+Variables: x1, x2, x3, x4, x5
+
+**Step 1: Choose a variable to branch on. Let's pick x1 = True.**
+
+### Branch 1: x1 = True
+
+#### Propagate x1 = True
+
+- (x4 ∨ ¬x1 ∨ x5): (x4 ∨ x5) (since ¬x1 is False)
+- (¬x1 ∨ ¬x4 ∨ ¬x5): (¬x4 ∨ ¬x5)
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x5 ∨ ¬x3)
+- (¬x1 ∨ ¬x2 ∨ ¬x4): (¬x2 ∨ ¬x4)
+- (¬x3 ∨ ¬x1 ∨ x2): (¬x3 ∨ x2)
+- (x2 ∨ x1 ∨ ¬x5): (x2 ∨ ¬x5)
+- (x4 ∨ x1 ∨ ¬x2): (x4 ∨ ¬x2)
+- (x4 ∨ ¬x3 ∨ x1): (x4 ∨ ¬x3)
+- All other clauses remain the same.
+
+#### Next, pick x2 = True
+
+### Branch 1.1: x1 = True, x2 = True
+
+Propagate x2 = True:
+
+- (¬x2 ∨ x3 ∨ ¬x4): (x3 ∨ ¬x4)
+- (¬x2 ∨ x5 ∨ x4): (x5 ∨ x4)
+- (¬x2 ∨ ¬x4 ∨ x5): (¬x4 ∨ x5)
+- (¬x3 ∨ ¬x2 ∨ x5): (¬x3 ∨ x5)
+- (x2 ∨ x1 ∨ ¬x5): already satisfied
+- (x2 ∨ ¬x3 ∨ x4): already satisfied
+- (x2 ∨ x5 ∨ x4): already satisfied
+
+#### Next, pick x3 = True
+
+### Branch 1.1.1: x1 = True, x2 = True, x3 = True
+
+Propagate x3 = True:
+
+- (¬x3 ∨ ¬x1 ∨ x2): already satisfied
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x5)
+- (x3 ∨ ¬x5 ∨ x4): already satisfied
+- (x3 ∨ ¬x4): already satisfied
+- (¬x3 ∨ x5): (x5)
+- (¬x3 ∨ x5): (x5)
+- (x4 ∨ ¬x3): (x4)
+- (x4 ∨ ¬x3): (x4)
+
+#### Next, pick x4 = True
+
+### Branch 1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True
+
+Propagate x4 = True:
+
+- (x4 ∨ x5): already satisfied
+- (¬x4 ∨ ¬x5): (¬x5)
+- (x5 ∨ x4): already satisfied
+- (¬x4 ∨ x5): (x5)
+- (x4 ∨ ¬x2): already satisfied
+- (x4 ∨ ¬x3): already satisfied
+- (x4 ∨ x1 ∨ ¬x2): already satisfied
+- (x4 ∨ ¬x3 ∨ x1): already satisfied
+- (x5 ∨ ¬x4 ∨ x2): (x5)
+- (¬x4 ∨ ¬x5 ∨ ¬x3): (¬x5 ∨ ¬x3)
+
+#### Now, pick x5 = True
+
+### Branch 1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True
+
+Check all clauses:
+
+- (x4 ∨ ¬x1 ∨ x5): True
+- (¬x2 ∨ x3 ∨ ¬x4): (¬x2=False, x3=True, ¬x4=False) → True
+- (¬x1 ∨ ¬x4 ∨ ¬x5): (¬x1=False, ¬x4=False, ¬x5=False) → False
+
+**Conflict!**
+
+### Backtrack: x5 = False
+
+### Branch 1.1.1.1.2: x1 = True, x2 = True, x3 = True, x4 = True, x5 = False
+
+Check all clauses:
+
+- (x4 ∨ ¬x1 ∨ x5): (x4=True, ¬x1=False, x5=False) → True
+- (¬x2 ∨ x3 ∨ ¬x4): (¬x2=False, x3=True, ¬x4=False) → True
+- (¬x1 ∨ ¬x4 ∨ ¬x5): (¬x1=False, ¬x4=False, ¬x5=True) → True
+- (x2 ∨ ¬x3 ∨ x4): (x2=True, ¬x3=False, x4=True) → True
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x5=True, ¬x3=False, ¬x1=False) → True
+- (¬x2 ∨ x5 ∨ x4): (¬x2=False, x5=False, x4=True) → True
+- (¬x1 ∨ ¬x2 ∨ ¬x4): (¬x1=False, ¬x2=False, ¬x4=False) → False
+
+**Conflict!**
+
+### Backtrack: x4 = False
+
+### Branch 1.1.1.2: x1 = True, x2 = True, x3 = True, x4 = False
+
+Propagate x4 = False:
+
+- (x4 ∨ x5): (x5)
+- (¬x4 ∨ ¬x5): (True ∨ ¬x5) → True
+- (x3 ∨ ¬x4): already satisfied
+- (x5 ∨ x4): (x5)
+- (¬x4 ∨ x5): (True ∨ x5) → True
+- (x4 ∨ ¬x2): (False ∨ False) → False
+
+**Conflict!**
+
+### Backtrack: x3 = False
+
+### Branch 1.1.2: x1 = True, x2 = True, x3 = False
+
+Propagate x3 = False:
+
+- (¬x3 ∨ ¬x1 ∨ x2): (True ∨ False ∨ True) → True
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x5 ∨ True ∨ False) → True
+- (x3 ∨ ¬x5 ∨ x4): (False ∨ ¬x5 ∨ x4)
+- (x3 ∨ ¬x4): (False ∨ ¬x4)
+- (¬x3 ∨ x5): (True ∨ x5) → True
+- (¬x3 ∨ x5): (True ∨ x5) → True
+- (x4 ∨ ¬x3): (x4 ∨ True) → True
+- (x4 ∨ ¬x3): (x4 ∨ True) → True
+
+Now, pick x4 = True
+
+### Branch 1.1.2.1: x1 = True, x2 = True, x3 = False, x4 = True
+
+Propagate x4 = True:
+
+- (x4 ∨ x5): True
+- (¬x4 ∨ ¬x5): (False ∨ ¬x5)
+- (x5 ∨ x4): True
+- (¬x4 ∨ x5): (False ∨ x5)
+- (x4 ∨ ¬x2): (True ∨ False) → True
+- (x4 ∨ ¬x3): True
+- (x4 ∨ x1 ∨ ¬x2): True
+- (x4 ∨ ¬x3 ∨ x1): True
+- (x5 ∨ ¬x4 ∨ x2): (x5 ∨ False ∨ True) → True
+- (¬x4 ∨ ¬x5 ∨ ¬x3): (False ∨ ¬x5 ∨ True) → True
+
+Now, pick x5 = True
+
+### Branch 1.1.2.1.1: x1 = True, x2 = True, x3 = False, x4 = True, x5 = True
+
+Check all clauses:
+
+- (x4 ∨ ¬x1 ∨ x5): (True ∨ False ∨ True) → True
+- (¬x2 ∨ x3 ∨ ¬x4): (False ∨ False ∨ False) → False
+
+**Conflict!**
+
+Try x5 = False
+
+### Branch 1.1.2.1.2: x1 = True, x2 = True, x3 = False, x4 = True, x5 = False
+
+Check all clauses:
+
+- (x4 ∨ ¬x1 ∨ x5): (True ∨ False ∨ False) → True
+- (¬x2 ∨ x3 ∨ ¬x4): (False ∨ False ∨ False) → False
+
+**Conflict!**
+
+Backtrack: x4 = False
+
+### Branch 1.1.2.2: x1 = True, x2 = True, x3 = False, x4 = False
+
+Propagate x4 = False:
+
+- (x4 ∨ x5): (False ∨ x5) → (x5)
+- (¬x4 ∨ ¬x5): (True ∨ ¬x5) → True
+- (x5 ∨ x4): (x5 ∨ False) → (x5)
+- (¬x4 ∨ x5): (True ∨ x5) → True
+- (x4 ∨ ¬x2): (False ∨ False) → False
+
+**Conflict!**
+
+Backtrack: x2 = False
+
+### Branch 1.2: x1 = True, x2 = False
+
+Propagate x2 = False:
+
+- (¬x2 ∨ x3 ∨ ¬x4): (True ∨ x3 ∨ ¬x4) → True
+- (¬x2 ∨ x5 ∨ x4): (True ∨ x5 ∨ x4) → True
+- (¬x2 ∨ ¬x4 ∨ x5): (True ∨ ¬x4 ∨ x5) → True
+- (¬x3 ∨ ¬x2 ∨ x5): (¬x3 ∨ True ∨ x5) → True
+- (x2 ∨ x1 ∨ ¬x5): (False ∨ True ∨ ¬x5) → True
+- (x2 ∨ ¬x3 ∨ x4): (False ∨ ¬x3 ∨ x4) → (¬x3 ∨ x4)
+- (x2 ∨ x5 ∨ x4): (False ∨ x5 ∨ x4) → (x5 ∨ x4)
+- (x4 ∨ x1 ∨ ¬x2): (x4 ∨ True ∨ True) → True
+
+Now, pick x3 = True
+
+### Branch 1.2.1: x1 = True, x2 = False, x3 = True
+
+Propagate x3 = True:
+
+- (¬x3 ∨ ¬x1 ∨ x2): (False ∨ False ∨ False) → False
+
+**Conflict!**
+
+Try x3 = False
+
+### Branch 1.2.2: x1 = True, x2 = False, x3 = False
+
+Propagate x3 = False:
+
+- (¬x3 ∨ ¬x1 ∨ x2): (True ∨ False ∨ False) → True
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x5 ∨ True ∨ False) → True
+- (x3 ∨ ¬x5 ∨ x4): (False ∨ ¬x5 ∨ x4) → (¬x5 ∨ x4)
+- (x3 ∨ ¬x4): (False ∨ ¬x4) → (¬x4)
+- (¬x3 ∨ x5): (True ∨ x5) → True
+- (¬x3 ∨ x5): (True ∨ x5) → True
+- (x4 ∨ ¬x3): (x4 ∨ True) → True
+- (x4 ∨ ¬x3): (x4 ∨ True) → True
+
+Now, from (¬x4), set x4 = False
+
+Propagate x4 = False:
+
+- (x4 ∨ x5): (False ∨ x5) → (x5)
+- (¬x4 ∨ ¬x5): (True ∨ ¬x5) → True
+- (x5 ∨ x4): (x5 ∨ False) → (x5)
+- (¬x4 ∨ x5): (True ∨ x5) → True
+- (x5 ∨ ¬x4 ∨ x2): (x5 ∨ True ∨ False) → True
+- (¬x4 ∨ ¬x5 ∨ ¬x3): (True ∨ ¬x5 ∨ True) → True
+
+Now, from (x5), set x5 = True
+
+Now, check all clauses:
+
+- (x4 ∨ ¬x1 ∨ x5): (False ∨ False ∨ True) → True
+- (¬x2 ∨ x3 ∨ ¬x4): (True ∨ False ∨ True) → True
+- (¬x1 ∨ ¬x4 ∨ ¬x5): (False ∨ True ∨ False) → True
+- (x2 ∨ ¬x3 ∨ x4): (False ∨ True ∨ False) → True
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (False ∨ True ∨ False) → True
+- (¬x2 ∨ x5 ∨ x4): (True ∨ True ∨ False) → True
+- (¬x1 ∨ ¬x2 ∨ ¬x4): (False ∨ True ∨ True) → True
+- (x3 ∨ ¬x5 ∨ x4): (False ∨ False ∨ False) → False
+
+**Conflict!**
+
+Try x5 = False
+
+But (x5) is a unit clause, so x5 must be True. No other option.
+
+Backtrack: x1 = False
+
+### Branch 2: x1 = False
+
+Propagate x1 = False:
+
+- (x4 ∨ ¬x1 ∨ x5): (x4 ∨ True ∨ x5) → True
+- (¬x1 ∨ ¬x4 ∨ ¬x5): (True ∨ ¬x4 ∨ ¬x5) → True
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x5 ∨ ¬x3 ∨ True) → True
+- (¬x1 ∨ ¬x2 ∨ ¬x4): (True ∨ ¬x2 ∨ ¬x4) → True
+- (¬x3 ∨ ¬x1 ∨ x2): (¬x3 ∨ True ∨ x2) → True
+- (x2 ∨ x1 ∨ ¬x5): (x2 ∨ False ∨ ¬x5) → (x2 ∨ ¬x5)
+- (x4 ∨ x1 ∨ ¬x2): (x4 ∨ False ∨ ¬x2) → (x4 ∨ ¬x2)
+- (x4 ∨ ¬x3 ∨ x1): (x4 ∨ ¬x3 ∨ False) → (x4 ∨ ¬x3)
+- All other clauses remain.
+
+Now, pick x2 = True
+
+### Branch 2.1: x1 = False, x2 = True
+
+Propagate x2 = True:
+
+- (¬x2 ∨ x3 ∨ ¬x4): (False ∨ x3 ∨ ¬x4) → (x3 ∨ ¬x4)
+- (¬x2 ∨ x5 ∨ x4): (False ∨ x5 ∨ x4) → (x5 ∨ x4)
+- (¬x2 ∨ ¬x4 ∨ x5): (False ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)
+- (¬x3 ∨ ¬x2 ∨ x5): (¬x3 ∨ False ∨ x5) → (¬x3 ∨ x5)
+- (x2 ∨ ¬x3 ∨ x4): (True ∨ ¬x3 ∨ x4) → True
+- (x2 ∨ x5 ∨ x4): (True ∨ x5 ∨ x4) → True
+
+Now, pick x3 = True
+
+### Branch 2.1.1: x1 = False, x2 = True, x3 = True
+
+Propagate x3 = True:
+
+- (x3 ∨ ¬x4): True
+- (¬x3 ∨ x5): (False ∨ x5) → (x5)
+- (x4 ∨ ¬x3): (x4 ∨ False) → (x4)
+- (x3 ∨ ¬x5 ∨ x4): (True ∨ ¬x5 ∨ x4) → True
+- (x4 ∨ ¬x3): (x4 ∨ False) → (x4)
+
+Now, pick x4 = True
+
+### Branch 2.1.1.1: x1 = False, x2 = True, x3 = True, x4 = True

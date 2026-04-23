@@ -1,0 +1,64 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1619
+p cnf 5 17
+5 -4 2 0
+-1 5 3 0
+3 -1 -4 0
+-3 -2 4 0
+1 2 -5 0
+4 2 1 0
+-1 -5 -4 0
+4 -1 -5 0
+1 4 -2 0
+1 2 -5 0
+4 3 -1 0
+-3 -1 5 0
+-2 -5 1 0
+-4 3 -1 0
+-4 -2 1 0
+-5 -2 -1 0
+4 -5 -1 0
+
+c GPT solve time: 7.12 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign a truth value. Let's start with x1 = True.
+3. Update the assignment: x1 = True.
+4. Update the clauses based on the assignment:
+   - (x5 ∨ ¬x4 ∨ x2) is now (False ∨ True ∨ x2) = True
+   - (¬x1 ∨ x5 ∨ x3) is now (False ∨ x5 ∨ x3) = True
+   - (x3 ∨ ¬x1 ∨ ¬x4) is now (False ∨ x3 ∨ True) = True
+   - (¬x3 ∨ ¬x2 ∨ x4) is now (True ∨ True ∨ True) = True
+   - (x1 ∨ x2 ∨ ¬x5) is now (True ∨ True ∨ True) = True
+   - (x4 ∨ x2 ∨ x1) is now (False ∨ True ∨ True) = True
+   - (¬x1 ∨ ¬x5 ∨ ¬x4) is now (False ∨ False ∨ True) = True
+   - (x4 ∨ ¬x1 ∨ ¬x5) is now (False ∨ False ∨ False) = False (Conflict)
+5. Backtrack to the last decision point and change the assignment of x1 to False.
+6. Update the assignment: x1 = False.
+7. Update the clauses based on the assignment:
+   - (x5 ∨ ¬x4 ∨ x2) is now (False ∨ True ∨ x2) = True
+   - (¬x1 ∨ x5 ∨ x3) is now (True ∨ x5 ∨ x3) = True
+   - (x3 ∨ ¬x1 ∨ ¬x4) is now (False ∨ x3 ∨ True) = True
+   - (¬x3 ∨ ¬x2 ∨ x4) is now (True ∨ True ∨ True) = True
+   - (x1 ∨ x2 ∨ ¬x5) is now (False ∨ True ∨ True) = True
+   - (x4 ∨ x2 ∨ x1) is now (False ∨ True ∨ False) = True
+   - (¬x1 ∨ ¬x5 ∨ ¬x4) is now (True ∨ False ∨ True) = True
+   - (x4 ∨ ¬x1 ∨ ¬x5) is now (False ∨ True ∨ True) = True
+   - (x1 ∨ x4 ∨ ¬x2) is now (False ∨ False ∨ True) = True
+   - (x1 ∨ x2 ∨ ¬x5) is now (False ∨ True ∨ True) = True
+   - (x4 ∨ x3 ∨ ¬x1) is now (False ∨ True ∨ True) = True
+   - (¬x3 ∨ ¬x1 ∨ x5) is now (True ∨ True ∨ True) = True
+   - (¬x2 ∨ ¬x5 ∨ x1) is now (True ∨ True ∨ False) = True
+   - (¬x4 ∨ x3 ∨ ¬x1) is now (True ∨ True ∨ True) = True
+   - (¬x4 ∨ ¬x2 ∨ x1) is now (True ∨ True ∨ False) = True
+   - (¬x5 ∨ ¬x2 ∨ ¬x1) is now (True ∨ True ∨ True) = True
+   - (x4 ∨ ¬x5 ∨ ¬x1) is now (False ∨ False ∨ True) = True
+8. All clauses are now satisfied. The formula is SATISFIABLE.
+9. Number of branches (decision points): 1
+10. Number of conflicts (backtracking steps): 1
+11. Value for each literal:
+    - x1 = False
+    - x2 = True
+    - x3 = True
+    - x4 = False
+    - x5 = True

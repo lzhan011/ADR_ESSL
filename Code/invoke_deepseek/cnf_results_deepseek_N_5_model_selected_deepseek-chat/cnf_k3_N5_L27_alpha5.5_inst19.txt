@@ -1,0 +1,81 @@
+c Random 3-SAT
+c alpha=5.5, N=5, L=27, instance=19
+p cnf 5 27
+5 -1 -2 0
+-3 -4 1 0
+2 -3 -5 0
+-3 -5 1 0
+-5 1 2 0
+-4 5 -2 0
+-5 4 -2 0
+-5 -2 -4 0
+-1 -3 -2 0
+-2 5 -4 0
+-3 -1 -5 0
+-5 -3 -4 0
+-1 4 -3 0
+2 1 -3 0
+3 -5 -2 0
+-1 2 -4 0
+4 5 3 0
+2 -4 5 0
+-2 3 -1 0
+3 -1 4 0
+-5 -1 3 0
+-1 5 -3 0
+5 -3 2 0
+-2 -3 1 0
+4 -3 -2 0
+-3 2 5 0
+2 5 -1 0
+
+To solve this 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables and assign values, propagating implications until a conflict or satisfaction is reached. Here's a summary of the process:
+
+1. **Decision**: Assign \( x1 = \text{True} \).
+   - From clause \( (¬x1 ∨ ¬x3 ∨ ¬x2) \), propagate \( ¬x3 ∨ ¬x2 \).
+   - From clause \( (¬x1 ∨ x2 ∨ ¬x4) \), propagate \( x2 ∨ ¬x4 \).
+   - From clause \( (¬x1 ∨ x5 ∨ ¬x3) \), propagate \( x5 ∨ ¬x3 \).
+   - No immediate conflict.
+
+2. **Decision**: Assign \( x2 = \text{True} \).
+   - From clause \( (¬x2 ∨ ¬x3 ∨ x1) \), propagate \( ¬x3 \).
+   - From clause \( (¬x3 ∨ x2 ∨ x5) \), propagate \( x5 \).
+   - From clause \( (¬x5 ∨ ¬x1 ∨ ¬x2) \), conflict arises (all literals false).
+
+   **Conflict detected**: Backtrack to \( x2 = \text{False} \).
+
+3. **Decision**: Assign \( x2 = \text{False} \).
+   - From clause \( (x2 ∨ x1 ∨ ¬x3) \), propagate \( ¬x3 \).
+   - From clause \( (¬x3 ∨ ¬x5 ∨ x1) \), propagate \( ¬x5 \).
+   - From clause \( (¬x5 ∨ x1 ∨ x2) \), no propagation.
+   - From clause \( (x5 ∨ ¬x3 ∨ x2) \), propagate \( x5 \).
+   - Conflict: \( x5 \) cannot be both True and False.
+
+   **Conflict detected**: Backtrack to \( x1 = \text{False} \).
+
+4. **Decision**: Assign \( x1 = \text{False} \).
+   - From clause \( (¬x5 ∨ ¬x1 ∨ x3) \), propagate \( x3 \).
+   - From clause \( (¬x3 ∨ ¬x4 ∨ x1) \), propagate \( ¬x4 \).
+   - From clause \( (¬x3 ∨ ¬x5 ∨ x1) \), propagate \( ¬x5 \).
+   - From clause \( (x3 ∨ ¬x5 ∨ ¬x2) \), propagate \( ¬x2 \).
+   - From clause \( (x4 ∨ x5 ∨ x3) \), no propagation.
+   - From clause \( (¬x1 ∨ x4 ∨ ¬x3) \), propagate \( x4 \).
+   - Conflict: \( x4 \) cannot be both True and False.
+
+   **Conflict detected**: No more backtracking possible.
+
+### Step 3: Conclusion
+The formula is **UNSATISFIABLE** after exploring all possible branches.
+
+### Final Output:
+```
+UNSATISFIABLE
+4
+3
+```

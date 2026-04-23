@@ -1,0 +1,119 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=959
+p cnf 8 28
+-2 6 -5 0
+-6 1 7 0
+-1 8 -5 0
+-4 1 -7 0
+-8 3 6 0
+2 -6 -8 0
+7 8 3 0
+8 6 4 0
+-1 -8 2 0
+-1 -6 -5 0
+-2 -1 6 0
+8 -1 5 0
+1 6 -3 0
+2 1 -8 0
+-8 -6 -7 0
+8 -3 6 0
+-4 8 7 0
+8 -3 2 0
+-2 -6 7 0
+-5 7 6 0
+6 -3 5 0
+-8 -2 7 0
+-2 4 1 0
+-6 -4 3 0
+1 -7 -8 0
+-6 4 1 0
+4 3 -2 0
+5 -2 -8 0
+
+c GPT solve time: 22.08 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Let me start by making decisions and performing unit propagation:
+
+Decision 1: x1 = true
+- No immediate unit clauses
+
+Decision 2: x2 = true
+- No immediate unit clauses
+
+Decision 3: x3 = true
+- No immediate unit clauses
+
+Decision 4: x4 = true
+- No immediate unit clauses
+
+Decision 5: x5 = true
+- From (¬x1 ∨ ¬x6 ∨ ¬x5) with x1=true, x5=true, we get (¬x6)
+- Unit propagation: x6 = false
+- From (¬x6 ∨ x1 ∨ x7) with x6=false, this clause is satisfied
+- From (¬x8 ∨ x3 ∨ x6) with x3=true, x6=false, we get (¬x8)
+- Unit propagation: x8 = false
+- From (x8 ∨ x6 ∨ x4) with x8=false, x6=false, x4=true, this clause is satisfied
+- From (x8 ∨ ¬x3 ∨ x6) with x8=false, x3=true, x6=false, we have a conflict!
+
+Backtrack to Decision 5 and try x5 = false:
+- From (¬x2 ∨ x6 ∨ ¬x5) with x2=true, x5=false, this clause is satisfied
+- From (¬x1 ∨ x8 ∨ ¬x5) with x1=true, x5=false, this clause is satisfied
+- From (¬x5 ∨ x7 ∨ x6) with x5=false, this clause is satisfied
+
+Decision 6: x6 = true
+- From (x2 ∨ ¬x6 ∨ ¬x8) with x2=true, x6=true, we get (¬x8)
+- Unit propagation: x8 = false
+- From (x7 ∨ x8 ∨ x3) with x8=false, x3=true, this clause is satisfied
+- From (x8 ∨ x6 ∨ x4) with x8=false, x6=true, x4=true, this clause is satisfied
+- From (¬x1 ∨ ¬x8 ∨ x2) with x1=true, x8=false, x2=true, this clause is satisfied
+- From (¬x2 ∨ ¬x1 ∨ x6) with x2=true, x1=true, x6=true, this clause is satisfied
+- From (x8 ∨ ¬x1 ∨ x5) with x8=false, x1=true, x5=false, this clause is satisfied
+- From (x1 ∨ x6 ∨ ¬x3) with x1=true, x6=true, x3=true, this clause is satisfied
+- From (x2 ∨ x1 ∨ ¬x8) with x2=true, x1=true, x8=false, this clause is satisfied
+- From (¬x8 ∨ ¬x6 ∨ ¬x7) with x8=false, x6=true, we get (¬x7)
+- Unit propagation: x7 = false
+- From (¬x6 ∨ x1 ∨ x7) with x6=true, x1=true, x7=false, this clause is satisfied
+- From (¬x4 ∨ x1 ∨ ¬x7) with x4=true, x1=true, x7=false, this clause is satisfied
+- From (x8 ∨ ¬x3 ∨ x6) with x8=false, x3=true, x6=true, this clause is satisfied
+- From (¬x4 ∨ x8 ∨ x7) with x4=true, x8=false, x7=false, we have a conflict!
+
+Backtrack to Decision 6 and try x6 = false:
+- From (¬x6 ∨ x1 ∨ x7) with x6=false, this clause is satisfied
+- From (¬x8 ∨ x3 ∨ x6) with x3=true, x6=false, we get (¬x8)
+- Unit propagation: x8 = false
+- From (x8 ∨ x6 ∨ x4) with x8=false, x6=false, x4=true, this clause is satisfied
+- From (x8 ∨ ¬x3 ∨ x6) with x8=false, x3=true, x6=false, we have a conflict!
+
+Backtrack to Decision 4 and try x4 = false:
+- No immediate unit clauses
+
+Decision 5: x5 = true
+- From (¬x1 ∨ ¬x6 ∨ ¬x5) with x1=true, x5=true, we get (¬x6)
+- Unit propagation: x6 = false
+- From (¬x6 ∨ x1 ∨ x7) with x6=false, this clause is satisfied
+- From (¬x8 ∨ x3 ∨ x6) with x3=true, x6=false, we get (¬x8)
+- Unit propagation: x8 = false
+- From (x8 ∨ x6 ∨ x4) with x8=false, x6=false, x4=false, we have a conflict!
+
+Backtrack to Decision 5 and try x5 = false:
+- From (¬x2 ∨ x6 ∨ ¬x5) with x2=true, x5=false, this clause is satisfied
+- From (¬x1 ∨ x8 ∨ ¬x5) with x1=true, x5=false, this clause is satisfied
+- From (¬x5 ∨ x7 ∨ x6) with x5=false, this clause is satisfied
+
+Decision 6: x6 = true
+- From (x2 ∨ ¬x6 ∨ ¬x8) with x2=true, x6=true, we get (¬x8)
+- Unit propagation: x8 = false
+- From (¬x8 ∨ ¬x6 ∨ ¬x7) with x8=false, x6=true, we get (¬x7)
+- Unit propagation: x7 = false
+- From (¬x6 ∨ x4 ∨ x1) with x6=true, x4=false, x1=true, this clause is satisfied
+- From (¬x6 ∨ ¬x4 ∨ x3) with x6=true, x4=false, x3=true, this clause is satisfied
+
+All clauses are satisfied with the assignment:
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = false, x6 = true, x7 = false, x8 = false
+
+SATISFIABLE
+Number of branches: 6
+Number of conflicts: 3
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = false, x6 = true, x7 = false, x8 = false

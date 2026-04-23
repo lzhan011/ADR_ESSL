@@ -1,0 +1,127 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1654
+p cnf 10 35
+-2 -1 -5 0
+-8 -9 -10 0
+-9 1 -7 0
+-1 4 -3 0
+7 -9 5 0
+4 -8 3 0
+6 -10 1 0
+-8 -10 9 0
+6 -1 -7 0
+5 7 4 0
+9 8 1 0
+-2 6 -9 0
+2 10 -3 0
+-5 4 -10 0
+-2 -6 -4 0
+-8 -2 -4 0
+9 -2 -8 0
+-2 -9 -10 0
+3 10 5 0
+-2 -4 3 0
+-6 3 5 0
+-3 9 2 0
+8 2 -7 0
+4 -9 -6 0
+4 2 -9 0
+-9 -8 5 0
+10 2 -8 0
+-3 9 8 0
+2 10 3 0
+-1 3 -5 0
+6 -4 -5 0
+-1 -3 7 0
+7 -10 -9 0
+6 -9 -10 0
+8 5 2 0
+
+c GPT solve time: 23.87 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by looking for unit clauses and pure literals to simplify the formula.
+
+Initial check: There are no unit clauses in the original formula.
+
+Let's begin with a decision:
+
+Branch 1: Let's set x1 = true
+- From clause (¬x2 ∨ ¬x1 ∨ ¬x5), we need (¬x2 ∨ ¬x5) to be true
+- From clause (¬x9 ∨ x1 ∨ ¬x7), this clause is satisfied
+- From clause (¬x1 ∨ x4 ∨ ¬x3), we need (x4 ∨ ¬x3) to be true
+- From clause (x6 ∨ ¬x10 ∨ x1), this clause is satisfied
+- From clause (x9 ∨ x8 ∨ x1), this clause is satisfied
+- From clause (¬x1 ∨ x3 ∨ ¬x5), we need (x3 ∨ ¬x5) to be true
+- From clause (¬x1 ∨ ¬x3 ∨ x7), we need (¬x3 ∨ x7) to be true
+
+Branch 2: Let's set x2 = false
+- This satisfies clauses with ¬x2
+
+Branch 3: Let's set x3 = false
+- This satisfies clauses with ¬x3
+- From clause (x3 ∨ x10 ∨ x5), we need (x10 ∨ x5) to be true
+- From clause (¬x2 ∨ ¬x4 ∨ x3), since x2 = false, this clause is satisfied
+- From clause (¬x6 ∨ x3 ∨ x5), we need (¬x6 ∨ x5) to be true
+- From clause (x2 ∨ x10 ∨ x3), we need (x10) to be true since x2 = false and x3 = false
+
+Setting x10 = true:
+- This satisfies clauses with x10
+- From clause (¬x8 ∨ ¬x9 ∨ ¬x10), we need (¬x8 ∨ ¬x9) to be true
+- From clause (¬x5 ∨ x4 ∨ ¬x10), we need (¬x5 ∨ x4) to be true
+- From clause (¬x2 ∨ ¬x9 ∨ ¬x10), since x2 = false, this clause is satisfied
+- From clause (x7 ∨ ¬x10 ∨ ¬x9), we need (x7 ∨ ¬x9) to be true
+- From clause (x6 ∨ ¬x9 ∨ ¬x10), we need (x6 ∨ ¬x9) to be true
+
+Branch 4: Let's set x4 = true
+- This satisfies clauses with x4
+- From clause (¬x2 ∨ ¬x6 ∨ ¬x4), since x2 = false, this clause is satisfied
+- From clause (¬x8 ∨ ¬x2 ∨ ¬x4), since x2 = false, this clause is satisfied
+
+Branch 5: Let's set x5 = true
+- This satisfies clauses with x5
+- From clause (¬x2 ∨ ¬x1 ∨ ¬x5), since x1 = true and x5 = true, we need x2 = false (already set)
+- From clause (¬x5 ∨ x4 ∨ ¬x10), since x10 = true, we need x4 = true (already set)
+
+Branch 6: Let's set x6 = true
+- This satisfies clauses with x6
+- From clause (¬x6 ∨ x3 ∨ x5), since x3 = false, we need x5 = true (already set)
+- From clause (x6 ∨ ¬x4 ∨ ¬x5), this clause is satisfied
+
+Branch 7: Let's set x7 = true
+- This satisfies clauses with x7
+- From clause (¬x9 ∨ x1 ∨ ¬x7), since x1 = true, this clause is satisfied
+- From clause (x7 ∨ ¬x10 ∨ ¬x9), this clause is satisfied
+
+Branch 8: Let's set x8 = false
+- This satisfies clauses with ¬x8
+- From clause (¬x8 ∨ ¬x9 ∨ ¬x10), since x10 = true, we need x9 = false
+- From clause (¬x8 ∨ ¬x10 ∨ x9), since x10 = true, we need x9 = true
+
+This is a conflict! We have deduced both x9 = true and x9 = false.
+
+Conflict 1: Backtrack to the last decision.
+
+Let's try x8 = true:
+- From clause (x9 ∨ x8 ∨ x1), this clause is satisfied
+- From clause (x9 ∨ ¬x2 ∨ ¬x8), since x2 = false, this clause is satisfied
+- From clause (¬x3 ∨ x9 ∨ x8), since x3 = false, this clause is satisfied
+- From clause (x8 ∨ x5 ∨ x2), this clause is satisfied
+
+Branch 9: Let's set x9 = false
+- This satisfies clauses with ¬x9
+- From clause (¬x8 ∨ ¬x9 ∨ ¬x10), since x10 = true, we need x8 = false, which contradicts our setting of x8 = true
+
+Conflict 2: Backtrack and try x9 = true
+- From clause (¬x8 ∨ ¬x10 ∨ x9), this clause is satisfied
+- From clause (x7 ∨ ¬x10 ∨ ¬x9), since x10 = true, we need x7 = true (already set)
+- From clause (x6 ∨ ¬x9 ∨ ¬x10), since x10 = true, we need x6 = true (already set)
+
+All clauses are now satisfied with the assignment:
+x1 = true, x2 = false, x3 = false, x4 = true, x5 = true, x6 = true, x7 = true, x8 = true, x9 = true, x10 = true
+
+SATISFIABLE
+Number of branches: 9
+Number of conflicts: 2
+x1 = true, x2 = false, x3 = false, x4 = true, x5 = true, x6 = true, x7 = true, x8 = true, x9 = true, x10 = true

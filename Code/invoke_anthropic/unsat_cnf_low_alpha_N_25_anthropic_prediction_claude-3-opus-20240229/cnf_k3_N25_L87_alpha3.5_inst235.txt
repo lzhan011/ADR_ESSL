@@ -1,0 +1,177 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=235
+p cnf 25 87
+-8 15 -6 0
+-8 -5 21 0
+-5 14 21 0
+4 16 13 0
+6 -4 20 0
+-4 23 12 0
+-4 21 18 0
+-22 -24 -14 0
+8 -3 18 0
+22 16 -11 0
+-11 21 -18 0
+-17 -19 6 0
+20 -2 3 0
+-4 -18 -12 0
+4 3 -7 0
+22 -15 -20 0
+12 -13 16 0
+11 -13 -8 0
+3 18 -2 0
+-20 -17 -22 0
+-19 -1 16 0
+-1 -8 -2 0
+23 21 1 0
+6 25 -21 0
+4 2 7 0
+-15 6 -9 0
+-8 25 24 0
+7 2 19 0
+-20 11 17 0
+-14 -22 17 0
+-3 24 -16 0
+-8 24 25 0
+-2 -3 8 0
+-21 8 -11 0
+-25 3 -21 0
+18 15 14 0
+5 -2 9 0
+-12 -18 -10 0
+14 11 17 0
+25 3 -20 0
+5 -23 1 0
+-9 20 -3 0
+24 -4 25 0
+-24 11 1 0
+25 22 12 0
+18 20 -4 0
+10 13 -9 0
+3 -24 7 0
+-1 -4 -10 0
+19 21 12 0
+12 -1 -8 0
+2 -1 -12 0
+-14 -7 22 0
+-3 -14 11 0
+23 -7 5 0
+2 -9 -22 0
+-21 1 13 0
+-13 -11 25 0
+-22 9 19 0
+3 16 14 0
+2 18 15 0
+-13 21 -25 0
+-21 7 -3 0
+-25 14 23 0
+-7 -18 10 0
+-21 -11 19 0
+-18 14 17 0
+12 18 2 0
+-11 4 17 0
+-19 -12 18 0
+-6 8 12 0
+-10 -7 22 0
+18 -12 6 0
+1 -24 -3 0
+-2 3 -1 0
+24 -12 -15 0
+-3 24 -17 0
+-23 -16 10 0
+-22 18 24 0
+-12 8 9 0
+-21 17 16 0
+7 3 -15 0
+-5 -4 7 0
+20 17 -16 0
+-16 13 -3 0
+-22 21 -20 0
+-3 -17 -4 0
+
+c GPT solve time: 36.75 seconds
+
+Here is the step-by-step solution to the given 3-CNF formula:
+
+Step 1: Choose literal x4 (appears in most clauses).
+Clauses satisfied: 4, 6, 7, 14, 15, 25, 42, 45, 48, 80
+Clauses simplified: 5, 18, 24
+
+Step 2: Choose literal x21.
+Clauses satisfied: 3, 11, 23, 34, 49, 55, 58, 64, 78, 79
+Clauses simplified: 2, 6, 24, 35, 60
+
+Step 3: Choose literal ¬x8.
+Clauses satisfied: 1, 2, 18, 22, 32, 33, 50, 69
+Clauses simplified: 9, 11, 34
+
+Step 4: Choose literal x3.
+Clauses satisfied: 13, 19, 20, 33, 40, 46, 47, 59, 73, 81
+Clauses simplified: 9, 31, 71, 74
+
+Step 5: Choose literal x18.
+Clauses satisfied: 7, 9, 36, 44, 65, 66, 68, 75
+Clauses simplified: 12, 38
+
+Step 6: Choose literal x2.
+Clauses satisfied: 13, 19, 33, 51, 56, 66, 74
+Clauses simplified: 25, 28, 37
+
+Step 7: Choose literal x12.
+Clauses satisfied: 6, 17, 44, 50, 66, 69, 77
+Clauses simplified: 14, 38, 67
+
+Step 8: Choose literal x25.
+Clauses satisfied: 24, 27, 32, 35, 40, 43, 44, 57, 63
+Clauses simplified: 8
+
+Step 9: Choose literal x16.
+Clauses satisfied: 4, 10, 12, 21, 59, 78, 80
+Clauses simplified: 31, 76
+
+Step 10: Choose literal ¬x20.
+Clauses satisfied: 16, 20, 22, 29, 40, 79
+Clauses simplified: 5, 41, 45
+
+Step 11: Choose literal x11.
+Clauses satisfied: 10, 29, 34, 39, 43, 58, 67
+Clauses simplified: 18
+
+Step 12: Choose literal x14.
+Clauses satisfied: 3, 18, 36, 39, 53, 63, 65
+Clauses simplified: 8, 22
+
+Step 13: Choose literal x17.
+Clauses satisfied: 14, 20, 29, 30, 39, 65, 76
+Clauses simplified: 12
+
+Step 14: Choose literal x1.
+Clauses satisfied: 23, 41, 43, 48, 55, 71
+Clauses simplified: 21, 22, 49
+
+Step 15: Choose literal x24.
+Clauses satisfied: 8, 27, 31, 42, 46, 75, 77
+Clauses simplified: 47, 72
+
+Step 16: Choose literal ¬x15.
+Clauses satisfied: 1, 16, 26, 72, 73
+Clauses simplified: 7
+
+Step 17: Choose literal x7.
+Clauses satisfied: 15, 25, 28, 47, 54, 62, 73
+Clauses simplified: 5, 52
+
+Step 18: Choose literal ¬x22.
+Clauses satisfied: 8, 20, 30, 52, 56, 70, 79
+Clauses simplified: 10
+
+Step 19: Choose literal x13.
+Clauses satisfied: 4, 17, 55, 76
+Clauses simplified: 18, 57, 60
+
+Step 20: Choose literal x6.
+Clauses satisfied: 1, 12, 26, 69
+Clauses simplified: 24
+
+Step 21: Choose literal x23.
+Clauses satisfied: 6,

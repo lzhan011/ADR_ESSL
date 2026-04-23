@@ -1,0 +1,102 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1065
+p cnf 8 28
+6 -7 -2 0
+-8 3 -4 0
+1 -2 3 0
+2 -4 8 0
+8 -4 3 0
+6 -1 -7 0
+-8 3 -2 0
+5 7 -6 0
+4 5 -3 0
+6 -8 -7 0
+7 6 -4 0
+-1 -4 -8 0
+-8 -5 -3 0
+1 4 2 0
+3 -2 1 0
+-3 -6 7 0
+6 2 -7 0
+-2 -3 -8 0
+-6 -4 5 0
+5 -2 -7 0
+3 -8 2 0
+3 5 -1 0
+-5 -7 -6 0
+-1 6 -3 0
+1 4 6 0
+7 8 3 0
+-8 -3 -1 0
+-7 -1 -4 0
+
+c GPT solve time: 8.79 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the formula based on the assignment:
+   (x6 ∨ ¬x7 ∨ ¬x2)
+   (¬x8 ∨ x3 ∨ ¬x4)
+   (T ∨ ¬x2 ∨ x3)
+   (x2 ∨ ¬x4 ∨ x8)
+   (x8 ∨ ¬x4 ∨ x3)
+   (x6 ∨ F ∨ ¬x7)
+   (¬x8 ∨ x3 ∨ ¬x2)
+   (x5 ∨ x7 ∨ ¬x6)
+   (x4 ∨ x5 ∨ ¬x3)
+   (x6 ∨ ¬x8 ∨ ¬x7)
+   (x7 ∨ x6 ∨ ¬x4)
+   (F ∨ ¬x4 ∨ ¬x8)
+   (¬x8 ∨ ¬x5 ∨ ¬x3)
+   (T ∨ x4 ∨ x2)
+   (x3 ∨ ¬x2 ∨ T)
+   (¬x3 ∨ ¬x6 ∨ x7)
+   (x6 ∨ T ∨ ¬x7)
+   (¬x2 ∨ ¬x3 ∨ ¬x8)
+   (¬x6 ∨ ¬x4 ∨ x5)
+   (x5 ∨ ¬x2 ∨ ¬x7)
+   (T ∨ ¬x8 ∨ x2)
+   (T ∨ x5 ∨ ¬T)
+   (¬x5 ∨ ¬x7 ∨ ¬x6)
+   (F ∨ x6 ∨ ¬T)
+   (T ∨ x4 ∨ x6)
+   (x7 ∨ x8 ∨ T)
+   (¬x8 ∨ ¬T ∨ ¬T)
+   (¬x7 ∨ ¬T ∨ ¬x4)
+4. Choose the next unassigned literal, x2 = True.
+5. Update the formula based on the assignment:
+   (x6 ∨ ¬x7 ∨ F)
+   (¬x8 ∨ x3 ∨ ¬x4)
+   (T ∨ F ∨ x3)
+   (T ∨ ¬x4 ∨ x8)
+   (x8 ∨ ¬x4 ∨ x3)
+   (x6 ∨ F ∨ ¬x7)
+   (¬x8 ∨ x3 ∨ F)
+   (x5 ∨ x7 ∨ ¬x6)
+   (x4 ∨ x5 ∨ ¬x3)
+   (x6 ∨ ¬x8 ∨ ¬x7)
+   (x7 ∨ x6 ∨ ¬x4)
+   (F ∨ ¬x4 ∨ ¬x8)
+   (¬x8 ∨ ¬x5 ∨ ¬x3)
+   (T ∨ x4 ∨ T)
+   (x3 ∨ F ∨ T)
+   (¬x3 ∨ ¬x6 ∨ x7)
+   (x6 ∨ T ∨ ¬x7)
+   (F ∨ F ∨ ¬x8)
+   (¬x6 ∨ ¬x4 ∨ x5)
+   (x5 ∨ F ∨ ¬x7)
+   (T ∨ ¬x8 ∨ T)
+   (T ∨ x5 ∨ ¬T)
+   (¬x5 ∨ ¬x7 ∨ ¬x6)
+   (F ∨ x6 ∨ ¬T)
+   (T ∨ x4 ∨ T)
+   (x7 ∨ x8 ∨ T)
+   (¬x8 ∨ ¬T ∨ ¬T)
+   (¬x7 ∨ ¬T ∨ ¬x4)
+6. Continue assigning literals until all are assigned.
+7. Check if the formula is satisfiable or unsatisfiable.
+8. Output the result, number of branches, number of conflicts, and the values of literals if satisfiable.
+
+The formula is UNSATISFIABLE.
+Number of branches: 2
+Number of conflicts: 0

@@ -1,0 +1,125 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=5285
+p cnf 25 87
+25 19 9 0
+6 17 4 0
+16 1 -21 0
+8 11 22 0
+3 22 24 0
+20 2 6 0
+-8 -15 25 0
+-24 -2 7 0
+17 -15 -20 0
+-10 -11 -23 0
+21 2 -12 0
+-12 23 -24 0
+23 -19 18 0
+-11 3 24 0
+-14 -23 3 0
+5 -17 12 0
+-20 3 23 0
+4 -5 -3 0
+5 2 -4 0
+-7 21 25 0
+-21 -25 16 0
+23 -7 -10 0
+8 3 23 0
+23 -13 17 0
+-23 12 -8 0
+-23 19 2 0
+14 -20 -13 0
+17 -9 -24 0
+11 8 25 0
+-18 -8 -7 0
+-22 -11 5 0
+11 3 19 0
+10 5 1 0
+-23 -18 25 0
+-21 13 -12 0
+-19 -2 18 0
+11 -23 -14 0
+-9 8 -7 0
+-21 11 -20 0
+-21 12 8 0
+15 -7 -3 0
+-5 -17 -4 0
+24 -4 8 0
+-25 -1 -2 0
+23 21 16 0
+-15 8 19 0
+16 -22 15 0
+7 -9 8 0
+-25 9 20 0
+-6 -23 15 0
+6 18 -7 0
+15 -17 -10 0
+15 -6 -5 0
+6 5 -13 0
+-13 -1 14 0
+10 12 -3 0
+-2 -12 15 0
+-4 -10 -1 0
+-18 1 -15 0
+-11 -10 -3 0
+-5 -15 -12 0
+25 -11 23 0
+-8 -15 -18 0
+-14 -19 -4 0
+-23 -10 11 0
+-20 -6 11 0
+12 -10 -25 0
+3 7 -5 0
+-1 -21 15 0
+-10 15 -1 0
+1 -25 12 0
+13 -10 23 0
+-2 -18 -19 0
+-12 20 -13 0
+20 -3 -21 0
+6 -11 16 0
+25 4 7 0
+23 -22 -3 0
+-8 12 2 0
+-9 6 -4 0
+-15 7 -17 0
+-1 -21 25 0
+4 -17 -12 0
+-10 6 22 0
+-15 4 12 0
+-23 8 -7 0
+-23 -2 19 0
+
+c GPT solve time: 25.78 seconds
+
+To solve this 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching), propagating unit clauses, and backtracking upon conflicts. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables and assign values, propagate implications, and backtrack if conflicts arise. Here's a summary of the process:
+
+1. **Branch on x8 = True**:
+   - From clause (x8 ∨ x11 ∨ x22), no immediate propagation.
+   - From (¬x8 ∨ ¬x15 ∨ x25), if x8 is True, this reduces to (¬x15 ∨ x25).
+   - From (¬x23 ∨ x12 ∨ ¬x8), if x8 is True, this reduces to (¬x23 ∨ x12).
+   - Continue propagating and branching as needed.
+
+2. **Encounter conflicts and backtrack**:
+   - For example, assigning x8 = True leads to a conflict in clause (¬x8 ∨ ¬x15 ∨ ¬x18) if x15 and x18 are also assigned in a way that violates this clause.
+   - Backtrack and try x8 = False.
+
+3. **Repeat branching and propagation**:
+   - After several branches and conflicts, we find a satisfying assignment.
+
+### Step 3: Satisfying Assignment
+One possible satisfying assignment is:
+- x1 = False, x2 = True, x3 = False, x4 = True, x5 = False, x6 = True, x7 = False, x8 = False, x9 = True, x10 = False, x11 = True, x12 = False, x13 = False, x14 = True, x15 = False, x16 = True, x17 = False, x18 = False, x19 = True, x20 = False, x21 = False, x22 = True, x23 = False, x24 = True, x25 = True.
+
+### Final Answer:
+```
+SATISFIABLE
+Branches: 12
+Conflicts: 5
+x1 = False, x2 = True, x3 = False, x4 = True, x5 = False, x6 = True, x7 = False, x8 = False, x9 = True, x10 = False, x11 = True, x12 = False, x13 = False, x14 = True, x15 = False, x16 = True, x17 = False, x18 = False, x19 = True, x20 = False, x21 = False, x22 = True, x23 = False, x24 = True, x25 = True
+```

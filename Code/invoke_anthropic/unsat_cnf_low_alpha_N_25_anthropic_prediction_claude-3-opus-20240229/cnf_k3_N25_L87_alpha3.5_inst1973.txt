@@ -1,0 +1,151 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1973
+p cnf 25 87
+3 -18 -15 0
+-9 23 -21 0
+-17 13 -1 0
+5 -9 -4 0
+-17 -2 23 0
+24 -11 3 0
+8 18 4 0
+20 -23 14 0
+-3 21 -23 0
+4 -23 18 0
+-20 -4 8 0
+11 -2 16 0
+-5 25 19 0
+22 -20 21 0
+1 12 -22 0
+-22 -16 -13 0
+-7 23 21 0
+21 2 -18 0
+22 -14 -11 0
+-3 -12 24 0
+-11 8 22 0
+11 23 -7 0
+11 24 21 0
+16 7 6 0
+15 9 -25 0
+-23 9 2 0
+-6 -10 -18 0
+-19 13 -3 0
+-4 11 9 0
+25 18 1 0
+-12 -22 24 0
+-20 18 -6 0
+-21 6 8 0
+6 -21 -7 0
+19 -23 -20 0
+11 4 -9 0
+1 17 9 0
+12 4 -1 0
+-2 21 -1 0
+2 -3 -9 0
+-21 -4 19 0
+-21 15 -24 0
+19 -24 18 0
+9 18 -2 0
+18 -1 20 0
+-23 2 1 0
+8 6 -16 0
+22 10 18 0
+-13 -7 20 0
+20 -13 -10 0
+-3 -20 6 0
+22 -5 23 0
+23 -3 16 0
+-25 6 -13 0
+-1 -24 -25 0
+14 20 22 0
+20 -22 25 0
+23 -12 -24 0
+11 19 9 0
+-13 -22 -16 0
+15 13 -11 0
+2 21 -24 0
+18 15 6 0
+9 -22 6 0
+-3 10 -19 0
+12 -25 18 0
+-23 -25 -24 0
+13 -3 -18 0
+6 14 10 0
+-11 -19 -25 0
+15 -19 -16 0
+15 7 -17 0
+-1 25 -21 0
+-7 -22 -14 0
+-15 20 24 0
+19 11 15 0
+13 -24 22 0
+20 -11 5 0
+-7 -3 -23 0
+17 1 9 0
+7 -19 8 0
+-22 -11 15 0
+5 -23 -6 0
+-9 -25 -21 0
+-21 17 5 0
+9 5 -8 0
+-19 -22 -24 0
+
+c GPT solve time: 21.80 seconds
+
+Here is the step-by-step solution to the given 3-CNF formula:
+
+1. Assign x3 = True to satisfy clause 1
+2. Assign x23 = True to satisfy clause 2
+3. Assign x13 = True to satisfy clause 3
+4. Assign x5 = True to satisfy clause 4
+5. Assign x24 = True to satisfy clause 6
+6. Assign x18 = True to satisfy clause 7
+7. Assign x14 = False to satisfy clause 8
+8. Assign x21 = True to satisfy clause 9
+9. Assign x4 = False to satisfy clause 10
+10. Assign x8 = True to satisfy clause 11
+11. Assign x16 = False to satisfy clause 12
+12. Assign x25 = True to satisfy clause 13
+13. Assign x22 = True to satisfy clause 14
+14. Assign x1 = True to satisfy clause 15
+15. Assign x12 = False to satisfy clause 20
+16. Assign x7 = False to satisfy clause 22
+17. Assign x6 = True to satisfy clause 24
+18. Assign x9 = False to satisfy clause 25
+19. Assign x2 = False to satisfy clause 26
+20. Assign x10 = False to satisfy clause 27
+21. Assign x19 = False to satisfy clause 28
+22. Assign x17 = True to satisfy clause 36
+23. Assign x20 = True to satisfy clause 44
+24. Assign x15 = True to satisfy clause 59
+25. Assign x11 = True to satisfy clause 73
+
+* SATISFIABLE
+* Number of branches: 25
+* Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = True
+x2 = False 
+x3 = True
+x4 = False
+x5 = True
+x6 = True
+x7 = False
+x8 = True
+x9 = False
+x10 = False
+x11 = True
+x12 = False
+x13 = True
+x14 = False
+x15 = True
+x16 = False
+x17 = True
+x18 = True
+x19 = False
+x20 = True
+x21 = True
+x22 = True
+x23 = True
+x24 = True
+x25 = True

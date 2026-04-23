@@ -1,0 +1,157 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=888
+p cnf 8 28
+2 7 3 0
+6 5 -4 0
+6 -3 -2 0
+-7 1 -3 0
+7 6 -1 0
+5 -8 -6 0
+6 -3 -8 0
+6 -5 7 0
+-7 -5 -4 0
+-1 5 6 0
+-4 -8 -5 0
+3 -2 1 0
+6 -3 7 0
+4 -2 -3 0
+8 1 -2 0
+-1 -5 -2 0
+6 -1 4 0
+2 -8 4 0
+-7 -6 5 0
+-3 1 7 0
+-1 5 7 0
+6 -4 5 0
+7 -3 8 0
+-5 1 -3 0
+8 -7 1 0
+-6 3 4 0
+4 5 -1 0
+4 8 -7 0
+
+c GPT solve time: 134.54 seconds
+
+Let's solve the given 3-CNF formula step by step using the DPLL algorithm. We'll keep track of the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step-by-Step Solution:
+
+1. **Initial State**: No assignments. No conflicts or branches yet.
+
+2. **Unit Propagation**: No unit clauses initially.
+
+3. **Decision 1**: Choose `x1 = True` (arbitrary choice).
+   - Branches: 1
+   - Propagate:
+     - From `(¬x1 ∨ x5 ∨ x6)`: `x5 ∨ x6` must be true.
+     - From `(¬x1 ∨ x5 ∨ x7)`: `x5 ∨ x7` must be true.
+     - From `(¬x1 ∨ ¬x5 ∨ ¬x2)`: `¬x5 ∨ ¬x2` must be true.
+     - From `(x5 ∨ ¬x8 ∨ ¬x6)`: No propagation.
+     - From `(x8 ∨ x1 ∨ ¬x2)`: `x8 ∨ ¬x2` must be true (since `x1` is true).
+     - From `(¬x5 ∨ x1 ∨ ¬x3)`: `¬x5 ∨ ¬x3` must be true (since `x1` is true).
+     - From `(x4 ∨ x5 ∨ ¬x1)`: `x4 ∨ x5` must be true (since `¬x1` is false).
+     - From `(x6 ∨ ¬x1 ∨ x4)`: `x6 ∨ x4` must be true (since `¬x1` is false).
+
+4. **Decision 2**: Choose `x5 = True` (arbitrary choice).
+   - Branches: 2
+   - Propagate:
+     - From `(¬x5 ∨ ¬x2)`: `¬x2` must be true (so `x2 = False`).
+     - From `(¬x5 ∨ ¬x3)`: `¬x3` must be true (so `x3 = False`).
+     - From `(x5 ∨ x6)`: `x6` must be true (since `x5` is true).
+     - From `(x5 ∨ x7)`: `x7` must be true (since `x5` is true).
+     - From `(¬x7 ∨ ¬x5 ∨ ¬x4)`: `¬x7 ∨ ¬x4` must be true (since `x5` is true). But `x7` is true, so `¬x4` must be true (so `x4 = False`).
+     - From `(x6 ∨ ¬x4 ∨ x5)`: Satisfied (all literals true).
+     - From `(x6 ∨ x5 ∨ ¬x4)`: Satisfied (all literals true).
+     - From `(x6 ∨ ¬x3 ∨ ¬x2)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x3 ∨ ¬x8)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x5 ∨ x7)`: Satisfied (`x6` is true).
+     - From `(¬x6 ∨ x3 ∨ x4)`: `¬x6 ∨ False ∨ False` → `¬x6` must be true. But `x6` is true, so this is a **conflict**.
+       - Conflicts: 1
+       - Backtrack to `x5 = True` decision.
+
+5. **Backtrack**: Undo `x5 = True` and try `x5 = False`.
+   - Branches: 2 (no increment, just changing the decision).
+   - Propagate:
+     - From `(¬x5 ∨ ¬x2)`: No propagation.
+     - From `(¬x5 ∨ ¬x3)`: No propagation.
+     - From `(x5 ∨ x6)`: `x6` must be true (since `x5` is false).
+     - From `(x5 ∨ x7)`: `x7` must be true (since `x5` is false).
+     - From `(¬x7 ∨ ¬x5 ∨ ¬x4)`: `¬x7 ∨ ¬x4` must be true (since `x5` is false). But `x7` is true, so `¬x4` must be true (so `x4 = False`).
+     - From `(x6 ∨ ¬x4 ∨ x5)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ x5 ∨ ¬x4)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x3 ∨ ¬x2)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x3 ∨ ¬x8)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x5 ∨ x7)`: Satisfied (`x6` is true).
+     - From `(¬x6 ∨ x3 ∨ x4)`: `¬x6 ∨ x3 ∨ False` → `¬x6 ∨ x3` must be true. But `x6` is true, so `x3` must be true (so `x3 = True`).
+     - From `(x3 ∨ ¬x2 ∨ x1)`: Satisfied (`x3` is true).
+     - From `(¬x3 ∨ x1 ∨ x7)`: Satisfied (`x1` and `x7` are true).
+     - From `(x7 ∨ ¬x3 ∨ x8)`: Satisfied (`x7` is true).
+     - From `(x2 ∨ x7 ∨ x3)`: Satisfied (`x7` and `x3` are true).
+     - From `(x4 ∨ ¬x2 ∨ ¬x3)`: `False ∨ ¬x2 ∨ False` → `¬x2` must be true (so `x2 = False`).
+     - From `(x8 ∨ x1 ∨ ¬x2)`: `x8 ∨ True ∨ True` → Satisfied.
+     - From `(¬x1 ∨ ¬x5 ∨ ¬x2)`: `False ∨ True ∨ True` → Satisfied.
+     - From `(x6 ∨ ¬x1 ∨ x4)`: `True ∨ False ∨ False` → Satisfied.
+     - From `(x2 ∨ ¬x8 ∨ x4)`: `False ∨ ¬x8 ∨ False` → `¬x8` must be true (so `x8 = False`).
+     - From `(¬x7 ∨ ¬x6 ∨ x5)`: `¬True ∨ ¬True ∨ False` → `False ∨ False ∨ False` → **Conflict**.
+       - Conflicts: 2
+       - Backtrack to `x1 = True` decision.
+
+6. **Backtrack**: Undo `x1 = True` and try `x1 = False`.
+   - Branches: 3 (new decision point).
+   - Propagate:
+     - From `(¬x1 ∨ x5 ∨ x6)`: `x5 ∨ x6` must be true.
+     - From `(¬x1 ∨ x5 ∨ x7)`: `x5 ∨ x7` must be true.
+     - From `(¬x1 ∨ ¬x5 ∨ ¬x2)`: `¬x5 ∨ ¬x2` must be true.
+     - From `(x8 ∨ x1 ∨ ¬x2)`: `x8 ∨ ¬x2` must be true (since `x1` is false).
+     - From `(¬x5 ∨ x1 ∨ ¬x3)`: `¬x5 ∨ ¬x3` must be true (since `x1` is false).
+     - From `(x4 ∨ x5 ∨ ¬x1)`: `x4 ∨ x5` must be true (since `¬x1` is true).
+     - From `(x6 ∨ ¬x1 ∨ x4)`: `x6 ∨ x4` must be true (since `¬x1` is true).
+
+7. **Decision 4**: Choose `x5 = True` (arbitrary choice).
+   - Branches: 4
+   - Propagate:
+     - From `(¬x5 ∨ ¬x2)`: `¬x2` must be true (so `x2 = False`).
+     - From `(¬x5 ∨ ¬x3)`: `¬x3` must be true (so `x3 = False`).
+     - From `(x5 ∨ x6)`: `x6` must be true (since `x5` is true).
+     - From `(x5 ∨ x7)`: `x7` must be true (since `x5` is true).
+     - From `(¬x7 ∨ ¬x5 ∨ ¬x4)`: `¬x7 ∨ ¬x4` must be true (since `x5` is true). But `x7` is true, so `¬x4` must be true (so `x4 = False`).
+     - From `(x6 ∨ ¬x4 ∨ x5)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ x5 ∨ ¬x4)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x3 ∨ ¬x2)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x3 ∨ ¬x8)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x5 ∨ x7)`: Satisfied (`x6` is true).
+     - From `(¬x6 ∨ x3 ∨ x4)`: `¬x6 ∨ False ∨ False` → `¬x6` must be true. But `x6` is true, so **conflict**.
+       - Conflicts: 3
+       - Backtrack to `x5 = True` decision.
+
+8. **Backtrack**: Undo `x5 = True` and try `x5 = False`.
+   - Branches: 4 (no increment, just changing the decision).
+   - Propagate:
+     - From `(¬x5 ∨ ¬x2)`: No propagation.
+     - From `(¬x5 ∨ ¬x3)`: No propagation.
+     - From `(x5 ∨ x6)`: `x6` must be true (since `x5` is false).
+     - From `(x5 ∨ x7)`: `x7` must be true (since `x5` is false).
+     - From `(¬x7 ∨ ¬x5 ∨ ¬x4)`: `¬x7 ∨ ¬x4` must be true (since `x5` is false). But `x7` is true, so `¬x4` must be true (so `x4 = False`).
+     - From `(x6 ∨ ¬x4 ∨ x5)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ x5 ∨ ¬x4)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x3 ∨ ¬x2)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x3 ∨ ¬x8)`: Satisfied (`x6` is true).
+     - From `(x6 ∨ ¬x5 ∨ x7)`: Satisfied (`x6` is true).
+     - From `(¬x6 ∨ x3 ∨ x4)`: `¬x6 ∨ x3 ∨ False` → `¬x6 ∨ x3` must be true. But `x6` is true, so `x3` must be true (so `x3 = True`).
+     - From `(x3 ∨ ¬x2 ∨ x1)`: Satisfied (`x3` is true).
+     - From `(¬x3 ∨ x1 ∨ x7)`: `¬True ∨ False ∨ True` → `False ∨ False ∨ True` → Satisfied.
+     - From `(x7 ∨ ¬x3 ∨ x8)`: `True ∨ False ∨ x8` → Satisfied.
+     - From `(x2 ∨ x7 ∨ x3)`: Satisfied (`x7` and `x3` are true).
+     - From `(x4 ∨ ¬x2 ∨ ¬x3)`: `False ∨ ¬x2 ∨ False` → `¬x2` must be true (so `x2 = False`).
+     - From `(x8 ∨ x1 ∨ ¬x2)`: `x8 ∨ False ∨ True` → Satisfied.
+     - From `(¬x1 ∨ ¬x5 ∨ ¬x2)`: `True ∨ True ∨ True` → Satisfied.
+     - From `(x6 ∨ ¬x1 ∨ x4)`: `True ∨ True ∨ False` → Satisfied.
+     - From `(x2 ∨ ¬x8 ∨ x4)`: `False ∨ ¬x8 ∨ False` → `¬x8` must be true (so `x8 = False`).
+     - From `(¬x7 ∨ ¬x6 ∨ x5)`: `¬True ∨ ¬True ∨ False` → `False ∨ False ∨ False` → **Conflict**.
+       - Conflicts: 4
+       - No more backtracking possible (all decisions exhausted).
+
+### Final Answer:
+- **SATISFIABLE/UNSATISFIABLE**: UNSATISFIABLE
+- **Number of branches**: 4
+- **Number of conflicts**: 4

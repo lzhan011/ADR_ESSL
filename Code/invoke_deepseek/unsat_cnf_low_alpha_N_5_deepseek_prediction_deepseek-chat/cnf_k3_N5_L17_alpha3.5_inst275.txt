@@ -1,0 +1,159 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=275
+p cnf 5 17
+-1 4 2 0
+-4 -3 2 0
+-4 5 2 0
+4 3 1 0
+-3 -4 1 0
+4 -3 -2 0
+4 -5 3 0
+-4 -1 -3 0
+-3 -1 -5 0
+4 -2 5 0
+4 1 -5 0
+5 -4 -3 0
+2 4 1 0
+3 -2 -4 0
+4 -2 -3 0
+-5 -3 4 0
+-5 3 -4 0
+
+c GPT solve time: 135.16 seconds
+
+Let's solve the given 3-CNF formula step by step using the DPLL algorithm. We'll keep track of the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step-by-Step Solution:
+
+1. **Initial State**: No assignments. No conflicts or branches yet.
+
+2. **Unit Propagation**: No unit clauses initially.
+
+3. **Decision 1**: Choose \( x4 = \text{True} \) (arbitrary choice).  
+   - Branches: 1  
+   - Assign \( x4 = \text{True} \).
+
+4. **Unit Propagation after \( x4 = \text{True} \)**:
+   - Clause 1: \( (\neg x1 \lor \text{True} \lor x2) \) → satisfied.
+   - Clause 2: \( (\neg \text{True} \lor \neg x3 \lor x2) \) → simplifies to \( (\neg x3 \lor x2) \).
+   - Clause 3: \( (\neg \text{True} \lor x5 \lor x2) \) → simplifies to \( (x5 \lor x2) \).
+   - Clause 4: \( (\text{True} \lor x3 \lor x1) \) → satisfied.
+   - Clause 5: \( (\neg x3 \lor \neg \text{True} \lor x1) \) → simplifies to \( (\neg x3 \lor x1) \).
+   - Clause 6: \( (\text{True} \lor \neg x3 \lor \neg x2) \) → satisfied.
+   - Clause 7: \( (\text{True} \lor \neg x5 \lor x3) \) → satisfied.
+   - Clause 8: \( (\neg \text{True} \lor \neg x1 \lor \neg x3) \) → simplifies to \( (\neg x1 \lor \neg x3) \).
+   - Clause 9: \( (\neg x3 \lor \neg x1 \lor \neg x5) \) → unchanged.
+   - Clause 10: \( (\text{True} \lor \neg x2 \lor x5) \) → satisfied.
+   - Clause 11: \( (\text{True} \lor x1 \lor \neg x5) \) → satisfied.
+   - Clause 12: \( (x5 \lor \neg \text{True} \lor \neg x3) \) → simplifies to \( (x5 \lor \neg x3) \).
+   - Clause 13: \( (x2 \lor \text{True} \lor x1) \) → satisfied.
+   - Clause 14: \( (x3 \lor \neg x2 \lor \neg \text{True}) \) → simplifies to \( (x3 \lor \neg x2) \).
+   - Clause 15: \( (\text{True} \lor \neg x2 \lor \neg x3) \) → satisfied.
+   - Clause 16: \( (\neg x5 \lor \neg x3 \lor \text{True}) \) → satisfied.
+   - Clause 17: \( (\neg x5 \lor x3 \lor \neg \text{True}) \) → simplifies to \( (\neg x5 \lor x3) \).
+
+   Remaining clauses after simplification:
+   - \( (\neg x3 \lor x2) \) (from clause 2)
+   - \( (x5 \lor x2) \) (from clause 3)
+   - \( (\neg x3 \lor x1) \) (from clause 5)
+   - \( (\neg x1 \lor \neg x3) \) (from clause 8)
+   - \( (\neg x3 \lor \neg x1 \lor \neg x5) \) (clause 9)
+   - \( (x5 \lor \neg x3) \) (from clause 12)
+   - \( (x3 \lor \neg x2) \) (from clause 14)
+   - \( (\neg x5 \lor x3) \) (from clause 17)
+
+5. **Decision 2**: Choose \( x3 = \text{True} \).  
+   - Branches: 2  
+   - Assign \( x3 = \text{True} \).
+
+6. **Unit Propagation after \( x3 = \text{True} \)**:
+   - \( (\neg \text{True} \lor x2) \) → simplifies to \( (x2) \). Assign \( x2 = \text{True} \).
+   - \( (x5 \lor \text{True}) \) → satisfied.
+   - \( (\neg \text{True} \lor x1) \) → simplifies to \( (x1) \). Assign \( x1 = \text{True} \).
+   - \( (\neg x1 \lor \neg \text{True}) \) → simplifies to \( (\neg x1) \). Conflict with \( x1 = \text{True} \).  
+     - Conflict detected. Backtrack.  
+     - Conflicts: 1  
+
+7. **Backtrack to Decision 2**: Try \( x3 = \text{False} \).  
+   - Assign \( x3 = \text{False} \).
+
+8. **Unit Propagation after \( x3 = \text{False} \)**:
+   - \( (\neg \text{False} \lor x2) \) → simplifies to \( (x2) \). Assign \( x2 = \text{True} \).
+   - \( (x5 \lor \text{True}) \) → satisfied.
+   - \( (\neg \text{False} \lor x1) \) → simplifies to \( (x1) \). Assign \( x1 = \text{True} \).
+   - \( (\neg x1 \lor \neg \text{False}) \) → simplifies to \( (\neg x1) \). Conflict with \( x1 = \text{True} \).  
+     - Conflict detected. Backtrack.  
+     - Conflicts: 2  
+
+9. **Backtrack to Decision 1**: Try \( x4 = \text{False} \).  
+   - Assign \( x4 = \text{False} \).
+
+10. **Unit Propagation after \( x4 = \text{False} \)**:
+    - Clause 1: \( (\neg x1 \lor \text{False} \lor x2) \) → simplifies to \( (\neg x1 \lor x2) \).
+    - Clause 2: \( (\neg \text{False} \lor \neg x3 \lor x2) \) → simplifies to \( (\neg x3 \lor x2) \).
+    - Clause 3: \( (\neg \text{False} \lor x5 \lor x2) \) → simplifies to \( (x5 \lor x2) \).
+    - Clause 4: \( (\text{False} \lor x3 \lor x1) \) → simplifies to \( (x3 \lor x1) \).
+    - Clause 5: \( (\neg x3 \lor \neg \text{False} \lor x1) \) → simplifies to \( (\neg x3 \lor x1) \).
+    - Clause 6: \( (\text{False} \lor \neg x3 \lor \neg x2) \) → simplifies to \( (\neg x3 \lor \neg x2) \).
+    - Clause 7: \( (\text{False} \lor \neg x5 \lor x3) \) → simplifies to \( (\neg x5 \lor x3) \).
+    - Clause 8: \( (\neg \text{False} \lor \neg x1 \lor \neg x3) \) → simplifies to \( (\neg x1 \lor \neg x3) \).
+    - Clause 9: \( (\neg x3 \lor \neg x1 \lor \neg x5) \) → unchanged.
+    - Clause 10: \( (\text{False} \lor \neg x2 \lor x5) \) → simplifies to \( (\neg x2 \lor x5) \).
+    - Clause 11: \( (\text{False} \lor x1 \lor \neg x5) \) → simplifies to \( (x1 \lor \neg x5) \).
+    - Clause 12: \( (x5 \lor \neg \text{False} \lor \neg x3) \) → simplifies to \( (x5 \lor \neg x3) \).
+    - Clause 13: \( (x2 \lor \text{False} \lor x1) \) → simplifies to \( (x2 \lor x1) \).
+    - Clause 14: \( (x3 \lor \neg x2 \lor \neg \text{False}) \) → simplifies to \( (x3 \lor \neg x2) \).
+    - Clause 15: \( (\text{False} \lor \neg x2 \lor \neg x3) \) → simplifies to \( (\neg x2 \lor \neg x3) \).
+    - Clause 16: \( (\neg x5 \lor \neg x3 \lor \text{False}) \) → simplifies to \( (\neg x5 \lor \neg x3) \).
+    - Clause 17: \( (\neg x5 \lor x3 \lor \neg \text{False}) \) → simplifies to \( (\neg x5 \lor x3) \).
+
+    Remaining clauses after simplification:
+    - \( (\neg x1 \lor x2) \)
+    - \( (\neg x3 \lor x2) \)
+    - \( (x5 \lor x2) \)
+    - \( (x3 \lor x1) \)
+    - \( (\neg x3 \lor x1) \)
+    - \( (\neg x3 \lor \neg x2) \)
+    - \( (\neg x5 \lor x3) \)
+    - \( (\neg x1 \lor \neg x3) \)
+    - \( (\neg x3 \lor \neg x1 \lor \neg x5) \)
+    - \( (\neg x2 \lor x5) \)
+    - \( (x1 \lor \neg x5) \)
+    - \( (x5 \lor \neg x3) \)
+    - \( (x2 \lor x1) \)
+    - \( (x3 \lor \neg x2) \)
+    - \( (\neg x2 \lor \neg x3) \)
+    - \( (\neg x5 \lor \neg x3) \)
+    - \( (\neg x5 \lor x3) \)
+
+11. **Decision 3**: Choose \( x3 = \text{True} \).  
+    - Branches: 3  
+    - Assign \( x3 = \text{True} \).
+
+12. **Unit Propagation after \( x3 = \text{True} \)**:
+    - \( (\neg \text{True} \lor x2) \) → simplifies to \( (x2) \). Assign \( x2 = \text{True} \).
+    - \( (\neg \text{True} \lor \neg x2) \) → simplifies to \( (\neg x2) \). Conflict with \( x2 = \text{True} \).  
+      - Conflict detected. Backtrack.  
+      - Conflicts: 3  
+
+13. **Backtrack to Decision 3**: Try \( x3 = \text{False} \).  
+    - Assign \( x3 = \text{False} \).
+
+14. **Unit Propagation after \( x3 = \text{False} \)**:
+    - \( (x5 \lor \neg \text{False}) \) → simplifies to \( (x5) \). Assign \( x5 = \text{True} \).
+    - \( (\neg \text{False} \lor x1) \) → simplifies to \( (x1) \). Assign \( x1 = \text{True} \).
+    - \( (\neg x1 \lor \neg \text{False}) \) → simplifies to \( (\neg x1) \). Conflict with \( x1 = \text{True} \).  
+      - Conflict detected. Backtrack.  
+      - Conflicts: 4  
+
+### Final Result:
+- The formula is **UNSATISFIABLE** after exhaustive search.
+- Number of branches (decision points): 3  
+- Number of conflicts (backtracking steps): 4  
+
+### Output:
+```
+UNSATISFIABLE
+3
+4
+```

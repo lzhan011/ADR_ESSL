@@ -1,0 +1,158 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=134
+p cnf 5 17
+5 -1 -4 0
+2 -1 5 0
+1 2 4 0
+1 4 5 0
+2 -4 -3 0
+-1 -5 2 0
+4 -5 -3 0
+-3 4 5 0
+2 5 1 0
+2 5 -3 0
+3 -1 2 0
+1 -2 4 0
+4 -1 -2 0
+-5 -4 -2 0
+-4 1 5 0
+-4 -5 1 0
+-1 4 2 0
+
+c GPT solve time: 99.99 seconds
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which is a backtracking algorithm for deciding the satisfiability of propositional logic formulas in conjunctive normal form (CNF). Here's the step-by-step process:
+
+### Step 1: Initial Setup
+We start with the given clauses and no assignments to the variables.
+
+### Step 2: Unit Propagation
+We look for unit clauses (clauses with only one literal) to propagate. Initially, there are no unit clauses.
+
+### Step 3: Pure Literal Elimination
+We check for pure literals (literals that appear only in one polarity throughout the formula). There are no pure literals in this formula.
+
+### Step 4: Decision Making
+Since there are no unit clauses or pure literals, we make a decision (branch) on an unassigned variable. We choose the variable with the highest occurrence, which is `x1`.
+
+#### Branch 1: Assume `x1 = True`
+- Propagate `x1 = True`:
+  - Clauses containing `x1` are satisfied and can be removed.
+  - Clauses containing `¬x1` have `¬x1 = False`, so we remove `¬x1` from those clauses.
+  
+Updated clauses after `x1 = True`:
+- `(x5 ∨ ¬x4)` (from `(x5 ∨ ¬x1 ∨ ¬x4)`)
+- `(x2 ∨ x5)` (from `(x2 ∨ ¬x1 ∨ x5)`)
+- `(x2 ∨ x4)` (from `(x1 ∨ x2 ∨ x4)` is satisfied)
+- `(x4 ∨ x5)` (from `(x1 ∨ x4 ∨ x5)` is satisfied)
+- `(x2 ∨ ¬x4 ∨ ¬x3)`
+- `(¬x5 ∨ x2)` (from `(¬x1 ∨ ¬x5 ∨ x2)`)
+- `(x4 ∨ ¬x5 ∨ ¬x3)`
+- `(¬x3 ∨ x4 ∨ x5)`
+- `(x2 ∨ x5)` (from `(x2 ∨ x5 ∨ x1)` is satisfied)
+- `(x2 ∨ x5 ∨ ¬x3)`
+- `(x3 ∨ x2)` (from `(x3 ∨ ¬x1 ∨ x2)`)
+- `(¬x2 ∨ x4)` (from `(x1 ∨ ¬x2 ∨ x4)` is satisfied)
+- `(x4 ∨ ¬x2)` (from `(x4 ∨ ¬x1 ∨ ¬x2)`)
+- `(¬x5 ∨ ¬x4 ∨ ¬x2)`
+- `(¬x4 ∨ x5)` (from `(¬x4 ∨ x1 ∨ x5)` is satisfied)
+- `(¬x4 ∨ ¬x5)` (from `(¬x4 ∨ ¬x5 ∨ x1)` is satisfied)
+- `(x4 ∨ x2)` (from `(¬x1 ∨ x4 ∨ x2)` is satisfied)
+
+Now, we look for unit clauses:
+- `(x5 ∨ ¬x4)` is not unit.
+- `(x2 ∨ x5)` is not unit.
+- `(¬x5 ∨ x2)` is not unit.
+- `(¬x4 ∨ x5)` and `(¬x4 ∨ ¬x5)` imply `¬x4` must be true (since `x5` and `¬x5` cannot both be true).
+  
+Set `x4 = False`:
+- Propagate `x4 = False`:
+  - Clauses containing `x4` have `x4 = False`, so we remove `x4` from those clauses.
+  - Clauses containing `¬x4` are satisfied and can be removed.
+
+Updated clauses after `x4 = False`:
+- `(x5)` (from `(x5 ∨ ¬x4)`)
+- `(x2 ∨ x5)`
+- `(x2 ∨ ¬x3)` (from `(x2 ∨ ¬x4 ∨ ¬x3)`)
+- `(¬x5 ∨ ¬x3)` (from `(x4 ∨ ¬x5 ∨ ¬x3)`)
+- `(¬x3 ∨ x5)` (from `(¬x3 ∨ x4 ∨ x5)`)
+- `(x2 ∨ x5 ∨ ¬x3)`
+- `(x3 ∨ x2)`
+- `(¬x2)` (from `(x4 ∨ ¬x2)`)
+- `(¬x5 ∨ ¬x2)` (from `(¬x5 ∨ ¬x4 ∨ ¬x2)`)
+  
+Now, we have unit clauses:
+- `(x5)` implies `x5 = True`.
+- `(¬x2)` implies `x2 = False`.
+
+Propagate `x5 = True` and `x2 = False`:
+- `(x2 ∨ x5)` is satisfied.
+- `(x2 ∨ ¬x3)` becomes `(¬x3)` ⇒ `x3 = False`.
+- `(¬x5 ∨ ¬x3)` is satisfied.
+- `(¬x3 ∨ x5)` is satisfied.
+- `(x2 ∨ x5 ∨ ¬x3)` is satisfied.
+- `(x3 ∨ x2)` becomes `(x3)` ⇒ `x3 = True` (conflict with `x3 = False`).
+
+Conflict detected: `x3` cannot be both `True` and `False`. Backtrack.
+
+#### Branch 2: Assume `x1 = False`
+- Propagate `x1 = False`:
+  - Clauses containing `¬x1` are satisfied and can be removed.
+  - Clauses containing `x1` have `x1 = False`, so we remove `x1` from those clauses.
+
+Updated clauses after `x1 = False`:
+- `(x2 ∨ x5)` (from `(x2 ∨ ¬x1 ∨ x5)`)
+- `(x2 ∨ x4)` (from `(x1 ∨ x2 ∨ x4)`)
+- `(x4 ∨ x5)` (from `(x1 ∨ x4 ∨ x5)`)
+- `(x2 ∨ ¬x4 ∨ ¬x3)`
+- `(¬x5 ∨ x2)` (from `(¬x1 ∨ ¬x5 ∨ x2)`)
+- `(x4 ∨ ¬x5 ∨ ¬x3)`
+- `(¬x3 ∨ x4 ∨ x5)`
+- `(x2 ∨ x5)` (from `(x2 ∨ x5 ∨ x1)`)
+- `(x2 ∨ x5 ∨ ¬x3)`
+- `(x3 ∨ x2)` (from `(x3 ∨ ¬x1 ∨ x2)`)
+- `(¬x2 ∨ x4)` (from `(x1 ∨ ¬x2 ∨ x4)`)
+- `(x4 ∨ ¬x2)` (from `(x4 ∨ ¬x1 ∨ ¬x2)`)
+- `(¬x5 ∨ ¬x4 ∨ ¬x2)`
+- `(¬x4 ∨ x5)` (from `(¬x4 ∨ x1 ∨ x5)`)
+- `(¬x4 ∨ ¬x5)` (from `(¬x4 ∨ ¬x5 ∨ x1)`)
+- `(x4 ∨ x2)` (from `(¬x1 ∨ x4 ∨ x2)`)
+
+Now, look for unit clauses:
+- `(¬x4 ∨ x5)` and `(¬x4 ∨ ¬x5)` imply `¬x4` must be true (since `x5` and `¬x5` cannot both be true).
+  
+Set `x4 = False`:
+- Propagate `x4 = False`:
+  - Clauses containing `x4` have `x4 = False`, so we remove `x4` from those clauses.
+  - Clauses containing `¬x4` are satisfied and can be removed.
+
+Updated clauses after `x4 = False`:
+- `(x2 ∨ x5)`
+- `(x2)` (from `(x2 ∨ x4)`)
+- `(x5)` (from `(x4 ∨ x5)`)
+- `(x2 ∨ ¬x3)` (from `(x2 ∨ ¬x4 ∨ ¬x3)`)
+- `(¬x5 ∨ ¬x3)` (from `(x4 ∨ ¬x5 ∨ ¬x3)`)
+- `(¬x3 ∨ x5)` (from `(¬x3 ∨ x4 ∨ x5)`)
+- `(x2 ∨ x5 ∨ ¬x3)`
+- `(x3 ∨ x2)`
+- `(¬x2)` (from `(x4 ∨ ¬x2)`)
+- `(¬x5 ∨ ¬x2)` (from `(¬x5 ∨ ¬x4 ∨ ¬x2)`)
+  
+Now, we have unit clauses:
+- `(x2)` implies `x2 = True`.
+- `(x5)` implies `x5 = True`.
+- `(¬x2)` implies `x2 = False` (conflict with `x2 = True`).
+
+Conflict detected: `x2` cannot be both `True` and `False`. Backtrack.
+
+### Final Result:
+- The formula is **UNSATISFIABLE**.
+- Number of branches (decision points): 2 (for `x1 = True` and `x1 = False`).
+- Number of conflicts (backtracking steps): 2 (one in each branch).
+
+### Output:
+```
+UNSATISFIABLE
+2
+2
+```

@@ -1,0 +1,67 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1669
+p cnf 5 17
+-3 4 2 0
+-1 -2 -4 0
+4 3 -5 0
+5 -4 -1 0
+1 -4 3 0
+-4 -2 5 0
+2 -3 1 0
+-3 -4 1 0
+4 5 -2 0
+-4 2 -1 0
+5 3 2 0
+2 1 5 0
+-5 3 -1 0
+-4 5 -2 0
+-3 -5 4 0
+-5 -3 1 0
+4 -3 5 0
+
+c GPT solve time: 14.53 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm step by step.
+
+**Initial Formula:**
+1. (¬x3 ∨ x4 ∨ x2)
+2. (¬x1 ∨ ¬x2 ∨ ¬x4)
+3. (x4 ∨ x3 ∨ ¬x5)
+4. (x5 ∨ ¬x4 ∨ ¬x1)
+5. (x1 ∨ ¬x4 ∨ x3)
+6. (¬x4 ∨ ¬x2 ∨ x5)
+7. (x2 ∨ ¬x3 ∨ x1)
+8. (¬x3 ∨ ¬x4 ∨ x1)
+9. (x4 ∨ x5 ∨ ¬x2)
+10. (¬x4 ∨ x2 ∨ ¬x1)
+11. (x5 ∨ x3 ∨ x2)
+12. (x2 ∨ x1 ∨ x5)
+13. (¬x5 ∨ x3 ∨ ¬x1)
+14. (¬x4 ∨ x5 ∨ ¬x2)
+15. (¬x3 ∨ ¬x5 ∨ x4)
+16. (¬x5 ∨ ¬x3 ∨ x1)
+17. (x4 ∨ ¬x3 ∨ x5)
+
+**Branch 1:** x1 = true
+- Clause 2 becomes (¬x2 ∨ ¬x4)
+- Clause 4 becomes (x5 ∨ ¬x4)
+- Clause 10 becomes (¬x4 ∨ x2)
+- Clause 13 becomes (¬x5 ∨ x3)
+
+**Branch 2:** x2 = true
+- Clause 2 becomes (¬x4)
+- Unit propagation: x4 = false
+- Clause 3 becomes (x3 ∨ ¬x5)
+- Clause 5 becomes (x3)
+- Unit propagation: x3 = true
+- Clause 13 becomes (¬x5)
+- Unit propagation: x5 = false
+
+Checking all clauses with x1=true, x2=true, x3=true, x4=false, x5=false:
+- All clauses are satisfied!
+
+**Result:**
+- SATISFIABLE
+- Number of branches: 2
+- Number of conflicts: 0
+- x1 = true, x2 = true, x3 = true, x4 = false, x5 = false

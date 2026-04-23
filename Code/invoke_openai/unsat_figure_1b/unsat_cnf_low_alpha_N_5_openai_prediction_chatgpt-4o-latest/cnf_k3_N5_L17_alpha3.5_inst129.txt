@@ -1,0 +1,206 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=129
+p cnf 5 17
+-4 -5 1 0
+1 2 3 0
+-2 5 3 0
+-1 2 4 0
+2 -1 5 0
+2 -3 1 0
+5 -3 -2 0
+-1 -2 -3 0
+-5 -3 -2 0
+-3 -1 -4 0
+-1 -2 -4 0
+-5 4 1 0
+1 -5 3 0
+-4 3 -5 0
+3 1 2 0
+2 -4 1 0
+-2 -1 4 0
+
+c GPT solve time: 19.59 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking on conflicts
+
+Let’s denote the variables: x1, x2, x3, x4, x5.
+
+Step-by-step DPLL:
+
+Step 1: No unit clauses or pure literals initially.
+
+Step 2: Choose a variable to branch on. Let’s pick x1 = True (Branch 1)
+
+→ Propagate x1 = True
+
+Now simplify all clauses:
+
+- (¬x4 ∨ ¬x5 ∨ x1) → satisfied
+- (x1 ∨ x2 ∨ x3) → satisfied
+- (¬x2 ∨ x5 ∨ x3) → remains
+- (¬x1 ∨ x2 ∨ x4) → (False ∨ x2 ∨ x4) → (x2 ∨ x4)
+- (x2 ∨ ¬x1 ∨ x5) → (x2 ∨ False ∨ x5) → (x2 ∨ x5)
+- (x2 ∨ ¬x3 ∨ x1) → satisfied
+- (x5 ∨ ¬x3 ∨ ¬x2) → remains
+- (¬x1 ∨ ¬x2 ∨ ¬x3) → (False ∨ ¬x2 ∨ ¬x3) → (¬x2 ∨ ¬x3)
+- (¬x5 ∨ ¬x3 ∨ ¬x2) → remains
+- (¬x3 ∨ ¬x1 ∨ ¬x4) → (¬x3 ∨ False ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ ¬x2 ∨ ¬x4) → (¬x2 ∨ ¬x4)
+- (¬x5 ∨ x4 ∨ x1) → satisfied
+- (x1 ∨ ¬x5 ∨ x3) → satisfied
+- (¬x4 ∨ x3 ∨ ¬x5) → remains
+- (x3 ∨ x1 ∨ x2) → satisfied
+- (x2 ∨ ¬x4 ∨ x1) → satisfied
+- (¬x2 ∨ ¬x1 ∨ x4) → (¬x2 ∨ False ∨ x4) → (¬x2 ∨ x4)
+
+Remaining simplified clauses:
+
+1. (¬x2 ∨ x5 ∨ x3)
+2. (x2 ∨ x4)
+3. (x2 ∨ x5)
+4. (x5 ∨ ¬x3 ∨ ¬x2)
+5. (¬x2 ∨ ¬x3)
+6. (¬x5 ∨ ¬x3 ∨ ¬x2)
+7. (¬x3 ∨ ¬x4)
+8. (¬x2 ∨ ¬x4)
+9. (¬x4 ∨ x3 ∨ ¬x5)
+10. (¬x2 ∨ x4)
+
+No unit clauses or pure literals.
+
+Step 3: Branch on x2 = True (Branch 2)
+
+→ Propagate x2 = True
+
+Simplify:
+
+- (¬x2 ∨ x5 ∨ x3) → (False ∨ x5 ∨ x3) → (x5 ∨ x3)
+- (x2 ∨ x4) → satisfied
+- (x2 ∨ x5) → satisfied
+- (x5 ∨ ¬x3 ∨ ¬x2) → (x5 ∨ ¬x3 ∨ False) → (x5 ∨ ¬x3)
+- (¬x2 ∨ ¬x3) → (False ∨ ¬x3) → (¬x3)
+- (¬x5 ∨ ¬x3 ∨ ¬x2) → (¬x5 ∨ ¬x3 ∨ False) → (¬x5 ∨ ¬x3)
+- (¬x3 ∨ ¬x4)
+- (¬x2 ∨ ¬x4) → (False ∨ ¬x4) → (¬x4)
+- (¬x4 ∨ x3 ∨ ¬x5)
+- (¬x2 ∨ x4) → (False ∨ x4) → (x4)
+
+Now we have a conflict: (¬x4) and (x4) → Conflict 1 → Backtrack
+
+Backtrack to x2 = False (Branch 3)
+
+→ Propagate x2 = False
+
+Simplify:
+
+- (¬x2 ∨ x5 ∨ x3) → satisfied
+- (x2 ∨ x4) → (False ∨ x4) → (x4)
+- (x2 ∨ x5) → (False ∨ x5) → (x5)
+- (x5 ∨ ¬x3 ∨ ¬x2) → satisfied
+- (¬x2 ∨ ¬x3) → satisfied
+- (¬x5 ∨ ¬x3 ∨ ¬x2) → satisfied
+- (¬x3 ∨ ¬x4)
+- (¬x2 ∨ ¬x4) → satisfied
+- (¬x4 ∨ x3 ∨ ¬x5)
+- (¬x2 ∨ x4) → satisfied
+
+Now we have unit clauses: (x4), (x5)
+
+→ Assign x4 = True, x5 = True
+
+Now propagate:
+
+- (¬x3 ∨ ¬x4) → (¬x3 ∨ False) → (¬x3)
+- (¬x4 ∨ x3 ∨ ¬x5) → (False ∨ x3 ∨ False) → (x3)
+
+Now we have (¬x3) and (x3) → Conflict 2 → Backtrack
+
+Backtrack to x1 = False (Branch 4)
+
+→ Propagate x1 = False
+
+Simplify:
+
+- (¬x4 ∨ ¬x5 ∨ x1) → (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+- (x1 ∨ x2 ∨ x3) → (False ∨ x2 ∨ x3) → (x2 ∨ x3)
+- (¬x2 ∨ x5 ∨ x3)
+- (¬x1 ∨ x2 ∨ x4) → satisfied
+- (x2 ∨ ¬x1 ∨ x5) → satisfied
+- (x2 ∨ ¬x3 ∨ x1) → (x2 ∨ ¬x3 ∨ False) → (x2 ∨ ¬x3)
+- (x5 ∨ ¬x3 ∨ ¬x2)
+- (¬x1 ∨ ¬x2 ∨ ¬x3) → satisfied
+- (¬x5 ∨ ¬x3 ∨ ¬x2)
+- (¬x3 ∨ ¬x1 ∨ ¬x4) → satisfied
+- (¬x1 ∨ ¬x2 ∨ ¬x4) → satisfied
+- (¬x5 ∨ x4 ∨ x1) → (¬x5 ∨ x4 ∨ False) → (¬x5 ∨ x4)
+- (x1 ∨ ¬x5 ∨ x3) → (False ∨ ¬x5 ∨ x3) → (¬x5 ∨ x3)
+- (¬x4 ∨ x3 ∨ ¬x5)
+- (x3 ∨ x1 ∨ x2) → (x3 ∨ False ∨ x2) → (x3 ∨ x2)
+- (x2 ∨ ¬x4 ∨ x1) → (x2 ∨ ¬x4 ∨ False) → (x2 ∨ ¬x4)
+- (¬x2 ∨ ¬x1 ∨ x4) → satisfied
+
+Now pick x2 = True (Branch 5)
+
+→ Propagate x2 = True
+
+Simplify:
+
+- (x2 ∨ x3) → satisfied
+- (¬x2 ∨ x5 ∨ x3) → (False ∨ x5 ∨ x3) → (x5 ∨ x3)
+- (x2 ∨ ¬x3) → satisfied
+- (x5 ∨ ¬x3 ∨ ¬x2) → (x5 ∨ ¬x3 ∨ False) → (x5 ∨ ¬x3)
+- (¬x5 ∨ ¬x3 ∨ ¬x2) → (¬x5 ∨ ¬x3 ∨ False) → (¬x5 ∨ ¬x3)
+- (¬x5 ∨ x4)
+- (¬x5 ∨ x3)
+- (¬x4 ∨ x3 ∨ ¬x5)
+- (x3 ∨ x2) → satisfied
+- (x2 ∨ ¬x4) → satisfied
+
+Now pick x3 = False (Branch 6)
+
+→ Propagate x3 = False
+
+Now (x5 ∨ ¬x3) → (x5 ∨ True) → satisfied
+
+(¬x5 ∨ ¬x3) → (¬x5 ∨ True) → satisfied
+
+(¬x5 ∨ x4) → remains
+
+(¬x5 ∨ x3) → (¬x5 ∨ False) → (¬x5)
+
+(¬x4 ∨ x3 ∨ ¬x5) → (¬x4 ∨ False ∨ ¬x5) → (¬x4 ∨ ¬x5)
+
+Now we have unit clause (¬x5) → x5 = False
+
+Now (¬x5 ∨ x4) → (True ∨ x4) → satisfied
+
+(¬x4 ∨ ¬x5) → (¬x4 ∨ True) → satisfied
+
+Now all clauses are satisfied.
+
+Final assignment:
+
+x1 = False  
+x2 = True  
+x3 = False  
+x4 = any (say True)  
+x5 = False
+
+✅ All clauses satisfied.
+
+Answer:
+
+- SATISFIABLE  
+- Number of branches: 6  
+- Number of conflicts: 2  
+- Assignment:  
+  x1 = False  
+  x2 = True  
+  x3 = False  
+  x4 = True  
+  x5 = False

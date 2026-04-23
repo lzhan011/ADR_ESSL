@@ -1,0 +1,439 @@
+c Random 3-SAT
+c alpha=3.5, N=50, L=175, instance=5887
+p cnf 50 175
+-12 47 39 0
+-1 9 40 0
+22 50 42 0
+19 -22 28 0
+4 14 -50 0
+-26 6 24 0
+5 -1 -46 0
+31 -40 -7 0
+-30 50 -46 0
+-35 22 21 0
+50 43 36 0
+-14 47 46 0
+-10 33 32 0
+7 49 31 0
+11 -17 -10 0
+-29 18 31 0
+1 15 -4 0
+41 5 2 0
+-4 35 -20 0
+-44 -41 33 0
+25 29 -31 0
+-34 39 -13 0
+48 10 2 0
+-23 38 -43 0
+35 40 -50 0
+34 35 49 0
+45 4 13 0
+6 -32 36 0
+43 -1 44 0
+30 34 39 0
+37 1 -12 0
+24 -23 -35 0
+22 -47 37 0
+-36 -13 42 0
+-16 20 -26 0
+45 43 2 0
+-22 -47 -27 0
+-21 -42 46 0
+5 -22 34 0
+-9 -42 -10 0
+6 -43 -39 0
+1 -45 -6 0
+-12 -36 15 0
+20 47 46 0
+2 -37 11 0
+-32 -31 38 0
+-49 22 -28 0
+20 43 -2 0
+-48 -19 -15 0
+4 15 47 0
+14 -5 -47 0
+16 -44 -20 0
+17 -46 -10 0
+29 6 -16 0
+-48 32 25 0
+-49 -45 2 0
+9 -37 -5 0
+-50 6 45 0
+-37 18 23 0
+-9 -31 -46 0
+3 -15 -41 0
+-44 -23 31 0
+15 -22 -3 0
+42 47 -16 0
+-2 -37 11 0
+-23 -38 -32 0
+-38 -44 6 0
+22 -37 5 0
+12 -40 -43 0
+20 49 -48 0
+43 38 -34 0
+-14 -22 5 0
+27 43 -40 0
+-10 5 50 0
+-46 -49 24 0
+-49 46 22 0
+-39 -44 -38 0
+-25 34 14 0
+47 -25 -50 0
+12 18 7 0
+-21 49 -36 0
+-6 -23 -13 0
+39 -24 44 0
+21 17 -42 0
+-44 22 33 0
+44 -48 -8 0
+-37 3 -12 0
+-2 14 -12 0
+48 -26 -17 0
+16 -17 -14 0
+26 33 -35 0
+16 10 20 0
+37 2 31 0
+-31 -14 -50 0
+-7 -23 48 0
+-4 -5 43 0
+-34 3 -4 0
+42 -18 35 0
+23 -39 -42 0
+-22 5 48 0
+17 -12 14 0
+-38 -33 -27 0
+31 -8 39 0
+31 40 -5 0
+39 -2 6 0
+-37 26 -24 0
+-20 40 -34 0
+24 -43 -22 0
+-41 -29 -30 0
+-19 23 -14 0
+18 4 -38 0
+19 -1 39 0
+-33 -7 30 0
+42 -50 21 0
+18 -23 21 0
+-25 8 -17 0
+-37 6 -50 0
+33 15 -6 0
+-24 -32 -25 0
+4 -10 -3 0
+46 -31 -25 0
+14 21 31 0
+35 -45 50 0
+3 13 -27 0
+7 28 16 0
+13 -23 49 0
+50 -28 5 0
+23 22 -32 0
+-1 28 -12 0
+-12 -20 23 0
+5 -32 21 0
+-27 41 39 0
+28 30 -44 0
+37 -47 -12 0
+-15 -1 -35 0
+-44 7 12 0
+42 50 -24 0
+12 -31 1 0
+37 23 -9 0
+-38 31 28 0
+38 46 8 0
+-42 -18 -9 0
+49 7 10 0
+31 34 -23 0
+7 -22 41 0
+16 -2 42 0
+-19 28 17 0
+-46 31 -15 0
+41 -26 9 0
+45 3 -7 0
+-17 -36 11 0
+-22 -1 47 0
+36 -31 -41 0
+-24 34 19 0
+-9 -35 -38 0
+48 18 12 0
+-35 12 17 0
+-10 9 23 0
+-40 48 7 0
+-40 -1 29 0
+-8 47 -13 0
+27 -5 -39 0
+-1 -22 -47 0
+-15 17 14 0
+-35 -43 -17 0
+-30 26 -9 0
+-41 -23 50 0
+-9 -27 26 0
+-21 -13 8 0
+25 -9 32 0
+-19 15 36 0
+-8 38 -29 0
+15 -49 35 0
+-15 -38 45 0
+-23 -44 -41 0
+
+c GPT solve time: 70.52 seconds
+
+**Step-by-step SAT Solving (DPLL/CDCL-style):**
+
+Let's proceed step by step, making decisions and propagating implications. We'll count each decision (branch) and each conflict (backtrack).
+
+**Step 1: Choose a variable to branch on.**  
+Let's start with x1 = TRUE (Branch 1).
+
+- Propagate implications:
+    - (¬x1 ∨ x9 ∨ x40): Satisfied.
+    - (x5 ∨ ¬x1 ∨ ¬x46): Satisfied.
+    - (x29 ∨ x6 ∨ ¬x16): No implication.
+    - (x1 ∨ x15 ∨ ¬x4): Satisfied.
+    - (x43 ∨ ¬x1 ∨ x44): Satisfied.
+    - (x37 ∨ x1 ∨ ¬x12): Satisfied.
+    - (x1 ∨ ¬x45 ∨ ¬x6): Satisfied.
+    - (¬x1 ∨ x28 ∨ ¬x12): (x28 ∨ ¬x12) must be TRUE.
+    - (¬x1 ∨ ¬x22 ∨ ¬x47): (¬x22 ∨ ¬x47) must be TRUE.
+    - (¬x22 ∨ ¬x1 ∨ x47): (¬x22 ∨ x47) must be TRUE.
+
+**Step 2: Next, pick x2 = TRUE (Branch 2).**
+
+- Propagate:
+    - (x41 ∨ x5 ∨ x2): Satisfied.
+    - (x45 ∨ x43 ∨ x2): Satisfied.
+    - (¬x49 ∨ ¬x45 ∨ x2): Satisfied.
+    - (x37 ∨ x2 ∨ x31): Satisfied.
+    - (¬x2 ∨ ¬x37 ∨ x11): (¬x37 ∨ x11) must be TRUE.
+    - (¬x2 ∨ x14 ∨ ¬x12): (x14 ∨ ¬x12) must be TRUE.
+    - (x16 ∨ ¬x2 ∨ x42): (x16 ∨ x42) must be TRUE.
+    - (x39 ∨ ¬x2 ∨ x6): (x39 ∨ x6) must be TRUE.
+
+**Step 3: Next, pick x3 = TRUE (Branch 3).**
+
+- Propagate:
+    - (x3 ∨ ¬x15 ∨ ¬x41): Satisfied.
+    - (¬x34 ∨ x3 ∨ ¬x4): Satisfied.
+    - (x3 ∨ x13 ∨ ¬x27): Satisfied.
+    - (¬x37 ∨ x3 ∨ ¬x12): Satisfied.
+    - (x45 ∨ x3 ∨ ¬x7): Satisfied.
+
+**Step 4: Next, pick x4 = TRUE (Branch 4).**
+
+- Propagate:
+    - (x4 ∨ x14 ∨ ¬x50): Satisfied.
+    - (x1 ∨ x15 ∨ ¬x4): Already satisfied.
+    - (¬x4 ∨ x35 ∨ ¬x20): (x35 ∨ ¬x20) must be TRUE.
+    - (x45 ∨ x4 ∨ x13): Satisfied.
+    - (x4 ∨ x15 ∨ x47): Satisfied.
+    - (¬x4 ∨ ¬x5 ∨ x43): (¬x5 ∨ x43) must be TRUE.
+    - (¬x34 ∨ x3 ∨ ¬x4): Already satisfied.
+    - (x18 ∨ x4 ∨ ¬x38): Satisfied.
+    - (x4 ∨ ¬x10 ∨ ¬x3): Satisfied.
+
+**Step 5: Next, pick x5 = TRUE (Branch 5).**
+
+- Propagate:
+    - (x5 ∨ ¬x1 ∨ ¬x46): Already satisfied.
+    - (x41 ∨ x5 ∨ x2): Already satisfied.
+    - (x5 ∨ ¬x22 ∨ x34): Satisfied.
+    - (x5 ∨ ¬x32 ∨ x21): Satisfied.
+    - (¬x4 ∨ ¬x5 ∨ x43): (¬x4 ∨ x43) must be TRUE. x4=TRUE, so x43 must be TRUE.
+    - (x5 ∨ ¬x1 ∨ ¬x46): Already satisfied.
+    - (x5 ∨ ¬x22 ∨ x34): Already satisfied.
+    - (x5 ∨ ¬x32 ∨ x21): Already satisfied.
+    - (x5 ∨ ¬x1 ∨ ¬x46): Already satisfied.
+    - (x5 ∨ ¬x22 ∨ x34): Already satisfied.
+    - (x5 ∨ ¬x32 ∨ x21): Already satisfied.
+
+**Step 6: x43 = TRUE (implied).**
+
+- Propagate:
+    - (x50 ∨ x43 ∨ x36): Satisfied.
+    - (x45 ∨ x43 ∨ x2): Already satisfied.
+    - (x43 ∨ ¬x1 ∨ x44): Already satisfied.
+    - (x20 ∨ x43 ∨ ¬x2): Satisfied.
+    - (x43 ∨ x38 ∨ ¬x34): Satisfied.
+    - (x27 ∨ x43 ∨ ¬x40): Satisfied.
+    - (x24 ∨ ¬x43 ∨ ¬x22): (x24 ∨ ¬x22) must be TRUE.
+    - (¬x35 ∨ ¬x43 ∨ ¬x17): (¬x35 ∨ ¬x17) must be TRUE.
+
+**Step 7: Next, pick x6 = TRUE (Branch 6).**
+
+- Propagate:
+    - (¬x26 ∨ x6 ∨ x24): Satisfied.
+    - (x6 ∨ ¬x32 ∨ x36): Satisfied.
+    - (x29 ∨ x6 ∨ ¬x16): Satisfied.
+    - (¬x38 ∨ ¬x44 ∨ x6): Satisfied.
+    - (¬x37 ∨ x6 ∨ ¬x50): Satisfied.
+
+**Step 8: Next, pick x7 = TRUE (Branch 7).**
+
+- Propagate:
+    - (x31 ∨ ¬x40 ∨ ¬x7): (x31 ∨ ¬x40) must be TRUE.
+    - (x7 ∨ x49 ∨ x31): Satisfied.
+    - (x49 ∨ x7 ∨ x10): Satisfied.
+    - (x7 ∨ x28 ∨ x16): Satisfied.
+    - (x31 ∨ x40 ∨ ¬x5): Already satisfied.
+    - (x7 ∨ ¬x22 ∨ x41): Satisfied.
+
+**Step 9: Next, pick x8 = TRUE (Branch 8).**
+
+- Propagate:
+    - (x44 ∨ ¬x48 ∨ ¬x8): (x44 ∨ ¬x48) must be TRUE.
+    - (¬x25 ∨ x8 ∨ ¬x17): Satisfied.
+    - (x38 ∨ x46 ∨ x8): Satisfied.
+    - (¬x8 ∨ x47 ∨ ¬x13): (x47 ∨ ¬x13) must be TRUE.
+    - (¬x8 ∨ x38 ∨ ¬x29): (x38 ∨ ¬x29) must be TRUE.
+
+**Step 10: Next, pick x9 = TRUE (Branch 9).**
+
+- Propagate:
+    - (¬x1 ∨ x9 ∨ x40): Already satisfied.
+    - (¬x9 ∨ ¬x42 ∨ ¬x10): (¬x42 ∨ ¬x10) must be TRUE.
+    - (x9 ∨ ¬x37 ∨ ¬x5): Already satisfied.
+    - (¬x50 ∨ x6 ∨ x45): Already satisfied.
+    - (¬x9 ∨ ¬x31 ∨ ¬x46): (¬x31 ∨ ¬x46) must be TRUE.
+    - (¬x10 ∨ x9 ∨ x23): Already satisfied.
+    - (¬x40 ∨ ¬x1 ∨ x29): Already satisfied.
+    - (¬x9 ∨ ¬x27 ∨ x26): (¬x27 ∨ x26) must be TRUE.
+    - (x25 ∨ ¬x9 ∨ x32): (x25 ∨ x32) must be TRUE.
+    - (¬x9 ∨ ¬x35 ∨ ¬x38): (¬x35 ∨ ¬x38) must be TRUE.
+
+**Step 11: Next, pick x10 = TRUE (Branch 10).**
+
+- Propagate:
+    - (¬x10 ∨ x33 ∨ x32): (x33 ∨ x32) must be TRUE.
+    - (x11 ∨ ¬x17 ∨ ¬x10): (x11 ∨ ¬x17) must be TRUE.
+    - (x48 ∨ x10 ∨ x2): Already satisfied.
+    - (¬x10 ∨ x5 ∨ x50): Already satisfied.
+    - (x16 ∨ x10 ∨ x20): Satisfied.
+    - (¬x10 ∨ x9 ∨ x23): Already satisfied.
+
+**Step 12: Next, pick x11 = TRUE (Branch 11).**
+
+- Propagate:
+    - (x11 ∨ ¬x17 ∨ ¬x10): Already satisfied.
+    - (x2 ∨ ¬x37 ∨ x11): Already satisfied.
+    - (¬x2 ∨ ¬x37 ∨ x11): Already satisfied.
+    - (¬x17 ∨ ¬x36 ∨ x11): Already satisfied.
+
+**Step 13: Next, pick x12 = TRUE (Branch 12).**
+
+- Propagate:
+    - (¬x12 ∨ x47 ∨ x39): (x47 ∨ x39) must be TRUE.
+    - (x37 ∨ x1 ∨ ¬x12): Already satisfied.
+    - (¬x12 ∨ ¬x36 ∨ x15): (¬x36 ∨ x15) must be TRUE.
+    - (x12 ∨ x18 ∨ x7): Already satisfied.
+    - (¬x37 ∨ x3 ∨ ¬x12): Already satisfied.
+    - (¬x2 ∨ x14 ∨ ¬x12): Already satisfied.
+    - (x12 ∨ ¬x31 ∨ x1): Already satisfied.
+    - (¬x35 ∨ x12 ∨ x17): Already satisfied.
+    - (¬x1 ∨ x28 ∨ ¬x12): Already satisfied.
+    - (¬x12 ∨ ¬x20 ∨ x23): (¬x20 ∨ x23) must be TRUE.
+    - (x17 ∨ ¬x12 ∨ x14): (x17 ∨ x14) must be TRUE.
+    - (x37 ∨ ¬x47 ∨ ¬x12): Already satisfied.
+
+**Step 14: Next, pick x13 = TRUE (Branch 13).**
+
+- Propagate:
+    - (¬x34 ∨ x39 ∨ ¬x13): (¬x34 ∨ x39) must be TRUE.
+    - (x45 ∨ x4 ∨ x13): Already satisfied.
+    - (x3 ∨ x13 ∨ ¬x27): Already satisfied.
+    - (x13 ∨ ¬x23 ∨ x49): Already satisfied.
+    - (¬x8 ∨ x47 ∨ ¬x13): Already satisfied.
+    - (¬x21 ∨ ¬x13 ∨ x8): (¬x21 ∨ x8) must be TRUE.
+
+**Step 15: Next, pick x14 = TRUE (Branch 14).**
+
+- Propagate:
+    - (x4 ∨ x14 ∨ ¬x50): Already satisfied.
+    - (¬x14 ∨ x47 ∨ x46): (x47 ∨ x46) must be TRUE.
+    - (x14 ∨ ¬x5 ∨ ¬x47): (¬x5 ∨ ¬x47) must be TRUE.
+    - (¬x2 ∨ x14 ∨ ¬x12): Already satisfied.
+    - (x14 ∨ x21 ∨ x31): Satisfied.
+    - (¬x15 ∨ x17 ∨ x14): Satisfied.
+    - (x17 ∨ ¬x12 ∨ x14): Already satisfied.
+
+**Step 16: Next, pick x15 = TRUE (Branch 15).**
+
+- Propagate:
+    - (x1 ∨ x15 ∨ ¬x4): Already satisfied.
+    - (¬x12 ∨ ¬x36 ∨ x15): Already satisfied.
+    - (x4 ∨ x15 ∨ x47): Already satisfied.
+    - (x33 ∨ x15 ∨ ¬x6): Already satisfied.
+    - (x15 ∨ ¬x49 ∨ x35): Satisfied.
+    - (¬x19 ∨ x15 ∨ x36): Satisfied.
+
+**Step 17: Next, pick x16 = TRUE (Branch 16).**
+
+- Propagate:
+    - (¬x16 ∨ x20 ∨ ¬x26): (x20 ∨ ¬x26) must be TRUE.
+    - (x29 ∨ x6 ∨ ¬x16): Already satisfied.
+    - (x16 ∨ ¬x44 ∨ ¬x20): Satisfied.
+    - (x16 ∨ ¬x17 ∨ ¬x14): Already satisfied.
+    - (x16 ∨ x10 ∨ x20): Already satisfied.
+    - (x16 ∨ ¬x2 ∨ x42): Already satisfied.
+    - (x42 ∨ x47 ∨ ¬x16): (x42 ∨ x47) must be TRUE.
+
+**Step 18: Next, pick x17 = TRUE (Branch 17).**
+
+- Propagate:
+    - (x11 ∨ ¬x17 ∨ ¬x10): Already satisfied.
+    - (x17 ∨ ¬x46 ∨ ¬x10): Already satisfied.
+    - (x16 ∨ ¬x17 ∨ ¬x14): Already satisfied.
+    - (¬x25 ∨ x8 ∨ ¬x17): Already satisfied.
+    - (¬x17 ∨ ¬x36 ∨ x11): Already satisfied.
+    - (¬x15 ∨ x17 ∨ x14): Already satisfied.
+
+**Step 19: Next, pick x18 = TRUE (Branch 18).**
+
+- Propagate:
+    - (¬x29 ∨ x18 ∨ x31): (¬x29 ∨ x31) must be TRUE.
+    - (x12 ∨ x18 ∨ x7): Already satisfied.
+    - (¬x37 ∨ x18 ∨ x23): (¬x37 ∨ x23) must be TRUE.
+    - (x48 ∨ x18 ∨ x12): Already satisfied.
+    - (x18 ∨ x4 ∨ ¬x38): Already satisfied.
+    - (x18 ∨ ¬x23 ∨ x21): (¬x23 ∨ x21) must be TRUE.
+    - (x42 ∨ ¬x18 ∨ x35): (x42 ∨ x35) must be TRUE.
+    - (¬x42 ∨ ¬x18 ∨ ¬x9): (¬x42 ∨ ¬x9) must be TRUE.
+
+**Step 20: Next, pick x19 = TRUE (Branch 19).**
+
+- Propagate:
+    - (x19 ∨ ¬x22 ∨ x28): Already satisfied.
+    - (¬x19 ∨ x23 ∨ ¬x14): (x23 ∨ ¬x14) must be TRUE.
+    - (¬x19 ∨ x15 ∨ x36): Already satisfied.
+
+**Step 21: Next, pick x20 = TRUE (Branch 20).**
+
+- Propagate:
+    - (¬x16 ∨ x20 ∨ ¬x26): Already satisfied.
+    - (x20 ∨ x47 ∨ x46): Satisfied.
+    - (x20 ∨ x43 ∨ ¬x2): Already satisfied.
+    - (x20 ∨ x49 ∨ ¬x48): Satisfied.
+    - (x16 ∨ x10 ∨ x20): Already satisfied.
+    - (¬x12 ∨ ¬x20 ∨ x23): Already satisfied.
+    - (¬x20 ∨ x40 ∨ ¬x34): (x40 ∨ ¬x34) must be TRUE.
+
+**Step 22: Next, pick x21 = TRUE (Branch 21).**
+
+- Propagate:
+    - (¬x35 ∨ x22 ∨ x21): Already satisfied.
+    - (x42 ∨ ¬x50 ∨ x21): Already satisfied.
+    - (x18 ∨ ¬x23 ∨ x21): Already satisfied.
+    - (x21 ∨ x17 ∨ ¬x42): Already satisfied.
+    - (x14 ∨ x21 ∨ x31): Already satisfied.
+
+**Step 23: Next, pick x22 = TRUE (Branch 22).**
+
+- Propagate:
+    - (x22 ∨ x50 ∨ x42): Already satisfied.
+    - (x19 ∨ ¬x22 ∨ x28): Already satisfied.
+    - (¬x35 ∨ x22 ∨ x21): Already satisfied.
+    - (x22 ∨ ¬x47 ∨ x37): Already satisfied.
+    - (¬x22 ∨ ¬x47 ∨ ¬x27): (¬x47 ∨ ¬x27) must be TRUE.
+    - (x5 ∨ ¬x22 ∨ x34): Already satisfied.
+    - (x22 ∨ ¬x37 ∨ x5): Already satisfied.
+    - (x23 ∨ x22 ∨ ¬x

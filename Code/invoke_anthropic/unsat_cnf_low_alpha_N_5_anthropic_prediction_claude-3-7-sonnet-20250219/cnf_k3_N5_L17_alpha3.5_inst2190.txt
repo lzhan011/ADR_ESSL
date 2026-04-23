@@ -1,0 +1,67 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2190
+p cnf 5 17
+-4 3 2 0
+1 5 -2 0
+-5 3 4 0
+1 -3 5 0
+-3 -2 1 0
+-2 -1 -3 0
+-5 -1 -2 0
+2 -3 -1 0
+1 4 5 0
+5 1 4 0
+2 -4 -1 0
+-1 -3 -2 0
+-3 2 1 0
+-2 -1 3 0
+4 -1 2 0
+-5 -1 2 0
+-5 1 -4 0
+
+c GPT solve time: 15.17 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let's start by looking for unit clauses and pure literals:
+
+No unit clauses initially.
+No pure literals initially.
+
+Let's begin with a decision:
+
+Branch 1: Assign x1 = true
+- Simplify: Remove clauses containing x1, and remove ¬x1 from remaining clauses
+- This creates a unit clause (¬x3) from (¬x3 ∨ ¬x2)
+- Propagate x3 = false
+- Simplify further
+- This creates a unit clause (x2) from (x2 ∨ x1)
+- Propagate x2 = true
+- Simplify further
+- This creates a contradiction: we have both (¬x5) and (x5) as unit clauses
+
+Backtrack and try x1 = false:
+
+Branch 2: Assign x1 = false
+- Simplify: Remove ¬x1 from clauses, and remove clauses containing x1
+- This creates a unit clause (x3) from (¬x2 ∨ x3)
+- Propagate x3 = true
+- Simplify further
+- This creates a unit clause (¬x2) from (¬x2 ∨ ¬x3)
+- Propagate x2 = false
+- Simplify further
+- This creates a unit clause (x4) from (¬x4 ∨ x3 ∨ x2)
+- Propagate x4 = true
+- Simplify further
+- This creates a unit clause (¬x5) from (¬x5 ∨ x3 ∨ x4)
+- Propagate x5 = false
+- All clauses are satisfied
+
+SATISFIABLE
+Number of branches: 2
+Number of conflicts: 1
+x1 = false
+x2 = false
+x3 = true
+x4 = true
+x5 = false

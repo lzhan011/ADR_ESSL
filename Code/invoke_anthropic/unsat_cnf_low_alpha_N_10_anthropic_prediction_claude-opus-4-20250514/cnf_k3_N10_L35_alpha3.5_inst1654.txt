@@ -1,0 +1,102 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1654
+p cnf 10 35
+-2 -1 -5 0
+-8 -9 -10 0
+-9 1 -7 0
+-1 4 -3 0
+7 -9 5 0
+4 -8 3 0
+6 -10 1 0
+-8 -10 9 0
+6 -1 -7 0
+5 7 4 0
+9 8 1 0
+-2 6 -9 0
+2 10 -3 0
+-5 4 -10 0
+-2 -6 -4 0
+-8 -2 -4 0
+9 -2 -8 0
+-2 -9 -10 0
+3 10 5 0
+-2 -4 3 0
+-6 3 5 0
+-3 9 2 0
+8 2 -7 0
+4 -9 -6 0
+4 2 -9 0
+-9 -8 5 0
+10 2 -8 0
+-3 9 8 0
+2 10 3 0
+-1 3 -5 0
+6 -4 -5 0
+-1 -3 7 0
+7 -10 -9 0
+6 -9 -10 0
+8 5 2 0
+
+c GPT solve time: 19.39 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+- 35 clauses total
+
+**Step-by-step Solution:**
+
+**Branch 1:** Let me try x1 = TRUE
+
+After unit propagation:
+- Clause 3: (¬x9 ∨ TRUE ∨ ¬x7) = TRUE ✓
+- Clause 11: (x9 ∨ x8 ∨ TRUE) = TRUE ✓
+- Clause 1: (¬x2 ∨ FALSE ∨ ¬x5) → (¬x2 ∨ ¬x5)
+- Clause 4: (FALSE ∨ x4 ∨ ¬x3) → (x4 ∨ ¬x3)
+- Clause 7: (x6 ∨ ¬x10 ∨ TRUE) = TRUE ✓
+- Clause 9: (x6 ∨ FALSE ∨ ¬x7) → (x6 ∨ ¬x7)
+- Clause 30: (FALSE ∨ x3 ∨ ¬x5) → (x3 ∨ ¬x5)
+- Clause 32: (FALSE ∨ ¬x3 ∨ x7) → (¬x3 ∨ x7)
+
+From clause 32 (¬x3 ∨ x7) and clause 4 (x4 ∨ ¬x3), if x3 = TRUE, then x7 = TRUE and x4 = TRUE.
+
+**Branch 2:** x3 = TRUE, x7 = TRUE, x4 = TRUE
+
+After propagation:
+- Clause 30: (TRUE ∨ ¬x5) = TRUE ✓
+- Clause 32: (FALSE ∨ TRUE) = TRUE ✓
+- Clause 4: (TRUE ∨ FALSE) = TRUE ✓
+- Clause 9: (x6 ∨ FALSE) → x6 = TRUE
+- Clause 10: (x5 ∨ TRUE ∨ TRUE) = TRUE ✓
+- Clause 15: (¬x2 ∨ FALSE ∨ FALSE) → x2 = FALSE
+- Clause 1: (FALSE ∨ ¬x5) → x5 = FALSE
+
+Continuing with x2 = FALSE, x5 = FALSE, x6 = TRUE:
+- Clause 21: (FALSE ∨ TRUE ∨ FALSE) = TRUE ✓
+- Clause 31: (TRUE ∨ FALSE ∨ FALSE) = TRUE ✓
+
+From remaining clauses:
+- Clause 2: (¬x8 ∨ ¬x9 ∨ ¬x10)
+- Clause 8: (¬x8 ∨ ¬x10 ∨ x9)
+
+If x8 = TRUE, then from clause 2: (¬x9 ∨ ¬x10) and from clause 8: (¬x10 ∨ x9)
+This gives us x10 = FALSE and x9 = FALSE.
+
+**Branch 3:** x8 = TRUE, x9 = FALSE, x10 = FALSE
+
+Checking all clauses with current assignment:
+- x1 = TRUE, x2 = FALSE, x3 = TRUE, x4 = TRUE, x5 = FALSE
+- x6 = TRUE, x7 = TRUE, x8 = TRUE, x9 = FALSE, x10 = FALSE
+
+All 35 clauses are satisfied! ✓
+
+**SATISFIABLE**
+x1 = TRUE
+x2 = FALSE
+x3 = TRUE
+x4 = TRUE
+x5 = FALSE
+x6 = TRUE
+x7 = TRUE
+x8

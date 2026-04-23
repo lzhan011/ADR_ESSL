@@ -1,0 +1,153 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1219
+p cnf 8 28
+1 -7 -8 0
+-4 -1 6 0
+8 2 4 0
+6 -8 -4 0
+-2 8 -3 0
+5 2 4 0
+4 6 3 0
+1 -8 5 0
+-8 -7 4 0
+7 -2 -1 0
+2 8 5 0
+4 -7 -2 0
+1 2 3 0
+-6 -5 7 0
+8 1 -3 0
+-8 3 1 0
+2 5 -1 0
+1 5 -6 0
+-7 3 -4 0
+1 3 -7 0
+6 7 5 0
+7 6 2 0
+-8 -4 -1 0
+8 7 2 0
+-5 -4 6 0
+-7 -3 2 0
+-5 6 4 0
+6 -1 -7 0
+
+c GPT solve time: 126.42 seconds
+
+Let's solve the given 3-CNF formula step by step using the DPLL algorithm. We'll keep track of the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to make a decision.
+
+### Step 2: Decision and Propagation
+We choose variables and assign values, propagating implications where possible. Here's a summary of the steps:
+
+1. **Decision**: Let’s assign \( x1 = \text{True} \).
+   - Propagate:
+     - From clause 1 (\( x1 \lor \lnot x7 \lor \lnot x8 \)): No implication.
+     - From clause 8 (\( x1 \lor \lnot x8 \lor x5 \)): No implication.
+     - From clause 13 (\( x1 \lor x2 \lor x3 \)): No implication.
+     - From clause 16 (\( \lnot x8 \lor x3 \lor x1 \)): No implication.
+     - From clause 17 (\( x2 \lor x5 \lor \lnot x1 \)): Clause satisfied.
+     - From clause 18 (\( x1 \lor x5 \lor \lnot x6 \)): No implication.
+     - From clause 20 (\( x1 \lor x3 \lor \lnot x7 \)): No implication.
+     - From clause 23 (\( \lnot x8 \lor \lnot x4 \lor \lnot x1 \)): Now \( \lnot x8 \lor \lnot x4 \) must be true.
+     - From clause 28 (\( x6 \lor \lnot x1 \lor \lnot x7 \)): Now \( x6 \lor \lnot x7 \) must be true.
+
+2. **Decision**: Assign \( x8 = \text{False} \) (to satisfy \( \lnot x8 \lor \lnot x4 \)).
+   - Propagate:
+     - From clause 3 (\( x8 \lor x2 \lor x4 \)): Now \( x2 \lor x4 \) must be true.
+     - From clause 4 (\( x6 \lor \lnot x8 \lor \lnot x4 \)): Now \( x6 \lor \lnot x4 \) must be true.
+     - From clause 5 (\( \lnot x2 \lor x8 \lor \lnot x3 \)): Now \( \lnot x2 \lor \lnot x3 \) must be true.
+     - From clause 9 (\( \lnot x8 \lor \lnot x7 \lor x4 \)): Now \( \lnot x7 \lor x4 \) must be true.
+     - From clause 15 (\( x8 \lor x1 \lor \lnot x3 \)): Now \( x1 \lor \lnot x3 \) (already satisfied by \( x1 = \text{True} \)).
+     - From clause 24 (\( x8 \lor x7 \lor x2 \)): Now \( x7 \lor x2 \) must be true.
+     - From clause 27 (\( \lnot x5 \lor x6 \lor x4 \)): No implication.
+
+3. **Decision**: Assign \( x2 = \text{True} \) (to satisfy \( x2 \lor x4 \)).
+   - Propagate:
+     - From clause 10 (\( x7 \lor \lnot x2 \lor \lnot x1 \)): Now \( x7 \lor \lnot x1 \). Since \( x1 = \text{True} \), \( x7 \) must be true.
+     - From clause 12 (\( x4 \lor \lnot x7 \lor \lnot x2 \)): Now \( x4 \lor \lnot x7 \). Since \( x7 = \text{True} \), \( x4 \) must be true.
+     - From clause 22 (\( x7 \lor x6 \lor x2 \)): Clause satisfied.
+     - From clause 26 (\( \lnot x7 \lor \lnot x3 \lor x2 \)): Now \( \lnot x7 \lor \lnot x3 \). Since \( x7 = \text{True} \), \( \lnot x3 \) must be true (i.e., \( x3 = \text{False} \)).
+     - From clause 5 (\( \lnot x2 \lor \lnot x3 \)): Now \( \lnot x2 \lor \lnot x3 \). Since \( x2 = \text{True} \), \( \lnot x3 \) must be true (consistent with \( x3 = \text{False} \)).
+
+4. Now, with \( x4 = \text{True} \):
+   - From clause 2 (\( \lnot x4 \lor \lnot x1 \lor x6 \)): Now \( \lnot x1 \lor x6 \). Since \( x1 = \text{True} \), \( x6 \) must be true.
+   - From clause 4 (\( x6 \lor \lnot x4 \)): Now \( x6 \) must be true (consistent with above).
+   - From clause 6 (\( x5 \lor x2 \lor x4 \)): Clause satisfied.
+   - From clause 7 (\( x4 \lor x6 \lor x3 \)): Clause satisfied.
+   - From clause 11 (\( x2 \lor x8 \lor x5 \)): Now \( x2 \lor x5 \). Since \( x2 = \text{True} \), clause satisfied.
+   - From clause 14 (\( \lnot x6 \lor \lnot x5 \lor x7 \)): Now \( \lnot x5 \lor x7 \). Since \( x7 = \text{True} \), clause satisfied.
+   - From clause 19 (\( \lnot x7 \lor x3 \lor \lnot x4 \)): Now \( x3 \lor \lnot x4 \). Since \( x4 = \text{True} \), \( x3 \) must be true. Conflict with \( x3 = \text{False} \).
+
+### Conflict Detected
+We have a conflict because \( x3 \) cannot be both true and false. This is a **conflict**, so we backtrack.
+
+### Backtracking
+Undo the last decision (\( x2 = \text{True} \)) and try \( x2 = \text{False} \).
+
+1. **Decision**: Assign \( x2 = \text{False} \).
+   - From \( x2 \lor x4 \), now \( x4 \) must be true.
+   - From \( \lnot x2 \lor \lnot x3 \), no implication yet.
+   - From clause 10 (\( x7 \lor \lnot x2 \lor \lnot x1 \)): Now \( x7 \lor \lnot x1 \). Since \( x1 = \text{True} \), \( x7 \) must be true.
+   - From clause 12 (\( x4 \lor \lnot x7 \lor \lnot x2 \)): Now \( x4 \lor \lnot x7 \). Since \( x7 = \text{True} \), \( x4 \) must be true (consistent).
+   - From clause 24 (\( x7 \lor x2 \)): Now \( x7 \) must be true (consistent).
+   - From clause 26 (\( \lnot x7 \lor \lnot x3 \lor x2 \)): Now \( \lnot x7 \lor \lnot x3 \). Since \( x7 = \text{True} \), \( \lnot x3 \) must be true (i.e., \( x3 = \text{False} \)).
+
+2. Now, with \( x4 = \text{True} \):
+   - From clause 2 (\( \lnot x4 \lor \lnot x1 \lor x6 \)): Now \( \lnot x1 \lor x6 \). Since \( x1 = \text{True} \), \( x6 \) must be true.
+   - From clause 4 (\( x6 \lor \lnot x4 \)): Now \( x6 \) must be true (consistent).
+   - From clause 6 (\( x5 \lor x2 \lor x4 \)): Now \( x5 \lor x4 \). Since \( x4 = \text{True} \), clause satisfied.
+   - From clause 7 (\( x4 \lor x6 \lor x3 \)): Clause satisfied.
+   - From clause 11 (\( x2 \lor x8 \lor x5 \)): Now \( x8 \lor x5 \). No implication yet.
+   - From clause 14 (\( \lnot x6 \lor \lnot x5 \lor x7 \)): Now \( \lnot x5 \lor x7 \). Since \( x7 = \text{True} \), clause satisfied.
+   - From clause 19 (\( \lnot x7 \lor x3 \lor \lnot x4 \)): Now \( x3 \lor \lnot x4 \). Since \( x4 = \text{True} \), \( x3 \) must be true. Conflict with \( x3 = \text{False} \).
+
+### Another Conflict
+Again, \( x3 \) cannot be both true and false. This is another **conflict**, so we backtrack further.
+
+### Further Backtracking
+Undo the decision \( x8 = \text{False} \) and try \( x8 = \text{True} \).
+
+1. **Decision**: Assign \( x8 = \text{True} \).
+   - From clause 1 (\( x1 \lor \lnot x7 \lor \lnot x8 \)): Now \( x1 \lor \lnot x7 \). Since \( x1 = \text{True} \), clause satisfied.
+   - From clause 3 (\( x8 \lor x2 \lor x4 \)): Clause satisfied.
+   - From clause 4 (\( x6 \lor \lnot x8 \lor \lnot x4 \)): Now \( x6 \lor \lnot x4 \).
+   - From clause 5 (\( \lnot x2 \lor x8 \lor \lnot x3 \)): Clause satisfied.
+   - From clause 9 (\( \lnot x8 \lor \lnot x7 \lor x4 \)): Now \( \lnot x7 \lor x4 \).
+   - From clause 15 (\( x8 \lor x1 \lor \lnot x3 \)): Clause satisfied.
+   - From clause 16 (\( \lnot x8 \lor x3 \lor x1 \)): Now \( x3 \lor x1 \). Since \( x1 = \text{True} \), clause satisfied.
+   - From clause 23 (\( \lnot x8 \lor \lnot x4 \lor \lnot x1 \)): Now \( \lnot x4 \lor \lnot x1 \). Since \( x1 = \text{True} \), \( \lnot x4 \) must be true (i.e., \( x4 = \text{False} \)).
+   - From clause 24 (\( x8 \lor x7 \lor x2 \)): Clause satisfied.
+   - From clause 27 (\( \lnot x5 \lor x6 \lor x4 \)): Now \( \lnot x5 \lor x6 \).
+
+2. From \( x4 = \text{False} \):
+   - From clause 2 (\( \lnot x4 \lor \lnot x1 \lor x6 \)): Now \( \lnot x1 \lor x6 \). Since \( x1 = \text{True} \), \( x6 \) must be true.
+   - From clause 4 (\( x6 \lor \lnot x4 \)): Now \( x6 \) must be true (consistent).
+   - From clause 6 (\( x5 \lor x2 \lor x4 \)): Now \( x5 \lor x2 \).
+   - From clause 7 (\( x4 \lor x6 \lor x3 \)): Now \( x6 \lor x3 \). Since \( x6 = \text{True} \), clause satisfied.
+   - From clause 11 (\( x2 \lor x8 \lor x5 \)): Clause satisfied.
+   - From clause 12 (\( x4 \lor \lnot x7 \lor \lnot x2 \)): Now \( \lnot x7 \lor \lnot x2 \).
+   - From clause 14 (\( \lnot x6 \lor \lnot x5 \lor x7 \)): Now \( \lnot x5 \lor x7 \).
+   - From clause 19 (\( \lnot x7 \lor x3 \lor \lnot x4 \)): Now \( \lnot x7 \lor x3 \).
+   - From clause 25 (\( \lnot x5 \lor \lnot x4 \lor x6 \)): Now \( \lnot x5 \lor x6 \). Since \( x6 = \text{True} \), clause satisfied.
+   - From clause 27 (\( \lnot x5 \lor x6 \lor x4 \)): Now \( \lnot x5 \lor x6 \). Since \( x6 = \text{True} \), clause satisfied.
+
+3. **Decision**: Assign \( x2 = \text{True} \).
+   - From clause 10 (\( x7 \lor \lnot x2 \lor \lnot x1 \)): Now \( x7 \lor \lnot x1 \). Since \( x1 = \text{True} \), \( x7 \) must be true.
+   - From clause 12 (\( \lnot x7 \lor \lnot x2 \)): Now \( \lnot x7 \). Conflict with \( x7 = \text{True} \).
+
+### Conflict Again
+Conflict detected, so backtrack.
+
+4. **Decision**: Assign \( x2 = \text{False} \).
+   - From clause 6 (\( x5 \lor x2 \lor x4 \)): Now \( x5 \).
+   - From clause 12 (\( \lnot x7 \lor \lnot x2 \)): Now \( \lnot x7 \).
+   - From clause 10 (\( x7 \lor \lnot x2 \lor \lnot x1 \)): Now \( x7 \lor \lnot x1 \). Since \( x1 = \text{True} \), \( x7 \) must be true. Conflict with \( \lnot x7 \).
+
+### Final Conflict
+No further assignments satisfy the formula. The formula is **UNSATISFIABLE**.
+
+### Summary
+- **SATISFIABLE or UNSATISFIABLE**: UNSATISFIABLE
+- **Number of branches (decision points)**: 4
+- **Number of conflicts (backtracking steps)**: 4

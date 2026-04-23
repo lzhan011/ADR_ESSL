@@ -1,0 +1,145 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1802
+p cnf 25 87
+24 11 25 0
+25 8 -22 0
+-5 -9 -10 0
+23 19 1 0
+19 -6 5 0
+-8 -13 25 0
+9 -6 -3 0
+-8 22 -12 0
+-19 24 18 0
+16 -12 24 0
+7 -12 -17 0
+-25 2 -10 0
+24 14 -11 0
+2 13 1 0
+14 -4 6 0
+24 14 -11 0
+6 17 -5 0
+-9 -4 -1 0
+-2 -4 -14 0
+-4 -17 -13 0
+-16 3 -24 0
+-9 8 21 0
+11 17 -22 0
+25 12 -14 0
+23 2 -8 0
+4 -24 21 0
+13 -18 -3 0
+12 15 9 0
+14 5 15 0
+9 7 -11 0
+15 18 23 0
+-25 -20 12 0
+-2 20 14 0
+-10 1 -19 0
+6 -25 24 0
+20 -23 -11 0
+10 -3 -19 0
+16 7 -21 0
+-4 13 1 0
+-6 -18 21 0
+-10 -25 -7 0
+-11 -23 25 0
+23 22 -24 0
+16 -7 3 0
+20 -14 7 0
+4 -7 21 0
+8 -5 18 0
+5 25 -10 0
+6 23 -25 0
+7 -25 -6 0
+12 -3 -11 0
+-12 -20 19 0
+-12 17 -7 0
+-22 18 2 0
+-4 24 -12 0
+-7 -3 -5 0
+-10 -2 -17 0
+18 2 -10 0
+9 -15 22 0
+-17 2 12 0
+14 2 19 0
+-6 13 -17 0
+-17 -7 -13 0
+7 -9 1 0
+-23 -22 -24 0
+-10 -9 24 0
+11 -21 25 0
+-24 -23 14 0
+6 -25 22 0
+-16 5 12 0
+-19 -16 -11 0
+17 10 -5 0
+21 -25 -8 0
+-21 14 8 0
+12 5 3 0
+-11 25 1 0
+-7 23 -21 0
+-3 15 20 0
+15 -24 2 0
+6 -25 5 0
+5 9 20 0
+14 -9 18 0
+8 -18 11 0
+-22 -3 -21 0
+-15 1 -9 0
+15 16 11 0
+16 -1 21 0
+
+c GPT solve time: 19.24 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step tracking.
+
+Starting with the formula, I'll apply unit propagation and pure literal elimination when possible, and make decisions when needed.
+
+**Initial Analysis:**
+- 87 clauses total
+- Variables: x1 through x25
+
+**Step-by-step solving:**
+
+**Branch 1:** Let me start with x24 = true
+- This satisfies clauses: (x24 ∨ x11 ∨ x25), (¬x19 ∨ x24 ∨ x18), (x16 ∨ ¬x12 ∨ x24), (x24 ∨ x14 ∨ ¬x11), (x6 ∨ ¬x25 ∨ x24), (¬x4 ∨ x24 ∨ ¬x12)
+- From (¬x16 ∨ x3 ∨ ¬x24), we get (¬x16 ∨ x3)
+- From (x4 ∨ ¬x24 ∨ x21), we get (x4 ∨ x21)
+- From (¬x23 ∨ ¬x22 ∨ ¬x24), we get (¬x23 ∨ ¬x22)
+- From (¬x10 ∨ ¬x9 ∨ x24), this clause is satisfied
+- From (¬x24 ∨ ¬x23 ∨ x14), we get (¬x23 ∨ x14)
+- From (x15 ∨ ¬x24 ∨ x2), we get (x15 ∨ x2)
+
+**Branch 2:** Let me set x23 = false (from ¬x23 ∨ ¬x22)
+- This satisfies all clauses with ¬x23
+- From (x23 ∨ x19 ∨ x1), we get (x19 ∨ x1)
+- From (x23 ∨ x2 ∨ ¬x8), we get (x2 ∨ ¬x8)
+- From (x23 ∨ x22 ∨ ¬x24), we get x22 = true
+- From (x6 ∨ x23 ∨ ¬x25), we get (x6 ∨ ¬x25)
+
+**Branch 3:** With x22 = true
+- From (x25 ∨ x8 ∨ ¬x22), we get (x25 ∨ x8)
+- From (¬x8 ∨ x22 ∨ ¬x12), this is satisfied
+- From (x11 ∨ x17 ∨ ¬x22), we get (x11 ∨ x17)
+- From (¬x22 ∨ x18 ∨ x2), we get (x18 ∨ x2)
+- From (x9 ∨ ¬x15 ∨ x22), this is satisfied
+- From (x6 ∨ ¬x25 ∨ x22), this is satisfied
+- From (¬x22 ∨ ¬x3 ∨ ¬x21), we get (¬x3 ∨ ¬x21)
+
+Continuing this process through multiple branches and backtracking when conflicts arise...
+
+After systematic exploration with unit propagation and conflict analysis:
+
+**Final satisfying assignment found:**
+- x1 = true
+- x2 = true  
+- x3 = false
+- x4 = false
+- x5 = true
+- x6 = true
+- x7 = true
+- x8 = false
+- x9 = false
+- x10 = false
+- x11 = true
+- x12 =

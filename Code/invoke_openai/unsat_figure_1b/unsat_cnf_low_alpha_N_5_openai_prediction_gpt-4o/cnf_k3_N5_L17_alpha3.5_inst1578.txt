@@ -1,0 +1,116 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1578
+p cnf 5 17
+4 -2 1 0
+-2 5 -1 0
+-4 -2 1 0
+-2 1 3 0
+-2 3 1 0
+4 -2 -3 0
+2 -4 1 0
+3 4 2 0
+-4 5 -3 0
+-1 -2 -5 0
+5 -4 -1 0
+2 1 -5 0
+-5 -3 1 0
+-2 5 -1 0
+2 -1 -5 0
+5 4 -3 0
+2 5 -1 0
+
+c GPT solve time: 13.33 seconds
+
+To solve the given 3-CNF formula, we will use the DPLL algorithm, which involves choosing a literal, assigning a truth value, simplifying the formula, and checking for satisfiability. If a conflict arises, we backtrack and try a different assignment.
+
+1. **Initial Formula:**
+   \[
+   \begin{align*}
+   (x4 \lor \lnot x2 \lor x1) \\
+   (\lnot x2 \lor x5 \lor \lnot x1) \\
+   (\lnot x4 \lor \lnot x2 \lor x1) \\
+   (\lnot x2 \lor x1 \lor x3) \\
+   (\lnot x2 \lor x3 \lor x1) \\
+   (x4 \lor \lnot x2 \lor \lnot x3) \\
+   (x2 \lor \lnot x4 \lor x1) \\
+   (x3 \lor x4 \lor x2) \\
+   (\lnot x4 \lor x5 \lor \lnot x3) \\
+   (\lnot x1 \lor \lnot x2 \lor \lnot x5) \\
+   (x5 \lor \lnot x4 \lor \lnot x1) \\
+   (x2 \lor x1 \lor \lnot x5) \\
+   (\lnot x5 \lor \lnot x3 \lor x1) \\
+   (\lnot x2 \lor x5 \lor \lnot x1) \\
+   (x2 \lor \lnot x1 \lor \lnot x5) \\
+   (x5 \lor x4 \lor \lnot x3) \\
+   (x2 \lor x5 \lor \lnot x1) \\
+   \end{align*}
+   \]
+
+2. **Choose a Literal and Assign a Value:**
+   - Choose \( x2 = \text{True} \).
+
+3. **Simplify the Formula:**
+   - Remove clauses containing \( x2 \).
+   - Simplify clauses containing \( \lnot x2 \).
+
+4. **Resulting Formula:**
+   \[
+   \begin{align*}
+   (x2 \lor \lnot x4 \lor x1) \\
+   (x3 \lor x4 \lor x2) \\
+   (x2 \lor x1 \lor \lnot x5) \\
+   (x2 \lor \lnot x1 \lor \lnot x5) \\
+   (x5 \lor x4 \lor \lnot x3) \\
+   (x2 \lor x5 \lor \lnot x1) \\
+   \end{align*}
+   \]
+
+5. **Choose Another Literal:**
+   - Choose \( x1 = \text{True} \).
+
+6. **Simplify the Formula:**
+   - Remove clauses containing \( x1 \).
+   - Simplify clauses containing \( \lnot x1 \).
+
+7. **Resulting Formula:**
+   \[
+   \begin{align*}
+   (x3 \lor x4 \lor x2) \\
+   (x5 \lor x4 \lor \lnot x3) \\
+   \end{align*}
+   \]
+
+8. **Choose Another Literal:**
+   - Choose \( x3 = \text{True} \).
+
+9. **Simplify the Formula:**
+   - Remove clauses containing \( x3 \).
+   - Simplify clauses containing \( \lnot x3 \).
+
+10. **Resulting Formula:**
+    \[
+    \begin{align*}
+    (x3 \lor x4 \lor x2) \\
+    \end{align*}
+    \]
+
+11. **Choose Another Literal:**
+    - Choose \( x4 = \text{True} \).
+
+12. **Simplify the Formula:**
+    - Remove clauses containing \( x4 \).
+
+13. **Resulting Formula:**
+    - All clauses are satisfied.
+
+14. **Assign Remaining Literals:**
+    - \( x5 = \text{True} \).
+
+15. **Conclusion:**
+    - The formula is SATISFIABLE.
+
+**Output:**
+- SATISFIABLE
+- Number of branches: 4
+- Number of conflicts: 0
+- Assignments: \( x1 = \text{True}, x2 = \text{True}, x3 = \text{True}, x4 = \text{True}, x5 = \text{True} \)

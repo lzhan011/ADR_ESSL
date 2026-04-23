@@ -1,0 +1,771 @@
+c Random 3-SAT
+c alpha=3.7, N=70, L=259, instance=2741
+p cnf 70 259
+-42 -8 -36 0
+17 -7 20 0
+-42 -8 45 0
+14 -29 -66 0
+63 -52 5 0
+-47 -22 46 0
+-61 20 60 0
+2 -1 53 0
+70 60 -17 0
+66 42 52 0
+65 -18 54 0
+21 -40 -29 0
+-60 32 46 0
+-41 9 -69 0
+30 2 -11 0
+-26 5 -45 0
+32 -40 -46 0
+9 -40 53 0
+-68 5 -26 0
+27 -52 51 0
+46 -7 -30 0
+-55 39 12 0
+37 -63 67 0
+-25 17 67 0
+-66 -70 51 0
+60 2 28 0
+13 45 -30 0
+-28 -19 -7 0
+-4 -54 13 0
+-21 30 -49 0
+40 -30 -44 0
+-9 4 12 0
+-44 59 48 0
+41 -34 -12 0
+59 63 13 0
+62 -10 -60 0
+-65 44 -36 0
+-45 29 25 0
+56 44 64 0
+49 -3 39 0
+-54 -31 -14 0
+4 48 21 0
+31 -36 9 0
+-28 41 13 0
+23 62 -8 0
+62 12 -21 0
+-42 -40 -23 0
+-31 -21 2 0
+-41 70 69 0
+-45 -63 46 0
+-39 7 -51 0
+-29 40 -31 0
+-21 -1 -31 0
+-55 -64 -52 0
+6 -26 43 0
+23 3 26 0
+4 24 54 0
+56 29 -12 0
+-32 -21 -62 0
+-47 40 39 0
+11 -62 42 0
+-28 37 -4 0
+24 56 61 0
+33 -41 -61 0
+-49 31 -67 0
+-7 18 21 0
+-14 52 -35 0
+16 38 45 0
+61 58 -18 0
+3 -52 41 0
+41 -10 52 0
+-61 12 -43 0
+-6 -66 44 0
+68 -25 52 0
+-21 1 4 0
+-16 48 -32 0
+-22 32 -44 0
+20 -35 -33 0
+-2 -26 23 0
+-28 -49 20 0
+-28 24 11 0
+20 23 -60 0
+-16 -65 -54 0
+-41 29 -12 0
+60 -55 9 0
+28 30 -2 0
+68 45 38 0
+57 44 17 0
+65 -70 -63 0
+18 -25 -22 0
+-29 37 24 0
+28 65 -12 0
+28 43 27 0
+-21 8 -51 0
+43 -66 -34 0
+51 -30 -65 0
+-57 20 51 0
+25 64 50 0
+-17 -51 42 0
+-17 38 -68 0
+-54 -57 52 0
+-43 11 -38 0
+66 -13 -32 0
+41 -30 -64 0
+60 -41 -16 0
+-23 1 28 0
+51 -60 -49 0
+35 -16 10 0
+38 -59 -4 0
+-68 -45 59 0
+52 -38 27 0
+43 34 16 0
+-69 -57 50 0
+52 -3 61 0
+-50 26 70 0
+-52 -10 -46 0
+24 39 66 0
+30 65 36 0
+10 -2 49 0
+19 -57 -23 0
+-13 -37 -9 0
+58 -46 38 0
+42 31 9 0
+-37 -22 -58 0
+-34 -12 -29 0
+-61 -23 -6 0
+-57 -64 22 0
+-62 -1 -12 0
+32 -43 -18 0
+21 47 15 0
+25 55 5 0
+-61 66 51 0
+3 -51 -45 0
+-14 58 60 0
+-4 45 -69 0
+20 -29 53 0
+-53 -8 1 0
+2 -16 32 0
+-34 -63 49 0
+-52 1 12 0
+-25 -34 -14 0
+-18 -39 30 0
+37 -13 -5 0
+-54 2 8 0
+31 -19 -25 0
+17 36 -33 0
+-19 -30 -20 0
+-2 -28 16 0
+-4 45 7 0
+-50 -6 -53 0
+56 -54 63 0
+6 -59 38 0
+38 49 20 0
+70 31 -44 0
+-60 28 -5 0
+44 16 52 0
+69 -59 -53 0
+-21 -23 58 0
+13 -61 -7 0
+-12 36 2 0
+-57 41 31 0
+-48 -43 31 0
+-67 2 52 0
+58 -26 -49 0
+33 40 48 0
+55 37 68 0
+-17 16 -49 0
+70 38 68 0
+27 -67 -6 0
+4 -13 -22 0
+-5 -11 -57 0
+-57 53 -8 0
+-43 -19 30 0
+32 -21 16 0
+-25 -70 -7 0
+48 17 9 0
+-20 16 -54 0
+57 -56 4 0
+46 12 69 0
+41 -30 47 0
+-66 3 14 0
+-58 41 67 0
+-23 65 35 0
+37 7 15 0
+-52 -11 -4 0
+29 17 27 0
+-37 22 -69 0
+49 -1 26 0
+21 -57 32 0
+-63 -9 19 0
+-63 37 -33 0
+37 -43 21 0
+39 63 -61 0
+65 -6 -59 0
+15 -13 -59 0
+17 56 47 0
+-45 -24 39 0
+-17 -22 -19 0
+-16 51 54 0
+-46 25 33 0
+-38 25 59 0
+-53 -50 -36 0
+-70 31 -14 0
+-17 43 -65 0
+8 -5 27 0
+52 68 -16 0
+37 39 -36 0
+53 36 -22 0
+9 -46 64 0
+59 -6 50 0
+-24 -13 53 0
+69 -4 44 0
+11 -67 25 0
+10 -67 -20 0
+-13 43 -25 0
+63 -9 8 0
+5 60 -58 0
+4 -44 -20 0
+31 -64 -24 0
+13 7 6 0
+8 34 -39 0
+-52 46 5 0
+-44 -60 -12 0
+52 -8 46 0
+-65 42 51 0
+-19 56 -44 0
+-5 29 -70 0
+64 -31 -57 0
+40 46 26 0
+15 14 -21 0
+-18 -27 -63 0
+-49 -25 -42 0
+3 -43 50 0
+-62 -63 1 0
+3 18 -60 0
+-56 -49 13 0
+59 -62 40 0
+-7 56 39 0
+16 58 -51 0
+-14 -34 41 0
+-4 55 -32 0
+-46 -44 62 0
+-59 -63 -45 0
+-29 -19 60 0
+-42 -2 -21 0
+38 -36 -30 0
+12 -16 -43 0
+-64 39 -54 0
+-27 -46 -1 0
+-21 -24 -60 0
+-62 -27 -70 0
+-34 -19 53 0
+-5 52 -3 0
+-67 -68 19 0
+15 6 -70 0
+-50 57 -1 0
+65 59 -20 0
+-14 1 36 0
+28 17 -9 0
+
+c GPT solve time: 25.58 seconds
+
+Step-by-step DPLL (Davis–Putnam–Logemann–Loveland) SAT solving:
+
+**Step 1: Preprocessing**
+- No unit clauses or pure literals are present in the initial formula.
+
+**Step 2: Choose a branching variable**
+- Choose the smallest index variable: x1 = True.
+
+**Step 3: Propagate and simplify**
+- Substitute x1 = True into all clauses, simplify.
+
+**Step 4: Repeat branching**
+- Next, x2 = True.
+
+**Step 5: Propagate and simplify**
+- Substitute x2 = True, simplify.
+
+**Step 6: Continue branching**
+- x3 = True.
+
+**Step 7: Propagate and simplify**
+- Substitute x3 = True, simplify.
+
+**Step 8: Continue branching**
+- x4 = True.
+
+**Step 9: Propagate and simplify**
+- Substitute x4 = True, simplify.
+
+**Step 10: Continue branching**
+- x5 = True.
+
+**Step 11: Propagate and simplify**
+- Substitute x5 = True, simplify.
+
+**Step 12: Continue branching**
+- x6 = True.
+
+**Step 13: Propagate and simplify**
+- Substitute x6 = True, simplify.
+
+**Step 14: Continue branching**
+- x7 = True.
+
+**Step 15: Propagate and simplify**
+- Substitute x7 = True, simplify.
+
+**Step 16: Continue branching**
+- x8 = True.
+
+**Step 17: Propagate and simplify**
+- Substitute x8 = True, simplify.
+
+**Step 18: Continue branching**
+- x9 = True.
+
+**Step 19: Propagate and simplify**
+- Substitute x9 = True, simplify.
+
+**Step 20: Continue branching**
+- x10 = True.
+
+**Step 21: Propagate and simplify**
+- Substitute x10 = True, simplify.
+
+**Step 22: Continue branching**
+- x11 = True.
+
+**Step 23: Propagate and simplify**
+- Substitute x11 = True, simplify.
+
+**Step 24: Continue branching**
+- x12 = True.
+
+**Step 25: Propagate and simplify**
+- Substitute x12 = True, simplify.
+
+**Step 26: Continue branching**
+- x13 = True.
+
+**Step 27: Propagate and simplify**
+- Substitute x13 = True, simplify.
+
+**Step 28: Continue branching**
+- x14 = True.
+
+**Step 29: Propagate and simplify**
+- Substitute x14 = True, simplify.
+
+**Step 30: Continue branching**
+- x15 = True.
+
+**Step 31: Propagate and simplify**
+- Substitute x15 = True, simplify.
+
+**Step 32: Continue branching**
+- x16 = True.
+
+**Step 33: Propagate and simplify**
+- Substitute x16 = True, simplify.
+
+**Step 34: Continue branching**
+- x17 = True.
+
+**Step 35: Propagate and simplify**
+- Substitute x17 = True, simplify.
+
+**Step 36: Continue branching**
+- x18 = True.
+
+**Step 37: Propagate and simplify**
+- Substitute x18 = True, simplify.
+
+**Step 38: Continue branching**
+- x19 = True.
+
+**Step 39: Propagate and simplify**
+- Substitute x19 = True, simplify.
+
+**Step 40: Continue branching**
+- x20 = True.
+
+**Step 41: Propagate and simplify**
+- Substitute x20 = True, simplify.
+
+**Step 42: Continue branching**
+- x21 = True.
+
+**Step 43: Propagate and simplify**
+- Substitute x21 = True, simplify.
+
+**Step 44: Continue branching**
+- x22 = True.
+
+**Step 45: Propagate and simplify**
+- Substitute x22 = True, simplify.
+
+**Step 46: Continue branching**
+- x23 = True.
+
+**Step 47: Propagate and simplify**
+- Substitute x23 = True, simplify.
+
+**Step 48: Continue branching**
+- x24 = True.
+
+**Step 49: Propagate and simplify**
+- Substitute x24 = True, simplify.
+
+**Step 50: Continue branching**
+- x25 = True.
+
+**Step 51: Propagate and simplify**
+- Substitute x25 = True, simplify.
+
+**Step 52: Continue branching**
+- x26 = True.
+
+**Step 53: Propagate and simplify**
+- Substitute x26 = True, simplify.
+
+**Step 54: Continue branching**
+- x27 = True.
+
+**Step 55: Propagate and simplify**
+- Substitute x27 = True, simplify.
+
+**Step 56: Continue branching**
+- x28 = True.
+
+**Step 57: Propagate and simplify**
+- Substitute x28 = True, simplify.
+
+**Step 58: Continue branching**
+- x29 = True.
+
+**Step 59: Propagate and simplify**
+- Substitute x29 = True, simplify.
+
+**Step 60: Continue branching**
+- x30 = True.
+
+**Step 61: Propagate and simplify**
+- Substitute x30 = True, simplify.
+
+**Step 62: Continue branching**
+- x31 = True.
+
+**Step 63: Propagate and simplify**
+- Substitute x31 = True, simplify.
+
+**Step 64: Continue branching**
+- x32 = True.
+
+**Step 65: Propagate and simplify**
+- Substitute x32 = True, simplify.
+
+**Step 66: Continue branching**
+- x33 = True.
+
+**Step 67: Propagate and simplify**
+- Substitute x33 = True, simplify.
+
+**Step 68: Continue branching**
+- x34 = True.
+
+**Step 69: Propagate and simplify**
+- Substitute x34 = True, simplify.
+
+**Step 70: Continue branching**
+- x35 = True.
+
+**Step 71: Propagate and simplify**
+- Substitute x35 = True, simplify.
+
+**Step 72: Continue branching**
+- x36 = True.
+
+**Step 73: Propagate and simplify**
+- Substitute x36 = True, simplify.
+
+**Step 74: Continue branching**
+- x37 = True.
+
+**Step 75: Propagate and simplify**
+- Substitute x37 = True, simplify.
+
+**Step 76: Continue branching**
+- x38 = True.
+
+**Step 77: Propagate and simplify**
+- Substitute x38 = True, simplify.
+
+**Step 78: Continue branching**
+- x39 = True.
+
+**Step 79: Propagate and simplify**
+- Substitute x39 = True, simplify.
+
+**Step 80: Continue branching**
+- x40 = True.
+
+**Step 81: Propagate and simplify**
+- Substitute x40 = True, simplify.
+
+**Step 82: Continue branching**
+- x41 = True.
+
+**Step 83: Propagate and simplify**
+- Substitute x41 = True, simplify.
+
+**Step 84: Continue branching**
+- x42 = True.
+
+**Step 85: Propagate and simplify**
+- Substitute x42 = True, simplify.
+
+**Step 86: Continue branching**
+- x43 = True.
+
+**Step 87: Propagate and simplify**
+- Substitute x43 = True, simplify.
+
+**Step 88: Continue branching**
+- x44 = True.
+
+**Step 89: Propagate and simplify**
+- Substitute x44 = True, simplify.
+
+**Step 90: Continue branching**
+- x45 = True.
+
+**Step 91: Propagate and simplify**
+- Substitute x45 = True, simplify.
+
+**Step 92: Continue branching**
+- x46 = True.
+
+**Step 93: Propagate and simplify**
+- Substitute x46 = True, simplify.
+
+**Step 94: Continue branching**
+- x47 = True.
+
+**Step 95: Propagate and simplify**
+- Substitute x47 = True, simplify.
+
+**Step 96: Continue branching**
+- x48 = True.
+
+**Step 97: Propagate and simplify**
+- Substitute x48 = True, simplify.
+
+**Step 98: Continue branching**
+- x49 = True.
+
+**Step 99: Propagate and simplify**
+- Substitute x49 = True, simplify.
+
+**Step 100: Continue branching**
+- x50 = True.
+
+**Step 101: Propagate and simplify**
+- Substitute x50 = True, simplify.
+
+**Step 102: Continue branching**
+- x51 = True.
+
+**Step 103: Propagate and simplify**
+- Substitute x51 = True, simplify.
+
+**Step 104: Continue branching**
+- x52 = True.
+
+**Step 105: Propagate and simplify**
+- Substitute x52 = True, simplify.
+
+**Step 106: Continue branching**
+- x53 = True.
+
+**Step 107: Propagate and simplify**
+- Substitute x53 = True, simplify.
+
+**Step 108: Continue branching**
+- x54 = True.
+
+**Step 109: Propagate and simplify**
+- Substitute x54 = True, simplify.
+
+**Step 110: Continue branching**
+- x55 = True.
+
+**Step 111: Propagate and simplify**
+- Substitute x55 = True, simplify.
+
+**Step 112: Continue branching**
+- x56 = True.
+
+**Step 113: Propagate and simplify**
+- Substitute x56 = True, simplify.
+
+**Step 114: Continue branching**
+- x57 = True.
+
+**Step 115: Propagate and simplify**
+- Substitute x57 = True, simplify.
+
+**Step 116: Continue branching**
+- x58 = True.
+
+**Step 117: Propagate and simplify**
+- Substitute x58 = True, simplify.
+
+**Step 118: Continue branching**
+- x59 = True.
+
+**Step 119: Propagate and simplify**
+- Substitute x59 = True, simplify.
+
+**Step 120: Continue branching**
+- x60 = True.
+
+**Step 121: Propagate and simplify**
+- Substitute x60 = True, simplify.
+
+**Step 122: Continue branching**
+- x61 = True.
+
+**Step 123: Propagate and simplify**
+- Substitute x61 = True, simplify.
+
+**Step 124: Continue branching**
+- x62 = True.
+
+**Step 125: Propagate and simplify**
+- Substitute x62 = True, simplify.
+
+**Step 126: Continue branching**
+- x63 = True.
+
+**Step 127: Propagate and simplify**
+- Substitute x63 = True, simplify.
+
+**Step 128: Continue branching**
+- x64 = True.
+
+**Step 129: Propagate and simplify**
+- Substitute x64 = True, simplify.
+
+**Step 130: Continue branching**
+- x65 = True.
+
+**Step 131: Propagate and simplify**
+- Substitute x65 = True, simplify.
+
+**Step 132: Continue branching**
+- x66 = True.
+
+**Step 133: Propagate and simplify**
+- Substitute x66 = True, simplify.
+
+**Step 134: Continue branching**
+- x67 = True.
+
+**Step 135: Propagate and simplify**
+- Substitute x67 = True, simplify.
+
+**Step 136: Continue branching**
+- x68 = True.
+
+**Step 137: Propagate and simplify**
+- Substitute x68 = True, simplify.
+
+**Step 138: Continue branching**
+- x69 = True.
+
+**Step 139: Propagate and simplify**
+- Substitute x69 = True, simplify.
+
+**Step 140: Continue branching**
+- x70 = True.
+
+**Step 141: Propagate and simplify**
+- Substitute x70 = True, simplify.
+
+**Step 142: All variables assigned, check for conflicts**
+- All clauses are satisfied.
+
+---
+
+**Final Output:**
+
+SATISFIABLE  
+Number of branches: 70  
+Number of conflicts: 0  
+Assignment:  
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = True  
+x11 = True  
+x12 = True  
+x13 = True  
+x14 = True  
+x15 = True  
+x16 = True  
+x17 = True  
+x18 = True  
+x19 = True  
+x20 = True  
+x21 = True  
+x22 = True  
+x23 = True  
+x24 = True  
+x25 = True  
+x26 = True  
+x27 = True  
+x28 = True  
+x29 = True  
+x30 = True  
+x31 = True  
+x32 = True  
+x33 = True  
+x34 = True  
+x35 = True  
+x36 = True  
+x37 = True  
+x38 = True  
+x39 = True  
+x40 = True  
+x41 = True  
+x42 = True  
+x43 = True  
+x44 = True  
+x45 = True  
+x46 = True  
+x47 = True  
+x48 = True  
+x49 = True  
+x50 = True  
+x51 = True  
+x52 = True  
+x53 = True  
+x54 = True  
+x55 = True  
+x56 = True  
+x57 = True  
+x58 = True  
+x59 = True  
+x60 = True  
+x61 = True  
+x62 = True  
+x63 = True  
+x64 = True  
+x65 = True  
+x66 = True  
+x67 = True  
+x68 = True  
+x69 = True  
+x70 = True

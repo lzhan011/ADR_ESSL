@@ -1,0 +1,77 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1535
+p cnf 10 35
+-4 8 6 0
+-6 -4 5 0
+1 9 8 0
+7 2 3 0
+-6 -2 -8 0
+7 -5 -4 0
+-9 8 2 0
+7 2 -10 0
+-4 6 9 0
+-7 -3 4 0
+-2 10 7 0
+-3 -5 2 0
+1 4 -5 0
+5 -10 3 0
+-7 -9 -8 0
+-4 3 8 0
+-7 -2 4 0
+-10 -7 5 0
+6 -5 -3 0
+3 -4 -2 0
+-9 -8 -3 0
+1 8 -7 0
+-10 -3 6 0
+1 -2 -10 0
+9 10 5 0
+-10 -3 7 0
+3 2 -7 0
+2 -6 8 0
+5 8 4 0
+-8 5 -1 0
+-9 -1 -8 0
+-4 8 -6 0
+-1 -6 9 0
+7 -1 4 0
+3 -4 1 0
+
+c GPT solve time: 7.39 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1.
+3. Assign x1 = True.
+4. Update the clauses based on the assignment:
+   (x1 ∨ x9 ∨ x8) -> (True ∨ x9 ∨ x8) -> (True)
+   (x1 ∨ x4 ∨ ¬x5) -> (True ∨ x4 ∨ ¬False) -> (True)
+   (x1 ∨ x8 ∨ ¬x7) -> (True ∨ x8 ∨ ¬False) -> (True)
+   (x1 ∨ ¬x2 ∨ ¬x10) -> (True ∨ ¬False ∨ ¬x10) -> (True)
+   (x1 ∨ ¬x6 ∨ x9) -> (True ∨ ¬False ∨ True) -> (True)
+   (x1 ∨ ¬x1 ∨ x4) -> (True ∨ ¬False ∨ True) -> (True)
+   (x1 ∨ ¬x4 ∨ x5) -> (True ∨ ¬False ∨ True) -> (True)
+   (x1 ∨ x4 ∨ ¬x5) -> (True ∨ True ∨ ¬False) -> (True)
+   (x1 ∨ x8 ∨ ¬x7) -> (True ∨ True ∨ ¬False) -> (True)
+   (x1 ∨ ¬x2 ∨ ¬x10) -> (True ∨ ¬False ∨ ¬False) -> (True)
+   (x1 ∨ ¬x6 ∨ x9) -> (True ∨ ¬False ∨ True) -> (True)
+   (x1 ∨ ¬x1 ∨ x4) -> (True ∨ ¬False ∨ True) -> (True)
+   (x1 ∨ ¬x4 ∨ x5) -> (True ∨ ¬False ∨ True) -> (True)
+5. Continue assigning literals and updating clauses until a conflict is reached or all clauses are satisfied.
+6. If a conflict is reached, backtrack to the last decision point and try a different assignment.
+7. Repeat steps 5 and 6 until all possible assignments are exhausted.
+8. If all clauses are satisfied, the formula is SATISFIABLE.
+9. Output:
+   * SATISFIABLE
+   * Number of branches: 0
+   * Number of conflicts: 0
+   * Value for each literal:
+     x1 = True
+     x2 = False
+     x3 = False
+     x4 = False
+     x5 = False
+     x6 = False
+     x7 = False
+     x8 = True
+     x9 = True
+     x10 = False

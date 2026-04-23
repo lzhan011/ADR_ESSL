@@ -1,0 +1,179 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=4941
+p cnf 25 87
+-8 -10 12 0
+-8 4 -1 0
+6 17 -14 0
+11 -18 -23 0
+-6 3 2 0
+10 -7 -13 0
+16 -7 -10 0
+-15 -3 12 0
+-22 4 15 0
+-10 -24 13 0
+-13 -22 8 0
+-13 -9 -1 0
+-15 11 -23 0
+18 7 -23 0
+9 18 3 0
+-19 12 -2 0
+-19 9 -5 0
+-20 -9 2 0
+-18 14 1 0
+4 -24 14 0
+20 10 -23 0
+-15 12 3 0
+-22 21 12 0
+-10 -22 4 0
+-15 16 -19 0
+19 -5 22 0
+9 -23 12 0
+-11 19 -9 0
+-2 -18 5 0
+7 5 -12 0
+25 -1 13 0
+-16 24 12 0
+15 8 -2 0
+21 -20 16 0
+4 8 3 0
+9 5 14 0
+23 -8 -16 0
+-12 -25 2 0
+9 -6 18 0
+4 -11 -14 0
+4 -12 -21 0
+10 -24 14 0
+24 21 -7 0
+5 -23 10 0
+10 11 -15 0
+1 22 -9 0
+-2 -10 -11 0
+-11 6 23 0
+-3 19 14 0
+19 -16 -24 0
+17 -10 5 0
+12 25 2 0
+25 -22 -12 0
+22 -17 -16 0
+-19 -2 -8 0
+-24 11 25 0
+4 17 -25 0
+7 13 10 0
+-18 -25 16 0
+23 11 -12 0
+-18 -2 -11 0
+7 15 -13 0
+7 -15 10 0
+-14 15 -16 0
+-13 -18 3 0
+25 -15 5 0
+-6 17 13 0
+20 5 11 0
+17 20 9 0
+-21 8 7 0
+-1 3 -9 0
+-21 1 9 0
+-9 -6 19 0
+-16 -18 -7 0
+-2 -9 -5 0
+-20 6 -3 0
+-17 12 2 0
+11 20 -5 0
+24 -22 -7 0
+25 3 22 0
+9 5 19 0
+-11 -7 3 0
+10 -7 -24 0
+-4 20 -21 0
+-8 6 -22 0
+6 25 16 0
+1 14 25 0
+
+c GPT solve time: 28.01 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Step 1: Choose x1 to be true. No conflicts.
+
+Step 2: Choose x2 to be true. No conflicts.
+
+Step 3: Choose x3 to be true. No conflicts.
+
+Step 4: Choose x4 to be true. No conflicts.
+
+Step 5: Choose x5 to be true. No conflicts.
+
+Step 6: Choose x6 to be true. No conflicts.
+
+Step 7: Choose x7 to be true. No conflicts.
+
+Step 8: Choose x8 to be true. No conflicts.
+
+Step 9: Choose x9 to be true. No conflicts.
+
+Step 10: Choose x10 to be true. Conflict found in clause (¬x8 ∨ ¬x10 ∨ x12). Backtrack.
+
+Step 11: Choose x10 to be false. No conflicts.
+
+Step 12: Choose x11 to be true. No conflicts.
+
+Step 13: Choose x12 to be true. No conflicts.
+
+Step 14: Choose x13 to be true. No conflicts.
+
+Step 15: Choose x14 to be true. No conflicts.
+
+Step 16: Choose x15 to be true. No conflicts.
+
+Step 17: Choose x16 to be true. No conflicts.
+
+Step 18: Choose x17 to be true. No conflicts.
+
+Step 19: Choose x18 to be true. No conflicts.
+
+Step 20: Choose x19 to be true. No conflicts.
+
+Step 21: Choose x20 to be true. No conflicts.
+
+Step 22: Choose x21 to be true. No conflicts.
+
+Step 23: Choose x22 to be true. No conflicts.
+
+Step 24: Choose x23 to be true. No conflicts.
+
+Step 25: Choose x24 to be true. No conflicts.
+
+Step 26: Choose x25 to be true. No conflicts.
+
+All variables assigned without conflict. The formula is satisfiable.
+
+SATISFIABLE
+Number of branches: 1
+Number of conflicts: 1
+
+Satisfying assignment:
+x1 = true
+x2 = true 
+x3 = true
+x4 = true
+x5 = true
+x6 = true
+x7 = true
+x8 = true
+x9 = true
+x10 = false
+x11 = true
+x12 = true
+x13 = true
+x14 = true
+x15 = true
+x16 = true
+x17 = true
+x18 = true
+x19 = true
+x20 = true
+x21 = true
+x22 = true
+x23 = true
+x24 = true
+x25 = true

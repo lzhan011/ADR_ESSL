@@ -1,0 +1,413 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=106
+p cnf 10 35
+9 -8 -10 0
+5 1 10 0
+-5 -6 7 0
+-10 -2 -3 0
+-10 5 -6 0
+6 2 -1 0
+5 -7 -9 0
+6 -3 -9 0
+8 -9 10 0
+2 7 1 0
+2 1 4 0
+-9 2 5 0
+4 -10 -2 0
+9 -2 7 0
+10 -1 -5 0
+9 10 -4 0
+-10 -6 -2 0
+4 -2 5 0
+-7 -5 1 0
+-3 -5 -6 0
+9 8 -2 0
+-10 -9 3 0
+10 1 8 0
+-7 1 -8 0
+6 -8 -2 0
+-1 9 2 0
+-2 7 -9 0
+-6 -1 -9 0
+1 10 2 0
+-10 8 5 0
+6 -8 10 0
+6 -3 -4 0
+-1 5 -2 0
+9 7 -3 0
+9 -4 -3 0
+
+c GPT solve time: 74.85 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Step 1: List variables**
+Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+**Step 2: Choose a variable to branch on (x1)**
+
+### Branch 1: x1 = True
+
+- Propagate x1 = True through all clauses.
+- Simplify clauses:
+    - Any clause with x1 is satisfied.
+    - Remove ¬x1 from clauses.
+
+**Check for unit clauses or forced assignments:**
+- No immediate unit clauses.
+
+**Choose next variable: x2 = True**
+
+#### Branch 1.1: x2 = True
+
+- Propagate x2 = True.
+- Any clause with x2 is satisfied.
+- Remove ¬x2 from clauses.
+
+**Choose next variable: x3 = True**
+
+##### Branch 1.1.1: x3 = True
+
+- Propagate x3 = True.
+- Any clause with x3 is satisfied.
+- Remove ¬x3 from clauses.
+
+**Choose next variable: x4 = True**
+
+###### Branch 1.1.1.1: x4 = True
+
+- Propagate x4 = True.
+- Any clause with x4 is satisfied.
+- Remove ¬x4 from clauses.
+
+**Choose next variable: x5 = True**
+
+####### Branch 1.1.1.1.1: x5 = True
+
+- Propagate x5 = True.
+- Any clause with x5 is satisfied.
+- Remove ¬x5 from clauses.
+
+**Choose next variable: x6 = True**
+
+######## Branch 1.1.1.1.1.1: x6 = True
+
+- Propagate x6 = True.
+- Any clause with x6 is satisfied.
+- Remove ¬x6 from clauses.
+
+**Choose next variable: x7 = True**
+
+######### Branch 1.1.1.1.1.1.1: x7 = True
+
+- Propagate x7 = True.
+- Any clause with x7 is satisfied.
+- Remove ¬x7 from clauses.
+
+**Choose next variable: x8 = True**
+
+########## Branch 1.1.1.1.1.1.1.1: x8 = True
+
+- Propagate x8 = True.
+- Any clause with x8 is satisfied.
+- Remove ¬x8 from clauses.
+
+**Choose next variable: x9 = True**
+
+########### Branch 1.1.1.1.1.1.1.1.1: x9 = True
+
+- Propagate x9 = True.
+- Any clause with x9 is satisfied.
+- Remove ¬x9 from clauses.
+
+**Choose next variable: x10 = True**
+
+############ Branch 1.1.1.1.1.1.1.1.1.1: x10 = True
+
+- Propagate x10 = True.
+- Any clause with x10 is satisfied.
+- Remove ¬x10 from clauses.
+
+**All variables assigned. Check if all clauses are satisfied:**
+
+Let's check a few clauses for this assignment:
+- (x9 ∨ ¬x8 ∨ ¬x10): x9 = True ⇒ satisfied
+- (x5 ∨ x1 ∨ x10): x5 = True ⇒ satisfied
+- (¬x5 ∨ ¬x6 ∨ x7): x5 = True, x6 = True, x7 = True ⇒ all negated, so all False, so clause is False. **Conflict!**
+
+**Backtrack: x7 = False**
+
+######### Branch 1.1.1.1.1.1.1: x7 = False
+
+- x7 = False
+- (¬x5 ∨ ¬x6 ∨ x7): x5 = True, x6 = True, x7 = False ⇒ ¬x5 = False, ¬x6 = False, x7 = False ⇒ clause is False. **Conflict!**
+
+**Backtrack: x6 = False**
+
+######## Branch 1.1.1.1.1.1: x6 = False
+
+- x6 = False
+- (¬x5 ∨ ¬x6 ∨ x7): x5 = True, x6 = False ⇒ ¬x5 = False, ¬x6 = True ⇒ clause is True. Satisfied.
+- (¬x10 ∨ ¬x6 ∨ ¬x2): x10 = unassigned, x6 = False ⇒ ¬x6 = True ⇒ satisfied.
+
+**Continue: x7 = True**
+
+######### Branch 1.1.1.1.1.1.2: x7 = True
+
+- x7 = True
+
+**Continue: x8 = True**
+
+########## Branch 1.1.1.1.1.1.2.1: x8 = True
+
+- x8 = True
+
+**Continue: x9 = True**
+
+########### Branch 1.1.1.1.1.1.2.1.1: x9 = True
+
+- x9 = True
+
+**Continue: x10 = True**
+
+############ Branch 1.1.1.1.1.1.2.1.1.1: x10 = True
+
+- x10 = True
+
+Check (x9 ∨ ¬x8 ∨ ¬x10): x9 = True ⇒ satisfied
+Check (x5 ∨ x1 ∨ x10): x5 = True ⇒ satisfied
+Check (¬x5 ∨ ¬x6 ∨ x7): x5 = True, x6 = False, x7 = True ⇒ ¬x5 = False, ¬x6 = True ⇒ satisfied
+Check (¬x10 ∨ ¬x2 ∨ ¬x3): x10 = True, x2 = True, x3 = True ⇒ all negated are False ⇒ clause is False. **Conflict!**
+
+**Backtrack: x10 = False**
+
+############ Branch 1.1.1.1.1.1.2.1.1.2: x10 = False
+
+- x10 = False
+
+Check (x9 ∨ ¬x8 ∨ ¬x10): x9 = True ⇒ satisfied
+Check (x5 ∨ x1 ∨ x10): x5 = True ⇒ satisfied
+Check (¬x5 ∨ ¬x6 ∨ x7): x5 = True, x6 = False, x7 = True ⇒ ¬x5 = False, ¬x6 = True ⇒ satisfied
+Check (¬x10 ∨ ¬x2 ∨ ¬x3): x10 = False ⇒ ¬x10 = True ⇒ satisfied
+
+Continue checking all other clauses. Let's check a few more:
+
+- (¬x10 ∨ x5 ∨ ¬x6): x10 = False ⇒ ¬x10 = True ⇒ satisfied
+- (x6 ∨ x2 ∨ ¬x1): x6 = False, x2 = True ⇒ satisfied
+- (x5 ∨ ¬x7 ∨ ¬x9): x5 = True ⇒ satisfied
+- (x6 ∨ ¬x3 ∨ ¬x9): x6 = False, x3 = True, x9 = True ⇒ ¬x3 = False, ¬x9 = False ⇒ clause is False. **Conflict!**
+
+**Backtrack: x9 = False**
+
+########### Branch 1.1.1.1.1.1.2.1.2: x9 = False
+
+- x9 = False
+
+Check (x9 ∨ ¬x8 ∨ ¬x10): x9 = False, x8 = True, x10 = False ⇒ ¬x8 = False, ¬x10 = True ⇒ satisfied
+Check (x5 ∨ x1 ∨ x10): x5 = True ⇒ satisfied
+Check (¬x5 ∨ ¬x6 ∨ x7): x5 = True, x6 = False, x7 = True ⇒ ¬x5 = False, ¬x6 = True ⇒ satisfied
+Check (¬x10 ∨ ¬x2 ∨ ¬x3): x10 = False ⇒ ¬x10 = True ⇒ satisfied
+Check (x6 ∨ ¬x3 ∨ ¬x9): x6 = False, x3 = True, x9 = False ⇒ ¬x3 = False, ¬x9 = True ⇒ satisfied
+
+Continue checking all other clauses.
+
+- (x8 ∨ ¬x9 ∨ x10): x8 = True ⇒ satisfied
+- (x2 ∨ x7 ∨ x1): x2 = True ⇒ satisfied
+- (x2 ∨ x1 ∨ x4): x2 = True ⇒ satisfied
+- (¬x9 ∨ x2 ∨ x5): x9 = False ⇒ ¬x9 = True ⇒ satisfied
+- (x4 ∨ ¬x10 ∨ ¬x2): x4 = True ⇒ satisfied
+- (x9 ∨ ¬x2 ∨ x7): x9 = False, x2 = True, x7 = True ⇒ ¬x2 = False ⇒ clause is False, but x7 = True, so clause is False. **Conflict!**
+
+**Backtrack: x8 = False**
+
+########## Branch 1.1.1.1.1.1.2.2: x8 = False
+
+- x8 = False
+
+Continue with x9 = True
+
+########### Branch 1.1.1.1.1.1.2.2.1: x9 = True
+
+- x9 = True
+
+Check (x9 ∨ ¬x8 ∨ ¬x10): x9 = True ⇒ satisfied
+Check (x8 ∨ ¬x9 ∨ x10): x8 = False, x9 = True, x10 = unassigned ⇒ ¬x9 = False, x10 = unassigned ⇒ clause is False unless x10 = True
+
+Try x10 = True
+
+############ Branch 1.1.1.1.1.1.2.2.1.1: x10 = True
+
+- x10 = True
+
+Check (x8 ∨ ¬x9 ∨ x10): x8 = False, ¬x9 = False, x10 = True ⇒ satisfied
+
+Check (¬x10 ∨ ¬x2 ∨ ¬x3): x10 = True, x2 = True, x3 = True ⇒ all negated are False ⇒ clause is False. **Conflict!**
+
+Try x10 = False
+
+############ Branch 1.1.1.1.1.1.2.2.1.2: x10 = False
+
+- x10 = False
+
+Check (x8 ∨ ¬x9 ∨ x10): x8 = False, ¬x9 = False, x10 = False ⇒ clause is False. **Conflict!**
+
+Try x9 = False
+
+########### Branch 1.1.1.1.1.1.2.2.2: x9 = False
+
+- x9 = False
+
+Check (x9 ∨ ¬x8 ∨ ¬x10): x9 = False, x8 = False, x10 = unassigned ⇒ ¬x8 = True ⇒ satisfied
+
+Check (x8 ∨ ¬x9 ∨ x10): x8 = False, ¬x9 = True ⇒ satisfied
+
+Continue with x10 = True
+
+############ Branch 1.1.1.1.1.1.2.2.2.1: x10 = True
+
+- x10 = True
+
+Check (¬x10 ∨ ¬x2 ∨ ¬x3): x10 = True, x2 = True, x3 = True ⇒ all negated are False ⇒ clause is False. **Conflict!**
+
+Try x10 = False
+
+############ Branch 1.1.1.1.1.1.2.2.2.2: x10 = False
+
+- x10 = False
+
+Check (¬x10 ∨ ¬x2 ∨ ¬x3): x10 = False ⇒ ¬x10 = True ⇒ satisfied
+
+Now, all variables assigned:
+
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = False  
+x7 = True  
+x8 = False  
+x9 = False  
+x10 = False  
+
+Check all clauses:
+
+1. (x9 ∨ ¬x8 ∨ ¬x10): x9 = False, ¬x8 = True, ¬x10 = True ⇒ satisfied
+2. (x5 ∨ x1 ∨ x10): x5 = True ⇒ satisfied
+3. (¬x5 ∨ ¬x6 ∨ x7): ¬x5 = False, ¬x6 = True ⇒ satisfied
+4. (¬x10 ∨ ¬x2 ∨ ¬x3): ¬x10 = True ⇒ satisfied
+5. (¬x10 ∨ x5 ∨ ¬x6): ¬x10 = True ⇒ satisfied
+6. (x6 ∨ x2 ∨ ¬x1): x6 = False, x2 = True ⇒ satisfied
+7. (x5 ∨ ¬x7 ∨ ¬x9): x5 = True ⇒ satisfied
+8. (x6 ∨ ¬x3 ∨ ¬x9): x6 = False, ¬x3 = False, ¬x9 = True ⇒ satisfied
+9. (x8 ∨ ¬x9 ∨ x10): x8 = False, ¬x9 = True ⇒ satisfied
+10. (x2 ∨ x7 ∨ x1): x2 = True ⇒ satisfied
+11. (x2 ∨ x1 ∨ x4): x2 = True ⇒ satisfied
+12. (¬x9 ∨ x2 ∨ x5): ¬x9 = True ⇒ satisfied
+13. (x4 ∨ ¬x10 ∨ ¬x2): x4 = True ⇒ satisfied
+14. (x9 ∨ ¬x2 ∨ x7): x9 = False, ¬x2 = False, x7 = True ⇒ satisfied
+15. (x10 ∨ ¬x1 ∨ ¬x5): x10 = False, ¬x1 = False, ¬x5 = False ⇒ clause is False. **Conflict!**
+
+So, this assignment fails.
+
+**Backtrack to x7 = False**
+
+######### Branch 1.1.1.1.1.1.2.2.2.2: x7 = False
+
+- x7 = False
+
+Check (¬x5 ∨ ¬x6 ∨ x7): x5 = True, x6 = False, x7 = False ⇒ ¬x5 = False, ¬x6 = True ⇒ satisfied
+
+Continue with x8 = True
+
+########## Branch 1.1.1.1.1.1.2.2.2.2.1: x8 = True
+
+- x8 = True
+
+Continue with x9 = True
+
+########### Branch 1.1.1.1.1.1.2.2.2.2.1.1: x9 = True
+
+- x9 = True
+
+Continue with x10 = True
+
+############ Branch 1.1.1.1.1.1.2.2.2.2.1.1.1: x10 = True
+
+- (x10 ∨ ¬x1 ∨ ¬x5): x10 = True ⇒ satisfied
+
+Check all other clauses as above.
+
+Continue this process...
+
+---
+
+At this point, the search tree is getting very large, but the pattern is that every time we try to assign all variables True, we hit a conflict. Let's try a different approach: assign x1 = False.
+
+### Branch 2: x1 = False
+
+- x1 = False
+
+Now, (x6 ∨ x2 ∨ ¬x1): ¬x1 = True ⇒ satisfied
+(x2 ∨ x7 ∨ x1): x1 = False, so (x2 ∨ x7)
+(x2 ∨ x1 ∨ x4): x1 = False, so (x2 ∨ x4)
+(¬x1 ∨ x9 ∨ x2): ¬x1 = True ⇒ satisfied
+(¬x6 ∨ ¬x1 ∨ ¬x9): ¬x1 = True ⇒ satisfied
+(x10 ∨ ¬x1 ∨ ¬x5): ¬x1 = True ⇒ satisfied
+
+So, a lot of clauses are satisfied.
+
+Now, try x2 = True
+
+#### Branch 2.1: x2 = True
+
+- (x2 ∨ x7): x2 = True ⇒ satisfied
+- (x2 ∨ x4): x2 = True ⇒ satisfied
+
+Try x3 = True
+
+##### Branch 2.1.1: x3 = True
+
+Try x4 = True
+
+###### Branch 2.1.1.1: x4 = True
+
+Try x5 = True
+
+####### Branch 2.1.1.1.1: x5 = True
+
+Try x6 = True
+
+######## Branch 2.1.1.1.1.1: x6 = True
+
+Try x7 = True
+
+######### Branch 2.1.1.1.1.1.1: x7 = True
+
+Try x8 = True
+
+########## Branch 2.1.1.1.1.1.1.1: x8 = True
+
+Try x9 = True
+
+########### Branch 2.1.1.1.1.1.1.1.1: x9 = True
+
+Try x10 = True
+
+############ Branch 2.1.1.1.1.1.1.1.1.1: x10 = True
+
+Check (¬x5 ∨ ¬x6 ∨ x7): x5 = True, x6 = True, x7 = True ⇒ all negated are False, x7 = True ⇒ satisfied
+
+Check (¬x10 ∨ ¬x2 ∨ ¬x3): x10 = True, x2 = True, x3 = True ⇒ all negated are False ⇒ clause is False. **Conflict!**
+
+Try x10 = False
+
+############ Branch 2.1.1.1.1.1.1.1.1.2: x10 = False
+
+Check (¬x10 ∨ ¬x2 ∨ ¬x3): x10 = False ⇒ ¬x10 = True ⇒ satisfied
+
+Check (x10 ∨ x1 ∨ x8): x10 = False, x1 = False, x8 = True ⇒ satisfied
+
+Check (x10 ∨ ¬x1 ∨ ¬x5): x10 = False, ¬x1 = True ⇒ satisfied
+
+Check (x9 ∨ x10

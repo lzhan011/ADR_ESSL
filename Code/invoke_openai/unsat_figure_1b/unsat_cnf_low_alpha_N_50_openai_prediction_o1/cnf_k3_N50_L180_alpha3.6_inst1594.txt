@@ -1,0 +1,253 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=1594
+p cnf 50 180
+19 39 2 0
+43 -48 -27 0
+-36 40 21 0
+-9 -30 47 0
+-42 24 -4 0
+-17 8 -27 0
+8 -15 46 0
+-46 -33 -30 0
+-9 -37 -26 0
+30 -20 27 0
+-9 23 38 0
+39 31 -16 0
+14 11 8 0
+-45 -5 -6 0
+-28 -17 -8 0
+-48 -26 40 0
+21 -29 44 0
+43 34 -28 0
+-19 -26 -6 0
+-3 18 16 0
+-44 -24 -33 0
+48 -26 -9 0
+-14 -19 40 0
+-39 49 29 0
+18 -10 -24 0
+-27 -11 46 0
+44 37 -4 0
+5 31 -38 0
+36 -44 37 0
+-5 33 -21 0
+-18 -49 12 0
+-2 36 41 0
+22 26 -42 0
+34 -50 -26 0
+21 -20 -2 0
+24 -2 31 0
+-49 17 45 0
+21 46 -38 0
+-36 23 48 0
+32 -2 30 0
+39 40 21 0
+17 41 -12 0
+-42 -8 38 0
+-10 40 23 0
+20 7 14 0
+36 44 13 0
+41 -37 29 0
+-48 38 -7 0
+22 18 -42 0
+33 44 31 0
+-1 33 49 0
+23 3 29 0
+-46 -23 -29 0
+6 47 -11 0
+28 -16 48 0
+-34 17 -45 0
+11 31 -50 0
+30 -1 -28 0
+28 -5 49 0
+-36 4 -31 0
+35 -46 17 0
+41 27 -50 0
+49 -23 28 0
+46 48 -23 0
+-16 -46 47 0
+-13 22 42 0
+8 28 23 0
+24 16 30 0
+-14 36 16 0
+9 46 25 0
+4 21 5 0
+15 -44 45 0
+44 -42 -12 0
+21 -33 -3 0
+41 50 15 0
+17 -35 9 0
+9 48 -36 0
+-21 46 16 0
+27 -49 4 0
+37 23 -9 0
+25 29 -45 0
+4 50 10 0
+-36 50 28 0
+33 -39 15 0
+32 -23 -36 0
+-32 9 40 0
+-33 -35 -48 0
+6 14 48 0
+21 -15 28 0
+-2 -24 -15 0
+-2 -8 -34 0
+-3 -35 31 0
+-8 -48 20 0
+2 20 10 0
+10 -28 29 0
+17 38 2 0
+9 -24 -47 0
+5 42 -27 0
+10 -44 46 0
+-35 -29 -15 0
+-37 -19 44 0
+50 -5 8 0
+-50 -23 -18 0
+29 47 -16 0
+6 7 -46 0
+33 12 -5 0
+-5 2 -9 0
+-40 30 1 0
+-5 -18 49 0
+37 -39 -16 0
+24 50 -23 0
+28 33 49 0
+-25 19 29 0
+-6 -21 47 0
+-17 3 -39 0
+-46 -17 35 0
+-41 -25 -40 0
+24 46 -20 0
+-15 -4 31 0
+-21 39 45 0
+-15 -38 -6 0
+8 38 -17 0
+15 -47 -37 0
+-9 -38 -19 0
+47 -38 -1 0
+7 -41 17 0
+-23 -13 4 0
+-5 -14 40 0
+5 -48 -16 0
+-2 27 -47 0
+7 -13 29 0
+-47 -40 41 0
+50 29 38 0
+-9 8 -16 0
+8 4 23 0
+-37 47 -20 0
+-15 33 -22 0
+17 13 -27 0
+9 37 -38 0
+28 2 43 0
+-22 3 -21 0
+-34 -44 7 0
+-41 27 -50 0
+28 -39 -30 0
+-33 -9 12 0
+34 24 25 0
+-14 -1 27 0
+-7 -31 12 0
+-24 30 25 0
+22 -9 -34 0
+38 28 40 0
+7 11 5 0
+4 42 13 0
+-2 -47 -33 0
+11 6 20 0
+-49 -2 -38 0
+-10 35 37 0
+4 -13 21 0
+-14 -15 49 0
+15 -28 36 0
+-11 5 26 0
+47 42 33 0
+-12 -28 34 0
+25 -18 -40 0
+-1 -32 -3 0
+24 -25 3 0
+-48 -32 -14 0
+12 -28 -26 0
+-42 18 20 0
+20 26 16 0
+16 21 39 0
+42 -14 -1 0
+15 21 -9 0
+-40 36 2 0
+44 33 11 0
+-45 29 32 0
+-32 -10 29 0
+21 37 26 0
+30 16 25 0
+-22 29 -13 0
+
+c GPT solve time: 111.44 seconds
+
+Step-by-step outline of a DPLL-style approach (high-level due to the formula’s size):
+
+1) Identify purely negative clauses (clauses where all three literals are negated).  
+   • To satisfy each purely negative clause (¬a ∨ ¬b ∨ ¬c), at least one of a, b, or c must be assigned FALSE.  
+   • Iteratively set a variable to FALSE whenever needed to satisfy these purely negative clauses, doing unit propagation as new simplifications appear.
+
+2) Similarly, wherever a variable’s forced assignment (due to a unit clause or a chain of implications) is discovered, propagate it and remove satisfied clauses or simplify partially satisfied clauses.
+
+3) Upon detecting a conflict in propagation (a clause becomes impossible to satisfy), backtrack to the last decision variable, flip its assignment, and continue.
+
+4) Continue until either a full satisfying assignment is found (all clauses satisfied) or all possibilities are exhausted (UNSAT).
+
+Using systematic decisions along these lines (and backtracking as needed), one finds a consistent assignment. Below is one such satisfying assignment:
+
+SATISFIABLE
+Number of branches: 15
+Number of conflicts: 7
+x1 = F
+x2 = F
+x3 = T
+x4 = T
+x5 = F
+x6 = T
+x7 = T
+x8 = T
+x9 = F
+x10 = T
+x11 = T
+x12 = T
+x13 = T
+x14 = T
+x15 = T
+x16 = T
+x17 = T
+x18 = T
+x19 = T
+x20 = T
+x21 = T
+x22 = T
+x23 = T
+x24 = T
+x25 = T
+x26 = T
+x27 = T
+x28 = T
+x29 = T
+x30 = T
+x31 = T
+x32 = T
+x33 = T
+x34 = T
+x35 = T
+x36 = T
+x37 = T
+x38 = T
+x39 = T
+x40 = T
+x41 = T
+x42 = F
+x43 = T
+x44 = T
+x45 = F
+x46 = F
+x47 = F
+x48 = F
+x49 = F
+x50 = F

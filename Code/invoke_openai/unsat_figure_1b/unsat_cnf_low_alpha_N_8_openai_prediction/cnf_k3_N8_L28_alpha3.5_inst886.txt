@@ -1,0 +1,552 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=886
+p cnf 8 28
+-2 -5 3 0
+7 1 8 0
+-3 -8 -2 0
+5 -3 -6 0
+7 -3 5 0
+2 8 3 0
+3 -2 -5 0
+7 2 5 0
+-3 -4 -5 0
+-8 3 -2 0
+-2 -4 -3 0
+8 4 -2 0
+-2 -3 7 0
+-5 -3 7 0
+-8 -7 3 0
+-8 4 5 0
+2 -8 1 0
+7 3 2 0
+-4 3 5 0
+3 -6 4 0
+-7 -1 3 0
+-6 5 -3 0
+-3 -7 2 0
+3 -1 2 0
+-3 -5 -4 0
+5 -3 -8 0
+-8 -5 -1 0
+3 4 5 0
+
+c GPT solve time: 81.80 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List variables**
+Variables: x1, x2, x3, x4, x5, x6, x7, x8
+
+**Step 2: Try to assign values to variables, branching on decisions and backtracking on conflicts.**
+
+Let's start with x3, as it appears in almost every clause.
+
+---
+
+### Branch 1: x3 = True
+
+- Substitute x3 = True into all clauses:
+    - Any clause with x3 is satisfied.
+    - Any clause with ¬x3: remove ¬x3 from those clauses.
+
+After substitution, the remaining unsatisfied clauses (with ¬x3 removed):
+
+1. (¬x2 ∨ ¬x5)
+4. (x5 ∨ ¬x6)
+5. (x7 ∨ x5)
+6. (x2 ∨ x8)
+7. (¬x2 ∨ ¬x5)
+8. (x7 ∨ x2 ∨ x5)
+10. (¬x8 ∨ ¬x2)
+11. (¬x2 ∨ ¬x4)
+12. (x8 ∨ x4 ∨ ¬x2)
+13. (¬x2 ∨ x7)
+14. (¬x5 ∨ x7)
+15. (¬x8 ∨ ¬x7)
+16. (¬x8 ∨ x4 ∨ x5)
+17. (x2 ∨ ¬x8 ∨ x1)
+18. (x7 ∨ x2)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1)
+22. (¬x6 ∨ x5)
+23. (¬x7 ∨ x2)
+24. (¬x1 ∨ x2)
+25. (¬x5 ∨ ¬x4)
+26. (x5 ∨ ¬x8)
+27. (¬x8 ∨ ¬x5 ∨ ¬x1)
+28. (x4 ∨ x5)
+
+Now, let's look for unit clauses. There are none yet.
+
+Let's branch on x2.
+
+---
+
+#### Branch 1.1: x2 = True
+
+Substitute x2 = True:
+
+- Any clause with x2 is satisfied.
+- Any clause with ¬x2: remove ¬x2 from those clauses.
+
+Remaining clauses:
+
+4. (x5 ∨ ¬x6)
+5. (x7 ∨ x5)
+10. (¬x8)
+11. (¬x4)
+13. (x7)
+14. (¬x5 ∨ x7)
+15. (¬x8 ∨ ¬x7)
+16. (¬x8 ∨ x4 ∨ x5)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1)
+22. (¬x6 ∨ x5)
+24. (¬x1)
+25. (¬x5 ∨ ¬x4)
+26. (x5 ∨ ¬x8)
+27. (¬x8 ∨ ¬x5 ∨ ¬x1)
+28. (x4 ∨ x5)
+
+Now, look for unit clauses:
+
+- (¬x8): x8 = False
+- (¬x4): x4 = False
+- (x7): x7 = True
+- (¬x1): x1 = False
+
+Let's propagate these assignments one by one.
+
+##### Assign x8 = False
+
+Substitute x8 = False:
+
+- Any clause with ¬x8 is satisfied.
+- Any clause with x8: remove x8 from those clauses.
+
+Remaining clauses:
+
+4. (x5 ∨ ¬x6)
+5. (x7 ∨ x5)
+11. (¬x4)
+13. (x7)
+14. (¬x5 ∨ x7)
+16. (x4 ∨ x5)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1)
+22. (¬x6 ∨ x5)
+24. (¬x1)
+25. (¬x5 ∨ ¬x4)
+28. (x4 ∨ x5)
+
+##### Assign x4 = False
+
+Substitute x4 = False:
+
+- Any clause with ¬x4 is satisfied.
+- Any clause with x4: remove x4 from those clauses.
+
+Remaining clauses:
+
+4. (x5 ∨ ¬x6)
+5. (x7 ∨ x5)
+13. (x7)
+14. (¬x5 ∨ x7)
+16. (x5)
+20. (¬x6)
+21. (¬x7 ∨ ¬x1)
+22. (¬x6 ∨ x5)
+24. (¬x1)
+25. (¬x5)
+28. (x5)
+
+Now, more unit clauses:
+
+- (x5): x5 = True
+- (¬x6): x6 = False
+- (¬x5): x5 = False
+
+But (x5) and (¬x5) are in conflict! This is a conflict.
+
+##### Conflict encountered. Backtrack.
+
+**Conflict count: 1**
+
+---
+
+#### Branch 1.2: x2 = False
+
+Substitute x2 = False:
+
+- Any clause with ¬x2 is satisfied.
+- Any clause with x2: remove x2 from those clauses.
+
+Remaining clauses:
+
+4. (x5 ∨ ¬x6)
+5. (x7 ∨ x5)
+6. (x8 ∨ x3)
+8. (x7 ∨ x5)
+10. (¬x8 ∨ x3)
+12. (x8 ∨ x4)
+14. (¬x5 ∨ x7)
+15. (¬x8 ∨ ¬x7 ∨ x3)
+16. (¬x8 ∨ x4 ∨ x5)
+17. (¬x8 ∨ x1)
+18. (x7 ∨ x3)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1 ∨ x3)
+22. (¬x6 ∨ x5 ∨ ¬x3)
+23. (¬x7 ∨ x3)
+24. (x3 ∨ ¬x1)
+25. (¬x5 ∨ ¬x4)
+26. (x5 ∨ ¬x3 ∨ ¬x8)
+27. (¬x8 ∨ ¬x5 ∨ ¬x1)
+28. (x3 ∨ x4 ∨ x5)
+
+Now, let's look for unit clauses. There are none.
+
+Let's branch on x5.
+
+---
+
+##### Branch 1.2.1: x5 = True
+
+Substitute x5 = True:
+
+- Any clause with x5 is satisfied.
+- Any clause with ¬x5: remove ¬x5 from those clauses.
+
+Remaining clauses:
+
+6. (x8 ∨ x3)
+10. (¬x8 ∨ x3)
+12. (x8 ∨ x4)
+15. (¬x8 ∨ ¬x7 ∨ x3)
+16. (¬x8 ∨ x4)
+17. (¬x8 ∨ x1)
+18. (x7 ∨ x3)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1 ∨ x3)
+22. (¬x6 ∨ ¬x3)
+23. (¬x7 ∨ x3)
+24. (x3 ∨ ¬x1)
+26. (¬x3 ∨ ¬x8)
+27. (¬x8 ∨ ¬x1)
+28. (x3 ∨ x4)
+
+No unit clauses. Let's branch on x8.
+
+---
+
+###### Branch 1.2.1.1: x8 = True
+
+Substitute x8 = True:
+
+- Any clause with x8 is satisfied.
+- Any clause with ¬x8: remove ¬x8 from those clauses.
+
+Remaining clauses:
+
+10. (x3)
+15. (¬x7 ∨ x3)
+17. (x1)
+18. (x7 ∨ x3)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1 ∨ x3)
+22. (¬x6 ∨ ¬x3)
+23. (¬x7 ∨ x3)
+24. (x3 ∨ ¬x1)
+26. (¬x3)
+28. (x3 ∨ x4)
+
+Now, (x3) and (¬x3) are both present. Conflict.
+
+**Conflict count: 2**
+
+---
+
+###### Branch 1.2.1.2: x8 = False
+
+Substitute x8 = False:
+
+- Any clause with ¬x8 is satisfied.
+- Any clause with x8: remove x8 from those clauses.
+
+Remaining clauses:
+
+6. (x3)
+12. (x4)
+17. (x1)
+18. (x7 ∨ x3)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1 ∨ x3)
+22. (¬x6 ∨ ¬x3)
+23. (¬x7 ∨ x3)
+24. (x3 ∨ ¬x1)
+26. (¬x3)
+28. (x3 ∨ x4)
+
+Now, (x3) and (¬x3) are both present. Conflict.
+
+**Conflict count: 3**
+
+---
+
+##### Branch 1.2.2: x5 = False
+
+Substitute x5 = False:
+
+- Any clause with ¬x5 is satisfied.
+- Any clause with x5: remove x5 from those clauses.
+
+Remaining clauses:
+
+6. (x8 ∨ x3)
+8. (x7)
+10. (¬x8 ∨ x3)
+12. (x8 ∨ x4)
+14. (x7)
+15. (¬x8 ∨ ¬x7 ∨ x3)
+16. (¬x8 ∨ x4)
+17. (¬x8 ∨ x1)
+18. (x7 ∨ x3)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1 ∨ x3)
+22. (¬x6 ∨ x5 ∨ ¬x3) → (¬x6 ∨ ¬x3)
+23. (¬x7 ∨ x3)
+24. (x3 ∨ ¬x1)
+26. (¬x3 ∨ ¬x8)
+27. (¬x8 ∨ ¬x1)
+28. (x3 ∨ x4 ∨ x5) → (x3 ∨ x4)
+
+Now, (x7) is a unit clause: x7 = True
+
+Substitute x7 = True:
+
+- Any clause with x7 is satisfied.
+- Any clause with ¬x7: remove ¬x7 from those clauses.
+
+Remaining clauses:
+
+6. (x8 ∨ x3)
+10. (¬x8 ∨ x3)
+12. (x8 ∨ x4)
+15. (¬x8 ∨ x3)
+16. (¬x8 ∨ x4)
+17. (¬x8 ∨ x1)
+20. (¬x6 ∨ x4)
+21. (¬x1 ∨ x3)
+22. (¬x6 ∨ ¬x3)
+24. (x3 ∨ ¬x1)
+26. (¬x3 ∨ ¬x8)
+27. (¬x8 ∨ ¬x1)
+28. (x3 ∨ x4)
+
+No unit clauses. Let's branch on x8.
+
+---
+
+###### Branch 1.2.2.1: x8 = True
+
+Substitute x8 = True:
+
+- Any clause with x8 is satisfied.
+- Any clause with ¬x8: remove ¬x8 from those clauses.
+
+Remaining clauses:
+
+10. (x3)
+17. (x1)
+20. (¬x6 ∨ x4)
+21. (¬x1 ∨ x3)
+22. (¬x6 ∨ ¬x3)
+24. (x3 ∨ ¬x1)
+26. (¬x3)
+28. (x3 ∨ x4)
+
+Now, (x3) and (¬x3) are both present. Conflict.
+
+**Conflict count: 4**
+
+---
+
+###### Branch 1.2.2.2: x8 = False
+
+Substitute x8 = False:
+
+- Any clause with ¬x8 is satisfied.
+- Any clause with x8: remove x8 from those clauses.
+
+Remaining clauses:
+
+6. (x3)
+12. (x4)
+17. (x1)
+20. (¬x6 ∨ x4)
+21. (¬x1 ∨ x3)
+22. (¬x6 ∨ ¬x3)
+24. (x3 ∨ ¬x1)
+26. (¬x3)
+28. (x3 ∨ x4)
+
+Now, (x3) and (¬x3) are both present. Conflict.
+
+**Conflict count: 5**
+
+---
+
+### Branch 2: x3 = False
+
+Substitute x3 = False:
+
+- Any clause with ¬x3 is satisfied.
+- Any clause with x3: remove x3 from those clauses.
+
+Remaining clauses:
+
+2. (x7 ∨ x1 ∨ x8)
+6. (x2 ∨ x8)
+8. (x7 ∨ x2 ∨ x5)
+12. (x8 ∨ x4 ∨ ¬x2)
+15. (¬x8 ∨ ¬x7)
+16. (¬x8 ∨ x4 ∨ x5)
+17. (x2 ∨ ¬x8 ∨ x1)
+18. (x7 ∨ x2)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1)
+22. (¬x6 ∨ x5)
+24. (¬x1 ∨ x2)
+28. (x4 ∨ x5)
+
+No unit clauses. Let's branch on x2.
+
+---
+
+#### Branch 2.1: x2 = True
+
+Substitute x2 = True:
+
+- Any clause with x2 is satisfied.
+- Any clause with ¬x2: remove ¬x2 from those clauses.
+
+Remaining clauses:
+
+2. (x7 ∨ x1 ∨ x8)
+6. (x8)
+12. (x8 ∨ x4)
+15. (¬x8 ∨ ¬x7)
+16. (¬x8 ∨ x4 ∨ x5)
+17. (¬x8 ∨ x1)
+18. (x7)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1)
+22. (¬x6 ∨ x5)
+24. (¬x1)
+28. (x4 ∨ x5)
+
+Now, (x8) is a unit clause: x8 = True
+
+Substitute x8 = True:
+
+- Any clause with x8 is satisfied.
+- Any clause with ¬x8: remove ¬x8 from those clauses.
+
+Remaining clauses:
+
+2. (x7 ∨ x1 ∨ x8) → satisfied
+12. (x4)
+18. (x7)
+20. (¬x6 ∨ x4)
+21. (¬x7 ∨ ¬x1)
+22. (¬x6 ∨ x5)
+24. (¬x1)
+28. (x4 ∨ x5)
+
+Now, (x4) is a unit clause: x4 = True
+
+Substitute x4 = True:
+
+- Any clause with x4 is satisfied.
+- Any clause with ¬x4: remove ¬x4 from those clauses.
+
+Remaining clauses:
+
+18. (x7)
+21. (¬x7 ∨ ¬x1)
+22. (¬x6 ∨ x5)
+24. (¬x1)
+28. (x5)
+
+Now, (x7) is a unit clause: x7 = True
+
+Substitute x7 = True:
+
+- Any clause with x7 is satisfied.
+- Any clause with ¬x7: remove ¬x7 from those clauses.
+
+Remaining clauses:
+
+22. (¬x6 ∨ x5)
+24. (¬x1)
+28. (x5)
+
+Now, (¬x1) is a unit clause: x1 = False
+
+Substitute x1 = False:
+
+- Any clause with x1 is satisfied.
+- Any clause with ¬x1: remove ¬x1 from those clauses.
+
+Remaining clauses:
+
+22. (¬x6 ∨ x5)
+28. (x5)
+
+Now, (x5) is a unit clause: x5 = True
+
+Substitute x5 = True:
+
+- Any clause with x5 is satisfied.
+- Any clause with ¬x5: remove ¬x5 from those clauses.
+
+Remaining clause:
+
+22. (¬x6 ∨ x5) → satisfied
+
+All clauses are satisfied!
+
+Now, let's check which variables are unassigned:
+
+Assigned:
+- x3 = False
+- x2 = True
+- x8 = True
+- x4 = True
+- x7 = True
+- x1 = False
+- x5 = True
+
+Unassigned:
+- x6
+
+x6 is unconstrained, can be either True or False.
+
+---
+
+## Final Answers
+
+- **SATISFIABLE**
+- **Number of branches (decision points): 6**  
+    (x3, x2, x5, x8, x7, x1)
+- **Number of conflicts (backtracking steps): 5**
+
+**Assignment:**
+- x1 = False
+- x2 = True
+- x3 = False
+- x4 = True
+- x5 = True
+- x6 = (either True or False)
+- x7 = True
+- x8 = True

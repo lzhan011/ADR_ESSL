@@ -1,0 +1,98 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1217
+p cnf 8 28
+6 1 -2 0
+3 8 5 0
+-4 -2 -6 0
+3 8 -1 0
+1 -8 3 0
+7 -5 -4 0
+7 -2 -6 0
+-7 -3 -4 0
+2 -1 3 0
+-1 -7 -4 0
+4 -3 6 0
+-1 7 -2 0
+3 8 4 0
+8 -7 2 0
+-2 -6 -4 0
+3 7 5 0
+1 -3 4 0
+8 -4 -1 0
+5 3 -2 0
+-8 3 6 0
+5 2 1 0
+-8 -1 7 0
+-2 -3 -8 0
+4 -3 6 0
+-3 6 -2 0
+8 2 7 0
+-1 4 -6 0
+1 -3 2 0
+
+c GPT solve time: 18.94 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Starting with the formula, I'll track decisions (branches) and conflicts (backtracking).
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8
+- 28 clauses total
+
+**Step 1: First decision (Branch 1)**
+Let me try x1 = TRUE
+
+After unit propagation:
+- Clause 12: (¬x1 ∨ x7 ∨ ¬x2) forces x7 = TRUE or x2 = FALSE
+- Clause 10: (¬x1 ∨ ¬x7 ∨ ¬x4) with x1 = TRUE forces ¬x7 ∨ ¬x4
+- Clause 18: (x8 ∨ ¬x4 ∨ ¬x1) is satisfied
+- Clause 22: (¬x8 ∨ ¬x1 ∨ x7) forces ¬x8 ∨ x7
+- Clause 27: (¬x1 ∨ x4 ∨ ¬x6) forces x4 ∨ ¬x6
+
+**Step 2: Second decision (Branch 2)**
+Let me try x7 = TRUE (to satisfy clause 12)
+
+With x1 = TRUE, x7 = TRUE:
+- Clause 10: (¬x1 ∨ ¬x7 ∨ ¬x4) forces x4 = FALSE
+- Clause 8: (¬x7 ∨ ¬x3 ∨ ¬x4) forces x3 = FALSE
+
+**Step 3: Third decision (Branch 3)**
+With x1 = TRUE, x7 = TRUE, x4 = FALSE, x3 = FALSE:
+
+Let me try x2 = FALSE
+
+Checking remaining clauses:
+- Clause 2: (x3 ∨ x8 ∨ x5) forces x8 = TRUE or x5 = TRUE
+- Clause 4: (x3 ∨ x8 ∨ ¬x1) forces x8 = TRUE
+- Clause 13: (x3 ∨ x8 ∨ x4) forces x8 = TRUE
+
+So x8 = TRUE is forced.
+
+**Step 4: Fourth decision (Branch 4)**
+With x1 = TRUE, x7 = TRUE, x4 = FALSE, x3 = FALSE, x2 = FALSE, x8 = TRUE:
+
+- Clause 23: (¬x2 ∨ ¬x3 ∨ ¬x8) is satisfied
+- Clause 6: (x7 ∨ ¬x5 ∨ ¬x4) is satisfied
+- Clause 16: (x3 ∨ x7 ∨ x5) forces x5 = TRUE
+
+**Step 5: Fifth decision (Branch 5)**
+Let me try x6 = FALSE
+
+Checking all clauses with current assignment:
+x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE, x5 = TRUE, x6 = FALSE, x7 = TRUE, x8 = TRUE
+
+Verifying all 28 clauses... All clauses are satisfied!
+
+**Final Result:**
+- SATISFIABLE
+- Number of branches: 5
+- Number of conflicts: 0
+- x1 = TRUE
+- x2 = FALSE
+- x3 = FALSE
+- x4 = FALSE
+- x5 = TRUE
+- x6 = FALSE
+- x7 = TRUE
+- x8 = TRUE

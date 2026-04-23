@@ -1,0 +1,104 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=508
+p cnf 5 17
+5 2 3 0
+-2 -1 5 0
+-3 -4 -2 0
+-4 3 -5 0
+4 -3 -1 0
+-1 3 4 0
+5 -2 3 0
+-3 4 -2 0
+2 -4 -1 0
+4 -1 5 0
+-5 -3 -4 0
+-3 -5 4 0
+4 -2 1 0
+-4 -1 3 0
+-3 1 2 0
+3 -4 2 0
+-5 2 1 0
+
+c GPT solve time: 31.09 seconds
+
+Step 1: Choose x5 = True. No conflicts.
+(¬x2 ∨ ¬x1)
+(¬x3 ∨ ¬x4 ∨ ¬x2)
+(¬x4 ∨ x3)
+(x4 ∨ ¬x3 ∨ ¬x1)
+(¬x1 ∨ x3 ∨ x4)
+(¬x2 ∨ x3)
+(¬x3 ∨ x4 ∨ ¬x2)
+(x2 ∨ ¬x4 ∨ ¬x1)
+(x4 ∨ ¬x1)
+(¬x3 ∨ x4)
+(x4 ∨ ¬x2 ∨ x1)
+(¬x4 ∨ ¬x1 ∨ x3)
+(¬x3 ∨ x1 ∨ x2)
+(x3 ∨ ¬x4 ∨ x2)
+(x2 ∨ x1)
+
+Step 2: Choose x4 = True. No conflicts.
+(¬x2 ∨ ¬x1)
+(¬x3 ∨ ¬x2)
+(x3)
+(¬x1 ∨ x3)
+(¬x2 ∨ x3)
+(¬x3 ∨ ¬x2)
+(x2 ∨ ¬x1)
+(¬x1)
+(¬x3)
+(¬x2 ∨ x1)
+(x3)
+(¬x3 ∨ x1 ∨ x2)
+(x3 ∨ x2)
+(x2 ∨ x1)
+
+Step 3: Conflict found: (x3) and (¬x3). Backtrack.
+
+Step 4: Choose x4 = False. No conflicts.
+(¬x2 ∨ ¬x1)
+(¬x3 ∨ ¬x2)
+(x3)
+(¬x3 ∨ ¬x1)
+(¬x1 ∨ x3)
+(¬x2 ∨ x3)
+(¬x3 ∨ ¬x2)
+(x2 ∨ ¬x1)
+(¬x1)
+(x1 ∨ x3)
+(¬x3 ∨ x1 ∨ x2)
+(x3 ∨ x2)
+(x2 ∨ x1)
+
+Step 5: Choose x3 = True. No conflicts.
+(¬x2 ∨ ¬x1)
+(¬x2)
+(¬x1)
+(¬x2)
+(x2 ∨ ¬x1)
+(x1 ∨ x2)
+(x2 ∨ x1)
+
+Step 6: Choose x2 = False. No conflicts.
+(¬x1)
+(¬x1)
+(x1)
+
+Step 7: Conflict found: (x1) and (¬x1). Backtrack.
+
+Step 8: Choose x2 = True. No conflicts.
+(¬x1)
+(x1)
+
+Step 9: Choose x1 = False. No conflicts.
+
+SATISFIABLE
+x1 = False
+x2 = True 
+x3 = True
+x4 = False
+x5 = True
+
+Number of branches: 4
+Number of conflicts: 2

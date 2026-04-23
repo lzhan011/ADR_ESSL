@@ -1,0 +1,71 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=102
+p cnf 10 35
+8 6 -9 0
+2 -8 6 0
+-7 -3 10 0
+-4 -8 10 0
+2 5 -4 0
+-10 7 8 0
+-10 1 -5 0
+-7 4 -3 0
+10 2 3 0
+-5 10 9 0
+-4 5 -10 0
+-5 -2 -10 0
+-1 -3 -10 0
+-7 8 3 0
+7 -4 -10 0
+7 -2 -9 0
+-9 6 -1 0
+-6 -10 2 0
+-10 5 -8 0
+2 7 9 0
+-6 -3 10 0
+5 9 6 0
+-10 9 -8 0
+3 10 -2 0
+6 10 -1 0
+5 -1 7 0
+3 -2 9 0
+-3 -1 -6 0
+7 3 10 0
+-7 -6 1 0
+9 -7 4 0
+9 -8 -10 0
+1 -2 6 0
+8 3 4 0
+8 -10 -1 0
+
+c GPT solve time: 13.13 seconds
+
+Here is the step-by-step solution:
+
+1. Assign x8 = 1 (satisfies clause 1)
+2. Assign x6 = 1 (satisfies clause 2)
+3. Assign x7 = 0 (satisfies clause 3)
+4. Assign x4 = 0 (satisfies clause 4)
+5. Assign x2 = 1 (satisfies clause 5)
+6. Assign x10 = 1 (satisfies clause 6, conflicts with clause 7)
+7. Backtrack, assign x10 = 0 (satisfies clause 7)
+8. Assign x3 = 0 (satisfies clause 8, conflicts with clause 9)
+9. Backtrack, assign x3 = 1 (satisfies clause 9)
+10. Assign x5 = 1 (satisfies clause 10)
+11. Assign x1 = 0 (satisfies clause 13)
+12. Assign x9 = 1 (satisfies clause 17)
+
+SATISFIABLE
+Number of branches: 6
+Number of conflicts: 2
+
+The satisfying assignment is:
+x1 = 0
+x2 = 1
+x3 = 1
+x4 = 0
+x5 = 1
+x6 = 1
+x7 = 0
+x8 = 1
+x9 = 1
+x10 = 0

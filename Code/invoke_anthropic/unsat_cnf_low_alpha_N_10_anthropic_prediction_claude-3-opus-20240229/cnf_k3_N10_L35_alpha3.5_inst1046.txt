@@ -1,0 +1,69 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1046
+p cnf 10 35
+-3 -7 -9 0
+-7 2 3 0
+-5 7 -4 0
+-9 -7 -1 0
+-8 3 -6 0
+9 -2 -8 0
+-6 -3 -8 0
+8 -7 -3 0
+9 -7 -10 0
+-5 8 -6 0
+6 7 3 0
+-1 4 3 0
+5 -3 -9 0
+1 2 7 0
+8 -2 -1 0
+3 -2 -7 0
+-5 -7 6 0
+-7 1 9 0
+-7 -4 -10 0
+-10 7 -4 0
+10 -2 7 0
+-4 -1 8 0
+10 -5 -6 0
+7 5 -6 0
+3 5 -9 0
+1 -10 -3 0
+7 5 4 0
+-1 2 10 0
+7 -6 -8 0
+-7 -8 -5 0
+-5 -3 -4 0
+-3 4 7 0
+2 3 -7 0
+10 -1 7 0
+9 -5 6 0
+
+c GPT solve time: 15.73 seconds
+
+Step 1: Choose literal ¬x7, set it to true. Clauses satisfied: 1, 4, 8, 9, 17, 19, 30.
+Step 2: Choose literal x3, set it to true. Clauses satisfied: 2, 5, 11, 32. Clause 6 becomes a unit clause (¬x8).
+Step 3: Due to unit clause ¬x8, set x8 to false. Clauses satisfied: 6, 10, 29. Clause 15 becomes a unit clause (x1).
+Step 4: Due to unit clause x1, set x1 to true. Clauses satisfied: 14, 28, 34. Clause 22 becomes a unit clause (¬x4).
+Step 5: Due to unit clause ¬x4, set x4 to false. Clauses satisfied: 12, 20, 31. Clause 3 becomes a unit clause (¬x5).
+Step 6: Due to unit clause ¬x5, set x5 to false. Clauses satisfied: 13, 23, 24, 27.
+Step 7: Choose literal x2, set it to true. Clauses satisfied: 16, 21, 33.
+Step 8: Choose literal ¬x6, set x6 to false. Clauses satisfied: 7, 25.
+Step 9: Choose literal ¬x9, set x9 to false. Clauses satisfied: 18, 35.
+Step 10: Choose literal x10, set it to true. Clause satisfied: 26.
+
+All clauses are satisfied.
+
+* SATISFIABLE
+* Number of branches: 4
+* Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = True
+x2 = True
+x3 = True
+x4 = False
+x5 = False
+x6 = False
+x7 = False
+x8 = False
+x9 = False
+x10 = True

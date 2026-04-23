@@ -1,0 +1,70 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1389
+p cnf 5 17
+-2 -4 3 0
+3 5 2 0
+-4 1 3 0
+-3 2 -4 0
+-3 -4 5 0
+-4 -5 -1 0
+-2 3 5 0
+-2 1 5 0
+-1 3 -2 0
+4 -5 -2 0
+3 1 2 0
+5 -1 -2 0
+2 4 3 0
+-5 -3 1 0
+2 -1 4 0
+4 3 1 0
+4 5 -3 0
+
+c GPT solve time: 18.27 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm step-by-step.
+
+**Step 1: Initial formula analysis**
+Variables: x1, x2, x3, x4, x5
+17 clauses total
+
+**Step 2: Unit propagation and pure literal check**
+No unit clauses initially.
+No pure literals (all variables appear in both positive and negative forms).
+
+**Step 3: Branch 1 - Assign x1 = TRUE**
+Simplifying with x1 = TRUE:
+- Clause 3: (¬x4 ∨ TRUE ∨ x3) = TRUE (satisfied)
+- Clause 6: (¬x4 ∨ ¬x5 ∨ ¬TRUE) = (¬x4 ∨ ¬x5) 
+- Clause 8: (¬x2 ∨ TRUE ∨ x5) = TRUE (satisfied)
+- Clause 9: (¬TRUE ∨ x3 ∨ ¬x2) = (x3 ∨ ¬x2)
+- Clause 11: (x3 ∨ TRUE ∨ x2) = TRUE (satisfied)
+- Clause 12: (x5 ∨ ¬TRUE ∨ ¬x2) = (x5 ∨ ¬x2)
+- Clause 14: (¬x5 ∨ ¬x3 ∨ TRUE) = TRUE (satisfied)
+- Clause 15: (x2 ∨ ¬TRUE ∨ x4) = (x2 ∨ x4)
+- Clause 16: (x4 ∨ x3 ∨ TRUE) = TRUE (satisfied)
+
+**Step 4: Branch 2 - Assign x2 = TRUE**
+Simplifying with x1 = TRUE, x2 = TRUE:
+- Clause 1: (¬TRUE ∨ ¬x4 ∨ x3) = (¬x4 ∨ x3)
+- Clause 2: (x3 ∨ x5 ∨ TRUE) = TRUE (satisfied)
+- Clause 4: (¬x3 ∨ TRUE ∨ ¬x4) = TRUE (satisfied)
+- Clause 6: (¬x4 ∨ ¬x5)
+- Clause 7: (¬TRUE ∨ x3 ∨ x5) = (x3 ∨ x5)
+- Clause 9: (x3 ∨ ¬TRUE) = x3 (unit clause!)
+- Clause 10: (x4 ∨ ¬x5 ∨ ¬TRUE) = (x4 ∨ ¬x5)
+- Clause 12: (x5 ∨ ¬TRUE) = x5 (unit clause!)
+- Clause 13: (TRUE ∨ x4 ∨ x3) = TRUE (satisfied)
+- Clause 15: (TRUE ∨ x4) = TRUE (satisfied)
+
+**Step 5: Unit propagation**
+From unit clause x3 = TRUE and x5 = TRUE:
+- Clause 1: (¬x4 ∨ TRUE) = TRUE (satisfied)
+- Clause 6: (¬x4 ∨ ¬TRUE) = ¬x4 (unit clause!)
+- Clause 7: (TRUE ∨ TRUE) = TRUE (satisfied)
+- Clause 10: (x4 ∨ ¬TRUE) = x4 (unit clause!)
+
+**Conflict detected!** We have x4 = FALSE from clause 6 and x4 = TRUE from clause 10.
+
+**Step 6: Backtrack to Branch 2, try x2 = FALSE**
+With x1 = TRUE, x2 = FALSE:
+- Clause 2: (x3 ∨ x5 ∨ FALSE) = (x3

@@ -1,0 +1,147 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1522
+p cnf 5 17
+-3 1 4 0
+-3 5 1 0
+4 -1 5 0
+3 -4 1 0
+4 3 1 0
+-1 5 4 0
+3 2 -5 0
+-1 -5 -4 0
+1 -5 -4 0
+4 3 1 0
+-4 3 -5 0
+3 -2 1 0
+-2 4 5 0
+-2 -1 -5 0
+1 5 -3 0
+-1 4 -3 0
+-1 5 -4 0
+
+c GPT solve time: 16.21 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in CNF.
+
+Step-by-step:
+
+Step 1: List all variables:
+Variables involved: x1, x2, x3, x4, x5
+
+Step 2: Convert clauses into a list of lists:
+Each clause is a disjunction (OR) of three literals.
+
+Clauses:
+1. (¬x3 ∨ x1 ∨ x4)        → [-x3, x1, x4]
+2. (¬x3 ∨ x5 ∨ x1)        → [-x3, x5, x1]
+3. (x4 ∨ ¬x1 ∨ x5)        → [x4, -x1, x5]
+4. (x3 ∨ ¬x4 ∨ x1)        → [x3, -x4, x1]
+5. (x4 ∨ x3 ∨ x1)         → [x4, x3, x1]
+6. (¬x1 ∨ x5 ∨ x4)        → [-x1, x5, x4]
+7. (x3 ∨ x2 ∨ ¬x5)        → [x3, x2, -x5]
+8. (¬x1 ∨ ¬x5 ∨ ¬x4)      → [-x1, -x5, -x4]
+9. (x1 ∨ ¬x5 ∨ ¬x4)       → [x1, -x5, -x4]
+10. (x4 ∨ x3 ∨ x1)        → [x4, x3, x1]
+11. (¬x4 ∨ x3 ∨ ¬x5)      → [-x4, x3, -x5]
+12. (x3 ∨ ¬x2 ∨ x1)       → [x3, -x2, x1]
+13. (¬x2 ∨ x4 ∨ x5)       → [-x2, x4, x5]
+14. (¬x2 ∨ ¬x1 ∨ ¬x5)     → [-x2, -x1, -x5]
+15. (x1 ∨ x5 ∨ ¬x3)       → [x1, x5, -x3]
+16. (¬x1 ∨ x4 ∨ ¬x3)      → [-x1, x4, -x3]
+17. (¬x1 ∨ x5 ∨ ¬x4)      → [-x1, x5, -x4]
+
+Step 3: Apply DPLL algorithm
+
+We will use a recursive backtracking approach with unit propagation and pure literal elimination.
+
+Start with empty assignment.
+
+Try assigning x1 = True
+
+→ Propagate this assignment:
+- Clauses with x1 satisfied: 1, 2, 4, 5, 9, 10, 12, 15
+- Clauses with ¬x1 removed: 3, 6, 8, 14, 16, 17
+
+Remaining clauses:
+3. (x4 ∨ x5)
+6. (x5 ∨ x4)
+7. (x3 ∨ x2 ∨ ¬x5)
+8. (¬x5 ∨ ¬x4)
+11. (¬x4 ∨ x3 ∨ ¬x5)
+13. (¬x2 ∨ x4 ∨ x5)
+14. (¬x2 ∨ ¬x5)
+16. (x4 ∨ ¬x3)
+17. (x5 ∨ ¬x4)
+
+Try x2 = True
+
+→ Propagate:
+- Clause 7: (x3 ∨ ¬x5)
+- Clause 13: (x4 ∨ x5)
+- Clause 14: (¬x1 ∨ ¬x5) → already removed ¬x1, so becomes (¬x5)
+
+Now try x5 = True
+
+→ Clause 7: (x3 ∨ ¬x5) → becomes (x3 ∨ False) → (x3)
+→ Clause 8: (¬x5 ∨ ¬x4) → (False ∨ ¬x4) → (¬x4)
+→ Clause 11: (¬x4 ∨ x3 ∨ ¬x5) → (¬x4 ∨ x3 ∨ False) → (¬x4 ∨ x3)
+→ Clause 14: (¬x2 ∨ ¬x1 ∨ ¬x5) → (False ∨ False ∨ False) → CONFLICT
+
+Conflict encountered → backtrack
+
+Conflict count: 1
+
+Backtrack x5 = False
+
+→ Clause 7: (x3 ∨ x2 ∨ True) → satisfied
+→ Clause 8: (¬x1 ∨ True ∨ ¬x4) → satisfied
+→ Clause 9: (x1 ∨ True ∨ ¬x4) → satisfied
+→ Clause 11: (¬x4 ∨ x3 ∨ True) → satisfied
+→ Clause 13: (¬x2 ∨ x4 ∨ False) → (¬x2 ∨ x4)
+→ Clause 14: (¬x2 ∨ ¬x1 ∨ True) → satisfied
+→ Clause 15: (x1 ∨ False ∨ ¬x3) → (x1 ∨ ¬x3) → satisfied
+→ Clause 16: (¬x1 ∨ x4 ∨ ¬x3) → (False ∨ x4 ∨ ¬x3)
+→ Clause 17: (¬x1 ∨ False ∨ ¬x4) → (False ∨ ¬x4)
+
+Now try x3 = True
+
+→ Clause 16: (x4 ∨ ¬x3) → (x4 ∨ False) → (x4)
+→ Clause 17: (¬x4)
+
+Now try x4 = True
+
+→ Clause 17: (¬x4) → (False) → CONFLICT
+
+Conflict count: 2
+
+Backtrack x4 = False
+
+→ Clause 16: (x4 ∨ ¬x3) → (False ∨ False) → CONFLICT
+
+Conflict count: 3
+
+Backtrack x3 = False
+
+→ Clause 16: (x4 ∨ True) → satisfied
+→ Clause 15: (x1 ∨ x5 ∨ ¬x3) → (True ∨ False ∨ True) → satisfied
+
+Now try x4 = False
+
+→ Clause 17: (¬x4) → satisfied
+
+All clauses satisfied with:
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False  
+x5 = False
+
+SATISFIABLE  
+Number of branches: 4  
+Number of conflicts: 3  
+Assignments:
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False  
+x5 = False

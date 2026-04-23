@@ -1,0 +1,299 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1778
+p cnf 5 17
+-1 5 -2 0
+-5 1 -4 0
+-1 -4 -5 0
+4 -1 5 0
+1 5 -2 0
+-5 3 1 0
+2 3 4 0
+1 -3 2 0
+3 -2 -1 0
+1 2 3 0
+-5 2 1 0
+-1 -4 -3 0
+-3 -1 2 0
+-5 -2 -1 0
+-5 4 1 0
+2 -4 3 0
+-3 -2 5 0
+
+c GPT solve time: 25.70 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (branching on variables, propagating, and backtracking on conflicts):
+
+**Variables:** x1, x2, x3, x4, x5
+
+---
+
+### Step 1: Choose a variable to branch on
+
+Let's start with x1 = True.
+
+#### Branch 1: x1 = True
+
+- Substitute x1 = True into all clauses:
+
+1. (¬x1 ∨ x5 ∨ ¬x2) → (x5 ∨ ¬x2) (since x1=True, ¬x1=False)
+2. (¬x5 ∨ x1 ∨ ¬x4) → (True) (x1=True, clause satisfied)
+3. (¬x1 ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5)
+4. (x4 ∨ ¬x1 ∨ x5) → (x4 ∨ x5)
+5. (x1 ∨ x5 ∨ ¬x2) → (True)
+6. (¬x5 ∨ x3 ∨ x1) → (True)
+7. (x2 ∨ x3 ∨ x4)
+8. (x1 ∨ ¬x3 ∨ x2) → (True)
+9. (x3 ∨ ¬x2 ∨ ¬x1) → (x3 ∨ ¬x2) (¬x1=False)
+10. (x1 ∨ x2 ∨ x3) → (True)
+11. (¬x5 ∨ x2 ∨ x1) → (True)
+12. (¬x1 ∨ ¬x4 ∨ ¬x3) → (¬x4 ∨ ¬x3)
+13. (¬x3 ∨ ¬x1 ∨ x2) → (¬x3 ∨ x2)
+14. (¬x5 ∨ ¬x2 ∨ ¬x1) → (¬x5 ∨ ¬x2)
+15. (¬x5 ∨ x4 ∨ x1) → (True)
+16. (x2 ∨ ¬x4 ∨ x3)
+17. (¬x3 ∨ ¬x2 ∨ x5)
+
+So, the simplified formula is:
+
+- (x5 ∨ ¬x2)
+- (¬x4 ∨ ¬x5)
+- (x4 ∨ x5)
+- (x2 ∨ x3 ∨ x4)
+- (x3 ∨ ¬x2)
+- (¬x4 ∨ ¬x3)
+- (¬x3 ∨ x2)
+- (¬x5 ∨ ¬x2)
+- (x2 ∨ ¬x4 ∨ x3)
+- (¬x3 ∨ ¬x2 ∨ x5)
+
+---
+
+### Step 2: Next variable: x2 = True
+
+#### Branch 1.1: x2 = True
+
+Substitute x2 = True:
+
+- (x5 ∨ ¬x2) → (x5)
+- (¬x4 ∨ ¬x5)
+- (x4 ∨ x5)
+- (x2 ∨ x3 ∨ x4) → (True)
+- (x3 ∨ ¬x2) → (x3)
+- (¬x4 ∨ ¬x3)
+- (¬x3 ∨ x2) → (True)
+- (¬x5 ∨ ¬x2) → (¬x5)
+- (x2 ∨ ¬x4 ∨ x3) → (True)
+- (¬x3 ∨ ¬x2 ∨ x5) → (¬x3 ∨ x5)
+
+So, simplified:
+
+- (x5)
+- (¬x4 ∨ ¬x5)
+- (x4 ∨ x5)
+- (x3)
+- (¬x4 ∨ ¬x3)
+- (¬x5)
+- (¬x3 ∨ x5)
+
+Now, (x5) and (¬x5) are both present. **Conflict!**
+
+#### Conflict 1: Backtrack x2 = False
+
+---
+
+### Step 3: Backtrack, try x2 = False
+
+#### Branch 1.2: x2 = False
+
+Substitute x2 = False:
+
+- (x5 ∨ ¬x2) → (x5 ∨ True) → (True)
+- (¬x4 ∨ ¬x5)
+- (x4 ∨ x5)
+- (x2 ∨ x3 ∨ x4) → (x3 ∨ x4)
+- (x3 ∨ ¬x2) → (x3 ∨ True) → (True)
+- (¬x4 ∨ ¬x3)
+- (¬x3 ∨ x2) → (¬x3)
+- (¬x5 ∨ ¬x2) → (¬x5 ∨ True) → (True)
+- (x2 ∨ ¬x4 ∨ x3) → (¬x4 ∨ x3)
+- (¬x3 ∨ ¬x2 ∨ x5) → (¬x3 ∨ x5)
+
+So, simplified:
+
+- (¬x4 ∨ ¬x5)
+- (x4 ∨ x5)
+- (x3 ∨ x4)
+- (¬x4 ∨ ¬x3)
+- (¬x3)
+- (¬x4 ∨ x3)
+- (¬x3 ∨ x5)
+
+Now, (¬x3) is a unit clause, so x3 = False.
+
+---
+
+### Step 4: Propagate x3 = False
+
+Substitute x3 = False:
+
+- (¬x4 ∨ ¬x5)
+- (x4 ∨ x5)
+- (x3 ∨ x4) → (x4)
+- (¬x4 ∨ ¬x3) → (¬x4 ∨ True) → (True)
+- (¬x4 ∨ x3) → (¬x4 ∨ False) → (¬x4)
+- (¬x3 ∨ x5) → (True)
+
+So, simplified:
+
+- (¬x4 ∨ ¬x5)
+- (x4 ∨ x5)
+- (x4)
+- (¬x4)
+
+Now, (x4) and (¬x4) are both present. **Conflict!**
+
+#### Conflict 2: Backtrack to x1 = False
+
+---
+
+### Step 5: Try x1 = False
+
+#### Branch 2: x1 = False
+
+Substitute x1 = False into all clauses:
+
+1. (¬x1 ∨ x5 ∨ ¬x2) → (True)
+2. (¬x5 ∨ x1 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+3. (¬x1 ∨ ¬x4 ∨ ¬x5) → (True)
+4. (x4 ∨ ¬x1 ∨ x5) → (True)
+5. (x1 ∨ x5 ∨ ¬x2) → (x5 ∨ ¬x2)
+6. (¬x5 ∨ x3 ∨ x1) → (¬x5 ∨ x3)
+7. (x2 ∨ x3 ∨ x4)
+8. (x1 ∨ ¬x3 ∨ x2) → (¬x3 ∨ x2)
+9. (x3 ∨ ¬x2 ∨ ¬x1) → (True)
+10. (x1 ∨ x2 ∨ x3) → (x2 ∨ x3)
+11. (¬x5 ∨ x2 ∨ x1) → (¬x5 ∨ x2)
+12. (¬x1 ∨ ¬x4 ∨ ¬x3) → (True)
+13. (¬x3 ∨ ¬x1 ∨ x2) → (True)
+14. (¬x5 ∨ ¬x2 ∨ ¬x1) → (True)
+15. (¬x5 ∨ x4 ∨ x1) → (¬x5 ∨ x4)
+16. (x2 ∨ ¬x4 ∨ x3)
+17. (¬x3 ∨ ¬x2 ∨ x5)
+
+So, simplified:
+
+- (¬x5 ∨ ¬x4)
+- (x5 ∨ ¬x2)
+- (¬x5 ∨ x3)
+- (x2 ∨ x3 ∨ x4)
+- (¬x3 ∨ x2)
+- (x2 ∨ x3)
+- (¬x5 ∨ x2)
+- (¬x5 ∨ x4)
+- (x2 ∨ ¬x4 ∨ x3)
+- (¬x3 ∨ ¬x2 ∨ x5)
+
+---
+
+### Step 6: Next variable: x2 = True
+
+#### Branch 2.1: x2 = True
+
+Substitute x2 = True:
+
+- (¬x5 ∨ ¬x4)
+- (x5 ∨ ¬x2) → (x5)
+- (¬x5 ∨ x3)
+- (x2 ∨ x3 ∨ x4) → (True)
+- (¬x3 ∨ x2) → (True)
+- (x2 ∨ x3) → (True)
+- (¬x5 ∨ x2) → (True)
+- (¬x5 ∨ x4)
+- (x2 ∨ ¬x4 ∨ x3) → (True)
+- (¬x3 ∨ ¬x2 ∨ x5) → (¬x3 ∨ x5)
+
+So, simplified:
+
+- (¬x5 ∨ ¬x4)
+- (x5)
+- (¬x5 ∨ x3)
+- (¬x5 ∨ x4)
+- (¬x3 ∨ x5)
+
+Now, (x5) is a unit clause, so x5 = True.
+
+---
+
+### Step 7: Propagate x5 = True
+
+Substitute x5 = True:
+
+- (¬x5 ∨ ¬x4) → (¬x4)
+- (¬x5 ∨ x3) → (x3)
+- (¬x5 ∨ x4) → (x4)
+- (¬x3 ∨ x5) → (True)
+
+So, simplified:
+
+- (¬x4)
+- (x3)
+- (x4)
+
+Now, (x4) and (¬x4) are both present. **Conflict!**
+
+#### Conflict 3: Backtrack x2 = False
+
+---
+
+### Step 8: Backtrack, try x2 = False
+
+#### Branch 2.2: x2 = False
+
+Substitute x2 = False:
+
+- (¬x5 ∨ ¬x4)
+- (x5 ∨ ¬x2) → (x5 ∨ True) → (True)
+- (¬x5 ∨ x3)
+- (x2 ∨ x3 ∨ x4) → (x3 ∨ x4)
+- (¬x3 ∨ x2) → (¬x3)
+- (x2 ∨ x3) → (x3)
+- (¬x5 ∨ x2) → (¬x5)
+- (¬x5 ∨ x4)
+- (x2 ∨ ¬x4 ∨ x3) → (¬x4 ∨ x3)
+- (¬x3 ∨ ¬x2 ∨ x5) → (¬x3 ∨ x5)
+
+So, simplified:
+
+- (¬x5 ∨ ¬x4)
+- (¬x5 ∨ x3)
+- (x3 ∨ x4)
+- (¬x3)
+- (x3)
+- (¬x5)
+- (¬x5 ∨ x4)
+- (¬x4 ∨ x3)
+- (¬x3 ∨ x5)
+
+Now, (¬x3) and (x3) are both present. **Conflict!**
+
+#### Conflict 4: All branches exhausted.
+
+---
+
+## Final Results
+
+- **SATISFIABLE or UNSATISFIABLE:** UNSATISFIABLE
+- **Number of branches (decision points):** 4
+    - x1 = True, x2 = True
+    - x1 = True, x2 = False
+    - x1 = False, x2 = True
+    - x1 = False, x2 = False
+- **Number of conflicts (backtracking steps):** 4
+
+---
+
+**Final Output:**
+
+- UNSATISFIABLE
+- 4
+- 4

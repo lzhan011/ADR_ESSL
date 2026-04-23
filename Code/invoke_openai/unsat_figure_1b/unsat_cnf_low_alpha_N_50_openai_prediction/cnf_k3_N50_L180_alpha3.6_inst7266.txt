@@ -1,0 +1,340 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=7266
+p cnf 50 180
+27 42 23 0
+33 -26 -41 0
+1 35 -44 0
+23 -37 29 0
+-39 18 -47 0
+34 11 25 0
+-18 -9 21 0
+-7 48 -5 0
+12 -35 42 0
+-24 -38 -7 0
+-30 23 -32 0
+7 -8 12 0
+34 -2 -28 0
+14 32 13 0
+-37 13 17 0
+-20 14 23 0
+7 -10 15 0
+8 21 33 0
+-16 34 -26 0
+42 -15 31 0
+-3 -29 -26 0
+-33 -2 25 0
+-7 41 -48 0
+37 -26 40 0
+-47 -31 14 0
+-46 -20 35 0
+6 7 20 0
+-11 28 -16 0
+-11 -42 35 0
+-33 -17 -20 0
+-17 32 -4 0
+-15 -6 -46 0
+-2 41 21 0
+23 -27 -46 0
+7 18 -5 0
+-8 -18 -36 0
+-27 -11 -42 0
+29 20 23 0
+-37 49 31 0
+-35 37 -48 0
+22 -29 -42 0
+27 18 -5 0
+27 44 37 0
+-41 29 -30 0
+50 -7 24 0
+-4 40 20 0
+-5 -13 16 0
+-17 -41 -29 0
+3 7 19 0
+-45 22 42 0
+4 6 25 0
+-8 38 -27 0
+-32 42 -7 0
+-44 -33 -6 0
+-17 1 -2 0
+-11 -46 19 0
+23 -42 -2 0
+45 -40 7 0
+49 -27 -42 0
+4 2 34 0
+-48 20 -50 0
+-26 34 -22 0
+28 -29 35 0
+-20 50 25 0
+9 -26 -30 0
+14 -28 -24 0
+-13 -50 22 0
+-18 -11 -46 0
+33 -5 47 0
+-9 -15 42 0
+20 26 -9 0
+-35 10 -34 0
+27 35 48 0
+-3 -29 2 0
+-50 4 3 0
+20 4 25 0
+28 29 -8 0
+46 27 -36 0
+-19 -20 -30 0
+42 -24 15 0
+-17 -23 -26 0
+26 -6 -25 0
+21 47 9 0
+-32 -40 -16 0
+-36 13 49 0
+38 -26 46 0
+-37 -22 12 0
+27 -50 -4 0
+-31 -7 2 0
+41 -43 1 0
+-26 36 -31 0
+-33 22 26 0
+33 19 32 0
+35 5 -17 0
+-31 -16 -48 0
+-11 7 -49 0
+3 31 1 0
+7 -5 48 0
+5 8 -36 0
+-42 -40 31 0
+32 46 -4 0
+-43 -35 16 0
+-26 39 -18 0
+-24 -39 -49 0
+36 -7 -50 0
+-19 -26 -22 0
+-49 -38 -11 0
+6 -40 -13 0
+-12 24 32 0
+-29 -46 -31 0
+-15 3 40 0
+5 36 32 0
+36 -38 31 0
+22 50 3 0
+-32 13 -10 0
+-48 -42 -23 0
+26 6 -50 0
+-34 -1 4 0
+-32 -13 -43 0
+39 18 -26 0
+35 -47 -36 0
+6 -33 -45 0
+-6 22 -39 0
+-34 -37 -14 0
+-27 31 9 0
+35 -3 -6 0
+32 26 29 0
+43 -18 -17 0
+48 7 49 0
+7 31 -25 0
+-47 -49 -13 0
+-16 7 -25 0
+48 -27 -8 0
+49 -44 37 0
+9 -6 -47 0
+1 -13 30 0
+-13 -44 -18 0
+-21 43 -28 0
+35 34 24 0
+46 -47 -27 0
+-34 50 32 0
+46 -21 -16 0
+17 16 -1 0
+-21 -33 3 0
+1 36 11 0
+-43 -45 -39 0
+23 2 -36 0
+-42 26 -32 0
+-36 -40 17 0
+21 18 -31 0
+8 21 -7 0
+39 -15 10 0
+-47 -32 -28 0
+-49 -12 6 0
+-22 34 17 0
+11 -23 42 0
+-22 -35 4 0
+33 35 43 0
+-50 -27 -19 0
+2 -22 8 0
+-3 -6 36 0
+-9 43 -26 0
+-15 14 -42 0
+46 -25 42 0
+-18 -38 4 0
+-35 42 -4 0
+31 45 33 0
+27 41 -45 0
+45 -50 -8 0
+-35 -7 -10 0
+1 25 37 0
+19 15 -23 0
+23 10 39 0
+13 -50 15 0
+28 -32 26 0
+-13 -35 12 0
+14 22 -7 0
+-22 -46 21 0
+36 4 46 0
+-9 -26 5 0
+
+c GPT solve time: 94.90 seconds
+
+**Step-by-step SAT Solving (DPLL/CDCL-style):**
+
+1. **Variable selection:** Start with x1. Assign x1 = True.
+2. **Unit propagation:** No immediate unit clauses, so continue.
+3. **Branching:** Assign x2 = True.
+4. **Continue branching:** Assign x3 = True.
+5. **Continue branching:** Assign x4 = True.
+6. **Continue branching:** Assign x5 = True.
+7. **Continue branching:** Assign x6 = True.
+8. **Continue branching:** Assign x7 = True.
+9. **Continue branching:** Assign x8 = True.
+10. **Continue branching:** Assign x9 = True.
+11. **Continue branching:** Assign x10 = True.
+12. **Continue branching:** Assign x11 = True.
+13. **Continue branching:** Assign x12 = True.
+14. **Continue branching:** Assign x13 = True.
+15. **Continue branching:** Assign x14 = True.
+16. **Continue branching:** Assign x15 = True.
+17. **Continue branching:** Assign x16 = True.
+18. **Continue branching:** Assign x17 = True.
+19. **Continue branching:** Assign x18 = True.
+20. **Continue branching:** Assign x19 = True.
+21. **Continue branching:** Assign x20 = True.
+22. **Continue branching:** Assign x21 = True.
+23. **Continue branching:** Assign x22 = True.
+24. **Continue branching:** Assign x23 = True.
+25. **Continue branching:** Assign x24 = True.
+26. **Continue branching:** Assign x25 = True.
+27. **Continue branching:** Assign x26 = True.
+28. **Continue branching:** Assign x27 = True.
+29. **Continue branching:** Assign x28 = True.
+30. **Continue branching:** Assign x29 = True.
+31. **Continue branching:** Assign x30 = True.
+32. **Continue branching:** Assign x31 = True.
+33. **Continue branching:** Assign x32 = True.
+34. **Continue branching:** Assign x33 = True.
+35. **Continue branching:** Assign x34 = True.
+36. **Continue branching:** Assign x35 = True.
+37. **Continue branching:** Assign x36 = True.
+38. **Continue branching:** Assign x37 = True.
+39. **Continue branching:** Assign x38 = True.
+40. **Continue branching:** Assign x39 = True.
+41. **Continue branching:** Assign x40 = True.
+42. **Continue branching:** Assign x41 = True.
+43. **Continue branching:** Assign x42 = True.
+44. **Continue branching:** Assign x43 = True.
+45. **Continue branching:** Assign x44 = True.
+46. **Continue branching:** Assign x45 = True.
+47. **Continue branching:** Assign x46 = True.
+48. **Continue branching:** Assign x47 = True.
+49. **Continue branching:** Assign x48 = True.
+50. **Continue branching:** Assign x49 = True.
+51. **Continue branching:** Assign x50 = True.
+
+Now, check for conflicts.  
+- Many clauses contain both positive and negative literals for the same variable, so with all variables set to True, some clauses will be unsatisfied.  
+- For example, clause (¬x26 ∨ x34 ∨ ¬x22): x26=True, x34=True, x22=True → (False ∨ True ∨ False) = True.  
+- But clause (¬x11 ∨ ¬x46 ∨ x19): x11=True, x46=True, x19=True → (False ∨ False ∨ True) = True.  
+- Clause (¬x50 ∨ ¬x27 ∨ ¬x19): x50=True, x27=True, x19=True → (False ∨ False ∨ False) = **False**.  
+- So, this assignment fails. **Conflict 1**.
+
+**Backtrack:**  
+- Flip x19 = False (first variable in the clause above).  
+- Now, check if this resolves the conflict.  
+- Clause (¬x50 ∨ ¬x27 ∨ ¬x19): x50=True, x27=True, x19=False → (False ∨ False ∨ True) = True.  
+- Check other clauses involving x19.  
+- Clause (x3 ∨ x7 ∨ x19): x3=True, x7=True, x19=False → (True ∨ True ∨ False) = True.  
+- Clause (x33 ∨ x19 ∨ x32): x33=True, x19=False, x32=True → (True ∨ False ∨ True) = True.  
+- Clause (¬x6 ∨ x22 ∨ ¬x39): x6=True, x22=True, x39=True → (False ∨ True ∨ False) = True.  
+- Clause (¬x43 ∨ ¬x45 ∨ ¬x39): x43=True, x45=True, x39=True → (False ∨ False ∨ False) = **False**.  
+- **Conflict 2**.
+
+**Backtrack:**  
+- Flip x39 = False.  
+- Now, clause (¬x43 ∨ ¬x45 ∨ ¬x39): x43=True, x45=True, x39=False → (False ∨ False ∨ True) = True.  
+- Check other clauses involving x39.  
+- Clause (¬x39 ∨ x18 ∨ ¬x47): x39=False, x18=True, x47=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=True, x39=False, x18=True → (False ∨ False ∨ False) = **False**.  
+- **Conflict 3**.
+
+**Backtrack:**  
+- Flip x18 = False.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=True, x39=False, x18=False → (False ∨ False ∨ True) = True.  
+- Clause (¬x39 ∨ x18 ∨ ¬x47): x39=False, x18=False, x47=True → (True ∨ False ∨ False) = True.  
+- Clause (x21 ∨ x18 ∨ ¬x31): x21=True, x18=False, x31=True → (True ∨ False ∨ False) = True.  
+- Clause (¬x18 ∨ ¬x9 ∨ x21): x18=False, x9=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (x39 ∨ x18 ∨ ¬x26): x39=False, x18=False, x26=True → (False ∨ False ∨ False) = **False**.  
+- **Conflict 4**.
+
+**Backtrack:**  
+- Flip x26 = False.  
+- Clause (x39 ∨ x18 ∨ ¬x26): x39=False, x18=False, x26=False → (False ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True) = True.  
+- Clause (¬x26 ∨ x36 ∨ ¬x31): x26=False, x36=True, x31=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x41 ∨ x21): x26=False, x41=True, x21=True → (True ∨ True ∨ True) = True.  
+- Clause (¬x26 ∨ x34 ∨ ¬x22): x26=False, x34=True, x22=True → (True ∨ True ∨ False) = True.  
+- Clause (¬x26 ∨ x39 ∨ ¬x18): x26=False, x39=False, x18=False → (True ∨ False ∨ True)

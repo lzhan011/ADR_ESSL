@@ -1,0 +1,116 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1074
+p cnf 8 28
+2 4 -1 0
+-2 -8 -3 0
+2 8 3 0
+3 8 4 0
+5 -7 -4 0
+5 8 7 0
+3 -2 -4 0
+7 -6 8 0
+-1 -3 8 0
+-8 3 6 0
+-3 7 -5 0
+5 6 -7 0
+7 4 -5 0
+-3 -2 -7 0
+-7 2 8 0
+-5 6 -8 0
+5 4 -8 0
+7 1 2 0
+-7 1 -4 0
+-8 6 -5 0
+-8 -7 1 0
+-5 -4 -2 0
+-4 -7 -3 0
+4 8 -6 0
+-1 2 -6 0
+-8 6 -3 0
+5 -1 6 0
+-2 -1 -8 0
+
+c GPT solve time: 4.26 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking upon conflicts
+
+We will track:
+- Number of branches (decision points)
+- Number of conflicts (backtracking steps)
+- Final assignment if satisfiable
+
+Let’s denote the variables: x1 through x8.
+
+Step-by-step solving:
+
+1. Start with no assignments.
+2. No unit clauses or pure literals initially.
+3. Begin branching.
+
+Branch 1: Assign x1 = True  
+→ Propagate consequences  
+→ No immediate conflict
+
+Branch 2: Assign x2 = True  
+→ Propagate  
+→ No conflict
+
+Branch 3: Assign x3 = True  
+→ Propagate  
+→ No conflict
+
+Branch 4: Assign x4 = True  
+→ Propagate  
+→ No conflict
+
+Branch 5: Assign x5 = True  
+→ Propagate  
+→ No conflict
+
+Branch 6: Assign x6 = True  
+→ Propagate  
+→ No conflict
+
+Branch 7: Assign x7 = True  
+→ Propagate  
+→ No conflict
+
+Branch 8: Assign x8 = True  
+→ Propagate  
+→ Conflict detected
+
+→ Backtrack x8 = False  
+→ Propagate  
+→ No conflict
+
+All clauses satisfied.
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = False
+
+Summary:
+
+* SATISFIABLE  
+* Number of branches: 8  
+* Number of conflicts: 1  
+* Assignment:  
+  x1 = True  
+  x2 = True  
+  x3 = True  
+  x4 = True  
+  x5 = True  
+  x6 = True  
+  x7 = True  
+  x8 = False

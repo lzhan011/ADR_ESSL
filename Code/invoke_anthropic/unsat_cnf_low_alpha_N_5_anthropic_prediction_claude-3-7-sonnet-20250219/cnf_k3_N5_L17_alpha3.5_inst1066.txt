@@ -1,0 +1,171 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1066
+p cnf 5 17
+-1 3 5 0
+1 -5 -3 0
+-2 5 -3 0
+4 3 2 0
+-3 5 -1 0
+5 2 4 0
+5 -4 3 0
+2 -1 4 0
+-1 5 -2 0
+-1 -3 -4 0
+1 2 3 0
+-4 -5 3 0
+-2 3 4 0
+-1 -5 -3 0
+-3 -2 5 0
+-3 1 5 0
+1 -5 -4 0
+
+c GPT solve time: 35.42 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by assigning x1 = true.
+
+Step 2: With x1 = true, we can simplify the clauses:
+- (x1 ∨ ¬x5 ∨ ¬x3) becomes satisfied
+- (¬x3 ∨ x5 ∨ ¬x1) becomes (¬x3 ∨ x5)
+- (x2 ∨ ¬x1 ∨ x4) becomes (x2 ∨ x4)
+- (¬x1 ∨ x5 ∨ ¬x2) becomes (x5 ∨ ¬x2)
+- (¬x1 ∨ ¬x3 ∨ ¬x4) becomes (¬x3 ∨ ¬x4)
+- (x1 ∨ x2 ∨ x3) becomes satisfied
+- (¬x1 ∨ ¬x5 ∨ ¬x3) becomes (¬x5 ∨ ¬x3)
+- (¬x3 ∨ x1 ∨ x5) becomes satisfied
+- (x1 ∨ ¬x5 ∨ ¬x4) becomes satisfied
+
+Step 3: Let's assign x2 = true.
+
+Step 4: With x2 = true, we can further simplify:
+- (¬x2 ∨ x5 ∨ ¬x3) becomes (x5 ∨ ¬x3)
+- (x4 ∨ x3 ∨ x2) becomes satisfied
+- (x5 ∨ x2 ∨ x4) becomes satisfied
+- (x2 ∨ x4) becomes satisfied
+- (x5 ∨ ¬x2) becomes (x5)
+- (¬x2 ∨ x3 ∨ x4) becomes (x3 ∨ x4)
+- (¬x3 ∨ ¬x2 ∨ x5) becomes (¬x3 ∨ x5)
+
+Step 5: We have a unit clause (x5), so x5 = true.
+
+Step 6: With x5 = true, we can further simplify:
+- (¬x1 ∨ x3 ∨ x5) becomes satisfied
+- (x5 ∨ ¬x4 ∨ x3) becomes satisfied
+- (¬x4 ∨ ¬x5 ∨ x3) becomes (¬x4 ∨ x3)
+- (¬x5 ∨ ¬x3) becomes (¬x3)
+
+Step 7: We have a unit clause (¬x3), so x3 = false.
+
+Step 8: With x3 = false, we can further simplify:
+- (x4 ∨ x3 ∨ x2) becomes (x4)
+- (¬x3 ∨ ¬x4) becomes (¬x4)
+
+Step 9: We have a contradiction: (x4) and (¬x4). We need to backtrack.
+
+Step 10: Let's go back to Step 3 and try x2 = false instead.
+
+Step 11: With x2 = false, we can simplify:
+- (¬x2 ∨ x5 ∨ ¬x3) becomes satisfied
+- (x4 ∨ x3 ∨ x2) becomes (x4 ∨ x3)
+- (x5 ∨ x2 ∨ x4) becomes (x5 ∨ x4)
+- (x2 ∨ x4) becomes (x4)
+- (¬x1 ∨ x5 ∨ ¬x2) becomes satisfied
+- (¬x2 ∨ x3 ∨ x4) becomes satisfied
+- (¬x3 ∨ ¬x2 ∨ x5) becomes satisfied
+
+Step 12: We have a unit clause (x4), so x4 = true.
+
+Step 13: With x4 = true, we can further simplify:
+- (x4 ∨ x3) becomes satisfied
+- (x5 ∨ x4) becomes satisfied
+- (¬x1 ∨ ¬x3 ∨ ¬x4) becomes (¬x1 ∨ ¬x3)
+- (x5 ∨ ¬x4 ∨ x3) becomes (x5 ∨ x3)
+- (¬x4 ∨ ¬x5 ∨ x3) becomes (¬x5 ∨ x3)
+- (x1 ∨ ¬x5 ∨ ¬x4) becomes (x1 ∨ ¬x5)
+
+Step 14: But we already set x1 = true, so (¬x1 ∨ ¬x3) becomes (¬x3).
+
+Step 15: We have a unit clause (¬x3), so x3 = false.
+
+Step 16: With x3 = false, we can further simplify:
+- (¬x1 ∨ x3 ∨ x5) becomes (¬x1 ∨ x5)
+- (x1 ∨ ¬x5 ∨ ¬x3) becomes (x1 ∨ ¬x5)
+- (¬x3 ∨ x5) becomes (x5)
+- (x5 ∨ x3) becomes (x5)
+- (¬x5 ∨ x3) becomes (¬x5)
+
+Step 17: We have a contradiction: (x5) and (¬x5). We need to backtrack again.
+
+Step 18: Let's go back to Step 1 and try x1 = false instead.
+
+Step 19: With x1 = false, we can simplify the clauses:
+- (¬x1 ∨ x3 ∨ x5) becomes satisfied
+- (x1 ∨ ¬x5 ∨ ¬x3) becomes (¬x5 ∨ ¬x3)
+- (x2 ∨ ¬x1 ∨ x4) becomes satisfied
+- (¬x1 ∨ x5 ∨ ¬x2) becomes satisfied
+- (¬x1 ∨ ¬x3 ∨ ¬x4) becomes satisfied
+- (x1 ∨ x2 ∨ x3) becomes (x2 ∨ x3)
+- (¬x1 ∨ ¬x5 ∨ ¬x3) becomes satisfied
+- (¬x3 ∨ x1 ∨ x5) becomes (¬x3 ∨ x5)
+- (x1 ∨ ¬x5 ∨ ¬x4) becomes (¬x5 ∨ ¬x4)
+
+Step 20: Let's assign x2 = true.
+
+Step 21: With x2 = true, we can further simplify:
+- (¬x2 ∨ x5 ∨ ¬x3) becomes (x5 ∨ ¬x3)
+- (x4 ∨ x3 ∨ x2) becomes satisfied
+- (x5 ∨ x2 ∨ x4) becomes satisfied
+- (x2 ∨ x3) becomes satisfied
+- (¬x2 ∨ x3 ∨ x4) becomes (x3 ∨ x4)
+- (¬x3 ∨ ¬x2 ∨ x5) becomes (¬x3 ∨ x5)
+
+Step 22: Let's assign x3 = true.
+
+Step 23: With x3 = true, we can further simplify:
+- (¬x5 ∨ ¬x3) becomes (¬x5)
+- (x5 ∨ ¬x3) becomes (x5)
+
+Step 24: We have a contradiction: (¬x5) and (x5). We need to backtrack.
+
+Step 25: Let's go back to Step 22 and try x3 = false instead.
+
+Step 26: With x3 = false, we can further simplify:
+- (¬x5 ∨ ¬x3) becomes satisfied
+- (x5 ∨ ¬x3) becomes satisfied
+- (x3 ∨ x4) becomes (x4)
+- (¬x3 ∨ x5) becomes satisfied
+
+Step 27: We have a unit clause (x4), so x4 = true.
+
+Step 28: With x4 = true, we can further simplify:
+- (x5 ∨ ¬x4 ∨ x3) becomes (x5)
+- (¬x4 ∨ ¬x5 ∨ x3) becomes (¬x5 ∨ x3)
+- (¬x5 ∨ ¬x4) becomes (¬x5)
+
+Step 29: We have a contradiction: (x5) and (¬x5). We need to backtrack again.
+
+Step 30: Let's go back to Step 20 and try x2 = false instead.
+
+Step 31: With x2 = false, we can simplify:
+- (¬x2 ∨ x5 ∨ ¬x3) becomes satisfied
+- (x4 ∨ x3 ∨ x2) becomes (x4 ∨ x3)
+- (x5 ∨ x2 ∨ x4) becomes (x5 ∨ x4)
+- (x2 ∨ x3) becomes (x3)
+- (¬x2 ∨ x3 ∨ x4) becomes satisfied
+- (¬x3 ∨ ¬x2 ∨ x5) becomes satisfied
+
+Step 32: We have a unit clause (x3), so x3 = true.
+
+Step 33: With x3 = true, we can further simplify:
+- (¬x5 ∨ ¬x3) becomes (¬x5)
+- (x4 ∨ x3) becomes satisfied
+- (¬x3 ∨ x5) becomes (x5)
+
+Step 34: We have a contradiction: (¬x5) and (x5). We need to backtrack again.
+
+After exploring all possible assignments, we find that the formula is unsatisfiable.
+
+UNSATISFIABLE
+Number of branches: 5 (x1=true, x2=true, x2=false, x1=false/x2=true, x1=false/x2=false)
+Number of conflicts: 4

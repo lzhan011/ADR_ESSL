@@ -1,0 +1,86 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=928
+p cnf 5 17
+1 2 -4 0
+-5 -1 -3 0
+3 4 2 0
+-3 2 -1 0
+2 4 5 0
+1 -3 -2 0
+1 3 2 0
+1 -4 3 0
+3 1 5 0
+-1 2 -3 0
+-2 3 1 0
+-5 -4 -1 0
+-2 -1 3 0
+-3 -2 5 0
+4 3 -2 0
+-4 -1 3 0
+-3 2 4 0
+
+c GPT solve time: 16.65 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm step by step.
+
+**Initial Formula:**
+1. (x1 ∨ x2 ∨ ¬x4)
+2. (¬x5 ∨ ¬x1 ∨ ¬x3)
+3. (x3 ∨ x4 ∨ x2)
+4. (¬x3 ∨ x2 ∨ ¬x1)
+5. (x2 ∨ x4 ∨ x5)
+6. (x1 ∨ ¬x3 ∨ ¬x2)
+7. (x1 ∨ x3 ∨ x2)
+8. (x1 ∨ ¬x4 ∨ x3)
+9. (x3 ∨ x1 ∨ x5)
+10. (¬x1 ∨ x2 ∨ ¬x3)
+11. (¬x2 ∨ x3 ∨ x1)
+12. (¬x5 ∨ ¬x4 ∨ ¬x1)
+13. (¬x2 ∨ ¬x1 ∨ x3)
+14. (¬x3 ∨ ¬x2 ∨ x5)
+15. (x4 ∨ x3 ∨ ¬x2)
+16. (¬x4 ∨ ¬x1 ∨ x3)
+17. (¬x3 ∨ x2 ∨ x4)
+
+**Branch 1: x1 = TRUE**
+After unit propagation:
+- Clauses 1, 6, 7, 8, 9, 11 are satisfied
+- From clause 2: (¬x5 ∨ ¬x3)
+- From clause 4: (¬x3 ∨ x2)
+- From clause 10: (x2 ∨ ¬x3)
+- From clause 12: (¬x5 ∨ ¬x4)
+- From clause 13: (¬x2 ∨ x3)
+- From clause 16: (¬x4 ∨ x3)
+
+**Branch 2: x2 = TRUE**
+After unit propagation:
+- Clauses 3, 4, 5, 10, 17 are satisfied
+- From clause 13: x3 = TRUE
+- From clause 14: x5 = TRUE
+- From clause 2: CONFLICT (¬x5 ∨ ¬x3) with x3=TRUE, x5=TRUE
+
+**Backtrack, Branch 3: x2 = FALSE**
+After unit propagation:
+- From clause 6: ¬x3 (so x3 = FALSE)
+- From clause 11: x3 = TRUE
+- CONFLICT: x3 must be both TRUE and FALSE
+
+**Backtrack, Branch 4: x1 = FALSE**
+After unit propagation:
+- From clause 1: (x2 ∨ ¬x4)
+- From clause 6: (¬x3 ∨ ¬x2)
+- From clause 7: (x3 ∨ x2)
+- From clause 8: (¬x4 ∨ x3)
+- From clause 9: (x3 ∨ x5)
+
+**Branch 5: x2 = TRUE**
+After unit propagation:
+- Clauses 1, 3, 4, 5, 7, 10, 17 are satisfied
+- From clause 6: x3 = FALSE
+- From clause 11: x3 = TRUE
+- CONFLICT: x3 must be both TRUE and FALSE
+
+**Backtrack, Branch 6: x2 = FALSE**
+After unit propagation:
+- From clause 7: x3 = TRUE
+- From clause

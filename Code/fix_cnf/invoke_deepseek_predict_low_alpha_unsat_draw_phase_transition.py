@@ -17,9 +17,9 @@ model_selected =  "deepseek-reasoner"  # 或 deepseek-coder   deepseek-reasoner 
 
 
 if model_selected == 'deepseek-reasoner':
-    client = OpenAI(api_key=os.environ["DEEPSEEK_API_KEY"], base_url="https://api.deepseek.com")
+    client = OpenAI(api_key=os.environ.get("DeepSeek_API_KEY"), base_url="https://api.deepseek.com")
 else:
-    openai.api_key = os.environ["DEEPSEEK_API_KEY"]
+    openai.api_key = os.environ.get("DeepSeek_API_KEY")
     openai.api_base = "https://api.deepseek.com/v1"
 
 

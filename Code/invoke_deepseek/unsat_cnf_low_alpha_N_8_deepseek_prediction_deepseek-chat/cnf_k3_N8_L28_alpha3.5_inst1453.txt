@@ -1,0 +1,189 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1453
+p cnf 8 28
+-7 -8 -3 0
+-1 -4 -6 0
+2 -3 1 0
+-2 -3 -7 0
+7 2 6 0
+5 1 4 0
+6 -2 5 0
+-7 2 6 0
+-2 -3 -6 0
+2 -4 -1 0
+2 3 -5 0
+8 -3 5 0
+8 -4 -3 0
+-2 -6 -5 0
+-1 5 -3 0
+-3 -1 -5 0
+3 -5 6 0
+2 -1 7 0
+4 -1 -7 0
+-4 -6 -1 0
+4 8 5 0
+-4 -1 3 0
+-8 3 -1 0
+-6 -3 -8 0
+1 6 -2 0
+-6 5 1 0
+-7 4 -3 0
+1 -3 4 0
+
+c GPT solve time: 123.40 seconds
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables and assign values, propagating implications and backtracking on conflicts.
+
+#### Branching Order and Assignments:
+1. **Decision**: Assign \( x1 = \text{True} \).
+   - Implications:
+     - From \( (x1 ∨ x6 ∨ ¬x2) \): No implication (already satisfied by \( x1 \)).
+     - From \( (¬x1 ∨ x5 ∨ ¬x3) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (¬x1 ∨ ¬x4 ∨ ¬x6) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (x2 ∨ ¬x4 ∨ ¬x1) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (¬x4 ∨ ¬x1 ∨ x3) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (¬x8 ∨ x3 ∨ ¬x1) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (x5 ∨ x1 ∨ x4) \): No implication (already satisfied by \( x1 \)).
+     - From \( (¬x6 ∨ x5 ∨ x1) \): No implication (already satisfied by \( x1 \)).
+     - From \( (x1 ∨ ¬x3 ∨ x4) \): No implication (already satisfied by \( x1 \)).
+     - From \( (x2 ∨ ¬x1 ∨ x7) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (¬x3 ∨ ¬x1 ∨ ¬x5) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (¬x4 ∨ ¬x6 ∨ ¬x1) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (x4 ∨ ¬x1 ∨ ¬x7) \): No implication (already satisfied by \( ¬x1 \)).
+   - No conflicts.
+
+2. **Decision**: Assign \( x2 = \text{True} \).
+   - Implications:
+     - From \( (x2 ∨ ¬x3 ∨ x1) \): No implication (already satisfied by \( x2 \)).
+     - From \( (¬x2 ∨ ¬x3 ∨ ¬x7) \): Conflict if \( x3 = \text{True} \) and \( x7 = \text{True} \).
+     - From \( (x7 ∨ x2 ∨ x6) \): No implication (already satisfied by \( x2 \)).
+     - From \( (¬x2 ∨ ¬x6 ∨ ¬x5) \): If \( x6 = \text{True} \) or \( x5 = \text{True} \), conflict.
+     - From \( (¬x2 ∨ ¬x3 ∨ ¬x6) \): If \( x3 = \text{True} \) and \( x6 = \text{True} \), conflict.
+     - From \( (x2 ∨ x3 ∨ ¬x5) \): No implication (already satisfied by \( x2 \)).
+     - From \( (x1 ∨ x6 ∨ ¬x2) \): No implication (already satisfied by \( x1 \)).
+     - From \( (¬x7 ∨ x2 ∨ x6) \): No implication (already satisfied by \( x2 \)).
+   - No immediate conflicts.
+
+3. **Decision**: Assign \( x3 = \text{False} \).
+   - Implications:
+     - From \( (¬x3 ∨ ¬x1 ∨ ¬x5) \): No implication (already satisfied by \( ¬x3 \)).
+     - From \( (¬x3 ∨ ¬x8 ∨ ¬x6) \): No implication (already satisfied by \( ¬x3 \)).
+     - From \( (x3 ∨ ¬x5 ∨ x6) \): If \( x5 = \text{True} \) and \( x6 = \text{False} \), conflict.
+     - From \( (¬x7 ∨ ¬x8 ∨ ¬x3) \): No implication (already satisfied by \( ¬x3 \)).
+     - From \( (x8 ∨ ¬x3 ∨ x5) \): No implication (already satisfied by \( ¬x3 \)).
+     - From \( (x8 ∨ ¬x4 ∨ ¬x3) \): No implication (already satisfied by \( ¬x3 \)).
+     - From \( (¬x7 ∨ x4 ∨ ¬x3) \): No implication (already satisfied by \( ¬x3 \)).
+   - No immediate conflicts.
+
+4. **Decision**: Assign \( x4 = \text{True} \).
+   - Implications:
+     - From \( (¬x4 ∨ ¬x6 ∨ ¬x1) \): If \( x6 = \text{True} \), conflict.
+     - From \( (x4 ∨ x8 ∨ x5) \): No implication (already satisfied by \( x4 \)).
+     - From \( (¬x1 ∨ ¬x4 ∨ ¬x6) \): If \( x6 = \text{True} \), conflict.
+     - From \( (x2 ∨ ¬x4 ∨ ¬x1) \): No implication (already satisfied by \( x2 \)).
+     - From \( (¬x4 ∨ ¬x1 ∨ x3) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (x4 ∨ ¬x1 ∨ ¬x7) \): No implication (already satisfied by \( x4 \)).
+   - No immediate conflicts.
+
+5. **Decision**: Assign \( x5 = \text{True} \).
+   - Implications:
+     - From \( (¬x2 ∨ ¬x6 ∨ ¬x5) \): If \( x6 = \text{True} \), conflict.
+     - From \( (x6 ∨ ¬x2 ∨ x5) \): No implication (already satisfied by \( x5 \)).
+     - From \( (¬x6 ∨ x5 ∨ x1) \): No implication (already satisfied by \( x5 \)).
+     - From \( (x2 ∨ x3 ∨ ¬x5) \): Conflict if \( x2 = \text{True} \) and \( x3 = \text{False} \).
+   - Conflict detected: \( (x2 ∨ x3 ∨ ¬x5) \) is unsatisfied with \( x2 = \text{True} \), \( x3 = \text{False} \), \( x5 = \text{True} \).
+   - **Backtrack**: Undo \( x5 = \text{True} \), try \( x5 = \text{False} \).
+
+6. **Decision**: Assign \( x5 = \text{False} \).
+   - Implications:
+     - From \( (x2 ∨ x3 ∨ ¬x5) \): No implication (already satisfied by \( ¬x5 \)).
+     - From \( (x8 ∨ ¬x3 ∨ x5) \): If \( x8 = \text{False} \) and \( x3 = \text{True} \), conflict (but \( x3 = \text{False} \), so no conflict).
+     - From \( (¬x3 ∨ ¬x1 ∨ ¬x5) \): No implication (already satisfied by \( ¬x5 \)).
+     - From \( (x3 ∨ ¬x5 ∨ x6) \): If \( x6 = \text{False} \), conflict.
+     - From \( (¬x6 ∨ x5 ∨ x1) \): No implication (already satisfied by \( x1 \)).
+   - No immediate conflicts.
+
+7. **Decision**: Assign \( x6 = \text{False} \).
+   - Implications:
+     - From \( (x6 ∨ ¬x2 ∨ x5) \): Conflict if \( x2 = \text{True} \) and \( x5 = \text{False} \).
+   - Conflict detected: \( (x6 ∨ ¬x2 ∨ x5) \) is unsatisfied with \( x6 = \text{False} \), \( x2 = \text{True} \), \( x5 = \text{False} \).
+   - **Backtrack**: Undo \( x6 = \text{False} \), try \( x6 = \text{True} \).
+
+8. **Decision**: Assign \( x6 = \text{True} \).
+   - Implications:
+     - From \( (¬x2 ∨ ¬x6 ∨ ¬x5) \): Conflict if \( x2 = \text{True} \) and \( x5 = \text{False} \).
+   - Conflict detected: \( (¬x2 ∨ ¬x6 ∨ ¬x5) \) is unsatisfied with \( x2 = \text{True} \), \( x6 = \text{True} \), \( x5 = \text{False} \).
+   - **Backtrack**: Undo \( x5 = \text{False} \), no other options for \( x5 \). Backtrack further.
+
+9. **Backtrack**: Undo \( x4 = \text{True} \), try \( x4 = \text{False} \).
+   - Implications:
+     - From \( (x4 ∨ x8 ∨ x5) \): If \( x8 = \text{False} \) and \( x5 = \text{False} \), conflict.
+     - From \( (¬x4 ∨ ¬x6 ∨ ¬x1) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (¬x1 ∨ ¬x4 ∨ ¬x6) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (x2 ∨ ¬x4 ∨ ¬x1) \): No implication (already satisfied by \( x2 \)).
+     - From \( (¬x4 ∨ ¬x1 ∨ x3) \): No implication (already satisfied by \( ¬x1 \)).
+     - From \( (x4 ∨ ¬x1 ∨ ¬x7) \): If \( x7 = \text{True} \), conflict.
+   - No immediate conflicts.
+
+10. **Decision**: Assign \( x7 = \text{False} \).
+    - Implications:
+      - From \( (¬x7 ∨ ¬x8 ∨ ¬x3) \): No implication (already satisfied by \( ¬x7 \)).
+      - From \( (¬x7 ∨ x2 ∨ x6) \): No implication (already satisfied by \( x2 \)).
+      - From \( (¬x7 ∨ x4 ∨ ¬x3) \): No implication (already satisfied by \( ¬x7 \)).
+      - From \( (x7 ∨ x2 ∨ x6) \): No implication (already satisfied by \( x2 \)).
+      - From \( (x2 ∨ ¬x1 ∨ x7) \): No implication (already satisfied by \( x2 \)).
+      - From \( (x4 ∨ ¬x1 ∨ ¬x7) \): No implication (already satisfied by \( ¬x7 \)).
+    - No immediate conflicts.
+
+11. **Decision**: Assign \( x8 = \text{True} \).
+    - Implications:
+      - From \( (x8 ∨ ¬x3 ∨ x5) \): No implication (already satisfied by \( x8 \)).
+      - From \( (x8 ∨ ¬x4 ∨ ¬x3) \): No implication (already satisfied by \( x8 \)).
+      - From \( (¬x8 ∨ x3 ∨ ¬x1) \): No implication (already satisfied by \( ¬x1 \)).
+      - From \( (¬x6 ∨ ¬x3 ∨ ¬x8) \): If \( x6 = \text{True} \) and \( x3 = \text{True} \), conflict (but \( x3 = \text{False} \), so no conflict).
+    - No immediate conflicts.
+
+12. **Decision**: Assign \( x5 = \text{True} \).
+    - Implications:
+      - From \( (¬x2 ∨ ¬x6 ∨ ¬x5) \): If \( x6 = \text{True} \), conflict.
+      - From \( (x6 ∨ ¬x2 ∨ x5) \): No implication (already satisfied by \( x5 \)).
+      - From \( (¬x6 ∨ x5 ∨ x1) \): No implication (already satisfied by \( x5 \)).
+      - From \( (x2 ∨ x3 ∨ ¬x5) \): Conflict if \( x2 = \text{True} \) and \( x3 = \text{False} \).
+    - Conflict detected: \( (x2 ∨ x3 ∨ ¬x5) \) is unsatisfied with \( x2 = \text{True} \), \( x3 = \text{False} \), \( x5 = \text{True} \).
+    - **Backtrack**: Undo \( x5 = \text{True} \), try \( x5 = \text{False} \).
+
+13. **Decision**: Assign \( x5 = \text{False} \).
+    - Implications:
+      - From \( (x2 ∨ x3 ∨ ¬x5) \): No implication (already satisfied by \( ¬x5 \)).
+      - From \( (x8 ∨ ¬x3 ∨ x5) \): No implication (already satisfied by \( x8 \)).
+      - From \( (¬x3 ∨ ¬x1 ∨ ¬x5) \): No implication (already satisfied by \( ¬x5 \)).
+      - From \( (x3 ∨ ¬x5 ∨ x6) \): If \( x6 = \text{False} \), conflict.
+    - No immediate conflicts.
+
+14. **Decision**: Assign \( x6 = \text{True} \).
+    - Implications:
+      - From \( (¬x2 ∨ ¬x6 ∨ ¬x5) \): Conflict if \( x2 = \text{True} \) and \( x5 = \text{False} \).
+    - Conflict detected: \( (¬x2 ∨ ¬x6 ∨ ¬x5) \) is unsatisfied with \( x2 = \text{True} \), \( x6 = \text{True} \), \( x5 = \text{False} \).
+    - **Backtrack**: Undo \( x6 = \text{True} \), try \( x6 = \text{False} \).
+
+15. **Decision**: Assign \( x6 = \text{False} \).
+    - Implications:
+      - From \( (x6 ∨ ¬x2 ∨ x5) \): Conflict if \( x2 = \text{True} \) and \( x5 = \text{False} \).
+    - Conflict detected: \( (x6 ∨ ¬x2 ∨ x5) \) is unsatisfied with \( x6 = \text{False} \), \( x2 = \text{True} \), \( x5 = \text{False} \).
+    - **Backtrack**: No more options for \( x6 \). Backtrack further.
+
+### Final Result:
+After exhaustive branching and backtracking, no satisfying assignment is found. The formula is **UNSATISFIABLE**.
+
+### Output:
+```
+UNSATISFIABLE
+15
+5
+```

@@ -1,0 +1,169 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2276
+p cnf 5 17
+4 -2 5 0
+-4 2 -1 0
+4 -2 1 0
+1 2 3 0
+1 -5 3 0
+-3 5 -4 0
+5 4 1 0
+-2 3 -1 0
+5 -4 -2 0
+3 -5 4 0
+-2 4 5 0
+-3 -2 4 0
+2 -1 4 0
+-3 -4 -1 0
+5 -1 -4 0
+-3 -4 5 0
+-5 -3 1 0
+
+c GPT solve time: 118.24 seconds
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in the order \( x1, x2, x3, x4, x5 \), assigning values and propagating implications.
+
+#### Branch 1: \( x1 = \text{True} \)
+- Clause \( (x1 ∨ x2 ∨ x3) \) is satisfied.
+- Clause \( (x1 ∨ ¬x5 ∨ x3) \) is satisfied.
+- Clause \( (¬x2 ∨ x3 ∨ ¬x1) \) simplifies to \( (¬x2 ∨ x3) \).
+- Clause \( (¬x3 ∨ ¬x4 ∨ ¬x1) \) simplifies to \( (¬x3 ∨ ¬x4) \).
+- Clause \( (¬x5 ∨ ¬x3 ∨ x1) \) simplifies to \( (¬x5 ∨ ¬x3) \).
+
+#### Branch 2: \( x2 = \text{True} \)
+- Clause \( (¬x4 ∨ x2 ∨ ¬x1) \) is satisfied.
+- Clause \( (x4 ∨ ¬x2 ∨ x5) \) simplifies to \( (x4 ∨ x5) \).
+- Clause \( (x4 ∨ ¬x2 ∨ x1) \) simplifies to \( (x4 ∨ x1) \).
+- Clause \( (¬x2 ∨ x4 ∨ x5) \) simplifies to \( (x4 ∨ x5) \).
+- Clause \( (¬x2 ∨ x3 ∨ ¬x1) \) simplifies to \( (x3) \) (unit clause).
+  
+Now, \( x3 \) must be \( \text{True} \):
+- Clause \( (¬x3 ∨ x5 ∨ ¬x4) \) simplifies to \( (x5 ∨ ¬x4) \).
+- Clause \( (¬x3 ∨ ¬x4 ∨ x5) \) simplifies to \( (¬x4 ∨ x5) \).
+- Clause \( (¬x3 ∨ ¬x2 ∨ x4) \) simplifies to \( (¬x2 ∨ x4) \).
+- Clause \( (x3 ∨ ¬x5 ∨ x4) \) is satisfied.
+  
+Now, assign \( x3 = \text{True} \):
+- Clause \( (¬x5 ∨ ¬x3) \) simplifies to \( (¬x5) \), so \( x5 = \text{False} \).
+  
+Now, assign \( x5 = \text{False} \):
+- Clause \( (x5 ∨ x4 ∨ x1) \) simplifies to \( (x4 ∨ x1) \).
+- Clause \( (x5 ∨ ¬x4 ∨ ¬x2) \) simplifies to \( (¬x4 ∨ ¬x2) \).
+- Clause \( (¬x5 ∨ ¬x3) \) is satisfied.
+  
+Now, assign \( x4 \):
+- From \( (x4 ∨ x5) \), since \( x5 = \text{False} \), \( x4 \) must be \( \text{True} \).
+  
+Now, assign \( x4 = \text{True} \):
+- Clause \( (¬x4 ∨ x5) \) simplifies to \( (x5) \), but \( x5 = \text{False} \), leading to a conflict.
+
+#### Conflict detected, backtrack to Branch 2 and set \( x2 = \text{False} \).
+
+#### Branch 2 (backtrack): \( x2 = \text{False} \)
+- Clause \( (x4 ∨ ¬x2 ∨ x5) \) simplifies to \( (x4 ∨ x5) \).
+- Clause \( (x4 ∨ ¬x2 ∨ x1) \) simplifies to \( (x4 ∨ x1) \).
+- Clause \( (¬x4 ∨ x2 ∨ ¬x1) \) simplifies to \( (¬x4 ∨ ¬x1) \).
+- Clause \( (¬x2 ∨ x3 ∨ ¬x1) \) simplifies to \( (x3 ∨ ¬x1) \).
+- Clause \( (x5 ∨ ¬x4 ∨ ¬x2) \) simplifies to \( (x5 ∨ ¬x4) \).
+- Clause \( (¬x2 ∨ x4 ∨ x5) \) simplifies to \( (x4 ∨ x5) \).
+- Clause \( (¬x3 ∨ ¬x2 ∨ x4) \) simplifies to \( (¬x3 ∨ x4) \).
+- Clause \( (x2 ∨ ¬x1 ∨ x4) \) simplifies to \( (¬x1 ∨ x4) \).
+
+Now, assign \( x3 \):
+From \( (x3 ∨ ¬x1) \), no unit clause yet.
+
+#### Branch 3: \( x3 = \text{True} \)
+- Clause \( (¬x3 ∨ x5 ∨ ¬x4) \) simplifies to \( (x5 ∨ ¬x4) \).
+- Clause \( (¬x3 ∨ ¬x4 ∨ x5) \) simplifies to \( (¬x4 ∨ x5) \).
+- Clause \( (x3 ∨ ¬x5 ∨ x4) \) is satisfied.
+- Clause \( (¬x5 ∨ ¬x3) \) simplifies to \( (¬x5) \), so \( x5 = \text{False} \).
+  
+Now, assign \( x5 = \text{False} \):
+- Clause \( (x5 ∨ x4 ∨ x1) \) simplifies to \( (x4 ∨ x1) \).
+- Clause \( (x5 ∨ ¬x4 ∨ ¬x2) \) simplifies to \( (¬x4) \), so \( x4 = \text{False} \).
+  
+Now, assign \( x4 = \text{False} \):
+- Clause \( (x4 ∨ x5) \) is satisfied.
+- Clause \( (x4 ∨ x1) \) simplifies to \( (x1) \), so \( x1 = \text{True} \).
+  
+Now, assign \( x1 = \text{True} \):
+- Clause \( (¬x4 ∨ ¬x1) \) simplifies to \( (¬x1) \), but \( x1 = \text{True} \), leading to a conflict.
+
+#### Conflict detected, backtrack to Branch 3 and set \( x3 = \text{False} \).
+
+#### Branch 3 (backtrack): \( x3 = \text{False} \)
+- Clause \( (x3 ∨ ¬x5 ∨ x4) \) simplifies to \( (¬x5 ∨ x4) \).
+- Clause \( (¬x3 ∨ ¬x4 ∨ ¬x1) \) simplifies to \( (¬x4 ∨ ¬x1) \).
+- Clause \( (¬x3 ∨ ¬x4 ∨ x5) \) simplifies to \( (¬x4 ∨ x5) \).
+- Clause \( (¬x5 ∨ ¬x3) \) simplifies to \( (¬x5) \), so \( x5 = \text{False} \).
+  
+Now, assign \( x5 = \text{False} \):
+- Clause \( (x5 ∨ x4 ∨ x1) \) simplifies to \( (x4 ∨ x1) \).
+- Clause \( (x5 ∨ ¬x4 ∨ ¬x2) \) simplifies to \( (¬x4) \), so \( x4 = \text{False} \).
+  
+Now, assign \( x4 = \text{False} \):
+- Clause \( (x4 ∨ x5) \) is satisfied.
+- Clause \( (x4 ∨ x1) \) simplifies to \( (x1) \), so \( x1 = \text{True} \).
+  
+Now, assign \( x1 = \text{True} \):
+- Clause \( (¬x4 ∨ ¬x1) \) simplifies to \( (¬x1) \), but \( x1 = \text{True} \), leading to a conflict.
+
+#### Conflict detected, backtrack to Branch 1 and set \( x1 = \text{False} \).
+
+#### Branch 1 (backtrack): \( x1 = \text{False} \)
+- Clause \( (x1 ∨ x2 ∨ x3) \) simplifies to \( (x2 ∨ x3) \).
+- Clause \( (x1 ∨ ¬x5 ∨ x3) \) simplifies to \( (¬x5 ∨ x3) \).
+- Clause \( (¬x2 ∨ x3 ∨ ¬x1) \) simplifies to \( (¬x2 ∨ x3) \).
+- Clause \( (¬x3 ∨ ¬x4 ∨ ¬x1) \) simplifies to \( (¬x3 ∨ ¬x4) \).
+- Clause \( (¬x5 ∨ ¬x3 ∨ x1) \) simplifies to \( (¬x5 ∨ ¬x3) \).
+
+#### Branch 4: \( x2 = \text{True} \)
+- Clause \( (¬x4 ∨ x2 ∨ ¬x1) \) is satisfied.
+- Clause \( (x4 ∨ ¬x2 ∨ x5) \) simplifies to \( (x4 ∨ x5) \).
+- Clause \( (x4 ∨ ¬x2 ∨ x1) \) simplifies to \( (x4) \), so \( x4 = \text{True} \).
+  
+Now, assign \( x4 = \text{True} \):
+- Clause \( (¬x4 ∨ x5) \) simplifies to \( (x5) \), so \( x5 = \text{True} \).
+  
+Now, assign \( x5 = \text{True} \):
+- Clause \( (x5 ∨ x4 ∨ x1) \) is satisfied.
+- Clause \( (x5 ∨ ¬x4 ∨ ¬x2) \) is satisfied.
+- Clause \( (¬x5 ∨ ¬x3) \) simplifies to \( (¬x3) \), so \( x3 = \text{False} \).
+  
+Now, assign \( x3 = \text{False} \):
+- Clause \( (x2 ∨ x3) \) is satisfied.
+- Clause \( (¬x5 ∨ x3) \) is satisfied.
+- Clause \( (¬x2 ∨ x3) \) simplifies to \( (¬x2) \), but \( x2 = \text{True} \), leading to a conflict.
+
+#### Conflict detected, backtrack to Branch 4 and set \( x2 = \text{False} \).
+
+#### Branch 4 (backtrack): \( x2 = \text{False} \)
+- Clause \( (x4 ∨ ¬x2 ∨ x5) \) simplifies to \( (x4 ∨ x5) \).
+- Clause \( (x4 ∨ ¬x2 ∨ x1) \) simplifies to \( (x4) \), so \( x4 = \text{True} \).
+  
+Now, assign \( x4 = \text{True} \):
+- Clause \( (¬x4 ∨ x5) \) simplifies to \( (x5) \), so \( x5 = \text{True} \).
+  
+Now, assign \( x5 = \text{True} \):
+- Clause \( (x5 ∨ x4 ∨ x1) \) is satisfied.
+- Clause \( (x5 ∨ ¬x4 ∨ ¬x2) \) is satisfied.
+- Clause \( (¬x5 ∨ ¬x3) \) simplifies to \( (¬x3) \), so \( x3 = \text{False} \).
+  
+Now, assign \( x3 = \text{False} \):
+- Clause \( (x2 ∨ x3) \) simplifies to \( (x2) \), but \( x2 = \text{False} \), leading to a conflict.
+
+### Final Result:
+The formula is **UNSATISFIABLE** after exhaustive branching and conflict resolution.
+
+### Output:
+```
+UNSATISFIABLE
+4
+4
+```

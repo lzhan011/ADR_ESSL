@@ -1,0 +1,483 @@
+c Random 3-SAT
+c alpha=3.5, N=50, L=175, instance=7399
+p cnf 50 175
+4 11 -12 0
+-6 -11 -8 0
+27 -28 -6 0
+-50 48 32 0
+-11 31 -38 0
+-20 31 -38 0
+-10 37 22 0
+-29 16 7 0
+31 -19 1 0
+46 -43 -20 0
+-34 -24 22 0
+24 -27 8 0
+-20 -46 28 0
+-4 37 33 0
+-15 49 -22 0
+29 7 20 0
+39 11 -9 0
+-31 -36 16 0
+-8 13 31 0
+38 -4 -35 0
+8 -45 19 0
+47 -20 30 0
+-22 48 -9 0
+20 -45 32 0
+-32 -7 5 0
+-24 4 -49 0
+24 35 -36 0
+-22 -50 -47 0
+44 17 20 0
+9 23 47 0
+-10 22 -16 0
+50 2 14 0
+14 -11 -26 0
+-2 4 -7 0
+-15 -20 -17 0
+37 -45 -47 0
+-48 43 -13 0
+46 -12 19 0
+41 17 -29 0
+29 44 -7 0
+16 -31 47 0
+9 22 3 0
+1 -3 -22 0
+-17 32 -7 0
+-45 -8 9 0
+-42 14 -40 0
+7 -41 -34 0
+-48 32 24 0
+-6 19 2 0
+-32 49 18 0
+-20 -9 38 0
+48 21 11 0
+-23 39 -41 0
+36 -22 29 0
+-7 29 37 0
+22 45 18 0
+23 -44 20 0
+-6 -7 -13 0
+16 -47 -34 0
+-14 7 -9 0
+-36 -15 -20 0
+16 -23 33 0
+-18 -48 15 0
+-46 -42 8 0
+-4 -44 -9 0
+42 -16 -15 0
+-18 30 36 0
+44 8 -31 0
+33 -35 -1 0
+17 -25 -18 0
+-29 -11 -27 0
+-6 -17 -29 0
+21 11 -30 0
+48 37 12 0
+-25 11 2 0
+-34 -29 -43 0
+28 -40 -42 0
+-10 -35 -36 0
+50 3 31 0
+-4 -46 -28 0
+46 21 -10 0
+5 -31 -43 0
+-32 -23 14 0
+-12 -43 41 0
+-49 33 -31 0
+3 -36 -33 0
+9 -49 20 0
+30 40 42 0
+44 5 33 0
+-1 -47 12 0
+40 -18 16 0
+27 39 -19 0
+41 -30 38 0
+-44 -20 -31 0
+-34 -38 30 0
+-50 41 -49 0
+-50 -43 32 0
+-37 27 30 0
+33 -27 35 0
+34 42 35 0
+-10 46 29 0
+-39 -20 35 0
+26 -23 19 0
+43 -20 33 0
+36 -44 -31 0
+-33 40 10 0
+16 9 19 0
+23 -1 -50 0
+16 3 -49 0
+17 22 12 0
+-27 50 15 0
+41 32 -6 0
+-28 -4 17 0
+-17 43 -9 0
+-39 31 27 0
+-12 -47 11 0
+-18 -39 -44 0
+-30 12 -24 0
+-27 -37 -33 0
+46 6 -11 0
+-20 -1 -6 0
+37 -8 -11 0
+4 50 -8 0
+37 36 -4 0
+-14 -11 -12 0
+27 20 21 0
+31 -48 -36 0
+-34 40 14 0
+-14 -37 20 0
+-7 -16 45 0
+-35 24 -8 0
+15 -23 47 0
+43 -8 -37 0
+50 -7 -41 0
+33 15 30 0
+29 16 -33 0
+-21 -22 11 0
+-18 48 23 0
+26 47 7 0
+47 36 -31 0
+-21 -48 -40 0
+22 -32 48 0
+27 -8 1 0
+48 -21 7 0
+2 46 47 0
+-42 40 49 0
+1 8 -23 0
+-43 32 -33 0
+7 41 24 0
+32 3 -19 0
+50 29 -31 0
+4 -34 -22 0
+38 -50 -18 0
+20 31 -24 0
+11 -10 -22 0
+44 -17 27 0
+-17 -41 49 0
+-44 -20 17 0
+22 -2 -42 0
+15 49 12 0
+-40 -49 -8 0
+-29 33 50 0
+-47 10 22 0
+-44 18 -47 0
+21 -46 31 0
+3 -24 48 0
+18 -17 48 0
+6 -36 -18 0
+-3 37 5 0
+-6 15 2 0
+-13 38 -22 0
+50 -43 -40 0
+44 26 -30 0
+42 44 -13 0
+12 5 -24 0
+
+c GPT solve time: 100.80 seconds
+
+**Step-by-step SAT Solving (DPLL-style):**
+
+1. **Variables:** x1, x2, ..., x50 (all variables from x1 to x50 appear in the formula).
+2. **Initial assignment:** None. Start with all variables unassigned.
+
+Let's proceed step by step, making decisions and propagating implications. For brevity, I'll summarize the key steps and count branches and conflicts.
+
+---
+
+### Step 1: Pick a variable to branch on.
+
+Let’s start with **x1 = TRUE** (Branch 1).
+
+#### Propagate implications:
+- Check for unit clauses: None.
+- No immediate conflicts.
+
+---
+
+### Step 2: Pick next unassigned variable.
+
+Let’s try **x2 = TRUE** (Branch 2).
+
+#### Propagate implications:
+- No unit clauses.
+- No immediate conflicts.
+
+---
+
+### Step 3: Continue with **x3 = TRUE** (Branch 3).
+
+#### Propagate implications:
+- No unit clauses.
+- No immediate conflicts.
+
+---
+
+### Step 4: Continue with **x4 = TRUE** (Branch 4).
+
+#### Propagate implications:
+- No unit clauses.
+- No immediate conflicts.
+
+---
+
+### Step 5: Continue with **x5 = TRUE** (Branch 5).
+
+#### Propagate implications:
+- No unit clauses.
+- No immediate conflicts.
+
+---
+
+### Step 6: Continue with **x6 = TRUE** (Branch 6).
+
+#### Propagate implications:
+- Clause (¬x6 ∨ ¬x11 ∨ ¬x8): x6=TRUE → (¬x11 ∨ ¬x8)
+- Clause (x27 ∨ ¬x28 ∨ ¬x6): x6=TRUE → (x27 ∨ ¬x28)
+- Clause (¬x6 ∨ x19 ∨ x2): x6=TRUE → (x19 ∨ x2)
+- Clause (¬x6 ∨ ¬x17 ∨ ¬x29): x6=TRUE → (¬x17 ∨ ¬x29)
+- Clause (¬x6 ∨ x15 ∨ x2): x6=TRUE → (x15 ∨ x2)
+
+No unit clauses yet.
+
+---
+
+### Step 7: Continue with **x7 = TRUE** (Branch 7).
+
+#### Propagate implications:
+- Clause (¬x29 ∨ x16 ∨ x7): x7=TRUE → clause satisfied.
+- Clause (x29 ∨ x7 ∨ x20): x7=TRUE → clause satisfied.
+- Clause (¬x32 ∨ ¬x7 ∨ x5): x7=TRUE → (¬x32 ∨ x5)
+- Clause (¬x24 ∨ x4 ∨ ¬x49): x7=TRUE, no effect.
+- Clause (¬x6 ∨ ¬x7 ∨ ¬x13): x7=TRUE → (¬x6 ∨ ¬x13)
+- Clause (x29 ∨ x44 ∨ ¬x7): x7=TRUE → clause satisfied.
+- Clause (¬x7 ∨ x29 ∨ x37): x7=TRUE → (x29 ∨ x37)
+- Clause (¬x7 ∨ ¬x16 ∨ x45): x7=TRUE → (¬x16 ∨ x45)
+- Clause (x7 ∨ x41 ∨ x24): x7=TRUE → clause satisfied.
+- Clause (x48 ∨ ¬x21 ∨ x7): x7=TRUE → clause satisfied.
+
+No unit clauses yet.
+
+---
+
+### Step 8: Continue with **x8 = TRUE** (Branch 8).
+
+#### Propagate implications:
+- Clause (¬x6 ∨ ¬x11 ∨ ¬x8): x8=TRUE → (¬x6 ∨ ¬x11)
+- Clause (x24 ∨ ¬x27 ∨ x8): x8=TRUE → clause satisfied.
+- Clause (x8 ∨ ¬x45 ∨ x19): x8=TRUE → clause satisfied.
+- Clause (¬x8 ∨ x13 ∨ x31): x8=TRUE → (x13 ∨ x31)
+- Clause (¬x45 ∨ ¬x8 ∨ x9): x8=TRUE → (¬x45 ∨ x9)
+- Clause (¬x35 ∨ x24 ∨ ¬x8): x8=TRUE → (¬x35 ∨ x24)
+- Clause (x1 ∨ x8 ∨ ¬x23): x8=TRUE → clause satisfied.
+- Clause (x7 ∨ x41 ∨ x24): already satisfied.
+
+No unit clauses yet.
+
+---
+
+### Step 9: Continue with **x9 = TRUE** (Branch 9).
+
+#### Propagate implications:
+- Clause (x39 ∨ x11 ∨ ¬x9): x9=TRUE → (x39 ∨ x11)
+- Clause (¬x22 ∨ x48 ∨ ¬x9): x9=TRUE → (¬x22 ∨ x48)
+- Clause (¬x14 ∨ x7 ∨ ¬x9): x9=TRUE → (¬x14 ∨ x7)
+- Clause (x16 ∨ x9 ∨ x19): x9=TRUE → clause satisfied.
+- Clause (x9 ∨ ¬x49 ∨ x20): x9=TRUE → clause satisfied.
+- Clause (¬x4 ∨ ¬x44 ∨ ¬x9): x9=TRUE → (¬x4 ∨ ¬x44)
+- Clause (¬x45 ∨ ¬x8 ∨ x9): x9=TRUE → clause satisfied.
+
+No unit clauses yet.
+
+---
+
+### Step 10: Continue with **x10 = TRUE** (Branch 10).
+
+#### Propagate implications:
+- Clause (¬x10 ∨ x37 ∨ x22): x10=TRUE → (x37 ∨ x22)
+- Clause (¬x10 ∨ x22 ∨ ¬x16): x10=TRUE → (x22 ∨ ¬x16)
+- Clause (¬x10 ∨ ¬x35 ∨ ¬x36): x10=TRUE → (¬x35 ∨ ¬x36)
+- Clause (¬x47 ∨ x10 ∨ x22): x10=TRUE → clause satisfied.
+- Clause (¬x33 ∨ x40 ∨ x10): x10=TRUE → clause satisfied.
+- Clause (x46 ∨ x21 ∨ ¬x10): x10=TRUE → (x46 ∨ x21)
+- Clause (x11 ∨ ¬x10 ∨ ¬x22): x10=TRUE → (x11 ∨ ¬x22)
+
+No unit clauses yet.
+
+---
+
+### Step 11: Continue with **x11 = TRUE** (Branch 11).
+
+#### Propagate implications:
+- Clause (x4 ∨ x11 ∨ ¬x12): x11=TRUE → clause satisfied.
+- Clause (¬x6 ∨ ¬x11 ∨ ¬x8): x11=TRUE → (¬x6 ∨ ¬x8)
+- Clause (¬x11 ∨ x31 ∨ ¬x38): x11=TRUE → (x31 ∨ ¬x38)
+- Clause (x39 ∨ x11 ∨ ¬x9): x11=TRUE → clause satisfied.
+- Clause (x21 ∨ x11 ∨ ¬x30): x11=TRUE → clause satisfied.
+- Clause (¬x25 ∨ x11 ∨ x2): x11=TRUE → clause satisfied.
+- Clause (¬x12 ∨ ¬x47 ∨ x11): x11=TRUE → clause satisfied.
+- Clause (¬x21 ∨ ¬x22 ∨ x11): x11=TRUE → clause satisfied.
+
+No unit clauses yet.
+
+---
+
+### Step 12: Continue with **x12 = TRUE** (Branch 12).
+
+#### Propagate implications:
+- Clause (x4 ∨ x11 ∨ ¬x12): x12=TRUE → (x4 ∨ x11)
+- Clause (¬x12 ∨ ¬x43 ∨ x41): x12=TRUE → (¬x43 ∨ x41)
+- Clause (¬x12 ∨ ¬x47 ∨ x11): x12=TRUE → (¬x47 ∨ x11)
+- Clause (x15 ∨ x49 ∨ x12): x12=TRUE → clause satisfied.
+- Clause (x17 ∨ x22 ∨ x12): x12=TRUE → clause satisfied.
+- Clause (¬x30 ∨ x12 ∨ ¬x24): x12=TRUE → clause satisfied.
+
+No unit clauses yet.
+
+---
+
+### Step 13: Continue with **x13 = TRUE** (Branch 13).
+
+#### Propagate implications:
+- Clause (¬x8 ∨ x13 ∨ x31): x13=TRUE → clause satisfied.
+- Clause (¬x48 ∨ x43 ∨ ¬x13): x13=TRUE → (¬x48 ∨ x43)
+- Clause (¬x6 ∨ ¬x7 ∨ ¬x13): x13=TRUE → (¬x6 ∨ ¬x7)
+- Clause (¬x13 ∨ x38 ∨ ¬x22): x13=TRUE → (x38 ∨ ¬x22)
+- Clause (x42 ∨ x44 ∨ ¬x13): x13=TRUE → (x42 ∨ x44)
+
+No unit clauses yet.
+
+---
+
+### Step 14: Continue with **x14 = TRUE** (Branch 14).
+
+#### Propagate implications:
+- Clause (x50 ∨ x2 ∨ x14): x14=TRUE → clause satisfied.
+- Clause (x14 ∨ ¬x11 ∨ ¬x26): x14=TRUE → clause satisfied.
+- Clause (¬x2 ∨ x4 ∨ ¬x7): x14=TRUE, no effect.
+- Clause (¬x42 ∨ x14 ∨ ¬x40): x14=TRUE → clause satisfied.
+- Clause (¬x18 ∨ x30 ∨ x36): x14=TRUE, no effect.
+- Clause (¬x32 ∨ ¬x23 ∨ x14): x14=TRUE → clause satisfied.
+- Clause (¬x14 ∨ ¬x11 ∨ ¬x12): x14=TRUE → (¬x11 ∨ ¬x12)
+- Clause (¬x34 ∨ x40 ∨ x14): x14=TRUE → clause satisfied.
+
+No unit clauses yet.
+
+---
+
+### Step 15: Continue with **x15 = TRUE** (Branch 15).
+
+#### Propagate implications:
+- Clause (¬x15 ∨ x49 ∨ ¬x22): x15=TRUE → (x49 ∨ ¬x22)
+- Clause (¬x15 ∨ ¬x20 ∨ ¬x17): x15=TRUE → (¬x20 ∨ ¬x17)
+- Clause (¬x36 ∨ ¬x15 ∨ ¬x20): x15=TRUE → (¬x36 ∨ ¬x20)
+- Clause (x15 ∨ ¬x23 ∨ x47): x15=TRUE → clause satisfied.
+- Clause (x15 ∨ x49 ∨ x12): x15=TRUE → clause satisfied.
+- Clause (¬x18 ∨ ¬x48 ∨ x15): x15=TRUE → clause satisfied.
+- Clause (x33 ∨ x15 ∨ x30): x15=TRUE → clause satisfied.
+
+No unit clauses yet.
+
+---
+
+### Step 16: Continue with **x16 = TRUE** (Branch 16).
+
+#### Propagate implications:
+- Clause (¬x29 ∨ x16 ∨ x7): x16=TRUE → clause satisfied.
+- Clause (¬x31 ∨ ¬x36 ∨ x16): x16=TRUE → (¬x31 ∨ ¬x36)
+- Clause (x16 ∨ ¬x47 ∨ ¬x34): x16=TRUE → clause satisfied.
+- Clause (x16 ∨ ¬x23 ∨ x33): x16=TRUE → clause satisfied.
+- Clause (x16 ∨ x9 ∨ x19): x16=TRUE → clause satisfied.
+- Clause (x16 ∨ x3 ∨ ¬x49): x16=TRUE → clause satisfied.
+- Clause (x16 ∨ ¬x31 ∨ x47): x16=TRUE → clause satisfied.
+- Clause (x16 ∨ ¬x23 ∨ x33): already satisfied.
+- Clause (x16 ∨ x9 ∨ x19): already satisfied.
+- Clause (x16 ∨ x3 ∨ ¬x49): already satisfied.
+- Clause (x16 ∨ ¬x47 ∨ ¬x34): already satisfied.
+- Clause (x16 ∨ ¬x23 ∨ x33): already satisfied.
+
+No unit clauses yet.
+
+---
+
+### Step 17: Continue with **x17 = TRUE** (Branch 17).
+
+#### Propagate implications:
+- Clause (x44 ∨ x17 ∨ x20): x17=TRUE → clause satisfied.
+- Clause (x41 ∨ x17 ∨ ¬x29): x17=TRUE → clause satisfied.
+- Clause (x17 ∨ ¬x25 ∨ ¬x18): x17=TRUE → clause satisfied.
+- Clause (x17 ∨ x22 ∨ x12): x17=TRUE → clause satisfied.
+- Clause (¬x17 ∨ x32 ∨ ¬x7): x17=TRUE → (x32 ∨ ¬x7)
+- Clause (¬x15 ∨ ¬x20 ∨ ¬x17): x17=TRUE → (¬x15 ∨ ¬x20)
+- Clause (¬x17 ∨ x43 ∨ ¬x9): x17=TRUE → (x43 ∨ ¬x9)
+- Clause (¬x17 ∨ ¬x41 ∨ x49): x17=TRUE → (¬x41 ∨ x49)
+- Clause (¬x44 ∨ ¬x20 ∨ x17): x17=TRUE → clause satisfied.
+- Clause (x18 ∨ ¬x17 ∨ x48): x17=TRUE → (x18 ∨ x48)
+
+No unit clauses yet.
+
+---
+
+### Step 18: Continue with **x18 = TRUE** (Branch 18).
+
+#### Propagate implications:
+- Clause (¬x32 ∨ x49 ∨ x18): x18=TRUE → clause satisfied.
+- Clause (x22 ∨ x45 ∨ x18): x18=TRUE → clause satisfied.
+- Clause (¬x18 ∨ ¬x48 ∨ x15): x18=TRUE → (¬x48 ∨ x15)
+- Clause (¬x18 ∨ x48 ∨ x23): x18=TRUE → (x48 ∨ x23)
+- Clause (¬x18 ∨ ¬x39 ∨ ¬x44): x18=TRUE → (¬x39 ∨ ¬x44)
+- Clause (¬x18 ∨ x30 ∨ x36): x18=TRUE → (x30 ∨ x36)
+- Clause (x18 ∨ ¬x17 ∨ x48): x18=TRUE → clause satisfied.
+
+No unit clauses yet.
+
+---
+
+### Step 19: Continue with **x19 = TRUE** (Branch 19).
+
+#### Propagate implications:
+- Clause (x31 ∨ ¬x19 ∨ x1): x19=TRUE → (x31 ∨ x1)
+- Clause (x8 ∨ ¬x45 ∨ x19): x19=TRUE → clause satisfied.
+- Clause (¬x6 ∨ x19 ∨ x2): x19=TRUE → clause satisfied.
+- Clause (x16 ∨ x9 ∨ x19): x19=TRUE → clause satisfied.
+- Clause (x26 ∨ ¬x23 ∨ x19): x19=TRUE → clause satisfied.
+- Clause (x32 ∨ x3 ∨ ¬x19): x19=TRUE → (x32 ∨ x3)
+- Clause (x27 ∨ x39 ∨ ¬x19): x19=TRUE → (x27 ∨ x39)
+
+No unit clauses yet.
+
+---
+
+### Step 20: Continue with **x20 = TRUE** (Branch 20).
+
+#### Propagate implications:
+- Clause (¬x20 ∨ x31 ∨ ¬x38): x20=TRUE → (x31 ∨ ¬x38)
+- Clause (¬x20 ∨ ¬x46 ∨ x28): x20=TRUE → (¬x46 ∨ x28)
+- Clause (x29 ∨ x7 ∨ x20): x20=TRUE → clause satisfied.
+- Clause (x24 ∨ x35 ∨ ¬x36): x20=TRUE, no effect.
+- Clause (¬x22 ∨ ¬x50 ∨ ¬x47): x20=TRUE, no effect.
+- Clause (x44 ∨ x17 ∨ x20): x20=TRUE → clause satisfied.
+- Clause (x23 ∨ ¬x44 ∨ x20): x20=TRUE → clause satisfied.
+- Clause (¬x15 ∨ ¬x20 ∨ ¬x17): x20=TRUE → (¬x15 ∨ ¬x17)
+- Clause (x24 ∨ x35 ∨ ¬x36): already considered.
+- Clause (¬x36 ∨ ¬x15 ∨ ¬x20): x20=TRUE → (¬x36 ∨ ¬x15)
+- Clause (¬x44 ∨ ¬x20 ∨ x17): x20=TRUE → (¬x44 ∨ x17)
+- Clause (¬x44 ∨ ¬x20 ∨ x17): already considered.
+- Clause (¬x20 ∨ ¬x1 ∨ ¬x6): x20=TRUE → (¬x1 ∨ ¬x6)
+- Clause (¬x39 ∨ ¬x20 ∨ x35): x20=TRUE → (¬x39 ∨ x35)
+- Clause (¬x44 ∨ ¬x20 ∨ x17): already considered.
+- Clause (¬x44 ∨ ¬x20 ∨ x17): already considered.
+
+No unit clauses yet.
+
+---
+
+### Step 21: Continue with **x21 = TRUE** (Branch 21).
+
+#### Propagate implications:
+- Clause (x48 ∨ x21 ∨ x11): x21=TRUE → clause satisfied.
+- Clause (x21 ∨ x11 ∨ ¬x30): x21=TRUE → clause satisfied.
+- Clause (x46 ∨ x21 ∨

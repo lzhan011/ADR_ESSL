@@ -1,0 +1,75 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=663
+p cnf 8 28
+6 -4 -1 0
+1 8 5 0
+-8 6 -5 0
+-7 -3 -5 0
+-3 6 -1 0
+3 4 -1 0
+4 -5 8 0
+5 -3 -7 0
+-7 6 -5 0
+2 4 8 0
+3 1 5 0
+5 4 -6 0
+-8 5 -2 0
+-6 5 2 0
+-6 5 -8 0
+-6 -5 3 0
+-4 -1 -8 0
+-8 -1 4 0
+-4 -8 -6 0
+-1 5 7 0
+8 -1 5 0
+-7 -8 1 0
+-4 1 2 0
+-7 1 5 0
+1 2 -4 0
+-4 -3 8 0
+3 7 1 0
+4 1 7 0
+
+c GPT solve time: 40.46 seconds
+
+Step 1: Choose x1 to be true.
+(x6 ∨ ¬x4 ∨ ¬x1) - satisfied
+(x1 ∨ x8 ∨ x5) - satisfied
+(¬x3 ∨ x6 ∨ ¬x1) - simplified to (¬x3 ∨ x6)
+(x3 ∨ x4 ∨ ¬x1) - simplified to (x3 ∨ x4)
+(x3 ∨ x1 ∨ x5) - satisfied
+(¬x4 ∨ ¬x1 ∨ ¬x8) - simplified to (¬x4 ∨ ¬x8)
+(¬x8 ∨ ¬x1 ∨ x4) - simplified to (¬x8 ∨ x4)
+(¬x1 ∨ x5 ∨ x7) - simplified to (x5 ∨ x7)
+(x8 ∨ ¬x1 ∨ x5) - simplified to (x8 ∨ x5)
+(¬x7 ∨ ¬x8 ∨ x1) - satisfied
+(¬x4 ∨ x1 ∨ x2) - satisfied
+(¬x7 ∨ x1 ∨ x5) - satisfied
+(x1 ∨ x2 ∨ ¬x4) - satisfied
+(x3 ∨ x7 ∨ x1) - satisfied
+(x4 ∨ x1 ∨ x7) - satisfied
+
+Step 2: Choose x4 to be true.
+(¬x8 ∨ x6 ∨ ¬x5) - no change
+(¬x7 ∨ ¬x3 ∨ ¬x5) - no change
+(x4 ∨ ¬x5 ∨ x8) - satisfied
+(x5 ∨ ¬x3 ∨ ¬x7) - no change
+(x2 ∨ x4 ∨ x8) - satisfied
+(x5 ∨ x4 ∨ ¬x6) - satisfied
+(¬x8 ∨ x5 ∨ ¬x2) - no change
+(¬x6 ∨ x5 ∨ x2) - no change
+(¬x6 ∨ x5 ∨ ¬x8) - no change
+(¬x6 ∨ ¬x5 ∨ x3) - no change
+(¬x4 ∨ ¬x8) - conflict, backtrack
+(¬x8 ∨ x4) - satisfied
+(¬x4 ∨ ¬x8 ∨ ¬x6) - satisfied
+(¬x4 ∨ x8) - satisfied
+(¬x4 ∨ ¬x3 ∨ x8) - satisfied
+
+Step 3: Choose x8 to be true.
+(¬x8 ∨ x6 ∨ ¬x5) - simplified to (x6 ∨ ¬x5)
+(x4 ∨ ¬x5 ∨ x8) - satisfied
+(¬x8 ∨ x5 ∨ ¬x2) - simplified to (x5 ∨ ¬x2)
+(¬x6 ∨ x5 ∨ ¬x8) - conflict, backtrack
+(¬x4 ∨ ¬x8 ∨ ¬x6) - satisfied
+(¬x4 ∨ ¬

@@ -1,0 +1,86 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1251
+p cnf 5 17
+-2 4 5 0
+-2 -3 1 0
+-4 1 -2 0
+-2 -1 -3 0
+3 -1 2 0
+2 -4 3 0
+-1 -2 -3 0
+2 1 -3 0
+4 1 3 0
+-4 2 -3 0
+-2 5 1 0
+-2 -1 -5 0
+5 -1 -4 0
+4 5 2 0
+4 5 2 0
+-4 -5 -1 0
+-5 -3 -1 0
+
+c GPT solve time: 7.73 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Assign x1 = True (Branch 1)
+- Propagate this assignment.
+
+#### Simplify clauses:
+- Any clause with x1 is satisfied.
+- Remove ¬x1 from clauses.
+
+#### Remaining clauses:
+(¬x2 ∨ x4 ∨ x5)  
+(¬x2 ∨ ¬x3)  
+(¬x4 ∨ ¬x2)  
+(¬x2 ∨ x5)  
+(x5)  
+(x4 ∨ x5 ∨ x2)  
+(x4 ∨ x5 ∨ x2)  
+
+### Step 2: Assign x5 = True (forced by (x5)) (No new branch)
+- Propagate.
+
+#### Simplify clauses:
+- Any clause with x5 is satisfied.
+- Remove ¬x5 from clauses.
+
+#### Remaining clauses:
+(¬x2 ∨ ¬x3)  
+(¬x4 ∨ ¬x2)  
+
+### Step 3: Assign x2 = False (from (¬x2 ∨ ¬x3) and (¬x4 ∨ ¬x2) both unit if x2 = False) (No new branch)
+- Propagate.
+
+#### Simplify clauses:
+- (¬x2 ∨ ¬x3) is satisfied.
+- (¬x4 ∨ ¬x2) is satisfied.
+
+#### All clauses satisfied.
+
+---
+
+## Final Assignment:
+- x1 = True
+- x5 = True
+- x2 = False
+- x3 = (can be anything, let's pick False)
+- x4 = (can be anything, let's pick False)
+
+---
+
+## Summary
+
+* SATISFIABLE
+* Number of branches: 1
+* Number of conflicts: 0
+
+**Assignment:**
+- x1 = True
+- x2 = False
+- x3 = False
+- x4 = False
+- x5 = True

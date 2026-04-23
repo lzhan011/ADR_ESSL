@@ -1,0 +1,316 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=566
+p cnf 8 28
+3 8 -1 0
+6 1 8 0
+-8 -4 -3 0
+8 -6 3 0
+7 2 3 0
+-5 -3 -1 0
+-6 8 -5 0
+3 2 -8 0
+2 1 -7 0
+-5 -7 -1 0
+6 -1 8 0
+-8 -6 -5 0
+3 -2 6 0
+5 -2 4 0
+4 5 3 0
+4 -1 -5 0
+1 8 -6 0
+8 -6 -5 0
+1 2 -8 0
+6 3 -7 0
+4 5 2 0
+-4 -1 8 0
+1 7 -4 0
+8 -1 4 0
+1 -2 -3 0
+-2 5 3 0
+2 1 -6 0
+-1 -4 -6 0
+
+c GPT solve time: 31.70 seconds
+
+**Step-by-step SAT solving:**
+
+Let's use a DPLL-style approach, assigning variables and propagating implications.
+
+**Variables:** x1, x2, x3, x4, x5, x6, x7, x8
+
+---
+
+**Step 1: Choose a variable to branch on.**  
+Let's start with x1 = True.
+
+**Branch 1: x1 = True**  
+Propagate:
+
+- (x3 ∨ x8 ∨ ¬x1): satisfied (¬x1 is False, but x1=True, so need x3 or x8 True)
+- (x6 ∨ x1 ∨ x8): satisfied (x1=True)
+- (¬x8 ∨ ¬x4 ∨ ¬x3): not affected
+- (x8 ∨ ¬x6 ∨ x3): not affected
+- (x7 ∨ x2 ∨ x3): not affected
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x1=False), so (¬x5 ∨ ¬x3)
+- (¬x6 ∨ x8 ∨ ¬x5): not affected
+- (x3 ∨ x2 ∨ ¬x8): not affected
+- (x2 ∨ x1 ∨ ¬x7): satisfied (x1=True)
+- (¬x5 ∨ ¬x7 ∨ ¬x1): (¬x1=False), so (¬x5 ∨ ¬x7)
+- (x6 ∨ ¬x1 ∨ x8): (¬x1=False), so (x6 ∨ x8)
+- (¬x8 ∨ ¬x6 ∨ ¬x5): not affected
+- (x3 ∨ ¬x2 ∨ x6): not affected
+- (x5 ∨ ¬x2 ∨ x4): not affected
+- (x4 ∨ x5 ∨ x3): not affected
+- (x4 ∨ ¬x1 ∨ ¬x5): (¬x1=False), so (x4 ∨ ¬x5)
+- (x1 ∨ x8 ∨ ¬x6): satisfied (x1=True)
+- (x8 ∨ ¬x6 ∨ ¬x5): not affected
+- (x1 ∨ x2 ∨ ¬x8): satisfied (x1=True)
+- (x6 ∨ x3 ∨ ¬x7): not affected
+- (x4 ∨ x5 ∨ x2): not affected
+- (¬x4 ∨ ¬x1 ∨ x8): (¬x1=False), so (¬x4 ∨ x8)
+- (x1 ∨ x7 ∨ ¬x4): satisfied (x1=True)
+- (x8 ∨ ¬x1 ∨ x4): (¬x1=False), so (x8 ∨ x4)
+- (x1 ∨ ¬x2 ∨ ¬x3): satisfied (x1=True)
+- (¬x2 ∨ x5 ∨ x3): not affected
+- (x2 ∨ x1 ∨ ¬x6): satisfied (x1=True)
+- (¬x1 ∨ ¬x4 ∨ ¬x6): (¬x1=False), so (¬x4 ∨ ¬x6)
+
+Now, let's look for unit clauses or easy propagations.
+
+No unit clauses yet. Let's branch on x2 = True.
+
+---
+
+**Branch 1.1: x1 = True, x2 = True**
+
+Propagate:
+
+- (x7 ∨ x2 ∨ x3): satisfied (x2=True)
+- (x3 ∨ x2 ∨ ¬x8): satisfied (x2=True)
+- (x2 ∨ x1 ∨ ¬x7): satisfied (x2=True)
+- (x5 ∨ ¬x2 ∨ x4): (¬x2=False), so (x5 ∨ x4)
+- (x4 ∨ x5 ∨ x2): satisfied (x2=True)
+- (x1 ∨ x2 ∨ ¬x8): satisfied (x2=True)
+- (x1 ∨ ¬x2 ∨ ¬x3): (¬x2=False), so (x1 ∨ ¬x3): x1=True, so satisfied
+- (¬x2 ∨ x5 ∨ x3): (¬x2=False), so (x5 ∨ x3)
+- (x2 ∨ x1 ∨ ¬x6): satisfied (x2=True)
+
+Still no unit clauses. Let's branch on x3 = True.
+
+---
+
+**Branch 1.1.1: x1 = True, x2 = True, x3 = True**
+
+Propagate:
+
+- (x3 ∨ x8 ∨ ¬x1): x3=True, satisfied
+- (x8 ∨ ¬x6 ∨ x3): x3=True, satisfied
+- (x7 ∨ x2 ∨ x3): x3=True, satisfied
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x3=False, ¬x1=False), so (¬x5)
+- (x3 ∨ x2 ∨ ¬x8): x3=True, satisfied
+- (x3 ∨ ¬x2 ∨ x6): x3=True, satisfied
+- (x4 ∨ x5 ∨ x3): x3=True, satisfied
+- (x5 ∨ ¬x2 ∨ x4): (¬x2=False), so (x5 ∨ x4)
+- (¬x2 ∨ x5 ∨ x3): x3=True, satisfied
+
+Now, (¬x5) is a unit clause, so x5 = False.
+
+---
+
+**Branch 1.1.1.1: x1 = True, x2 = True, x3 = True, x5 = False**
+
+Propagate:
+
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x5=True), satisfied
+- (¬x6 ∨ x8 ∨ ¬x5): (¬x5=True), satisfied
+- (¬x5 ∨ ¬x7 ∨ ¬x1): (¬x5=True), satisfied
+- (x4 ∨ ¬x1 ∨ ¬x5): (¬x5=True), satisfied
+- (x8 ∨ ¬x6 ∨ ¬x5): (¬x5=True), satisfied
+- (¬x8 ∨ ¬x6 ∨ ¬x5): (¬x5=True), satisfied
+
+Now, (x5 ∨ x4): x5=False, so x4 must be True.
+
+---
+
+**Branch 1.1.1.1.1: x1 = True, x2 = True, x3 = True, x5 = False, x4 = True**
+
+Propagate:
+
+- (¬x8 ∨ ¬x4 ∨ ¬x3): (¬x4=False, ¬x3=False), so (¬x8)
+- (x4 ∨ x5 ∨ x3): x4=True, satisfied
+- (x4 ∨ ¬x1 ∨ ¬x5): x4=True, satisfied
+- (x4 ∨ x5 ∨ x2): x4=True, satisfied
+- (¬x4 ∨ ¬x1 ∨ x8): (¬x4=False, ¬x1=False), so (x8)
+- (x1 ∨ x7 ∨ ¬x4): (¬x4=False), so (x1 ∨ x7): x1=True, satisfied
+
+Now, (¬x8) and (x8) are both unit clauses. **Conflict!**
+
+---
+
+**Backtrack to previous branch: x4 = False**
+
+---
+
+**Branch 1.1.1.2: x1 = True, x2 = True, x3 = True, x5 = False, x4 = False**
+
+Propagate:
+
+- (¬x8 ∨ ¬x4 ∨ ¬x3): (¬x4=True), satisfied
+- (x5 ∨ x4): x5=False, x4=False, so (False ∨ False) = False. **Conflict!**
+
+---
+
+**Backtrack to previous branch: x5 = True**
+
+---
+
+**Branch 1.1.2: x1 = True, x2 = True, x3 = True, x5 = True**
+
+But earlier, (¬x5) was a unit clause, so this branch is not possible.
+
+---
+
+**Backtrack to previous branch: x3 = False**
+
+---
+
+**Branch 1.1.2: x1 = True, x2 = True, x3 = False**
+
+Propagate:
+
+- (x3 ∨ x8 ∨ ¬x1): (x3=False, ¬x1=False), so (x8)
+- (x8 ∨ ¬x6 ∨ x3): (x3=False), so (x8 ∨ ¬x6)
+- (x7 ∨ x2 ∨ x3): (x3=False, x2=True), so satisfied
+- (¬x5 ∨ ¬x3 ∨ ¬x1): (¬x3=True), satisfied
+- (x3 ∨ x2 ∨ ¬x8): (x3=False, x2=True), so satisfied
+- (x3 ∨ ¬x2 ∨ x6): (x3=False, ¬x2=False), so (x6)
+- (x4 ∨ x5 ∨ x3): (x3=False), so (x4 ∨ x5)
+- (x5 ∨ ¬x2 ∨ x4): (¬x2=False), so (x5 ∨ x4)
+- (¬x2 ∨ x5 ∨ x3): (¬x2=False, x3=False), so (x5)
+
+Now, (x8) is a unit clause, so x8 = True.
+
+---
+
+**Branch 1.1.2.1: x1 = True, x2 = True, x3 = False, x8 = True**
+
+Propagate:
+
+- (x6 ∨ x1 ∨ x8): x8=True, satisfied
+- (x8 ∨ ¬x6 ∨ x3): x8=True, satisfied
+- (x1 ∨ x8 ∨ ¬x6): x8=True, satisfied
+- (x8 ∨ ¬x6 ∨ ¬x5): x8=True, satisfied
+- (x1 ∨ x2 ∨ ¬x8): (x1=True), satisfied
+- (x8 ∨ ¬x1 ∨ x4): x8=True, satisfied
+- (¬x8 ∨ ¬x4 ∨ ¬x3): (¬x8=False, ¬x3=True), so satisfied
+- (¬x8 ∨ ¬x6 ∨ ¬x5): (¬x8=False), so (¬x6 ∨ ¬x5)
+
+Now, (x6) is a unit clause, so x6 = True.
+
+---
+
+**Branch 1.1.2.1.1: x1 = True, x2 = True, x3 = False, x8 = True, x6 = True**
+
+Propagate:
+
+- (x6 ∨ x1 ∨ x8): x6=True, satisfied
+- (x6 ∨ ¬x1 ∨ x8): x6=True, satisfied
+- (x6 ∨ x3 ∨ ¬x7): (x6=True), satisfied
+- (x2 ∨ x1 ∨ ¬x6): (x6=True), so (x2 ∨ x1): x2=True, satisfied
+- (¬x6 ∨ x8 ∨ ¬x5): (¬x6=False), so (x8 ∨ ¬x5): x8=True, satisfied
+- (¬x8 ∨ ¬x6 ∨ ¬x5): (¬x8=False, ¬x6=False), so (¬x5)
+- (x8 ∨ ¬x6 ∨ ¬x5): (x8=True), satisfied
+
+Now, (¬x5) is a unit clause, so x5 = False.
+
+---
+
+**Branch 1.1.2.1.1.1: x1 = True, x2 = True, x3 = False, x8 = True, x6 = True, x5 = False**
+
+Propagate:
+
+- (x4 ∨ x5 ∨ x3): (x5=False, x3=False), so (x4)
+- (x5 ∨ ¬x2 ∨ x4): (x5=False, ¬x2=False), so (x4)
+- (x4 ∨ ¬x1 ∨ ¬x5): (¬x1=False, ¬x5=True), so satisfied
+- (x4 ∨ x5 ∨ x2): (x5=False, x2=True), so satisfied
+
+Now, (x4) is a unit clause, so x4 = True.
+
+---
+
+**Branch 1.1.2.1.1.1.1: x1 = True, x2 = True, x3 = False, x8 = True, x6 = True, x5 = False, x4 = True**
+
+Now, check remaining clauses:
+
+- (¬x4 ∨ ¬x1 ∨ x8): (¬x4=False, ¬x1=False), so (x8=True), satisfied
+- (x1 ∨ x7 ∨ ¬x4): (x1=True), satisfied
+- (x7 ∨ x2 ∨ x3): (x2=True), satisfied
+- (x6 ∨ x3 ∨ ¬x7): (x6=True), satisfied
+- (¬x5 ∨ ¬x7 ∨ ¬x1): (¬x5=True), satisfied
+
+All clauses are satisfied except those involving x7.
+
+Check (x6 ∨ x3 ∨ ¬x7): (x6=True), so satisfied for any x7.
+
+Check (¬x5 ∨ ¬x7 ∨ ¬x1): (¬x5=True), so satisfied for any x7.
+
+Check (x1 ∨ x7 ∨ ¬x4): (x1=True), so satisfied for any x7.
+
+Check (x2 ∨ x1 ∨ ¬x7): (x2=True), so satisfied for any x7.
+
+Check (x7 ∨ x2 ∨ x3): (x2=True), so satisfied for any x7.
+
+Thus, x7 can be either True or False.
+
+---
+
+**Summary:**
+
+- x1 = True
+- x2 = True
+- x3 = False
+- x4 = True
+- x5 = False
+- x6 = True
+- x7 = (either True or False)
+- x8 = True
+
+---
+
+**Count branches and conflicts:**
+
+- Branches:  
+  1. x1 = True  
+  2. x2 = True  
+  3. x3 = True (conflict, backtrack)  
+  4. x3 = False  
+  5. x8 = True  
+  6. x6 = True  
+  7. x5 = False  
+  8. x4 = True  
+
+So, 8 decision points (branches).
+
+- Conflicts:  
+  1. x3 = True, x5 = False, x4 = True (conflict on x8)  
+  2. x3 = True, x5 = False, x4 = False (conflict on (x5 ∨ x4))  
+  3. x3 = True, x5 = True (not possible due to earlier unit clause)  
+
+So, 3 conflicts (backtracks).
+
+---
+
+**Final output:**
+
+SATISFIABLE  
+Number of branches: 8  
+Number of conflicts: 3  
+Assignment:  
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = True  
+x5 = False  
+x6 = True  
+x7 = True (or False)  
+x8 = True

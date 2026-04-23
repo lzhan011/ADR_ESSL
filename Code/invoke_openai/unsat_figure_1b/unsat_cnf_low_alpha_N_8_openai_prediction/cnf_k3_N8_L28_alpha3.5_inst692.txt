@@ -1,0 +1,98 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=692
+p cnf 8 28
+6 -4 3 0
+5 -8 -4 0
+7 -6 -4 0
+-7 -8 3 0
+1 -8 6 0
+7 -3 6 0
+1 -2 5 0
+-6 -5 -2 0
+-1 -5 -7 0
+-1 -6 7 0
+-4 -8 5 0
+2 4 8 0
+4 -6 -5 0
+5 6 -4 0
+3 -2 5 0
+2 -7 -4 0
+4 7 3 0
+4 -2 1 0
+-7 -3 6 0
+-1 6 -5 0
+-2 -8 -7 0
+-3 -7 -4 0
+6 -4 -7 0
+-3 8 -6 0
+2 4 -6 0
+-6 8 3 0
+4 1 8 0
+1 -8 7 0
+
+c GPT solve time: 20.14 seconds
+
+**Step-by-step SAT solving (DPLL-style):**
+
+Let's assign variables in order, using unit propagation and backtracking as needed.
+
+### 1. Assign x1 = True (Branch 1)
+- Clauses with x1 are satisfied: (x1 ∨ ¬x8 ∨ x6), (x1 ∨ ¬x2 ∨ x5), (x1 ∨ ¬x8 ∨ x7), (x4 ∨ ¬x2 ∨ x1), (x4 ∨ x1 ∨ x8)
+- Clauses with ¬x1: (¬x1 ∨ ¬x5 ∨ ¬x7), (¬x1 ∨ ¬x6 ∨ x7), (¬x1 ∨ x6 ∨ ¬x5)
+- Remove x1 from all clauses.
+
+### 2. Assign x2 = True (Branch 2)
+- Clauses with x2: (x2 ∨ x4 ∨ x8), (x2 ∨ ¬x7 ∨ ¬x4), (x2 ∨ x4 ∨ ¬x6), (x4 ∨ ¬x2 ∨ x1) [already satisfied]
+- Clauses with ¬x2: (¬x2 ∨ ¬x8 ∨ ¬x7), (x1 ∨ ¬x2 ∨ x5), (x3 ∨ ¬x2 ∨ x5), (x4 ∨ ¬x2 ∨ x1)
+- Remove x2 from all clauses.
+
+### 3. Assign x3 = True (Branch 3)
+- Clauses with x3: (x6 ∨ ¬x4 ∨ x3), (¬x7 ∨ ¬x8 ∨ x3), (x7 ∨ ¬x3 ∨ x6), (x4 ∨ x7 ∨ x3), (¬x3 ∨ x8 ∨ ¬x6), (¬x3 ∨ ¬x7 ∨ ¬x4)
+- Clauses with ¬x3: (x7 ∨ ¬x3 ∨ x6), (¬x3 ∨ x8 ∨ ¬x6), (¬x3 ∨ ¬x7 ∨ ¬x4)
+- Remove x3 from all clauses.
+
+### 4. Assign x4 = True (Branch 4)
+- Clauses with x4: (x2 ∨ x4 ∨ x8), (x4 ∨ ¬x6 ∨ ¬x5), (x4 ∨ x7 ∨ x3), (x4 ∨ ¬x2 ∨ x1), (x4 ∨ x1 ∨ x8), (x2 ∨ x4 ∨ ¬x6)
+- Clauses with ¬x4: (x6 ∨ ¬x4 ∨ x3), (x5 ∨ ¬x8 ∨ ¬x4), (x7 ∨ ¬x6 ∨ ¬x4), (¬x4 ∨ ¬x8 ∨ x5), (x6 ∨ ¬x4 ∨ ¬x7), (¬x3 ∨ ¬x7 ∨ ¬x4)
+- Remove x4 from all clauses.
+
+### 5. Assign x5 = True (Branch 5)
+- Clauses with x5: (x5 ∨ ¬x8 ∨ ¬x4), (x1 ∨ ¬x2 ∨ x5), (¬x6 ∨ ¬x5 ∨ ¬x2), (¬x1 ∨ ¬x5 ∨ ¬x7), (¬x4 ∨ ¬x8 ∨ x5), (x4 ∨ ¬x6 ∨ ¬x5), (x5 ∨ x6 ∨ ¬x4), (x3 ∨ ¬x2 ∨ x5)
+- Clauses with ¬x5: (¬x6 ∨ ¬x5 ∨ ¬x2), (¬x1 ∨ ¬x5 ∨ ¬x7), (¬x1 ∨ x6 ∨ ¬x5), (x4 ∨ ¬x6 ∨ ¬x5), (x5 ∨ x6 ∨ ¬x4)
+- Remove x5 from all clauses.
+
+### 6. Assign x6 = True (Branch 6)
+- Clauses with x6: (x6 ∨ ¬x4 ∨ x3), (x1 ∨ ¬x8 ∨ x6), (x7 ∨ ¬x3 ∨ x6), (¬x1 ∨ ¬x6 ∨ x7), (x5 ∨ x6 ∨ ¬x4), (¬x3 ∨ ¬x7 ∨ x6), (x6 ∨ ¬x4 ∨ ¬x7)
+- Clauses with ¬x6: (x7 ∨ ¬x6 ∨ ¬x4), (¬x6 ∨ ¬x5 ∨ ¬x2), (x4 ∨ ¬x6 ∨ ¬x5), (x2 ∨ x4 ∨ ¬x6), (¬x3 ∨ x8 ∨ ¬x6), (¬x6 ∨ x8 ∨ x3)
+- Remove x6 from all clauses.
+
+### 7. Assign x7 = True (Branch 7)
+- Clauses with x7: (x7 ∨ ¬x6 ∨ ¬x4), (x7 ∨ ¬x3 ∨ x6), (x4 ∨ x7 ∨ x3), (x1 ∨ ¬x8 ∨ x7), (x4 ∨ ¬x7 ∨ ¬x4)
+- Clauses with ¬x7: (¬x7 ∨ ¬x8 ∨ x3), (¬x1 ∨ ¬x5 ∨ ¬x7), (x2 ∨ ¬x7 ∨ ¬x4), (¬x2 ∨ ¬x8 ∨ ¬x7), (¬x3 ∨ ¬x7 ∨ ¬x4), (x6 ∨ ¬x4 ∨ ¬x7)
+- Remove x7 from all clauses.
+
+### 8. Assign x8 = True (Branch 8)
+- Clauses with x8: (x2 ∨ x4 ∨ x8), (¬x3 ∨ x8 ∨ ¬x6), (¬x6 ∨ x8 ∨ x3), (x4 ∨ x1 ∨ x8)
+- Clauses with ¬x8: (x5 ∨ ¬x8 ∨ ¬x4), (¬x7 ∨ ¬x8 ∨ x3), (x1 ∨ ¬x8 ∨ x6), (¬x4 ∨ ¬x8 ∨ x5), (¬x2 ∨ ¬x8 ∨ ¬x7), (x1 ∨ ¬x8 ∨ x7)
+- Remove x8 from all clauses.
+
+### Check for conflicts:
+- All clauses are satisfied with these assignments.
+
+---
+
+## Final Output
+
+* SATISFIABLE
+* Number of branches: 8
+* Number of conflicts: 0
+
+**Assignment:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = True
+- x7 = True
+- x8 = True

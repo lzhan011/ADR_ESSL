@@ -1,0 +1,101 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1450
+p cnf 8 28
+-4 -2 -3 0
+-1 -6 3 0
+-2 -7 -3 0
+-7 -3 5 0
+8 7 2 0
+-2 3 -1 0
+-8 -4 1 0
+7 1 5 0
+1 7 -6 0
+-1 -8 7 0
+7 -3 -8 0
+1 -2 3 0
+5 7 3 0
+8 -4 -6 0
+-3 2 -4 0
+2 -6 7 0
+2 8 4 0
+-4 7 3 0
+-4 -1 -5 0
+-3 -6 -2 0
+6 -3 7 0
+-6 -4 -2 0
+-5 -1 -2 0
+-4 -8 -1 0
+4 -8 2 0
+5 1 4 0
+6 -1 2 0
+1 -4 3 0
+
+c GPT solve time: 19.33 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by making a decision.
+Decision 1: Set x1 = true
+
+Step 2: Apply unit propagation:
+- From (¬x1 ∨ ¬x6 ∨ x3), we get (¬x6 ∨ x3)
+- From (¬x2 ∨ x3 ∨ ¬x1), we get (¬x2 ∨ x3)
+- From (¬x1 ∨ ¬x8 ∨ x7), we get (¬x8 ∨ x7)
+- From (x1 ∨ ¬x2 ∨ x3), we get true (satisfied)
+- From (¬x4 ∨ ¬x1 ∨ ¬x5), we get (¬x4 ∨ ¬x5)
+- From (¬x5 ∨ ¬x1 ∨ ¬x2), we get (¬x5 ∨ ¬x2)
+- From (¬x4 ∨ ¬x8 ∨ ¬x1), we get (¬x4 ∨ ¬x8)
+- From (x5 ∨ x1 ∨ x4), we get true (satisfied)
+- From (x6 ∨ ¬x1 ∨ x2), we get (x6 ∨ x2)
+- From (x1 ∨ ¬x4 ∨ x3), we get true (satisfied)
+
+Step 3: Make another decision.
+Decision 2: Set x2 = false
+
+Step 4: Apply unit propagation:
+- From (¬x2 ∨ ¬x7 ∨ ¬x3), we get (¬x7 ∨ ¬x3)
+- From (x8 ∨ x7 ∨ x2), we get (x8 ∨ x7)
+- From (¬x2 ∨ x3), we get x3 = true
+- From (¬x3 ∨ x2 ∨ ¬x4), we get (¬x4)
+- From (x2 ∨ ¬x6 ∨ x7), we get (¬x6 ∨ x7)
+- From (x2 ∨ x8 ∨ x4), we get (x8 ∨ x4)
+- From (¬x3 ∨ ¬x6 ∨ ¬x2), we get (¬x3 ∨ ¬x6)
+- From (¬x6 ∨ ¬x4 ∨ ¬x2), we get (¬x6 ∨ ¬x4)
+- From (¬x5 ∨ ¬x2), we get ¬x5
+- From (x4 ∨ ¬x8 ∨ x2), we get (x4 ∨ ¬x8)
+- From (x6 ∨ x2), we get x6
+
+Now we have x3 = true, x4 = false, x5 = false, x6 = true
+
+Step 5: Continue unit propagation:
+- From (¬x4 ∨ ¬x2 ∨ ¬x3), we have a conflict since x3 = true, x2 = false, x4 = false
+
+Step 6: Backtrack to Decision 2 and try x2 = true
+
+Step 7: Apply unit propagation:
+- From (¬x4 ∨ ¬x2 ∨ ¬x3), we get (¬x4 ∨ ¬x3)
+- From (¬x2 ∨ ¬x7 ∨ ¬x3), we get (¬x7 ∨ ¬x3)
+- From (¬x2 ∨ x3), we get x3 = true
+- From (¬x3 ∨ ¬x6 ∨ ¬x2), we get (¬x6)
+- From (¬x6 ∨ ¬x4 ∨ ¬x2), we get (¬x4)
+- From (¬x5 ∨ ¬x1 ∨ ¬x2), we get (¬x5)
+
+Now we have x3 = true, x4 = false, x5 = false, x6 = false
+
+Step 8: Continue unit propagation:
+- From (¬x1 ∨ ¬x6 ∨ x3), we get true (satisfied)
+- From (¬x7 ∨ ¬x3 ∨ x5), we get (¬x7) since x3 = true, x5 = false
+- From (x8 ∨ x7 ∨ x2), we get (x8) since x7 = false, x2 = true
+- From (x7 ∨ x1 ∨ x5), we get (x1) since x7 = false, x5 = false
+- This is consistent with our Decision 1
+
+Now we have x7 = false, x8 = true
+
+Step 9: Check if all clauses are satisfied:
+All clauses are satisfied with the assignment:
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = false, x6 = false, x7 = false, x8 = true
+
+SATISFIABLE
+Number of branches: 2
+Number of conflicts: 1
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = false, x6 = false, x7 = false, x8 = true

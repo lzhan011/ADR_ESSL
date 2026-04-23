@@ -1,0 +1,405 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=330
+p cnf 8 28
+1 -8 -3 0
+-6 4 2 0
+7 -6 -1 0
+8 -2 4 0
+3 -5 -7 0
+3 -8 2 0
+6 1 -2 0
+3 5 -1 0
+-3 -4 2 0
+7 1 -5 0
+-2 4 8 0
+5 4 3 0
+1 -6 -4 0
+5 -2 7 0
+6 -7 -5 0
+1 -5 7 0
+-5 8 -3 0
+7 -4 5 0
+-1 2 4 0
+-3 -2 5 0
+-5 -2 -6 0
+-1 -2 -5 0
+4 8 7 0
+1 2 4 0
+-4 -7 -5 0
+-4 -7 6 0
+-3 6 8 0
+-1 -4 2 0
+
+c GPT solve time: 62.06 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List all variables:**  
+x1, x2, x3, x4, x5, x6, x7, x8
+
+**Step 2: Try x1 = True (Branch 1)**
+
+- Substitute x1 = True into all clauses:
+    - Any clause with x1 is satisfied.
+    - Any clause with ¬x1: remove x1 from clause.
+
+**Step 3: Simplify the formula:**
+
+Remove satisfied clauses and simplify:
+
+Clauses remaining (after removing those satisfied by x1):
+
+(¬x6 ∨ x4 ∨ x2)  
+(x7 ∨ ¬x6 ∨ ¬x1) → (x7 ∨ ¬x6)  
+(x8 ∨ ¬x2 ∨ x4)  
+(x3 ∨ ¬x5 ∨ ¬x7)  
+(x3 ∨ ¬x8 ∨ x2)  
+(x6 ∨ x1 ∨ ¬x2) → (x6 ∨ ¬x2)  
+(x3 ∨ x5 ∨ ¬x1) → (x3 ∨ x5)  
+(¬x3 ∨ ¬x4 ∨ x2)  
+(x7 ∨ x1 ∨ ¬x5) → (x7 ∨ ¬x5)  
+(¬x2 ∨ x4 ∨ x8)  
+(x5 ∨ x4 ∨ x3)  
+(x5 ∨ ¬x2 ∨ x7)  
+(x6 ∨ ¬x7 ∨ ¬x5)  
+(x1 ∨ ¬x5 ∨ x7) → satisfied  
+(¬x5 ∨ x8 ∨ ¬x3)  
+(x7 ∨ ¬x4 ∨ x5)  
+(¬x1 ∨ x2 ∨ x4) → (x2 ∨ x4)  
+(¬x3 ∨ ¬x2 ∨ x5)  
+(¬x5 ∨ ¬x2 ∨ ¬x6)  
+(¬x1 ∨ ¬x2 ∨ ¬x5) → (¬x2 ∨ ¬x5)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7 ∨ ¬x5)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(¬x3 ∨ x6 ∨ x8)  
+(¬x1 ∨ ¬x4 ∨ x2) → (¬x4 ∨ x2)
+
+**Step 4: Try x2 = True (Branch 2)**
+
+Substitute x2 = True:
+
+- Any clause with x2 is satisfied.
+- Any clause with ¬x2: remove ¬x2 from clause.
+
+Remaining clauses:
+
+(¬x6 ∨ x4 ∨ x2) → satisfied  
+(x7 ∨ ¬x6)  
+(x8 ∨ ¬x2 ∨ x4) → (x8 ∨ x4)  
+(x3 ∨ ¬x5 ∨ ¬x7)  
+(x3 ∨ ¬x8 ∨ x2) → satisfied  
+(x6 ∨ ¬x2) → (x6)  
+(x3 ∨ x5)  
+(¬x3 ∨ ¬x4 ∨ x2) → satisfied  
+(x7 ∨ ¬x5)  
+(¬x2 ∨ x4 ∨ x8) → (x4 ∨ x8)  
+(x5 ∨ x4 ∨ x3)  
+(x5 ∨ ¬x2 ∨ x7) → (x5 ∨ x7)  
+(x6 ∨ ¬x7 ∨ ¬x5)  
+(¬x5 ∨ x8 ∨ ¬x3)  
+(x7 ∨ ¬x4 ∨ x5)  
+(¬x3 ∨ ¬x2 ∨ x5) → (¬x3 ∨ x5)  
+(¬x5 ∨ ¬x2 ∨ ¬x6) → (¬x5 ∨ ¬x6)  
+(¬x2 ∨ ¬x5) → (¬x5)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7 ∨ ¬x5)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(¬x3 ∨ x6 ∨ x8)  
+(¬x4 ∨ x2) → satisfied
+
+**Step 5: Unit propagation**
+
+From (¬x5): x5 = False
+
+Substitute x5 = False:
+
+- Any clause with x5 is satisfied.
+- Any clause with ¬x5: remove ¬x5 from clause.
+
+Clauses:
+
+(x7 ∨ ¬x6)  
+(x8 ∨ x4)  
+(x3 ∨ ¬x5 ∨ ¬x7) → (x3 ∨ ¬x7)  
+(x6)  
+(x3 ∨ x5) → (x3)  
+(x7 ∨ ¬x5) → (x7)  
+(x5 ∨ x4 ∨ x3) → (x4 ∨ x3)  
+(x5 ∨ x7) → (x7)  
+(x6 ∨ ¬x7 ∨ ¬x5) → (x6 ∨ ¬x7)  
+(¬x5 ∨ x8 ∨ ¬x3) → (x8 ∨ ¬x3)  
+(x7 ∨ ¬x4 ∨ x5) → (x7 ∨ ¬x4)  
+(¬x3 ∨ x5) → (¬x3)  
+(¬x5 ∨ ¬x6) → (¬x6)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7 ∨ ¬x5) → (¬x4 ∨ ¬x7)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(¬x3 ∨ x6 ∨ x8)
+
+Now, (¬x6): x6 = False
+
+Substitute x6 = False:
+
+(x7 ∨ ¬x6) → (x7 ∨ True) → satisfied  
+(x8 ∨ x4)  
+(x3 ∨ ¬x7)  
+(x6) → (False) → conflict!  
+(x3)  
+(x7)  
+(x4 ∨ x3)  
+(x7)  
+(x6 ∨ ¬x7) → (¬x7)  
+(x8 ∨ ¬x3)  
+(x7 ∨ ¬x4)  
+(¬x3)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7)  
+(¬x4 ∨ ¬x7 ∨ x6) → (¬x4 ∨ ¬x7)  
+(¬x3 ∨ x6 ∨ x8) → (¬x3 ∨ x8)
+
+**Step 6: Conflict!**
+
+We have a clause (x6) which is now (False).  
+So, we must backtrack. This is our first conflict.
+
+**Step 7: Backtrack to previous decision: x5 = False was forced by (¬x5).  
+So, backtrack to x2 = True, x1 = True, and try x2 = False (Branch 3)**
+
+Substitute x2 = False:
+
+- Any clause with ¬x2 is satisfied.
+- Any clause with x2: remove x2 from clause.
+
+Clauses:
+
+(¬x6 ∨ x4 ∨ x2) → (¬x6 ∨ x4)  
+(x7 ∨ ¬x6)  
+(x8 ∨ ¬x2 ∨ x4) → satisfied  
+(x3 ∨ ¬x5 ∨ ¬x7)  
+(x3 ∨ ¬x8 ∨ x2) → (x3 ∨ ¬x8)  
+(x6 ∨ ¬x2) → satisfied  
+(x3 ∨ x5)  
+(¬x3 ∨ ¬x4 ∨ x2) → (¬x3 ∨ ¬x4)  
+(x7 ∨ ¬x5)  
+(¬x2 ∨ x4 ∨ x8) → satisfied  
+(x5 ∨ x4 ∨ x3)  
+(x5 ∨ ¬x2 ∨ x7) → (x5 ∨ x7)  
+(x6 ∨ ¬x7 ∨ ¬x5)  
+(¬x5 ∨ x8 ∨ ¬x3)  
+(x7 ∨ ¬x4 ∨ x5)  
+(¬x1 ∨ x2 ∨ x4) → (¬x1 ∨ x4)  
+(¬x3 ∨ ¬x2 ∨ x5) → (¬x3 ∨ x5)  
+(¬x5 ∨ ¬x2 ∨ ¬x6) → (¬x5 ∨ ¬x6)  
+(¬x1 ∨ ¬x2 ∨ ¬x5) → (¬x1 ∨ ¬x5)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7 ∨ ¬x5)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(¬x3 ∨ x6 ∨ x8)  
+(¬x1 ∨ ¬x4 ∨ x2) → (¬x1 ∨ ¬x4)
+
+**Step 8: No unit clauses. Try x3 = True (Branch 4)**
+
+Substitute x3 = True:
+
+- Any clause with x3 is satisfied.
+- Any clause with ¬x3: remove ¬x3 from clause.
+
+Clauses:
+
+(¬x6 ∨ x4)  
+(x7 ∨ ¬x6)  
+(x3 ∨ ¬x5 ∨ ¬x7) → satisfied  
+(x3 ∨ ¬x8) → satisfied  
+(x3 ∨ x5) → satisfied  
+(¬x3 ∨ ¬x4) → (¬x4)  
+(x7 ∨ ¬x5)  
+(x5 ∨ x4 ∨ x3) → satisfied  
+(x5 ∨ x7)  
+(x6 ∨ ¬x7 ∨ ¬x5)  
+(¬x5 ∨ x8 ∨ ¬x3) → (¬x5 ∨ x8)  
+(x7 ∨ ¬x4 ∨ x5)  
+(¬x1 ∨ x4)  
+(¬x3 ∨ x5) → (x5)  
+(¬x5 ∨ ¬x6)  
+(¬x1 ∨ ¬x5)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7 ∨ ¬x5)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(¬x3 ∨ x6 ∨ x8) → (x6 ∨ x8)  
+(¬x1 ∨ ¬x4)
+
+Now, (x5) is a unit clause: x5 = True
+
+Substitute x5 = True:
+
+- Any clause with x5 is satisfied.
+- Any clause with ¬x5: remove ¬x5 from clause.
+
+Clauses:
+
+(¬x6 ∨ x4)  
+(x7 ∨ ¬x6)  
+(¬x4)  
+(x7 ∨ ¬x5) → (x7)  
+(x5 ∨ x7) → satisfied  
+(x6 ∨ ¬x7 ∨ ¬x5) → (x6 ∨ ¬x7)  
+(¬x5 ∨ x8) → (x8)  
+(x7 ∨ ¬x4 ∨ x5) → satisfied  
+(¬x1 ∨ x4)  
+(¬x5 ∨ ¬x6) → (¬x6)  
+(¬x1 ∨ ¬x5) → (¬x1)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7 ∨ ¬x5) → (¬x4 ∨ ¬x7)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(x6 ∨ x8)  
+(¬x1 ∨ ¬x4)
+
+Now, (¬x1): x1 = False
+
+Substitute x1 = False:
+
+- Any clause with ¬x1 is satisfied.
+- Any clause with x1: remove x1 from clause.
+
+Clauses:
+
+(¬x6 ∨ x4)  
+(x7 ∨ ¬x6)  
+(¬x4)  
+(x7)  
+(x6 ∨ ¬x7)  
+(x8)  
+(¬x1 ∨ x4) → satisfied  
+(¬x6)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(x6 ∨ x8)  
+(¬x1 ∨ ¬x4) → satisfied
+
+Now, (x8): x8 = True
+
+Substitute x8 = True:
+
+- Any clause with x8 is satisfied.
+- Any clause with ¬x8: remove ¬x8 from clause.
+
+Clauses:
+
+(¬x6 ∨ x4)  
+(x7 ∨ ¬x6)  
+(¬x4)  
+(x7)  
+(x6 ∨ ¬x7)  
+(¬x6)  
+(x4 ∨ x8 ∨ x7) → satisfied  
+(¬x4 ∨ ¬x7)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(x6 ∨ x8) → satisfied
+
+Now, (x7): x7 = True
+
+Substitute x7 = True:
+
+- Any clause with x7 is satisfied.
+- Any clause with ¬x7: remove ¬x7 from clause.
+
+Clauses:
+
+(¬x6 ∨ x4)  
+(x7 ∨ ¬x6) → satisfied  
+(¬x4)  
+(x6 ∨ ¬x7) → (x6)  
+(¬x6)  
+(¬x4 ∨ ¬x7) → (¬x4)  
+(¬x4 ∨ ¬x7 ∨ x6) → (¬x4 ∨ x6)
+
+Now, (x6) and (¬x6): conflict!  
+Second conflict.
+
+**Step 9: Backtrack to x3 = False (Branch 5), with x2 = False, x1 = True**
+
+Substitute x3 = False:
+
+- Any clause with ¬x3 is satisfied.
+- Any clause with x3: remove x3 from clause.
+
+Clauses:
+
+(¬x6 ∨ x4)  
+(x7 ∨ ¬x6)  
+(x3 ∨ ¬x5 ∨ ¬x7) → (¬x5 ∨ ¬x7)  
+(x3 ∨ ¬x8) → (¬x8)  
+(x3 ∨ x5) → (x5)  
+(¬x3 ∨ ¬x4) → satisfied  
+(x7 ∨ ¬x5)  
+(x5 ∨ x4 ∨ x3) → (x5 ∨ x4)  
+(x5 ∨ x7)  
+(x6 ∨ ¬x7 ∨ ¬x5)  
+(¬x5 ∨ x8)  
+(x7 ∨ ¬x4 ∨ x5)  
+(¬x1 ∨ x4)  
+(¬x3 ∨ x5) → satisfied  
+(¬x5 ∨ ¬x6)  
+(¬x1 ∨ ¬x5)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7 ∨ ¬x5)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(¬x3 ∨ x6 ∨ x8) → (x6 ∨ x8)  
+(¬x1 ∨ ¬x4)
+
+Now, (x5) is a unit clause: x5 = True
+
+Substitute x5 = True:
+
+- Any clause with x5 is satisfied.
+- Any clause with ¬x5: remove ¬x5 from clause.
+
+Clauses:
+
+(¬x6 ∨ x4)  
+(x7 ∨ ¬x6)  
+(¬x8)  
+(x7 ∨ ¬x5) → (x7)  
+(x5 ∨ x4) → satisfied  
+(x5 ∨ x7) → satisfied  
+(x6 ∨ ¬x7 ∨ ¬x5) → (x6 ∨ ¬x7)  
+(¬x5 ∨ x8) → (x8)  
+(x7 ∨ ¬x4 ∨ x5) → satisfied  
+(¬x1 ∨ x4)  
+(¬x5 ∨ ¬x6) → (¬x6)  
+(¬x1 ∨ ¬x5) → (¬x1)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7 ∨ ¬x5) → (¬x4 ∨ ¬x7)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(x6 ∨ x8)  
+(¬x1 ∨ ¬x4)
+
+Now, (¬x1): x1 = False
+
+Substitute x1 = False:
+
+(¬x6 ∨ x4)  
+(x7 ∨ ¬x6)  
+(¬x8)  
+(x7)  
+(x6 ∨ ¬x7)  
+(x8)  
+(¬x1 ∨ x4) → satisfied  
+(¬x6)  
+(x4 ∨ x8 ∨ x7)  
+(¬x4 ∨ ¬x7)  
+(¬x4 ∨ ¬x7 ∨ x6)  
+(x6 ∨ x8)  
+(¬x1 ∨ ¬x4) → satisfied
+
+Now, (x8) and (¬x8): conflict!  
+Third conflict.
+
+**Step 10: Backtrack to x2 = False, x1 = False (Branch 6)**
+
+Substitute x1 = False:
+
+- Any clause with ¬x1 is satisfied.
+-

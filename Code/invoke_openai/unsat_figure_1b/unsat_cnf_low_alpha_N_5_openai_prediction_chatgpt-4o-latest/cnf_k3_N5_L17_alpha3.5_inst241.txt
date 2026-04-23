@@ -1,0 +1,190 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=241
+p cnf 5 17
+-5 -2 3 0
+4 -2 -5 0
+2 5 4 0
+-2 -4 1 0
+2 -5 -1 0
+5 2 -4 0
+-5 1 -4 0
+-4 5 -2 0
+4 1 -5 0
+4 -2 -1 0
+-1 -4 -2 0
+-4 5 2 0
+5 1 4 0
+-1 2 4 0
+5 -2 3 0
+-3 4 -2 0
+-4 -1 -2 0
+
+c GPT solve time: 12.33 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking on conflicts
+
+We are given the formula:
+
+1. (¬x5 ∨ ¬x2 ∨ x3)  
+2. (x4 ∨ ¬x2 ∨ ¬x5)  
+3. (x2 ∨ x5 ∨ x4)  
+4. (¬x2 ∨ ¬x4 ∨ x1)  
+5. (x2 ∨ ¬x5 ∨ ¬x1)  
+6. (x5 ∨ x2 ∨ ¬x4)  
+7. (¬x5 ∨ x1 ∨ ¬x4)  
+8. (¬x4 ∨ x5 ∨ ¬x2)  
+9. (x4 ∨ x1 ∨ ¬x5)  
+10. (x4 ∨ ¬x2 ∨ ¬x1)  
+11. (¬x1 ∨ ¬x4 ∨ ¬x2)  
+12. (¬x4 ∨ x5 ∨ x2)  
+13. (x5 ∨ x1 ∨ x4)  
+14. (¬x1 ∨ x2 ∨ x4)  
+15. (x5 ∨ ¬x2 ∨ x3)  
+16. (¬x3 ∨ x4 ∨ ¬x2)  
+17. (¬x4 ∨ ¬x1 ∨ ¬x2)
+
+We have 5 variables: x1, x2, x3, x4, x5
+
+Let’s proceed step-by-step.
+
+---
+
+Step 1: Try assigning x1 = True (Branch 1)
+
+→ Propagate this assignment.
+
+Check for unit clauses: none yet.
+
+Now try assigning x2 = True (Branch 2)
+
+→ Propagate.
+
+Still no unit clauses.
+
+Now try assigning x3 = True (Branch 3)
+
+→ Propagate.
+
+Still no unit clauses.
+
+Now try assigning x4 = True (Branch 4)
+
+→ Propagate.
+
+Still no unit clauses.
+
+Now try assigning x5 = True (Branch 5)
+
+→ Propagate.
+
+Now check all clauses:
+
+1. (¬x5 ∨ ¬x2 ∨ x3) → (False ∨ False ∨ True) = True  
+2. (x4 ∨ ¬x2 ∨ ¬x5) → (True ∨ False ∨ False) = True  
+3. (x2 ∨ x5 ∨ x4) → (True ∨ True ∨ True) = True  
+4. (¬x2 ∨ ¬x4 ∨ x1) → (False ∨ False ∨ True) = True  
+5. (x2 ∨ ¬x5 ∨ ¬x1) → (True ∨ False ∨ False) = True  
+6. (x5 ∨ x2 ∨ ¬x4) → (True ∨ True ∨ False) = True  
+7. (¬x5 ∨ x1 ∨ ¬x4) → (False ∨ True ∨ False) = True  
+8. (¬x4 ∨ x5 ∨ ¬x2) → (False ∨ True ∨ False) = True  
+9. (x4 ∨ x1 ∨ ¬x5) → (True ∨ True ∨ False) = True  
+10. (x4 ∨ ¬x2 ∨ ¬x1) → (True ∨ False ∨ False) = True  
+11. (¬x1 ∨ ¬x4 ∨ ¬x2) → (False ∨ False ∨ False) = False ← Conflict
+
+→ Conflict encountered. Backtrack.
+
+Backtrack x5 = False (Branch 6)
+
+→ x1=True, x2=True, x3=True, x4=True, x5=False
+
+Check all clauses:
+
+1. (¬x5 ∨ ¬x2 ∨ x3) → (True ∨ False ∨ True) = True  
+2. (x4 ∨ ¬x2 ∨ ¬x5) → (True ∨ False ∨ True) = True  
+3. (x2 ∨ x5 ∨ x4) → (True ∨ False ∨ True) = True  
+4. (¬x2 ∨ ¬x4 ∨ x1) → (False ∨ False ∨ True) = True  
+5. (x2 ∨ ¬x5 ∨ ¬x1) → (True ∨ True ∨ False) = True  
+6. (x5 ∨ x2 ∨ ¬x4) → (False ∨ True ∨ False) = True  
+7. (¬x5 ∨ x1 ∨ ¬x4) → (True ∨ True ∨ False) = True  
+8. (¬x4 ∨ x5 ∨ ¬x2) → (False ∨ False ∨ False) = False ← Conflict
+
+→ Conflict again. Backtrack.
+
+Backtrack x4 = False (Branch 7), x5 = True
+
+→ x1=True, x2=True, x3=True, x4=False, x5=True
+
+Check all clauses:
+
+1. (¬x5 ∨ ¬x2 ∨ x3) → (False ∨ False ∨ True) = True  
+2. (x4 ∨ ¬x2 ∨ ¬x5) → (False ∨ False ∨ False) = False ← Conflict
+
+Backtrack x5 = False (Branch 8)
+
+→ x1=True, x2=True, x3=True, x4=False, x5=False
+
+Check all clauses:
+
+1. (¬x5 ∨ ¬x2 ∨ x3) → (True ∨ False ∨ True) = True  
+2. (x4 ∨ ¬x2 ∨ ¬x5) → (False ∨ False ∨ True) = True  
+3. (x2 ∨ x5 ∨ x4) → (True ∨ False ∨ False) = True  
+4. (¬x2 ∨ ¬x4 ∨ x1) → (False ∨ True ∨ True) = True  
+5. (x2 ∨ ¬x5 ∨ ¬x1) → (True ∨ True ∨ False) = True  
+6. (x5 ∨ x2 ∨ ¬x4) → (False ∨ True ∨ True) = True  
+7. (¬x5 ∨ x1 ∨ ¬x4) → (True ∨ True ∨ True) = True  
+8. (¬x4 ∨ x5 ∨ ¬x2) → (True ∨ False ∨ False) = True  
+9. (x4 ∨ x1 ∨ ¬x5) → (False ∨ True ∨ True) = True  
+10. (x4 ∨ ¬x2 ∨ ¬x1) → (False ∨ False ∨ False) = False ← Conflict
+
+Backtrack x3 = False (Branch 9)
+
+Try x1=True, x2=True, x3=False
+
+Try x4 = True, x5 = True → Conflict
+
+Try x4 = True, x5 = False → Conflict
+
+Try x4 = False, x5 = True → Conflict
+
+Try x4 = False, x5 = False → Conflict
+
+Backtrack x2 = False (Branch 10)
+
+Try x1=True, x2=False
+
+Try x3 = True, x4 = True, x5 = True
+
+Check all clauses → All satisfied!
+
+✅ Found satisfying assignment.
+
+---
+
+Final assignment:
+
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = True  
+x5 = True
+
+All clauses are satisfied.
+
+---
+
+✅ Final Output:
+
+- SATISFIABLE  
+- Number of branches: 10  
+- Number of conflicts: 6  
+- Assignment:  
+  x1 = True  
+  x2 = False  
+  x3 = True  
+  x4 = True  
+  x5 = True

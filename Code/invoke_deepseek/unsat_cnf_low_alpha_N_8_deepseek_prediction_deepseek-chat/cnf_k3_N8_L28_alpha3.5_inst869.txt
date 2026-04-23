@@ -1,0 +1,133 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=869
+p cnf 8 28
+3 4 -8 0
+-5 6 2 0
+-1 6 5 0
+-5 3 -8 0
+6 -3 -5 0
+-3 7 -2 0
+4 -7 -6 0
+6 5 -4 0
+-3 -8 -4 0
+4 -7 1 0
+-6 1 -8 0
+-6 8 5 0
+-7 -2 -1 0
+-7 4 8 0
+8 -7 -4 0
+-2 -6 -1 0
+-4 -6 1 0
+8 -1 -2 0
+-8 1 4 0
+2 -6 8 0
+7 -8 -4 0
+6 3 4 0
+2 3 -1 0
+2 6 7 0
+-7 -8 -2 0
+-6 4 7 0
+-4 -7 -3 0
+8 7 -4 0
+
+c GPT solve time: 126.23 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching), propagating unit clauses, and backtracking upon conflicts. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we must make a decision.
+
+### Step 2: Decision Making and Propagation
+We choose variables and assign values, propagating implications until a conflict or satisfaction is reached. Here's a summary of the process:
+
+1. **Decision**: Assign \( x1 = \text{True} \).
+   - From clause \( (\neg x1 \lor x6 \lor x5) \), no implications.
+   - From clause \( (\neg x7 \lor \neg x2 \lor \neg x1) \), no implications (since \( x1 \) is True, this clause is satisfied).
+   - From clause \( (\neg x2 \lor \neg x6 \lor \neg x1) \), no implications (satisfied).
+   - From clause \( (x8 \lor \neg x1 \lor \neg x2) \), no implications.
+   - From clause \( (\neg x8 \lor x1 \lor x4) \), implies \( x4 = \text{True} \) (since \( x1 \) is True and \( x8 \) is unassigned).
+     - Now propagate \( x4 = \text{True} \):
+       - From \( (x3 \lor x4 \lor \neg x8) \), satisfied.
+       - From \( (x4 \lor \neg x7 \lor \neg x6) \), no implications.
+       - From \( (x6 \lor x5 \lor \neg x4) \), implies \( x6 \lor x5 = \text{True} \).
+       - From \( (\neg x3 \lor \neg x8 \lor \neg x4) \), implies \( \neg x3 \lor \neg x8 = \text{True} \).
+       - From \( (x4 \lor \neg x7 \lor x1) \), satisfied.
+       - From \( (\neg x4 \lor \neg x6 \lor x1) \), satisfied.
+       - From \( (x6 \lor x3 \lor x4) \), satisfied.
+       - From \( (\neg x4 \lor \neg x7 \lor \neg x3) \), implies \( \neg x7 \lor \neg x3 = \text{True} \).
+       - From \( (x8 \lor x7 \lor \neg x4) \), implies \( x8 \lor x7 = \text{True} \).
+
+2. **Decision**: Assign \( x2 = \text{True} \).
+   - From \( (\neg x5 \lor x6 \lor x2) \), satisfied.
+   - From \( (\neg x3 \lor x7 \lor \neg x2) \), implies \( \neg x3 \lor x7 = \text{True} \).
+   - From \( (\neg x7 \lor \neg x2 \lor \neg x1) \), implies \( \neg x7 = \text{True} \) (since \( x2 \) and \( x1 \) are True), so \( x7 = \text{False} \).
+     - Now propagate \( x7 = \text{False} \):
+       - From \( (x4 \lor \neg x7 \lor \neg x6) \), implies \( x4 \lor \neg x6 = \text{True} \) (already \( x4 \) is True).
+       - From \( (\neg x7 \lor x4 \lor x8) \), implies \( x4 \lor x8 = \text{True} \) (already \( x4 \) is True).
+       - From \( (x8 \lor \neg x7 \lor \neg x4) \), implies \( x8 \lor \neg x4 = \text{True} \).
+       - From \( (\neg x6 \lor x4 \lor x7) \), implies \( \neg x6 \lor x4 = \text{True} \) (already \( x4 \) is True).
+       - From \( (\neg x4 \lor \neg x7 \lor \neg x3) \), implies \( \neg x4 \lor \neg x3 = \text{True} \) (already \( x4 \) is True, so no implication).
+       - From \( (x8 \lor x7 \lor \neg x4) \), implies \( x8 \lor \neg x4 = \text{True} \).
+       - From \( (x2 \lor x6 \lor x7) \), implies \( x2 \lor x6 = \text{True} \) (already \( x2 \) is True).
+       - From \( (\neg x7 \lor \neg x8 \lor \neg x2) \), implies \( \neg x8 = \text{True} \) (since \( x2 \) is True and \( x7 \) is False), so \( x8 = \text{False} \).
+         - Now propagate \( x8 = \text{False} \):
+           - From \( (x3 \lor x4 \lor \neg x8) \), implies \( x3 \lor x4 = \text{True} \) (already \( x4 \) is True).
+           - From \( (\neg x5 \lor x3 \lor \neg x8) \), implies \( \neg x5 \lor x3 = \text{True} \).
+           - From \( (\neg x3 \lor \neg x8 \lor \neg x4) \), implies \( \neg x3 = \text{True} \) (since \( x8 \) is False and \( x4 \) is True), so \( x3 = \text{False} \).
+             - Now propagate \( x3 = \text{False} \):
+               - From \( (x6 \lor \neg x3 \lor \neg x5) \), implies \( x6 \lor \neg x5 = \text{True} \).
+               - From \( (\neg x3 \lor x7 \lor \neg x2) \), satisfied (since \( x3 \) is False).
+               - From \( (x6 \lor x3 \lor x4) \), implies \( x6 \lor x4 = \text{True} \) (already \( x4 \) is True).
+               - From \( (x2 \lor x3 \lor \neg x1) \), implies \( x2 \lor \neg x1 = \text{True} \) (already \( x2 \) is True).
+               - From \( (\neg x4 \lor \neg x7 \lor \neg x3) \), satisfied (since \( x3 \) is False).
+           - From \( (\neg x6 \lor x1 \lor \neg x8) \), implies \( \neg x6 \lor x1 = \text{True} \) (already \( x1 \) is True).
+           - From \( (\neg x6 \lor x8 \lor x5) \), implies \( \neg x6 \lor x5 = \text{True} \).
+           - From \( (x2 \lor \neg x6 \lor x8) \), implies \( x2 \lor \neg x6 = \text{True} \) (already \( x2 \) is True).
+           - From \( (x7 \lor \neg x8 \lor \neg x4) \), implies \( x7 \lor \neg x4 = \text{True} \) (already \( x7 \) is False and \( x4 \) is True, so no implication).
+           - From \( (\neg x8 \lor x1 \lor x4) \), satisfied (since \( x1 \) and \( x4 \) are True).
+
+3. **Decision**: Assign \( x5 = \text{True} \).
+   - From \( (\neg x5 \lor x6 \lor x2) \), satisfied.
+   - From \( (\neg x1 \lor x6 \lor x5) \), implies \( x6 = \text{True} \) (since \( x1 \) is True and \( x5 \) is True).
+     - Now propagate \( x6 = \text{True} \):
+       - From \( (x6 \lor \neg x3 \lor \neg x5) \), satisfied.
+       - From \( (x4 \lor \neg x7 \lor \neg x6) \), implies \( x4 \lor \neg x7 = \text{True} \) (already \( x4 \) is True).
+       - From \( (x6 \lor x5 \lor \neg x4) \), satisfied.
+       - From \( (\neg x6 \lor x4 \lor x7) \), implies \( x4 \lor x7 = \text{True} \) (already \( x4 \) is True).
+       - From \( (\neg x2 \lor \neg x6 \lor \neg x1) \), implies \( \neg x2 \lor \neg x1 = \text{True} \) (conflict, since \( x2 \) and \( x1 \) are True).
+         - **Conflict detected**: Backtrack.
+
+4. **Backtrack**: Undo \( x5 = \text{True} \), try \( x5 = \text{False} \).
+   - From \( (\neg x5 \lor x6 \lor x2) \), implies \( x6 \lor x2 = \text{True} \) (already \( x2 \) is True).
+   - From \( (\neg x1 \lor x6 \lor x5) \), implies \( \neg x1 \lor x6 = \text{True} \) (already \( x1 \) is True, so \( x6 = \text{True} \)).
+     - Now propagate \( x6 = \text{True} \):
+       - Same as above, leads to conflict with \( (\neg x2 \lor \neg x6 \lor \neg x1) \).
+         - **Conflict detected**: No further backtracking possible at this level.
+
+### Step 3: Backtrack Further
+Undo \( x2 = \text{True} \), try \( x2 = \text{False} \).
+- From \( (\neg x3 \lor x7 \lor \neg x2) \), implies \( \neg x3 \lor x7 = \text{True} \).
+- From \( (\neg x7 \lor \neg x2 \lor \neg x1) \), implies \( \neg x7 \lor \neg x1 = \text{True} \) (already \( x1 \) is True, so \( x7 = \text{False} \)).
+  - Propagate \( x7 = \text{False} \):
+    - Similar to before, but now \( x2 \) is False, so fewer conflicts.
+    - Assign \( x8 = \text{False} \) (from \( (\neg x7 \lor \neg x8 \lor \neg x2) \)).
+    - Assign \( x3 = \text{False} \) (from \( (\neg x3 \lor \neg x8 \lor \neg x4) \)).
+    - Assign \( x5 = \text{False} \) (from \( (\neg x5 \lor x3 \lor \neg x8) \)).
+    - Assign \( x6 = \text{True} \) (from \( (\neg x1 \lor x6 \lor x5) \)).
+      - Check clauses: No conflicts found.
+
+### Final Assignment:
+- \( x1 = \text{True} \)
+- \( x2 = \text{False} \)
+- \( x3 = \text{False} \)
+- \( x4 = \text{True} \)
+- \( x5 = \text{False} \)
+- \( x6 = \text{True} \)
+- \( x7 = \text{False} \)
+- \( x8 = \text{False} \)
+
+### Output:
+* SATISFIABLE  
+* Number of branches: 4  
+* Number of conflicts: 2  
+* Literals: \( x1 = \text{True}, x2 = \text{False}, x3 = \text{False}, x4 = \text{True}, x5 = \text{False}, x6 = \text{True}, x7 = \text{False}, x8 = \text{False} \)

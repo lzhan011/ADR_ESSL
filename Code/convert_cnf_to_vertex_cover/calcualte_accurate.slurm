@@ -2,7 +2,7 @@
 #SBATCH -N 1
 #SBATCH -n 16
 #SBATCH -t 71:20:00
-#SBATCH --account=loni_quantum04
+#SBATCH --account=loni_irt4llm
 #SBATCH --output=logs/calcualte_accurate_output.log
 #SBATCH --error=logs/calcualte_accurate_error.log
 

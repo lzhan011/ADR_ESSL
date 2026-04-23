@@ -2,7 +2,7 @@
 #SBATCH -N 1
 #SBATCH -n 16
 #SBATCH -t 70:20:00
-#SBATCH --account=loni_quantum04
+#SBATCH --account=loni_irt4llm
 #SBATCH --output=logs/invoke_deepseek_predict_output.log
 #SBATCH --error=logs/invoke_deepseek_predict_error.log
 

@@ -9,7 +9,7 @@ import time
 import re
 import anthropic
 
-api_key = os.environ["ANTHROPIC_API_KEY"]
+api_key = os.environ.get("Anthropic_API_KEY")
 client = anthropic.Anthropic(api_key=api_key)
 model_selected = "claude-3-5-haiku-20241022" # "claude-3-7-sonnet-20250219" # "claude-sonnet-4-20250514"   # "claude-3-opus-20240229"   claude-opus-4-20250514
 N_list = [5, 60,  8, 10, 25, 50]  # 5

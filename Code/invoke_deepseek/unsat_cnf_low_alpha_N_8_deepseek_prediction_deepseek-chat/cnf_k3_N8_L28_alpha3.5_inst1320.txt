@@ -1,0 +1,187 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1320
+p cnf 8 28
+-3 8 -1 0
+-6 1 -5 0
+4 2 1 0
+6 -4 -5 0
+5 -7 -4 0
+-7 2 4 0
+3 -4 6 0
+2 -7 6 0
+5 2 -6 0
+-5 4 -2 0
+3 5 4 0
+-5 -1 2 0
+7 6 5 0
+-7 5 -6 0
+3 -7 -8 0
+6 -7 1 0
+-5 2 -6 0
+5 -3 -2 0
+-6 -5 -1 0
+-5 7 4 0
+-5 8 3 0
+1 2 4 0
+-4 3 -2 0
+3 -6 -5 0
+-1 -8 5 0
+-4 8 -2 0
+5 2 -7 0
+-3 1 -5 0
+
+c GPT solve time: 151.14 seconds
+
+To solve this 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching), propagating unit clauses, and backtracking upon conflicts. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables to assign values, propagate implications, and backtrack if conflicts arise. Here's a summary of the process:
+
+1. **Decision**: Assign \( x1 = \text{True} \).
+   - Propagate implications:
+     - From \( (¬x1 ∨ ¬x8 ∨ x5) \): No implication (since \( x1 \) is True, clause is satisfied).
+     - From \( (¬x6 ∨ x1 ∨ ¬x5) \): No implication (clause satisfied by \( x1 \)).
+     - From \( (¬x5 ∨ ¬x1 ∨ x2) \): \( x2 \) must be True (since \( x1 \) is True and \( x5 \) is unassigned, but the clause simplifies to \( ¬x5 ∨ x2 \), no immediate implication).
+   - No immediate conflict.
+
+2. **Decision**: Assign \( x2 = \text{True} \).
+   - Propagate implications:
+     - From \( (x5 ∨ x2 ∨ ¬x6) \): No implication (clause satisfied by \( x2 \)).
+     - From \( (¬x5 ∨ x2 ∨ ¬x6) \): No implication (clause satisfied by \( x2 \)).
+     - From \( (x5 ∨ ¬x3 ∨ ¬x2) \): If \( x2 \) is True, then \( x5 ∨ ¬x3 \) must hold (no immediate implication).
+   - No immediate conflict.
+
+3. **Decision**: Assign \( x3 = \text{True} \).
+   - Propagate implications:
+     - From \( (x3 ∨ ¬x7 ∨ ¬x8) \): No implication (clause satisfied by \( x3 \)).
+     - From \( (¬x3 ∨ x8 ∨ ¬x1) \): Since \( x3 \) is True, \( x8 ∨ ¬x1 \) must hold. \( x1 \) is True, so \( x8 \) must be True.
+     - Assign \( x8 = \text{True} \).
+     - From \( (¬x5 ∨ x8 ∨ x3) \): Clause satisfied by \( x8 \) and \( x3 \).
+     - From \( (¬x4 ∨ x8 ∨ ¬x2) \): Clause satisfied by \( x8 \).
+     - From \( (x5 ∨ ¬x3 ∨ ¬x2) \): Since \( x3 \) is True and \( x2 \) is True, \( x5 \) must be True.
+     - Assign \( x5 = \text{True} \).
+     - From \( (¬x5 ∨ x4 ∨ ¬x2) \): Since \( x5 \) is True and \( x2 \) is True, \( x4 \) must be True.
+     - Assign \( x4 = \text{True} \).
+     - From \( (x4 ∨ x2 ∨ x1) \): Clause satisfied by \( x4 \).
+     - From \( (x6 ∨ ¬x4 ∨ ¬x5) \): Since \( x4 \) is True and \( x5 \) is True, \( x6 \) must be True.
+     - Assign \( x6 = \text{True} \).
+     - From \( (x5 ∨ ¬x7 ∨ ¬x4) \): Since \( x4 \) is True, \( x5 ∨ ¬x7 \) must hold. \( x5 \) is True, so clause is satisfied.
+     - From \( (¬x7 ∨ x2 ∨ x4) \): Clause satisfied by \( x2 \) and \( x4 \).
+     - From \( (x3 ∨ ¬x4 ∨ x6) \): Clause satisfied by \( x3 \).
+     - From \( (x2 ∨ ¬x7 ∨ x6) \): Clause satisfied by \( x2 \) and \( x6 \).
+     - From \( (¬x5 ∨ x7 ∨ x4) \): Since \( x5 \) is True, \( x7 ∨ x4 \) must hold. \( x4 \) is True, so clause is satisfied.
+     - From \( (x7 ∨ x6 ∨ x5) \): Clause satisfied by \( x6 \) and \( x5 \).
+     - From \( (¬x7 ∨ x5 ∨ ¬x6) \): Since \( x5 \) is True and \( x6 \) is True, \( ¬x7 \) must hold.
+     - Assign \( x7 = \text{False} \).
+     - From \( (x5 ∨ x2 ∨ ¬x7) \): Clause satisfied by \( x5 \) and \( x2 \).
+     - From \( (¬x6 ∨ ¬x5 ∨ ¬x1) \): Since \( x6 \) is True, \( x5 \) is True, and \( x1 \) is True, this clause evaluates to False, causing a **conflict**.
+
+### Step 3: Backtracking
+We backtrack to the last decision point where an alternative assignment is possible. The conflict arose after assigning \( x3 = \text{True} \), \( x8 = \text{True} \), \( x5 = \text{True} \), \( x4 = \text{True} \), \( x6 = \text{True} \), and \( x7 = \text{False} \). The conflicting clause is \( (¬x6 ∨ ¬x5 ∨ ¬x1) \), which requires at least one of \( x6 \), \( x5 \), or \( x1 \) to be False, but all are True.
+
+We try an alternative assignment for \( x3 \):
+- Assign \( x3 = \text{False} \).
+  - Propagate implications:
+    - From \( (¬x3 ∨ x1 ∨ ¬x5) \): Since \( x3 \) is False, \( x1 ∨ ¬x5 \) must hold. \( x1 \) is True, so clause is satisfied.
+    - From \( (x3 ∨ ¬x6 ∨ ¬x5) \): Since \( x3 \) is False, \( ¬x6 ∨ ¬x5 \) must hold.
+    - From \( (x3 ∨ x5 ∨ x4) \): Since \( x3 \) is False, \( x5 ∨ x4 \) must hold.
+    - From \( (¬x3 ∨ x8 ∨ ¬x1) \): Since \( x3 \) is False, \( x8 ∨ ¬x1 \) must hold. \( x1 \) is True, so \( x8 \) must be True.
+    - Assign \( x8 = \text{True} \).
+    - From \( (¬x5 ∨ x8 ∨ x3) \): Clause satisfied by \( x8 \).
+    - From \( (¬x4 ∨ x3 ∨ ¬x2) \): Since \( x3 \) is False, \( ¬x4 ∨ ¬x2 \) must hold. \( x2 \) is True, so \( x4 \) must be False.
+    - Assign \( x4 = \text{False} \).
+    - From \( (x4 ∨ x2 ∨ x1) \): Clause satisfied by \( x2 \) and \( x1 \).
+    - From \( (x6 ∨ ¬x4 ∨ ¬x5) \): Since \( x4 \) is False, \( x6 ∨ ¬x5 \) must hold.
+    - From \( (x5 ∨ ¬x7 ∨ ¬x4) \): Since \( x4 \) is False, \( x5 ∨ ¬x7 \) must hold.
+    - From \( (¬x7 ∨ x2 ∨ x4) \): Clause satisfied by \( x2 \).
+    - From \( (x3 ∨ ¬x4 ∨ x6) \): Since \( x4 \) is False, \( x3 ∨ x6 \) must hold. \( x3 \) is False, so \( x6 \) must be True.
+    - Assign \( x6 = \text{True} \).
+    - From \( (x2 ∨ ¬x7 ∨ x6) \): Clause satisfied by \( x2 \) and \( x6 \).
+    - From \( (x5 ∨ x2 ∨ ¬x6) \): Since \( x6 \) is True, \( x5 ∨ x2 \) must hold. \( x2 \) is True, so clause is satisfied.
+    - From \( (¬x5 ∨ x4 ∨ ¬x2) \): Since \( x4 \) is False and \( x2 \) is True, \( ¬x5 \) must hold.
+    - Assign \( x5 = \text{False} \).
+    - From \( (¬x5 ∨ x2 ∨ ¬x6) \): Clause satisfied by \( x2 \).
+    - From \( (x5 ∨ ¬x3 ∨ ¬x2) \): Since \( x5 \) is False and \( x2 \) is True, \( ¬x3 \) must hold. \( x3 \) is already False.
+    - From \( (¬x6 ∨ ¬x5 ∨ ¬x1) \): Since \( x6 \) is True, \( x5 \) is False, and \( x1 \) is True, clause evaluates to False, causing a **conflict**.
+
+### Step 4: Further Backtracking
+We backtrack to the decision point for \( x2 \). Assign \( x2 = \text{False} \).
+- Propagate implications:
+  - From \( (¬x5 ∨ x2 ∨ ¬x6) \): Since \( x2 \) is False, \( ¬x5 ∨ ¬x6 \) must hold.
+  - From \( (x5 ∨ x2 ∨ ¬x6) \): Since \( x2 \) is False, \( x5 ∨ ¬x6 \) must hold.
+  - From \( (x5 ∨ ¬x3 ∨ ¬x2) \): Clause satisfied by \( ¬x2 \).
+  - From \( (¬x4 ∨ x3 ∨ ¬x2) \): Clause satisfied by \( ¬x2 \).
+  - From \( (¬x5 ∨ x4 ∨ ¬x2) \): Clause satisfied by \( ¬x2 \).
+  - From \( (x1 ∨ x2 ∨ x4) \): Since \( x2 \) is False, \( x1 ∨ x4 \) must hold. \( x1 \) is True, so clause is satisfied.
+  - From \( (¬x7 ∨ x2 ∨ x4) \): Clause satisfied by \( x4 \) (since \( x2 \) is False, no immediate implication).
+  - From \( (x5 ∨ x2 ∨ ¬x7) \): Clause simplifies to \( x5 ∨ ¬x7 \).
+
+Proceeding with assignments:
+- Assign \( x3 = \text{True} \).
+  - From \( (¬x3 ∨ x8 ∨ ¬x1) \): Since \( x3 \) is True, \( x8 ∨ ¬x1 \) must hold. \( x1 \) is True, so \( x8 \) must be True.
+  - Assign \( x8 = \text{True} \).
+  - From \( (¬x5 ∨ x8 ∨ x3) \): Clause satisfied by \( x8 \) and \( x3 \).
+  - From \( (¬x4 ∨ x8 ∨ ¬x2) \): Clause satisfied by \( x8 \).
+  - From \( (x5 ∨ ¬x3 ∨ ¬x2) \): Since \( x3 \) is True and \( x2 \) is False, \( x5 \) must be True.
+  - Assign \( x5 = \text{True} \).
+  - From \( (¬x5 ∨ x4 ∨ ¬x2) \): Since \( x5 \) is True and \( x2 \) is False, \( x4 \) must be True.
+  - Assign \( x4 = \text{True} \).
+  - From \( (x6 ∨ ¬x4 ∨ ¬x5) \): Since \( x4 \) is True and \( x5 \) is True, \( x6 \) must be True.
+  - Assign \( x6 = \text{True} \).
+  - From \( (¬x6 ∨ ¬x5 ∨ ¬x1) \): Since \( x6 \) is True, \( x5 \) is True, and \( x1 \) is True, this clause evaluates to False, causing a **conflict**.
+
+### Step 5: Final Backtracking
+We backtrack to the decision point for \( x1 \). Assign \( x1 = \text{False} \).
+- Propagate implications:
+  - From \( (¬x1 ∨ ¬x8 ∨ x5) \): Since \( x1 \) is False, \( ¬x8 ∨ x5 \) must hold.
+  - From \( (¬x6 ∨ x1 ∨ ¬x5) \): Since \( x1 \) is False, \( ¬x6 ∨ ¬x5 \) must hold.
+  - From \( (¬x5 ∨ ¬x1 ∨ x2) \): Since \( x1 \) is False, \( ¬x5 ∨ x2 \) must hold.
+  - From \( (¬x6 ∨ ¬x5 ∨ ¬x1) \): Since \( x1 \) is False, clause is satisfied.
+  - From \( (x1 ∨ x2 ∨ x4) \): Since \( x1 \) is False, \( x2 ∨ x4 \) must hold.
+
+Proceeding with assignments:
+- Assign \( x2 = \text{True} \).
+  - From \( (x2 ∨ ¬x7 ∨ x6) \): No immediate implication.
+  - From \( (¬x5 ∨ x2 ∨ ¬x6) \): No immediate implication.
+  - From \( (x5 ∨ x2 ∨ ¬x6) \): No immediate implication.
+  - From \( (x5 ∨ ¬x3 ∨ ¬x2) \): Since \( x2 \) is True, \( x5 ∨ ¬x3 \) must hold.
+  - Assign \( x3 = \text{True} \).
+    - From \( (¬x3 ∨ x8 ∨ ¬x1) \): Since \( x3 \) is True, \( x8 ∨ ¬x1 \) must hold. \( x1 \) is False, so clause is satisfied.
+    - From \( (x3 ∨ ¬x7 ∨ ¬x8) \): Clause satisfied by \( x3 \).
+    - From \( (¬x5 ∨ x8 ∨ x3) \): Clause satisfied by \( x3 \).
+    - From \( (¬x4 ∨ x3 ∨ ¬x2) \): Since \( x3 \) is True, clause is satisfied.
+    - From \( (x3 ∨ x5 ∨ x4) \): Clause satisfied by \( x3 \).
+    - From \( (x3 ∨ ¬x6 ∨ ¬x5) \): Clause satisfied by \( x3 \).
+    - From \( (¬x5 ∨ x4 ∨ ¬x2) \): Since \( x2 \) is True, \( ¬x5 ∨ x4 \) must hold.
+    - Assign \( x5 = \text{False} \).
+      - From \( (¬x5 ∨ x4 ∨ ¬x2) \): Since \( x5 \) is False, \( x4 \) can be either True or False.
+      - Assign \( x4 = \text{True} \).
+        - From \( (x4 ∨ x2 ∨ x1) \): Clause satisfied by \( x4 \).
+        - From \( (x6 ∨ ¬x4 ∨ ¬x5) \): Since \( x4 \) is True and \( x5 \) is False, \( x6 \) must be True.
+        - Assign \( x6 = \text{True} \).
+        - From \( (¬x6 ∨ ¬x5 ∨ ¬x1) \): Since \( x6 \) is True, \( x5 \) is False, and \( x1 \) is False, clause is satisfied.
+        - From \( (¬x6 ∨ x1 ∨ ¬x5) \): Clause satisfied by \( ¬x5 \).
+        - From \( (x6 ∨ ¬x7 ∨ x1) \): Since \( x6 \) is True and \( x1 \) is False, \( ¬x7 \) must hold.
+        - Assign \( x7 = \text{False} \).
+        - From \( (¬x7 ∨ x5 ∨ ¬x6) \): Since \( x7 \) is False, \( x5 ∨ ¬x6 \) must hold. \( x5 \) is False and \( x6 \) is True, so clause is satisfied.
+        - From \( (x7 ∨ x6 ∨ x5) \): Clause satisfied by \( x6 \).
+        - From \( (¬x7 ∨ x2 ∨ x4) \): Clause satisfied by \( x2 \) and \( x4 \).
+        - From \( (x5 ∨ ¬x7 ∨ ¬x4) \): Since \( x5 \) is False and \( x4 \) is True, \( ¬x7 \) must hold. \( x7 \) is already False.
+        - From \( (x5 ∨ x2 ∨ ¬x7) \): Clause satisfied by \( x2 \).
+        - From \( (¬x5 ∨ x7 ∨ x4) \): Since \( x5 \) is False, \( x7 ∨ x4 \) must hold. \( x4 \) is True, so clause is satisfied.
+        - From \( (¬x5 ∨ x8 ∨ x3) \): Clause satisfied by \( x3 \).
+        - From \( (¬x4 ∨ x8 ∨ ¬x2) \): Since \( x4 \) is True and \( x2 \) is True, \( x8 \) must be True.
+        - Assign \( x8 = \text{True} \).
+        - From \( (¬x1 ∨ ¬x8 ∨ x5) \): Since \( x1 \) is False and \( x8 \) is True, \( x5 \) must be True. But \( x5 \) is False, causing a **conflict**.
+
+### Step 6: Alternative Assignment for \( x4 \)
+Backtrack to \( x4 \) assignment. Assign \( x4 = \text{False} \).
+- From \( (¬x5 ∨ x4 ∨ ¬x2) \): Since \( x5 \) is False and \( x2 \) is True, \( x4 \) must be False (consistent).
+- From \( (x4 ∨ x2 ∨ x1) \): Clause satisfied by \( x2 \).
+- From \( (x6 ∨ ¬x4 ∨ ¬x5) \): Since \( x4 \) is False, \( x6 ∨ ¬x5 \) must hold. \( x5 \) is False, so \( x6 \) can be either True or False.
+- Assign \( x6 = \text{True} \).
+  - From \( (¬x6 ∨ ¬x5 ∨ ¬x1) \): Clause satisfied by \( ¬x5 \) and \( ¬x1 \).
+  - From \( (¬x6 ∨ x1 ∨ ¬x5) \): Clause satisfied by \(

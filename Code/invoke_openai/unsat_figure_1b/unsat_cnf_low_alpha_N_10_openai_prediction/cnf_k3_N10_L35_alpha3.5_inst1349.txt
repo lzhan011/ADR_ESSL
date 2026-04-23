@@ -1,0 +1,204 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1349
+p cnf 10 35
+8 -10 9 0
+10 8 2 0
+3 -10 -5 0
+-2 -3 -6 0
+-10 -3 9 0
+2 8 -6 0
+8 3 7 0
+3 -6 1 0
+-5 -6 9 0
+-1 -2 9 0
+-4 -8 -10 0
+-8 -7 -10 0
+-10 6 -9 0
+6 3 7 0
+3 -10 -5 0
+-6 -9 -3 0
+10 6 1 0
+-6 8 -5 0
+-8 -4 6 0
+3 4 -8 0
+-6 9 -4 0
+-10 -5 -2 0
+8 -3 4 0
+10 -5 8 0
+-10 3 6 0
+10 -1 -9 0
+-1 5 3 0
+9 -1 4 0
+8 -5 -4 0
+-8 -10 -6 0
+10 1 -6 0
+-8 -7 10 0
+1 -8 2 0
+9 -10 3 0
+-3 -5 -9 0
+
+c GPT solve time: 84.33 seconds
+
+**Step-by-step SAT Solving (DPLL-style):**
+
+Let's assign variables in order: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10.
+
+---
+
+### Step 1: Assign x1 = True
+
+#### Propagate:
+
+- Clause (x3 ∨ ¬x6 ∨ x1) is satisfied.
+- Clause (¬x1 ∨ ¬x2 ∨ x9): becomes (¬x2 ∨ x9)
+- Clause (¬x1 ∨ x5 ∨ x3): becomes (x5 ∨ x3)
+- Clause (x10 ∨ ¬x1 ∨ ¬x9): becomes (x10 ∨ ¬x9)
+- Clause (x9 ∨ ¬x1 ∨ x4): becomes (x9 ∨ x4)
+
+---
+
+### Step 2: Assign x2 = True
+
+- Clause (x10 ∨ x8 ∨ x2): satisfied.
+- Clause (¬x2 ∨ ¬x3 ∨ ¬x6): becomes (¬x3 ∨ ¬x6)
+- Clause (¬x1 ∨ ¬x2 ∨ x9): becomes (x9)
+- Clause (¬x10 ∨ ¬x5 ∨ ¬x2): becomes (¬x10 ∨ ¬x5)
+- Clause (x1 ∨ ¬x8 ∨ x2): satisfied.
+
+---
+
+### Step 3: Assign x3 = True
+
+- Clause (x3 ∨ ¬x10 ∨ ¬x5): satisfied.
+- Clause (¬x2 ∨ ¬x3 ∨ ¬x6): becomes (¬x6)
+- Clause (¬x10 ∨ ¬x3 ∨ x9): becomes (¬x10 ∨ x9)
+- Clause (x8 ∨ x3 ∨ x7): satisfied.
+- Clause (x3 ∨ ¬x6 ∨ x1): satisfied.
+- Clause (x6 ∨ x3 ∨ x7): satisfied.
+- Clause (x3 ∨ ¬x10 ∨ ¬x5): satisfied.
+- Clause (¬x6 ∨ ¬x9 ∨ ¬x3): becomes (¬x6 ∨ ¬x9)
+- Clause (x3 ∨ x4 ∨ ¬x8): satisfied.
+- Clause (x8 ∨ ¬x3 ∨ x4): becomes (x8 ∨ x4)
+- Clause (¬x1 ∨ x5 ∨ x3): satisfied.
+- Clause (x9 ∨ ¬x10 ∨ x3): satisfied.
+
+---
+
+### Step 4: Assign x4 = True
+
+- Clause (¬x4 ∨ ¬x8 ∨ ¬x10): becomes (¬x8 ∨ ¬x10)
+- Clause (¬x8 ∨ ¬x4 ∨ x6): becomes (¬x8 ∨ x6)
+- Clause (x3 ∨ x4 ∨ ¬x8): satisfied.
+- Clause (x9 ∨ ¬x1 ∨ x4): satisfied.
+- Clause (x8 ∨ ¬x5 ∨ ¬x4): becomes (x8 ∨ ¬x5)
+- Clause (¬x6 ∨ x9 ∨ ¬x4): becomes (¬x6 ∨ x9)
+
+---
+
+### Step 5: Assign x5 = True
+
+- Clause (x3 ∨ ¬x10 ∨ ¬x5): becomes (x3 ∨ ¬x10)
+- Clause (¬x5 ∨ ¬x6 ∨ x9): becomes (¬x6 ∨ x9)
+- Clause (¬x10 ∨ ¬x5 ∨ ¬x2): becomes (¬x10)
+- Clause (¬x6 ∨ x8 ∨ ¬x5): becomes (¬x6 ∨ x8)
+- Clause (x10 ∨ ¬x5 ∨ x8): becomes (x10 ∨ x8)
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x9): becomes (¬x3 ∨ ¬x9)
+
+---
+
+### Step 6: Assign x6 = True
+
+- Clause (¬x2 ∨ ¬x3 ∨ ¬x6): becomes (¬x2 ∨ ¬x3)
+- Clause (x2 ∨ x8 ∨ ¬x6): becomes (x2 ∨ x8)
+- Clause (x3 ∨ ¬x6 ∨ x1): becomes (x3 ∨ x1)
+- Clause (¬x5 ∨ ¬x6 ∨ x9): becomes (¬x5 ∨ x9)
+- Clause (¬x10 ∨ x6 ∨ ¬x9): becomes (¬x10 ∨ ¬x9)
+- Clause (x6 ∨ x3 ∨ x7): satisfied.
+- Clause (¬x6 ∨ ¬x9 ∨ ¬x3): becomes (¬x9 ∨ ¬x3)
+- Clause (x10 ∨ x6 ∨ x1): satisfied.
+- Clause (¬x6 ∨ x8 ∨ ¬x5): becomes (x8 ∨ ¬x5)
+- Clause (¬x8 ∨ ¬x4 ∨ x6): satisfied.
+- Clause (¬x6 ∨ x9 ∨ ¬x4): becomes (x9 ∨ ¬x4)
+- Clause (x10 ∨ x1 ∨ ¬x6): becomes (x10 ∨ x1)
+- Clause (¬x8 ∨ ¬x10 ∨ ¬x6): becomes (¬x8 ∨ ¬x10)
+- Clause (¬x6 ∨ x9 ∨ ¬x4): becomes (x9 ∨ ¬x4)
+
+---
+
+### Step 7: Assign x7 = True
+
+- Clause (x8 ∨ x3 ∨ x7): satisfied.
+- Clause (x6 ∨ x3 ∨ x7): satisfied.
+- Clause (¬x8 ∨ ¬x7 ∨ ¬x10): becomes (¬x8 ∨ ¬x10)
+- Clause (¬x8 ∨ ¬x7 ∨ x10): becomes (¬x8 ∨ x10)
+
+---
+
+### Step 8: Assign x8 = True
+
+- Clause (x8 ∨ ¬x10 ∨ x9): satisfied.
+- Clause (x10 ∨ x8 ∨ x2): satisfied.
+- Clause (x2 ∨ x8 ∨ ¬x6): satisfied.
+- Clause (x8 ∨ x3 ∨ x7): satisfied.
+- Clause (x8 ∨ ¬x3 ∨ x4): satisfied.
+- Clause (x8 ∨ ¬x5 ∨ ¬x4): satisfied.
+- Clause (x10 ∨ ¬x5 ∨ x8): satisfied.
+- Clause (x1 ∨ ¬x8 ∨ x2): satisfied.
+
+---
+
+### Step 9: Assign x9 = True
+
+- Clause (x8 ∨ ¬x10 ∨ x9): satisfied.
+- Clause (¬x10 ∨ ¬x3 ∨ x9): satisfied.
+- Clause (¬x5 ∨ ¬x6 ∨ x9): satisfied.
+- Clause (¬x1 ∨ ¬x2 ∨ x9): satisfied.
+- Clause (¬x10 ∨ x6 ∨ ¬x9): becomes (¬x10 ∨ x6)
+- Clause (¬x6 ∨ x9 ∨ ¬x4): satisfied.
+- Clause (x9 ∨ ¬x1 ∨ x4): satisfied.
+- Clause (x9 ∨ ¬x10 ∨ x3): satisfied.
+
+---
+
+### Step 10: Assign x10 = True
+
+- Clause (x8 ∨ ¬x10 ∨ x9): satisfied.
+- Clause (x10 ∨ x8 ∨ x2): satisfied.
+- Clause (x3 ∨ ¬x10 ∨ ¬x5): becomes (x3 ∨ ¬x5)
+- Clause (¬x10 ∨ ¬x3 ∨ x9): becomes (¬x3 ∨ x9)
+- Clause (¬x4 ∨ ¬x8 ∨ ¬x10): becomes (¬x4 ∨ ¬x8)
+- Clause (¬x8 ∨ ¬x7 ∨ ¬x10): becomes (¬x8 ∨ ¬x7)
+- Clause (¬x10 ∨ x6 ∨ ¬x9): becomes (x6 ∨ ¬x9)
+- Clause (x3 ∨ ¬x10 ∨ ¬x5): becomes (x3 ∨ ¬x5)
+- Clause (¬x10 ∨ ¬x5 ∨ ¬x2): becomes (¬x5 ∨ ¬x2)
+- Clause (¬x10 ∨ x3 ∨ x6): becomes (x3 ∨ x6)
+- Clause (x10 ∨ ¬x1 ∨ ¬x9): satisfied.
+- Clause (x10 ∨ x1 ∨ ¬x6): satisfied.
+- Clause (¬x8 ∨ ¬x7 ∨ x10): satisfied.
+- Clause (x9 ∨ ¬x10 ∨ x3): becomes (x9 ∨ x3)
+- Clause (¬x8 ∨ ¬x10 ∨ ¬x6): becomes (¬x8 ∨ ¬x6)
+
+---
+
+### Check for conflicts
+
+All clauses are satisfied or can be satisfied with the current assignments. No conflicts encountered.
+
+---
+
+## Final Output
+
+**SATISFIABLE**  
+Number of branches: 10  
+Number of conflicts: 0  
+Assignments:  
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = True

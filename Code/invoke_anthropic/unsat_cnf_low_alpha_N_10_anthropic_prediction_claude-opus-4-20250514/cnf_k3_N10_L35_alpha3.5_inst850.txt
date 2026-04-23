@@ -1,0 +1,98 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=850
+p cnf 10 35
+-3 -8 -7 0
+1 9 -5 0
+-7 2 -5 0
+-4 -1 -6 0
+9 -1 -6 0
+5 3 -1 0
+-1 -3 -6 0
+6 -1 3 0
+-9 3 -4 0
+4 -3 1 0
+-7 2 5 0
+-4 -9 3 0
+-2 3 9 0
+-6 1 10 0
+1 6 8 0
+-9 -8 3 0
+6 -3 -8 0
+-3 10 -2 0
+-2 7 3 0
+10 -9 1 0
+9 -8 2 0
+8 1 -9 0
+-6 2 3 0
+-4 -3 -5 0
+-9 -8 -5 0
+8 5 -2 0
+8 10 -3 0
+-6 -8 -5 0
+-7 8 -9 0
+-4 -3 7 0
+5 7 4 0
+9 -7 -1 0
+2 -6 9 0
+-1 -10 -5 0
+10 9 4 0
+
+c GPT solve time: 19.75 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Formula Analysis:**
+- 35 clauses
+- 10 variables (x1 through x10)
+
+**Step-by-step Solution:**
+
+**Branch 1:** x1 = true
+- Unit propagations:
+  - From clause 4 (¬x4 ∨ ¬x1 ∨ ¬x6): forces x4 = false OR x6 = false
+  - From clause 5 (x9 ∨ ¬x1 ∨ ¬x6): forces x9 = true OR x6 = false
+  - From clause 7 (¬x1 ∨ ¬x3 ∨ ¬x6): forces x3 = false OR x6 = false
+  
+**Branch 2:** x6 = false (from constraints above)
+- Unit propagations:
+  - From clause 14 (¬x6 ∨ x1 ∨ x10): forces x10 = true (since x1 = true, x6 = false)
+  - From clause 15 (x1 ∨ x6 ∨ x8): forces x8 = true (since x6 = false, x1 = true)
+  
+**Branch 3:** x3 = false (to satisfy clause 7)
+- Unit propagations:
+  - From clause 6 (x5 ∨ x3 ∨ ¬x1): forces x5 = true
+  - From clause 10 (x4 ∨ ¬x3 ∨ x1): satisfied
+  - From clause 18 (¬x3 ∨ x10 ∨ ¬x2): satisfied
+  
+**Branch 4:** x9 = true (from clause 5)
+- Unit propagations:
+  - From clause 9 (¬x9 ∨ x3 ∨ ¬x4): forces x4 = false
+  - From clause 16 (¬x9 ∨ ¬x8 ∨ x3): CONFLICT! (x9 = true, x8 = true, x3 = false)
+
+**Backtrack to Branch 3**
+
+**Branch 5:** x3 = true
+- From clause 1 (¬x3 ∨ ¬x8 ∨ ¬x7): forces x8 = false OR x7 = false
+- CONFLICT with x8 = true from earlier
+
+**Backtrack to Branch 1**
+
+**Branch 6:** x1 = false
+- Unit propagations:
+  - From clause 2 (x1 ∨ x9 ∨ ¬x5): forces x9 = true OR x5 = false
+  - From clause 15 (x1 ∨ x6 ∨ x8): forces x6 = true OR x8 = true
+
+**Branch 7:** x6 = true
+- From clause 4 (¬x4 ∨ ¬x1 ∨ ¬x6): forces x4 = false
+- From clause 8 (x6 ∨ ¬x1 ∨ x3): satisfied
+
+**Branch 8:** x3 = true
+- From clause 1 (¬x3 ∨ ¬x8 ∨ ¬x7): forces x8 = false OR x7 = false
+- From clause 17 (x6 ∨ ¬x3 ∨ ¬x8): forces x8 = false
+
+**Branch 9:** x8 = false
+- From clause 22 (x8 ∨ x1 ∨ ¬x9): forces x9 = false
+- From clause 2 (x1 ∨ x9 ∨ ¬x5): forces x5 = false
+
+**Branch 10:** x5 = false
+- From clause 31 (

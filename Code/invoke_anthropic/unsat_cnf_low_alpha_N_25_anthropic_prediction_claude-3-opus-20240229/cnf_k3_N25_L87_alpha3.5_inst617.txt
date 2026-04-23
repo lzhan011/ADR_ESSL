@@ -1,0 +1,162 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=617
+p cnf 25 87
+-8 -10 5 0
+8 -4 -5 0
+2 -11 -14 0
+15 -7 16 0
+1 16 -21 0
+-18 2 20 0
+17 2 -3 0
+19 -3 -14 0
+-9 1 13 0
+4 -5 18 0
+11 -12 16 0
+-9 21 11 0
+13 -12 25 0
+-15 11 -18 0
+-21 11 18 0
+8 16 23 0
+23 3 -7 0
+12 -6 -25 0
+22 16 11 0
+-14 -15 12 0
+4 -7 -11 0
+12 -8 20 0
+1 25 20 0
+19 7 -18 0
+-13 6 -4 0
+-1 -18 -21 0
+-21 8 3 0
+-4 25 -9 0
+21 -6 20 0
+-8 -3 18 0
+23 6 10 0
+-1 5 -16 0
+22 -7 -11 0
+12 -17 5 0
+5 6 -19 0
+1 24 -4 0
+-4 3 6 0
+-19 -17 -20 0
+4 -11 -18 0
+-12 -16 -7 0
+-10 -18 -25 0
+6 -19 -10 0
+-11 16 3 0
+15 4 7 0
+11 15 8 0
+-4 -12 7 0
+12 10 -4 0
+-24 -6 -9 0
+1 23 -21 0
+14 -9 -10 0
+21 14 -6 0
+-7 -12 6 0
+-8 18 21 0
+14 21 -15 0
+-23 -9 18 0
+9 18 -23 0
+1 18 -7 0
+3 16 -19 0
+5 -15 -21 0
+7 -4 6 0
+1 10 5 0
+10 24 -22 0
+-23 6 -7 0
+-20 -21 -17 0
+-11 -19 -25 0
+-23 22 4 0
+-17 3 -15 0
+1 14 -5 0
+9 1 14 0
+-15 -5 25 0
+24 10 -25 0
+-10 12 9 0
+9 1 -25 0
+8 -2 -16 0
+-8 3 -2 0
+9 -14 -25 0
+25 -13 -11 0
+-1 21 -8 0
+-21 17 -24 0
+4 1 -3 0
+-23 -9 -6 0
+-5 8 24 0
+-25 -14 -17 0
+-5 -16 -11 0
+-18 24 -13 0
+4 -15 11 0
+10 -24 11 0
+
+c GPT solve time: 30.77 seconds
+
+Here is the step-by-step solution to the given 3-CNF formula:
+
+1. Choose literal x1, set x1 = True
+2. Choose literal x2, set x2 = True
+3. Choose literal x3, set x3 = True
+4. Clause (x17 ∨ x2 ∨ ¬x3) is False, conflict found, backtrack
+5. Set x3 = False
+6. Choose literal x4, set x4 = True
+7. Choose literal x5, set x5 = True
+8. Clause (x8 ∨ ¬x4 ∨ ¬x5) is False, conflict found, backtrack
+9. Set x5 = False
+10. Choose literal x6, set x6 = True
+11. Choose literal x7, set x7 = True
+12. Choose literal x8, set x8 = True
+13. Clause (¬x8 ∨ ¬x10 ∨ x5) is False, conflict found, backtrack
+14. Set x8 = False
+15. Choose literal x9, set x9 = True
+16. Choose literal x10, set x10 = True
+17. Choose literal x11, set x11 = True
+18. Choose literal x12, set x12 = True
+19. Choose literal x13, set x13 = True
+20. Choose literal x14, set x14 = True
+21. Clause (x2 ∨ ¬x11 ∨ ¬x14) is False, conflict found, backtrack
+22. Set x14 = False
+23. Choose literal x15, set x15 = True
+24. Choose literal x16, set x16 = True
+25. Choose literal x17, set x17 = True
+26. Choose literal x18, set x18 = True
+27. Choose literal x19, set x19 = True
+28. Choose literal x20, set x20 = True
+29. Clause (¬x19 ∨ ¬x17 ∨ ¬x20) is False, conflict found, backtrack
+30. Set x20 = False
+31. Choose literal x21, set x21 = True
+32. Clause (¬x21 ∨ x11 ∨ x18) is True
+33. Choose literal x22, set x22 = True
+34. Choose literal x23, set x23 = True
+35. Choose literal x24, set x24 = True
+36. Choose literal x25, set x25 = True
+
+* SATISFIABLE
+* Number of branches: 25
+* Number of conflicts: 5
+
+The satisfying assignment is:
+x1 = True
+x2 = True
+x3 = False
+x4 = True
+x5 = False
+x6 = True
+x7 = True
+x8 = False
+x9 = True
+x10 = True
+x11 = True
+x12 = True
+x13 = True
+x14 = False
+x15 = True
+x16 = True
+x17 = True
+x18 = True
+x19 = True
+x20 = False
+x21 = True
+x22 = True
+x23 = True
+x24 = True
+x25 = True

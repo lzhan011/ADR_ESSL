@@ -1,0 +1,77 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1412
+p cnf 10 35
+5 2 -4 0
+-1 5 4 0
+-5 -2 10 0
+9 1 -6 0
+10 4 -5 0
+-1 2 -5 0
+5 1 -10 0
+2 1 8 0
+6 2 -3 0
+-10 -4 6 0
+-3 -4 8 0
+7 -10 6 0
+6 8 -5 0
+-3 -6 -2 0
+4 8 5 0
+-1 7 -6 0
+8 4 -6 0
+-10 -5 -9 0
+3 4 -7 0
+3 6 4 0
+5 -9 -4 0
+10 -3 5 0
+3 -10 7 0
+5 -6 -8 0
+-10 3 -8 0
+1 9 -8 0
+-5 -1 -6 0
+-7 9 -2 0
+-7 -4 -9 0
+-5 10 6 0
+3 -4 -1 0
+-4 2 -9 0
+6 -7 -5 0
+3 7 8 0
+3 -4 2 0
+
+c GPT solve time: 17.43 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Let me start by analyzing the formula and making decisions:
+
+**Branch 1: x1 = true**
+- From clause 2: (¬x1 ∨ x5 ∨ x4) → (x5 ∨ x4) must be true
+- From clause 6: (¬x1 ∨ x2 ∨ ¬x5) → (x2 ∨ ¬x5) must be true
+- From clause 16: (¬x1 ∨ x7 ∨ ¬x6) → (x7 ∨ ¬x6) must be true
+- From clause 27: (¬x5 ∨ ¬x1 ∨ ¬x6) → (¬x5 ∨ ¬x6) must be true
+
+**Branch 2: x5 = true** (from clause 2)
+- From clause 3: (¬x5 ∨ ¬x2 ∨ x10) → (¬x2 ∨ x10) must be true
+- From clause 5: (x10 ∨ x4 ∨ ¬x5) → (x10 ∨ x4) must be true
+- From clause 18: (¬x10 ∨ ¬x5 ∨ ¬x9) → (¬x10 ∨ ¬x9) must be true
+- From clause 24: (x5 ∨ ¬x6 ∨ ¬x8) → satisfied
+- From clause 27: (¬x5 ∨ ¬x1 ∨ ¬x6) → ¬x6 must be true
+- From clause 30: (¬x5 ∨ x10 ∨ x6) → (x10 ∨ x6) must be true
+
+**Branch 3: x6 = false** (from clause 27)
+- From clause 4: (x9 ∨ x1 ∨ ¬x6) → satisfied
+- From clause 9: (x6 ∨ x2 ∨ ¬x3) → (x2 ∨ ¬x3) must be true
+- From clause 10: (¬x10 ∨ ¬x4 ∨ x6) → (¬x10 ∨ ¬x4) must be true
+- From clause 12: (x7 ∨ ¬x10 ∨ x6) → (x7 ∨ ¬x10) must be true
+- From clause 13: (x6 ∨ x8 ∨ ¬x5) → x8 must be true
+- From clause 30: (¬x5 ∨ x10 ∨ x6) → x10 must be true
+
+**Branch 4: x10 = true** (from clause 30)
+- From clause 7: (x5 ∨ x1 ∨ ¬x10) → satisfied
+- From clause 10: (¬x10 ∨ ¬x4 ∨ x6) → ¬x4 must be true
+- From clause 18: (¬x10 ∨ ¬x5 ∨ ¬x9) → ¬x9 must be true
+
+**Branch 5: x4 = false** (from clause 10)
+- From clause 1: (x5 ∨ x2 ∨ ¬x4) → satisfied
+- From clause 2: (¬x1 ∨ x5 ∨ x4) → satisfied
+- From clause 15: (x4 ∨ x8 ∨ x5) → satisfied
+- From clause 19: (x3

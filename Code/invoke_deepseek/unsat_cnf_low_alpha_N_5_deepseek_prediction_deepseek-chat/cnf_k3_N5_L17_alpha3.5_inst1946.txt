@@ -1,0 +1,153 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1946
+p cnf 5 17
+1 -3 -4 0
+-1 -2 -4 0
+1 3 -4 0
+-1 -4 2 0
+-4 3 5 0
+5 4 -1 0
+-2 -3 4 0
+-3 -5 1 0
+3 -5 2 0
+3 1 -2 0
+2 -3 -4 0
+4 1 5 0
+-5 3 4 0
+-2 4 5 0
+-3 -1 -5 0
+1 -2 5 0
+-4 -1 3 0
+
+c GPT solve time: 106.52 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm. We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Setup
+Clauses:
+1. (x1 ∨ ¬x3 ∨ ¬x4)
+2. (¬x1 ∨ ¬x2 ∨ ¬x4)
+3. (x1 ∨ x3 ∨ ¬x4)
+4. (¬x1 ∨ ¬x4 ∨ x2)
+5. (¬x4 ∨ x3 ∨ x5)
+6. (x5 ∨ x4 ∨ ¬x1)
+7. (¬x2 ∨ ¬x3 ∨ x4)
+8. (¬x3 ∨ ¬x5 ∨ x1)
+9. (x3 ∨ ¬x5 ∨ x2)
+10. (x3 ∨ x1 ∨ ¬x2)
+11. (x2 ∨ ¬x3 ∨ ¬x4)
+12. (x4 ∨ x1 ∨ x5)
+13. (¬x5 ∨ x3 ∨ x4)
+14. (¬x2 ∨ x4 ∨ x5)
+15. (¬x3 ∨ ¬x1 ∨ ¬x5)
+16. (x1 ∨ ¬x2 ∨ x5)
+17. (¬x4 ∨ ¬x1 ∨ x3)
+
+### Step 2: Assign x1 = True (Decision 1)
+- Propagate x1 = True:
+  - Clause 2: (¬x1 ∨ ¬x2 ∨ ¬x4) → (¬x2 ∨ ¬x4) must be true.
+  - Clause 4: (¬x1 ∨ ¬x4 ∨ x2) → (¬x4 ∨ x2) must be true.
+  - Clause 6: (x5 ∨ x4 ∨ ¬x1) → (x5 ∨ x4) must be true.
+  - Clause 8: (¬x3 ∨ ¬x5 ∨ x1) → satisfied (x1 is True).
+  - Clause 10: (x3 ∨ x1 ∨ ¬x2) → satisfied (x1 is True).
+  - Clause 12: (x4 ∨ x1 ∨ x5) → satisfied (x1 is True).
+  - Clause 16: (x1 ∨ ¬x2 ∨ x5) → satisfied (x1 is True).
+  - Clause 17: (¬x4 ∨ ¬x1 ∨ x3) → (¬x4 ∨ x3) must be true.
+
+### Step 3: Assign x2 = True (Decision 2)
+- Propagate x2 = True:
+  - Clause 7: (¬x2 ∨ ¬x3 ∨ x4) → (¬x3 ∨ x4) must be true.
+  - Clause 11: (x2 ∨ ¬x3 ∨ ¬x4) → satisfied (x2 is True).
+  - Clause 14: (¬x2 ∨ x4 ∨ x5) → (x4 ∨ x5) must be true.
+  - From Clause 2 (¬x2 ∨ ¬x4): ¬x4 must be true (since x2 is True).
+    - Assign x4 = False.
+    - Propagate x4 = False:
+      - Clause 1: (x1 ∨ ¬x3 ∨ ¬x4) → satisfied (¬x4 is True).
+      - Clause 3: (x1 ∨ x3 ∨ ¬x4) → satisfied (¬x4 is True).
+      - Clause 5: (¬x4 ∨ x3 ∨ x5) → (x3 ∨ x5) must be true.
+      - Clause 6: (x5 ∨ x4) → x5 must be true (since x4 is False).
+        - Assign x5 = True.
+        - Propagate x5 = True:
+          - Clause 13: (¬x5 ∨ x3 ∨ x4) → (x3 ∨ x4) → x3 must be true (since x4 is False).
+            - Assign x3 = True.
+            - Propagate x3 = True:
+              - Clause 9: (x3 ∨ ¬x5 ∨ x2) → satisfied (x3 is True).
+              - Clause 15: (¬x3 ∨ ¬x1 ∨ ¬x5) → (¬x1 ∨ ¬x5) → conflict (x1 is True, x5 is True).
+- Conflict detected. Backtrack (Conflict 1).
+
+### Step 4: Backtrack to Decision 2 (x2 = True → x2 = False)
+- Assign x2 = False.
+- Propagate x2 = False:
+  - Clause 4: (¬x4 ∨ x2) → ¬x4 must be true (since x2 is False).
+    - Assign x4 = False.
+    - Propagate x4 = False:
+      - Clause 1: (x1 ∨ ¬x3 ∨ ¬x4) → satisfied (¬x4 is True).
+      - Clause 3: (x1 ∨ x3 ∨ ¬x4) → satisfied (¬x4 is True).
+      - Clause 5: (¬x4 ∨ x3 ∨ x5) → (x3 ∨ x5) must be true.
+      - Clause 6: (x5 ∨ x4) → x5 must be true (since x4 is False).
+        - Assign x5 = True.
+        - Propagate x5 = True:
+          - Clause 13: (¬x5 ∨ x3 ∨ x4) → (x3 ∨ x4) → x3 must be true (since x4 is False).
+            - Assign x3 = True.
+            - Propagate x3 = True:
+              - Clause 7: (¬x3 ∨ x4) → conflict (x3 is True, x4 is False).
+              - Clause 17: (¬x4 ∨ x3) → satisfied (x3 is True).
+- Conflict detected. Backtrack (Conflict 2).
+
+### Step 5: Backtrack to Decision 1 (x1 = True → x1 = False)
+- Assign x1 = False.
+- Propagate x1 = False:
+  - Clause 1: (x1 ∨ ¬x3 ∨ ¬x4) → (¬x3 ∨ ¬x4) must be true.
+  - Clause 3: (x1 ∨ x3 ∨ ¬x4) → (x3 ∨ ¬x4) must be true.
+  - Clause 6: (x5 ∨ x4 ∨ ¬x1) → (x5 ∨ x4) must be true.
+  - Clause 8: (¬x3 ∨ ¬x5 ∨ x1) → (¬x3 ∨ ¬x5) must be true.
+  - Clause 10: (x3 ∨ x1 ∨ ¬x2) → (x3 ∨ ¬x2) must be true.
+  - Clause 12: (x4 ∨ x1 ∨ x5) → (x4 ∨ x5) must be true.
+  - Clause 16: (x1 ∨ ¬x2 ∨ x5) → (¬x2 ∨ x5) must be true.
+  - Clause 17: (¬x4 ∨ ¬x1 ∨ x3) → (¬x4 ∨ x3) must be true.
+
+### Step 6: Assign x2 = True (Decision 3)
+- Propagate x2 = True:
+  - Clause 7: (¬x2 ∨ ¬x3 ∨ x4) → (¬x3 ∨ x4) must be true.
+  - Clause 11: (x2 ∨ ¬x3 ∨ ¬x4) → satisfied (x2 is True).
+  - Clause 14: (¬x2 ∨ x4 ∨ x5) → (x4 ∨ x5) must be true.
+  - From Clause 10: (x3 ∨ ¬x2) → x3 must be true (since x2 is True).
+    - Assign x3 = True.
+    - Propagate x3 = True:
+      - Clause 1: (¬x3 ∨ ¬x4) → ¬x4 must be true.
+        - Assign x4 = False.
+        - Propagate x4 = False:
+          - Clause 3: (x3 ∨ ¬x4) → satisfied (x3 is True).
+          - Clause 5: (¬x4 ∨ x3 ∨ x5) → satisfied (x3 is True).
+          - Clause 6: (x5 ∨ x4) → x5 must be true.
+            - Assign x5 = True.
+            - Propagate x5 = True:
+              - Clause 8: (¬x3 ∨ ¬x5) → conflict (x3 is True, x5 is True).
+- Conflict detected. Backtrack (Conflict 3).
+
+### Step 7: Backtrack to Decision 3 (x2 = True → x2 = False)
+- Assign x2 = False.
+- Propagate x2 = False:
+  - Clause 4: (¬x1 ∨ ¬x4 ∨ x2) → satisfied (x1 is False).
+  - Clause 16: (¬x2 ∨ x5) → x5 must be true.
+    - Assign x5 = True.
+    - Propagate x5 = True:
+      - Clause 8: (¬x3 ∨ ¬x5) → ¬x3 must be true.
+        - Assign x3 = False.
+        - Propagate x3 = False:
+          - Clause 1: (¬x3 ∨ ¬x4) → ¬x4 must be true.
+            - Assign x4 = False.
+            - Propagate x4 = False:
+              - Clause 3: (x3 ∨ ¬x4) → satisfied (¬x4 is True).
+              - Clause 5: (¬x4 ∨ x3 ∨ x5) → satisfied (x5 is True).
+              - Clause 6: (x5 ∨ x4) → satisfied (x5 is True).
+              - Clause 12: (x4 ∨ x5) → satisfied (x5 is True).
+              - Clause 13: (¬x5 ∨ x3 ∨ x4) → (False ∨ False ∨ False) → conflict.
+- Conflict detected. Backtrack (Conflict 4).
+
+### Step 8: No more decisions to backtrack. Formula is UNSATISFIABLE.
+
+### Final Answer:
+* UNSATISFIABLE  
+* 3  
+* 4

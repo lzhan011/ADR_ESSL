@@ -1,0 +1,77 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=916
+p cnf 8 28
+8 -1 4 0
+4 -1 -6 0
+-1 2 6 0
+2 -1 -4 0
+-3 -4 -5 0
+7 8 4 0
+1 -2 -7 0
+-5 -6 2 0
+-8 7 5 0
+-7 -1 -8 0
+-4 5 7 0
+-2 7 6 0
+8 -3 7 0
+4 2 -5 0
+8 7 5 0
+6 2 -7 0
+-8 -7 5 0
+-7 -2 8 0
+-7 -1 2 0
+8 -6 2 0
+4 -3 -8 0
+2 3 -5 0
+-8 -4 -3 0
+7 -6 -5 0
+5 -6 -4 0
+2 8 3 0
+-7 1 -6 0
+1 7 5 0
+
+c GPT solve time: 19.83 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+Starting with the formula, I'll make decisions and propagate consequences:
+
+**Branch 1**: x1 = true
+- From clause 7: (x1 ∨ ¬x2 ∨ ¬x7), satisfied
+- From clause 27: (¬x7 ∨ x1 ∨ ¬x6), satisfied
+- From clause 28: (x1 ∨ x7 ∨ x5), satisfied
+- From clauses with ¬x1: need to satisfy remaining literals
+  - Clause 1: (x8 ∨ ¬x1 ∨ x4) → (x8 ∨ x4)
+  - Clause 2: (x4 ∨ ¬x1 ∨ ¬x6) → (x4 ∨ ¬x6)
+  - Clause 3: (¬x1 ∨ x2 ∨ x6) → (x2 ∨ x6)
+  - Clause 4: (x2 ∨ ¬x1 ∨ ¬x4) → (x2 ∨ ¬x4)
+  - Clause 10: (¬x7 ∨ ¬x1 ∨ ¬x8) → (¬x7 ∨ ¬x8)
+  - Clause 19: (¬x7 ∨ ¬x1 ∨ x2) → (¬x7 ∨ x2)
+
+**Branch 2**: x2 = true (satisfies clauses 3, 4, 19)
+- Many clauses become satisfied
+- From clause 10: (¬x7 ∨ ¬x8)
+- From clause 18: (¬x7 ∨ ¬x2 ∨ x8) → (¬x7 ∨ x8)
+- This gives us x7 = false (unit propagation)
+
+**Branch 3**: x7 = false (forced)
+- Clause 6: (x7 ∨ x8 ∨ x4) → (x8 ∨ x4)
+- Clause 9: (¬x8 ∨ x7 ∨ x5) → (¬x8 ∨ x5)
+- Clause 11: (¬x4 ∨ x5 ∨ x7) → (¬x4 ∨ x5)
+- Clause 13: (x8 ∨ ¬x3 ∨ x7) → (x8 ∨ ¬x3)
+- Clause 15: (x8 ∨ x7 ∨ x5) → (x8 ∨ x5)
+
+From clauses 1 and 6: we need (x8 ∨ x4)
+From clause 9: (¬x8 ∨ x5)
+From clause 15: (x8 ∨ x5)
+This forces x5 = true
+
+**Branch 4**: x5 = true (forced)
+- Clause 5: (¬x3 ∨ ¬x4 ∨ ¬x5) → (¬x3 ∨ ¬x4)
+- From clauses 1, 6: still need (x8 ∨ x4)
+
+**Branch 5**: x8 = true
+- Satisfies clauses 1, 6, 13, 15
+- From clause 9: already satisfied by x5 = true
+- From clause 23: (¬x8 ∨ ¬x4 ∨ ¬x3) → (¬x4 ∨ ¬x3)
+- Combined with clause 5: (¬x3

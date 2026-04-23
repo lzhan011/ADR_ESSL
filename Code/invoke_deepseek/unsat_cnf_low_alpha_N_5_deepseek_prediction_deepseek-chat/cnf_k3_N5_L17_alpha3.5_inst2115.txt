@@ -1,0 +1,113 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2115
+p cnf 5 17
+-4 -5 -2 0
+-5 -3 4 0
+3 1 -4 0
+-3 5 2 0
+5 -1 4 0
+-2 4 3 0
+-3 2 -5 0
+5 -4 -3 0
+-3 5 -4 0
+-1 3 -2 0
+2 -5 4 0
+-4 3 -5 0
+-1 3 -4 0
+4 5 -3 0
+4 5 -1 0
+3 -4 1 0
+1 5 2 0
+
+c GPT solve time: 72.23 seconds
+
+To solve the given 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step process:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in the order \( x1, x2, x3, x4, x5 \), assigning values to satisfy the formula.
+
+#### Branch 1: \( x1 = \text{True} \)
+- Clause \((x1 \lor x5 \lor x2)\) is satisfied.
+- Clause \((x5 \lor \neg x1 \lor x4)\) simplifies to \((x5 \lor x4)\).
+- Clause \((\neg x1 \lor x3 \lor \neg x2)\) simplifies to \((x3 \lor \neg x2)\).
+- Clause \((\neg x1 \lor x3 \lor \neg x4)\) simplifies to \((x3 \lor \neg x4)\).
+- Clause \((x4 \lor x5 \lor \neg x1)\) simplifies to \((x4 \lor x5)\).
+- Clause \((x3 \lor \neg x4 \lor x1)\) simplifies to \((x3 \lor \neg x4)\).
+
+#### Branch 2: \( x2 = \text{True} \)
+- Clause \((\neg x2 \lor x4 \lor x3)\) simplifies to \((x4 \lor x3)\).
+- Clause \((\neg x3 \lor x2 \lor \neg x5)\) simplifies to \((\neg x3 \lor \neg x5)\).
+- Clause \((x2 \lor \neg x5 \lor x4)\) simplifies to \((\neg x5 \lor x4)\).
+- Clause \((\neg x4 \lor \neg x5 \lor \neg x2)\) simplifies to \((\neg x4 \lor \neg x5)\).
+
+#### Branch 3: \( x3 = \text{True} \)
+- Clause \((x3 \lor x1 \lor \neg x4)\) simplifies to \((\neg x4)\).
+- Clause \((\neg x3 \lor x5 \lor x2)\) simplifies to \((x5)\).
+- Clause \((\neg x3 \lor x5 \lor \neg x4)\) simplifies to \((x5 \lor \neg x4)\).
+- Clause \((\neg x4 \lor x3 \lor \neg x5)\) simplifies to \((\neg x4 \lor \neg x5)\).
+- Clause \((x4 \lor x5 \lor \neg x3)\) simplifies to \((x4 \lor x5)\).
+
+From \((\neg x4)\), we assign \( x4 = \text{False} \).
+
+From \((x5)\), we assign \( x5 = \text{True} \).
+
+Now, check conflicts:
+- Clause \((\neg x4 \lor \neg x5)\) becomes \((\text{True} \lor \text{False}) = \text{True}\) (no conflict).
+- Clause \((x4 \lor x5)\) becomes \((\text{False} \lor \text{True}) = \text{True}\) (no conflict).
+- Clause \((\neg x5 \lor x4)\) becomes \((\text{False} \lor \text{False}) = \text{False}\) (conflict).
+
+#### Conflict Resolution
+Backtrack to \( x5 = \text{False} \).
+
+Now, assign \( x5 = \text{False} \).
+
+Check clauses:
+- Clause \((\neg x4 \lor \neg x5)\) becomes \((\text{False} \lor \text{True}) = \text{True}\).
+- Clause \((x4 \lor x5)\) becomes \((\text{False} \lor \text{False}) = \text{False}\) (conflict).
+
+#### Further Backtracking
+Backtrack to \( x3 = \text{False} \).
+
+Assign \( x3 = \text{False} \).
+
+Now, propagate:
+- Clause \((\neg x3 \lor x5 \lor x2)\) simplifies to \((x5 \lor x2)\).
+- Clause \((\neg x3 \lor x5 \lor \neg x4)\) simplifies to \((x5 \lor \neg x4)\).
+- Clause \((\neg x4 \lor x3 \lor \neg x5)\) simplifies to \((\neg x4 \lor \neg x5)\).
+- Clause \((x4 \lor x5 \lor \neg x3)\) simplifies to \((x4 \lor x5)\).
+
+#### Branch 4: \( x4 = \text{True} \)
+- Clause \((\neg x4 \lor \neg x5 \lor \neg x2)\) simplifies to \((\neg x5 \lor \neg x2)\).
+- Clause \((\neg x5 \lor \neg x3 \lor x4)\) simplifies to \((\neg x5)\).
+- Clause \((x3 \lor x1 \lor \neg x4)\) simplifies to \((x1)\).
+- Clause \((x5 \lor \neg x1 \lor x4)\) simplifies to \((x5 \lor \neg x1)\).
+- Clause \((\neg x2 \lor x4 \lor x3)\) simplifies to \((\neg x2)\).
+- Clause \((\neg x3 \lor x2 \lor \neg x5)\) simplifies to \((x2 \lor \neg x5)\).
+- Clause \((x5 \lor \neg x4 \lor \neg x3)\) simplifies to \((x5)\).
+- Clause \((\neg x3 \lor x5 \lor \neg x4)\) simplifies to \((x5)\).
+- Clause \((\neg x1 \lor x3 \lor \neg x2)\) simplifies to \((\neg x1 \lor \neg x2)\).
+- Clause \((x2 \lor \neg x5 \lor x4)\) simplifies to \((x2 \lor \neg x5)\).
+- Clause \((\neg x4 \lor x3 \lor \neg x5)\) simplifies to \((\neg x5)\).
+- Clause \((\neg x1 \lor x3 \lor \neg x4)\) simplifies to \((\neg x1)\).
+- Clause \((x4 \lor x5 \lor \neg x3)\) simplifies to \((x5)\).
+- Clause \((x4 \lor x5 \lor \neg x1)\) simplifies to \((x5 \lor \neg x1)\).
+- Clause \((x3 \lor \neg x4 \lor x1)\) simplifies to \((x1)\).
+- Clause \((x1 \lor x5 \lor x2)\) simplifies to \((x1 \lor x5 \lor x2)\).
+
+From \((\neg x5)\), assign \( x5 = \text{False} \).
+
+From \((x1)\), assign \( x1 = \text{True} \).
+
+From \((\neg x2)\), assign \( x2 = \text{False} \).
+
+Now, check all clauses:
+- All clauses are satisfied with \( x1 = \text{True}, x2 = \text{False}, x3 = \text{False}, x4 = \text{True}, x5 = \text{False} \).
+
+### Final Answer:
+- **SATISFIABLE**
+- **Branches (decision points): 4**
+- **Conflicts (backtracking steps): 2**
+- **Literal values: \( x1 = \text{True}, x2 = \text{False}, x3 = \text{False}, x4 = \text{True}, x5 = \text{False} \)**

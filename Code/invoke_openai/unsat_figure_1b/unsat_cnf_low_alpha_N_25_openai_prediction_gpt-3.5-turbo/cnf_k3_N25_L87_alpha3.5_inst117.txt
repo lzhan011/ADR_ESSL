@@ -1,0 +1,418 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=117
+p cnf 25 87
+-12 9 -25 0
+24 2 7 0
+-23 -15 -16 0
+14 5 6 0
+3 -1 6 0
+12 -9 19 0
+8 -9 16 0
+18 16 3 0
+-13 -1 3 0
+12 4 19 0
+-11 -14 22 0
+10 -6 -4 0
+9 -13 -8 0
+1 -2 20 0
+-1 24 5 0
+-12 -20 7 0
+19 10 18 0
+13 21 -19 0
+-15 19 -16 0
+23 -14 -9 0
+-14 16 4 0
+-8 25 -12 0
+-11 -22 -25 0
+-5 -11 23 0
+-5 19 -23 0
+-25 18 -16 0
+5 -6 13 0
+14 -16 -17 0
+-11 -22 13 0
+22 -3 -7 0
+-8 -19 24 0
+8 9 23 0
+14 20 -16 0
+-4 12 9 0
+-12 -4 10 0
+-9 -13 25 0
+-18 -4 13 0
+-3 -23 -7 0
+21 -25 -19 0
+23 -20 -19 0
+-4 -9 -24 0
+25 2 19 0
+-2 8 3 0
+25 3 -1 0
+13 4 23 0
+21 5 -1 0
+8 3 7 0
+-5 10 2 0
+-12 1 -7 0
+10 -16 -13 0
+-23 13 11 0
+-7 -19 -2 0
+-5 -20 14 0
+-22 -15 25 0
+-23 25 -2 0
+13 -3 19 0
+23 16 1 0
+-22 -19 15 0
+-9 20 -25 0
+-5 -18 20 0
+-4 -6 -13 0
+-7 -2 -20 0
+13 -4 24 0
+-13 -20 5 0
+20 -5 -19 0
+-1 -5 -3 0
+-20 14 -1 0
+-20 -17 -24 0
+21 -17 -16 0
+-21 -17 7 0
+-11 -20 -21 0
+3 -6 -22 0
+-12 -7 3 0
+22 8 -7 0
+8 -25 23 0
+-13 -3 -23 0
+-16 -14 9 0
+-21 -13 18 0
+-10 -16 -22 0
+20 13 18 0
+-16 -21 -18 0
+-9 1 -15 0
+16 6 12 0
+7 -24 -25 0
+-22 -2 3 0
+4 -7 8 0
+-18 2 3 0
+
+c GPT solve time: 42.71 seconds
+
+1. Start with an empty assignment.
+2. Choose a variable to assign a truth value to. Let's start with x1 = True.
+3. Update the formula based on the assignment:
+   (¬x12 ∨ x9 ∨ ¬x25)
+   (x24 ∨ x2 ∨ x7)
+   (¬x23 ∨ ¬x15 ∨ ¬x16)
+   (x14 ∨ x5 ∨ x6)
+   (x3 ∨ ¬True ∨ x6)
+   (x12 ∨ ¬x9 ∨ x19)
+   (x8 ∨ ¬x9 ∨ x16)
+   (x18 ∨ x16 ∨ x3)
+   (¬x13 ∨ ¬True ∨ x3)
+   (x12 ∨ x4 ∨ x19)
+   (¬x11 ∨ ¬x14 ∨ x22)
+   (x10 ∨ ¬x6 ∨ ¬x4)
+   (x9 ∨ ¬x13 ∨ ¬x8)
+   (True ∨ ¬x2 ∨ x20)
+   (¬True ∨ x24 ∨ x5)
+   (¬x12 ∨ ¬x20 ∨ x7)
+   (x19 ∨ x10 ∨ x18)
+   (x13 ∨ x21 ∨ ¬x19)
+   (¬x15 ∨ x19 ∨ ¬x16)
+   (x23 ∨ ¬x14 ∨ ¬x9)
+   (¬x14 ∨ x16 ∨ x4)
+   (¬x8 ∨ x25 ∨ ¬x12)
+   (¬x11 ∨ ¬x22 ∨ ¬x25)
+   (¬x5 ∨ ¬x11 ∨ x23)
+   (¬x5 ∨ x19 ∨ ¬x23)
+   (¬x25 ∨ x18 ∨ ¬x16)
+   (x5 ∨ ¬x6 ∨ x13)
+   (x14 ∨ ¬x16 ∨ ¬x17)
+   (¬x11 ∨ ¬x22 ∨ x13)
+   (x22 ∨ ¬x3 ∨ ¬x7)
+   (¬x8 ∨ ¬x19 ∨ x24)
+   (x8 ∨ ¬x9 ∨ x23)
+   (x14 ∨ x20 ∨ ¬x16)
+   (¬x4 ∨ x12 ∨ x9)
+   (¬x12 ∨ ¬x4 ∨ x10)
+   (¬x9 ∨ ¬x13 ∨ x25)
+   (¬x18 ∨ ¬x4 ∨ x13)
+   (¬x3 ∨ ¬x23 ∨ ¬x7)
+   (x21 ∨ ¬x25 ∨ ¬x19)
+   (x23 ∨ ¬x20 ∨ ¬x19)
+   (¬x4 ∨ ¬x9 ∨ ¬x24)
+   (x25 ∨ x2 ∨ x19)
+   (¬x2 ∨ x8 ∨ x3)
+   (x25 ∨ x3 ∨ ¬True)
+   (x13 ∨ x4 ∨ x23)
+   (x21 ∨ x5 ∨ ¬True)
+   (x8 ∨ x3 ∨ x7)
+   (¬True ∨ x10 ∨ x2)
+   (¬x12 ∨ True ∨ ¬x7)
+   (x10 ∨ ¬x16 ∨ ¬x13)
+   (¬x23 ∨ x13 ∨ ¬x11)
+   (¬x7 ∨ ¬x19 ∨ ¬x2)
+   (¬True ∨ ¬x20 ∨ x14)
+   (¬x22 ∨ ¬x15 ∨ x25)
+   (¬x23 ∨ x25 ∨ ¬x2)
+   (x13 ∨ ¬True ∨ x19)
+   (x23 ∨ x16 ∨ True)
+   (¬x22 ∨ ¬x19 ∨ x15)
+   (¬x9 ∨ x20 ∨ ¬x25)
+   (¬True ∨ ¬x18 ∨ x14)
+   (¬x4 ∨ ¬x6 ∨ ¬True)
+   (¬x7 ∨ ¬x2 ∨ ¬True)
+   (x13 ∨ ¬x4 ∨ x24)
+   (¬x13 ∨ ¬True ∨ x5)
+   (¬True ∨ x14 ∨ ¬True)
+   (¬True ∨ ¬True ∨ ¬x24)
+   (x21 ∨ ¬True ∨ ¬x16)
+   (¬x21 ∨ ¬True ∨ True)
+   (¬x11 ∨ ¬True ∨ ¬True)
+   (x3 ∨ ¬True ∨ ¬x22)
+   (¬x12 ∨ ¬True ∨ x3)
+   (x22 ∨ x8 ∨ ¬True)
+   (x8 ∨ ¬x25 ∨ True)
+   (¬True ∨ ¬x3 ∨ ¬x23)
+   (¬True ∨ ¬True ∨ x9)
+   (¬x21 ∨ ¬True ∨ True)
+   (¬True ∨ ¬True ∨ ¬x22)
+   (True ∨ True ∨ ¬x18)
+4. Choose x2 = True.
+5. Update the formula based on the assignment:
+   (¬x12 ∨ x9 ∨ ¬x25)
+   (x24 ∨ True ∨ x7)
+   (¬x23 ∨ ¬x15 ∨ ¬x16)
+   (x14 ∨ x5 ∨ x6)
+   (x3 ∨ ¬True ∨ x6)
+   (x12 ∨ ¬x9 ∨ x19)
+   (x8 ∨ ¬x9 ∨ x16)
+   (x18 ∨ x16 ∨ x3)
+   (¬x13 ∨ ¬True ∨ x3)
+   (x12 ∨ x4 ∨ x19)
+   (¬x11 ∨ ¬x14 ∨ x22)
+   (x10 ∨ ¬x6 ∨ ¬x4)
+   (x9 ∨ ¬x13 ∨ ¬x8)
+   (True ∨ ¬True ∨ x20)
+   (¬True ∨ x24 ∨ x5)
+   (¬x12 ∨ ¬x20 ∨ x7)
+   (x19 ∨ x10 ∨ x18)
+   (x13 ∨ x21 ∨ ¬x19)
+   (¬x15 ∨ x19 ∨ ¬x16)
+   (x23 ∨ ¬x14 ∨ ¬x9)
+   (¬x14 ∨ x16 ∨ x4)
+   (¬x8 ∨ x25 ∨ ¬x12)
+   (¬x11 ∨ ¬x22 ∨ ¬x25)
+   (¬x5 ∨ ¬x11 ∨ x23)
+   (¬x5 ∨ x19 ∨ ¬x23)
+   (¬x25 ∨ x18 ∨ ¬x16)
+   (x5 ∨ ¬x6 ∨ x13)
+   (x14 ∨ ¬x16 ∨ ¬x17)
+   (¬x11 ∨ ¬x22 ∨ x13)
+   (x22 ∨ ¬x3 ∨ ¬x7)
+   (¬x8 ∨ ¬x19 ∨ x24)
+   (x8 ∨ ¬x9 ∨ x23)
+   (x14 ∨ x20 ∨ ¬x16)
+   (¬x4 ∨ x12 ∨ x9)
+   (¬x12 ∨ ¬x4 ∨ x10)
+   (¬x9 ∨ ¬x13 ∨ x25)
+   (¬x18 ∨ ¬x4 ∨ x13)
+   (¬x3 ∨ ¬x23 ∨ ¬x7)
+   (x21 ∨ ¬x25 ∨ ¬x19)
+   (x23 ∨ ¬True ∨ ¬x19)
+   (¬x4 ∨ ¬x9 ∨ ¬x24)
+   (x25 ∨ True ∨ x19)
+   (¬True ∨ True ∨ x3)
+   (x13 ∨ x4 ∨ x23)
+   (x21 ∨ x5 ∨ ¬True)
+   (x8 ∨ x3 ∨ x7)
+   (¬True ∨ x10 ∨ True)
+   (¬x12 ∨ True ∨ ¬x7)
+   (x10 ∨ ¬x16 ∨ ¬x13)
+   (¬x23 ∨ x13 ∨ ¬x11)
+   (¬x7 ∨ ¬x19 ∨ ¬True)
+   (¬True ∨ ¬True ∨ x14)
+   (¬x22 ∨ ¬x15 ∨ True)
+   (¬x23 ∨ True ∨ ¬True)
+   (x13 ∨ ¬True ∨ x19)
+   (True ∨ x16 ∨ True)
+   (¬x22 ∨ ¬True ∨ True)
+   (¬x9 ∨ True ∨ ¬x25)
+   (¬True ∨ ¬True ∨ True)
+   (¬x4 ∨ ¬True ∨ ¬True)
+   (¬True ∨ ¬True ∨ ¬True)
+   (True ∨ ¬True ∨ ¬x24)
+   (True ∨ ¬True ∨ ¬True)
+   (True ∨ True ∨ ¬x18)
+6. Choose x3 = True.
+7. Update the formula based on the assignment:
+   (¬x12 ∨ x9 ∨ ¬x25)
+   (x24 ∨ True ∨ x7)
+   (¬x23 ∨ ¬x15 ∨ ¬x16)
+   (x14 ∨ x5 ∨ x6)
+   (True ∨ ¬True ∨ x6)
+   (x12 ∨ ¬x9 ∨ x19)
+   (x8 ∨ ¬x9 ∨ x16)
+   (x18 ∨ x16 ∨ True)
+   (¬x13 ∨ ¬True ∨ True)
+   (x12 ∨ x4 ∨ x19)
+   (¬x11 ∨ ¬x14 ∨ x22)
+   (x10 ∨ ¬True ∨ ¬x4)
+   (x9 ∨ ¬True ∨ ¬x8)
+   (True ∨ ¬True ∨ x20)
+   (¬True ∨ x24 ∨ x5)
+   (¬x12 ∨ ¬x20 ∨ x7)
+   (x19 ∨ x10 ∨ True)
+   (True ∨ x21 ∨ ¬x19)
+   (¬x15 ∨ True ∨ ¬x16)
+   (True ∨ ¬x14 ∨ ¬x9)
+   (¬x14 ∨ True ∨ x4)
+   (¬x8 ∨ x25 ∨ ¬x12)
+   (¬x11 ∨ ¬x22 ∨ ¬x25)
+   (¬x5 ∨ ¬x11 ∨ True)
+   (¬x5 ∨ True ∨ ¬True)
+   (¬x25 ∨ True ∨ ¬True)
+   (True ∨ ¬True ∨ x13)
+   (True ∨ ¬True ∨ ¬x17)
+   (¬x11 ∨ ¬x22 ∨ True)
+   (x22 ∨ True ∨ ¬x7)
+   (¬x8 ∨ ¬True ∨ x24)
+   (True ∨ ¬True ∨ True)
+   (True ∨ ¬True ∨ True)
+   (True ∨ ¬x9 ∨ True)
+   (¬x18 ∨ True ∨ True)
+   (¬True ∨ ¬True ∨ ¬x7)
+   (True ∨ ¬True ∨ True)
+   (True ∨ ¬True ∨ True)
+   (¬x21 ∨ True ∨ ¬True)
+   (True ∨ ¬True ∨ True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)
+   (True ∨ True ∨ ¬True)

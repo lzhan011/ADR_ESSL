@@ -1,0 +1,356 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=571
+p cnf 10 35
+-3 9 -6 0
+-4 2 3 0
+-10 -3 -7 0
+3 -5 -6 0
+1 6 5 0
+-1 -3 -10 0
+2 -9 -8 0
+-3 -9 4 0
+6 3 -9 0
+5 -9 -2 0
+1 -7 -2 0
+-9 10 8 0
+-3 6 8 0
+-6 9 8 0
+4 -1 -8 0
+-6 -10 -3 0
+-7 9 2 0
+9 3 -5 0
+1 -10 8 0
+-5 -7 9 0
+8 -7 -10 0
+3 -1 8 0
+-6 -8 5 0
+7 -8 -1 0
+-8 -1 -2 0
+5 -1 -2 0
+-7 -6 -8 0
+-4 3 1 0
+-8 -6 -7 0
+7 -10 4 0
+6 -8 -3 0
+2 5 3 0
+6 3 5 0
+-5 -7 1 0
+-4 -8 10 0
+
+c GPT solve time: 68.82 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List all variables:**  
+x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+
+**Step 2: Start with x1 = True (branch 1)**
+
+---
+
+### Branch 1: x1 = True
+
+#### Propagate x1 = True
+
+- Clause 5: (x1 ∨ x6 ∨ x5) → Satisfied
+- Clause 11: (x1 ∨ ¬x7 ∨ ¬x2) → Satisfied
+- Clause 19: (x1 ∨ ¬x10 ∨ x8) → Satisfied
+- Clause 22: (x3 ∨ ¬x1 ∨ x8) → (x3 ∨ x8)
+- Clause 25: (¬x8 ∨ ¬x1 ∨ ¬x2) → (¬x8 ∨ ¬x2)
+- Clause 26: (x5 ∨ ¬x1 ∨ ¬x2) → (x5 ∨ ¬x2)
+- Clause 28: (¬x4 ∨ x3 ∨ x1) → Satisfied
+- Clause 24: (x7 ∨ ¬x8 ∨ ¬x1) → (x7 ∨ ¬x8)
+- Clause 15: (x4 ∨ ¬x1 ∨ ¬x8) → (x4 ∨ ¬x8)
+
+#### Choose x2 = True (branch 2)
+
+---
+
+### Branch 2: x2 = True
+
+- Clause 2: (¬x4 ∨ x2 ∨ x3) → Satisfied
+- Clause 7: (x2 ∨ ¬x9 ∨ ¬x8) → Satisfied
+- Clause 10: (x5 ∨ ¬x9 ∨ ¬x2) → (x5 ∨ ¬x9)
+- Clause 16: (¬x7 ∨ x9 ∨ x2) → Satisfied
+- Clause 31: (x2 ∨ x5 ∨ x3) → Satisfied
+- Clause 25: (¬x8 ∨ ¬x2) → (¬x8)
+- Clause 26: (x5 ∨ ¬x2) → (x5)
+- Clause 11: Already satisfied
+- Clause 24: (x7 ∨ ¬x8)
+- Clause 15: (x4 ∨ ¬x8)
+
+#### Unit propagate: (¬x8) ⇒ x8 = False
+
+---
+
+### Propagate x8 = False
+
+- Clause 7: Already satisfied
+- Clause 12: (¬x9 ∨ x10 ∨ x8) → (¬x9 ∨ x10)
+- Clause 13: (¬x3 ∨ x6 ∨ x8) → (¬x3 ∨ x6)
+- Clause 14: (¬x6 ∨ x9 ∨ x8) → (¬x6 ∨ x9)
+- Clause 15: (x4 ∨ ¬x8) → Satisfied
+- Clause 21: (x8 ∨ ¬x7 ∨ ¬x10) → (¬x7 ∨ ¬x10)
+- Clause 22: (x3 ∨ x8) → (x3)
+- Clause 23: (¬x6 ∨ ¬x8 ∨ x5) → (¬x6 ∨ x5)
+- Clause 24: (x7 ∨ ¬x8) → Satisfied
+- Clause 25: Already satisfied
+- Clause 27: (¬x7 ∨ ¬x6 ∨ ¬x8) → (¬x7 ∨ ¬x6)
+- Clause 29: (¬x8 ∨ ¬x6 ∨ ¬x7) → (¬x6 ∨ ¬x7)
+- Clause 30: (x7 ∨ ¬x10 ∨ x4)
+- Clause 31: Already satisfied
+- Clause 32: (x6 ∨ x3 ∨ x5)
+- Clause 34: (¬x4 ∨ ¬x8 ∨ x10) → (¬x4 ∨ x10)
+
+#### Unit propagate: (x5), (x3)
+
+---
+
+### Propagate x5 = True, x3 = True
+
+- Clause 4: (x3 ∨ ¬x5 ∨ ¬x6) → Satisfied
+- Clause 18: (x9 ∨ x3 ∨ ¬x5) → Satisfied
+- Clause 26: Already satisfied
+- Clause 32: (x6 ∨ x3 ∨ x5) → Satisfied
+- Clause 33: (¬x5 ∨ ¬x7 ∨ x1) → (¬x7 ∨ x1) (since x5 = True, ¬x5 = False)
+- Clause 10: (x5 ∨ ¬x9) → Satisfied
+
+#### Propagate x3 = True
+
+- Clause 1: (¬x3 ∨ x9 ∨ ¬x6) → (x9 ∨ ¬x6)
+- Clause 3: (¬x10 ∨ ¬x3 ∨ ¬x7) → (¬x10 ∨ ¬x7)
+- Clause 6: (¬x1 ∨ ¬x3 ∨ ¬x10) → (¬x1 ∨ ¬x10)
+- Clause 8: (¬x3 ∨ ¬x9 ∨ x4) → (¬x9 ∨ x4)
+- Clause 9: (x6 ∨ x3 ∨ ¬x9) → Satisfied
+- Clause 13: (¬x3 ∨ x6) → (x6)
+- Clause 22: Already satisfied
+- Clause 28: Already satisfied
+- Clause 31: Already satisfied
+- Clause 32: Already satisfied
+
+#### Unit propagate: (x6)
+
+---
+
+### Propagate x6 = True
+
+- Clause 1: (x9 ∨ ¬x6) → (x9)
+- Clause 13: Already satisfied
+- Clause 14: (¬x6 ∨ x9) → (x9)
+- Clause 16: (¬x6 ∨ ¬x10 ∨ ¬x3) → (¬x10)
+- Clause 23: (¬x6 ∨ x5) → Satisfied
+- Clause 27: (¬x7 ∨ ¬x6) → (¬x7)
+- Clause 29: (¬x6 ∨ ¬x7) → (¬x7)
+- Clause 31: Already satisfied
+- Clause 32: Already satisfied
+
+#### Unit propagate: (x9), (¬x10), (¬x7)
+
+---
+
+### Propagate x9 = True, x10 = False, x7 = False
+
+- Clause 1: Satisfied
+- Clause 3: (¬x10 ∨ ¬x7) → Satisfied
+- Clause 6: (¬x1 ∨ ¬x10) → Satisfied
+- Clause 8: (¬x9 ∨ x4) → (x4)
+- Clause 12: (¬x9 ∨ x10) → (x10) (but x10 = False, so (¬x9) must be True, but x9 = True, so clause is False) **CONFLICT**
+
+---
+
+### Conflict encountered. Backtrack.
+
+#### Backtrack to last decision: x2 = True → x2 = False (branch 3)
+**Branches so far: 2, Conflicts: 1**
+
+---
+
+### Branch 3: x1 = True, x2 = False
+
+- Clause 2: (¬x4 ∨ x2 ∨ x3) → (¬x4 ∨ x3)
+- Clause 7: (x2 ∨ ¬x9 ∨ ¬x8) → (¬x9 ∨ ¬x8)
+- Clause 10: (x5 ∨ ¬x9 ∨ ¬x2) → (x5 ∨ ¬x9)
+- Clause 16: (¬x7 ∨ x9 ∨ x2) → (¬x7 ∨ x9)
+- Clause 25: (¬x8 ∨ ¬x1 ∨ ¬x2) → (¬x8 ∨ ¬x1)
+- Clause 26: (x5 ∨ ¬x1 ∨ ¬x2) → (x5 ∨ ¬x1)
+- Clause 31: (x2 ∨ x5 ∨ x3) → (x5 ∨ x3)
+
+#### Try x3 = True (branch 4)
+
+---
+
+### Branch 4: x1 = True, x2 = False, x3 = True
+
+- Clause 1: (¬x3 ∨ x9 ∨ ¬x6) → (x9 ∨ ¬x6)
+- Clause 2: (¬x4 ∨ x3) → (¬x4 ∨ True) → Satisfied
+- Clause 4: (x3 ∨ ¬x5 ∨ ¬x6) → Satisfied
+- Clause 6: (¬x1 ∨ ¬x3 ∨ ¬x10) → (¬x1 ∨ ¬x10)
+- Clause 8: (¬x3 ∨ ¬x9 ∨ x4) → (¬x9 ∨ x4)
+- Clause 9: (x6 ∨ x3 ∨ ¬x9) → Satisfied
+- Clause 13: (¬x3 ∨ x6 ∨ x8) → (x6 ∨ x8)
+- Clause 16: (¬x7 ∨ x9) 
+- Clause 18: (x9 ∨ x3 ∨ ¬x5) → Satisfied
+- Clause 22: (x3 ∨ ¬x1 ∨ x8) → Satisfied
+- Clause 28: (¬x4 ∨ x3 ∨ x1) → Satisfied
+- Clause 31: (x5 ∨ x3) → Satisfied
+- Clause 32: (x6 ∨ x3 ∨ x5) → Satisfied
+
+#### Try x5 = True (branch 5)
+
+---
+
+### Branch 5: x1 = True, x2 = False, x3 = True, x5 = True
+
+- Clause 10: (x5 ∨ ¬x9) → Satisfied
+- Clause 26: (x5 ∨ ¬x1) → Satisfied
+- Clause 32: Already satisfied
+- Clause 33: (¬x5 ∨ ¬x7 ∨ x1) → (¬x7 ∨ x1) (since x5 = True)
+- Clause 4: Already satisfied
+- Clause 18: Already satisfied
+- Clause 31: Already satisfied
+
+#### Try x6 = True (branch 6)
+
+---
+
+### Branch 6: x1 = True, x2 = False, x3 = True, x5 = True, x6 = True
+
+- Clause 1: (x9 ∨ ¬x6) → (x9)
+- Clause 13: (x6 ∨ x8) → (True ∨ x8) → Satisfied
+- Clause 14: (¬x6 ∨ x9 ∨ x8) → (x9 ∨ x8)
+- Clause 16: (¬x7 ∨ x9) 
+- Clause 23: (¬x6 ∨ x5) → Satisfied
+- Clause 27: (¬x7 ∨ ¬x6) → (¬x7)
+- Clause 29: (¬x6 ∨ ¬x7) → (¬x7)
+- Clause 32: Already satisfied
+
+#### Unit propagate: x9, ¬x7
+
+---
+
+### Propagate x9 = True, x7 = False
+
+- Clause 1: Satisfied
+- Clause 3: (¬x10 ∨ ¬x3 ∨ ¬x7) → (¬x10 ∨ ¬x3 ∨ True) → Satisfied
+- Clause 8: (¬x9 ∨ x4) → (x4)
+- Clause 12: (¬x9 ∨ x10 ∨ x8) → (x10 ∨ x8)
+- Clause 14: (x9 ∨ x8) → Satisfied
+- Clause 16: (¬x7 ∨ x9) → Satisfied
+- Clause 17: (x9 ∨ x2 ∨ ¬x7) → Satisfied
+- Clause 20: (¬x5 ∨ ¬x7 ∨ x9) → Satisfied
+- Clause 27: Already satisfied
+- Clause 29: Already satisfied
+
+#### Unit propagate: x4
+
+---
+
+### Propagate x4 = True
+
+- Clause 2: Already satisfied
+- Clause 8: Already satisfied
+- Clause 15: (x4 ∨ ¬x8) → (True ∨ ¬x8) → Satisfied
+- Clause 28: Already satisfied
+- Clause 30: (x7 ∨ ¬x10 ∨ x4) → (False ∨ ¬x10 ∨ True) → Satisfied
+- Clause 34: (¬x4 ∨ ¬x8 ∨ x10) → (¬x8 ∨ x10)
+
+#### Now, try x8 = False (from clause 25: (¬x8 ∨ ¬x1) → (¬x8 ∨ False) → (¬x8))
+
+---
+
+### Propagate x8 = False
+
+- Clause 7: (¬x9 ∨ ¬x8) → Satisfied
+- Clause 12: (x10 ∨ x8) → (x10)
+- Clause 13: Already satisfied
+- Clause 14: Already satisfied
+- Clause 15: Already satisfied
+- Clause 21: (¬x7 ∨ ¬x10) (since x8 = False, x7 = False, so Satisfied)
+- Clause 22: Already satisfied
+- Clause 23: (¬x6 ∨ x5) → Satisfied
+- Clause 24: (x7 ∨ ¬x8) → Satisfied
+- Clause 25: Already satisfied
+- Clause 27: Already satisfied
+- Clause 29: Already satisfied
+- Clause 34: (¬x8 ∨ x10) → (x10)
+
+#### Unit propagate: x10 = True
+
+---
+
+### Propagate x10 = True
+
+- Clause 3: (¬x10 ∨ ¬x3 ∨ ¬x7) → (False ∨ False ∨ True) → Satisfied
+- Clause 6: (¬x1 ∨ ¬x3 ∨ ¬x10) → (False ∨ False ∨ False) → **CONFLICT**
+
+---
+
+### Conflict encountered. Backtrack.
+
+#### Backtrack to last decision: x8 = False → x8 = True (branch 7)
+**Branches so far: 6, Conflicts: 2**
+
+---
+
+### Branch 7: x1 = True, x2 = False, x3 = True, x5 = True, x6 = True, x9 = True, x7 = False, x4 = True, x8 = True
+
+- Clause 6: (¬x1 ∨ ¬x3 ∨ ¬x10) → (False ∨ False ∨ ¬x10) → (¬x10)
+- Clause 12: (¬x9 ∨ x10 ∨ x8) → (False ∨ x10 ∨ True) → Satisfied
+- Clause 34: (¬x4 ∨ ¬x8 ∨ x10) → (False ∨ False ∨ x10) → (x10)
+
+#### Unit propagate: x10 = False and x10 = True → **CONFLICT**
+
+---
+
+### Conflict encountered. Backtrack.
+
+#### Backtrack to last decision: x6 = True → x6 = False (branch 8)
+**Branches so far: 7, Conflicts: 3**
+
+---
+
+### Branch 8: x1 = True, x2 = False, x3 = True, x5 = True, x6 = False
+
+- Clause 1: (x9 ∨ ¬x6) → Satisfied
+- Clause 13: (x6 ∨ x8) → (x8)
+- Clause 14: (¬x6 ∨ x9 ∨ x8) → Satisfied
+- Clause 16: (¬x6 ∨ ¬x10 ∨ ¬x3) → Satisfied
+- Clause 23: (¬x6 ∨ x5) → Satisfied
+- Clause 27: (¬x7 ∨ ¬x6) → Satisfied
+- Clause 29: (¬x6 ∨ ¬x7) → Satisfied
+- Clause 32: (x6 ∨ x3 ∨ x5) → Satisfied
+
+#### Unit propagate: x8 = True
+
+---
+
+### Propagate x8 = True
+
+- Clause 7: (¬x9 ∨ ¬x8) → (¬x9)
+- Clause 12: (¬x9 ∨ x10 ∨ x8) → (¬x9 ∨ x10 ∨ True) → Satisfied
+- Clause 13: Already satisfied
+- Clause 14: Already satisfied
+- Clause 15: (x4 ∨ ¬x8) → (x4)
+- Clause 21: (x8 ∨ ¬x7 ∨ ¬x10) → Satisfied
+- Clause 22: (x3 ∨ ¬x1 ∨ x8) → Satisfied
+- Clause 23: Already satisfied
+- Clause 24: (x7 ∨ ¬x8) → (x7)
+- Clause 25: (¬x8 ∨ ¬x1) → (¬x1)
+- Clause 27: Already satisfied
+- Clause 29: Already satisfied
+- Clause 34: (¬x4 ∨ ¬x8 ∨ x10) → (¬x4 ∨ x10)
+
+#### Unit propagate: x4, x7, ¬x1
+
+But x1 = True, so (¬x1) is False. **CONFLICT**
+
+---
+
+### Conflict encountered. Backtrack.
+
+#### Backtrack to last decision: x5 = True → x5 = False (branch 9)
+**Branches so far: 8, Conflicts: 4**
+
+---
+
+### Branch 9: x1 =

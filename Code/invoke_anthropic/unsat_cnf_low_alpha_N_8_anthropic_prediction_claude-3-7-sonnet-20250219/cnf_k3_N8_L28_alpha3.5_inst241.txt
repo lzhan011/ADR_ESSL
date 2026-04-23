@@ -1,0 +1,76 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=241
+p cnf 8 28
+4 -5 8 0
+-8 7 3 0
+1 -2 -5 0
+8 -5 3 0
+-8 -1 -4 0
+6 -5 1 0
+-3 -5 -6 0
+-8 -3 5 0
+-8 4 5 0
+-7 -4 5 0
+8 7 1 0
+6 -3 -4 0
+6 1 -4 0
+8 -7 -4 0
+1 3 -4 0
+-2 -6 -7 0
+5 4 -7 0
+6 -2 -1 0
+-2 -5 4 0
+2 4 -5 0
+-1 8 2 0
+-8 6 7 0
+4 1 -6 0
+-2 5 -4 0
+6 -3 8 0
+4 6 5 0
+3 4 -1 0
+-1 8 5 0
+
+c GPT solve time: 11.56 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by making decisions and performing unit propagation:
+
+Decision 1: x1 = true
+- No unit clauses created
+
+Decision 2: x2 = true
+- No unit clauses created
+
+Decision 3: x3 = true
+- From (¬x3 ∨ ¬x5 ∨ ¬x6), if x3 = true, we need (¬x5 ∨ ¬x6) to be true
+- From (¬x8 ∨ ¬x3 ∨ x5), if x3 = true, we need (¬x8 ∨ x5) to be true
+
+Decision 4: x4 = true
+- From (¬x8 ∨ ¬x1 ∨ ¬x4), with x1 = true and x4 = true, we need ¬x8 to be true
+- So x8 = false by unit propagation
+- From (x8 ∨ ¬x5 ∨ x3), with x8 = false and x3 = true, we need ¬x5 to be true
+- So x5 = false by unit propagation
+- From (x4 ∨ x6 ∨ x5), with x4 = true, this clause is satisfied
+- From (x2 ∨ x4 ∨ ¬x5), with x4 = true and x5 = false, this clause is satisfied
+
+Decision 5: x6 = true
+- From (¬x3 ∨ ¬x5 ∨ ¬x6), with x3 = true, x5 = false, and x6 = true, this clause is satisfied
+
+Decision 6: x7 = true
+- From (¬x2 ∨ ¬x6 ∨ ¬x7), with x2 = true, x6 = true, and x7 = true, we have a conflict!
+
+Backtrack to x7 = false
+- From (¬x8 ∨ x7 ∨ x3), with x8 = false, x7 = false, and x3 = true, this clause is satisfied
+- From (x8 ∨ x7 ∨ x1), with x8 = false, x7 = false, and x1 = true, this clause is satisfied
+- From (x8 ∨ ¬x7 ∨ ¬x4), with x8 = false, x7 = false, and x4 = true, this clause is satisfied
+- From (x5 ∨ x4 ∨ ¬x7), with x5 = false, x4 = true, and x7 = false, this clause is satisfied
+- From (¬x8 ∨ x6 ∨ x7), with x8 = false, x6 = true, and x7 = false, this clause is satisfied
+
+All clauses are satisfied with the assignment:
+x1 = true, x2 = true, x3 = true, x4 = true, x5 = false, x6 = true, x7 = false, x8 = false
+
+SATISFIABLE
+Number of branches: 6
+Number of conflicts: 1
+x1 = true, x2 = true, x3 = true, x4 = true, x5 = false, x6 = true, x7 = false, x8 = false

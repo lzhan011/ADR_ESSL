@@ -1,0 +1,478 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=1738
+p cnf 50 180
+-16 11 15 0
+-16 27 46 0
+-28 -29 37 0
+-18 15 36 0
+32 3 38 0
+-1 -2 -33 0
+-5 36 26 0
+11 -22 42 0
+-33 -3 50 0
+-6 -3 9 0
+-3 -25 -4 0
+28 43 -6 0
+44 -25 -35 0
+15 36 9 0
+-18 12 35 0
+-27 9 33 0
+-32 -6 35 0
+21 46 16 0
+-18 -22 -2 0
+-7 -44 -17 0
+48 44 21 0
+-33 32 18 0
+4 1 12 0
+-22 -7 4 0
+-45 -15 18 0
+-38 -25 24 0
+-49 -24 40 0
+27 18 -12 0
+-36 40 47 0
+-31 -29 -28 0
+15 37 -3 0
+1 -2 -24 0
+43 2 -34 0
+45 -11 42 0
+-29 44 12 0
+4 -20 -49 0
+-8 27 -19 0
+-50 -29 45 0
+-27 -4 14 0
+-36 -21 -25 0
+-39 -40 15 0
+-47 39 23 0
+-30 -14 -35 0
+-40 29 35 0
+-5 -38 13 0
+14 21 -15 0
+2 36 48 0
+-8 48 -6 0
+-34 8 2 0
+-24 17 19 0
+-45 -29 -49 0
+12 27 39 0
+21 2 31 0
+-21 11 20 0
+-27 -33 2 0
+34 21 13 0
+-29 47 46 0
+14 24 50 0
+-39 -36 18 0
+38 37 -44 0
+-7 19 1 0
+41 6 -14 0
+46 -10 -30 0
+-50 -25 18 0
+-16 22 23 0
+-9 50 -45 0
+2 47 27 0
+-22 -4 19 0
+34 2 8 0
+-18 11 25 0
+40 19 -35 0
+-20 -43 -12 0
+-44 -4 34 0
+-33 -35 48 0
+-46 -2 -30 0
+-2 6 22 0
+-14 4 -41 0
+-18 39 -49 0
+-34 2 -46 0
+10 25 -3 0
+-24 -48 -38 0
+-43 -1 44 0
+40 9 -6 0
+-38 36 -31 0
+-12 10 -46 0
+23 -12 19 0
+46 27 -9 0
+31 46 -16 0
+-28 -46 -30 0
+46 37 45 0
+-13 -23 -17 0
+50 -28 36 0
+-16 50 20 0
+30 -25 -21 0
+31 -6 42 0
+-17 49 -12 0
+25 -4 -20 0
+50 -47 -41 0
+41 -49 13 0
+-36 23 28 0
+-50 25 20 0
+-3 -17 -35 0
+-39 -41 -18 0
+-2 36 45 0
+8 -1 -6 0
+23 25 16 0
+-30 34 -16 0
+33 41 -48 0
+-22 42 45 0
+15 30 33 0
+21 3 -47 0
+-19 -43 -44 0
+-33 -24 -32 0
+-34 41 17 0
+-5 6 49 0
+13 34 32 0
+34 -20 -33 0
+-13 33 9 0
+40 -42 50 0
+-30 27 -49 0
+40 -45 -20 0
+-16 -23 -45 0
+26 5 -21 0
+23 26 31 0
+-34 30 -2 0
+-14 -34 1 0
+-13 -24 25 0
+-17 50 39 0
+-22 4 17 0
+1 -29 26 0
+-12 -20 26 0
+15 16 43 0
+20 4 -6 0
+-4 8 -13 0
+8 39 22 0
+-8 34 35 0
+-6 14 30 0
+-15 -12 34 0
+-30 -29 -26 0
+-28 37 -50 0
+19 -18 44 0
+24 47 -37 0
+-50 -16 44 0
+26 31 25 0
+-33 29 -41 0
+-37 -41 -39 0
+45 10 -42 0
+35 -36 49 0
+-43 45 -9 0
+19 -3 -30 0
+30 -12 -36 0
+-3 -39 17 0
+13 46 -31 0
+-35 -21 41 0
+-34 -6 -18 0
+43 -34 -50 0
+-36 -21 34 0
+-10 -48 -6 0
+8 15 -27 0
+-33 -15 23 0
+-1 -42 8 0
+-11 42 17 0
+29 30 -25 0
+25 37 49 0
+2 -9 4 0
+-50 40 4 0
+33 10 -13 0
+13 26 39 0
+20 -9 -35 0
+13 12 1 0
+-15 -39 -2 0
+-43 -30 36 0
+-27 -50 -37 0
+-4 -26 -33 0
+-4 -29 12 0
+-4 -12 39 0
+-46 16 44 0
+-22 47 -35 0
+48 16 37 0
+49 31 -29 0
+
+c GPT solve time: 156.73 seconds
+
+Let's proceed step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Step 1: List all variables.**  
+Variables: x1, x2, ..., x50
+
+**Step 2: Look for unit clauses and pure literals.**  
+There are no unit clauses or pure literals in the initial formula.
+
+**Step 3: Choose a branching variable.**  
+Let's pick the smallest index: x1.
+
+---
+
+### Branch 1: x1 = TRUE
+
+- Propagate x1 = TRUE.
+- Check for conflicts: None immediately.
+- No unit propagation triggered.
+
+#### Branch 1.1: x2 = TRUE
+
+- Propagate x2 = TRUE.
+- Check for conflicts: None immediately.
+
+##### Branch 1.1.1: x3 = TRUE
+
+- Propagate x3 = TRUE.
+- Check for conflicts: None immediately.
+
+Continue this process, assigning variables in order, propagating, and checking for conflicts.
+
+---
+
+Given the size of the formula, let's check for early conflicts in the first few assignments.
+
+#### Check for early conflicts
+
+- (¬x1 ∨ ¬x2 ∨ ¬x33): x1=TRUE, x2=TRUE ⇒ clause becomes (¬x33)
+- (x4 ∨ x1 ∨ x12): x1=TRUE ⇒ satisfied
+- (x1 ∨ ¬x2 ∨ ¬x24): x1=TRUE ⇒ satisfied
+- (x8 ∨ ¬x1 ∨ ¬x6): x1=TRUE ⇒ clause becomes (x8 ∨ ¬x6)
+- (¬x43 ∨ ¬x1 ∨ x44): x1=TRUE ⇒ clause becomes (¬x43 ∨ x44)
+
+So, after x1=TRUE, x2=TRUE, we have a unit clause (¬x33).
+
+##### Assign x33 = FALSE
+
+- Propagate x33 = FALSE.
+- (¬x33 ∨ ¬x3 ∨ x50): x33=FALSE ⇒ clause becomes (¬x3 ∨ x50)
+- (¬x33 ∨ x32 ∨ x18): x33=FALSE ⇒ clause becomes (x32 ∨ x18)
+- (¬x33 ∨ ¬x35 ∨ x48): x33=FALSE ⇒ clause becomes (¬x35 ∨ x48)
+- (¬x33 ∨ ¬x24 ∨ ¬x32): x33=FALSE ⇒ clause becomes (¬x24 ∨ ¬x32)
+- (¬x33 ∨ x29 ∨ ¬x41): x33=FALSE ⇒ clause becomes (x29 ∨ ¬x41)
+- (¬x33 ∨ ¬x15 ∨ x23): x33=FALSE ⇒ clause becomes (¬x15 ∨ x23)
+
+No immediate conflicts.
+
+##### Continue with x3 = TRUE
+
+- (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ clause becomes (¬x25 ∨ ¬x4)
+- (¬x3 ∨ ¬x17 ∨ ¬x35): x3=TRUE ⇒ clause becomes (¬x17 ∨ ¬x35)
+- (x32 ∨ x3 ∨ x38): x3=TRUE ⇒ satisfied
+- (¬x33 ∨ ¬x3 ∨ x50): x33=FALSE, x3=TRUE ⇒ clause becomes (x50)
+- (x15 ∨ x37 ∨ ¬x3): x3=TRUE ⇒ clause becomes (x15 ∨ x37)
+
+Now, we have a unit clause (x50).
+
+##### Assign x50 = TRUE
+
+- Propagate x50 = TRUE.
+- (¬x50 ∨ ¬x29 ∨ x45): x50=TRUE ⇒ clause becomes (¬x29 ∨ x45)
+- (¬x50 ∨ ¬x25 ∨ x18): x50=TRUE ⇒ clause becomes (¬x25 ∨ x18)
+- (¬x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ clause becomes (¬x47 ∨ ¬x41)
+- (¬x50 ∨ x40 ∨ x4): x50=TRUE ⇒ clause becomes (x40 ∨ x4)
+- (¬x50 ∨ ¬x16 ∨ x44): x50=TRUE ⇒ clause becomes (¬x16 ∨ x44)
+- (¬x50 ∨ x25 ∨ x20): x50=TRUE ⇒ clause becomes (x25 ∨ x20)
+- (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+- (x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ satisfied
+- (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+- (x14 ∨ x24 ∨ x50): x50=TRUE ⇒ satisfied
+
+No immediate conflicts.
+
+##### Now, (¬x3 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x33 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x1 ∨ ¬x2 ∨ ¬x33): already satisfied.
+
+##### Now, (¬x33 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x33 ∨ x32 ∨ x18): x33=FALSE ⇒ (x32 ∨ x18)
+
+##### Now, (¬x33 ∨ ¬x35 ∨ x48): x33=FALSE ⇒ (¬x35 ∨ x48)
+
+##### Now, (¬x33 ∨ ¬x24 ∨ ¬x32): x33=FALSE ⇒ (¬x24 ∨ ¬x32)
+
+##### Now, (¬x33 ∨ x29 ∨ ¬x41): x33=FALSE ⇒ (x29 ∨ ¬x41)
+
+##### Now, (¬x33 ∨ ¬x15 ∨ x23): x33=FALSE ⇒ (¬x15 ∨ x23)
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x3 ∨ ¬x17 ∨ ¬x35): x3=TRUE ⇒ (¬x17 ∨ ¬x35)
+
+##### Now, (x15 ∨ x37 ∨ ¬x3): x3=TRUE ⇒ (x15 ∨ x37)
+
+##### Now, (x50): already assigned TRUE.
+
+##### Now, (¬x50 ∨ ¬x29 ∨ x45): x50=TRUE ⇒ (¬x29 ∨ x45)
+
+##### Now, (¬x50 ∨ ¬x25 ∨ x18): x50=TRUE ⇒ (¬x25 ∨ x18)
+
+##### Now, (¬x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ (¬x47 ∨ ¬x41)
+
+##### Now, (¬x50 ∨ x40 ∨ x4): x50=TRUE ⇒ (x40 ∨ x4)
+
+##### Now, (¬x50 ∨ ¬x16 ∨ x44): x50=TRUE ⇒ (¬x16 ∨ x44)
+
+##### Now, (¬x50 ∨ x25 ∨ x20): x50=TRUE ⇒ (x25 ∨ x20)
+
+##### Now, (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+
+##### Now, (x14 ∨ x24 ∨ x50): x50=TRUE ⇒ satisfied
+
+##### Now, (x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ satisfied
+
+##### Now, (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+
+##### Now, (x14 ∨ x24 ∨ x50): x50=TRUE ⇒ satisfied
+
+##### Now, (¬x3 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x33 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x33 ∨ x32 ∨ x18): x33=FALSE ⇒ (x32 ∨ x18)
+
+##### Now, (¬x33 ∨ ¬x35 ∨ x48): x33=FALSE ⇒ (¬x35 ∨ x48)
+
+##### Now, (¬x33 ∨ ¬x24 ∨ ¬x32): x33=FALSE ⇒ (¬x24 ∨ ¬x32)
+
+##### Now, (¬x33 ∨ x29 ∨ ¬x41): x33=FALSE ⇒ (x29 ∨ ¬x41)
+
+##### Now, (¬x33 ∨ ¬x15 ∨ x23): x33=FALSE ⇒ (¬x15 ∨ x23)
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x3 ∨ ¬x17 ∨ ¬x35): x3=TRUE ⇒ (¬x17 ∨ ¬x35)
+
+##### Now, (x15 ∨ x37 ∨ ¬x3): x3=TRUE ⇒ (x15 ∨ x37)
+
+##### Now, (x50): already assigned TRUE.
+
+##### Now, (¬x50 ∨ ¬x29 ∨ x45): x50=TRUE ⇒ (¬x29 ∨ x45)
+
+##### Now, (¬x50 ∨ ¬x25 ∨ x18): x50=TRUE ⇒ (¬x25 ∨ x18)
+
+##### Now, (¬x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ (¬x47 ∨ ¬x41)
+
+##### Now, (¬x50 ∨ x40 ∨ x4): x50=TRUE ⇒ (x40 ∨ x4)
+
+##### Now, (¬x50 ∨ ¬x16 ∨ x44): x50=TRUE ⇒ (¬x16 ∨ x44)
+
+##### Now, (¬x50 ∨ x25 ∨ x20): x50=TRUE ⇒ (x25 ∨ x20)
+
+##### Now, (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+
+##### Now, (x14 ∨ x24 ∨ x50): x50=TRUE ⇒ satisfied
+
+##### Now, (x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ satisfied
+
+##### Now, (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+
+##### Now, (x14 ∨ x24 ∨ x50): x50=TRUE ⇒ satisfied
+
+##### Now, (¬x3 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x33 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x33 ∨ x32 ∨ x18): x33=FALSE ⇒ (x32 ∨ x18)
+
+##### Now, (¬x33 ∨ ¬x35 ∨ x48): x33=FALSE ⇒ (¬x35 ∨ x48)
+
+##### Now, (¬x33 ∨ ¬x24 ∨ ¬x32): x33=FALSE ⇒ (¬x24 ∨ ¬x32)
+
+##### Now, (¬x33 ∨ x29 ∨ ¬x41): x33=FALSE ⇒ (x29 ∨ ¬x41)
+
+##### Now, (¬x33 ∨ ¬x15 ∨ x23): x33=FALSE ⇒ (¬x15 ∨ x23)
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x3 ∨ ¬x17 ∨ ¬x35): x3=TRUE ⇒ (¬x17 ∨ ¬x35)
+
+##### Now, (x15 ∨ x37 ∨ ¬x3): x3=TRUE ⇒ (x15 ∨ x37)
+
+##### Now, (x50): already assigned TRUE.
+
+##### Now, (¬x50 ∨ ¬x29 ∨ x45): x50=TRUE ⇒ (¬x29 ∨ x45)
+
+##### Now, (¬x50 ∨ ¬x25 ∨ x18): x50=TRUE ⇒ (¬x25 ∨ x18)
+
+##### Now, (¬x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ (¬x47 ∨ ¬x41)
+
+##### Now, (¬x50 ∨ x40 ∨ x4): x50=TRUE ⇒ (x40 ∨ x4)
+
+##### Now, (¬x50 ∨ ¬x16 ∨ x44): x50=TRUE ⇒ (¬x16 ∨ x44)
+
+##### Now, (¬x50 ∨ x25 ∨ x20): x50=TRUE ⇒ (x25 ∨ x20)
+
+##### Now, (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+
+##### Now, (x14 ∨ x24 ∨ x50): x50=TRUE ⇒ satisfied
+
+##### Now, (x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ satisfied
+
+##### Now, (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+
+##### Now, (x14 ∨ x24 ∨ x50): x50=TRUE ⇒ satisfied
+
+##### Now, (¬x3 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x33 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x33 ∨ x32 ∨ x18): x33=FALSE ⇒ (x32 ∨ x18)
+
+##### Now, (¬x33 ∨ ¬x35 ∨ x48): x33=FALSE ⇒ (¬x35 ∨ x48)
+
+##### Now, (¬x33 ∨ ¬x24 ∨ ¬x32): x33=FALSE ⇒ (¬x24 ∨ ¬x32)
+
+##### Now, (¬x33 ∨ x29 ∨ ¬x41): x33=FALSE ⇒ (x29 ∨ ¬x41)
+
+##### Now, (¬x33 ∨ ¬x15 ∨ x23): x33=FALSE ⇒ (¬x15 ∨ x23)
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x3 ∨ ¬x17 ∨ ¬x35): x3=TRUE ⇒ (¬x17 ∨ ¬x35)
+
+##### Now, (x15 ∨ x37 ∨ ¬x3): x3=TRUE ⇒ (x15 ∨ x37)
+
+##### Now, (x50): already assigned TRUE.
+
+##### Now, (¬x50 ∨ ¬x29 ∨ x45): x50=TRUE ⇒ (¬x29 ∨ x45)
+
+##### Now, (¬x50 ∨ ¬x25 ∨ x18): x50=TRUE ⇒ (¬x25 ∨ x18)
+
+##### Now, (¬x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ (¬x47 ∨ ¬x41)
+
+##### Now, (¬x50 ∨ x40 ∨ x4): x50=TRUE ⇒ (x40 ∨ x4)
+
+##### Now, (¬x50 ∨ ¬x16 ∨ x44): x50=TRUE ⇒ (¬x16 ∨ x44)
+
+##### Now, (¬x50 ∨ x25 ∨ x20): x50=TRUE ⇒ (x25 ∨ x20)
+
+##### Now, (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+
+##### Now, (x14 ∨ x24 ∨ x50): x50=TRUE ⇒ satisfied
+
+##### Now, (x50 ∨ ¬x47 ∨ ¬x41): x50=TRUE ⇒ satisfied
+
+##### Now, (x50 ∨ ¬x28 ∨ x36): x50=TRUE ⇒ satisfied
+
+##### Now, (x14 ∨ x24 ∨ x50): x50=TRUE ⇒ satisfied
+
+##### Now, (¬x3 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x33 ∨ ¬x3 ∨ x50): already satisfied.
+
+##### Now, (¬x33 ∨ x32 ∨ x18): x33=FALSE ⇒ (x32 ∨ x18)
+
+##### Now, (¬x33 ∨ ¬x35 ∨ x48): x33=FALSE ⇒ (¬x35 ∨ x48)
+
+##### Now, (¬x33 ∨ ¬x24 ∨ ¬x32): x33=FALSE ⇒ (¬x24 ∨ ¬x32)
+
+##### Now, (¬x33 ∨ x29 ∨ ¬x41): x33=FALSE ⇒ (x29 ∨ ¬x41)
+
+##### Now, (¬x33 ∨ ¬x15 ∨ x23): x33=FALSE ⇒ (¬x15 ∨ x23)
+
+##### Now, (¬x3 ∨ ¬x25 ∨ ¬x4): x3=TRUE ⇒ (¬x25 ∨ ¬x4)
+
+##### Now, (¬x3 ∨ ¬x17 ∨ ¬x35): x3=TRUE ⇒ (¬x17 ∨ ¬x35)
+
+##### Now, (x15 ∨ x37 ∨ ¬x3): x3=TRUE ⇒ (x

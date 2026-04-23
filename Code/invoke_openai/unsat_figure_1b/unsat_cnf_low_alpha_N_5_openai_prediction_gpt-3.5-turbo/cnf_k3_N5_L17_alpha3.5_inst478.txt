@@ -1,0 +1,92 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=478
+p cnf 5 17
+-1 2 5 0
+3 -2 -5 0
+-2 -3 -4 0
+5 4 -1 0
+-3 1 4 0
+-5 2 3 0
+2 3 4 0
+3 4 -1 0
+2 -3 5 0
+-2 3 5 0
+-1 -2 -5 0
+-3 -1 2 0
+-2 5 -3 0
+-4 -5 2 0
+3 2 -1 0
+5 2 3 0
+4 5 1 0
+
+c GPT solve time: 7.85 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment: x1 = True.
+4. Check each clause to see if any are satisfied with the current assignment:
+   - (¬x1 ∨ x2 ∨ x5) is satisfied.
+   - (x3 ∨ ¬x2 ∨ ¬x5) is not satisfied.
+   - (¬x2 ∨ ¬x3 ∨ ¬x4) is not satisfied.
+   - (x5 ∨ x4 ∨ ¬x1) is not satisfied.
+   - (¬x3 ∨ x1 ∨ x4) is satisfied.
+   - (¬x5 ∨ x2 ∨ x3) is not satisfied.
+   - (x2 ∨ x3 ∨ x4) is not satisfied.
+   - (x3 ∨ x4 ∨ ¬x1) is not satisfied.
+   - (x2 ∨ ¬x3 ∨ x5) is not satisfied.
+   - (¬x2 ∨ x3 ∨ x5) is not satisfied.
+   - (¬x1 ∨ ¬x2 ∨ ¬x5) is not satisfied.
+   - (¬x3 ∨ ¬x1 ∨ x2) is not satisfied.
+   - (¬x2 ∨ x5 ∨ ¬x3) is not satisfied.
+   - (¬x4 ∨ ¬x5 ∨ x2) is not satisfied.
+   - (x3 ∨ x2 ∨ ¬x1) is not satisfied.
+   - (x5 ∨ x2 ∨ x3) is not satisfied.
+   - (x4 ∨ x5 ∨ x1) is not satisfied.
+5. Since not all clauses are satisfied, we need to backtrack.
+6. Backtrack to the last decision point and change the assignment of x1 to False.
+7. Update the assignment: x1 = False.
+8. Check each clause again:
+   - (¬x1 ∨ x2 ∨ x5) is satisfied.
+   - (x3 ∨ ¬x2 ∨ ¬x5) is not satisfied.
+   - (¬x2 ∨ ¬x3 ∨ ¬x4) is not satisfied.
+   - (x5 ∨ x4 ∨ ¬x1) is not satisfied.
+   - (¬x3 ∨ x1 ∨ x4) is satisfied.
+   - (¬x5 ∨ x2 ∨ x3) is not satisfied.
+   - (x2 ∨ x3 ∨ x4) is not satisfied.
+   - (x3 ∨ x4 ∨ ¬x1) is not satisfied.
+   - (x2 ∨ ¬x3 ∨ x5) is not satisfied.
+   - (¬x2 ∨ x3 ∨ x5) is not satisfied.
+   - (¬x1 ∨ ¬x2 ∨ ¬x5) is not satisfied.
+   - (¬x3 ∨ ¬x1 ∨ x2) is not satisfied.
+   - (¬x2 ∨ x5 ∨ ¬x3) is not satisfied.
+   - (¬x4 ∨ ¬x5 ∨ x2) is not satisfied.
+   - (x3 ∨ x2 ∨ ¬x1) is not satisfied.
+   - (x5 ∨ x2 ∨ x3) is not satisfied.
+   - (x4 ∨ x5 ∨ x1) is not satisfied.
+9. Since not all clauses are satisfied, we need to backtrack again.
+10. Backtrack to the beginning and try a different assignment.
+11. Choose x1 = False.
+12. Update the assignment: x1 = False.
+13. Check each clause:
+   - (¬x1 ∨ x2 ∨ x5) is satisfied.
+   - (x3 ∨ ¬x2 ∨ ¬x5) is not satisfied.
+   - (¬x2 ∨ ¬x3 ∨ ¬x4) is not satisfied.
+   - (x5 ∨ x4 ∨ ¬x1) is not satisfied.
+   - (¬x3 ∨ x1 ∨ x4) is satisfied.
+   - (¬x5 ∨ x2 ∨ x3) is not satisfied.
+   - (x2 ∨ x3 ∨ x4) is not satisfied.
+   - (x3 ∨ x4 ∨ ¬x1) is not satisfied.
+   - (x2 ∨ ¬x3 ∨ x5) is not satisfied.
+   - (¬x2 ∨ x3 ∨ x5) is not satisfied.
+   - (¬x1 ∨ ¬x2 ∨ ¬x5) is not satisfied.
+   - (¬x3 ∨ ¬x1 ∨ x2) is not satisfied.
+   - (¬x2 ∨ x5 ∨ ¬x3) is not satisfied.
+   - (¬x4 ∨ ¬x5 ∨ x2) is not satisfied.
+   - (x3 ∨ x2 ∨ ¬x1) is not satisfied.
+   - (x5 ∨ x2 ∨ x3) is not satisfied.
+   - (x4 ∨ x5 ∨ x1) is not satisfied.
+14. Since not all clauses are satisfied, we need to backtrack again.
+15. Continue this process until all possible assignments have been tried.
+16. The formula is UNSATISFIABLE.
+17. Number of branches (decision points): 2
+18. Number of conflicts (backtracking steps): 2

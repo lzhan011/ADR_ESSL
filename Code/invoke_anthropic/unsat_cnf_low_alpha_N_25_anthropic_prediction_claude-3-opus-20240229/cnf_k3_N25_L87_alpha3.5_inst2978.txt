@@ -1,0 +1,137 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2978
+p cnf 25 87
+-25 22 -6 0
+5 -16 -13 0
+18 7 -12 0
+2 -23 11 0
+-24 -7 18 0
+17 -4 3 0
+-22 6 -21 0
+-11 -5 -3 0
+-13 2 -7 0
+-19 20 -10 0
+19 -4 18 0
+12 9 3 0
+12 16 -9 0
+13 9 -5 0
+-13 -4 -5 0
+-22 -2 8 0
+-20 7 -21 0
+2 -14 8 0
+-5 -21 -25 0
+-8 -20 25 0
+6 9 -16 0
+-17 7 -25 0
+23 -15 -8 0
+-6 -9 -22 0
+-20 -8 -22 0
+-5 -4 -19 0
+14 -11 25 0
+-22 -19 -16 0
+6 -24 5 0
+4 25 -7 0
+22 -10 -8 0
+6 -16 -25 0
+25 17 19 0
+-12 -15 -22 0
+-18 20 6 0
+17 -12 2 0
+-25 -23 -9 0
+10 -17 -12 0
+3 -9 11 0
+9 19 20 0
+4 -3 8 0
+-15 25 -20 0
+-7 19 -6 0
+10 13 14 0
+-3 -1 8 0
+1 -12 11 0
+-5 -2 -17 0
+-25 -18 -13 0
+24 2 -20 0
+-24 6 -14 0
+-11 -6 -21 0
+-25 4 18 0
+-13 -19 -4 0
+20 -6 -25 0
+11 -19 1 0
+-5 6 23 0
+-2 -19 -4 0
+7 15 -18 0
+7 19 -1 0
+22 10 -1 0
+6 -23 -17 0
+-17 18 23 0
+8 24 9 0
+-20 -4 -14 0
+-22 24 13 0
+25 -6 9 0
+20 25 10 0
+-24 16 13 0
+14 -2 -19 0
+-5 9 -12 0
+19 -25 -23 0
+-13 -4 1 0
+6 -17 -8 0
+-10 -9 -22 0
+-2 21 22 0
+8 -3 -18 0
+19 -10 15 0
+-6 -4 3 0
+25 22 -11 0
+-2 5 -12 0
+-16 -1 14 0
+-14 24 13 0
+20 -17 -7 0
+-3 -8 2 0
+-5 -19 25 0
+-5 4 20 0
+-17 -9 1 0
+
+c GPT solve time: 34.89 seconds
+
+Step 1: Choose literal x1, set x1 to True.
+(x1 ∨ ¬x12 ∨ x11) is satisfied.
+(¬x3 ∨ ¬x1 ∨ x8) is satisfied.
+(x11 ∨ ¬x19 ∨ x1) is satisfied.
+(x7 ∨ x19 ∨ ¬x1) is satisfied.
+(x22 ∨ x10 ∨ ¬x1) is satisfied.
+(¬x13 ∨ ¬x4 ∨ x1) is satisfied.
+(¬x16 ∨ ¬x1 ∨ x14) is satisfied.
+(¬x17 ∨ ¬x9 ∨ x1) is satisfied.
+
+Step 2: Choose literal x2, set x2 to True.
+(x2 ∨ ¬x23 ∨ x11) is satisfied.
+(¬x13 ∨ x2 ∨ ¬x7) is satisfied.
+(¬x22 ∨ ¬x2 ∨ x8) is satisfied.
+(x2 ∨ ¬x14 ∨ x8) is satisfied.
+(x17 ∨ ¬x12 ∨ x2) is satisfied.
+(x24 ∨ x2 ∨ ¬x20) is satisfied.
+(¬x5 ∨ ¬x2 ∨ ¬x17) is satisfied.
+(¬x2 ∨ ¬x19 ∨ ¬x4) is satisfied.
+(¬x2 ∨ x21 ∨ x22) is satisfied.
+(¬x2 ∨ x5 ∨ ¬x12) is satisfied.
+(¬x3 ∨ ¬x8 ∨ x2) is satisfied.
+(x14 ∨ ¬x2 ∨ ¬x19) is satisfied.
+
+Step 3: Choose literal x3, set x3 to True.
+(x17 ∨ ¬x4 ∨ x3) is satisfied.
+(¬x11 ∨ ¬x5 ∨ ¬x3) is satisfied.
+(x12 ∨ x9 ∨ x3) is satisfied.
+(x3 ∨ ¬x9 ∨ x11) is satisfied.
+(x4 ∨ ¬x3 ∨ x8) is satisfied.
+(¬x3 ∨ ¬x1 ∨ x8) is satisfied.
+(¬x6 ∨ ¬x4 ∨ x3) is satisfied.
+(¬x3 ∨ ¬x8 ∨ x2) is satisfied.
+
+Step 4: Choose literal x4, set x4 to True.
+(x17 ∨ ¬x4 ∨ x3) is satisfied.
+(x19 ∨ ¬x4 ∨ x18) is satisfied.
+(¬x13 ∨ ¬x4 ∨ ¬x5) is satisfied.
+(x4 ∨ x25 ∨ ¬x7) is satisfied.
+(x4 ∨ ¬x3 ∨ x8) is satisfied.
+(¬x5 ∨ ¬x4 ∨ ¬x19) is satisfied.
+(¬x13 ∨ ¬x4 ∨ x1) is satisfied.
+(¬x6 ∨ ¬x4 ∨ x3) is satisfied.
+(¬x20

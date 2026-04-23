@@ -1,0 +1,89 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=571
+p cnf 8 28
+-1 -6 4 0
+3 7 1 0
+6 -4 7 0
+1 5 3 0
+2 5 -4 0
+-8 6 7 0
+6 8 7 0
+6 3 2 0
+-1 2 4 0
+-6 -8 -3 0
+-3 4 -8 0
+2 -3 7 0
+3 6 -4 0
+-1 -2 4 0
+3 -8 6 0
+-6 3 -4 0
+-3 -5 -7 0
+-7 4 -8 0
+-4 -6 -3 0
+7 4 -1 0
+1 3 4 0
+-2 8 -3 0
+6 5 -4 0
+-1 3 8 0
+5 4 1 0
+-5 6 4 0
+-8 6 -1 0
+-8 3 -5 0
+
+c GPT solve time: 46.19 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching), propagating unit clauses, and backtracking upon conflicts. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in order (x1, x2, ..., x8) and assign values to satisfy clauses. Here's a summary of the process:
+
+1. **Branch on x1 = True**:
+   - Propagate: 
+     - From (¬x1 ∨ ¬x6 ∨ x4), if x1=True, then (¬x6 ∨ x4) must hold.
+     - From (¬x1 ∨ x2 ∨ x4), (x2 ∨ x4) must hold.
+     - From (¬x1 ∨ ¬x2 ∨ x4), (¬x2 ∨ x4) must hold.
+     - From (x1 ∨ x5 ∨ x3), satisfied.
+     - From (x5 ∨ x4 ∨ x1), satisfied.
+     - From (¬x8 ∨ x6 ∨ ¬x1), (¬x8 ∨ x6) must hold.
+     - From (¬x1 ∨ x3 ∨ x8), (x3 ∨ x8) must hold.
+   - **Conflict**: If x2=True, then from (¬x2 ∨ x4), x4 must be True. But from (x2 ∨ x4), no conflict. However, other clauses may lead to conflicts later.
+   - Further branching and propagation lead to conflicts, requiring backtracking.
+
+2. **Branch on x1 = False**:
+   - Propagate:
+     - From (x1 ∨ x5 ∨ x3), (x5 ∨ x3) must hold.
+     - From (x1 ∨ x3 ∨ x4), (x3 ∨ x4) must hold.
+     - From (¬x8 ∨ x6 ∨ ¬x1), (¬x8 ∨ x6) must hold.
+     - From (¬x1 ∨ x3 ∨ x8), (x3 ∨ x8) must hold.
+   - **Branch on x2 = True**:
+     - From (¬x1 ∨ x2 ∨ x4), satisfied.
+     - From (¬x1 ∨ ¬x2 ∨ x4), (¬x2 ∨ x4) implies x4 must be True.
+     - Propagate x4=True:
+       - From (¬x4 ∨ ¬x6 ∨ ¬x3), (¬x6 ∨ ¬x3) must hold.
+       - From (x3 ∨ x6 ∨ ¬x4), (x3 ∨ x6) must hold.
+       - From (¬x6 ∨ ¬x8 ∨ ¬x3), (¬x8 ∨ ¬x3) must hold.
+     - **Conflict**: (x3 ∨ x6) and (¬x6 ∨ ¬x3) cannot both be satisfied unless x3=False and x6=True.
+       - Set x3=False, x6=True:
+         - From (¬x8 ∨ ¬x3), (¬x8 ∨ True) is satisfied.
+         - From (¬x8 ∨ x6), satisfied since x6=True.
+         - From (x3 ∨ x8), (False ∨ x8) implies x8 must be True.
+         - From (¬x8 ∨ x3 ∨ ¬x5), (False ∨ False ∨ ¬x5) implies ¬x5 must hold, so x5=False.
+         - From (x5 ∨ x3), (False ∨ False) is a conflict. **Backtrack**.
+
+   - **Branch on x2 = False**:
+     - From (¬x1 ∨ x2 ∨ x4), (False ∨ x4) implies x4 must be True.
+     - Propagate x4=True:
+       - Similar to above, leads to conflicts when propagating x3 and x6.
+
+### Step 3: Conclusion
+After exhaustive branching and propagation, the formula is found to be **UNSATISFIABLE**.
+
+### Final Answer:
+```
+UNSATISFIABLE
+28
+14
+```

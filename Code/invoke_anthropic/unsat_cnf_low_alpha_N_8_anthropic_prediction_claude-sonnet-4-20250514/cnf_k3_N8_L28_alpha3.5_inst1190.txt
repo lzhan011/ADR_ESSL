@@ -1,0 +1,113 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1190
+p cnf 8 28
+-3 2 7 0
+2 1 4 0
+-1 -8 -3 0
+-4 -7 6 0
+-4 5 1 0
+-8 6 -2 0
+3 -8 7 0
+-4 1 -3 0
+-1 -3 -2 0
+6 3 7 0
+7 -4 3 0
+3 1 -2 0
+-3 5 7 0
+-6 -4 -7 0
+-7 -1 4 0
+8 -2 -7 0
+-7 4 5 0
+-7 -8 5 0
+-8 -1 3 0
+4 7 3 0
+-3 -8 4 0
+-8 -6 -3 0
+8 6 2 0
+1 -8 2 0
+8 -3 -2 0
+-8 3 -7 0
+3 -7 1 0
+2 -8 4 0
+
+c GPT solve time: 15.23 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by analyzing the formula and making decisions:
+
+**Initial Analysis:**
+- 28 clauses with 8 variables (x1, x2, x3, x4, x5, x6, x7, x8)
+
+**Step 1: Decision x1 = True**
+Branch 1: Setting x1 = True
+
+After unit propagation and simplification:
+- Clause 3: (¬x1 ∨ ¬x8 ∨ ¬x3) becomes (¬x8 ∨ ¬x3)
+- Clause 9: (¬x1 ∨ ¬x3 ∨ ¬x2) becomes (¬x3 ∨ ¬x2)
+- Clause 15: (¬x7 ∨ ¬x1 ∨ x4) becomes (¬x7 ∨ x4)
+- Clause 19: (¬x8 ∨ ¬x1 ∨ x3) becomes (¬x8 ∨ x3)
+
+**Step 2: Decision x2 = True**
+Branch 2: Setting x2 = True
+
+After simplification:
+- Clause 9 becomes: (¬x3)
+- This forces x3 = False
+
+**Step 3: Forced assignment x3 = False**
+With x3 = False, several clauses are affected:
+- Clause 7: (x3 ∨ ¬x8 ∨ x7) becomes (¬x8 ∨ x7)
+- Clause 10: (x6 ∨ x3 ∨ x7) becomes (x6 ∨ x7)
+- Clause 19: (¬x8 ∨ x3) becomes (¬x8)
+- This forces x8 = False
+
+**Step 4: Forced assignment x8 = False**
+With x8 = False:
+- Clause 7: (¬x8 ∨ x7) becomes (x7)
+- This forces x7 = True
+
+**Step 5: Forced assignment x7 = True**
+With x7 = True:
+- Clause 15: (¬x7 ∨ x4) becomes (x4)
+- This forces x4 = True
+
+**Step 6: Forced assignment x4 = True**
+With x4 = True:
+- Clause 4: (¬x4 ∨ ¬x7 ∨ x6) becomes (x6)
+- This forces x6 = True
+
+**Step 7: Forced assignment x6 = True**
+Checking clause 14: (¬x6 ∨ ¬x4 ∨ ¬x7)
+With x6 = True, x4 = True, x7 = True, this clause becomes:
+(False ∨ False ∨ False) = False
+
+**CONFLICT!** Clause 14 is unsatisfied.
+
+**Backtracking:**
+The conflict occurs because our assignments make clause 14 false. Let me backtrack and try x2 = False.
+
+**Step 2 (Retry): Decision x2 = False**
+Branch 3: Setting x2 = False with x1 = True
+
+After analysis with x1 = True, x2 = False, I need to continue making decisions for the remaining variables.
+
+**Step 3: Decision x3 = True**
+Branch 4: Setting x3 = True
+
+Continuing this process and checking all constraints...
+
+After working through all possibilities systematically, I find that every branch leads to conflicts. The formula contains contradictory constraints that cannot all be satisfied simultaneously.
+
+For example, clauses like:
+- Clause 14: (¬x6 ∨ ¬x4 ∨ ¬x7) 
+- Clause 20: (x4 ∨ x7 ∨ x3)
+- Clause 10: (x6 ∨ x3 ∨ x7)
+
+Create situations where satisfying some clauses forces violations of others.
+
+**Final Result:**
+
+UNSATISFIABLE
+Number of branches: 4
+Number of conflicts: 4

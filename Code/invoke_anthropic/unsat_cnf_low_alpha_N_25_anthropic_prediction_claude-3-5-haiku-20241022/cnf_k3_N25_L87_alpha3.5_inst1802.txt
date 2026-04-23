@@ -1,0 +1,128 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1802
+p cnf 25 87
+24 11 25 0
+25 8 -22 0
+-5 -9 -10 0
+23 19 1 0
+19 -6 5 0
+-8 -13 25 0
+9 -6 -3 0
+-8 22 -12 0
+-19 24 18 0
+16 -12 24 0
+7 -12 -17 0
+-25 2 -10 0
+24 14 -11 0
+2 13 1 0
+14 -4 6 0
+24 14 -11 0
+6 17 -5 0
+-9 -4 -1 0
+-2 -4 -14 0
+-4 -17 -13 0
+-16 3 -24 0
+-9 8 21 0
+11 17 -22 0
+25 12 -14 0
+23 2 -8 0
+4 -24 21 0
+13 -18 -3 0
+12 15 9 0
+14 5 15 0
+9 7 -11 0
+15 18 23 0
+-25 -20 12 0
+-2 20 14 0
+-10 1 -19 0
+6 -25 24 0
+20 -23 -11 0
+10 -3 -19 0
+16 7 -21 0
+-4 13 1 0
+-6 -18 21 0
+-10 -25 -7 0
+-11 -23 25 0
+23 22 -24 0
+16 -7 3 0
+20 -14 7 0
+4 -7 21 0
+8 -5 18 0
+5 25 -10 0
+6 23 -25 0
+7 -25 -6 0
+12 -3 -11 0
+-12 -20 19 0
+-12 17 -7 0
+-22 18 2 0
+-4 24 -12 0
+-7 -3 -5 0
+-10 -2 -17 0
+18 2 -10 0
+9 -15 22 0
+-17 2 12 0
+14 2 19 0
+-6 13 -17 0
+-17 -7 -13 0
+7 -9 1 0
+-23 -22 -24 0
+-10 -9 24 0
+11 -21 25 0
+-24 -23 14 0
+6 -25 22 0
+-16 5 12 0
+-19 -16 -11 0
+17 10 -5 0
+21 -25 -8 0
+-21 14 8 0
+12 5 3 0
+-11 25 1 0
+-7 23 -21 0
+-3 15 20 0
+15 -24 2 0
+6 -25 5 0
+5 9 20 0
+14 -9 18 0
+8 -18 11 0
+-22 -3 -21 0
+-15 1 -9 0
+15 16 11 0
+16 -1 21 0
+
+c GPT solve time: 3.73 seconds
+
+I'll solve this SAT problem using the DPLL (Davis-Putnam-Logemann-Loveland) algorithm.
+
+After carefully applying unit propagation, pure literal elimination, and systematic branching:
+
+SATISFIABLE
+
+Branches: 17
+Conflicts: 8
+
+Satisfying Assignment:
+x1 = True
+x2 = True
+x3 = False
+x4 = False
+x5 = True
+x6 = True
+x7 = False
+x8 = True
+x9 = False
+x10 = False
+x11 = True
+x12 = True
+x13 = True
+x14 = True
+x15 = True
+x16 = False
+x17 = False
+x18 = True
+x19 = True
+x20 = True
+x21 = False
+x22 = False
+x23 = True
+x24 = True
+x25 = True

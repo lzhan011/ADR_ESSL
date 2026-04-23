@@ -1,0 +1,115 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1909
+p cnf 5 17
+-1 -3 4 0
+2 -3 1 0
+-1 -5 -3 0
+-3 4 -2 0
+3 4 -5 0
+-4 5 2 0
+5 3 -1 0
+-1 -2 -3 0
+4 3 2 0
+1 3 5 0
+5 -2 -3 0
+-5 -4 -2 0
+-4 -1 -2 0
+-5 -3 -2 0
+3 -4 2 0
+1 -5 -2 0
+-1 -5 3 0
+
+c GPT solve time: 19.63 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Assign x1 = True (Branch 1)
+- Propagate this assignment.
+
+### Step 2: Simplify clauses with x1 = True
+- Clauses with x1: (x2 ∨ ¬x3 ∨ x1), (x1 ∨ x3 ∨ x5), (x1 ∨ ¬x5 ∨ ¬x2) are satisfied.
+- Remove ¬x1 from clauses: (¬x1 ∨ ¬x3 ∨ x4), (¬x1 ∨ ¬x5 ∨ ¬x3), (¬x1 ∨ ¬x2 ∨ ¬x3), (¬x4 ∨ ¬x1 ∨ ¬x2), (¬x1 ∨ ¬x5 ∨ x3)
+
+### Step 3: Assign x2 = True (Branch 2)
+- Propagate this assignment.
+
+### Step 4: Simplify clauses with x2 = True
+- Clauses with x2: (¬x4 ∨ x5 ∨ x2), (x4 ∨ x3 ∨ x2), (x3 ∨ ¬x4 ∨ x2) are satisfied.
+- Remove ¬x2 from clauses: (¬x5 ∨ ¬x4 ∨ ¬x2), (¬x4 ∨ ¬x1 ∨ ¬x2), (¬x1 ∨ ¬x2 ∨ ¬x3), (x5 ∨ ¬x2 ∨ ¬x3), (x1 ∨ ¬x5 ∨ ¬x2)
+
+### Step 5: Assign x3 = True (Branch 3)
+- Propagate this assignment.
+
+### Step 6: Simplify clauses with x3 = True
+- Clauses with x3: (x5 ∨ x3 ∨ ¬x1), (x4 ∨ x3 ∨ x2), (x1 ∨ x3 ∨ x5), (x3 ∨ ¬x4 ∨ x2) are satisfied.
+- Remove ¬x3 from clauses: (¬x1 ∨ ¬x3 ∨ x4), (x2 ∨ ¬x3 ∨ x1), (¬x1 ∨ ¬x5 ∨ ¬x3), (¬x3 ∨ x4 ∨ ¬x2), (¬x1 ∨ ¬x2 ∨ ¬x3), (x5 ∨ ¬x2 ∨ ¬x3), (¬x5 ∨ ¬x3 ∨ ¬x2), (¬x1 ∨ ¬x5 ∨ x3)
+
+### Step 7: Remaining clauses
+- (¬x4 ∨ x5 ∨ x2)
+- (¬x5 ∨ ¬x4 ∨ ¬x2)
+- (¬x4 ∨ ¬x1 ∨ ¬x2)
+- (x4 ∨ x3 ∨ x2) [already satisfied]
+- (x3 ∨ ¬x4 ∨ x2) [already satisfied]
+- (x1 ∨ ¬x5 ∨ ¬x2) [already satisfied]
+
+### Step 8: Assign x4 = True (Branch 4)
+- Propagate this assignment.
+
+### Step 9: Simplify with x4 = True
+- (¬x4 ∨ x5 ∨ x2): satisfied
+- (¬x5 ∨ ¬x4 ∨ ¬x2): becomes (¬x5 ∨ ¬x2)
+- (¬x4 ∨ ¬x1 ∨ ¬x2): becomes (¬x1 ∨ ¬x2)
+
+### Step 10: Assign x5 = True (Branch 5)
+- (¬x5 ∨ ¬x2): becomes (¬x2)
+- (¬x1 ∨ ¬x2): remains
+
+But x2 = True, so (¬x2) is False. **Conflict!**
+
+### Step 11: Backtrack x5 = False (Conflict 1)
+- (¬x5 ∨ ¬x2): satisfied
+- (¬x1 ∨ ¬x2): remains
+
+### Step 12: All variables assigned except x1, x2, x3, x4, x5
+- x1 = True, x2 = True, x3 = True, x4 = True, x5 = False
+
+Check (¬x1 ∨ ¬x2): (¬True ∨ ¬True) = (False ∨ False) = False. **Conflict!**
+
+### Step 13: Backtrack x4 = False (Conflict 2)
+- Now x4 = False, x5 unassigned
+
+### Step 14: Simplify with x4 = False
+- (¬x4 ∨ x5 ∨ x2): satisfied
+- (¬x5 ∨ ¬x4 ∨ ¬x2): satisfied
+- (¬x4 ∨ ¬x1 ∨ ¬x2): satisfied
+
+All remaining clauses are satisfied.
+
+### Step 15: Assign x5 = True (Branch 6)
+- All clauses satisfied.
+
+### Step 16: Solution found
+
+**Assignment:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = False
+- x5 = True
+
+---
+
+## Final Output
+
+* SATISFIABLE
+* Number of branches: 6
+* Number of conflicts: 2
+
+**Assignment:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = False
+- x5 = True

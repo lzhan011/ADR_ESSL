@@ -1,0 +1,232 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2269
+p cnf 5 17
+-3 1 2 0
+3 1 5 0
+-2 -3 5 0
+3 -2 5 0
+-3 -4 5 0
+-1 5 3 0
+-1 -4 -5 0
+3 1 2 0
+-3 -2 -5 0
+5 3 1 0
+5 -1 -4 0
+-1 -2 -4 0
+-3 -4 -1 0
+4 3 -5 0
+-4 -2 3 0
+2 4 -3 0
+5 2 -4 0
+
+c GPT solve time: 175.09 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm (a backtracking-based search algorithm for SAT). We'll keep track of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Setup
+The formula consists of 17 clauses over variables \( x_1, x_2, x_3, x_4, x_5 \).
+
+### Step 2: Unit Propagation and Pure Literals
+- No unit clauses (clauses with one literal) initially.
+- Check for pure literals (literals that appear only positively or only negatively):
+  - \( x_4 \): appears both positively and negatively → not pure.
+  - \( x_5 \): appears both positively and negatively → not pure.
+  - \( x_3 \): appears both positively and negatively → not pure.
+  - \( x_2 \): appears both positively and negatively → not pure.
+  - \( x_1 \): appears both positively and negatively → not pure.
+No pure literals found.
+
+### Step 3: Make Decisions and Propagate
+We proceed with branching (making decisions) and backtracking when conflicts arise.
+
+#### Decision 1: Let \( x_3 = \text{True} \) (Branch 1)
+- Propagate \( x_3 = \text{True} \):
+  - Clauses containing \( x_3 \) positively are satisfied and can be removed:
+    - \( (x_3 \lor x_1 \lor x_5) \), \( (x_3 \lor \neg x_2 \lor x_5) \), \( (x_3 \lor x_1 \lor x_2) \), \( (x_5 \lor x_3 \lor x_1) \), \( (x_4 \lor x_3 \lor \neg x_5) \), \( (\neg x_4 \lor \neg x_2 \lor x_3) \), \( (x_2 \lor x_4 \lor \neg x_3) \) (this becomes \( x_2 \lor x_4 \lor \text{False} \), so simplify to \( x_2 \lor x_4 \)).
+  - Clauses containing \( \neg x_3 \) must have \( \neg x_3 = \text{False} \), so these clauses simplify:
+    - \( (\neg x_3 \lor x_1 \lor x_2) \) → \( x_1 \lor x_2 \)
+    - \( (\neg x_3 \lor \neg x_4 \lor x_5) \) → \( \neg x_4 \lor x_5 \)
+    - \( (\neg x_1 \lor x_5 \lor x_3) \) → satisfied (since \( x_3 = \text{True} \))
+    - \( (\neg x_3 \lor \neg x_2 \lor \neg x_5) \) → \( \neg x_2 \lor \neg x_5 \)
+    - \( (\neg x_3 \lor \neg x_4 \lor \neg x_1) \) → \( \neg x_4 \lor \neg x_1 \)
+    - \( (x_5 \lor x_2 \lor \neg x_4) \) remains.
+  - Remaining clauses after propagation:
+    - \( x_1 \lor x_2 \)
+    - \( \neg x_2 \lor x_5 \)
+    - \( x_3 \lor \neg x_2 \lor x_5 \) (already satisfied)
+    - \( \neg x_4 \lor x_5 \)
+    - \( \neg x_1 \lor \neg x_4 \lor \neg x_5 \)
+    - \( x_5 \lor \neg x_1 \lor \neg x_4 \)
+    - \( \neg x_1 \lor \neg x_2 \lor \neg x_4 \)
+    - \( \neg x_2 \lor \neg x_5 \)
+    - \( x_2 \lor x_4 \)
+    - \( x_5 \lor x_2 \lor \neg x_4 \)
+
+#### Decision 2: Let \( x_1 = \text{True} \) (Branch 2)
+- Propagate \( x_1 = \text{True} \):
+  - Clauses containing \( x_1 \) positively are satisfied:
+    - \( x_1 \lor x_2 \) → satisfied.
+  - Clauses containing \( \neg x_1 \) simplify:
+    - \( \neg x_1 \lor \neg x_4 \lor \neg x_5 \) → \( \neg x_4 \lor \neg x_5 \)
+    - \( x_5 \lor \neg x_1 \lor \neg x_4 \) → \( x_5 \lor \neg x_4 \)
+    - \( \neg x_1 \lor \neg x_2 \lor \neg x_4 \) → \( \neg x_2 \lor \neg x_4 \)
+  - Remaining clauses:
+    - \( \neg x_2 \lor x_5 \)
+    - \( \neg x_4 \lor x_5 \)
+    - \( \neg x_4 \lor \neg x_5 \)
+    - \( x_5 \lor \neg x_4 \)
+    - \( \neg x_2 \lor \neg x_5 \)
+    - \( x_2 \lor x_4 \)
+    - \( x_5 \lor x_2 \lor \neg x_4 \)
+
+#### Decision 3: Let \( x_2 = \text{True} \) (Branch 3)
+- Propagate \( x_2 = \text{True} \):
+  - Clauses containing \( x_2 \) positively are satisfied:
+    - \( x_2 \lor x_4 \) → satisfied.
+    - \( x_5 \lor x_2 \lor \neg x_4 \) → satisfied.
+  - Clauses containing \( \neg x_2 \) simplify:
+    - \( \neg x_2 \lor x_5 \) → \( x_5 \)
+    - \( \neg x_2 \lor \neg x_5 \) → \( \neg x_5 \)
+    - \( \neg x_2 \lor \neg x_4 \) → \( \neg x_4 \)
+  - Now we have unit clauses:
+    - \( x_5 \) (from \( \neg x_2 \lor x_5 \))
+    - \( \neg x_5 \) (from \( \neg x_2 \lor \neg x_5 \))
+  - Conflict: \( x_5 \) and \( \neg x_5 \) cannot both be true. Backtrack.
+
+#### Conflict 1: Backtrack to Decision 3, set \( x_2 = \text{False} \)
+- Now \( x_2 = \text{False} \).
+- Propagate \( x_2 = \text{False} \):
+  - Clauses containing \( \neg x_2 \) are satisfied:
+    - \( \neg x_2 \lor x_5 \) → satisfied.
+    - \( \neg x_2 \lor \neg x_5 \) → satisfied.
+    - \( \neg x_2 \lor \neg x_4 \) → satisfied.
+  - Clauses containing \( x_2 \) simplify:
+    - \( x_2 \lor x_4 \) → \( x_4 \)
+    - \( x_5 \lor x_2 \lor \neg x_4 \) → \( x_5 \lor \neg x_4 \)
+  - Now we have unit clause \( x_4 \) (from \( x_2 \lor x_4 \)).
+- Propagate \( x_4 = \text{True} \):
+  - Clauses containing \( x_4 \) positively are satisfied:
+    - \( x_4 \) → satisfied.
+  - Clauses containing \( \neg x_4 \) simplify:
+    - \( \neg x_4 \lor x_5 \) → \( x_5 \)
+    - \( \neg x_4 \lor \neg x_5 \) → \( \neg x_5 \)
+    - \( x_5 \lor \neg x_4 \) → \( x_5 \)
+  - Now we have:
+    - \( x_5 \) (from \( \neg x_4 \lor x_5 \))
+    - \( \neg x_5 \) (from \( \neg x_4 \lor \neg x_5 \))
+  - Conflict: \( x_5 \) and \( \neg x_5 \) cannot both be true. Backtrack.
+
+#### Conflict 2: Backtrack to Decision 2, set \( x_1 = \text{False} \)
+- Now \( x_1 = \text{False} \).
+- Propagate \( x_1 = \text{False} \):
+  - Clauses containing \( \neg x_1 \) are satisfied:
+    - \( \neg x_1 \lor \neg x_4 \lor \neg x_5 \) → satisfied.
+    - \( x_5 \lor \neg x_1 \lor \neg x_4 \) → satisfied.
+    - \( \neg x_1 \lor \neg x_2 \lor \neg x_4 \) → satisfied.
+  - Clauses containing \( x_1 \) simplify:
+    - \( x_1 \lor x_2 \) → \( x_2 \)
+  - Now we have unit clause \( x_2 \) (from \( x_1 \lor x_2 \)).
+- Propagate \( x_2 = \text{True} \):
+  - Clauses containing \( x_2 \) positively are satisfied:
+    - \( x_2 \lor x_4 \) → satisfied.
+    - \( x_5 \lor x_2 \lor \neg x_4 \) → satisfied.
+  - Clauses containing \( \neg x_2 \) simplify:
+    - \( \neg x_2 \lor x_5 \) → \( x_5 \)
+    - \( \neg x_2 \lor \neg x_5 \) → \( \neg x_5 \)
+  - Now we have:
+    - \( x_5 \) (from \( \neg x_2 \lor x_5 \))
+    - \( \neg x_5 \) (from \( \neg x_2 \lor \neg x_5 \))
+  - Conflict: \( x_5 \) and \( \neg x_5 \) cannot both be true. Backtrack.
+
+#### Conflict 3: Backtrack to Decision 1, set \( x_3 = \text{False} \) (Branch 4)
+- Now \( x_3 = \text{False} \).
+- Propagate \( x_3 = \text{False} \):
+  - Clauses containing \( \neg x_3 \) are satisfied:
+    - \( (\neg x_3 \lor x_1 \lor x_2) \) → satisfied.
+    - \( (\neg x_3 \lor \neg x_4 \lor x_5) \) → satisfied.
+    - \( (\neg x_3 \lor \neg x_2 \lor \neg x_5) \) → satisfied.
+    - \( (\neg x_3 \lor \neg x_4 \lor \neg x_1) \) → satisfied.
+  - Clauses containing \( x_3 \) simplify:
+    - \( (x_3 \lor x_1 \lor x_5) \) → \( x_1 \lor x_5 \)
+    - \( (x_3 \lor \neg x_2 \lor x_5) \) → \( \neg x_2 \lor x_5 \)
+    - \( (x_3 \lor x_1 \lor x_2) \) → \( x_1 \lor x_2 \)
+    - \( (x_5 \lor x_3 \lor x_1) \) → \( x_5 \lor x_1 \)
+    - \( (x_4 \lor x_3 \lor \neg x_5) \) → \( x_4 \lor \neg x_5 \)
+    - \( (\neg x_4 \lor \neg x_2 \lor x_3) \) → \( \neg x_4 \lor \neg x_2 \)
+    - \( (x_2 \lor x_4 \lor \neg x_3) \) → \( x_2 \lor x_4 \)
+    - \( (x_5 \lor x_2 \lor \neg x_4) \) remains.
+  - Remaining clauses:
+    - \( x_1 \lor x_5 \)
+    - \( \neg x_2 \lor x_5 \)
+    - \( x_1 \lor x_2 \)
+    - \( x_5 \lor x_1 \)
+    - \( x_4 \lor \neg x_5 \)
+    - \( \neg x_4 \lor \neg x_2 \)
+    - \( x_2 \lor x_4 \)
+    - \( x_5 \lor x_2 \lor \neg x_4 \)
+    - \( \neg x_1 \lor x_5 \lor x_3 \) → \( \neg x_1 \lor x_5 \)
+    - \( \neg x_1 \lor \neg x_4 \lor \neg x_5 \)
+    - \( x_5 \lor \neg x_1 \lor \neg x_4 \)
+    - \( \neg x_1 \lor \neg x_2 \lor \neg x_4 \)
+
+#### Decision 4: Let \( x_1 = \text{True} \) (Branch 5)
+- Propagate \( x_1 = \text{True} \):
+  - Clauses containing \( x_1 \) positively are satisfied:
+    - \( x_1 \lor x_5 \) → satisfied.
+    - \( x_1 \lor x_2 \) → satisfied.
+    - \( x_5 \lor x_1 \) → satisfied.
+  - Clauses containing \( \neg x_1 \) simplify:
+    - \( \neg x_1 \lor x_5 \) → \( x_5 \)
+    - \( \neg x_1 \lor \neg x_4 \lor \neg x_5 \) → \( \neg x_4 \lor \neg x_5 \)
+    - \( x_5 \lor \neg x_1 \lor \neg x_4 \) → \( x_5 \lor \neg x_4 \)
+    - \( \neg x_1 \lor \neg x_2 \lor \neg x_4 \) → \( \neg x_2 \lor \neg x_4 \)
+  - Now we have unit clause \( x_5 \) (from \( \neg x_1 \lor x_5 \)).
+- Propagate \( x_5 = \text{True} \):
+  - Clauses containing \( x_5 \) positively are satisfied:
+    - \( \neg x_2 \lor x_5 \) → satisfied.
+    - \( x_5 \lor x_2 \lor \neg x_4 \) → satisfied.
+  - Clauses containing \( \neg x_5 \) simplify:
+    - \( x_4 \lor \neg x_5 \) → \( x_4 \)
+    - \( \neg x_4 \lor \neg x_5 \) → \( \neg x_4 \)
+  - Now we have:
+    - \( x_4 \) (from \( x_4 \lor \neg x_5 \))
+    - \( \neg x_4 \) (from \( \neg x_4 \lor \neg x_5 \))
+  - Conflict: \( x_4 \) and \( \neg x_4 \) cannot both be true. Backtrack.
+
+#### Conflict 4: Backtrack to Decision 4, set \( x_1 = \text{False} \) (Branch 6)
+- Now \( x_1 = \text{False} \).
+- Propagate \( x_1 = \text{False} \):
+  - Clauses containing \( \neg x_1 \) are satisfied:
+    - \( \neg x_1 \lor x_5 \) → satisfied.
+    - \( \neg x_1 \lor \neg x_4 \lor \neg x_5 \) → satisfied.
+    - \( x_5 \lor \neg x_1 \lor \neg x_4 \) → satisfied.
+    - \( \neg x_1 \lor \neg x_2 \lor \neg x_4 \) → satisfied.
+  - Clauses containing \( x_1 \) simplify:
+    - \( x_1 \lor x_5 \) → \( x_5 \)
+    - \( x_1 \lor x_2 \) → \( x_2 \)
+    - \( x_5 \lor x_1 \) → \( x_5 \)
+  - Now we have unit clauses:
+    - \( x_5 \) (from \( x_1 \lor x_5 \))
+    - \( x_2 \) (from \( x_1 \lor x_2 \))
+- Propagate \( x_5 = \text{True} \) and \( x_2 = \text{True} \):
+  - Clauses containing \( x_5 \) or \( x_2 \) positively are satisfied:
+    - \( \neg x_2 \lor x_5 \) → satisfied.
+    - \( x_5 \lor x_2 \lor \neg x_4 \) → satisfied.
+    - \( x_2 \lor x_4 \) → satisfied.
+  - Clauses containing \( \neg x_5 \) or \( \neg x_2 \) simplify:
+    - \( x_4 \lor \neg x_5 \) → \( x_4 \)
+    - \( \neg x_4 \lor \neg x_2 \) → \( \neg x_4 \)
+  - Now we have:
+    - \( x_4 \) (from \( x_4 \lor \neg x_5 \))
+    - \( \neg x_4 \) (from \( \neg x_4 \lor \neg x_2 \))
+  - Conflict: \( x_4 \) and \( \neg x_4 \) cannot both be true. Backtrack.
+
+### Step 4: Conclusion
+All branches lead to conflicts. The formula is unsatisfiable.
+
+### Final Answer:
+```
+UNSATISFIABLE
+6
+4
+```

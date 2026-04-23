@@ -1,0 +1,262 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2024
+p cnf 25 87
+19 -15 13 0
+-5 -11 4 0
+-19 -6 24 0
+-16 -13 -6 0
+-22 23 -16 0
+-8 22 23 0
+2 -16 -22 0
+13 8 6 0
+15 -22 17 0
+-16 -5 -9 0
+1 19 25 0
+-19 -2 25 0
+13 22 16 0
+20 -19 16 0
+-21 25 -9 0
+-12 -9 -1 0
+5 -8 -3 0
+-13 -12 -6 0
+-19 -17 -14 0
+-12 -11 23 0
+-17 -13 1 0
+23 13 1 0
+-25 -9 7 0
+-2 22 -19 0
+-24 20 -11 0
+-12 -22 -9 0
+23 21 18 0
+-16 -5 8 0
+21 20 -11 0
+-11 -7 6 0
+-3 14 15 0
+-18 -23 4 0
+-11 21 -15 0
+-16 13 -11 0
+-23 -11 -7 0
+-16 -1 -8 0
+-7 14 3 0
+-1 23 -11 0
+-1 -2 -22 0
+2 -25 23 0
+-10 21 -17 0
+-5 -24 -13 0
+6 -1 17 0
+9 -1 -17 0
+-22 -20 1 0
+-6 -10 18 0
+-13 -22 -16 0
+22 -2 24 0
+-18 14 11 0
+-15 -1 2 0
+12 -1 22 0
+-13 24 -8 0
+16 2 21 0
+-11 24 5 0
+1 -18 -9 0
+15 1 9 0
+14 20 11 0
+-2 -21 -14 0
+-1 -4 15 0
+-25 6 16 0
+15 6 8 0
+21 22 -20 0
+13 -3 8 0
+-11 -24 -1 0
+3 9 -13 0
+9 -6 11 0
+13 20 -8 0
+-9 13 16 0
+6 -19 -3 0
+22 7 -10 0
+-10 18 -22 0
+17 -14 2 0
+-2 4 -12 0
+2 -16 -3 0
+13 10 -23 0
+5 11 -10 0
+18 2 -7 0
+8 14 6 0
+25 -3 21 0
+-6 -24 -5 0
+-23 21 -20 0
+2 18 -20 0
+22 -2 -7 0
+17 -13 -15 0
+-3 5 -25 0
+-5 -18 7 0
+4 5 -21 0
+
+c GPT solve time: 38.00 seconds
+
+1. Start with an empty assignment.
+2. Choose a variable to assign a truth value to. Let's start with x1 = True.
+3. Update the formula based on the assignment:
+   (x19 ∨ ¬x15 ∨ x13) -> (True ∨ True ∨ True) -> True
+   (¬x5 ∨ ¬x11 ∨ x4) -> (True ∨ True ∨ True) -> True
+   (¬x19 ∨ ¬x2 ∨ x25) -> (True ∨ True ∨ True) -> True
+   (¬x12 ∨ ¬x9 ∨ ¬x1) -> (True ∨ True ∨ True) -> True
+   (¬x1 ∨ x23 ∨ ¬x11) -> (True ∨ True ∨ True) -> True
+   (¬x1 ∨ ¬x4 ∨ x15) -> (True ∨ True ∨ True) -> True
+   (¬x11 ∨ ¬x24 ∨ ¬x1) -> (True ∨ True ∨ True) -> True
+   (¬x6 ∨ ¬x24 ∨ ¬x5) -> (True ∨ True ∨ True) -> True
+   (¬x3 ∨ x5 ∨ ¬x25) -> (True ∨ True ∨ True) -> True
+4. Choose the next variable to assign a truth value to. Let's choose x2 = True.
+5. Update the formula based on the assignment:
+   (x2 ∨ ¬x16 ∨ ¬x22) -> (True ∨ True ∨ True) -> True
+   (x1 ∨ x19 ∨ x25) -> (True ∨ True ∨ True) -> True
+   (¬x2 ∨ x22 ∨ ¬x19) -> (True ∨ True ∨ True) -> True
+   (x2 ∨ ¬x25 ∨ x23) -> (True ∨ True ∨ True) -> True
+   (¬x2 ∨ ¬x21 ∨ ¬x14) -> (True ∨ True ∨ True) -> True
+   (x2 ∨ ¬x16 ∨ ¬x3) -> (True ∨ True ∨ True) -> True
+   (¬x2 ∨ x4 ∨ ¬x12) -> (True ∨ True ∨ True) -> True
+   (x2 ∨ x18 ∨ ¬x20) -> (True ∨ True ∨ True) -> True
+6. Choose the next variable to assign a truth value to. Let's choose x3 = True.
+7. Update the formula based on the assignment:
+   (¬x3 ∨ x14 ∨ x15) -> (True ∨ True ∨ True) -> True
+   (x25 ∨ ¬x3 ∨ x21) -> (True ∨ True ∨ True) -> True
+   (¬x6 ∨ ¬x19 ∨ ¬x3) -> (True ∨ True ∨ True) -> True
+   (x3 ∨ x9 ∨ ¬x13) -> (True ∨ True ∨ True) -> True
+   (¬x3 ∨ x5 ∨ ¬x25) -> (True ∨ True ∨ True) -> True
+8. Choose the next variable to assign a truth value to. Let's choose x4 = True.
+9. Update the formula based on the assignment:
+   (¬x5 ∨ ¬x11 ∨ x4) -> (True ∨ True ∨ True) -> True
+   (x4 ∨ x5 ∨ ¬x21) -> (True ∨ True ∨ True) -> True
+10. Choose the next variable to assign a truth value to. Let's choose x5 = True.
+11. Update the formula based on the assignment:
+   (¬x5 ∨ ¬x11 ∨ x4) -> (True ∨ True ∨ True) -> True
+   (¬x16 ∨ ¬x5 ∨ ¬x9) -> (True ∨ True ∨ True) -> True
+   (x5 ∨ ¬x8 ∨ ¬x3) -> (True ∨ True ∨ True) -> True
+   (¬x5 ∨ ¬x24 ∨ ¬x13) -> (True ∨ True ∨ True) -> True
+   (¬x3 ∨ x5 ∨ ¬x25) -> (True ∨ True ∨ True) -> True
+12. Choose the next variable to assign a truth value to. Let's choose x6 = True.
+13. Update the formula based on the assignment:
+   (¬x19 ∨ ¬x6 ∨ x24) -> (True ∨ True ∨ True) -> True
+   (¬x16 ∨ ¬x13 ∨ ¬x6) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ x8 ∨ x6) -> (True ∨ True ∨ True) -> True
+   (x6 ∨ ¬x1 ∨ x17) -> (True ∨ True ∨ True) -> True
+   (¬x6 ∨ ¬x10 ∨ x18) -> (True ∨ True ∨ True) -> True
+   (x6 ∨ ¬x19 ∨ ¬x3) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ ¬x22 ∨ ¬x16) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ x20 ∨ ¬x8) -> (True ∨ True ∨ True) -> True
+   (x15 ∨ x6 ∨ x8) -> (True ∨ True ∨ True) -> True
+   (x9 ∨ ¬x6 ∨ x11) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ x10 ∨ ¬x23) -> (True ∨ True ∨ True) -> True
+   (x6 ∨ ¬x24 ∨ ¬x5) -> (True ∨ True ∨ True) -> True
+14. Choose the next variable to assign a truth value to. Let's choose x7 = True.
+15. Update the formula based on the assignment:
+   (¬x25 ∨ ¬x9 ∨ x7) -> (True ∨ True ∨ True) -> True
+   (¬x22 ∨ x7 ∨ ¬x10) -> (True ∨ True ∨ True) -> True
+16. Choose the next variable to assign a truth value to. Let's choose x8 = True.
+17. Update the formula based on the assignment:
+   (¬x8 ∨ x22 ∨ x23) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ x8 ∨ x6) -> (True ∨ True ∨ True) -> True
+   (¬x16 ∨ ¬x5 ∨ x8) -> (True ∨ True ∨ True) -> True
+   (x8 ∨ x14 ∨ x6) -> (True ∨ True ∨ True) -> True
+18. Choose the next variable to assign a truth value to. Let's choose x9 = True.
+19. Update the formula based on the assignment:
+   (¬x12 ∨ ¬x9 ∨ ¬x1) -> (True ∨ True ∨ True) -> True
+   (¬x21 ∨ x25 ∨ ¬x9) -> (True ∨ True ∨ True) -> True
+   (x9 ∨ ¬x1 ∨ ¬x17) -> (True ∨ True ∨ True) -> True
+   (¬x9 ∨ x13 ∨ x16) -> (True ∨ True ∨ True) -> True
+   (x3 ∨ x9 ∨ ¬x13) -> (True ∨ True ∨ True) -> True
+   (x9 ∨ ¬x6 ∨ x11) -> (True ∨ True ∨ True) -> True
+20. Choose the next variable to assign a truth value to. Let's choose x10 = True.
+21. Update the formula based on the assignment:
+   (¬x10 ∨ x21 ∨ ¬x17) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ x10 ∨ ¬x23) -> (True ∨ True ∨ True) -> True
+   (x5 ∨ x11 ∨ ¬x10) -> (True ∨ True ∨ True) -> True
+22. Choose the next variable to assign a truth value to. Let's choose x11 = True.
+23. Update the formula based on the assignment:
+   (¬x5 ∨ ¬x11 ∨ x4) -> (True ∨ True ∨ True) -> True
+   (¬x12 ∨ ¬x11 ∨ x23) -> (True ∨ True ∨ True) -> True
+   (¬x11 ∨ ¬x7 ∨ x6) -> (True ∨ True ∨ True) -> True
+   (¬x11 ∨ x21 ∨ ¬x15) -> (True ∨ True ∨ True) -> True
+   (¬x16 ∨ ¬x13 ∨ ¬x11) -> (True ∨ True ∨ True) -> True
+   (¬x23 ∨ ¬x11 ∨ ¬x7) -> (True ∨ True ∨ True) -> True
+   (¬x11 ∨ x24 ∨ x5) -> (True ∨ True ∨ True) -> True
+24. Choose the next variable to assign a truth value to. Let's choose x12 = True.
+25. Update the formula based on the assignment:
+   (¬x12 ∨ ¬x9 ∨ ¬x1) -> (True ∨ True ∨ True) -> True
+   (¬x12 ∨ ¬x11 ∨ x23) -> (True ∨ True ∨ True) -> True
+   (¬x12 ∨ ¬x22 ∨ ¬x9) -> (True ∨ True ∨ True) -> True
+   (¬x2 ∨ x4 ∨ ¬x12) -> (True ∨ True ∨ True) -> True
+26. Choose the next variable to assign a truth value to. Let's choose x13 = True.
+27. Update the formula based on the assignment:
+   (x19 ∨ ¬x15 ∨ x13) -> (True ∨ True ∨ True) -> True
+   (¬x16 ∨ ¬x13 ∨ ¬x6) -> (True ∨ True ∨ True) -> True
+   (¬x17 ∨ ¬x13 ∨ x1) -> (True ∨ True ∨ True) -> True
+   (x23 ∨ x13 ∨ x1) -> (True ∨ True ∨ True) -> True
+   (¬x13 ∨ ¬x12 ∨ ¬x6) -> (True ∨ True ∨ True) -> True
+   (¬x13 ∨ ¬x22 ∨ ¬x16) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ x20 ∨ ¬x8) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ ¬x3 ∨ x8) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ x10 ∨ ¬x23) -> (True ∨ True ∨ True) -> True
+   (¬x9 ∨ x13 ∨ x16) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ x22 ∨ x16) -> (True ∨ True ∨ True) -> True
+28. Choose the next variable to assign a truth value to. Let's choose x14 = True.
+29. Update the formula based on the assignment:
+   (¬x3 ∨ x14 ∨ x15) -> (True ∨ True ∨ True) -> True
+   (x14 ∨ x20 ∨ x11) -> (True ∨ True ∨ True) -> True
+   (x8 ∨ x14 ∨ x6) -> (True ∨ True ∨ True) -> True
+   (x17 ∨ ¬x14 ∨ x2) -> (True ∨ True ∨ True) -> True
+30. Choose the next variable to assign a truth value to. Let's choose x15 = True.
+31. Update the formula based on the assignment:
+   (x19 ∨ ¬x15 ∨ x13) -> (True ∨ True ∨ True) -> True
+   (¬x15 ∨ ¬x1 ∨ x2) -> (True ∨ True ∨ True) -> True
+   (¬x15 ∨ ¬x22 ∨ x17) -> (True ∨ True ∨ True) -> True
+   (¬x15 ∨ ¬x1 ∨ x2) -> (True ∨ True ∨ True) -> True
+   (¬x11 ∨ x21 ∨ ¬x15) -> (True ∨ True ∨ True) -> True
+   (¬x1 ∨ ¬x4 ∨ x15) -> (True ∨ True ∨ True) -> True
+   (x15 ∨ x1 ∨ x9) -> (True ∨ True ∨ True) -> True
+   (x15 ∨ x6 ∨ x8) -> (True ∨ True ∨ True) -> True
+   (¬x3 ∨ x14 ∨ x15) -> (True ∨ True ∨ True) -> True
+32. Choose the next variable to assign a truth value to. Let's choose x16 = True.
+33. Update the formula based on the assignment:
+   (¬x16 ∨ ¬x13 ∨ ¬x6) -> (True ∨ True ∨ True) -> True
+   (¬x22 ∨ x23 ∨ ¬x16) -> (True ∨ True ∨ True) -> True
+   (¬x16 ∨ ¬x5 ∨ ¬x9) -> (True ∨ True ∨ True) -> True
+   (¬x16 ∨ ¬x1 ∨ ¬x8) -> (True ∨ True ∨ True) -> True
+   (¬x16 ∨ ¬x5 ∨ x8) -> (True ∨ True ∨ True) -> True
+   (x13 ∨ x22 ∨ x16) -> (True ∨ True ∨ True) -> True
+   (¬x13 ∨ ¬x22 ∨ ¬x16) -> (True ∨ True ∨ True) -> True
+   (x16 ∨ x2 ∨ x21) -> (True ∨ True ∨ True) -> True
+34. Choose the next variable to assign a truth value to. Let's choose x17 = True.
+35. Update the formula based on the assignment:
+   (x15 ∨ ¬x22 ∨ x17) -> (True ∨ True ∨ True) -> True
+   (x17 ∨ ¬x14 ∨ x2) -> (True ∨ True ∨ True) -> True
+36. Choose the next variable to assign a truth value to. Let's choose x18 = True.
+37. Update the formula based on the assignment:
+   (¬x18 ∨ ¬x23 ∨ x4) -> (True ∨ True ∨ True) -> True
+   (x2 ∨ x18 ∨ ¬x20) -> (True ∨ True ∨ True) -> True
+   (x18 ∨ x2 ∨ ¬x7) -> (True ∨ True ∨ True) -> True
+38. Choose the next variable to assign a truth value to. Let's choose x19 = True.
+39. Update the formula based on the assignment:
+   (x19 ∨ ¬x15 ∨ x13) -> (True ∨ True ∨ True) -> True
+   (¬x19 ∨ ¬x6 ∨ x24) -> (True ∨ True ∨ True) -> True
+   (¬x19 ∨ ¬x2 ∨ x25) -> (True ∨ True ∨ True) -> True
+   (¬x19 ∨ ¬x17 ∨ ¬x14) -> (True ∨ True ∨ True) -> True
+   (x1 ∨ x19 ∨ x25) -> (True ∨ True ∨ True) -> True
+   (x20 ∨ ¬x19 ∨ x16) -> (True ∨ True ∨ True) -> True
+   (x6 ∨ ¬x19 ∨ ¬x3) -> (True ∨ True ∨ True) -> True
+40. Choose the next variable to assign a truth value to. Let's choose x20 = True.
+41. Update the formula based on the assignment:
+   (x20 ∨ ¬x19 ∨ x16) -> (True ∨ True ∨ True) -> True
+   (x14 ∨ x20 ∨ x11) -> (True ∨ True ∨ True) -> True
+   (x21 ∨ x20 ∨ ¬x11) -> (True ∨ True ∨ True) -> True
+42. Choose the next variable to assign a truth value to. Let's choose x21 = True.
+43. Update the formula based on the assignment:
+   (¬x21 ∨ x25 ∨ ¬x9) -> (True ∨ True ∨ True) -> True
+   (x21 ∨ x20 ∨ ¬x11) -> (True ∨ True ∨ True) -> True
+   (x23 ∨ x21 ∨ x18) -> (True ∨ True ∨ True) -> True
+   (x21 ∨ x22 ∨ ¬x20) -> (True ∨ True ∨ True) -> True
+44. Choose the next variable to assign a truth value to. Let's choose x22 = True.
+45. Update the formula based on the assignment:
+   (¬x22 ∨ x23 ∨ ¬x16) -> (True ∨ True ∨ True) -> True
+   (¬x8 ∨ x22 ∨ x23) -> (True ∨ True ∨ True) -> True
+   (¬x2 ∨ x22 ∨ ¬x19) -> (True ∨ True ∨ True) -> True
+   (¬x12 ∨ ¬x22 ∨ ¬x9) -> (True ∨ True ∨ True) -> True
+   (x22 ∨ ¬x2 ∨ x24) -> (True ∨ True ∨ True) -> True
+   (x22 ∨ ¬x20 ∨

@@ -1,0 +1,74 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=823
+p cnf 5 17
+1 -4 3 0
+-5 -4 3 0
+-3 -4 -2 0
+3 4 1 0
+2 3 5 0
+-4 -2 5 0
+-1 5 2 0
+-5 4 -2 0
+4 5 -3 0
+1 -4 2 0
+-5 -3 1 0
+3 -4 2 0
+2 -1 -5 0
+5 1 -2 0
+3 -4 -5 0
+4 -5 2 0
+-2 5 3 0
+
+c GPT solve time: 5.71 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment: x1 = True.
+4. Update the clauses based on the assignment:
+   - (x1 ∨ ¬x4 ∨ x3) becomes (True ∨ ¬x4 ∨ x3) which simplifies to True.
+   - (x1 ∨ ¬x4 ∨ x2) becomes (True ∨ ¬x4 ∨ x2) which simplifies to True.
+   - (¬x5 ∨ x1 ∨ ¬x2) remains the same.
+   - (¬x1 ∨ x5 ∨ x2) remains the same.
+   - (¬x1 ∨ x5 ∨ ¬x2) remains the same.
+   - (x1 ∨ ¬x4 ∨ x2) becomes (True ∨ ¬x4 ∨ x2) which simplifies to True.
+   - (¬x5 ∨ ¬x4 ∨ x3) remains the same.
+   - (¬x5 ∨ x4 ∨ ¬x2) remains the same.
+   - (¬x5 ∨ ¬x3 ∨ x1) remains the same.
+5. Choose the next literal to assign. Let's choose x4 = True.
+6. Update the assignment: x4 = True.
+7. Update the clauses based on the assignment:
+   - (x1 ∨ ¬x4 ∨ x3) becomes (True ∨ False ∨ x3) which simplifies to True.
+   - (¬x5 ∨ x1 ∨ ¬x2) remains the same.
+   - (¬x1 ∨ x5 ∨ x2) remains the same.
+   - (¬x1 ∨ x5 ∨ ¬x2) remains the same.
+   - (¬x5 ∨ ¬x4 ∨ x3) becomes (¬x5 ∨ False ∨ x3) which simplifies to ¬x5 ∨ x3.
+   - (¬x5 ∨ x4 ∨ ¬x2) remains the same.
+   - (¬x5 ∨ ¬x3 ∨ x1) remains the same.
+8. Choose the next literal to assign. Let's choose x3 = True.
+9. Update the assignment: x3 = True.
+10. Update the clauses based on the assignment:
+    - (¬x5 ∨ x1 ∨ ¬x2) remains the same.
+    - (¬x1 ∨ x5 ∨ x2) remains the same.
+    - (¬x1 ∨ x5 ∨ ¬x2) remains the same.
+    - (¬x5 ∨ ¬x4 ∨ x3) becomes (¬x5 ∨ False ∨ True) which simplifies to ¬x5.
+    - (¬x5 ∨ x4 ∨ ¬x2) remains the same.
+    - (¬x5 ∨ ¬x3 ∨ x1) becomes (¬x5 ∨ False ∨ True) which simplifies to ¬x5.
+11. Choose the next literal to assign. Let's choose x5 = False.
+12. Update the assignment: x5 = False.
+13. Update the clauses based on the assignment:
+    - (¬x5 ∨ x1 ∨ ¬x2) remains the same.
+    - (¬x1 ∨ x5 ∨ x2) remains the same.
+    - (¬x1 ∨ x5 ∨ ¬x2) remains the same.
+    - (¬x5 ∨ x4 ∨ ¬x2) remains the same.
+14. At this point, all clauses are satisfied, so the formula is SATISFIABLE.
+15. The assignment is:
+    x1 = True
+    x4 = True
+    x3 = True
+    x5 = False
+16. Number of branches (decision points): 3
+17. Number of conflicts (backtracking steps): 0
+
+SATISFIABLE
+Number of branches: 3
+Number of conflicts: 0

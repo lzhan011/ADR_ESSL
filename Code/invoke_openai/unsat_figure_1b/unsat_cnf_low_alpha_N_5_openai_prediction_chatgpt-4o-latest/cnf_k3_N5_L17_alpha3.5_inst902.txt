@@ -1,0 +1,100 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=902
+p cnf 5 17
+-3 -1 -2 0
+-3 -5 2 0
+2 4 3 0
+-4 -2 -3 0
+-5 -4 2 0
+2 3 -1 0
+3 1 2 0
+-3 4 -5 0
+-3 1 5 0
+-4 -5 -2 0
+-5 -3 2 0
+-2 -5 -1 0
+-2 3 -5 0
+1 -2 -4 0
+-2 3 5 0
+5 1 -4 0
+5 2 -3 0
+
+c GPT solve time: 15.87 seconds
+
+Step-by-step SAT solving using DPLL (Davis–Putnam–Logemann–Loveland) algorithm:
+
+We are given a 3-CNF formula with 17 clauses and 5 variables: x1, x2, x3, x4, x5.
+
+We will proceed with the DPLL algorithm, which includes:
+- Unit propagation
+- Pure literal elimination
+- Branching (decision points)
+- Backtracking (conflicts)
+
+Let’s denote:
+- A branch is a decision where we assign a value to a variable not forced by unit propagation.
+- A conflict is when a clause becomes unsatisfiable under current assignments, requiring backtracking.
+
+Step 1: Start with an empty assignment.
+
+Step 2: No unit clauses or pure literals initially.
+
+Step 3: Branch 1: Assign x1 = True
+
+→ Propagate this assignment:
+- Check for unit propagation: none triggered.
+
+Step 4: Branch 2: Assign x2 = True
+
+→ Propagate:
+- Clause (¬x3 ∨ ¬x1 ∨ ¬x2): becomes (¬x3 ∨ False ∨ False) → (¬x3)
+→ Unit clause: x3 = False
+
+→ Propagate x3 = False:
+- Clause (x2 ∨ x4 ∨ x3): becomes (True ∨ x4 ∨ False) → satisfied
+- Clause (¬x4 ∨ ¬x2 ∨ ¬x3): becomes (¬x4 ∨ False ∨ True) → satisfied
+- Clause (¬x3 ∨ ¬x5 ∨ x2): becomes (True ∨ ¬x5 ∨ True) → satisfied
+- Clause (¬x3 ∨ x4 ∨ ¬x5): becomes (True ∨ x4 ∨ ¬x5) → satisfied
+- Clause (¬x3 ∨ x1 ∨ x5): becomes (True ∨ True ∨ x5) → satisfied
+- Clause (¬x5 ∨ ¬x3 ∨ x2): becomes (¬x5 ∨ True ∨ True) → satisfied
+- Clause (¬x2 ∨ x3 ∨ ¬x5): becomes (False ∨ False ∨ ¬x5) → (¬x5)
+→ Unit clause: x5 = False
+
+→ Propagate x5 = False:
+- Clause (¬x5 ∨ ¬x4 ∨ x2): becomes (True ∨ ¬x4 ∨ True) → satisfied
+- Clause (¬x5 ∨ ¬x3 ∨ x2): becomes (True ∨ True ∨ True) → satisfied
+- Clause (¬x2 ∨ ¬x5 ∨ ¬x1): becomes (False ∨ True ∨ False) → satisfied
+- Clause (¬x2 ∨ x3 ∨ ¬x5): becomes (False ∨ False ∨ True) → satisfied
+- Clause (x5 ∨ x1 ∨ ¬x4): becomes (False ∨ True ∨ ¬x4) → satisfied
+- Clause (x5 ∨ x2 ∨ ¬x3): becomes (False ∨ True ∨ True) → satisfied
+
+Now, remaining unassigned: x4
+
+Step 5: Branch 3: Assign x4 = True
+
+→ Check all clauses:
+- All clauses are satisfied under:
+  x1 = True  
+  x2 = True  
+  x3 = False  
+  x4 = True  
+  x5 = False
+
+No conflicts encountered.
+
+✅ SATISFIABLE
+
+Summary:
+- Branches (decision points): 3 (x1, x2, x4)
+- Conflicts (backtracks): 0
+
+Final output:
+
+SATISFIABLE  
+3  
+0  
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = True  
+x5 = False

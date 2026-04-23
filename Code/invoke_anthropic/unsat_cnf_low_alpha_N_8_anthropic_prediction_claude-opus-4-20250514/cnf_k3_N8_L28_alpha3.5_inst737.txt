@@ -1,0 +1,76 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=737
+p cnf 8 28
+-1 -2 -4 0
+-5 7 3 0
+-6 -7 -2 0
+7 -3 -5 0
+-7 -2 1 0
+8 5 3 0
+4 -5 6 0
+-7 8 -1 0
+6 7 8 0
+7 2 -5 0
+4 -2 8 0
+-1 -7 -6 0
+7 8 2 0
+5 -8 -6 0
+-5 -6 -7 0
+6 5 4 0
+6 -1 2 0
+4 -5 -8 0
+2 4 -6 0
+-4 8 -6 0
+5 -7 -6 0
+1 6 2 0
+-6 4 1 0
+-2 6 -4 0
+-1 -7 -4 0
+-8 6 -1 0
+5 3 -1 0
+2 -1 -8 0
+
+c GPT solve time: 16.51 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+Starting with the formula, I'll make decisions and propagate constraints:
+
+**Branch 1**: x1 = true
+- From clause (¬x1 ∨ ¬x2 ∨ ¬x4): forces x2 = false or x4 = false
+- From clause (¬x1 ∨ ¬x7 ∨ ¬x6): forces x7 = false or x6 = false
+- From clause (¬x1 ∨ ¬x7 ∨ ¬x4): forces x7 = false or x4 = false
+- From clause (¬x8 ∨ x6 ∨ ¬x1): forces x8 = false or x6 = true
+- From clause (x2 ∨ ¬x1 ∨ ¬x8): forces x2 = true or x8 = false
+
+**Branch 2**: x2 = true (under x1 = true)
+- From clause (¬x1 ∨ ¬x2 ∨ ¬x4): forces x4 = false
+- From clause (¬x6 ∨ ¬x7 ∨ ¬x2): forces x6 = false or x7 = false
+- From clause (¬x7 ∨ ¬x2 ∨ x1): satisfied
+- From clause (x4 ∨ ¬x2 ∨ x8): forces x8 = true (since x4 = false)
+- From clause (¬x2 ∨ x6 ∨ ¬x4): satisfied
+
+With x4 = false, x8 = true:
+- From clause (¬x8 ∨ x6 ∨ ¬x1): forces x6 = true
+- From clause (x5 ∨ ¬x8 ∨ ¬x6): conflict! (x8 = true, x6 = true makes this false if x5 = false)
+
+**Branch 3**: x6 = false (under x1 = true, x2 = true, x4 = false, x8 = true)
+- From clause (x6 ∨ x7 ∨ x8): satisfied by x8 = true
+- From clause (¬x6 ∨ ¬x7 ∨ ¬x2): satisfied by x6 = false
+- From clause (x6 ∨ x5 ∨ x4): forces x5 = true
+- From clause (x6 ∨ ¬x1 ∨ x2): satisfied by x2 = true
+
+Continuing with x5 = true:
+- From clause (¬x5 ∨ x7 ∨ x3): forces x7 = true or x3 = true
+- From clause (¬x5 ∨ ¬x6 ∨ ¬x7): forces x7 = false
+- Therefore x7 = false, which forces x3 = true
+
+Checking all clauses with assignment:
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = true, x6 = false, x7 = false, x8 = true
+
+All clauses are satisfied!
+
+SATISFIABLE
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = true, x6 = false, x7 = false, x8 = true
+Number of branches: 3
+Number of conflicts: 0

@@ -1,0 +1,80 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1079
+p cnf 10 35
+1 2 7 0
+7 -6 -2 0
+9 1 10 0
+9 -2 -6 0
+-7 -1 -10 0
+-2 10 9 0
+1 -10 -4 0
+-8 2 -7 0
+8 -5 6 0
+-4 -1 -6 0
+3 -9 -2 0
+4 1 -9 0
+-1 2 8 0
+-6 1 -10 0
+4 -3 10 0
+-9 -10 -8 0
+-10 9 -2 0
+7 -6 -3 0
+-10 5 -6 0
+4 7 3 0
+-3 -6 5 0
+1 -7 8 0
+-7 1 5 0
+-10 -4 9 0
+-1 6 9 0
+4 6 2 0
+-9 -2 7 0
+9 5 -3 0
+-8 -3 -5 0
+-6 -5 -3 0
+6 -3 1 0
+5 2 -4 0
+5 4 -9 0
+-8 6 -1 0
+-9 8 -3 0
+
+c GPT solve time: 15.93 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Starting with the formula, I'll track decisions and conflicts.
+
+**Branch 1: x1 = true**
+- Clause (¬x7 ∨ ¬x1 ∨ ¬x10) becomes (¬x7 ∨ ¬x10)
+- Clause (¬x4 ∨ ¬x1 ∨ ¬x6) becomes (¬x4 ∨ ¬x6)
+- Clause (¬x1 ∨ x2 ∨ x8) becomes (x2 ∨ x8)
+- Clause (¬x1 ∨ x6 ∨ x9) becomes (x6 ∨ x9)
+- Clause (¬x8 ∨ x6 ∨ ¬x1) becomes (¬x8 ∨ x6)
+
+**Branch 2: x2 = true**
+- From (x2 ∨ x8), satisfied
+- Clause (x7 ∨ ¬x6 ∨ ¬x2) becomes (x7 ∨ ¬x6)
+- Clause (x9 ∨ ¬x2 ∨ ¬x6) becomes (x9 ∨ ¬x6)
+- Clause (¬x2 ∨ x10 ∨ x9) becomes (x10 ∨ x9)
+- Clause (x3 ∨ ¬x9 ∨ ¬x2) becomes (x3 ∨ ¬x9)
+- Clause (¬x10 ∨ x9 ∨ ¬x2) becomes (¬x10 ∨ x9)
+- Clause (¬x9 ∨ ¬x2 ∨ x7) becomes (¬x9 ∨ x7)
+
+**Branch 3: x3 = true**
+- From (x3 ∨ ¬x9), satisfied
+- Clause (x4 ∨ ¬x3 ∨ x10) becomes (x4 ∨ x10)
+- Clause (x7 ∨ ¬x6 ∨ ¬x3) becomes (x7 ∨ ¬x6)
+- Clause (¬x3 ∨ ¬x6 ∨ x5) becomes (¬x6 ∨ x5)
+- Clause (x9 ∨ x5 ∨ ¬x3) becomes (x9 ∨ x5)
+- Clause (¬x8 ∨ ¬x3 ∨ ¬x5) becomes (¬x8 ∨ ¬x5)
+- Clause (¬x6 ∨ ¬x5 ∨ ¬x3) becomes (¬x6 ∨ ¬x5)
+- Clause (x6 ∨ ¬x3 ∨ x1) becomes x6
+- Clause (¬x9 ∨ x8 ∨ ¬x3) becomes (¬x9 ∨ x8)
+
+Unit propagation: x6 = true
+- From (¬x6 ∨ x5), we get x5 = true
+- From (¬x6 ∨ ¬x5), we get CONFLICT!
+
+**Backtrack to Branch 3: x3 = false**
+- Clause (x4 ∨ ¬x3 ∨ x10) satisfied
+- Clause (¬x3 ∨ ¬x6 ∨ x5) satisfied
+- Clause (x9 ∨ x5

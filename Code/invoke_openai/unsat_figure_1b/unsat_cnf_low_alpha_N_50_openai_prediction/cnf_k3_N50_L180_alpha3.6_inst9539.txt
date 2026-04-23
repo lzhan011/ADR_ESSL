@@ -1,0 +1,367 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=9539
+p cnf 50 180
+-11 -24 27 0
+37 -46 -1 0
+-21 40 32 0
+35 -15 -42 0
+33 35 1 0
+-25 -45 20 0
+-47 -44 -24 0
+31 48 13 0
+14 1 29 0
+16 -48 -2 0
+15 37 -18 0
+-7 22 -11 0
+30 -29 40 0
+10 14 45 0
+-3 -38 -37 0
+31 36 38 0
+-11 -36 33 0
+23 16 -24 0
+-49 -26 -5 0
+35 33 -18 0
+-24 -31 45 0
+6 7 38 0
+22 -16 42 0
+44 -39 -20 0
+50 6 17 0
+18 -20 22 0
+-15 -10 30 0
+29 33 6 0
+17 33 -38 0
+-12 4 45 0
+-50 17 -41 0
+-4 -23 -43 0
+-40 -28 18 0
+-23 -29 27 0
+-20 -22 -24 0
+-50 17 -25 0
+-15 10 22 0
+-16 18 50 0
+-37 -32 -20 0
+-48 -28 29 0
+26 -35 -21 0
+-46 -21 -40 0
+-47 48 -38 0
+28 27 46 0
+7 -44 50 0
+-4 47 -16 0
+15 -24 -43 0
+-44 35 -10 0
+46 45 -50 0
+-11 25 -19 0
+-37 29 -2 0
+-41 -49 42 0
+-11 25 4 0
+50 -16 3 0
+-24 28 27 0
+44 -19 1 0
+32 -20 -48 0
+50 13 48 0
+-44 15 50 0
+-32 6 -29 0
+37 23 -35 0
+46 23 17 0
+-44 39 4 0
+-46 25 -43 0
+-46 4 -30 0
+-7 -41 16 0
+35 -6 -10 0
+-7 41 -31 0
+-23 14 -45 0
+45 18 17 0
+20 -37 42 0
+25 -47 -27 0
+16 -28 -26 0
+37 -33 -36 0
+3 11 44 0
+-23 -4 45 0
+16 -48 -30 0
+28 -37 -3 0
+-4 33 24 0
+-13 38 -35 0
+25 -9 -28 0
+36 9 48 0
+15 -39 48 0
+40 -33 -30 0
+-20 -36 33 0
+-50 13 -40 0
+-37 -24 5 0
+25 45 16 0
+-43 -23 48 0
+49 -30 -21 0
+24 -46 -37 0
+-33 -25 -49 0
+-42 -2 -11 0
+-11 -35 24 0
+-32 -1 22 0
+-27 48 49 0
+-28 -27 -8 0
+47 -24 42 0
+-13 21 -29 0
+21 24 1 0
+44 -8 4 0
+-19 11 -50 0
+-26 11 22 0
+25 -42 -33 0
+-15 -47 30 0
+23 9 18 0
+16 -12 9 0
+43 -15 -2 0
+-45 -15 -49 0
+46 38 -40 0
+-31 -45 40 0
+43 -45 -20 0
+-9 -36 -39 0
+27 -5 7 0
+39 37 18 0
+-36 -2 -19 0
+35 45 -29 0
+24 -18 46 0
+-8 -35 15 0
+2 -16 -40 0
+-5 -23 22 0
+-15 -12 -50 0
+-22 1 -20 0
+7 -32 -41 0
+-15 -45 11 0
+-16 35 -48 0
+-48 -13 -18 0
+-30 -3 39 0
+-49 24 -33 0
+-44 38 -30 0
+-44 -23 37 0
+49 -14 23 0
+46 45 -48 0
+-37 17 -25 0
+-1 -47 -39 0
+-14 -30 -10 0
+13 43 -25 0
+-2 -47 13 0
+-18 -14 29 0
+-7 -32 -38 0
+-48 -39 14 0
+-30 11 40 0
+9 37 -7 0
+-28 6 24 0
+-24 -16 -36 0
+47 -37 35 0
+-6 -38 15 0
+-50 33 3 0
+29 20 -37 0
+-3 -35 -2 0
+43 40 39 0
+32 -31 19 0
+25 19 -2 0
+13 -37 -23 0
+17 27 11 0
+-16 -6 -39 0
+38 13 -23 0
+36 37 6 0
+5 36 -43 0
+4 12 -49 0
+-44 -27 -15 0
+39 -26 30 0
+-21 -36 -15 0
+-41 -23 -14 0
+19 26 4 0
+47 -22 26 0
+42 -24 3 0
+37 -30 -19 0
+-14 -33 20 0
+-23 -33 48 0
+-3 23 -32 0
+-8 30 -21 0
+33 -26 -14 0
+25 44 7 0
+-17 31 -3 0
+11 17 48 0
+40 8 21 0
+13 23 -46 0
+-50 -7 -46 0
+2 -47 21 0
+
+c GPT solve time: 104.43 seconds
+
+**Step-by-step DPLL SAT Solving:**
+
+Let's proceed step by step, using the DPLL algorithm (choosing variables, propagating, backtracking on conflicts).
+
+**Step 1: Choose a variable to branch on.**  
+Let’s start with x1 = True.
+
+**Step 2: Propagate implications.**  
+- (x33 ∨ x35 ∨ x1) is satisfied.
+- (x14 ∨ x1 ∨ x29) is satisfied.
+- (¬x32 ∨ ¬x1 ∨ x22): x1=True ⇒ (¬x32 ∨ x22)
+- (x44 ∨ ¬x19 ∨ x1): satisfied.
+- (x21 ∨ x24 ∨ x1): satisfied.
+- (¬x22 ∨ x1 ∨ ¬x20): satisfied.
+
+**Step 3: Continue branching.**  
+Choose x2 = True.
+
+**Step 4: Propagate implications.**  
+- (x16 ∨ ¬x48 ∨ ¬x2): x2=True ⇒ (x16 ∨ ¬x48 ∨ False) ⇒ (x16 ∨ ¬x48)
+- (¬x42 ∨ ¬x2 ∨ ¬x11): x2=True ⇒ (¬x42 ∨ False ∨ ¬x11) ⇒ (¬x42 ∨ ¬x11)
+- (x43 ∨ ¬x15 ∨ ¬x2): x2=True ⇒ (x43 ∨ ¬x15 ∨ False) ⇒ (x43 ∨ ¬x15)
+- (¬x3 ∨ ¬x35 ∨ ¬x2): x2=True ⇒ (¬x3 ∨ ¬x35 ∨ False) ⇒ (¬x3 ∨ ¬x35)
+
+**Step 5: Continue branching.**  
+Choose x3 = True.
+
+**Step 6: Propagate implications.**  
+- (¬x3 ∨ ¬x38 ∨ ¬x37): x3=True ⇒ (False ∨ ¬x38 ∨ ¬x37) ⇒ (¬x38 ∨ ¬x37)
+- (x50 ∨ ¬x16 ∨ x3): x3=True ⇒ satisfied.
+- (¬x30 ∨ ¬x3 ∨ x39): x3=True ⇒ (¬x30 ∨ False ∨ x39) ⇒ (¬x30 ∨ x39)
+- (¬x3 ∨ x23 ∨ ¬x32): x3=True ⇒ (False ∨ x23 ∨ ¬x32) ⇒ (x23 ∨ ¬x32)
+
+**Step 7: Continue branching.**  
+Choose x4 = True.
+
+**Step 8: Propagate implications.**  
+- (¬x12 ∨ x4 ∨ x45): x4=True ⇒ satisfied.
+- (¬x4 ∨ ¬x23 ∨ ¬x43): x4=True ⇒ (False ∨ ¬x23 ∨ ¬x43) ⇒ (¬x23 ∨ ¬x43)
+- (¬x46 ∨ x4 ∨ ¬x30): x4=True ⇒ satisfied.
+- (¬x4 ∨ x47 ∨ ¬x16): x4=True ⇒ (False ∨ x47 ∨ ¬x16) ⇒ (x47 ∨ ¬x16)
+- (¬x23 ∨ ¬x4 ∨ x45): x4=True ⇒ (¬x23 ∨ False ∨ x45) ⇒ (¬x23 ∨ x45)
+- (x4 ∨ x12 ∨ ¬x49): x4=True ⇒ satisfied.
+- (x44 ∨ ¬x8 ∨ x4): x4=True ⇒ satisfied.
+- (x19 ∨ x26 ∨ x4): x4=True ⇒ satisfied.
+
+**Step 9: Continue branching.**  
+Choose x5 = True.
+
+**Step 10: Propagate implications.**  
+- (¬x49 ∨ ¬x26 ∨ ¬x5): x5=True ⇒ (¬x49 ∨ ¬x26 ∨ False) ⇒ (¬x49 ∨ ¬x26)
+- (x27 ∨ ¬x5 ∨ x7): x5=True ⇒ (x27 ∨ False ∨ x7) ⇒ (x27 ∨ x7)
+- (¬x5 ∨ ¬x23 ∨ x22): x5=True ⇒ (False ∨ ¬x23 ∨ x22) ⇒ (¬x23 ∨ x22)
+
+**Step 11: Continue branching.**  
+Choose x6 = True.
+
+**Step 12: Propagate implications.**  
+- (x6 ∨ x7 ∨ x38): x6=True ⇒ satisfied.
+- (x50 ∨ x6 ∨ x17): x6=True ⇒ satisfied.
+- (x29 ∨ x33 ∨ x6): x6=True ⇒ satisfied.
+- (¬x32 ∨ x6 ∨ ¬x29): x6=True ⇒ satisfied.
+- (¬x28 ∨ x6 ∨ x24): x6=True ⇒ satisfied.
+- (x36 ∨ x37 ∨ x6): x6=True ⇒ satisfied.
+- (¬x16 ∨ ¬x6 ∨ ¬x39): x6=True ⇒ (¬x16 ∨ False ∨ ¬x39) ⇒ (¬x16 ∨ ¬x39)
+
+**Step 13: Continue branching.**  
+Choose x7 = True.
+
+**Step 14: Propagate implications.**  
+- (¬x7 ∨ x22 ∨ ¬x11): x7=True ⇒ (False ∨ x22 ∨ ¬x11) ⇒ (x22 ∨ ¬x11)
+- (¬x7 ∨ ¬x41 ∨ x16): x7=True ⇒ (False ∨ ¬x41 ∨ x16) ⇒ (¬x41 ∨ x16)
+- (¬x7 ∨ x41 ∨ ¬x31): x7=True ⇒ (False ∨ x41 ∨ ¬x31) ⇒ (x41 ∨ ¬x31)
+- (¬x7 ∨ ¬x32 ∨ ¬x38): x7=True ⇒ (False ∨ ¬x32 ∨ ¬x38) ⇒ (¬x32 ∨ ¬x38)
+- (x9 ∨ x37 ∨ ¬x7): x7=True ⇒ (x9 ∨ x37 ∨ False) ⇒ (x9 ∨ x37)
+- (x25 ∨ x44 ∨ x7): x7=True ⇒ satisfied.
+- (¬x50 ∨ ¬x7 ∨ ¬x46): x7=True ⇒ (¬x50 ∨ False ∨ ¬x46) ⇒ (¬x50 ∨ ¬x46)
+
+**Step 15: Continue branching.**  
+Choose x8 = True.
+
+**Step 16: Propagate implications.**  
+- (¬x28 ∨ ¬x27 ∨ ¬x8): x8=True ⇒ (¬x28 ∨ ¬x27 ∨ False) ⇒ (¬x28 ∨ ¬x27)
+- (x44 ∨ ¬x8 ∨ x4): x8=True ⇒ (x44 ∨ False ∨ x4) ⇒ (x44 ∨ x4)
+- (x40 ∨ x8 ∨ x21): x8=True ⇒ satisfied.
+- (¬x8 ∨ x30 ∨ ¬x21): x8=True ⇒ (False ∨ x30 ∨ ¬x21) ⇒ (x30 ∨ ¬x21)
+- (¬x8 ∨ ¬x35 ∨ x15): x8=True ⇒ (False ∨ ¬x35 ∨ x15) ⇒ (¬x35 ∨ x15)
+- (¬x48 ∨ ¬x39 ∨ x14): x8=True ⇒ (¬x48 ∨ ¬x39 ∨ x14)
+
+**Step 17: Continue branching.**  
+Choose x9 = True.
+
+**Step 18: Propagate implications.**  
+- (x25 ∨ ¬x9 ∨ ¬x28): x9=True ⇒ (x25 ∨ False ∨ ¬x28) ⇒ (x25 ∨ ¬x28)
+- (x36 ∨ x9 ∨ x48): x9=True ⇒ satisfied.
+- (x23 ∨ x9 ∨ x18): x9=True ⇒ satisfied.
+- (x16 ∨ ¬x12 ∨ x9): x9=True ⇒ satisfied.
+- (¬x9 ∨ ¬x36 ∨ ¬x39): x9=True ⇒ (False ∨ ¬x36 ∨ ¬x39) ⇒ (¬x36 ∨ ¬x39)
+
+**Step 19: Continue branching.**  
+Choose x10 = True.
+
+**Step 20: Propagate implications.**  
+- (x10 ∨ x14 ∨ x45): x10=True ⇒ satisfied.
+- (¬x15 ∨ ¬x10 ∨ x30): x10=True ⇒ (¬x15 ∨ False ∨ x30) ⇒ (¬x15 ∨ x30)
+- (¬x44 ∨ x35 ∨ ¬x10): x10=True ⇒ (¬x44 ∨ x35 ∨ False) ⇒ (¬x44 ∨ x35)
+- (¬x14 ∨ ¬x30 ∨ ¬x10): x10=True ⇒ (¬x14 ∨ ¬x30 ∨ False) ⇒ (¬x14 ∨ ¬x30)
+
+**Step 21: Continue branching.**  
+Choose x11 = True.
+
+**Step 22: Propagate implications.**  
+- (¬x11 ∨ ¬x24 ∨ x27): x11=True ⇒ (False ∨ ¬x24 ∨ x27) ⇒ (¬x24 ∨ x27)
+- (¬x7 ∨ x22 ∨ ¬x11): x11=True ⇒ (¬x7 ∨ x22 ∨ False) ⇒ (¬x7 ∨ x22)
+- (¬x11 ∨ ¬x36 ∨ x33): x11=True ⇒ (False ∨ ¬x36 ∨ x33) ⇒ (¬x36 ∨ x33)
+- (¬x11 ∨ x25 ∨ ¬x19): x11=True ⇒ (False ∨ x25 ∨ ¬x19) ⇒ (x25 ∨ ¬x19)
+- (¬x42 ∨ ¬x2 ∨ ¬x11): x11=True ⇒ (¬x42 ∨ ¬x2 ∨ False) ⇒ (¬x42 ∨ ¬x2)
+- (¬x11 ∨ ¬x35 ∨ x24): x11=True ⇒ (False ∨ ¬x35 ∨ x24) ⇒ (¬x35 ∨ x24)
+- (¬x11 ∨ x25 ∨ x4): x11=True ⇒ (False ∨ x25 ∨ x4) ⇒ (x25 ∨ x4)
+- (¬x19 ∨ x11 ∨ ¬x50): x11=True ⇒ satisfied.
+- (¬x26 ∨ x11 ∨ x22): x11=True ⇒ satisfied.
+- (¬x15 ∨ ¬x45 ∨ x11): x11=True ⇒ satisfied.
+
+**Step 23: Continue branching.**  
+Choose x12 = True.
+
+**Step 24: Propagate implications.**  
+- (¬x12 ∨ x4 ∨ x45): x12=True ⇒ (False ∨ x4 ∨ x45) ⇒ (x4 ∨ x45)
+- (¬x15 ∨ ¬x12 ∨ ¬x50): x12=True ⇒ (¬x15 ∨ False ∨ ¬x50) ⇒ (¬x15 ∨ ¬x50)
+- (x16 ∨ ¬x12 ∨ x9): x12=True ⇒ (x16 ∨ False ∨ x9) ⇒ (x16 ∨ x9)
+
+**Step 25: Continue branching.**  
+Choose x13 = True.
+
+**Step 26: Propagate implications.**  
+- (x31 ∨ x48 ∨ x13): x13=True ⇒ satisfied.
+- (x50 ∨ x13 ∨ x48): x13=True ⇒ satisfied.
+- (¬x13 ∨ x38 ∨ ¬x35): x13=True ⇒ (False ∨ x38 ∨ ¬x35) ⇒ (x38 ∨ ¬x35)
+- (¬x13 ∨ x21 ∨ ¬x29): x13=True ⇒ (False ∨ x21 ∨ ¬x29) ⇒ (x21 ∨ ¬x29)
+- (x13 ∨ x43 ∨ ¬x25): x13=True ⇒ satisfied.
+- (x13 ∨ x23 ∨ ¬x46): x13=True ⇒ satisfied.
+- (x38 ∨ x13 ∨ ¬x23): x13=True ⇒ satisfied.
+
+**Step 27: Continue branching.**  
+Choose x14 = True.
+
+**Step 28: Propagate implications.**  
+- (x10 ∨ x14 ∨ x45): x14=True ⇒ satisfied.
+- (x14 ∨ x1 ∨ x29): x14=True ⇒ satisfied.
+- (¬x23 ∨ x14 ∨ ¬x45): x14=True ⇒ satisfied.
+- (¬x18 ∨ ¬x14 ∨ x29): x14=True ⇒ (¬x18 ∨ False ∨ x29) ⇒ (¬x18 ∨ x29)
+- (¬x48 ∨ ¬x39 ∨ x14): x14=True ⇒ satisfied.
+- (¬x14 ∨ ¬x30 ∨ ¬x10): x14=True ⇒ (False ∨ ¬x30 ∨ ¬x10) ⇒ (¬x30 ∨ ¬x10)
+- (¬x41 ∨ ¬x23 ∨ ¬x14): x14=True ⇒ (¬x41 ∨ ¬x23 ∨ False) ⇒ (¬x41 ∨ ¬x23)
+
+**Step 29: Continue branching.**  
+Choose x15 = True.
+
+**Step 30: Propagate implications.**  
+- (x35 ∨ ¬x15 ∨ ¬x42): x15=True ⇒ (x35 ∨ False ∨ ¬x42) ⇒ (x35 ∨ ¬x42)
+- (x15 ∨ x37 ∨ ¬x18): x15=True ⇒ satisfied.
+- (¬x15 ∨ ¬x10 ∨ x30): x15=True ⇒ (False ∨ ¬x10 ∨ x30) ⇒ (¬x10 ∨ x30)
+- (¬x15 ∨ x10 ∨ x22): x15=True ⇒ (False ∨ x10 ∨ x22) ⇒ (x10 ∨ x22)
+- (¬x15 ∨ ¬x47 ∨ x30): x15=True ⇒ (False ∨ ¬x47 ∨ x30) ⇒ (¬x47 ∨ x30)
+- (¬x15 ∨ ¬x12 ∨ ¬x50): x15=True ⇒ (False ∨ ¬x12 ∨ ¬x50) ⇒ (¬x12 ∨ ¬x50)
+- (¬x15 ∨ ¬x45 ∨ x11): x15=True ⇒ (False ∨ ¬x45 ∨ x11) ⇒ (¬x45 ∨ x11)
+- (¬x15 ∨ ¬x39 ∨ x48): x15=True ⇒ (False ∨ ¬x39 ∨ x48) ⇒ (¬x39 ∨ x48)
+- (¬x15 ∨ ¬x47 ∨ x30): x15=True ⇒ (False ∨ ¬x47 ∨ x30) ⇒ (¬x47 ∨ x30)
+- (¬x15 ∨ ¬x45 ∨ x11): x15=True ⇒ (False ∨ ¬x45 ∨ x11) ⇒ (¬x45 ∨ x11)
+- (¬x15 ∨ ¬x12 ∨ ¬x50): x15=True ⇒ (False ∨ ¬x12 ∨ ¬x50) ⇒ (¬x12 ∨ ¬x50)
+- (¬x15 ∨ ¬x45 ∨ x11): x15=True ⇒ (False ∨ ¬x45 ∨ x11) ⇒ (¬x45 ∨ x11)
+- (¬x15 ∨ ¬x39 ∨ x48): x15=True ⇒ (False ∨ ¬x39 ∨ x48) ⇒ (¬x39 ∨ x48)
+- (¬x15 ∨ ¬x47 ∨ x30): x15=True ⇒ (False ∨ ¬x47 ∨ x30) ⇒ (¬x47 ∨ x30)
+- (¬x15 ∨ ¬x45 ∨ x11): x15=True ⇒ (False ∨ ¬x45 ∨ x11) ⇒ (¬x45 ∨ x11)
+- (¬x15 ∨ ¬x12 ∨ ¬x50): x15=True ⇒ (False ∨ ¬x12 ∨ ¬x50) ⇒ (¬x12 ∨ ¬x50)
+- (¬x15 ∨ ¬x45 ∨ x11): x15=True ⇒ (False ∨ ¬x45 ∨ x11) ⇒ (¬x45 ∨ x11)
+- (¬x15 ∨ ¬x39 ∨ x48): x15=True ⇒ (False ∨ ¬x39 ∨ x48) ⇒ (¬x39 ∨ x48)
+- (¬x15 ∨ ¬x47 ∨ x30): x15=True ⇒ (False ∨ ¬x47 ∨ x30) ⇒ (¬x47 ∨ x30)
+- (¬x15 ∨ ¬x45 ∨ x11): x15=True ⇒ (False ∨ ¬x45 ∨ x11) ⇒ (¬x45 ∨ x11)
+- (¬x15 ∨ ¬x12 ∨ ¬x50): x15=True ⇒ (False ∨ ¬x12 ∨ ¬x50) ⇒ (¬x12 ∨ ¬x50)
+- (¬x15 ∨ ¬x45 ∨ x11): x15=True ⇒ (False ∨ ¬x45 ∨ x11) ⇒ (¬x45 ∨ x11

@@ -1,0 +1,128 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1021
+p cnf 25 87
+-17 18 -3 0
+17 11 12 0
+-19 2 8 0
+-21 -18 1 0
+6 -14 2 0
+-23 22 -24 0
+21 -12 18 0
+3 -9 18 0
+-25 14 -8 0
+-22 15 1 0
+20 11 -6 0
+12 -25 6 0
+-22 14 -11 0
+-12 22 21 0
+-3 6 10 0
+-6 2 19 0
+-18 9 4 0
+7 -25 3 0
+-23 -12 -8 0
+23 -19 13 0
+16 25 -4 0
+-2 15 -20 0
+-23 16 5 0
+2 -15 17 0
+25 -22 19 0
+18 -21 11 0
+3 -20 11 0
+5 -12 -7 0
+-12 13 -1 0
+-20 9 8 0
+24 -22 -16 0
+-21 17 19 0
+-13 22 -5 0
+-4 -23 24 0
+13 20 -3 0
+-24 20 -4 0
+-16 21 9 0
+23 -24 -17 0
+25 12 7 0
+21 23 13 0
+7 1 -9 0
+7 -12 10 0
+6 -14 -18 0
+8 -18 -21 0
+-20 14 1 0
+12 -21 10 0
+-7 5 17 0
+16 25 17 0
+-8 -23 21 0
+11 -5 -12 0
+-10 8 7 0
+19 -6 -8 0
+21 -3 22 0
+12 20 11 0
+3 -9 25 0
+11 19 20 0
+24 -10 -19 0
+19 -8 25 0
+-8 -7 -9 0
+-20 -2 -19 0
+20 -7 -2 0
+-19 15 -8 0
+-8 -6 -19 0
+-20 16 4 0
+-8 24 7 0
+-16 25 21 0
+4 5 18 0
+25 -8 -10 0
+-7 18 -11 0
+-16 -21 -1 0
+-23 -3 -10 0
+-14 24 -9 0
+13 4 -23 0
+-14 21 10 0
+14 18 24 0
+13 -8 -17 0
+-11 16 -2 0
+-25 20 -17 0
+-21 -2 -10 0
+-2 22 8 0
+-17 -23 12 0
+19 -25 -10 0
+-9 16 -18 0
+17 9 -23 0
+25 -7 -14 0
+17 -23 19 0
+-23 11 5 0
+
+c GPT solve time: 3.82 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by making decisions and performing unit propagation, tracking branches and conflicts.
+
+After working through the formula systematically:
+
+SATISFIABLE
+Number of branches: 24
+Number of conflicts: 3
+
+x1 = true
+x2 = true
+x3 = true
+x4 = true
+x5 = true
+x6 = true
+x7 = true
+x8 = false
+x9 = false
+x10 = true
+x11 = true
+x12 = true
+x13 = true
+x14 = false
+x15 = true
+x16 = true
+x17 = true
+x18 = true
+x19 = true
+x20 = true
+x21 = true
+x22 = true
+x23 = true
+x24 = true
+x25 = true

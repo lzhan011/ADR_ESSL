@@ -1,0 +1,301 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=546
+p cnf 5 17
+-4 -1 -3 0
+5 4 -1 0
+4 2 -5 0
+2 -5 4 0
+-1 2 4 0
+-4 -2 -5 0
+1 4 3 0
+-5 4 -2 0
+2 -5 -4 0
+-1 -4 3 0
+-1 -4 3 0
+1 5 3 0
+-3 5 1 0
+1 -3 2 0
+1 5 -3 0
+3 -5 -1 0
+-4 5 1 0
+
+c GPT solve time: 17.41 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Step 1: List variables:** x1, x2, x3, x4, x5
+
+**Step 2: Choose a variable to branch on.**  
+Let’s start with x1 = True.
+
+---
+
+### Branch 1: x1 = True
+
+**Substitute x1 = True into all clauses:**
+
+- Any clause with x1 is satisfied: (x1 ∨ ...) → satisfied
+- Any clause with ¬x1: (¬x1 ∨ ...) → remove ¬x1 from clause
+
+**Simplified formula:**
+
+1. (¬x4 ∨ ¬x3)
+2. (x5 ∨ x4)
+3. (x4 ∨ x2 ∨ ¬x5)
+4. (x2 ∨ ¬x5 ∨ x4)
+5. (x2 ∨ x4)
+6. (¬x4 ∨ ¬x2 ∨ ¬x5)
+7. (¬x5 ∨ x4 ∨ ¬x2)
+8. (x2 ∨ ¬x5 ∨ ¬x4)
+9. (¬x4 ∨ x3)
+10. (¬x4 ∨ x3)
+11. (x5 ∨ x3)
+12. (¬x3 ∨ x5)
+13. (x2)
+14. (x5 ∨ ¬x3)
+15. (x3 ∨ ¬x5)
+16. (¬x4 ∨ x5)
+
+**Unit propagation:**
+
+- Clause 13: (x2) ⇒ x2 = True
+
+Substitute x2 = True:
+
+- Any clause with x2 is satisfied.
+- Remove ¬x2 from clauses.
+
+Remaining clauses:
+
+1. (¬x4 ∨ ¬x3)
+2. (x5 ∨ x4)
+3. (x4 ∨ ¬x5)
+4. (¬x4 ∨ ¬x5)
+5. (¬x5 ∨ x4)
+6. (¬x4 ∨ x3)
+7. (¬x4 ∨ x3)
+8. (x5 ∨ x3)
+9. (¬x3 ∨ x5)
+10. (x5 ∨ ¬x3)
+11. (x3 ∨ ¬x5)
+12. (¬x4 ∨ x5)
+
+No more unit clauses.
+
+---
+
+**Step 3: Next variable. Try x3 = True.**
+
+Substitute x3 = True:
+
+- Any clause with x3 is satisfied.
+- Remove ¬x3 from clauses.
+
+Remaining:
+
+1. (¬x4)
+2. (x5 ∨ x4)
+3. (x4 ∨ ¬x5)
+4. (¬x4 ∨ ¬x5)
+5. (¬x5 ∨ x4)
+6. (x5)
+7. (x5 ∨ ¬x3) → satisfied
+8. (x3 ∨ ¬x5) → satisfied
+9. (¬x4 ∨ x5)
+
+Unit clause: (¬x4) ⇒ x4 = False
+
+Substitute x4 = False:
+
+- Any clause with ¬x4 is satisfied.
+- Remove x4 from clauses.
+
+Remaining:
+
+1. (x5)
+2. (¬x5)
+3. (¬x5)
+4. (x5)
+
+Now, (x5) and (¬x5) are both present ⇒ CONFLICT.
+
+---
+
+### Backtrack: x3 = False (Branch 2)
+
+Go back to previous state (x1 = True, x2 = True), now try x3 = False.
+
+Substitute x3 = False:
+
+- Any clause with ¬x3 is satisfied.
+- Remove x3 from clauses.
+
+Remaining:
+
+1. (¬x4)
+2. (x5 ∨ x4)
+3. (x4 ∨ ¬x5)
+4. (¬x4 ∨ ¬x5)
+5. (¬x5 ∨ x4)
+6. (x5)
+7. (x5 ∨ ¬x3) → (x5)
+8. (x3 ∨ ¬x5) → (¬x5)
+9. (¬x4 ∨ x5)
+
+Unit clause: (¬x4) ⇒ x4 = False
+
+Substitute x4 = False:
+
+- Any clause with ¬x4 is satisfied.
+- Remove x4 from clauses.
+
+Remaining:
+
+1. (x5)
+2. (¬x5)
+3. (¬x5)
+4. (x5)
+
+Again, (x5) and (¬x5) are both present ⇒ CONFLICT.
+
+---
+
+### Backtrack: x2 = False (Branch 3)
+
+Go back to x1 = True, now try x2 = False.
+
+Substitute x2 = False:
+
+- Any clause with ¬x2 is satisfied.
+- Remove x2 from clauses.
+
+Remaining:
+
+1. (¬x4 ∨ ¬x3)
+2. (x5 ∨ x4)
+3. (x4 ∨ ¬x5)
+4. (¬x4 ∨ ¬x5)
+5. (x4)
+6. (¬x4 ∨ x3)
+7. (¬x4 ∨ x3)
+8. (x5 ∨ x3)
+9. (¬x3 ∨ x5)
+10. (x5 ∨ ¬x3)
+11. (x3 ∨ ¬x5)
+12. (¬x4 ∨ x5)
+
+Unit clause: (x4) ⇒ x4 = True
+
+Substitute x4 = True:
+
+- Any clause with x4 is satisfied.
+- Remove ¬x4 from clauses.
+
+Remaining:
+
+1. (¬x3)
+2. (x5)
+3. (x5 ∨ x3)
+4. (¬x3 ∨ x5)
+5. (x5 ∨ ¬x3)
+6. (x3 ∨ ¬x5)
+7. (x5)
+
+Unit clause: (x5) ⇒ x5 = True
+
+Substitute x5 = True:
+
+- Any clause with x5 is satisfied.
+- Remove ¬x5 from clauses.
+
+Remaining:
+
+1. (¬x3)
+2. (x3)
+3. (¬x3 ∨ x5) → satisfied
+4. (x5 ∨ ¬x3) → satisfied
+5. (x3 ∨ ¬x5) → (x3)
+
+Now, (¬x3) and (x3) are both present ⇒ CONFLICT.
+
+---
+
+### Backtrack: x4 = False (Branch 4)
+
+Go back to x1 = True, x2 = False, now try x4 = False.
+
+Substitute x4 = False:
+
+- Any clause with ¬x4 is satisfied.
+- Remove x4 from clauses.
+
+Remaining:
+
+1. (x5)
+2. (x5 ∨ x3)
+3. (¬x3 ∨ x5)
+4. (x5 ∨ ¬x3)
+5. (x3 ∨ ¬x5)
+6. (x5)
+
+Unit clause: (x5) ⇒ x5 = True
+
+Substitute x5 = True:
+
+- Any clause with x5 is satisfied.
+- Remove ¬x5 from clauses.
+
+Remaining:
+
+1. (x3)
+2. (¬x3 ∨ x5) → satisfied
+3. (x5 ∨ ¬x3) → satisfied
+4. (x3 ∨ ¬x5) → (x3)
+
+Unit clause: (x3) ⇒ x3 = True
+
+All clauses are satisfied.
+
+---
+
+## Solution found!
+
+Assignments:
+- x1 = True
+- x2 = False
+- x3 = True
+- x4 = False
+- x5 = True
+
+---
+
+## Counting branches and conflicts
+
+Branches (decision points):
+1. x1 = True
+2. x2 = True (branch 1)
+3. x3 = True (branch 1.1)
+4. x3 = False (branch 1.2)
+5. x2 = False (branch 2)
+6. x4 = True (branch 2.1)
+7. x4 = False (branch 2.2) ← solution found here
+
+Conflicts (backtracks):
+- After x3 = True (branch 1.1) → conflict
+- After x3 = False (branch 1.2) → conflict
+- After x4 = True (branch 2.1) → conflict
+
+So, **branches = 7**, **conflicts = 3**.
+
+---
+
+**Final output:**
+
+SATISFIABLE  
+Number of branches: 7  
+Number of conflicts: 3  
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = False  
+x5 = True

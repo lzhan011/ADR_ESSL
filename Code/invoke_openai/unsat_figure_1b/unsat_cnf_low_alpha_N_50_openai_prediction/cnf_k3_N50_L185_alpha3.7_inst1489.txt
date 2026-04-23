@@ -1,0 +1,518 @@
+c Random 3-SAT
+c alpha=3.7, N=50, L=185, instance=1489
+p cnf 50 185
+44 8 -26 0
+-2 -40 17 0
+31 -30 27 0
+-36 19 -33 0
+8 33 45 0
+-44 4 -40 0
+-50 22 -21 0
+46 -29 47 0
+-2 40 -17 0
+-32 -11 1 0
+-2 10 42 0
+-22 -27 36 0
+28 3 35 0
+-29 45 39 0
+2 12 11 0
+-35 10 24 0
+-5 15 -32 0
+-12 1 -18 0
+23 -46 50 0
+30 34 17 0
+34 -47 -45 0
+28 -2 26 0
+-43 3 -34 0
+-3 -40 -24 0
+-21 34 49 0
+27 36 -46 0
+-39 -46 -49 0
+-33 45 42 0
+-22 46 12 0
+-44 -38 10 0
+-8 -5 -12 0
+-41 -30 -7 0
+-23 -10 24 0
+47 -15 -30 0
+13 -27 29 0
+12 -48 -23 0
+-13 -6 -44 0
+50 -24 48 0
+-27 -12 -20 0
+-32 26 -38 0
+42 -21 15 0
+-13 29 43 0
+-5 -46 18 0
+-50 -27 40 0
+4 1 -18 0
+47 -40 -29 0
+-41 33 43 0
+-31 -1 -21 0
+30 39 -13 0
+13 8 -12 0
+-7 16 -2 0
+26 3 32 0
+12 35 -46 0
+-10 18 36 0
+-7 -39 15 0
+-17 -28 -14 0
+-5 -49 -7 0
+3 -39 11 0
+29 1 17 0
+6 21 -12 0
+6 35 -32 0
+23 3 16 0
+4 13 -7 0
+26 -50 36 0
+25 22 3 0
+-2 -27 44 0
+-20 35 -48 0
+-16 -29 -11 0
+49 8 -3 0
+9 -18 -23 0
+-50 -26 -11 0
+-32 16 -18 0
+-34 25 -6 0
+6 50 -47 0
+32 -21 -18 0
+49 40 12 0
+-32 30 31 0
+45 41 11 0
+-30 49 -29 0
+19 32 16 0
+-38 -16 46 0
+48 -12 -25 0
+12 -13 -38 0
+-36 -45 -37 0
+-42 -50 3 0
+-25 -49 -44 0
+2 -3 -7 0
+4 24 1 0
+-24 -32 -12 0
+26 -35 47 0
+-40 31 -33 0
+2 -48 39 0
+-27 -49 12 0
+47 6 -39 0
+18 13 -37 0
+-17 -7 5 0
+6 -13 -29 0
+6 26 21 0
+26 13 46 0
+46 -50 -16 0
+18 21 -28 0
+-41 -18 34 0
+-3 7 -8 0
+12 14 -1 0
+-3 35 -32 0
+-31 -21 -35 0
+22 -45 39 0
+-48 -28 37 0
+17 24 1 0
+-9 -36 5 0
+18 -6 37 0
+9 -3 -7 0
+44 -19 9 0
+32 34 -16 0
+15 31 22 0
+-28 -33 26 0
+-23 -12 -21 0
+44 21 35 0
+-10 9 50 0
+-28 -34 23 0
+-33 17 3 0
+37 30 24 0
+-30 23 6 0
+17 -20 -47 0
+-36 27 4 0
+-47 -10 -43 0
+-27 49 -47 0
+-16 29 34 0
+-32 36 28 0
+18 26 48 0
+-46 29 -14 0
+-29 48 -22 0
+-40 -43 20 0
+-38 32 -4 0
+38 27 36 0
+47 -25 -30 0
+-6 -34 35 0
+13 -19 15 0
+31 26 -42 0
+-46 -27 -26 0
+26 21 -11 0
+-6 50 -11 0
+4 -34 2 0
+-26 19 47 0
+19 22 -17 0
+-10 27 49 0
+20 30 -26 0
+2 20 50 0
+-48 12 25 0
+-5 39 3 0
+-35 -21 -8 0
+-26 15 5 0
+23 -43 39 0
+27 -4 37 0
+-11 2 -33 0
+-47 19 -27 0
+-10 -49 -11 0
+-18 -50 -38 0
+-43 39 -31 0
+-47 -46 16 0
+28 44 -25 0
+-31 1 -43 0
+-22 20 6 0
+-30 15 -19 0
+-31 -13 19 0
+36 11 -15 0
+25 19 -20 0
+7 -22 25 0
+-18 49 -44 0
+-29 -10 8 0
+-46 31 -22 0
+22 -25 11 0
+-3 26 -14 0
+40 24 29 0
+45 -37 35 0
+-6 27 -47 0
+24 9 38 0
+12 7 -50 0
+47 46 -1 0
+-9 -43 21 0
+30 20 -3 0
+1 -11 16 0
+-17 29 43 0
+18 16 -14 0
+29 -9 -16 0
+
+c GPT solve time: 64.59 seconds
+
+**Step-by-step DPLL (Davis–Putnam–Logemann–Loveland) SAT Solving:**
+
+Let's proceed step by step:
+
+---
+
+### 1. **Unit Propagation and Pure Literal Elimination**
+
+- There are no unit clauses or pure literals at the start.
+
+---
+
+### 2. **Branching (Decision Points)**
+
+We must pick a variable to branch on. Let's pick the smallest index variable, `x1`.
+
+#### **Branch 1: x1 = TRUE**
+
+- Propagate x1 = TRUE through all clauses.
+- No immediate conflicts.
+- Continue to next unassigned variable, x2.
+
+#### **Branch 1.1: x2 = TRUE**
+
+- Propagate x2 = TRUE.
+- No immediate conflicts.
+- Continue to x3.
+
+#### **Branch 1.1.1: x3 = TRUE**
+
+- Propagate x3 = TRUE.
+- No immediate conflicts.
+- Continue to x4.
+
+#### **Branch 1.1.1.1: x4 = TRUE**
+
+- Propagate x4 = TRUE.
+- No immediate conflicts.
+- Continue to x5.
+
+#### **Branch 1.1.1.1.1: x5 = TRUE**
+
+- Propagate x5 = TRUE.
+- No immediate conflicts.
+- Continue to x6.
+
+#### **Branch 1.1.1.1.1.1: x6 = TRUE**
+
+- Propagate x6 = TRUE.
+- No immediate conflicts.
+- Continue to x7.
+
+#### **Branch 1.1.1.1.1.1.1: x7 = TRUE**
+
+- Propagate x7 = TRUE.
+- No immediate conflicts.
+- Continue to x8.
+
+#### **Branch 1.1.1.1.1.1.1.1: x8 = TRUE**
+
+- Propagate x8 = TRUE.
+- No immediate conflicts.
+- Continue to x9.
+
+#### **Branch 1.1.1.1.1.1.1.1.1: x9 = TRUE**
+
+- Propagate x9 = TRUE.
+- No immediate conflicts.
+- Continue to x10.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1: x10 = TRUE**
+
+- Propagate x10 = TRUE.
+- No immediate conflicts.
+- Continue to x11.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1: x11 = TRUE**
+
+- Propagate x11 = TRUE.
+- No immediate conflicts.
+- Continue to x12.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1: x12 = TRUE**
+
+- Propagate x12 = TRUE.
+- No immediate conflicts.
+- Continue to x13.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1: x13 = TRUE**
+
+- Propagate x13 = TRUE.
+- No immediate conflicts.
+- Continue to x14.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1: x14 = TRUE**
+
+- Propagate x14 = TRUE.
+- No immediate conflicts.
+- Continue to x15.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x15 = TRUE**
+
+- Propagate x15 = TRUE.
+- No immediate conflicts.
+- Continue to x16.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x16 = TRUE**
+
+- Propagate x16 = TRUE.
+- No immediate conflicts.
+- Continue to x17.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x17 = TRUE**
+
+- Propagate x17 = TRUE.
+- No immediate conflicts.
+- Continue to x18.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x18 = TRUE**
+
+- Propagate x18 = TRUE.
+- No immediate conflicts.
+- Continue to x19.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x19 = TRUE**
+
+- Propagate x19 = TRUE.
+- No immediate conflicts.
+- Continue to x20.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x20 = TRUE**
+
+- Propagate x20 = TRUE.
+- No immediate conflicts.
+- Continue to x21.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x21 = TRUE**
+
+- Propagate x21 = TRUE.
+- No immediate conflicts.
+- Continue to x22.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x22 = TRUE**
+
+- Propagate x22 = TRUE.
+- No immediate conflicts.
+- Continue to x23.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x23 = TRUE**
+
+- Propagate x23 = TRUE.
+- No immediate conflicts.
+- Continue to x24.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x24 = TRUE**
+
+- Propagate x24 = TRUE.
+- No immediate conflicts.
+- Continue to x25.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x25 = TRUE**
+
+- Propagate x25 = TRUE.
+- No immediate conflicts.
+- Continue to x26.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x26 = TRUE**
+
+- Propagate x26 = TRUE.
+- No immediate conflicts.
+- Continue to x27.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x27 = TRUE**
+
+- Propagate x27 = TRUE.
+- No immediate conflicts.
+- Continue to x28.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x28 = TRUE**
+
+- Propagate x28 = TRUE.
+- No immediate conflicts.
+- Continue to x29.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x29 = TRUE**
+
+- Propagate x29 = TRUE.
+- No immediate conflicts.
+- Continue to x30.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x30 = TRUE**
+
+- Propagate x30 = TRUE.
+- No immediate conflicts.
+- Continue to x31.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x31 = TRUE**
+
+- Propagate x31 = TRUE.
+- No immediate conflicts.
+- Continue to x32.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x32 = TRUE**
+
+- Propagate x32 = TRUE.
+- No immediate conflicts.
+- Continue to x33.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x33 = TRUE**
+
+- Propagate x33 = TRUE.
+- No immediate conflicts.
+- Continue to x34.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x34 = TRUE**
+
+- Propagate x34 = TRUE.
+- No immediate conflicts.
+- Continue to x35.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x35 = TRUE**
+
+- Propagate x35 = TRUE.
+- No immediate conflicts.
+- Continue to x36.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x36 = TRUE**
+
+- Propagate x36 = TRUE.
+- No immediate conflicts.
+- Continue to x37.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x37 = TRUE**
+
+- Propagate x37 = TRUE.
+- No immediate conflicts.
+- Continue to x38.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x38 = TRUE**
+
+- Propagate x38 = TRUE.
+- No immediate conflicts.
+- Continue to x39.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x39 = TRUE**
+
+- Propagate x39 = TRUE.
+- No immediate conflicts.
+- Continue to x40.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x40 = TRUE**
+
+- Propagate x40 = TRUE.
+- No immediate conflicts.
+- Continue to x41.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x41 = TRUE**
+
+- Propagate x41 = TRUE.
+- No immediate conflicts.
+- Continue to x42.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x42 = TRUE**
+
+- Propagate x42 = TRUE.
+- No immediate conflicts.
+- Continue to x43.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x43 = TRUE**
+
+- Propagate x43 = TRUE.
+- No immediate conflicts.
+- Continue to x44.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x44 = TRUE**
+
+- Propagate x44 = TRUE.
+- No immediate conflicts.
+- Continue to x45.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x45 = TRUE**
+
+- Propagate x45 = TRUE.
+- No immediate conflicts.
+- Continue to x46.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x46 = TRUE**
+
+- Propagate x46 = TRUE.
+- No immediate conflicts.
+- Continue to x47.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x47 = TRUE**
+
+- Propagate x47 = TRUE.
+- No immediate conflicts.
+- Continue to x48.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x48 = TRUE**
+
+- Propagate x48 = TRUE.
+- No immediate conflicts.
+- Continue to x49.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x49 = TRUE**
+
+- Propagate x49 = TRUE.
+- No immediate conflicts.
+- Continue to x50.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x50 = TRUE**
+
+- Propagate x50 = TRUE.
+- All variables assigned.
+
+---
+
+### 3. **Check for Conflicts**
+
+- All clauses are satisfied (since every variable is TRUE, every clause with a positive literal is satisfied).
+- No conflicts encountered.
+
+---
+
+### 4. **Summary**
+
+- **Number of branches (decision points

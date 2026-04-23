@@ -16,7 +16,7 @@ from openai import OpenAI, RateLimitError
 # model_selected =  "deepseek-reasoner"  # 或 deepseek-coder   deepseek-reasoner  deepseek-chat
 model_selected = "o1"
 
-api_key = os.environ["OPENAI_API_KEY"]
+api_key = os.environ.get("OPENAI_API_KEY")
 
 api_base = "https://api.openai.com/v1"
 # Use OpenAI v1 interface

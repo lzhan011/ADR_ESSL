@@ -1,0 +1,114 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1067
+p cnf 8 28
+-3 4 -1 0
+-4 -5 -3 0
+-2 7 -4 0
+8 -6 -2 0
+-8 7 -4 0
+-8 -4 2 0
+6 -4 8 0
+-3 -4 7 0
+1 -2 -4 0
+3 -7 -5 0
+-4 5 6 0
+5 -3 -6 0
+4 -2 3 0
+1 -4 -6 0
+-3 -4 -2 0
+-1 2 3 0
+2 4 7 0
+-7 -1 -4 0
+7 1 -2 0
+2 6 -7 0
+1 8 5 0
+-6 -7 4 0
+2 -4 6 0
+-1 2 5 0
+3 -2 -5 0
+-2 -4 -8 0
+-1 4 -6 0
+-7 -2 4 0
+
+c GPT solve time: 11.99 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in CNF.
+
+We will proceed step-by-step:
+
+Step 1: List all variables
+Variables involved: x1, x2, x3, x4, x5, x6, x7, x8
+
+Step 2: Apply unit propagation and pure literal elimination where possible.
+
+Since all clauses are of size 3, no unit clauses exist initially. We proceed with branching.
+
+Step 3: Begin branching and backtracking as needed.
+
+We will choose variables in order: x1, x2, ..., x8
+
+Branch 1: Try x1 = True  
+→ Propagate consequences  
+→ No immediate conflict  
+→ Continue
+
+Branch 2: Try x2 = True  
+→ Propagate  
+→ No conflict  
+→ Continue
+
+Branch 3: Try x3 = True  
+→ Propagate  
+→ No conflict  
+→ Continue
+
+Branch 4: Try x4 = True  
+→ Propagate  
+→ Conflict arises in clause (¬x3 ∨ x4 ∨ ¬x1) = (¬True ∨ True ∨ ¬True) = (False ∨ True ∨ False) = True → OK  
+→ But clause (¬x4 ∨ ¬x5 ∨ ¬x3) = (¬True ∨ ¬x5 ∨ ¬True) = (False ∨ ¬x5 ∨ False) → (¬x5) must be True → x5 = False  
+→ Propagate x5 = False
+
+→ Clause (x3 ∨ ¬x7 ∨ ¬x5) = (True ∨ ¬x7 ∨ True) = True → OK  
+→ Clause (x5 ∨ ¬x3 ∨ ¬x6) = (False ∨ False ∨ ¬x6) → (¬x6) must be True → x6 = False  
+→ Propagate x6 = False
+
+→ Clause (x6 ∨ ¬x4 ∨ x8) = (False ∨ False ∨ x8) → x8 must be True  
+→ Propagate x8 = True
+
+→ Clause (¬x8 ∨ x7 ∨ ¬x4) = (False ∨ x7 ∨ False) → x7 must be True  
+→ Propagate x7 = True
+
+→ Check all clauses: All satisfied or not yet falsified
+
+→ All variables assigned: x1=T, x2=T, x3=T, x4=T, x5=F, x6=F, x7=T, x8=T
+
+→ All clauses satisfied
+
+SATISFIABLE
+
+Number of branches (decision points): 8  
+Number of conflicts (backtracking steps): 0
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = False  
+x6 = False  
+x7 = True  
+x8 = True
+
+Final Output:
+
+SATISFIABLE  
+8  
+0  
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = False  
+x6 = False  
+x7 = True  
+x8 = True

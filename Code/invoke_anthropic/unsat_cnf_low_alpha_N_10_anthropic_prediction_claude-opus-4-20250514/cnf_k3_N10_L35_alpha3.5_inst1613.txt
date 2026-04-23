@@ -1,0 +1,85 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1613
+p cnf 10 35
+-1 -6 -4 0
+4 9 -10 0
+-7 4 1 0
+10 6 1 0
+-9 -2 4 0
+3 -1 9 0
+-6 5 -2 0
+9 -10 -4 0
+-6 4 7 0
+-9 -7 10 0
+2 -4 5 0
+-2 -1 8 0
+-6 3 1 0
+-2 3 -9 0
+-4 -2 1 0
+8 4 2 0
+-2 10 8 0
+9 -4 -1 0
+-5 2 -4 0
+3 -2 10 0
+9 6 -1 0
+1 9 -5 0
+6 -8 -3 0
+8 -9 -4 0
+-6 -2 7 0
+-6 -5 4 0
+1 -5 6 0
+10 3 1 0
+2 -7 -8 0
+5 -9 -8 0
+-9 -1 10 0
+-2 4 -6 0
+1 -4 -7 0
+-9 6 -10 0
+-9 -6 4 0
+
+c GPT solve time: 17.81 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+- 35 clauses total
+
+**Step-by-step Solution:**
+
+**Branch 1: x1 = true**
+- Unit propagations:
+  - From clause (¬x1 ∨ ¬x6 ∨ ¬x4): forces ¬x6 ∨ ¬x4
+  - From clause (¬x2 ∨ ¬x1 ∨ x8): forces ¬x2 ∨ x8
+  - From clause (¬x4 ∨ ¬x2 ∨ x1): satisfied
+  - From clause (x9 ∨ ¬x4 ∨ ¬x1): forces x9 ∨ ¬x4
+  - From clause (x9 ∨ x6 ∨ ¬x1): forces x9 ∨ x6
+  - From clause (¬x9 ∨ ¬x1 ∨ x10): forces ¬x9 ∨ x10
+  - From clause (x1 ∨ ¬x4 ∨ ¬x7): satisfied
+
+**Branch 2: x9 = true** (from forced choices)
+- Unit propagations:
+  - From clause (¬x9 ∨ ¬x2 ∨ x4): forces ¬x2 ∨ x4
+  - From clause (¬x9 ∨ ¬x7 ∨ x10): forces ¬x7 ∨ x10
+  - From clause (¬x2 ∨ x3 ∨ ¬x9): forces ¬x2 ∨ x3
+  - From clause (x8 ∨ ¬x9 ∨ ¬x4): forces x8 ∨ ¬x4
+  - From clause (x5 ∨ ¬x9 ∨ ¬x8): forces x5 ∨ ¬x8
+  - From clause (¬x9 ∨ ¬x1 ∨ x10): forces x10
+  - From clause (¬x9 ∨ x6 ∨ ¬x10): conflict! (x10 = true but needs ¬x10)
+
+**Backtrack to Branch 1**
+
+**Branch 3: x9 = false**
+- Unit propagations:
+  - From clause (x4 ∨ x9 ∨ ¬x10): forces x4 ∨ ¬x10
+  - From clause (x3 ∨ ¬x1 ∨ x9): forces x3
+  - From clause (x9 ∨ ¬x10 ∨ ¬x4): forces ¬x10 ∨ ¬x4
+  - From clause (x9 ∨ ¬x4 ∨ ¬x1): forces ¬x4
+  - From clause (x9 ∨ x6 ∨ ¬x1): forces x6
+  - From clause (x1 ∨ x9 ∨ ¬x5): forces ¬x5
+
+**Branch 4: x4 = false** (forced)
+- Checking consistency with x6 = true:
+  - From clause (¬x1 ∨ ¬x6 ∨ ¬x4): satisfied
+  - From clause (¬x6 ∨ x5 ∨ ¬x2): forces x5 ∨ ¬x2
+  - But we have ¬x5 = true, so x2

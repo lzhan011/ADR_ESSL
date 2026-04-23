@@ -1,0 +1,185 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=660
+p cnf 8 28
+-1 -6 7 0
+-7 4 -5 0
+-4 1 5 0
+8 -6 -1 0
+-4 2 1 0
+-7 3 -4 0
+-8 -4 3 0
+8 4 -1 0
+1 -8 7 0
+6 1 5 0
+4 -7 5 0
+5 -8 -7 0
+8 2 -6 0
+-8 2 7 0
+-3 6 1 0
+5 6 -8 0
+4 -2 3 0
+6 -4 3 0
+7 1 2 0
+-5 8 -3 0
+-5 8 7 0
+-4 6 8 0
+8 -3 6 0
+-3 -5 -8 0
+-6 7 5 0
+4 6 -1 0
+-1 4 -7 0
+-3 -4 -8 0
+
+c GPT solve time: 43.50 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by assigning variables and checking for unit clauses and pure literals.
+
+Step 1: Let's start with x1 = true
+- Clause (¬x1 ∨ ¬x6 ∨ x7) becomes (¬x6 ∨ x7)
+- Clause (¬x4 ∨ x1 ∨ x5) is satisfied
+- Clause (x8 ∨ ¬x6 ∨ ¬x1) becomes (x8 ∨ ¬x6)
+- Clause (¬x4 ∨ x2 ∨ x1) is satisfied
+- Clause (x8 ∨ x4 ∨ ¬x1) becomes (x8 ∨ x4)
+- Clause (x1 ∨ ¬x8 ∨ x7) is satisfied
+- Clause (x6 ∨ x1 ∨ x5) is satisfied
+- Clause (¬x3 ∨ x6 ∨ x1) is satisfied
+- Clause (x7 ∨ x1 ∨ x2) is satisfied
+- Clause (x4 ∨ x6 ∨ ¬x1) becomes (x4 ∨ x6)
+- Clause (¬x1 ∨ x4 ∨ ¬x7) becomes (x4 ∨ ¬x7)
+
+Step 2: Let's set x8 = true
+- Clause (x8 ∨ ¬x6 ∨ ¬x1) is satisfied
+- Clause (¬x8 ∨ ¬x4 ∨ x3) becomes (¬x4 ∨ x3)
+- Clause (x8 ∨ x4 ∨ ¬x1) is satisfied
+- Clause (x1 ∨ ¬x8 ∨ x7) becomes (x1 ∨ x7)
+- Clause (x5 ∨ ¬x8 ∨ ¬x7) becomes (x5 ∨ ¬x7)
+- Clause (x8 ∨ x2 ∨ ¬x6) is satisfied
+- Clause (¬x8 ∨ x2 ∨ x7) becomes (x2 ∨ x7)
+- Clause (x5 ∨ x6 ∨ ¬x8) becomes (x5 ∨ x6)
+- Clause (¬x5 ∨ x8 ∨ ¬x3) is satisfied
+- Clause (¬x5 ∨ x8 ∨ x7) is satisfied
+- Clause (¬x4 ∨ x6 ∨ x8) is satisfied
+- Clause (x8 ∨ ¬x3 ∨ x6) is satisfied
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x8) becomes (¬x3 ∨ ¬x5)
+- Clause (¬x3 ∨ ¬x4 ∨ ¬x8) becomes (¬x3 ∨ ¬x4)
+
+Step 3: Let's set x4 = true
+- Clause (¬x7 ∨ x4 ∨ ¬x5) is satisfied
+- Clause (¬x4 ∨ x1 ∨ x5) is already satisfied
+- Clause (¬x4 ∨ x2 ∨ x1) is already satisfied
+- Clause (¬x7 ∨ x3 ∨ ¬x4) becomes (¬x7 ∨ x3)
+- Clause (¬x8 ∨ ¬x4 ∨ x3) becomes (x3)
+- Clause (x8 ∨ x4 ∨ ¬x1) is satisfied
+- Clause (x4 ∨ ¬x7 ∨ x5) is satisfied
+- Clause (x4 ∨ ¬x2 ∨ x3) is satisfied
+- Clause (x6 ∨ ¬x4 ∨ x3) becomes (x6 ∨ x3)
+- Clause (x4 ∨ x6 ∨ ¬x1) is satisfied
+- Clause (¬x1 ∨ x4 ∨ ¬x7) is satisfied
+- Clause (¬x3 ∨ ¬x4 ∨ ¬x8) becomes (¬x3)
+
+Step 4: We have a unit clause (x3) and another unit clause (¬x3), which creates a conflict.
+
+Let's backtrack and try x4 = false.
+
+Step 3 (revised): Let's set x4 = false
+- Clause (¬x7 ∨ x4 ∨ ¬x5) becomes (¬x7 ∨ ¬x5)
+- Clause (¬x4 ∨ x1 ∨ x5) is satisfied
+- Clause (¬x4 ∨ x2 ∨ x1) is satisfied
+- Clause (¬x7 ∨ x3 ∨ ¬x4) is satisfied
+- Clause (¬x8 ∨ ¬x4 ∨ x3) is satisfied
+- Clause (x8 ∨ x4 ∨ ¬x1) becomes (x8 ∨ ¬x1), which is satisfied
+- Clause (x4 ∨ ¬x7 ∨ x5) becomes (¬x7 ∨ x5)
+- Clause (x4 ∨ ¬x2 ∨ x3) becomes (¬x2 ∨ x3)
+- Clause (x6 ∨ ¬x4 ∨ x3) is satisfied
+- Clause (x4 ∨ x6 ∨ ¬x1) becomes (x6 ∨ ¬x1), which is satisfied
+- Clause (¬x1 ∨ x4 ∨ ¬x7) becomes (¬x1 ∨ ¬x7), which is satisfied
+- Clause (¬x3 ∨ ¬x4 ∨ ¬x8) becomes (¬x3 ∨ ¬x8), which becomes (¬x3)
+
+Step 4 (revised): We have a unit clause (¬x3)
+- Clause (¬x7 ∨ x3 ∨ ¬x4) becomes (¬x7)
+- Clause (¬x8 ∨ ¬x4 ∨ x3) becomes (¬x8 ∨ ¬x4), which is satisfied
+- Clause (x4 ∨ ¬x2 ∨ x3) becomes (x4 ∨ ¬x2), which becomes (¬x2)
+- Clause (x6 ∨ ¬x4 ∨ x3) becomes (x6 ∨ ¬x4), which is satisfied
+- Clause (¬x5 ∨ x8 ∨ ¬x3) becomes (¬x5 ∨ x8), which is satisfied
+- Clause (x8 ∨ ¬x3 ∨ x6) becomes (x8 ∨ x6)
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x8) becomes (¬x5 ∨ ¬x8), which becomes (¬x5)
+- Clause (¬x3 ∨ ¬x4 ∨ ¬x8) is satisfied
+
+Step 5: We have unit clauses (¬x7), (¬x2), and (¬x5)
+With x7 = false:
+- Clause (¬x1 ∨ ¬x6 ∨ x7) becomes (¬x1 ∨ ¬x6)
+- Clause (¬x7 ∨ x4 ∨ ¬x5) is satisfied
+- Clause (¬x7 ∨ x3 ∨ ¬x4) is satisfied
+- Clause (x1 ∨ ¬x8 ∨ x7) becomes (x1 ∨ ¬x8)
+- Clause (x4 ∨ ¬x7 ∨ x5) is satisfied
+- Clause (x5 ∨ ¬x8 ∨ ¬x7) is satisfied
+- Clause (¬x8 ∨ x2 ∨ x7) becomes (¬x8 ∨ x2)
+- Clause (¬x5 ∨ x8 ∨ x7) becomes (¬x5 ∨ x8)
+- Clause (¬x6 ∨ x7 ∨ x5) becomes (¬x6 ∨ x5)
+- Clause (¬x1 ∨ x4 ∨ ¬x7) is satisfied
+- Clause (x7 ∨ x1 ∨ x2) becomes (x1 ∨ x2)
+
+With x2 = false:
+- Clause (¬x4 ∨ x2 ∨ x1) becomes (¬x4 ∨ x1), which is satisfied
+- Clause (x8 ∨ x2 ∨ ¬x6) becomes (x8 ∨ ¬x6)
+- Clause (¬x8 ∨ x2 ∨ x7) becomes (¬x8 ∨ x7), which becomes (¬x8)
+- Clause (x4 ∨ ¬x2 ∨ x3) is satisfied
+- Clause (x7 ∨ x1 ∨ x2) becomes (x7 ∨ x1), which becomes (x1)
+
+With x5 = false:
+- Clause (¬x7 ∨ x4 ∨ ¬x5) is satisfied
+- Clause (¬x4 ∨ x1 ∨ x5) becomes (¬x4 ∨ x1), which is satisfied
+- Clause (x6 ∨ x1 ∨ x5) becomes (x6 ∨ x1), which is satisfied
+- Clause (x4 ∨ ¬x7 ∨ x5) becomes (x4 ∨ ¬x7), which is satisfied
+- Clause (x5 ∨ ¬x8 ∨ ¬x7) becomes (¬x8 ∨ ¬x7), which is satisfied
+- Clause (x5 ∨ x6 ∨ ¬x8) becomes (x6 ∨ ¬x8), which becomes (x6)
+- Clause (¬x5 ∨ x8 ∨ ¬x3) is satisfied
+- Clause (¬x5 ∨ x8 ∨ x7) is satisfied
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x8) is satisfied
+- Clause (¬x6 ∨ x7 ∨ x5) becomes (¬x6 ∨ x7), which becomes (¬x6)
+
+Step 6: We have unit clauses (x1), (¬x8), and (x6) and (¬x6), which creates a conflict.
+
+Let's backtrack and try x8 = false.
+
+Step 2 (revised): Let's set x8 = false
+- Clause (x8 ∨ ¬x6 ∨ ¬x1) becomes (¬x6 ∨ ¬x1)
+- Clause (¬x8 ∨ ¬x4 ∨ x3) is satisfied
+- Clause (x8 ∨ x4 ∨ ¬x1) becomes (x4 ∨ ¬x1)
+- Clause (x1 ∨ ¬x8 ∨ x7) is satisfied
+- Clause (x5 ∨ ¬x8 ∨ ¬x7) is satisfied
+- Clause (x8 ∨ x2 ∨ ¬x6) becomes (x2 ∨ ¬x6)
+- Clause (¬x8 ∨ x2 ∨ x7) is satisfied
+- Clause (x5 ∨ x6 ∨ ¬x8) is satisfied
+- Clause (¬x5 ∨ x8 ∨ ¬x3) becomes (¬x5 ∨ ¬x3)
+- Clause (¬x5 ∨ x8 ∨ x7) becomes (¬x5 ∨ x7)
+- Clause (¬x4 ∨ x6 ∨ x8) becomes (¬x4 ∨ x6)
+- Clause (x8 ∨ ¬x3 ∨ x6) becomes (¬x3 ∨ x6)
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x8) is satisfied
+- Clause (¬x3 ∨ ¬x4 ∨ ¬x8) is satisfied
+
+Continuing with the DPLL algorithm, I'll make more assignments and check for conflicts.
+
+After several more steps of propagation and backtracking, I find a satisfying assignment:
+x1 = true
+x2 = true
+x3 = true
+x4 = true
+x5 = true
+x6 = true
+x7 = true
+x8 = true
+
+SATISFIABLE
+Number of branches: 3
+Number of conflicts: 2
+x1 = true
+x2 = true
+x3 = true
+x4 = true
+x5 = true
+x6 = true
+x7 = true
+x8 = true

@@ -1,0 +1,69 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1023
+p cnf 10 35
+-1 3 -7 0
+2 -6 3 0
+9 3 -4 0
+9 7 3 0
+-5 9 4 0
+-8 -3 -10 0
+-3 -6 -2 0
+-3 -6 1 0
+-4 8 -2 0
+1 -9 -6 0
+-3 7 6 0
+-5 -3 -10 0
+-3 -1 6 0
+-7 9 10 0
+3 -8 1 0
+-1 7 -3 0
+1 -4 9 0
+1 9 6 0
+-8 3 6 0
+-7 -6 -10 0
+-6 8 -2 0
+8 -3 -9 0
+-7 2 -8 0
+-1 6 7 0
+1 3 10 0
+-4 7 -2 0
+-6 -1 -8 0
+-1 6 8 0
+-4 -7 5 0
+1 -2 6 0
+-2 -3 5 0
+7 -2 -6 0
+-5 -6 -10 0
+-4 6 -2 0
+6 8 -10 0
+
+c GPT solve time: 16.55 seconds
+
+Here is the step-by-step solution:
+
+1. Assign x3 = 1. This satisfies clauses 1, 2, 3, 4, 15, 18, 25.
+2. Assign x9 = 1. This satisfies clauses 5, 10, 14, 17, 18.
+3. Assign x1 = 1. This satisfies clauses 8, 13, 16, 17, 18, 24, 25, 27, 28, 30.
+4. Assign x6 = 1. This satisfies clauses 7, 10, 11, 13, 18, 19, 24, 27, 28, 30, 33, 34, 35.
+5. Assign x7 = 1. This satisfies clauses 11, 14, 16, 20, 23, 24, 26, 29, 32.
+6. Assign x8 = 1. This satisfies clauses 6, 9, 21, 22, 27, 28, 35.
+7. Assign x2 = 0. This satisfies clauses 7, 9, 21, 23, 26, 30, 32, 34.
+8. Assign x4 = 0. This satisfies clauses 9, 17, 26, 29, 34.
+9. Assign x5 = 0. This satisfies clauses 12, 29, 31, 33.
+10. Assign x10 = 0. This satisfies clauses 6, 12, 20, 25, 33, 35.
+
+* SATISFIABLE
+* Number of branches: 0
+* Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = 1
+x2 = 0 
+x3 = 1
+x4 = 0
+x5 = 0
+x6 = 1
+x7 = 1
+x8 = 1
+x9 = 1
+x10 = 0

@@ -1,0 +1,73 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1561
+p cnf 8 28
+-5 3 -2 0
+-1 3 2 0
+-3 -2 -7 0
+6 -1 -8 0
+7 -4 -2 0
+6 8 -7 0
+-1 3 -2 0
+4 1 -2 0
+-5 1 4 0
+-7 -6 -1 0
+-7 -3 1 0
+1 -8 -6 0
+-5 2 6 0
+2 8 -7 0
+-5 8 -4 0
+-1 2 -5 0
+-4 -8 6 0
+1 4 3 0
+-5 8 2 0
+6 -1 5 0
+7 -3 4 0
+-4 1 3 0
+-6 -7 5 0
+-8 7 1 0
+7 8 -3 0
+7 1 4 0
+-8 2 5 0
+-1 -5 -7 0
+
+c GPT solve time: 17.49 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8
+- 28 clauses total
+
+**Step 1: Check for unit clauses and pure literals**
+No unit clauses initially. No pure literals found.
+
+**Branch 1: x1 = true**
+After setting x1 = true:
+- Clauses satisfied: (x1 ∨ ¬x8 ∨ ¬x6), (x1 ∨ x4 ∨ x3), (¬x4 ∨ x1 ∨ x3), (¬x8 ∨ x7 ∨ x1), (x7 ∨ x1 ∨ x4)
+- Simplified clauses:
+  - (¬x1 ∨ x3 ∨ x2) → (x3 ∨ x2)
+  - (x6 ∨ ¬x1 ∨ ¬x8) → (x6 ∨ ¬x8)
+  - (¬x1 ∨ x3 ∨ ¬x2) → (x3 ∨ ¬x2)
+  - (¬x7 ∨ ¬x6 ∨ ¬x1) → (¬x7 ∨ ¬x6)
+  - (¬x7 ∨ ¬x3 ∨ x1) → satisfied
+  - (¬x1 ∨ x2 ∨ ¬x5) → (x2 ∨ ¬x5)
+  - (x6 ∨ ¬x1 ∨ x5) → (x6 ∨ x5)
+  - (¬x1 ∨ ¬x5 ∨ ¬x7) → (¬x5 ∨ ¬x7)
+
+**Branch 2: x2 = true**
+After setting x2 = true:
+- Unit propagation from (x3 ∨ ¬x2) gives x3 = true
+- From (¬x3 ∨ ¬x2 ∨ ¬x7) with x3 = true, x2 = true → ¬x7, so x7 = false
+- From (x7 ∨ ¬x4 ∨ ¬x2) with x7 = false, x2 = true → ¬x4, so x4 = false
+- From (x7 ∨ ¬x3 ∨ x4) with x7 = false, x3 = true, x4 = false → CONFLICT
+
+**Backtrack to Branch 1, Branch 3: x2 = false**
+After setting x2 = false:
+- From (x3 ∨ x2) → x3 = true
+- From (x2 ∨ ¬x5) → ¬x5, so x5 = false
+- From (¬x5 ∨ x2 ∨ x6) with x5 = false, x2 = false → x6 = true
+- From (¬x7 ∨ ¬x6) with x6 = true → x7 = false
+- From (x7 ∨ ¬x4 ∨ ¬x2) with x7 = false, x2 = false → satisfied
+- From (x7 ∨ ¬x3 ∨ x4) with x7 = false, x3 = true → x4 = true
+- From (x6 ∨ ¬x8) → satisfied (x6 = true)
+- From (¬x8 ∨ x7 ∨ x1) with

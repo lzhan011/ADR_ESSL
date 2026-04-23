@@ -1,0 +1,357 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1768
+p cnf 5 17
+-1 -5 4 0
+1 -5 3 0
+2 -3 -5 0
+5 2 1 0
+-3 4 -2 0
+-3 -1 2 0
+1 -2 -3 0
+-1 2 3 0
+-2 3 -5 0
+-1 3 -4 0
+-3 -5 -1 0
+3 -2 -5 0
+5 -4 3 0
+5 4 -2 0
+4 5 -1 0
+-1 5 -4 0
+-4 3 5 0
+
+c GPT solve time: 40.04 seconds
+
+Step-by-step DPLL (Davis–Putnam–Logemann–Loveland) SAT solving:
+
+**Step 1: List variables:**  
+x1, x2, x3, x4, x5
+
+**Step 2: Try x1 = True**
+
+- Substitute x1 = True into all clauses:
+    - (¬x1 ∨ ...) → satisfied if x1 = True in any clause
+    - Remove all clauses where x1 appears positively
+    - Remove ¬x1 from all other clauses
+
+**Clauses after x1 = True:**
+1. (¬x5 ∨ x4)
+3. (x2 ∨ ¬x3 ∨ ¬x5)
+4. (x5 ∨ x2 ∨ x1) → satisfied (x1 = True)
+5. (¬x3 ∨ x4 ∨ ¬x2)
+6. (¬x3 ∨ x2)
+8. (x2 ∨ x3)
+9. (¬x2 ∨ x3 ∨ ¬x5)
+11. (¬x3 ∨ ¬x5)
+12. (x3 ∨ ¬x2 ∨ ¬x5)
+13. (x5 ∨ ¬x4 ∨ x3)
+14. (x5 ∨ x4 ∨ ¬x2)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x3 ∨ x5)
+
+**Step 3: Try x2 = True**
+
+- Substitute x2 = True:
+    - Remove all clauses where x2 appears positively
+    - Remove ¬x2 from all other clauses
+
+Remaining clauses:
+1. (¬x5 ∨ x4)
+5. (¬x3 ∨ x4)
+6. (¬x3)
+9. (x3 ∨ ¬x5)
+11. (¬x3 ∨ ¬x5)
+12. (x3 ∨ ¬x5)
+13. (x5 ∨ ¬x4 ∨ x3)
+14. (x5 ∨ x4)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x3 ∨ x5)
+
+**Step 4: Try x3 = False** (from clause 6: (¬x3) → x3 = False)
+
+- Substitute x3 = False:
+    - Remove all clauses where ¬x3 appears
+    - Remove x3 from all other clauses
+
+Remaining clauses:
+1. (¬x5 ∨ x4)
+9. (¬x5)
+12. (¬x5)
+13. (x5 ∨ ¬x4)
+14. (x5 ∨ x4)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x5)
+
+**Step 5: Try x5 = False** (from clause 9 or 12: (¬x5) → x5 = False)
+
+- Substitute x5 = False:
+    - Remove all clauses where ¬x5 appears
+    - Remove x5 from all other clauses
+
+Remaining clauses:
+1. (x4)
+13. (¬x4)
+14. (x4)
+15. (x4)
+16. (¬x4)
+17. (¬x4)
+
+**Step 6: Now, (x4) and (¬x4) both appear. Conflict!**
+
+**Backtrack: x5 = True**
+
+- Go back to previous step, try x5 = True
+
+Substitute x5 = True:
+1. (x4)
+13. (¬x4 ∨ x3) → (¬x4 ∨ False) = (¬x4)
+14. (x4)
+15. (x4)
+16. (¬x4)
+17. (¬x4 ∨ x3 ∨ x5) → (¬x4 ∨ False ∨ True) = (True) → satisfied
+
+Now, (x4), (¬x4), (x4), (x4), (¬x4)
+
+Again, (x4) and (¬x4) both appear. Conflict!
+
+**Backtrack: x3 = True**
+
+Go back to x3 decision, try x3 = True
+
+Substitute x3 = True:
+1. (¬x5 ∨ x4)
+5. (x4)
+9. (¬x2 ∨ ¬x5)
+11. (¬x5)
+12. (¬x2 ∨ ¬x5)
+13. (x5 ∨ ¬x4)
+14. (x5 ∨ x4)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x5)
+
+From clause 5: (x4) → x4 = True
+
+Substitute x4 = True:
+1. (¬x5 ∨ True) → satisfied
+13. (x5 ∨ False) = (x5)
+14. (x5 ∨ True) → satisfied
+15. (True ∨ x5) → satisfied
+16. (x5 ∨ False) = (x5)
+17. (False ∨ x5) = (x5)
+
+So, remaining clauses:
+9. (¬x2 ∨ ¬x5)
+11. (¬x5)
+12. (¬x2 ∨ ¬x5)
+13. (x5)
+16. (x5)
+17. (x5)
+
+From clause 11: (¬x5) → x5 = False
+
+Substitute x5 = False:
+9. (¬x2 ∨ True) → satisfied
+12. (¬x2 ∨ True) → satisfied
+13. (False)
+16. (False)
+17. (False)
+
+But (x5) is required in 13, 16, 17, but x5 = False. Conflict!
+
+**Backtrack: x2 = False**
+
+Go back to x2 decision, try x2 = False
+
+Substitute x2 = False into the clauses after x1 = True:
+
+1. (¬x5 ∨ x4)
+3. (¬x3 ∨ ¬x5)
+4. (x5 ∨ x1) → satisfied
+5. (¬x3 ∨ x4)
+6. (¬x3)
+7. (¬x3)
+8. (x3)
+9. (x3 ∨ ¬x5)
+11. (¬x3 ∨ ¬x5)
+12. (x3 ∨ ¬x5)
+13. (x5 ∨ ¬x4 ∨ x3)
+14. (x5 ∨ x4)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x3 ∨ x5)
+
+From clause 6 or 7: (¬x3) → x3 = False
+
+Substitute x3 = False:
+
+1. (¬x5 ∨ x4)
+3. (¬x5)
+5. (x4)
+9. (¬x5)
+11. (¬x5)
+12. (¬x5)
+13. (x5 ∨ ¬x4)
+14. (x5 ∨ x4)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x5)
+
+From clause 3, 9, 11, 12: (¬x5) → x5 = False
+
+Substitute x5 = False:
+
+1. (x4)
+5. (x4)
+13. (¬x4)
+14. (x4)
+15. (x4)
+16. (¬x4)
+17. (¬x4)
+
+Now, (x4) and (¬x4) both appear. Conflict!
+
+**Backtrack: x1 = False**
+
+Now, try x1 = False
+
+Substitute x1 = False into all clauses:
+
+1. (¬x1 ∨ ...) → satisfied
+2. (¬x5 ∨ x3)
+3. (x2 ∨ ¬x3 ∨ ¬x5)
+4. (x5 ∨ x2)
+5. (¬x3 ∨ x4 ∨ ¬x2)
+6. (¬x3 ∨ x2)
+7. (¬x2 ∨ ¬x3)
+8. (x2 ∨ x3)
+9. (¬x2 ∨ x3 ∨ ¬x5)
+10. (x3 ∨ ¬x4)
+11. (¬x3 ∨ ¬x5)
+12. (x3 ∨ ¬x2 ∨ ¬x5)
+13. (x5 ∨ ¬x4 ∨ x3)
+14. (x5 ∨ x4 ∨ ¬x2)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x3 ∨ x5)
+
+**Step: Try x2 = True**
+
+Substitute x2 = True:
+
+2. (¬x5 ∨ x3)
+3. (¬x3 ∨ ¬x5)
+4. (x5)
+5. (¬x3 ∨ x4)
+6. (¬x3)
+8. (x3)
+9. (x3 ∨ ¬x5)
+10. (x3 ∨ ¬x4)
+11. (¬x3 ∨ ¬x5)
+12. (x3 ∨ ¬x5)
+13. (x5 ∨ ¬x4 ∨ x3)
+14. (x5 ∨ x4)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x3 ∨ x5)
+
+From clause 6: (¬x3) → x3 = False
+
+Substitute x3 = False:
+
+2. (¬x5)
+3. (¬x5)
+4. (x5)
+5. (x4)
+9. (¬x5)
+10. (¬x4)
+11. (¬x5)
+12. (¬x5)
+13. (x5 ∨ ¬x4)
+14. (x5 ∨ x4)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x5)
+
+From 2, 3, 9, 11, 12: (¬x5) → x5 = False
+
+Substitute x5 = False:
+
+4. (False)
+5. (x4)
+10. (¬x4)
+13. (¬x4)
+14. (x4)
+15. (x4)
+16. (¬x4)
+17. (¬x4)
+
+Now, (x4) and (¬x4) both appear. Conflict!
+
+**Backtrack: x2 = False**
+
+Substitute x2 = False:
+
+2. (¬x5 ∨ x3)
+3. (¬x3 ∨ ¬x5)
+4. (x5)
+5. (¬x3 ∨ x4)
+6. (¬x3)
+7. (¬x3)
+8. (x3)
+9. (x3 ∨ ¬x5)
+10. (x3 ∨ ¬x4)
+11. (¬x3 ∨ ¬x5)
+12. (x3 ∨ ¬x5)
+13. (x5 ∨ ¬x4 ∨ x3)
+14. (x5 ∨ x4)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x3 ∨ x5)
+
+From 6 or 7: (¬x3) → x3 = False
+
+Substitute x3 = False:
+
+2. (¬x5)
+3. (¬x5)
+4. (x5)
+5. (x4)
+9. (¬x5)
+10. (¬x4)
+11. (¬x5)
+12. (¬x5)
+13. (x5 ∨ ¬x4)
+14. (x5 ∨ x4)
+15. (x4 ∨ x5)
+16. (x5 ∨ ¬x4)
+17. (¬x4 ∨ x5)
+
+From 2, 3, 9, 11, 12: (¬x5) → x5 = False
+
+Substitute x5 = False:
+
+4. (False)
+5. (x4)
+10. (¬x4)
+13. (¬x4)
+14. (x4)
+15. (x4)
+16. (¬x4)
+17. (¬x4)
+
+Again, (x4) and (¬x4) both appear. Conflict!
+
+**Conclusion:**
+
+All branches have been explored and all lead to conflicts.
+
+---
+
+**Final Answers:**
+
+* UNSATISFIABLE
+* Number of branches (decision points): 7
+* Number of conflicts (backtracking steps): 7

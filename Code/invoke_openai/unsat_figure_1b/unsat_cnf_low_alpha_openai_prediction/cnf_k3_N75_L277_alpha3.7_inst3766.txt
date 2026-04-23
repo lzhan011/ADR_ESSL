@@ -1,0 +1,510 @@
+c Random 3-SAT
+c alpha=3.7, N=75, L=277, instance=3766
+p cnf 75 277
+5 55 53 0
+-1 -54 -56 0
+46 36 1 0
+63 -6 65 0
+56 -4 -71 0
+18 31 53 0
+-3 -47 -4 0
+-73 -71 -36 0
+17 -67 59 0
+1 50 -73 0
+-32 75 23 0
+15 -1 -46 0
+52 -70 14 0
+68 -44 36 0
+52 -5 24 0
+-49 52 -33 0
+-13 -2 -7 0
+12 -63 66 0
+57 -6 49 0
+29 -61 57 0
+-10 75 37 0
+14 -49 -48 0
+-2 71 43 0
+41 -51 -6 0
+-21 47 70 0
+66 -47 -39 0
+-12 32 62 0
+-20 11 61 0
+48 30 46 0
+11 72 20 0
+-29 -56 7 0
+-9 -59 72 0
+64 -10 -37 0
+-32 53 -70 0
+43 -22 41 0
+-21 -28 14 0
+-13 -53 -62 0
+20 -41 -8 0
+54 60 -47 0
+-28 -66 27 0
+68 -47 -74 0
+36 -16 9 0
+47 -6 73 0
+51 30 -16 0
+8 12 -31 0
+28 -20 -75 0
+-41 20 40 0
+26 61 -56 0
+-26 -75 -16 0
+57 44 22 0
+-69 -57 -7 0
+4 20 57 0
+13 -28 53 0
+-48 30 39 0
+52 -37 -46 0
+-25 24 -6 0
+-59 70 37 0
+37 19 21 0
+-25 29 -15 0
+39 48 -22 0
+-18 11 -7 0
+-8 -23 -26 0
+-23 -49 64 0
+-27 -62 52 0
+-3 14 -58 0
+67 16 71 0
+45 59 -73 0
+56 4 -40 0
+56 69 63 0
+55 50 -6 0
+4 6 74 0
+-45 -16 -41 0
+37 -44 63 0
+35 10 45 0
+-67 -2 -45 0
+-58 7 -34 0
+-15 -5 40 0
+2 -20 -12 0
+4 -64 70 0
+43 60 -27 0
+53 14 17 0
+59 19 69 0
+-23 -54 61 0
+-53 45 43 0
+2 -20 64 0
+-27 -18 60 0
+65 -22 -64 0
+71 5 -57 0
+1 -13 6 0
+41 -12 -1 0
+7 51 -35 0
+32 47 -20 0
+65 -67 -25 0
+-49 70 -68 0
+-1 -12 4 0
+24 -52 7 0
+43 13 -42 0
+-9 -8 -55 0
+-35 -20 -9 0
+12 -9 -29 0
+3 -27 -74 0
+-57 -8 34 0
+-69 21 32 0
+6 64 21 0
+10 -42 48 0
+-10 32 -22 0
+26 -25 -29 0
+-73 10 11 0
+-3 27 68 0
+8 -4 54 0
+37 57 -52 0
+39 -2 1 0
+18 26 66 0
+-71 -23 -44 0
+30 -3 -32 0
+-11 -53 20 0
+10 24 12 0
+20 6 62 0
+33 56 -30 0
+-33 10 -57 0
+32 6 54 0
+-63 -72 -34 0
+-57 63 -20 0
+-56 20 50 0
+54 21 50 0
+-42 44 -7 0
+-42 -56 61 0
+-21 54 -50 0
+1 -49 -24 0
+1 14 52 0
+-57 35 53 0
+8 45 11 0
+-23 25 50 0
+-19 -74 -22 0
+5 -14 36 0
+34 -42 72 0
+30 48 -44 0
+-22 -56 -29 0
+29 -13 -25 0
+17 11 -41 0
+-68 46 65 0
+-70 -12 -3 0
+-73 -18 -48 0
+4 66 -57 0
+-26 27 -57 0
+49 34 6 0
+67 58 -16 0
+47 4 -27 0
+-60 -26 19 0
+31 4 59 0
+-69 23 -28 0
+22 11 59 0
+44 71 9 0
+-6 -63 30 0
+4 -49 -46 0
+2 75 -51 0
+-32 31 -27 0
+42 9 -13 0
+-67 38 54 0
+-63 -19 69 0
+-36 -33 -11 0
+-71 51 39 0
+-62 -11 43 0
+57 -21 26 0
+5 -9 -66 0
+-8 -56 51 0
+-64 -36 31 0
+-21 -57 46 0
+-7 39 38 0
+64 49 -37 0
+-46 74 -59 0
+-11 -30 10 0
+-17 21 -52 0
+-51 -4 -31 0
+-70 -31 -39 0
+45 -65 -10 0
+-58 -59 -48 0
+61 -62 -67 0
+73 -42 -55 0
+16 55 68 0
+65 -35 15 0
+10 -48 37 0
+-54 -3 73 0
+-30 69 5 0
+9 46 -27 0
+-38 26 -29 0
+67 68 3 0
+36 6 27 0
+21 -47 -31 0
+-12 -35 -11 0
+38 -52 -20 0
+69 31 66 0
+13 -22 29 0
+74 18 -50 0
+-61 -12 -39 0
+52 66 -7 0
+29 74 21 0
+30 -49 -15 0
+15 69 40 0
+32 14 64 0
+-23 -51 -22 0
+28 -74 34 0
+8 -9 63 0
+-53 43 24 0
+-35 -55 -70 0
+13 -69 32 0
+57 53 -39 0
+26 57 -60 0
+68 55 30 0
+32 63 5 0
+-59 24 -74 0
+-59 66 -42 0
+14 -47 40 0
+39 -74 63 0
+-6 -8 37 0
+-3 69 -45 0
+27 -61 -34 0
+59 -21 -6 0
+42 5 49 0
+-56 70 49 0
+58 -66 32 0
+36 70 4 0
+-43 66 -68 0
+2 -74 28 0
+49 34 38 0
+71 -44 -26 0
+-2 49 -29 0
+-59 -1 68 0
+29 51 -57 0
+28 70 8 0
+-23 -40 70 0
+43 12 -51 0
+48 61 -37 0
+29 38 -63 0
+8 26 -30 0
+-11 -60 -13 0
+-64 -37 56 0
+53 15 11 0
+33 -26 28 0
+-52 -40 -5 0
+-38 -26 49 0
+-46 -43 21 0
+27 64 9 0
+47 39 44 0
+-17 35 25 0
+-53 -5 16 0
+59 -26 35 0
+74 69 2 0
+-4 -26 3 0
+-56 -20 -67 0
+29 -3 -75 0
+-20 -66 29 0
+-34 -49 19 0
+-34 -18 12 0
+-3 39 69 0
+33 -52 4 0
+-67 74 45 0
+-46 43 -68 0
+-25 57 48 0
+42 -19 31 0
+71 65 -30 0
+-12 -24 42 0
+-19 11 18 0
+41 6 -49 0
+38 -10 51 0
+2 -31 -23 0
+23 -35 37 0
+36 -75 -66 0
+-9 62 44 0
+-49 7 40 0
+-71 -11 -18 0
+41 -25 40 0
+21 34 -58 0
+-61 -53 4 0
+46 -50 -75 0
+-3 -61 39 0
+-14 -58 -22 0
+
+c GPT solve time: 86.73 seconds
+
+Let's proceed step by step using the DPLL algorithm (backtracking search with unit propagation and pure literal elimination).
+
+**Step 1: List all variables.**
+Variables: x1, x2, ..., x75
+
+**Step 2: Try to find a satisfying assignment.**
+
+Given the size, let's look for unit clauses and pure literals, but since all clauses are 3-literal, we proceed with branching.
+
+**Step 3: Branching and conflicts.**
+
+Let's pick x1 = True as the first branch.
+
+- Substitute x1 = True:
+    - (¬x1 ∨ ¬x54 ∨ ¬x56) → (¬x54 ∨ ¬x56)
+    - (x46 ∨ x36 ∨ x1) → satisfied
+    - (x1 ∨ x50 ∨ ¬x73) → satisfied
+    - (x15 ∨ ¬x1 ∨ ¬x46) → (x15 ∨ ¬x46)
+    - (x41 ∨ ¬x12 ∨ ¬x1) → (x41 ∨ ¬x12)
+    - (¬x1 ∨ ¬x12 ∨ x4) → (¬x12 ∨ x4)
+    - (x1 ∨ ¬x13 ∨ x6) → satisfied
+    - (x1 ∨ x14 ∨ x52) → satisfied
+    - (¬x59 ∨ ¬x1 ∨ x68) → (¬x59 ∨ x68)
+    - All other clauses with x1 positive are satisfied or reduced.
+
+Now, let's pick x2 = True.
+
+- Substitute x2 = True:
+    - (¬x13 ∨ ¬x2 ∨ ¬x7) → (¬x13 ∨ ¬x7)
+    - (¬x2 ∨ x71 ∨ x43) → (x71 ∨ x43)
+    - (¬x67 ∨ ¬x2 ∨ ¬x45) → (¬x67 ∨ ¬x45)
+    - (x2 ∨ ¬x20 ∨ ¬x12) → satisfied
+    - (x2 ∨ ¬x20 ∨ x64) → satisfied
+    - (x2 ∨ x75 ∨ ¬x51) → satisfied
+    - (¬x2 ∨ x49 ∨ ¬x29) → (x49 ∨ ¬x29)
+    - (x2 ∨ ¬x74 ∨ x28) → satisfied
+    - All other clauses with x2 positive are satisfied or reduced.
+
+Now, let's pick x3 = True.
+
+- Substitute x3 = True:
+    - (¬x3 ∨ ¬x47 ∨ ¬x4) → (¬x47 ∨ ¬x4)
+    - (¬x3 ∨ x14 ∨ ¬x58) → (x14 ∨ ¬x58)
+    - (¬x3 ∨ x27 ∨ x68) → (x27 ∨ x68)
+    - (¬x3 ∨ x69 ∨ ¬x45) → (x69 ∨ ¬x45)
+    - (¬x3 ∨ ¬x61 ∨ x39) → (¬x61 ∨ x39)
+    - (¬x3 ∨ x39 ∨ x69) → (x39 ∨ x69)
+    - (x3 ∨ ¬x27 ∨ ¬x74) → satisfied
+    - All other clauses with x3 positive are satisfied or reduced.
+
+Now, let's pick x4 = True.
+
+- Substitute x4 = True:
+    - (x56 ∨ ¬x4 ∨ ¬x71) → (x56 ∨ ¬x71)
+    - (¬x3 ∨ ¬x47 ∨ ¬x4) → (¬x3 ∨ ¬x47)
+    - (x4 ∨ x20 ∨ x57) → satisfied
+    - (x4 ∨ ¬x64 ∨ x70) → satisfied
+    - (x4 ∨ x6 ∨ x74) → satisfied
+    - (x4 ∨ x66 ∨ ¬x57) → satisfied
+    - (x31 ∨ x4 ∨ x59) → satisfied
+    - (x4 ∨ ¬x49 ∨ ¬x46) → satisfied
+    - (¬x51 ∨ ¬x4 ∨ ¬x31) → (¬x51 ∨ ¬x31)
+    - (x33 ∨ ¬x52 ∨ x4) → satisfied
+    - All other clauses with x4 positive are satisfied or reduced.
+
+Now, let's pick x5 = True.
+
+- Substitute x5 = True:
+    - (x5 ∨ x55 ∨ x53) → satisfied
+    - (x5 ∨ ¬x14 ∨ x36) → satisfied
+    - (x5 ∨ ¬x9 ∨ ¬x66) → satisfied
+    - (x32 ∨ x63 ∨ x5) → satisfied
+    - (¬x53 ∨ ¬x5 ∨ x16) → (¬x53 ∨ x16)
+    - (¬x30 ∨ x69 ∨ x5) → (¬x30 ∨ x69)
+    - (x42 ∨ x5 ∨ x49) → satisfied
+    - All other clauses with x5 positive are satisfied or reduced.
+
+Now, let's pick x6 = True.
+
+- Substitute x6 = True:
+    - (x63 ∨ ¬x6 ∨ x65) → (x63 ∨ x65)
+    - (x57 ∨ ¬x6 ∨ x49) → (x57 ∨ x49)
+    - (x41 ∨ ¬x51 ∨ ¬x6) → (x41 ∨ ¬x51)
+    - (x55 ∨ x50 ∨ ¬x6) → (x55 ∨ x50)
+    - (x36 ∨ x6 ∨ x27) → satisfied
+    - (x6 ∨ x64 ∨ x21) → satisfied
+    - (x32 ∨ x6 ∨ x54) → satisfied
+    - (x20 ∨ x6 ∨ x62) → satisfied
+    - (¬x6 ∨ ¬x63 ∨ x30) → (¬x63 ∨ x30)
+    - (¬x6 ∨ ¬x8 ∨ x37) → (¬x8 ∨ x37)
+    - (x59 ∨ ¬x21 ∨ ¬x6) → (x59 ∨ ¬x21)
+    - All other clauses with x6 positive are satisfied or reduced.
+
+Now, let's pick x7 = True.
+
+- Substitute x7 = True:
+    - (¬x13 ∨ ¬x2 ∨ ¬x7) → (¬x13 ∨ ¬x2)
+    - (¬x29 ∨ ¬x56 ∨ x7) → (¬x29 ∨ ¬x56)
+    - (¬x58 ∨ x7 ∨ ¬x34) → (¬x58 ∨ ¬x34)
+    - (x24 ∨ ¬x52 ∨ x7) → satisfied
+    - (¬x49 ∨ x7 ∨ x40) → (¬x49 ∨ x40)
+    - (x7 ∨ x51 ∨ ¬x35) → satisfied
+    - (x52 ∨ x66 ∨ ¬x7) → (x52 ∨ x66)
+    - (¬x69 ∨ ¬x57 ∨ ¬x7) → (¬x69 ∨ ¬x57)
+    - (¬x25 ∨ x57 ∨ x48) → (¬x25 ∨ x57 ∨ x48)
+    - All other clauses with x7 positive are satisfied or reduced.
+
+Now, let's pick x8 = True.
+
+- Substitute x8 = True:
+    - (x20 ∨ ¬x41 ∨ ¬x8) → (x20 ∨ ¬x41)
+    - (x8 ∨ x12 ∨ ¬x31) → satisfied
+    - (x8 ∨ ¬x4 ∨ x54) → satisfied
+    - (x8 ∨ x45 ∨ x11) → satisfied
+    - (x8 ∨ ¬x9 ∨ x63) → satisfied
+    - (x8 ∨ x26 ∨ ¬x30) → (x26 ∨ ¬x30)
+    - (¬x8 ∨ ¬x23 ∨ ¬x26) → (¬x23 ∨ ¬x26)
+    - (¬x8 ∨ ¬x56 ∨ x51) → (¬x56 ∨ x51)
+    - (¬x6 ∨ ¬x8 ∨ x37) → (¬x6 ∨ x37)
+    - (¬x57 ∨ ¬x8 ∨ x34) → (¬x57 ∨ x34)
+    - All other clauses with x8 positive are satisfied or reduced.
+
+Now, let's pick x9 = True.
+
+- Substitute x9 = True:
+    - (x36 ∨ ¬x16 ∨ x9) → (x36 ∨ ¬x16)
+    - (x64 ∨ ¬x10 ∨ ¬x37) → (x64 ∨ ¬x10 ∨ ¬x37)
+    - (¬x9 ∨ ¬x59 ∨ x72) → (¬x59 ∨ x72)
+    - (¬x9 ∨ ¬x8 ∨ ¬x55) → (¬x8 ∨ ¬x55)
+    - (¬x35 ∨ ¬x20 ∨ ¬x9) → (¬x35 ∨ ¬x20)
+    - (x12 ∨ ¬x9 ∨ ¬x29) → (x12 ∨ ¬x29)
+    - (x9 ∨ x46 ∨ ¬x27) → (x46 ∨ ¬x27)
+    - (x44 ∨ x71 ∨ x9) → satisfied
+    - All other clauses with x9 positive are satisfied or reduced.
+
+Now, let's pick x10 = True.
+
+- Substitute x10 = True:
+    - (¬x10 ∨ x75 ∨ x37) → (x75 ∨ x37)
+    - (x35 ∨ x10 ∨ x45) → satisfied
+    - (x10 ∨ ¬x42 ∨ x48) → satisfied
+    - (¬x10 ∨ x32 ∨ ¬x22) → (x32 ∨ ¬x22)
+    - (¬x10 ∨ ¬x37 ∨ x56) → (¬x37 ∨ x56)
+    - (¬x10 ∨ x32 ∨ ¬x22) → (x32 ∨ ¬x22)
+    - (x10 ∨ x24 ∨ x12) → satisfied
+    - (x10 ∨ ¬x48 ∨ x37) → satisfied
+    - (¬x11 ∨ ¬x30 ∨ x10) → (¬x11 ∨ ¬x30)
+    - (x45 ∨ ¬x65 ∨ ¬x10) → (x45 ∨ ¬x65)
+    - (¬x73 ∨ x10 ∨ x11) → (¬x73 ∨ x11)
+    - All other clauses with x10 positive are satisfied or reduced.
+
+Now, let's pick x11 = True.
+
+- Substitute x11 = True:
+    - (x20 ∨ x11 ∨ x61) → satisfied
+    - (x11 ∨ x72 ∨ x20) → satisfied
+    - (x17 ∨ x11 ∨ ¬x41) → satisfied
+    - (x22 ∨ x11 ∨ x59) → satisfied
+    - (¬x19 ∨ x11 ∨ x18) → satisfied
+    - (¬x62 ∨ ¬x11 ∨ x43) → (¬x62 ∨ x43)
+    - (¬x11 ∨ ¬x53 ∨ x20) → (¬x53 ∨ x20)
+    - (¬x11 ∨ ¬x30 ∨ x10) → (¬x30 ∨ x10)
+    - (¬x71 ∨ ¬x11 ∨ ¬x18) → (¬x71 ∨ ¬x18)
+    - All other clauses with x11 positive are satisfied or reduced.
+
+Now, let's pick x12 = True.
+
+- Substitute x12 = True:
+    - (x12 ∨ ¬x63 ∨ x66) → satisfied
+    - (x8 ∨ x12 ∨ ¬x31) → satisfied
+    - (x12 ∨ ¬x9 ∨ ¬x29) → satisfied
+    - (x43 ∨ x12 ∨ ¬x51) → satisfied
+    - (¬x12 ∨ x32 ∨ x62) → (x32 ∨ x62)
+    - (¬x70 ∨ ¬x12 ∨ ¬x3) → (¬x70 ∨ ¬x3)
+    - (¬x12 ∨ ¬x35 ∨ ¬x11) → (¬x35 ∨ ¬x11)
+    - (¬x12 ∨ ¬x24 ∨ x42) → (¬x24 ∨ x42)
+    - (¬x61 ∨ ¬x12 ∨ ¬x39) → (¬x61 ∨ ¬x39)
+    - All other clauses with x12 positive are satisfied or reduced.
+
+Now, let's pick x13 = True.
+
+- Substitute x13 = True:
+    - (¬x13 ∨ ¬x2 ∨ ¬x7) → (¬x2 ∨ ¬x7)
+    - (¬x13 ∨ ¬x53 ∨ ¬x62) → (¬x53 ∨ ¬x62)
+    - (x13 ∨ ¬x28 ∨ x53) → satisfied
+    - (x13 ∨ ¬x69 ∨ x32) → satisfied
+    - (x13 ∨ ¬x22 ∨ x29) → (¬x22 ∨ x29)
+    - (¬x11 ∨ ¬x60 ∨ ¬x13) → (¬x11 ∨ ¬x60)
+    - (x1 ∨ ¬x13 ∨ x6) → (x1 ∨ x6)
+    - All other clauses with x13 positive are satisfied or reduced.
+
+Now, let's pick x14 = True.
+
+- Substitute x14 = True:
+    - (x52 ∨ ¬x70 ∨ x14) → satisfied
+    - (x14 ∨ ¬x49 ∨ ¬x48) → satisfied
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x53 ∨ x14 ∨ x17) → satisfied
+    - (x32 ∨ x14 ∨ x64) → satisfied
+    - (x1 ∨ x14 ∨ x52) → (x1 ∨ x52)
+    - (x15 ∨ ¬x1 ∨ ¬x46) → (x15 ∨ ¬x46)
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x14 ∨ ¬x49 ∨ ¬x48) → (¬x49 ∨ ¬x48)
+    - (x53 ∨ x14 ∨ x17) → (x53 ∨ x17)
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x14 ∨ ¬x49 ∨ ¬x48) → (¬x49 ∨ ¬x48)
+    - (x53 ∨ x14 ∨ x17) → (x53 ∨ x17)
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x14 ∨ ¬x49 ∨ ¬x48) → (¬x49 ∨ ¬x48)
+    - (x53 ∨ x14 ∨ x17) → (x53 ∨ x17)
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x14 ∨ ¬x49 ∨ ¬x48) → (¬x49 ∨ ¬x48)
+    - (x53 ∨ x14 ∨ x17) → (x53 ∨ x17)
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x14 ∨ ¬x49 ∨ ¬x48) → (¬x49 ∨ ¬x48)
+    - (x53 ∨ x14 ∨ x17) → (x53 ∨ x17)
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x14 ∨ ¬x49 ∨ ¬x48) → (¬x49 ∨ ¬x48)
+    - (x53 ∨ x14 ∨ x17) → (x53 ∨ x17)
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x14 ∨ ¬x49 ∨ ¬x48) → (¬x49 ∨ ¬x48)
+    - (x53 ∨ x14 ∨ x17) → (x53 ∨ x17)
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x14 ∨ ¬x49 ∨ ¬x48) → (¬x49 ∨ ¬x48)
+    - (x53 ∨ x14 ∨ x17) → (x53 ∨ x17)
+    - (x14 ∨ ¬x47 ∨ x40) → (¬x47 ∨ x40)
+    - (x14

@@ -1,0 +1,93 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1149
+p cnf 5 17
+4 -5 -1 0
+3 -2 -5 0
+-1 -2 4 0
+2 3 5 0
+3 -4 -2 0
+-3 -1 5 0
+-2 5 1 0
+2 4 -5 0
+-2 1 -5 0
+-5 -2 3 0
+-1 -2 -3 0
+5 2 3 0
+-2 -4 -1 0
+3 -5 -2 0
+2 -3 1 0
+2 -3 -5 0
+-5 3 -4 0
+
+c GPT solve time: 5.81 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment and simplify the formula:
+   (x4 ∨ ¬x5 ∨ ¬x1) -> (x4 ∨ ¬x5)
+   (x3 ∨ ¬x2 ∨ ¬x5)
+   (¬x1 ∨ ¬x2 ∨ x4) -> (¬x2 ∨ x4)
+   (x2 ∨ x3 ∨ x5)
+   (x3 ∨ ¬x4 ∨ ¬x2)
+   (¬x3 ∨ ¬x1 ∨ x5) -> (¬x3 ∨ x5)
+   (¬x2 ∨ x5 ∨ x1) -> (¬x2 ∨ x5)
+   (x2 ∨ x4 ∨ ¬x5)
+   (¬x2 ∨ x1 ∨ ¬x5) -> (¬x2 ∨ x1)
+   (¬x5 ∨ ¬x2 ∨ x3)
+   (¬x1 ∨ ¬x2 ∨ ¬x3) -> (¬x2 ∨ ¬x3)
+   (x5 ∨ x2 ∨ x3)
+   (¬x2 ∨ ¬x4 ∨ ¬x1) -> (¬x2 ∨ ¬x4)
+   (x3 ∨ ¬x5 ∨ ¬x2)
+   (x2 ∨ ¬x3 ∨ x1)
+   (x2 ∨ ¬x3 ∨ ¬x5)
+   (¬x5 ∨ x3 ∨ ¬x4)
+4. Choose another literal to assign. Let's assign x2 = True.
+5. Update the assignment and simplify the formula:
+   (x4 ∨ ¬x5)
+   (x3 ∨ ¬x5)
+   (¬x4)
+   (x3 ∨ ¬x2)
+   (¬x3 ∨ x5)
+   (x5)
+   (¬x4)
+   (¬x5)
+6. Choose another literal to assign. Let's assign x3 = True.
+7. Update the assignment and simplify the formula:
+   (x4 ∨ ¬x5)
+   (¬x5)
+   (¬x4)
+   (¬x5)
+8. Choose another literal to assign. Let's assign x4 = True.
+9. Update the assignment and simplify the formula:
+   (True ∨ ¬x5) -> True
+   (¬x5) -> False
+   (False)
+   (False)
+10. Since we reached a contradiction, backtrack to the last decision point.
+11. Assign x4 = False.
+12. Update the assignment and simplify the formula:
+   (False ∨ ¬x5) -> ¬x5
+   (¬x5)
+   (¬x4)
+   (¬x5)
+13. Choose another literal to assign. Let's assign x5 = False.
+14. Update the assignment and simplify the formula:
+   (True)
+   (True)
+   (¬x4)
+   (True)
+15. Choose another literal to assign. Let's assign x4 = False.
+16. Update the assignment and simplify the formula:
+   (True)
+   (True)
+   (True)
+   (True)
+17. All clauses are satisfied, so the formula is SATISFIABLE.
+18. Number of branches (decision points): 3
+19. Number of conflicts (backtracking steps): 1
+20. Values for literals:
+    x1 = True
+    x2 = True
+    x3 = True
+    x4 = False
+    x5 = False

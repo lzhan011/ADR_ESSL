@@ -1,0 +1,67 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=59
+p cnf 5 17
+4 -3 -5 0
+-4 5 2 0
+-3 4 -2 0
+2 4 -3 0
+-2 1 3 0
+-3 -2 -1 0
+1 -2 -3 0
+-2 -4 5 0
+3 -4 -5 0
+-5 2 -1 0
+-2 -4 1 0
+-5 2 1 0
+-1 2 3 0
+2 4 3 0
+-1 4 3 0
+-5 -3 1 0
+1 -2 -5 0
+
+c GPT solve time: 5.02 seconds
+
+1. Start with an empty assignment.
+2. Choose a clause to work on. Let's start with the first clause: (x4 ∨ ¬x3 ∨ ¬x5).
+3. Assign x4 = True. Update the assignment.
+4. Move to the next clause: (¬x4 ∨ x5 ∨ x2).
+5. Assign x5 = True. Update the assignment.
+6. Move to the next clause: (¬x3 ∨ x4 ∨ ¬x2).
+7. Assign x3 = False. Update the assignment.
+8. Move to the next clause: (x2 ∨ x4 ∨ ¬x3).
+9. Assign x2 = True. Update the assignment.
+10. Move to the next clause: (¬x2 ∨ x1 ∨ x3).
+11. Assign x1 = False. Update the assignment.
+12. Move to the next clause: (¬x3 ∨ ¬x2 ∨ ¬x1).
+13. Assign x2 = False. Update the assignment.
+14. Move to the next clause: (x1 ∨ ¬x2 ∨ ¬x3).
+15. Assign x1 = True. Update the assignment.
+16. Move to the next clause: (¬x2 ∨ ¬x4 ∨ x5).
+17. Assign x4 = False. Update the assignment.
+18. Move to the next clause: (x3 ∨ ¬x4 ∨ ¬x5).
+19. Assign x3 = True. Update the assignment.
+20. Move to the next clause: (¬x5 ∨ x2 ∨ ¬x1).
+21. Assign x5 = False. Update the assignment.
+22. Move to the next clause: (¬x2 ∨ ¬x4 ∨ x1).
+23. Assign x4 = True. Update the assignment.
+24. Move to the next clause: (¬x5 ∨ x2 ∨ x1).
+25. Assign x5 = True. Update the assignment.
+26. Move to the next clause: (¬x1 ∨ x2 ∨ x3).
+27. Assign x1 = False. Update the assignment.
+28. Move to the next clause: (x2 ∨ x4 ∨ x3).
+29. Assign x3 = False. Update the assignment.
+30. Move to the next clause: (¬x1 ∨ x4 ∨ x3).
+31. Assign x1 = True. Update the assignment.
+32. Move to the next clause: (¬x5 ∨ ¬x3 ∨ x1).
+33. Assign x5 = False. Update the assignment.
+34. Move to the next clause: (x1 ∨ ¬x2 ∨ ¬x5).
+35. Assign x2 = True. Update the assignment.
+36. All clauses are satisfied. The formula is SATISFIABLE.
+37. Number of branches (decision points): 18
+38. Number of conflicts (backtracking steps): 0
+39. Values for literals:
+    x1 = True
+    x2 = True
+    x3 = False
+    x4 = True
+    x5 = False

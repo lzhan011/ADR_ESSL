@@ -1,0 +1,105 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1707
+p cnf 5 17
+-1 -4 -5 0
+3 2 4 0
+-1 -2 5 0
+4 3 -2 0
+5 -3 4 0
+1 -4 2 0
+-4 2 5 0
+-1 3 -4 0
+-1 2 -5 0
+-3 -2 4 0
+5 4 -1 0
+3 -5 -2 0
+2 -5 4 0
+-3 1 -4 0
+3 1 5 0
+-3 -4 5 0
+4 -2 -3 0
+
+c GPT solve time: 9.09 seconds
+
+Step-by-step DPLL SAT solving:
+
+**Step 1: List variables**
+Variables: x1, x2, x3, x4, x5
+
+**Step 2: Try assignment x1 = True**
+Branch 1
+
+- Substitute x1 = True into all clauses:
+    - (¬x1 ∨ ...) → satisfied if x1 = True, so remove all clauses with ¬x1
+    - (x1 ∨ ...) → satisfied if x1 = True, so remove all clauses with x1
+
+After removing, remaining clauses:
+2. (x3 ∨ x2 ∨ x4)
+5. (x5 ∨ ¬x3 ∨ x4)
+7. (¬x4 ∨ x2 ∨ x5)
+10. (¬x3 ∨ ¬x2 ∨ x4)
+12. (x3 ∨ ¬x5 ∨ ¬x2)
+13. (x2 ∨ ¬x5 ∨ x4)
+16. (x4 ∨ ¬x2 ∨ ¬x3)
+
+**Step 3: Try x2 = True**
+Branch 2
+
+- Substitute x2 = True:
+    - Any clause with x2 is satisfied, so remove:
+        2. (x3 ∨ x2 ∨ x4) -- satisfied
+        7. (¬x4 ∨ x2 ∨ x5) -- satisfied
+        10. (¬x3 ∨ ¬x2 ∨ x4) → (¬x3 ∨ x4) (since ¬x2 is False)
+        12. (x3 ∨ ¬x5 ∨ ¬x2) → (x3 ∨ ¬x5) (since ¬x2 is False)
+        13. (x2 ∨ ¬x5 ∨ x4) -- satisfied
+        16. (x4 ∨ ¬x2 ∨ ¬x3) → (x4 ∨ ¬x3) (since ¬x2 is False)
+    - Remaining:
+        5. (x5 ∨ ¬x3 ∨ x4)
+        10. (¬x3 ∨ x4)
+        12. (x3 ∨ ¬x5)
+        16. (x4 ∨ ¬x3)
+
+**Step 4: Try x3 = True**
+Branch 3
+
+- Substitute x3 = True:
+    - Any clause with x3 is satisfied, so remove:
+        5. (x5 ∨ ¬x3 ∨ x4) → (x5 ∨ x4) (since ¬x3 is False)
+        10. (¬x3 ∨ x4) → (x4) (since ¬x3 is False)
+        12. (x3 ∨ ¬x5) -- satisfied
+        16. (x4 ∨ ¬x3) → (x4) (since ¬x3 is False)
+    - Remaining:
+        (x5 ∨ x4)
+        (x4)
+        (x4)
+
+**Step 5: Unit propagate x4 = True**
+- All remaining clauses are satisfied.
+
+**Step 6: Assign remaining variables arbitrarily**
+- x5 is unassigned, but all clauses are satisfied, so x5 can be either True or False.
+
+**Step 7: Collect assignments**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = (arbitrary, pick True)
+
+**Step 8: Count branches and conflicts**
+- Branches: x1, x2, x3 (3 decision points)
+- Conflicts: 0 (no backtracking needed)
+
+---
+
+**Final Output:**
+
+- SATISFIABLE
+- Number of branches: 3
+- Number of conflicts: 0
+- Assignment:
+    - x1 = True
+    - x2 = True
+    - x3 = True
+    - x4 = True
+    - x5 = True

@@ -1,0 +1,447 @@
+c Random 3-SAT
+c alpha=3.7, N=60, L=222, instance=3023
+p cnf 60 222
+-47 14 -22 0
+-30 -5 12 0
+58 -5 -20 0
+54 -43 10 0
+-21 -35 16 0
+9 -54 -57 0
+-46 2 23 0
+-20 14 29 0
+31 -11 -13 0
+-58 56 -40 0
+-40 11 -42 0
+19 45 -11 0
+-56 5 -44 0
+50 22 -32 0
+-12 34 -52 0
+-9 20 -22 0
+50 40 2 0
+9 3 20 0
+-39 23 49 0
+48 20 10 0
+-59 17 53 0
+15 -56 -48 0
+-7 23 27 0
+-57 47 9 0
+42 -4 -33 0
+-19 -57 33 0
+-9 -19 -21 0
+46 -20 11 0
+19 58 -32 0
+-8 41 -18 0
+-36 -51 39 0
+-8 55 -5 0
+35 -15 -20 0
+-45 25 47 0
+57 -60 59 0
+26 -23 -31 0
+-49 -50 37 0
+-60 24 -3 0
+5 44 21 0
+-21 20 45 0
+-14 30 47 0
+-10 -9 7 0
+57 -43 27 0
+51 -50 60 0
+-34 -50 38 0
+58 -6 25 0
+-15 10 37 0
+15 2 52 0
+-48 42 -51 0
+10 4 18 0
+-57 -30 -19 0
+-17 39 -16 0
+15 -49 -44 0
+-33 -17 10 0
+-55 -53 -10 0
+-4 30 23 0
+-10 -19 43 0
+47 20 -4 0
+56 -47 -44 0
+-19 -32 -38 0
+-42 -52 20 0
+-12 17 2 0
+-39 43 -19 0
+-4 -52 3 0
+-3 12 -23 0
+2 58 -26 0
+29 -32 -20 0
+33 37 47 0
+3 56 -27 0
+8 60 -57 0
+28 -7 56 0
+29 19 -58 0
+25 -22 -35 0
+36 -21 53 0
+37 40 7 0
+12 -22 28 0
+45 17 12 0
+-6 -18 20 0
+-11 19 -4 0
+36 -35 47 0
+-16 15 28 0
+43 27 22 0
+52 59 25 0
+-18 -33 -48 0
+-16 -48 25 0
+-13 53 41 0
+-54 27 -41 0
+40 -21 -31 0
+-23 28 38 0
+-53 43 -51 0
+-29 -49 -7 0
+14 -57 3 0
+39 -59 -25 0
+35 17 -23 0
+18 42 56 0
+-55 13 60 0
+59 55 -16 0
+33 -12 37 0
+28 59 60 0
+-51 -21 -18 0
+-14 -44 56 0
+51 -2 15 0
+44 -9 -26 0
+-43 -18 -29 0
+41 22 50 0
+42 -55 -28 0
+41 -15 -11 0
+-50 23 -55 0
+16 -50 -8 0
+-26 -41 55 0
+-21 -35 33 0
+-25 35 19 0
+-15 41 -40 0
+58 -59 -18 0
+-3 31 6 0
+5 -51 -22 0
+-56 36 26 0
+33 -12 -11 0
+-18 8 10 0
+-33 37 -22 0
+22 -2 -14 0
+-7 32 -2 0
+-18 30 -36 0
+-6 -24 25 0
+40 -12 6 0
+59 30 -12 0
+48 26 3 0
+-15 -45 9 0
+-8 54 -29 0
+-21 53 49 0
+31 26 -36 0
+36 -21 -5 0
+-14 -58 -7 0
+46 60 -51 0
+-37 -9 -7 0
+25 24 -51 0
+-36 45 -48 0
+-13 39 -48 0
+57 -13 -36 0
+-35 -45 -19 0
+-58 8 14 0
+47 -43 52 0
+-35 -37 40 0
+2 -11 -19 0
+-34 -32 22 0
+22 32 -23 0
+7 52 -43 0
+35 23 33 0
+-4 6 -9 0
+11 -17 -27 0
+3 60 -22 0
+8 48 35 0
+-24 -18 17 0
+14 51 -5 0
+-37 -33 28 0
+20 -17 34 0
+-13 27 50 0
+-39 -3 18 0
+-34 -12 -48 0
+-11 -40 5 0
+-39 34 22 0
+-4 37 46 0
+-45 46 -30 0
+-53 38 1 0
+-24 -11 31 0
+-24 -49 -2 0
+-51 -37 -16 0
+27 -20 -11 0
+10 -25 36 0
+-21 29 48 0
+40 -25 -32 0
+-20 59 -7 0
+-60 -42 -34 0
+-6 34 27 0
+-28 -30 8 0
+-56 -54 -12 0
+15 -20 30 0
+6 -51 -29 0
+-48 -15 -47 0
+-59 25 -10 0
+-37 44 29 0
+-12 -51 47 0
+39 -32 52 0
+-40 17 -15 0
+50 56 -9 0
+-8 18 1 0
+-55 -13 -53 0
+-4 8 29 0
+-23 44 -37 0
+43 -57 48 0
+13 -44 -37 0
+-34 -11 -37 0
+-59 -29 10 0
+-46 -20 28 0
+59 57 48 0
+-50 -54 43 0
+-27 -11 -20 0
+44 27 51 0
+31 -53 17 0
+10 58 -18 0
+-27 49 -45 0
+42 47 13 0
+43 20 59 0
+26 2 50 0
+-15 -7 -27 0
+1 -52 -35 0
+21 39 -52 0
+25 28 -45 0
+-44 -5 -16 0
+-5 -49 57 0
+-37 2 27 0
+-23 -19 50 0
+55 -52 -29 0
+55 28 -22 0
+-55 -47 -54 0
+-47 15 -33 0
+11 -56 -32 0
+-38 39 57 0
+-3 6 20 0
+13 29 59 0
+9 -27 36 0
+31 57 46 0
+
+c GPT solve time: 33.48 seconds
+
+Step-by-step DPLL (Davis–Putnam–Logemann–Loveland) SAT solving:
+
+**Step 1: Variables**
+- The variables are x1, x2, ..., x60.
+
+**Step 2: Unit Propagation & Pure Literal Elimination**
+- No unit clauses or pure literals at the start.
+
+**Step 3: Branching (Decision Points)**
+- We must choose a variable to branch on. Let's start with x1 = True.
+
+---
+
+### Branch 1: x1 = True
+
+- Propagate x1 = True.
+- Check for conflicts: None.
+- No unit propagation triggered.
+
+#### Next, pick x2 = True.
+
+---
+
+#### Branch 1.1: x1 = True, x2 = True
+
+- Propagate x2 = True.
+- No immediate conflicts.
+- No unit propagation triggered.
+
+##### Next, pick x3 = True.
+
+---
+
+##### Branch 1.1.1: x1 = True, x2 = True, x3 = True
+
+- Propagate x3 = True.
+- No immediate conflicts.
+- No unit propagation triggered.
+
+###### Next, pick x4 = True.
+
+---
+
+###### Branch 1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True
+
+- Propagate x4 = True.
+- No immediate conflicts.
+- No unit propagation triggered.
+
+####### Next, pick x5 = True.
+
+---
+
+####### Branch 1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True
+
+- Propagate x5 = True.
+- Check for conflicts:
+    - Clause (¬x30 ∨ ¬x5 ∨ x12): x5 = True, so ¬x5 = False. Clause reduces to (¬x30 ∨ x12).
+    - Clause (x58 ∨ ¬x5 ∨ ¬x20): x5 = True, so ¬x5 = False. Clause reduces to (x58 ∨ ¬x20).
+    - Clause (¬x56 ∨ x5 ∨ ¬x44): x5 = True, so clause is satisfied.
+    - Clause (x5 ∨ x44 ∨ x21): x5 = True, so clause is satisfied.
+    - Clause (x5 ∨ ¬x51 ∨ ¬x22): x5 = True, so clause is satisfied.
+    - Clause (¬x44 ∨ ¬x5 ∨ ¬x16): x5 = True, so ¬x5 = False. Clause reduces to (¬x44 ∨ ¬x16).
+    - Clause (¬x5 ∨ ¬x49 ∨ x57): x5 = True, so ¬x5 = False. Clause reduces to (¬x49 ∨ x57).
+- No immediate conflicts.
+
+######## Next, pick x6 = True.
+
+---
+
+######## Branch 1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True
+
+- Propagate x6 = True.
+- Check for conflicts:
+    - Clause (x58 ∨ ¬x6 ∨ x25): x6 = True, so ¬x6 = False. Clause reduces to (x58 ∨ x25).
+    - Clause (¬x6 ∨ ¬x18 ∨ x20): x6 = True, so ¬x6 = False. Clause reduces to (¬x18 ∨ x20).
+    - Clause (¬x6 ∨ ¬x24 ∨ x25): x6 = True, so ¬x6 = False. Clause reduces to (¬x24 ∨ x25).
+    - Clause (¬x6 ∨ x34 ∨ x27): x6 = True, so ¬x6 = False. Clause reduces to (x34 ∨ x27).
+    - Clause (x6 ∨ ¬x51 ∨ ¬x29): x6 = True, so clause is satisfied.
+    - Clause (¬x3 ∨ x6 ∨ x20): x3 = True, so ¬x3 = False. x6 = True, so clause is satisfied.
+- No immediate conflicts.
+
+######### Next, pick x7 = True.
+
+---
+
+######### Branch 1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True
+
+- Propagate x7 = True.
+- Check for conflicts:
+    - Clause (¬x7 ∨ x23 ∨ x27): x7 = True, so ¬x7 = False. Clause reduces to (x23 ∨ x27).
+    - Clause (¬x7 ∨ x32 ∨ ¬x2): x7 = True, so ¬x7 = False. Clause reduces to (x32 ∨ ¬x2).
+    - Clause (¬x15 ∨ ¬x7 ∨ ¬x27): x7 = True, so ¬x7 = False. Clause reduces to (¬x15 ∨ ¬x27).
+    - Clause (¬x29 ∨ ¬x49 ∨ ¬x7): x7 = True, so ¬x7 = False. Clause reduces to (¬x29 ∨ ¬x49).
+    - Clause (¬x20 ∨ x59 ∨ ¬x7): x7 = True, so ¬x7 = False. Clause reduces to (¬x20 ∨ x59).
+    - Clause (¬x14 ∨ ¬x58 ∨ ¬x7): x7 = True, so ¬x7 = False. Clause reduces to (¬x14 ∨ ¬x58).
+    - Clause (¬x37 ∨ ¬x9 ∨ ¬x7): x7 = True, so ¬x7 = False. Clause reduces to (¬x37 ∨ ¬x9).
+- No immediate conflicts.
+
+########## Next, pick x8 = True.
+
+---
+
+########## Branch 1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True
+
+- Propagate x8 = True.
+- Check for conflicts:
+    - Clause (¬x8 ∨ x41 ∨ ¬x18): x8 = True, so ¬x8 = False. Clause reduces to (x41 ∨ ¬x18).
+    - Clause (¬x8 ∨ x55 ∨ ¬x5): x8 = True, so ¬x8 = False. Clause reduces to (x55 ∨ ¬x5).
+    - Clause (¬x8 ∨ x54 ∨ ¬x29): x8 = True, so ¬x8 = False. Clause reduces to (x54 ∨ ¬x29).
+    - Clause (¬x8 ∨ x18 ∨ x1): x8 = True, so ¬x8 = False. Clause reduces to (x18 ∨ x1).
+    - Clause (x8 ∨ x48 ∨ x35): x8 = True, so clause is satisfied.
+    - Clause (¬x4 ∨ x8 ∨ x29): x4 = True, so ¬x4 = False. x8 = True, so clause is satisfied.
+- No immediate conflicts.
+
+########### Next, pick x9 = True.
+
+---
+
+########### Branch 1.1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True
+
+- Propagate x9 = True.
+- Check for conflicts:
+    - Clause (x9 ∨ ¬x54 ∨ ¬x57): x9 = True, so clause is satisfied.
+    - Clause (¬x9 ∨ x20 ∨ ¬x22): x9 = True, so ¬x9 = False. Clause reduces to (x20 ∨ ¬x22).
+    - Clause (x9 ∨ x3 ∨ x20): x9 = True, so clause is satisfied.
+    - Clause (¬x19 ∨ ¬x57 ∨ x33): no info yet.
+    - Clause (¬x9 ∨ ¬x19 ∨ ¬x21): x9 = True, so ¬x9 = False. Clause reduces to (¬x19 ∨ ¬x21).
+    - Clause (¬x10 ∨ ¬x9 ∨ x7): x9 = True, so ¬x9 = False. x7 = True, so clause is satisfied.
+    - Clause (¬x37 ∨ ¬x9 ∨ ¬x7): x9 = True, so ¬x9 = False. x7 = True, so ¬x7 = False. Clause reduces to (¬x37).
+    - Clause (x44 ∨ ¬x9 ∨ ¬x26): x9 = True, so ¬x9 = False. Clause reduces to (x44 ∨ ¬x26).
+    - Clause (x9 ∨ ¬x27 ∨ x36): x9 = True, so clause is satisfied.
+- No immediate conflicts.
+
+########### Next, pick x10 = True.
+
+---
+
+########### Branch 1.1.1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True, x10 = True
+
+- Propagate x10 = True.
+- Check for conflicts:
+    - Clause (x54 ∨ ¬x43 ∨ x10): x10 = True, so clause is satisfied.
+    - Clause (x48 ∨ x20 ∨ x10): x10 = True, so clause is satisfied.
+    - Clause (¬x10 ∨ ¬x9 ∨ x7): x10 = True, so ¬x10 = False. x9 = True, so ¬x9 = False. x7 = True, so clause is satisfied.
+    - Clause (¬x15 ∨ x10 ∨ x37): x10 = True, so clause is satisfied.
+    - Clause (x10 ∨ x4 ∨ x18): x10 = True, so clause is satisfied.
+    - Clause (¬x55 ∨ ¬x53 ∨ ¬x10): x10 = True, so ¬x10 = False. Clause reduces to (¬x55 ∨ ¬x53).
+    - Clause (¬x10 ∨ ¬x19 ∨ x43): x10 = True, so ¬x10 = False. Clause reduces to (¬x19 ∨ x43).
+    - Clause (x10 ∨ ¬x25 ∨ x36): x10 = True, so clause is satisfied.
+    - Clause (x10 ∨ x58 ∨ ¬x18): x10 = True, so clause is satisfied.
+    - Clause (¬x59 ∨ ¬x29 ∨ x10): x10 = True, so clause is satisfied.
+- No immediate conflicts.
+
+########### Next, pick x11 = True.
+
+---
+
+########### Branch 1.1.1.1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True, x10 = True, x11 = True
+
+- Propagate x11 = True.
+- Check for conflicts:
+    - Clause (x31 ∨ ¬x11 ∨ ¬x13): x11 = True, so ¬x11 = False. Clause reduces to (x31 ∨ ¬x13).
+    - Clause (¬x40 ∨ x11 ∨ ¬x42): x11 = True, so clause is satisfied.
+    - Clause (x19 ∨ x45 ∨ ¬x11): x11 = True, so ¬x11 = False. Clause reduces to (x19 ∨ x45).
+    - Clause (¬x11 ∨ x19 ∨ ¬x4): x11 = True, so ¬x11 = False. Clause reduces to (x19 ∨ ¬x4).
+    - Clause (x2 ∨ ¬x11 ∨ ¬x19): x11 = True, so ¬x11 = False. Clause reduces to (x2 ∨ ¬x19).
+    - Clause (¬x34 ∨ ¬x11 ∨ ¬x37): x11 = True, so ¬x11 = False. Clause reduces to (¬x34 ∨ ¬x37).
+    - Clause (¬x27 ∨ ¬x11 ∨ ¬x20): x11 = True, so ¬x11 = False. Clause reduces to (¬x27 ∨ ¬x20).
+    - Clause (¬x24 ∨ ¬x11 ∨ x31): x11 = True, so ¬x11 = False. Clause reduces to (¬x24 ∨ x31).
+    - Clause (x11 ∨ ¬x56 ∨ ¬x32): x11 = True, so clause is satisfied.
+- No immediate conflicts.
+
+########### Next, pick x12 = True.
+
+---
+
+########### Branch 1.1.1.1.1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True, x10 = True, x11 = True, x12 = True
+
+- Propagate x12 = True.
+- Check for conflicts:
+    - Clause (¬x30 ∨ ¬x5 ∨ x12): x5 = True, so ¬x5 = False. x12 = True, so clause is satisfied.
+    - Clause (¬x12 ∨ x34 ∨ ¬x52): x12 = True, so ¬x12 = False. Clause reduces to (x34 ∨ ¬x52).
+    - Clause (¬x12 ∨ x17 ∨ x2): x12 = True, so ¬x12 = False. Clause reduces to (x17 ∨ x2).
+    - Clause (x12 ∨ ¬x22 ∨ x28): x12 = True, so clause is satisfied.
+    - Clause (x45 ∨ x17 ∨ x12): x12 = True, so clause is satisfied.
+    - Clause (x33 ∨ ¬x12 ∨ x37): x12 = True, so ¬x12 = False. Clause reduces to (x33 ∨ x37).
+    - Clause (x33 ∨ ¬x12 ∨ ¬x11): x12 = True, so ¬x12 = False. x11 = True, so ¬x11 = False. Clause reduces to (x33).
+    - Clause (¬x34 ∨ ¬x12 ∨ ¬x48): x12 = True, so ¬x12 = False. Clause reduces to (¬x34 ∨ ¬x48).
+    - Clause (¬x12 ∨ ¬x51 ∨ x47): x12 = True, so ¬x12 = False. Clause reduces to (¬x51 ∨ x47).
+- No immediate conflicts.
+
+########### Next, pick x13 = True.
+
+---
+
+########### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True, x10 = True, x11 = True, x12 = True, x13 = True
+
+- Propagate x13 = True.
+- Check for conflicts:
+    - Clause (x31 ∨ ¬x11 ∨ ¬x13): x11 = True, so ¬x11 = False. x13 = True, so ¬x13 = False. Clause reduces to (x31).
+    - Clause (¬x13 ∨ x53 ∨ x41): x13 = True, so ¬x13 = False. Clause reduces to (x53 ∨ x41).
+    - Clause (¬x13 ∨ x27 ∨ x50): x13 = True, so ¬x13 = False. Clause reduces to (x27 ∨ x50).
+    - Clause (¬x13 ∨ x39 ∨ ¬x48): x13 = True, so ¬x13 = False. Clause reduces to (x39 ∨ ¬x48).
+    - Clause (x57 ∨ ¬x13 ∨ ¬x36): x13 = True, so ¬x13 = False. Clause reduces to (x57 ∨ ¬x36).
+    - Clause (¬x55 ∨ ¬x13 ∨ ¬x53): x13 = True, so ¬x13 = False. Clause reduces to (¬x55 ∨ ¬x53).
+    - Clause (x41 ∨ ¬x15 ∨ ¬x11): x11 = True, so ¬x11 = False. Clause reduces to (x41 ∨ ¬x15).
+    - Clause (x42 ∨ x47 ∨ x13): x13 = True, so clause is satisfied.
+    - Clause (x13 ∨ x29 ∨ x59): x13 = True, so clause is satisfied.
+    - Clause (x13 ∨ ¬x44 ∨ ¬x37): x13 = True, so clause is satisfied.
+- No immediate conflicts.
+
+########### Next, pick x14 = True.
+
+---
+
+########### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = True, x7 = True, x8 = True, x9 = True, x10 = True, x11 = True, x12 = True, x13 = True, x14 = True
+
+- Propagate

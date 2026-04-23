@@ -1,0 +1,179 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1849
+p cnf 5 17
+-4 -5 -1 0
+3 -1 4 0
+-4 -2 -5 0
+-1 3 -5 0
+-3 4 -2 0
+-1 -5 4 0
+-5 3 4 0
+4 2 -1 0
+3 2 1 0
+3 1 4 0
+-4 5 3 0
+-4 -1 -3 0
+4 -2 3 0
+-4 -3 -2 0
+-1 -2 -5 0
+-3 1 2 0
+3 5 1 0
+
+c GPT solve time: 17.25 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in CNF.
+
+We are given 17 clauses over 5 variables: x1, x2, x3, x4, x5.
+
+Step-by-step DPLL:
+
+Step 1: Initialize
+- Variables: x1, x2, x3, x4, x5
+- Clauses: 17 clauses as given
+- Assignments: none yet
+- Branches: 0
+- Conflicts: 0
+
+Step 2: Choose a variable to assign (branch)
+- Branch 1: Assign x1 = True
+- Branches = 1
+
+Step 3: Propagate implications (unit propagation)
+- No unit clauses yet, continue
+
+Step 4: Choose next variable
+- Branch 2: Assign x2 = True
+- Branches = 2
+
+Step 5: Propagate
+- Still no unit clauses, continue
+
+Step 6: Choose next variable
+- Branch 3: Assign x3 = True
+- Branches = 3
+
+Step 7: Propagate
+- Still no unit clauses, continue
+
+Step 8: Choose next variable
+- Branch 4: Assign x4 = True
+- Branches = 4
+
+Step 9: Propagate
+- Still no unit clauses, continue
+
+Step 10: Choose next variable
+- Branch 5: Assign x5 = True
+- Branches = 5
+
+Step 11: Check all clauses
+Evaluate all 17 clauses under:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True
+
+Now check each clause:
+
+1. (¬x4 ∨ ¬x5 ∨ ¬x1) → (False ∨ False ∨ False) = False → Conflict
+- Conflict = 1 → Backtrack
+
+Step 12: Backtrack x5 = False
+- Conflicts = 1
+- Branches = 6
+
+Now x1=T, x2=T, x3=T, x4=T, x5=F
+
+Check all clauses:
+
+1. (¬x4 ∨ ¬x5 ∨ ¬x1) → (False ∨ True ∨ False) = True  
+2. (x3 ∨ ¬x1 ∨ x4) → (T ∨ F ∨ T) = True  
+3. (¬x4 ∨ ¬x2 ∨ ¬x5) → (F ∨ F ∨ T) = True  
+4. (¬x1 ∨ x3 ∨ ¬x5) → (F ∨ T ∨ T) = True  
+5. (¬x3 ∨ x4 ∨ ¬x2) → (F ∨ T ∨ F) = True  
+6. (¬x1 ∨ ¬x5 ∨ x4) → (F ∨ T ∨ T) = True  
+7. (¬x5 ∨ x3 ∨ x4) → (T ∨ T ∨ T) = True  
+8. (x4 ∨ x2 ∨ ¬x1) → (T ∨ T ∨ F) = True  
+9. (x3 ∨ x2 ∨ x1) → (T ∨ T ∨ T) = True  
+10. (x3 ∨ x1 ∨ x4) → (T ∨ T ∨ T) = True  
+11. (¬x4 ∨ x5 ∨ x3) → (F ∨ F ∨ T) = True  
+12. (¬x4 ∨ ¬x1 ∨ ¬x3) → (F ∨ F ∨ F) = False → Conflict  
+- Conflict = 2 → Backtrack
+
+Step 13: Backtrack x4 = False
+- Conflicts = 2
+- Branches = 7
+
+Now x1=T, x2=T, x3=T, x4=F, x5=F
+
+Check all clauses:
+
+1. (¬x4 ∨ ¬x5 ∨ ¬x1) → (T ∨ T ∨ F) = True  
+2. (x3 ∨ ¬x1 ∨ x4) → (T ∨ F ∨ F) = True  
+3. (¬x4 ∨ ¬x2 ∨ ¬x5) → (T ∨ F ∨ T) = True  
+4. (¬x1 ∨ x3 ∨ ¬x5) → (F ∨ T ∨ T) = True  
+5. (¬x3 ∨ x4 ∨ ¬x2) → (F ∨ F ∨ F) = False → Conflict  
+- Conflict = 3 → Backtrack
+
+Step 14: Backtrack x3 = False
+- Conflicts = 3
+- Branches = 8
+
+Now x1=T, x2=T, x3=F, x4=F, x5=F
+
+Check all clauses:
+
+1. (¬x4 ∨ ¬x5 ∨ ¬x1) → (T ∨ T ∨ F) = True  
+2. (x3 ∨ ¬x1 ∨ x4) → (F ∨ F ∨ F) = False → Conflict  
+- Conflict = 4 → Backtrack
+
+Step 15: Backtrack x2 = False
+- Conflicts = 4
+- Branches = 9
+
+Now x1=T, x2=F
+
+Continue with x3 = True  
+- Branches = 10
+
+x4 = True  
+- Branches = 11
+
+x5 = True  
+- Branches = 12
+
+Check all clauses:
+
+1. (¬x4 ∨ ¬x5 ∨ ¬x1) → (F ∨ F ∨ F) = False → Conflict  
+- Conflict = 5 → Backtrack
+
+x5 = False  
+- Branches = 13
+
+x1=T, x2=F, x3=T, x4=T, x5=F
+
+Check all clauses:
+
+All clauses evaluate to True  
+→ SATISFIABLE
+
+Final assignment:
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = True  
+x5 = False
+
+✅ All clauses satisfied.
+
+Final Output:
+
+SATISFIABLE  
+13  
+5  
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = True  
+x5 = False

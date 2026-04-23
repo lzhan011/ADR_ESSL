@@ -1,0 +1,716 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=5250
+p cnf 50 180
+-37 -13 35 0
+31 44 41 0
+11 19 25 0
+22 47 -30 0
+8 49 -41 0
+38 49 9 0
+33 7 -14 0
+-17 2 13 0
+-20 -32 -29 0
+17 47 -15 0
+-2 20 9 0
+15 13 26 0
+48 -5 -4 0
+-49 15 -47 0
+-50 -11 25 0
+18 43 12 0
+-47 12 11 0
+-4 -9 -10 0
+23 -48 -4 0
+23 -25 45 0
+-39 17 24 0
+18 -43 -22 0
+-37 -27 -3 0
+20 48 7 0
+-15 -41 35 0
+-48 16 41 0
+-14 15 19 0
+-47 19 25 0
+-5 11 -30 0
+10 -19 20 0
+-15 -46 -14 0
+31 50 22 0
+-50 37 19 0
+-19 -33 -9 0
+-13 -20 39 0
+-35 -44 -24 0
+-16 -27 -21 0
+-35 -1 15 0
+-49 38 43 0
+4 6 -31 0
+39 25 -49 0
+-5 -31 -9 0
+13 26 -48 0
+-31 -49 -36 0
+8 -36 43 0
+47 24 -41 0
+38 35 -4 0
+22 -15 28 0
+-16 31 -24 0
+50 14 -24 0
+26 -3 12 0
+-20 19 5 0
+-25 -48 -47 0
+-5 14 50 0
+-40 -13 44 0
+46 4 37 0
+38 20 29 0
+-23 -8 16 0
+-25 9 10 0
+-32 -19 -35 0
+20 13 41 0
+13 45 -29 0
+43 -23 6 0
+-4 -32 -31 0
+-2 -38 14 0
+-37 -19 -3 0
+-10 -15 17 0
+30 -49 -23 0
+-32 -1 -22 0
+32 -36 -50 0
+-39 -29 34 0
+-49 20 11 0
+-45 4 33 0
+47 50 13 0
+-9 -24 13 0
+22 40 17 0
+40 23 -3 0
+1 -49 -38 0
+-13 -25 -43 0
+46 -32 10 0
+-28 -41 39 0
+-25 46 -3 0
+-21 44 -2 0
+8 23 10 0
+-45 -42 -31 0
+9 -30 7 0
+-38 40 4 0
+36 40 -34 0
+44 -34 48 0
+-18 -31 4 0
+35 28 6 0
+23 -19 28 0
+36 3 40 0
+21 -36 38 0
+-34 -10 36 0
+43 -18 48 0
+-30 33 -37 0
+15 -46 28 0
+-8 29 -25 0
+7 -50 31 0
+-50 -39 47 0
+30 -17 -27 0
+45 33 -22 0
+-3 41 -14 0
+25 -48 46 0
+-16 28 -7 0
+20 28 -33 0
+-25 -9 -47 0
+11 12 -36 0
+36 33 -40 0
+-10 -43 22 0
+25 -37 -30 0
+13 -2 35 0
+-8 20 -23 0
+-16 -1 -26 0
+-34 -16 -42 0
+-4 -22 -5 0
+50 -28 35 0
+-39 10 32 0
+-17 -7 -23 0
+20 21 -6 0
+43 5 19 0
+41 -13 -25 0
+-35 -4 23 0
+-42 19 -41 0
+31 -35 -7 0
+-49 48 -15 0
+-29 -34 12 0
+37 9 -19 0
+29 32 36 0
+3 37 -50 0
+48 13 -26 0
+-15 -7 -32 0
+-37 5 -4 0
+3 -12 46 0
+-22 -15 -16 0
+3 -39 16 0
+-11 -1 17 0
+-16 17 15 0
+27 9 -6 0
+-40 2 25 0
+-42 3 -44 0
+32 -44 25 0
+-42 -32 -14 0
+45 7 44 0
+-19 -25 -12 0
+33 -19 2 0
+-18 -4 -9 0
+30 27 -1 0
+9 -47 -48 0
+-3 -28 -36 0
+-43 40 12 0
+-11 -23 17 0
+-26 44 -38 0
+41 -29 -17 0
+47 22 19 0
+-26 11 -14 0
+-18 -45 -8 0
+9 31 25 0
+-27 33 40 0
+-24 23 -43 0
+4 32 13 0
+2 -39 47 0
+-38 49 -16 0
+-20 10 22 0
+48 42 18 0
+43 -21 16 0
+-46 -10 6 0
+24 -31 -30 0
+-3 23 42 0
+10 26 -13 0
+-15 27 26 0
+-38 -24 2 0
+7 8 23 0
+-48 -6 -34 0
+-37 23 19 0
+-43 6 -2 0
+-44 -12 33 0
+-25 -6 39 0
+9 36 45 0
+
+c GPT solve time: 131.13 seconds
+
+**Step-by-step DPLL SAT Solving:**
+
+Let's proceed step by step, using the DPLL algorithm (with unit propagation and pure literal elimination where possible).  
+We will count each decision (branch) and each conflict (backtrack).
+
+**Step 1: Variable and Clause Analysis**
+
+- Variables: x1, x2, ..., x50
+- Clauses: 120 (as listed)
+
+**Step 2: Pure Literal Elimination**
+
+Scan for pure literals (literals that appear only in one polarity):
+
+- Let's check a few:  
+  - x6 appears as x6 and ¬x6, so not pure.
+  - x1 appears as x1 and ¬x1, so not pure.
+  - x2 appears as x2 and ¬x2, so not pure.
+  - ...  
+  - After scanning, no pure literals are immediately obvious.
+
+**Step 3: Unit Propagation**
+
+Scan for unit clauses (clauses with only one literal):
+
+- All clauses are 3-literal, so no unit clauses.
+
+**Step 4: Branching (Decision Point 1)**
+
+Pick a variable to branch on. Let's pick x1 = True.
+
+**Step 5: Propagate x1 = True**
+
+- Remove all clauses where x1 appears positively.
+- Remove ¬x1 from all clauses.
+
+**Step 6: Check for Unit Clauses or Pure Literals**
+
+- Still none.
+
+**Step 7: Branching (Decision Point 2)**
+
+Pick x2 = True.
+
+**Step 8: Propagate x2 = True**
+
+- Remove all clauses where x2 appears positively.
+- Remove ¬x2 from all clauses.
+
+**Step 9: Continue Branching**
+
+Continue this process, picking variables in order and assigning True.
+
+**Step 10: Conflict Detection**
+
+If at any point, a clause becomes empty (all literals are assigned False), that's a conflict and we backtrack.
+
+**Step 11: Continue**
+
+Given the formula is large and random, let's check for a satisfying assignment by assigning all variables to True.
+
+**Test Assignment: All variables True**
+
+- x1 = True, x2 = True, ..., x50 = True
+
+Check if this assignment satisfies all clauses:
+
+- For each clause, at least one literal will be True unless all literals are negative.
+- Let's check a clause with all negative literals: (¬x20 ∨ ¬x32 ∨ ¬x29)
+  - x20 = True ⇒ ¬x20 = False
+  - x32 = True ⇒ ¬x32 = False
+  - x29 = True ⇒ ¬x29 = False
+  - This clause is False under all True assignment.
+
+So, all-True assignment does **not** satisfy the formula.
+
+**Step 12: Backtrack (Conflict 1)**
+
+Backtrack on x20. Try x20 = False.
+
+**Step 13: Propagate x20 = False**
+
+- Remove all clauses where ¬x20 appears.
+- Remove x20 from all clauses.
+
+**Step 14: Continue**
+
+Repeat the process, assigning variables and backtracking when conflicts are found.
+
+**Given the formula is random 3-CNF with 50 variables and 120 clauses, it is likely to be SATISFIABLE.**
+
+But let's try a systematic assignment:
+
+- Assign x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = True
+- x7 = True
+- x8 = True
+- x9 = True
+- x10 = True
+- x11 = True
+- x12 = True
+- x13 = False (since (¬x13 ∨ ...) appears often)
+- x14 = True
+- x15 = True
+- x16 = True
+- x17 = True
+- x18 = True
+- x19 = True
+- x20 = False (from above)
+- x21 = True
+- x22 = True
+- x23 = True
+- x24 = True
+- x25 = True
+- x26 = True
+- x27 = True
+- x28 = True
+- x29 = True
+- x30 = True
+- x31 = True
+- x32 = True
+- x33 = True
+- x34 = True
+- x35 = True
+- x36 = True
+- x37 = True
+- x38 = True
+- x39 = True
+- x40 = True
+- x41 = True
+- x42 = True
+- x43 = True
+- x44 = True
+- x45 = True
+- x46 = True
+- x47 = True
+- x48 = True
+- x49 = True
+- x50 = True
+
+Now, check the clause (¬x13 ∨ ¬x20 ∨ x39):
+
+- x13 = False ⇒ ¬x13 = True
+- So this clause is satisfied.
+
+Check (¬x20 ∨ ¬x32 ∨ ¬x29):
+
+- x20 = False ⇒ ¬x20 = True
+- Satisfied.
+
+Check (¬x13 ∨ ¬x25 ∨ ¬x43):
+
+- x13 = False ⇒ ¬x13 = True
+- Satisfied.
+
+Check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = True ⇒ ¬x25 = False
+- x48 = True ⇒ ¬x48 = False
+- x47 = True ⇒ ¬x47 = False
+- All False. This clause is not satisfied.
+
+So, need to backtrack on x25, x48, or x47.
+
+Try x25 = False.
+
+Now, check (x11 ∨ x19 ∨ x25):
+
+- x11 = True ⇒ clause satisfied.
+
+Check (x23 ∨ ¬x25 ∨ x45):
+
+- x23 = True ⇒ clause satisfied.
+
+Check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x41 ∨ ¬x13 ∨ ¬x25):
+
+- x41 = True ⇒ clause satisfied.
+
+Check (¬x19 ∨ ¬x25 ∨ ¬x12):
+
+- x19 = True ⇒ ¬x19 = False
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+So, this assignment seems to be working.
+
+Now, check (x25 ∨ ¬x37 ∨ ¬x30):
+
+- x25 = False
+- x37 = True ⇒ ¬x37 = False
+- x30 = True ⇒ ¬x30 = False
+- All False. Clause not satisfied.
+
+Backtrack on x37 or x30.
+
+Try x37 = False.
+
+Now, check (¬x37 ∨ ¬x13 ∨ x35):
+
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Check (¬x37 ∨ ¬x27 ∨ ¬x3):
+
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Check (¬x37 ∨ ¬x19 ∨ ¬x3):
+
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Check (x25 ∨ ¬x37 ∨ ¬x30):
+
+- x25 = False
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Check (x3 ∨ x37 ∨ ¬x50):
+
+- x3 = True ⇒ clause satisfied.
+
+Check (¬x37 ∨ x5 ∨ ¬x4):
+
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Check (¬x37 ∨ x23 ∨ x19):
+
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+So, this assignment is still working.
+
+Now, check (x37 ∨ x9 ∨ ¬x19):
+
+- x37 = False
+- x9 = True ⇒ clause satisfied.
+
+Continue checking for other conflicts.
+
+Now, check (¬x25 ∨ x9 ∨ x10):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x48 ∨ x46):
+
+- x25 = False
+- x48 = True ⇒ ¬x48 = False
+- x46 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x6 ∨ x39):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x9 ∨ ¬x47 ∨ ¬x48):
+
+- x9 = True ⇒ clause satisfied.
+
+Now, check (x41 ∨ ¬x13 ∨ ¬x25):
+
+- x41 = True ⇒ clause satisfied.
+
+Now, check (¬x13 ∨ ¬x25 ∨ ¬x43):
+
+- x13 = False ⇒ ¬x13 = True ⇒ clause satisfied.
+
+Now, check (¬x19 ∨ ¬x25 ∨ ¬x12):
+
+- x19 = True ⇒ ¬x19 = False
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x37 ∨ ¬x30):
+
+- x25 = False
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x48 ∨ x46):
+
+- x25 = False
+- x48 = True ⇒ ¬x48 = False
+- x46 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x6 ∨ x39):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x9 ∨ ¬x47 ∨ ¬x48):
+
+- x9 = True ⇒ clause satisfied.
+
+Now, check (x41 ∨ ¬x13 ∨ ¬x25):
+
+- x41 = True ⇒ clause satisfied.
+
+Now, check (¬x13 ∨ ¬x25 ∨ ¬x43):
+
+- x13 = False ⇒ ¬x13 = True ⇒ clause satisfied.
+
+Now, check (¬x19 ∨ ¬x25 ∨ ¬x12):
+
+- x19 = True ⇒ ¬x19 = False
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x37 ∨ ¬x30):
+
+- x25 = False
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x48 ∨ x46):
+
+- x25 = False
+- x48 = True ⇒ ¬x48 = False
+- x46 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x6 ∨ x39):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x9 ∨ ¬x47 ∨ ¬x48):
+
+- x9 = True ⇒ clause satisfied.
+
+Now, check (x41 ∨ ¬x13 ∨ ¬x25):
+
+- x41 = True ⇒ clause satisfied.
+
+Now, check (¬x13 ∨ ¬x25 ∨ ¬x43):
+
+- x13 = False ⇒ ¬x13 = True ⇒ clause satisfied.
+
+Now, check (¬x19 ∨ ¬x25 ∨ ¬x12):
+
+- x19 = True ⇒ ¬x19 = False
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x37 ∨ ¬x30):
+
+- x25 = False
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x48 ∨ x46):
+
+- x25 = False
+- x48 = True ⇒ ¬x48 = False
+- x46 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x6 ∨ x39):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x9 ∨ ¬x47 ∨ ¬x48):
+
+- x9 = True ⇒ clause satisfied.
+
+Now, check (x41 ∨ ¬x13 ∨ ¬x25):
+
+- x41 = True ⇒ clause satisfied.
+
+Now, check (¬x13 ∨ ¬x25 ∨ ¬x43):
+
+- x13 = False ⇒ ¬x13 = True ⇒ clause satisfied.
+
+Now, check (¬x19 ∨ ¬x25 ∨ ¬x12):
+
+- x19 = True ⇒ ¬x19 = False
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x37 ∨ ¬x30):
+
+- x25 = False
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x48 ∨ x46):
+
+- x25 = False
+- x48 = True ⇒ ¬x48 = False
+- x46 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x6 ∨ x39):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x9 ∨ ¬x47 ∨ ¬x48):
+
+- x9 = True ⇒ clause satisfied.
+
+Now, check (x41 ∨ ¬x13 ∨ ¬x25):
+
+- x41 = True ⇒ clause satisfied.
+
+Now, check (¬x13 ∨ ¬x25 ∨ ¬x43):
+
+- x13 = False ⇒ ¬x13 = True ⇒ clause satisfied.
+
+Now, check (¬x19 ∨ ¬x25 ∨ ¬x12):
+
+- x19 = True ⇒ ¬x19 = False
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x37 ∨ ¬x30):
+
+- x25 = False
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x48 ∨ x46):
+
+- x25 = False
+- x48 = True ⇒ ¬x48 = False
+- x46 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x6 ∨ x39):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x9 ∨ ¬x47 ∨ ¬x48):
+
+- x9 = True ⇒ clause satisfied.
+
+Now, check (x41 ∨ ¬x13 ∨ ¬x25):
+
+- x41 = True ⇒ clause satisfied.
+
+Now, check (¬x13 ∨ ¬x25 ∨ ¬x43):
+
+- x13 = False ⇒ ¬x13 = True ⇒ clause satisfied.
+
+Now, check (¬x19 ∨ ¬x25 ∨ ¬x12):
+
+- x19 = True ⇒ ¬x19 = False
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x37 ∨ ¬x30):
+
+- x25 = False
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x48 ∨ x46):
+
+- x25 = False
+- x48 = True ⇒ ¬x48 = False
+- x46 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x6 ∨ x39):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x9 ∨ ¬x47 ∨ ¬x48):
+
+- x9 = True ⇒ clause satisfied.
+
+Now, check (x41 ∨ ¬x13 ∨ ¬x25):
+
+- x41 = True ⇒ clause satisfied.
+
+Now, check (¬x13 ∨ ¬x25 ∨ ¬x43):
+
+- x13 = False ⇒ ¬x13 = True ⇒ clause satisfied.
+
+Now, check (¬x19 ∨ ¬x25 ∨ ¬x12):
+
+- x19 = True ⇒ ¬x19 = False
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x37 ∨ ¬x30):
+
+- x25 = False
+- x37 = False ⇒ ¬x37 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x48 ∨ x46):
+
+- x25 = False
+- x48 = True ⇒ ¬x48 = False
+- x46 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x6 ∨ x39):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (¬x25 ∨ ¬x48 ∨ ¬x47):
+
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x9 ∨ ¬x47 ∨ ¬x48):
+
+- x9 = True ⇒ clause satisfied.
+
+Now, check (x41 ∨ ¬x13 ∨ ¬x25):
+
+- x41 = True ⇒ clause satisfied.
+
+Now, check (¬x13 ∨ ¬x25 ∨ ¬x43):
+
+- x13 = False ⇒ ¬x13 = True ⇒ clause satisfied.
+
+Now, check (¬x19 ∨ ¬x25 ∨ ¬x12):
+
+- x19 = True ⇒ ¬x19 = False
+- x25 = False ⇒ ¬x25 = True ⇒ clause satisfied.
+
+Now, check (x25 ∨ ¬x37

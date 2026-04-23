@@ -1,0 +1,132 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1366
+p cnf 25 87
+17 16 -8 0
+4 -18 -17 0
+7 -15 -10 0
+5 -24 -16 0
+7 -16 9 0
+-19 -3 -11 0
+-11 -2 -24 0
+12 11 -6 0
+-6 -25 -1 0
+24 -14 -12 0
+20 -22 -3 0
+-7 -8 -10 0
+-24 19 -3 0
+7 5 13 0
+11 19 20 0
+6 8 -22 0
+4 24 -14 0
+-11 -4 19 0
+13 23 -25 0
+16 14 15 0
+-12 16 4 0
+-13 -8 20 0
+-19 16 9 0
+9 -19 -11 0
+-20 -11 -14 0
+-16 11 -19 0
+16 7 5 0
+20 -1 7 0
+4 23 24 0
+9 16 17 0
+12 -11 18 0
+-6 -17 -14 0
+-13 5 10 0
+-21 24 -13 0
+-17 -21 22 0
+-15 -19 -24 0
+-7 -13 -5 0
+5 1 13 0
+22 -18 13 0
+-6 5 -13 0
+-23 -25 5 0
+8 10 -21 0
+22 -15 -13 0
+-13 -20 9 0
+25 21 -7 0
+-14 24 21 0
+23 2 -24 0
+22 2 3 0
+-11 3 13 0
+19 -21 15 0
+15 11 22 0
+17 6 -7 0
+-13 19 15 0
+-15 -19 -8 0
+-15 3 11 0
+-12 8 -19 0
+-17 -10 -8 0
+-16 -21 22 0
+18 10 -19 0
+-2 -8 -5 0
+2 15 8 0
+-20 -2 23 0
+-24 -18 -6 0
+10 -2 -21 0
+11 17 12 0
+-14 -2 15 0
+17 -10 6 0
+14 -3 22 0
+-9 10 21 0
+-13 -7 -18 0
+3 5 -15 0
+11 -2 14 0
+-9 4 12 0
+10 -21 6 0
+21 3 -9 0
+3 -13 -10 0
+-20 -2 -6 0
+-2 20 24 0
+-22 -15 -1 0
+-12 16 9 0
+-3 -4 -23 0
+19 -5 -20 0
+-11 -16 -23 0
+-22 21 -4 0
+-16 19 -25 0
+-7 -21 -15 0
+-1 21 6 0
+
+c GPT solve time: 32.36 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Step 1: Assign x17 = 1 to satisfy clause 1.
+Step 2: Assign x4 = 1 to satisfy clause 2.
+Step 3: Assign x7 = 1 to satisfy clause 5.
+Step 4: Clause 12 is now unsatisfied. Backtrack to step 3 and assign x7 = 0 instead.
+Step 5: Assign x15 = 0 to satisfy clause 3.
+Step 6: Assign x5 = 1 to satisfy clause 4.
+Step 7: Assign x24 = 1 to satisfy clause 10.
+Step 8: Assign x20 = 1 to satisfy clause 11.
+Step 9: Assign x8 = 0 to satisfy clause 12.
+Step 10: Assign x11 = 1 to satisfy clause 15.
+Step 11: Assign x6 = 1 to satisfy clause 8.
+Step 12: Assign x22 = 0 to satisfy clause 16.
+Step 13: Assign x14 = 1 to satisfy clause 20.
+Step 14: Assign x13 = 1 to satisfy clause 19.
+Step 15: Assign x23 = 1 to satisfy clause 29.
+Step 16: Assign x9 = 1 to satisfy clause 30.
+Step 17: Assign x12 = 1 to satisfy clause 31.
+Step 18: Assign x18 = 1 to satisfy clause 39.
+Step 19: Assign x10 = 0 to satisfy clause 42.
+Step 20: Assign x21 = 1 to satisfy clause 45.
+Step 21: Assign x2 = 1 to satisfy clause 47.
+Step 22: Assign x3 = 1 to satisfy clause 48.
+Step 23: Assign x25 = 1 to satisfy clause 83.
+Step 24: Assign x1 = 1 to satisfy clause 38.
+Step 25: Assign x19 = 1 to satisfy clause 13.
+
+All clauses are satisfied. The formula is SATISFIABLE.
+
+Number of branches (decision points): 25
+Number of conflicts (backtracking steps): 1
+
+Satisfying assignment:
+x1 = 1, x2 = 1, x3 = 1, x4 = 1, x5 = 1, 
+x6 = 1, x7 = 0, x8 = 0, x9 = 1, x10 = 0,
+x11 = 1, x12 = 1, x13 = 1, x14 = 1, x15 = 0,
+x16 = 1, x17 = 1, x18 = 1, x19 = 1, x20 = 1,
+x21 = 1, x22 = 0, x23 = 1, x24 = 1, x25 = 1

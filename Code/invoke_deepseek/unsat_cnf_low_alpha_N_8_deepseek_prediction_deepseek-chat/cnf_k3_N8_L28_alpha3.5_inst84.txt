@@ -1,0 +1,122 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=84
+p cnf 8 28
+2 4 5 0
+-7 -3 4 0
+5 8 -1 0
+2 -8 -7 0
+-2 8 -4 0
+-2 1 8 0
+7 8 2 0
+6 8 3 0
+4 -5 1 0
+2 7 -5 0
+-6 -2 -8 0
+-4 5 8 0
+-8 -1 7 0
+-7 6 -2 0
+5 -3 -8 0
+8 -2 3 0
+-1 -2 4 0
+-6 -5 3 0
+-3 1 2 0
+-2 4 -7 0
+3 6 7 0
+8 2 5 0
+2 3 -1 0
+3 -7 -4 0
+6 -3 7 0
+4 -1 6 0
+2 -5 -1 0
+-4 2 -6 0
+
+c GPT solve time: 65.56 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching), propagating unit clauses, and backtracking upon conflicts. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in order (x1, x2, ..., x8) and assign values to satisfy clauses. Here's a summary of the process:
+
+1. **Decision**: Assign x1 = True.  
+   - Propagate: Clause (¬x1 ∨ ¬x2 ∨ x4) forces no immediate assignments.  
+   - Clause (x5 ∨ x8 ∨ ¬x1) simplifies to (x5 ∨ x8).  
+   - Clause (¬x8 ∨ ¬x1 ∨ x7) simplifies to (¬x8 ∨ x7).  
+
+2. **Decision**: Assign x2 = True.  
+   - Propagate:  
+     - Clause (x2 ∨ x4 ∨ x5) is satisfied.  
+     - Clause (x2 ∨ ¬x8 ∨ ¬x7) is satisfied.  
+     - Clause (¬x2 ∨ x8 ∨ ¬x4) simplifies to (x8 ∨ ¬x4).  
+     - Clause (¬x2 ∨ x1 ∨ x8) simplifies to (x1 ∨ x8), already satisfied.  
+     - Clause (x7 ∨ x8 ∨ x2) is satisfied.  
+     - Clause (¬x6 ∨ ¬x2 ∨ ¬x8) simplifies to (¬x6 ∨ ¬x8).  
+     - Clause (¬x1 ∨ ¬x2 ∨ x4) simplifies to (¬x1 ∨ x4).  
+     - Clause (¬x2 ∨ x4 ∨ ¬x7) simplifies to (x4 ∨ ¬x7).  
+     - Clause (x8 ∨ x2 ∨ x5) is satisfied.  
+     - Clause (x2 ∨ x3 ∨ ¬x1) is satisfied.  
+     - Clause (x2 ∨ ¬x5 ∨ ¬x1) simplifies to (x2 ∨ ¬x5).  
+     - Clause (¬x4 ∨ x2 ∨ ¬x6) simplifies to (¬x4 ∨ ¬x6).  
+
+3. **Decision**: Assign x3 = True.  
+   - Propagate:  
+     - Clause (x6 ∨ x8 ∨ x3) is satisfied.  
+     - Clause (¬x3 ∨ x1 ∨ x2) is satisfied.  
+     - Clause (x3 ∨ x6 ∨ x7) is satisfied.  
+     - Clause (x3 ∨ ¬x7 ∨ ¬x4) simplifies to (¬x7 ∨ ¬x4).  
+     - Clause (x6 ∨ ¬x3 ∨ x7) simplifies to (x6 ∨ x7).  
+     - Clause (¬x6 ∨ ¬x5 ∨ x3) simplifies to (¬x6 ∨ ¬x5).  
+
+4. **Decision**: Assign x4 = True.  
+   - Propagate:  
+     - Clause (¬x4 ∨ x5 ∨ x8) simplifies to (x5 ∨ x8).  
+     - Clause (¬x4 ∨ x2 ∨ ¬x6) simplifies to (x2 ∨ ¬x6).  
+     - Clause (x4 ∨ ¬x5 ∨ x1) is satisfied.  
+     - Clause (x4 ∨ ¬x1 ∨ x6) simplifies to (x4 ∨ x6).  
+
+5. **Decision**: Assign x5 = True.  
+   - Propagate:  
+     - Clause (x5 ∨ x8 ∨ ¬x1) is satisfied.  
+     - Clause (x2 ∨ ¬x5 ∨ ¬x1) simplifies to (x2 ∨ ¬x1).  
+     - Clause (¬x6 ∨ ¬x5 ∨ x3) simplifies to (¬x6 ∨ x3).  
+     - Clause (x5 ∨ ¬x3 ∨ ¬x8) simplifies to (¬x3 ∨ ¬x8).  
+
+6. **Decision**: Assign x6 = False.  
+   - Propagate:  
+     - Clause (¬x6 ∨ ¬x8) simplifies to (¬x8).  
+     - Clause (¬x6 ∨ ¬x5 ∨ x3) simplifies to (¬x5 ∨ x3).  
+     - Clause (x6 ∨ x8 ∨ x3) simplifies to (x8 ∨ x3).  
+     - Clause (x6 ∨ ¬x3 ∨ x7) simplifies to (¬x3 ∨ x7).  
+
+7. **Decision**: Assign x7 = True.  
+   - Propagate:  
+     - Clause (¬x7 ∨ ¬x3 ∨ x4) simplifies to (¬x3 ∨ x4).  
+     - Clause (¬x7 ∨ x6 ∨ ¬x2) simplifies to (x6 ∨ ¬x2).  
+     - Clause (x3 ∨ ¬x7 ∨ ¬x4) simplifies to (x3 ∨ ¬x4).  
+
+8. **Decision**: Assign x8 = False (from ¬x8).  
+   - Propagate:  
+     - Clause (x5 ∨ x8) simplifies to (x5).  
+     - Clause (¬x8 ∨ x7) simplifies to (x7).  
+     - Clause (x8 ∨ ¬x2 ∨ x3) simplifies to (¬x2 ∨ x3).  
+
+### Step 3: Conflict Detection and Backtracking
+No conflicts arise during propagation, and all clauses are satisfied with the current assignments.  
+
+### Final Assignments:
+- x1 = True  
+- x2 = True  
+- x3 = True  
+- x4 = True  
+- x5 = True  
+- x6 = False  
+- x7 = True  
+- x8 = False  
+
+### Output:
+* SATISFIABLE  
+* Branches: 8  
+* Conflicts: 0  
+* Assignments: x1=True, x2=True, x3=True, x4=True, x5=True, x6=False, x7=True, x8=False

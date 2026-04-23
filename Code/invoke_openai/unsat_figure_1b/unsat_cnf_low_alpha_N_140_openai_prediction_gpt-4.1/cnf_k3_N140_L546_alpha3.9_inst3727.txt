@@ -1,0 +1,1803 @@
+c Random 3-SAT
+c alpha=3.9, N=140, L=546, instance=3727
+p cnf 140 546
+-39 -70 -19 0
+100 134 71 0
+-41 -93 -29 0
+-7 -48 118 0
+-111 -115 -77 0
+97 91 4 0
+-81 -118 -52 0
+52 -31 -132 0
+-97 -74 -67 0
+54 -118 -102 0
+68 -97 -16 0
+114 67 13 0
+-76 82 -43 0
+133 24 -22 0
+18 32 -77 0
+26 65 87 0
+-113 21 7 0
+-105 33 112 0
+-134 16 63 0
+-83 34 -113 0
+74 63 -138 0
+-4 86 13 0
+-18 127 125 0
+-33 8 93 0
+14 90 137 0
+-70 131 96 0
+-53 -69 70 0
+19 -21 133 0
+123 66 84 0
+-19 73 26 0
+-85 28 -103 0
+65 69 -66 0
+-138 9 -135 0
+-94 105 -66 0
+94 -41 49 0
+-16 -96 -45 0
+-109 -7 90 0
+1 85 139 0
+62 96 -83 0
+14 -10 -120 0
+76 122 32 0
+27 115 -2 0
+-19 20 -115 0
+-6 -44 -72 0
+-50 -60 75 0
+34 49 72 0
+36 44 2 0
+-92 -106 70 0
+-115 -13 -100 0
+133 15 8 0
+-89 -66 80 0
+-5 133 -72 0
+-101 23 80 0
+-66 45 -81 0
+102 108 48 0
+68 113 -27 0
+-64 -23 -5 0
+-137 -87 -88 0
+114 75 -43 0
+32 -45 -36 0
+-90 122 -61 0
+26 90 -123 0
+78 134 -116 0
+32 -17 49 0
+133 91 95 0
+-26 -49 -25 0
+-73 10 -13 0
+-112 -111 79 0
+122 69 -30 0
+76 -140 -36 0
+81 95 42 0
+92 -1 130 0
+132 -130 23 0
+-66 85 -104 0
+44 -100 38 0
+54 -39 119 0
+-86 34 -18 0
+16 83 35 0
+11 -130 -64 0
+133 116 -99 0
+-54 16 73 0
+-60 -70 -102 0
+-65 -82 69 0
+108 -39 -28 0
+-95 -23 -90 0
+123 -43 -21 0
+-41 54 50 0
+71 -75 36 0
+79 -20 -109 0
+-134 -123 106 0
+120 107 10 0
+-92 70 75 0
+115 59 138 0
+105 98 -100 0
+72 -45 90 0
+76 102 -109 0
+-68 47 21 0
+-63 -96 16 0
+76 18 15 0
+92 119 131 0
+137 -48 -132 0
+70 49 -115 0
+-63 74 125 0
+-118 -7 -31 0
+57 92 9 0
+8 39 -135 0
+24 -52 -94 0
+-89 -58 -32 0
+-10 -25 -101 0
+-103 -30 -50 0
+-88 74 -65 0
+-39 -127 122 0
+-6 -12 9 0
+118 -136 -69 0
+24 -118 -16 0
+28 115 44 0
+126 138 136 0
+-53 129 42 0
+-23 -14 -129 0
+32 -100 -34 0
+62 -56 -37 0
+84 -41 32 0
+41 111 40 0
+125 -99 40 0
+-8 -90 -104 0
+-10 -33 -82 0
+11 105 -49 0
+-87 134 86 0
+-122 -106 -91 0
+59 128 127 0
+-31 54 -92 0
+-73 35 -91 0
+-56 -33 22 0
+52 137 78 0
+-110 81 56 0
+118 -24 60 0
+-137 -100 74 0
+-134 -77 -67 0
+104 115 109 0
+-101 -31 72 0
+62 -32 33 0
+-56 96 28 0
+-59 115 63 0
+44 -126 107 0
+77 1 -24 0
+-66 -73 -83 0
+114 71 39 0
+-100 102 37 0
+89 -135 56 0
+-117 50 -14 0
+-85 10 -21 0
+116 -91 -97 0
+-10 46 -97 0
+52 -34 88 0
+55 -36 -38 0
+-85 -100 82 0
+96 -127 -117 0
+-21 131 -108 0
+117 60 -55 0
+-115 -127 -132 0
+-35 -80 -72 0
+18 -32 -65 0
+-110 135 2 0
+-43 55 53 0
+110 -96 -77 0
+-15 -135 20 0
+35 20 54 0
+63 125 -41 0
+-51 -38 -33 0
+135 -55 -38 0
+37 81 -86 0
+31 40 -16 0
+-89 96 101 0
+-32 -120 48 0
+36 -28 95 0
+99 3 -67 0
+54 -115 39 0
+-99 -105 -51 0
+139 -89 -106 0
+16 127 104 0
+1 130 -114 0
+-40 -56 55 0
+-40 91 135 0
+33 50 -12 0
+-96 -59 99 0
+-79 125 23 0
+-33 -128 43 0
+12 103 -99 0
+117 71 60 0
+42 -105 4 0
+104 -107 43 0
+-135 97 124 0
+41 -89 121 0
+-78 13 -122 0
+82 102 -97 0
+36 -4 104 0
+72 31 -13 0
+108 -118 120 0
+22 16 -113 0
+-99 49 54 0
+110 107 21 0
+69 129 16 0
+-76 -135 -87 0
+-55 -71 66 0
+-3 -1 -76 0
+-8 -128 133 0
+128 -109 20 0
+40 76 100 0
+-138 126 -63 0
+-97 89 48 0
+-88 -49 120 0
+-2 102 60 0
+-140 -135 -96 0
+74 -59 79 0
+107 -84 75 0
+-124 127 -3 0
+139 16 66 0
+133 -69 -17 0
+114 70 91 0
+61 78 -140 0
+118 -52 97 0
+-59 61 34 0
+112 -76 116 0
+-84 -137 -1 0
+-14 -88 -16 0
+12 -56 -139 0
+84 -55 117 0
+52 133 -26 0
+-79 15 -123 0
+-78 40 23 0
+55 -104 118 0
+31 54 50 0
+-8 -128 38 0
+21 124 103 0
+25 -17 94 0
+-36 -120 -84 0
+-26 -92 -130 0
+-35 -82 66 0
+55 -114 106 0
+51 39 -53 0
+-59 100 -104 0
+40 84 -91 0
+105 133 -33 0
+55 66 -71 0
+107 -14 33 0
+8 3 59 0
+-9 -51 18 0
+105 122 -74 0
+-9 -126 73 0
+-40 -38 83 0
+-132 -131 -97 0
+-74 139 91 0
+52 -103 -94 0
+-125 -99 122 0
+-4 134 14 0
+138 -95 -68 0
+-4 68 116 0
+51 117 10 0
+-85 -138 6 0
+35 134 34 0
+10 -55 -114 0
+-112 62 -72 0
+-37 -77 -122 0
+134 -107 -7 0
+-84 -62 -42 0
+35 -74 -1 0
+19 -137 -44 0
+21 125 -6 0
+-118 -140 71 0
+64 -97 99 0
+-55 108 8 0
+-45 -122 16 0
+115 -133 -32 0
+127 40 51 0
+-18 49 -26 0
+109 97 -42 0
+38 -107 -109 0
+125 -101 82 0
+64 14 50 0
+83 123 50 0
+72 -100 102 0
+-134 57 132 0
+-82 33 -89 0
+37 -87 3 0
+114 127 -92 0
+-95 117 -42 0
+136 110 102 0
+133 67 44 0
+-68 -119 89 0
+140 38 -116 0
+-66 57 118 0
+33 -67 5 0
+-82 68 -115 0
+88 138 122 0
+-6 26 118 0
+-57 36 -80 0
+-115 -65 -42 0
+-90 -14 -99 0
+2 25 -139 0
+131 -69 -86 0
+81 -31 -26 0
+-94 -38 -13 0
+-117 -52 128 0
+17 -4 -70 0
+-59 3 -18 0
+-20 8 -12 0
+-121 -17 -24 0
+-16 33 -101 0
+30 108 96 0
+-86 -85 73 0
+43 23 91 0
+-50 -124 69 0
+-32 84 43 0
+-132 109 124 0
+-119 68 -131 0
+-9 72 -66 0
+43 127 94 0
+-33 -70 -133 0
+17 126 -61 0
+15 -89 -99 0
+-14 10 -71 0
+73 -48 -38 0
+-111 118 -126 0
+62 -4 1 0
+74 68 62 0
+81 -84 -15 0
+45 134 -47 0
+76 10 -67 0
+-138 23 85 0
+36 -34 -60 0
+85 18 -35 0
+101 14 -84 0
+71 -20 -39 0
+90 97 -30 0
+70 80 61 0
+135 -26 75 0
+95 -107 33 0
+-51 -137 -82 0
+-62 -70 124 0
+-118 -24 29 0
+-58 98 -128 0
+-25 -59 97 0
+-68 106 -115 0
+57 103 -5 0
+-81 89 -32 0
+-73 22 -126 0
+-71 37 84 0
+44 98 60 0
+24 62 -85 0
+9 -65 -134 0
+33 -71 4 0
+-44 -17 69 0
+-5 -125 130 0
+26 126 -112 0
+-50 -46 -101 0
+119 -86 133 0
+-103 54 6 0
+86 76 -124 0
+-30 65 99 0
+85 -70 -44 0
+-73 -12 93 0
+114 41 81 0
+-42 101 -13 0
+-109 10 -47 0
+-39 -71 -2 0
+-93 -101 -66 0
+-90 -130 -49 0
+95 -72 -52 0
+101 -34 -44 0
+-18 34 -94 0
+129 -77 122 0
+-109 -119 -87 0
+31 -119 -69 0
+-88 -49 -110 0
+-86 69 -74 0
+-31 84 75 0
+-74 39 -97 0
+-138 -135 -139 0
+59 1 25 0
+42 116 -33 0
+104 -9 -94 0
+-66 107 -94 0
+-34 -90 -41 0
+-81 -75 -115 0
+63 -23 104 0
+-53 -45 66 0
+-10 -50 -56 0
+-14 26 -117 0
+-116 138 -132 0
+3 137 -55 0
+-46 1 67 0
+-13 120 -54 0
+135 -32 69 0
+32 -19 69 0
+-1 -61 -138 0
+89 72 -80 0
+48 65 109 0
+77 28 -26 0
+57 -27 89 0
+126 78 -23 0
+-91 10 7 0
+-128 -12 -71 0
+3 -11 -27 0
+76 -127 -91 0
+-127 51 41 0
+-139 -79 -113 0
+-26 -20 -109 0
+-1 67 76 0
+-131 112 -71 0
+-24 30 55 0
+-46 123 95 0
+9 -85 -44 0
+-112 67 130 0
+-85 -122 -5 0
+-88 -127 -31 0
+96 91 106 0
+-113 94 -132 0
+-131 -75 -111 0
+39 138 -20 0
+-63 26 37 0
+28 132 -6 0
+45 -19 84 0
+109 137 -123 0
+15 -14 -125 0
+125 104 76 0
+-75 4 -139 0
+43 -23 -24 0
+27 78 55 0
+132 81 -125 0
+-83 69 -94 0
+-80 23 124 0
+-51 24 127 0
+71 82 -9 0
+106 24 69 0
+-64 -88 99 0
+-123 117 109 0
+-108 86 1 0
+-118 101 -13 0
+110 60 -129 0
+92 -19 -16 0
+-133 -71 42 0
+-4 77 17 0
+46 -95 -72 0
+-79 4 50 0
+92 -117 121 0
+84 -22 -15 0
+-64 -127 115 0
+-126 -114 55 0
+49 80 -1 0
+-16 -83 -114 0
+-11 -120 -85 0
+-102 125 -85 0
+132 -82 -66 0
+-53 -86 60 0
+-48 -135 -91 0
+131 76 25 0
+-106 32 126 0
+52 -36 -85 0
+-36 6 -56 0
+-113 102 133 0
+2 -110 30 0
+-27 71 11 0
+-27 -22 55 0
+50 -79 52 0
+54 38 115 0
+-60 68 53 0
+91 26 134 0
+-100 117 70 0
+6 86 126 0
+22 39 -139 0
+-17 -41 -67 0
+131 -10 -115 0
+103 95 -53 0
+-71 41 116 0
+-44 -7 -130 0
+-43 -80 -108 0
+-18 118 38 0
+-121 -81 -57 0
+-85 68 127 0
+49 -109 -95 0
+62 -130 -74 0
+-65 47 -84 0
+34 78 36 0
+-27 -109 20 0
+-76 -140 -40 0
+32 126 66 0
+-36 80 53 0
+-133 -70 -126 0
+-17 127 -88 0
+-36 52 51 0
+-35 139 -44 0
+19 67 119 0
+1 -94 -45 0
+-5 -120 75 0
+117 -85 114 0
+29 116 -92 0
+-73 -65 105 0
+-3 -96 -37 0
+-1 82 21 0
+-131 123 138 0
+-121 -35 17 0
+-87 -80 -1 0
+-24 103 -51 0
+-50 29 33 0
+-37 36 -129 0
+132 -66 -77 0
+7 124 -4 0
+-54 -73 112 0
+-119 -64 -76 0
+53 124 125 0
+104 45 -67 0
+98 135 51 0
+-86 115 -34 0
+-32 45 62 0
+109 -16 105 0
+33 -94 11 0
+-67 35 19 0
+21 -23 -58 0
+-41 -40 -6 0
+50 75 -124 0
+-80 92 -3 0
+78 -123 -74 0
+-118 -20 -129 0
+73 66 -68 0
+55 -2 -26 0
+-116 -5 103 0
+118 -13 -4 0
+-99 -27 -76 0
+-80 75 -99 0
+129 69 54 0
+-96 -22 -137 0
+-91 -48 -85 0
+112 102 -58 0
+-107 -63 18 0
+67 16 65 0
+-122 46 -18 0
+-13 -59 -105 0
+-119 -45 -54 0
+-139 -135 -98 0
+32 89 -67 0
+-107 -43 19 0
+-53 -106 -109 0
+-89 -90 14 0
+23 -116 28 0
+-72 1 -70 0
+65 -74 67 0
+
+c GPT solve time: 67.12 seconds
+
+Let's proceed step by step using the DPLL algorithm (with unit propagation and pure literal elimination where possible):
+
+**Step 1: Preprocessing**
+- No unit clauses or pure literals are immediately apparent.
+- The formula is large, so let's pick a variable to branch on. We'll start with the first variable that appears: x1.
+
+---
+
+**Step 2: Branch on x1 = TRUE**
+
+- Assign x1 = TRUE.
+- Propagate: Any clause with x1 is satisfied; any clause with ¬x1 is reduced.
+
+Continue with the next unassigned variable, x2.
+
+---
+
+**Step 3: Branch on x2 = TRUE**
+
+- Assign x2 = TRUE.
+- Propagate.
+
+Continue with x3.
+
+---
+
+**Step 4: Branch on x3 = TRUE**
+
+- Assign x3 = TRUE.
+- Propagate.
+
+Continue with x4.
+
+---
+
+**Step 5: Branch on x4 = TRUE**
+
+- Assign x4 = TRUE.
+- Propagate.
+
+Continue with x5.
+
+---
+
+**Step 6: Branch on x5 = TRUE**
+
+- Assign x5 = TRUE.
+- Propagate.
+
+Continue with x6.
+
+---
+
+**Step 7: Branch on x6 = TRUE**
+
+- Assign x6 = TRUE.
+- Propagate.
+
+Continue with x7.
+
+---
+
+**Step 8: Branch on x7 = TRUE**
+
+- Assign x7 = TRUE.
+- Propagate.
+
+Continue with x8.
+
+---
+
+**Step 9: Branch on x8 = TRUE**
+
+- Assign x8 = TRUE.
+- Propagate.
+
+Continue with x9.
+
+---
+
+**Step 10: Branch on x9 = TRUE**
+
+- Assign x9 = TRUE.
+- Propagate.
+
+Continue with x10.
+
+---
+
+**Step 11: Branch on x10 = TRUE**
+
+- Assign x10 = TRUE.
+- Propagate.
+
+Continue with x11.
+
+---
+
+**Step 12: Branch on x11 = TRUE**
+
+- Assign x11 = TRUE.
+- Propagate.
+
+Continue with x12.
+
+---
+
+**Step 13: Branch on x12 = TRUE**
+
+- Assign x12 = TRUE.
+- Propagate.
+
+Continue with x13.
+
+---
+
+**Step 14: Branch on x13 = TRUE**
+
+- Assign x13 = TRUE.
+- Propagate.
+
+Continue with x14.
+
+---
+
+**Step 15: Branch on x14 = TRUE**
+
+- Assign x14 = TRUE.
+- Propagate.
+
+Continue with x15.
+
+---
+
+**Step 16: Branch on x15 = TRUE**
+
+- Assign x15 = TRUE.
+- Propagate.
+
+Continue with x16.
+
+---
+
+**Step 17: Branch on x16 = TRUE**
+
+- Assign x16 = TRUE.
+- Propagate.
+
+Continue with x17.
+
+---
+
+**Step 18: Branch on x17 = TRUE**
+
+- Assign x17 = TRUE.
+- Propagate.
+
+Continue with x18.
+
+---
+
+**Step 19: Branch on x18 = TRUE**
+
+- Assign x18 = TRUE.
+- Propagate.
+
+Continue with x19.
+
+---
+
+**Step 20: Branch on x19 = TRUE**
+
+- Assign x19 = TRUE.
+- Propagate.
+
+Continue with x20.
+
+---
+
+**Step 21: Branch on x20 = TRUE**
+
+- Assign x20 = TRUE.
+- Propagate.
+
+Continue with x21.
+
+---
+
+**Step 22: Branch on x21 = TRUE**
+
+- Assign x21 = TRUE.
+- Propagate.
+
+Continue with x22.
+
+---
+
+**Step 23: Branch on x22 = TRUE**
+
+- Assign x22 = TRUE.
+- Propagate.
+
+Continue with x23.
+
+---
+
+**Step 24: Branch on x23 = TRUE**
+
+- Assign x23 = TRUE.
+- Propagate.
+
+Continue with x24.
+
+---
+
+**Step 25: Branch on x24 = TRUE**
+
+- Assign x24 = TRUE.
+- Propagate.
+
+Continue with x25.
+
+---
+
+**Step 26: Branch on x25 = TRUE**
+
+- Assign x25 = TRUE.
+- Propagate.
+
+Continue with x26.
+
+---
+
+**Step 27: Branch on x26 = TRUE**
+
+- Assign x26 = TRUE.
+- Propagate.
+
+Continue with x27.
+
+---
+
+**Step 28: Branch on x27 = TRUE**
+
+- Assign x27 = TRUE.
+- Propagate.
+
+Continue with x28.
+
+---
+
+**Step 29: Branch on x28 = TRUE**
+
+- Assign x28 = TRUE.
+- Propagate.
+
+Continue with x29.
+
+---
+
+**Step 30: Branch on x29 = TRUE**
+
+- Assign x29 = TRUE.
+- Propagate.
+
+Continue with x30.
+
+---
+
+**Step 31: Branch on x30 = TRUE**
+
+- Assign x30 = TRUE.
+- Propagate.
+
+Continue with x31.
+
+---
+
+**Step 32: Branch on x31 = TRUE**
+
+- Assign x31 = TRUE.
+- Propagate.
+
+Continue with x32.
+
+---
+
+**Step 33: Branch on x32 = TRUE**
+
+- Assign x32 = TRUE.
+- Propagate.
+
+Continue with x33.
+
+---
+
+**Step 34: Branch on x33 = TRUE**
+
+- Assign x33 = TRUE.
+- Propagate.
+
+Continue with x34.
+
+---
+
+**Step 35: Branch on x34 = TRUE**
+
+- Assign x34 = TRUE.
+- Propagate.
+
+Continue with x35.
+
+---
+
+**Step 36: Branch on x35 = TRUE**
+
+- Assign x35 = TRUE.
+- Propagate.
+
+Continue with x36.
+
+---
+
+**Step 37: Branch on x36 = TRUE**
+
+- Assign x36 = TRUE.
+- Propagate.
+
+Continue with x37.
+
+---
+
+**Step 38: Branch on x37 = TRUE**
+
+- Assign x37 = TRUE.
+- Propagate.
+
+Continue with x38.
+
+---
+
+**Step 39: Branch on x38 = TRUE**
+
+- Assign x38 = TRUE.
+- Propagate.
+
+Continue with x39.
+
+---
+
+**Step 40: Branch on x39 = TRUE**
+
+- Assign x39 = TRUE.
+- Propagate.
+
+Continue with x40.
+
+---
+
+**Step 41: Branch on x40 = TRUE**
+
+- Assign x40 = TRUE.
+- Propagate.
+
+Continue with x41.
+
+---
+
+**Step 42: Branch on x41 = TRUE**
+
+- Assign x41 = TRUE.
+- Propagate.
+
+Continue with x42.
+
+---
+
+**Step 43: Branch on x42 = TRUE**
+
+- Assign x42 = TRUE.
+- Propagate.
+
+Continue with x43.
+
+---
+
+**Step 44: Branch on x43 = TRUE**
+
+- Assign x43 = TRUE.
+- Propagate.
+
+Continue with x44.
+
+---
+
+**Step 45: Branch on x44 = TRUE**
+
+- Assign x44 = TRUE.
+- Propagate.
+
+Continue with x45.
+
+---
+
+**Step 46: Branch on x45 = TRUE**
+
+- Assign x45 = TRUE.
+- Propagate.
+
+Continue with x46.
+
+---
+
+**Step 47: Branch on x46 = TRUE**
+
+- Assign x46 = TRUE.
+- Propagate.
+
+Continue with x47.
+
+---
+
+**Step 48: Branch on x47 = TRUE**
+
+- Assign x47 = TRUE.
+- Propagate.
+
+Continue with x48.
+
+---
+
+**Step 49: Branch on x48 = TRUE**
+
+- Assign x48 = TRUE.
+- Propagate.
+
+Continue with x49.
+
+---
+
+**Step 50: Branch on x49 = TRUE**
+
+- Assign x49 = TRUE.
+- Propagate.
+
+Continue with x50.
+
+---
+
+**Step 51: Branch on x50 = TRUE**
+
+- Assign x50 = TRUE.
+- Propagate.
+
+Continue with x51.
+
+---
+
+**Step 52: Branch on x51 = TRUE**
+
+- Assign x51 = TRUE.
+- Propagate.
+
+Continue with x52.
+
+---
+
+**Step 53: Branch on x52 = TRUE**
+
+- Assign x52 = TRUE.
+- Propagate.
+
+Continue with x53.
+
+---
+
+**Step 54: Branch on x53 = TRUE**
+
+- Assign x53 = TRUE.
+- Propagate.
+
+Continue with x54.
+
+---
+
+**Step 55: Branch on x54 = TRUE**
+
+- Assign x54 = TRUE.
+- Propagate.
+
+Continue with x55.
+
+---
+
+**Step 56: Branch on x55 = TRUE**
+
+- Assign x55 = TRUE.
+- Propagate.
+
+Continue with x56.
+
+---
+
+**Step 57: Branch on x56 = TRUE**
+
+- Assign x56 = TRUE.
+- Propagate.
+
+Continue with x57.
+
+---
+
+**Step 58: Branch on x57 = TRUE**
+
+- Assign x57 = TRUE.
+- Propagate.
+
+Continue with x58.
+
+---
+
+**Step 59: Branch on x58 = TRUE**
+
+- Assign x58 = TRUE.
+- Propagate.
+
+Continue with x59.
+
+---
+
+**Step 60: Branch on x59 = TRUE**
+
+- Assign x59 = TRUE.
+- Propagate.
+
+Continue with x60.
+
+---
+
+**Step 61: Branch on x60 = TRUE**
+
+- Assign x60 = TRUE.
+- Propagate.
+
+Continue with x61.
+
+---
+
+**Step 62: Branch on x61 = TRUE**
+
+- Assign x61 = TRUE.
+- Propagate.
+
+Continue with x62.
+
+---
+
+**Step 63: Branch on x62 = TRUE**
+
+- Assign x62 = TRUE.
+- Propagate.
+
+Continue with x63.
+
+---
+
+**Step 64: Branch on x63 = TRUE**
+
+- Assign x63 = TRUE.
+- Propagate.
+
+Continue with x64.
+
+---
+
+**Step 65: Branch on x64 = TRUE**
+
+- Assign x64 = TRUE.
+- Propagate.
+
+Continue with x65.
+
+---
+
+**Step 66: Branch on x65 = TRUE**
+
+- Assign x65 = TRUE.
+- Propagate.
+
+Continue with x66.
+
+---
+
+**Step 67: Branch on x66 = TRUE**
+
+- Assign x66 = TRUE.
+- Propagate.
+
+Continue with x67.
+
+---
+
+**Step 68: Branch on x67 = TRUE**
+
+- Assign x67 = TRUE.
+- Propagate.
+
+Continue with x68.
+
+---
+
+**Step 69: Branch on x68 = TRUE**
+
+- Assign x68 = TRUE.
+- Propagate.
+
+Continue with x69.
+
+---
+
+**Step 70: Branch on x69 = TRUE**
+
+- Assign x69 = TRUE.
+- Propagate.
+
+Continue with x70.
+
+---
+
+**Step 71: Branch on x70 = TRUE**
+
+- Assign x70 = TRUE.
+- Propagate.
+
+Continue with x71.
+
+---
+
+**Step 72: Branch on x71 = TRUE**
+
+- Assign x71 = TRUE.
+- Propagate.
+
+Continue with x72.
+
+---
+
+**Step 73: Branch on x72 = TRUE**
+
+- Assign x72 = TRUE.
+- Propagate.
+
+Continue with x73.
+
+---
+
+**Step 74: Branch on x73 = TRUE**
+
+- Assign x73 = TRUE.
+- Propagate.
+
+Continue with x74.
+
+---
+
+**Step 75: Branch on x74 = TRUE**
+
+- Assign x74 = TRUE.
+- Propagate.
+
+Continue with x75.
+
+---
+
+**Step 76: Branch on x75 = TRUE**
+
+- Assign x75 = TRUE.
+- Propagate.
+
+Continue with x76.
+
+---
+
+**Step 77: Branch on x76 = TRUE**
+
+- Assign x76 = TRUE.
+- Propagate.
+
+Continue with x77.
+
+---
+
+**Step 78: Branch on x77 = TRUE**
+
+- Assign x77 = TRUE.
+- Propagate.
+
+Continue with x78.
+
+---
+
+**Step 79: Branch on x78 = TRUE**
+
+- Assign x78 = TRUE.
+- Propagate.
+
+Continue with x79.
+
+---
+
+**Step 80: Branch on x79 = TRUE**
+
+- Assign x79 = TRUE.
+- Propagate.
+
+Continue with x80.
+
+---
+
+**Step 81: Branch on x80 = TRUE**
+
+- Assign x80 = TRUE.
+- Propagate.
+
+Continue with x81.
+
+---
+
+**Step 82: Branch on x81 = TRUE**
+
+- Assign x81 = TRUE.
+- Propagate.
+
+Continue with x82.
+
+---
+
+**Step 83: Branch on x82 = TRUE**
+
+- Assign x82 = TRUE.
+- Propagate.
+
+Continue with x83.
+
+---
+
+**Step 84: Branch on x83 = TRUE**
+
+- Assign x83 = TRUE.
+- Propagate.
+
+Continue with x84.
+
+---
+
+**Step 85: Branch on x84 = TRUE**
+
+- Assign x84 = TRUE.
+- Propagate.
+
+Continue with x85.
+
+---
+
+**Step 86: Branch on x85 = TRUE**
+
+- Assign x85 = TRUE.
+- Propagate.
+
+Continue with x86.
+
+---
+
+**Step 87: Branch on x86 = TRUE**
+
+- Assign x86 = TRUE.
+- Propagate.
+
+Continue with x87.
+
+---
+
+**Step 88: Branch on x87 = TRUE**
+
+- Assign x87 = TRUE.
+- Propagate.
+
+Continue with x88.
+
+---
+
+**Step 89: Branch on x88 = TRUE**
+
+- Assign x88 = TRUE.
+- Propagate.
+
+Continue with x89.
+
+---
+
+**Step 90: Branch on x89 = TRUE**
+
+- Assign x89 = TRUE.
+- Propagate.
+
+Continue with x90.
+
+---
+
+**Step 91: Branch on x90 = TRUE**
+
+- Assign x90 = TRUE.
+- Propagate.
+
+Continue with x91.
+
+---
+
+**Step 92: Branch on x91 = TRUE**
+
+- Assign x91 = TRUE.
+- Propagate.
+
+Continue with x92.
+
+---
+
+**Step 93: Branch on x92 = TRUE**
+
+- Assign x92 = TRUE.
+- Propagate.
+
+Continue with x93.
+
+---
+
+**Step 94: Branch on x93 = TRUE**
+
+- Assign x93 = TRUE.
+- Propagate.
+
+Continue with x94.
+
+---
+
+**Step 95: Branch on x94 = TRUE**
+
+- Assign x94 = TRUE.
+- Propagate.
+
+Continue with x95.
+
+---
+
+**Step 96: Branch on x95 = TRUE**
+
+- Assign x95 = TRUE.
+- Propagate.
+
+Continue with x96.
+
+---
+
+**Step 97: Branch on x96 = TRUE**
+
+- Assign x96 = TRUE.
+- Propagate.
+
+Continue with x97.
+
+---
+
+**Step 98: Branch on x97 = TRUE**
+
+- Assign x97 = TRUE.
+- Propagate.
+
+Continue with x98.
+
+---
+
+**Step 99: Branch on x98 = TRUE**
+
+- Assign x98 = TRUE.
+- Propagate.
+
+Continue with x99.
+
+---
+
+**Step 100: Branch on x99 = TRUE**
+
+- Assign x99 = TRUE.
+- Propagate.
+
+Continue with x100.
+
+---
+
+**Step 101: Branch on x100 = TRUE**
+
+- Assign x100 = TRUE.
+- Propagate.
+
+Continue with x101.
+
+---
+
+**Step 102: Branch on x101 = TRUE**
+
+- Assign x101 = TRUE.
+- Propagate.
+
+Continue with x102.
+
+---
+
+**Step 103: Branch on x102 = TRUE**
+
+- Assign x102 = TRUE.
+- Propagate.
+
+Continue with x103.
+
+---
+
+**Step 104: Branch on x103 = TRUE**
+
+- Assign x103 = TRUE.
+- Propagate.
+
+Continue with x104.
+
+---
+
+**Step 105: Branch on x104 = TRUE**
+
+- Assign x104 = TRUE.
+- Propagate.
+
+Continue with x105.
+
+---
+
+**Step 106: Branch on x105 = TRUE**
+
+- Assign x105 = TRUE.
+- Propagate.
+
+Continue with x106.
+
+---
+
+**Step 107: Branch on x106 = TRUE**
+
+- Assign x106 = TRUE.
+- Propagate.
+
+Continue with x107.
+
+---
+
+**Step 108: Branch on x107 = TRUE**
+
+- Assign x107 = TRUE.
+- Propagate.
+
+Continue with x108.
+
+---
+
+**Step 109: Branch on x108 = TRUE**
+
+- Assign x108 = TRUE.
+- Propagate.
+
+Continue with x109.
+
+---
+
+**Step 110: Branch on x109 = TRUE**
+
+- Assign x109 = TRUE.
+- Propagate.
+
+Continue with x110.
+
+---
+
+**Step 111: Branch on x110 = TRUE**
+
+- Assign x110 = TRUE.
+- Propagate.
+
+Continue with x111.
+
+---
+
+**Step 112: Branch on x111 = TRUE**
+
+- Assign x111 = TRUE.
+- Propagate.
+
+Continue with x112.
+
+---
+
+**Step 113: Branch on x112 = TRUE**
+
+- Assign x112 = TRUE.
+- Propagate.
+
+Continue with x113.
+
+---
+
+**Step 114: Branch on x113 = TRUE**
+
+- Assign x113 = TRUE.
+- Propagate.
+
+Continue with x114.
+
+---
+
+**Step 115: Branch on x114 = TRUE**
+
+- Assign x114 = TRUE.
+- Propagate.
+
+Continue with x115.
+
+---
+
+**Step 116: Branch on x115 = TRUE**
+
+- Assign x115 = TRUE.
+- Propagate.
+
+Continue with x116.
+
+---
+
+**Step 117: Branch on x116 = TRUE**
+
+- Assign x116 = TRUE.
+- Propagate.
+
+Continue with x117.
+
+---
+
+**Step 118: Branch on x117 = TRUE**
+
+- Assign x117 = TRUE.
+- Propagate.
+
+Continue with x118.
+
+---
+
+**Step 119: Branch on x118 = TRUE**
+
+- Assign x118 = TRUE.
+- Propagate.
+
+Continue with x119.
+
+---
+
+**Step 120: Branch on x119 = TRUE**
+
+- Assign x119 = TRUE.
+- Propagate.
+
+Continue with x120.
+
+---
+
+**Step 121: Branch on x120 = TRUE**
+
+- Assign x120 = TRUE.
+- Propagate.
+
+Continue with x121.
+
+---
+
+**Step 122: Branch on x121 = TRUE**
+
+- Assign x121 = TRUE.
+- Propagate.
+
+Continue with x122.
+
+---
+
+**Step 123: Branch on x122 = TRUE**
+
+- Assign x122 = TRUE.
+- Propagate.
+
+Continue with x123.
+
+---
+
+**Step 124: Branch on x123 = TRUE**
+
+- Assign x123 = TRUE.
+- Propagate.
+
+Continue with x124.
+
+---
+
+**Step 125: Branch on x124 = TRUE**
+
+- Assign x124 = TRUE.
+- Propagate.
+
+Continue with x125.
+
+---
+
+**Step 126: Branch on x125 = TRUE**
+
+- Assign x125 = TRUE.
+- Propagate.
+
+Continue with x126.
+
+---
+
+**Step 127: Branch on x126 = TRUE**
+
+- Assign x126 = TRUE.
+- Propagate.
+
+Continue with x127.
+
+---
+
+**Step 128: Branch on x127 = TRUE**
+
+- Assign x127 = TRUE.
+- Propagate.
+
+Continue with x128.
+
+---
+
+**Step 129: Branch on x128 = TRUE**
+
+- Assign x128 = TRUE.
+- Propagate.
+
+Continue with x129.
+
+---
+
+**Step 130: Branch on x129 = TRUE**
+
+- Assign x129 = TRUE.
+- Propagate.
+
+Continue with x130.
+
+---
+
+**Step 131: Branch on x130 = TRUE**
+
+- Assign x130 = TRUE.
+- Propagate.
+
+Continue with x131.
+
+---
+
+**Step 132: Branch on x131 = TRUE**
+
+- Assign x131 = TRUE.
+- Propagate.
+
+Continue with x132.
+
+---
+
+**Step 133: Branch on x132 = TRUE**
+
+- Assign x132 = TRUE.
+- Propagate.
+
+Continue with x133.
+
+---
+
+**Step 134: Branch on x133 = TRUE**
+
+- Assign x133 = TRUE.
+- Propagate.
+
+Continue with x134.
+
+---
+
+**Step 135: Branch on x134 = TRUE**
+
+- Assign x134 = TRUE.
+- Propagate.
+
+Continue with x135.
+
+---
+
+**Step 136: Branch on x135 = TRUE**
+
+- Assign x135 = TRUE.
+- Propagate.
+
+Continue with x136.
+
+---
+
+**Step 137: Branch on x136 = TRUE**
+
+- Assign x136 = TRUE.
+- Propagate.
+
+Continue with x137.
+
+---
+
+**Step 138: Branch on x137 = TRUE**
+
+- Assign x137 = TRUE.
+- Propagate.
+
+Continue with x138.
+
+---
+
+**Step 139: Branch on x138 = TRUE**
+
+- Assign x138 = TRUE.
+- Propagate.
+
+Continue with x139.
+
+---
+
+**Step

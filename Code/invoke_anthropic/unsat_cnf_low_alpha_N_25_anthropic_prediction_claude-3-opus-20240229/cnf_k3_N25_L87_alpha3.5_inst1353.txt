@@ -1,0 +1,129 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1353
+p cnf 25 87
+-25 5 8 0
+2 -19 13 0
+15 -17 4 0
+12 18 -11 0
+-20 19 -25 0
+6 -23 -8 0
+-3 24 -18 0
+-12 9 24 0
+-21 -5 4 0
+-23 12 16 0
+21 15 8 0
+6 -20 15 0
+12 -2 7 0
+3 6 -5 0
+-22 -9 -19 0
+23 -5 -9 0
+-24 1 4 0
+-21 1 -11 0
+-9 -22 -4 0
+13 -12 15 0
+-13 25 -24 0
+-24 18 10 0
+-15 5 -25 0
+25 -11 -8 0
+10 -21 13 0
+23 -24 9 0
+-11 -6 -15 0
+8 12 -25 0
+15 9 3 0
+12 -2 -11 0
+22 -1 -5 0
+-3 -5 -25 0
+10 -18 -20 0
+-9 -10 3 0
+-13 -4 -20 0
+-1 11 -2 0
+-12 20 19 0
+-4 8 -11 0
+13 5 -20 0
+-15 5 11 0
+-9 1 4 0
+-5 4 -25 0
+-19 -17 -1 0
+19 4 25 0
+-23 9 21 0
+-4 8 3 0
+-19 12 16 0
+19 -16 -11 0
+-17 -9 15 0
+-1 -11 15 0
+3 9 -14 0
+5 20 -18 0
+-11 -12 -3 0
+8 -20 -22 0
+5 1 -21 0
+10 23 22 0
+21 12 -8 0
+-23 -21 -20 0
+-16 -5 11 0
+16 15 4 0
+12 -8 15 0
+-11 6 -19 0
+18 -15 -25 0
+-3 11 -19 0
+24 16 25 0
+-6 -9 -23 0
+-23 -5 6 0
+-2 19 -3 0
+-4 -12 22 0
+-4 -24 12 0
+4 23 12 0
+-9 -14 19 0
+-2 -7 15 0
+21 -11 -8 0
+3 21 -9 0
+-17 -10 -24 0
+-18 -1 -7 0
+-20 -9 19 0
+11 -17 4 0
+11 -21 17 0
+-22 16 20 0
+-21 -17 11 0
+-23 -22 -25 0
+4 -1 -6 0
+18 -8 -25 0
+-21 -18 5 0
+-14 20 13 0
+
+c GPT solve time: 35.62 seconds
+
+Step 1: Choose literal x25 and assign it to true.
+(¬x25 ∨ x5 ∨ x8) is satisfied by x25 = true.
+(¬x20 ∨ x19 ∨ ¬x25) is satisfied by x25 = true.
+(¬x15 ∨ x5 ∨ ¬x25) is satisfied by x25 = true.
+(x25 ∨ ¬x11 ∨ ¬x8) is satisfied by x25 = true.
+(x8 ∨ x12 ∨ ¬x25) is satisfied by x25 = true.
+(¬x3 ∨ ¬x5 ∨ ¬x25) is satisfied by x25 = true.
+(¬x5 ∨ x4 ∨ ¬x25) is satisfied by x25 = true.
+(x19 ∨ x4 ∨ x25) is satisfied by x25 = true.
+(x18 ∨ ¬x15 ∨ ¬x25) is satisfied by x25 = true.
+(x24 ∨ x16 ∨ x25) is satisfied by x25 = true.
+(¬x23 ∨ ¬x22 ∨ ¬x25) is satisfied by x25 = true.
+(x18 ∨ ¬x8 ∨ ¬x25) is satisfied by x25 = true.
+
+Step 2: Choose literal x5 and assign it to true.
+(x3 ∨ x6 ∨ ¬x5) is satisfied by x5 = true.
+(x23 ∨ ¬x5 ∨ ¬x9) is satisfied by x5 = true.
+(¬x15 ∨ x5 ∨ ¬x25) is satisfied by x5 = true.
+(¬x3 ∨ ¬x5 ∨ ¬x25) is satisfied by x5 = true.
+(¬x5 ∨ x4 ∨ ¬x25) is satisfied by x5 = true.
+(¬x16 ∨ ¬x5 ∨ x11) is satisfied by x5 = true.
+(¬x23 ∨ ¬x5 ∨ x6) is satisfied by x5 = true.
+(x13 ∨ x5 ∨ ¬x20) is satisfied by x5 = true.
+(¬x15 ∨ x5 ∨ x11) is satisfied by x5 = true.
+(x5 ∨ x20 ∨ ¬x18) is satisfied by x5 = true.
+(x5 ∨ x1 ∨ ¬x21) is satisfied by x5 = true.
+(¬x21 ∨ ¬x18 ∨ x5) is satisfied by x5 = true.
+
+Step 3: Choose literal x8 and assign it to true.
+(¬x25 ∨ x5 ∨ x8) is satisfied by x8 = true.
+(x6 ∨ ¬x23 ∨ ¬x8) is satisfied by x8 = true.
+(x21 ∨ x15 ∨ x8) is satisfied by x8 = true.
+(x25 ∨ ¬x11 ∨ ¬x8) is satisfied by x8 = true.
+(x8 ∨ x12 ∨ ¬x25) is satisfied by x8 = true.
+(¬x4 ∨ x8 ∨ ¬x11) is satisfied by x8 = true.
+(¬x4

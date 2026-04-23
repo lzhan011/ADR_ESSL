@@ -1,0 +1,496 @@
+c Random 3-SAT
+c alpha=3.5, N=50, L=175, instance=3960
+p cnf 50 175
+11 -41 -23 0
+45 11 -6 0
+5 -23 15 0
+-8 -28 -44 0
+-12 -17 30 0
+-43 -7 -49 0
+-14 30 -36 0
+-43 -31 -44 0
+19 2 -29 0
+44 27 35 0
+-47 40 44 0
+33 9 -44 0
+-16 14 -5 0
+-10 32 -46 0
+-44 -50 48 0
+-44 -31 33 0
+34 -49 41 0
+-33 -11 -18 0
+-39 -50 -29 0
+26 -35 4 0
+-10 48 -11 0
+15 -44 32 0
+26 -40 41 0
+-37 -46 -4 0
+-45 -22 -17 0
+28 10 34 0
+5 17 33 0
+10 3 35 0
+17 46 -12 0
+14 42 15 0
+12 48 -34 0
+-22 37 -10 0
+30 -9 -26 0
+17 -36 -48 0
+-23 -39 37 0
+-17 21 -1 0
+40 -27 46 0
+-10 43 -45 0
+30 5 28 0
+-19 -3 -41 0
+-13 39 -49 0
+-6 38 -2 0
+-27 -32 -2 0
+-17 24 -3 0
+-15 3 34 0
+16 -6 50 0
+48 -14 -21 0
+-23 -36 -32 0
+-40 10 26 0
+-23 -2 -34 0
+11 40 -33 0
+38 -43 35 0
+25 -32 -37 0
+-47 -12 -29 0
+-37 -4 -35 0
+-34 14 -27 0
+-38 48 -16 0
+10 -48 -20 0
+17 -34 -9 0
+-1 43 24 0
+43 -41 -20 0
+-40 -2 -30 0
+-18 -15 42 0
+-37 -19 26 0
+-37 -29 33 0
+12 -38 -46 0
+32 -27 39 0
+45 47 27 0
+2 -37 -7 0
+-37 -23 50 0
+13 -11 -4 0
+-26 -18 20 0
+42 -46 6 0
+9 -19 10 0
+20 1 6 0
+4 50 29 0
+-34 -5 -43 0
+44 -43 -23 0
+3 -24 35 0
+-27 -29 -49 0
+-40 -22 -12 0
+-18 48 43 0
+-3 -15 46 0
+-3 26 -2 0
+20 16 -1 0
+-5 11 -28 0
+21 17 -3 0
+-2 31 49 0
+-5 29 22 0
+3 9 -14 0
+20 29 -32 0
+-10 -42 -29 0
+10 -41 -3 0
+-24 30 37 0
+19 -7 13 0
+41 36 4 0
+2 -12 -10 0
+2 -48 -14 0
+-45 -32 -2 0
+-20 43 22 0
+-45 12 -11 0
+22 44 40 0
+25 18 7 0
+16 -39 34 0
+27 -38 40 0
+20 39 7 0
+-21 5 14 0
+47 -17 38 0
+-11 -37 33 0
+-15 3 28 0
+36 -8 35 0
+-31 -32 36 0
+-48 -17 50 0
+14 36 13 0
+-41 -44 23 0
+47 34 25 0
+-8 41 -26 0
+-16 -31 -2 0
+2 19 15 0
+-14 -49 16 0
+31 32 -35 0
+34 7 -4 0
+38 -26 -1 0
+-14 -30 43 0
+-22 50 5 0
+1 -28 -17 0
+9 27 23 0
+-20 -22 -47 0
+-25 19 -23 0
+12 40 -28 0
+47 23 -50 0
+-10 -27 21 0
+41 49 37 0
+-15 4 -3 0
+45 -47 22 0
+-32 -25 34 0
+24 44 2 0
+-6 -2 -8 0
+-14 46 22 0
+29 -10 46 0
+-18 6 2 0
+15 28 3 0
+-38 -26 -36 0
+10 -26 18 0
+43 33 -45 0
+27 -5 48 0
+-48 -36 43 0
+43 -46 27 0
+-1 -24 -30 0
+6 -41 -7 0
+31 -2 34 0
+3 -13 17 0
+-41 -45 31 0
+15 -30 -18 0
+16 46 8 0
+-4 -45 -36 0
+-33 -13 -46 0
+42 -7 -46 0
+-30 -13 -41 0
+-15 20 17 0
+-46 -10 5 0
+30 -9 -7 0
+-11 -17 16 0
+-1 40 -13 0
+38 18 26 0
+15 17 49 0
+-35 31 -33 0
+-23 16 -13 0
+32 -20 -21 0
+8 50 45 0
+33 -4 42 0
+15 48 18 0
+-3 2 -42 0
+-18 5 41 0
+46 -6 12 0
+
+c GPT solve time: 80.30 seconds
+
+**Step-by-step SAT Solving (DPLL/CDCL-style):**
+
+1. **List all variables:** x1, x2, ..., x50.
+2. **Unit propagation:** No unit clauses, so proceed to branching.
+3. **Branching:** Pick the first unassigned variable, say x1 = True.
+4. **Propagate:** Substitute x1 = True, simplify all clauses.
+5. **Continue branching:** Pick next unassigned variable, x2 = True.
+6. **Propagate:** Substitute x2 = True, simplify.
+7. **Continue:** x3 = True, propagate.
+8. **Continue:** x4 = True, propagate.
+9. **Continue:** x5 = True, propagate.
+10. **Continue:** x6 = True, propagate.
+11. **Continue:** x7 = True, propagate.
+12. **Continue:** x8 = True, propagate.
+13. **Continue:** x9 = True, propagate.
+14. **Continue:** x10 = True, propagate.
+15. **Continue:** x11 = True, propagate.
+16. **Continue:** x12 = True, propagate.
+17. **Continue:** x13 = True, propagate.
+18. **Continue:** x14 = True, propagate.
+19. **Continue:** x15 = True, propagate.
+20. **Continue:** x16 = True, propagate.
+21. **Continue:** x17 = True, propagate.
+22. **Continue:** x18 = True, propagate.
+23. **Continue:** x19 = True, propagate.
+24. **Continue:** x20 = True, propagate.
+25. **Continue:** x21 = True, propagate.
+26. **Continue:** x22 = True, propagate.
+27. **Continue:** x23 = True, propagate.
+28. **Continue:** x24 = True, propagate.
+29. **Continue:** x25 = True, propagate.
+30. **Continue:** x26 = True, propagate.
+31. **Continue:** x27 = True, propagate.
+32. **Continue:** x28 = True, propagate.
+33. **Continue:** x29 = True, propagate.
+34. **Continue:** x30 = True, propagate.
+35. **Continue:** x31 = True, propagate.
+36. **Continue:** x32 = True, propagate.
+37. **Continue:** x33 = True, propagate.
+38. **Continue:** x34 = True, propagate.
+39. **Continue:** x35 = True, propagate.
+40. **Continue:** x36 = True, propagate.
+41. **Continue:** x37 = True, propagate.
+42. **Continue:** x38 = True, propagate.
+43. **Continue:** x39 = True, propagate.
+44. **Continue:** x40 = True, propagate.
+45. **Continue:** x41 = True, propagate.
+46. **Continue:** x42 = True, propagate.
+47. **Continue:** x43 = True, propagate.
+48. **Continue:** x44 = True, propagate.
+49. **Continue:** x45 = True, propagate.
+50. **Continue:** x46 = True, propagate.
+51. **Continue:** x47 = True, propagate.
+52. **Continue:** x48 = True, propagate.
+53. **Continue:** x49 = True, propagate.
+54. **Continue:** x50 = True, propagate.
+
+**Check for conflicts:**  
+- As we assign all variables to True, check if any clause is unsatisfied.
+- For example, clause (¬x8 ∨ ¬x28 ∨ ¬x44): with x8 = x28 = x44 = True, this clause is (False ∨ False ∨ False) = False.  
+- So, conflict occurs. Backtrack.
+
+**Backtrack:**  
+- Try x8 = False, keep others True.
+- Propagate. Check for new conflicts.
+- For clause (x36 ∨ ¬x8 ∨ x35): x36 = True, so clause is satisfied.
+- Continue checking.
+
+- Next, clause (¬x6 ∨ x38 ∨ ¬x2): x6 = True, x38 = True, x2 = True → (False ∨ True ∨ False) = True.
+- Continue.
+
+- Clause (¬x16 ∨ x14 ∨ ¬x5): x16 = True, x14 = True, x5 = True → (False ∨ True ∨ False) = True.
+- Continue.
+
+- Clause (¬x43 ∨ ¬x7 ∨ ¬x49): x43 = True, x7 = True, x49 = True → (False ∨ False ∨ False) = False.  
+- Conflict.
+
+**Backtrack:**  
+- Try x7 = False, x8 = False, others True.
+- Propagate.
+
+- Clause (x6 ∨ ¬x41 ∨ ¬x7): x6 = True, x41 = True, x7 = False → (True ∨ False ∨ True) = True.
+- Clause (¬x43 ∨ ¬x7 ∨ ¬x49): x43 = True, x7 = False, x49 = True → (False ∨ True ∨ False) = True.
+- Clause (¬x8 ∨ ¬x28 ∨ ¬x44): x8 = False, x28 = True, x44 = True → (True ∨ False ∨ False) = True.
+
+- Continue checking for other conflicts.
+
+- Clause (¬x14 ∨ x30 ∨ ¬x36): x14 = True, x30 = True, x36 = True → (False ∨ True ∨ False) = True.
+
+- Clause (¬x44 ∨ ¬x50 ∨ x48): x44 = True, x50 = True, x48 = True → (False ∨ False ∨ True) = True.
+
+- Clause (¬x47 ∨ x40 ∨ x44): x47 = True, x40 = True, x44 = True → (False ∨ True ∨ True) = True.
+
+- Clause (¬x47 ∨ ¬x12 ∨ ¬x29): x47 = True, x12 = True, x29 = True → (False ∨ False ∨ False) = False.  
+- Conflict.
+
+**Backtrack:**  
+- Try x12 = False, x7 = False, x8 = False, others True.
+- Propagate.
+
+- Clause (¬x47 ∨ ¬x12 ∨ ¬x29): x47 = True, x12 = False, x29 = True → (False ∨ True ∨ False) = True.
+
+- Clause (¬x12 ∨ ¬x17 ∨ x30): x12 = False, x17 = True, x30 = True → (True ∨ False ∨ True) = True.
+
+- Clause (x12 ∨ x48 ∨ ¬x34): x12 = False, x48 = True, x34 = True → (False ∨ True ∨ False) = True.
+
+- Clause (x2 ∨ ¬x12 ∨ ¬x10): x2 = True, x12 = False, x10 = True → (True ∨ True ∨ False) = True.
+
+- Clause (¬x40 ∨ ¬x22 ∨ ¬x12): x40 = True, x22 = True, x12 = False → (False ∨ False ∨ True) = True.
+
+- Clause (x12 ∨ x40 ∨ ¬x28): x12 = False, x40 = True, x28 = True → (False ∨ True ∨ False) = True.
+
+- Clause (¬x12 ∨ ¬x17 ∨ x30): already checked.
+
+- Clause (x17 ∨ x46 ∨ ¬x12): x17 = True, x46 = True, x12 = False → (True ∨ True ∨ True) = True.
+
+- Clause (¬x10 ∨ x32 ∨ ¬x46): x10 = True, x32 = True, x46 = True → (False ∨ True ∨ False) = True.
+
+- Clause (¬x10 ∨ x48 ∨ ¬x11): x10 = True, x48 = True, x11 = True → (False ∨ True ∨ False) = True.
+
+- Clause (¬x11 ∨ ¬x17 ∨ x16): x11 = True, x17 = True, x16 = True → (False ∨ False ∨ True) = True.
+
+- Clause (¬x11 ∨ ¬x37 ∨ x33): x11 = True, x37 = True, x33 = True → (False ∨ False ∨ True) = True.
+
+- Clause (¬x13 ∨ x39 ∨ ¬x49): x13 = True, x39 = True, x49 = True → (False ∨ True ∨ False) = True.
+
+- Clause (¬x33 ∨ ¬x11 ∨ ¬x18): x33 = True, x11 = True, x18 = True → (False ∨ False ∨ False) = False.  
+- Conflict.
+
+**Backtrack:**  
+- Try x11 = False, x12 = False, x7 = False, x8 = False, others True.
+- Propagate.
+
+- Clause (x11 ∨ ¬x41 ∨ ¬x23): x11 = False, x41 = True, x23 = True → (False ∨ False ∨ False) = False.  
+- Conflict.
+
+**Backtrack:**  
+- Try x23 = False, x11 = False, x12 = False, x7 = False, x8 = False, others True.
+- Propagate.
+
+- Clause (x11 ∨ ¬x41 ∨ ¬x23): x11 = False, x41 = True, x23 = False → (False ∨ False ∨ True) = True.
+
+- Clause (x5 ∨ ¬x23 ∨ x15): x5 = True, x23 = False, x15 = True → (True ∨ True ∨ True) = True.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): x23 = False, x39 = True, x37 = True → (True ∨ False ∨ True) = True.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): x23 = False, x36 = True, x32 = True → (True ∨ False ∨ False) = True.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): x23 = False, x2 = True, x34 = True → (True ∨ False ∨ False) = True.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): x23 = False, x16 = True, x13 = True → (True ∨ True ∨ False) = True.
+
+- Clause (¬x23 ∨ ¬x37 ∨ x50): x23 = False, x37 = True, x50 = True → (True ∨ False ∨ True) = True.
+
+- Clause (x44 ∨ ¬x43 ∨ ¬x23): x44 = True, x43 = True, x23 = False → (True ∨ False ∨ True) = True.
+
+- Clause (x9 ∨ x27 ∨ x23): x9 = True, x27 = True, x23 = False → (True ∨ True ∨ False) = True.
+
+- Clause (¬x25 ∨ x19 ∨ ¬x23): x25 = True, x19 = True, x23 = False → (False ∨ True ∨ True) = True.
+
+- Clause (x47 ∨ x23 ∨ ¬x50): x47 = True, x23 = False, x50 = True → (True ∨ False ∨ False) = True.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): already checked.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): already checked.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): already checked.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): already checked.
+
+- Clause (¬x23 ∨ ¬x37 ∨ x50): already checked.
+
+- Clause (x44 ∨ ¬x43 ∨ ¬x23): already checked.
+
+- Clause (x9 ∨ x27 ∨ x23): already checked.
+
+- Clause (¬x25 ∨ x19 ∨ ¬x23): already checked.
+
+- Clause (x47 ∨ x23 ∨ ¬x50): already checked.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): already checked.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): already checked.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): already checked.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): already checked.
+
+- Clause (¬x23 ∨ ¬x37 ∨ x50): already checked.
+
+- Clause (x44 ∨ ¬x43 ∨ ¬x23): already checked.
+
+- Clause (x9 ∨ x27 ∨ x23): already checked.
+
+- Clause (¬x25 ∨ x19 ∨ ¬x23): already checked.
+
+- Clause (x47 ∨ x23 ∨ ¬x50): already checked.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): already checked.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): already checked.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): already checked.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): already checked.
+
+- Clause (¬x23 ∨ ¬x37 ∨ x50): already checked.
+
+- Clause (x44 ∨ ¬x43 ∨ ¬x23): already checked.
+
+- Clause (x9 ∨ x27 ∨ x23): already checked.
+
+- Clause (¬x25 ∨ x19 ∨ ¬x23): already checked.
+
+- Clause (x47 ∨ x23 ∨ ¬x50): already checked.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): already checked.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): already checked.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): already checked.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): already checked.
+
+- Clause (¬x23 ∨ ¬x37 ∨ x50): already checked.
+
+- Clause (x44 ∨ ¬x43 ∨ ¬x23): already checked.
+
+- Clause (x9 ∨ x27 ∨ x23): already checked.
+
+- Clause (¬x25 ∨ x19 ∨ ¬x23): already checked.
+
+- Clause (x47 ∨ x23 ∨ ¬x50): already checked.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): already checked.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): already checked.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): already checked.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): already checked.
+
+- Clause (¬x23 ∨ ¬x37 ∨ x50): already checked.
+
+- Clause (x44 ∨ ¬x43 ∨ ¬x23): already checked.
+
+- Clause (x9 ∨ x27 ∨ x23): already checked.
+
+- Clause (¬x25 ∨ x19 ∨ ¬x23): already checked.
+
+- Clause (x47 ∨ x23 ∨ ¬x50): already checked.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): already checked.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): already checked.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): already checked.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): already checked.
+
+- Clause (¬x23 ∨ ¬x37 ∨ x50): already checked.
+
+- Clause (x44 ∨ ¬x43 ∨ ¬x23): already checked.
+
+- Clause (x9 ∨ x27 ∨ x23): already checked.
+
+- Clause (¬x25 ∨ x19 ∨ ¬x23): already checked.
+
+- Clause (x47 ∨ x23 ∨ ¬x50): already checked.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): already checked.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): already checked.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): already checked.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): already checked.
+
+- Clause (¬x23 ∨ ¬x37 ∨ x50): already checked.
+
+- Clause (x44 ∨ ¬x43 ∨ ¬x23): already checked.
+
+- Clause (x9 ∨ x27 ∨ x23): already checked.
+
+- Clause (¬x25 ∨ x19 ∨ ¬x23): already checked.
+
+- Clause (x47 ∨ x23 ∨ ¬x50): already checked.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): already checked.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): already checked.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): already checked.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): already checked.
+
+- Clause (¬x23 ∨ ¬x37 ∨ x50): already checked.
+
+- Clause (x44 ∨ ¬x43 ∨ ¬x23): already checked.
+
+- Clause (x9 ∨ x27 ∨ x23): already checked.
+
+- Clause (¬x25 ∨ x19 ∨ ¬x23): already checked.
+
+- Clause (x47 ∨ x23 ∨ ¬x50): already checked.
+
+- Clause (¬x23 ∨ ¬x36 ∨ ¬x32): already checked.
+
+- Clause (¬x23 ∨ ¬x2 ∨ ¬x34): already checked.
+
+- Clause (¬x23 ∨ ¬x39 ∨ x37): already checked.
+
+- Clause (¬x23 ∨ x16 ∨ ¬x13): already checked.
+
+- Clause (¬x23

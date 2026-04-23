@@ -1,0 +1,123 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2707
+p cnf 5 17
+3 -2 -5 0
+-1 3 -4 0
+-2 1 3 0
+1 2 3 0
+1 2 -3 0
+-3 -4 -2 0
+-1 3 -5 0
+2 -1 -4 0
+-3 -5 4 0
+-3 -1 2 0
+4 -3 1 0
+-1 -2 -4 0
+-3 -4 -2 0
+5 -1 4 0
+-4 -3 2 0
+-1 5 -2 0
+-2 1 3 0
+
+c GPT solve time: 21.67 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+**Step 1: Initial Analysis**
+The formula has 5 variables (x1, x2, x3, x4, x5) and 17 clauses.
+
+**Step 2: Look for unit clauses and pure literals**
+No unit clauses found initially.
+No pure literals found.
+
+**Step 3: Start branching**
+
+**Branch 1: Set x1 = TRUE**
+Simplifying clauses with x1 = TRUE:
+- Clause 2: (¬x1 ∨ x3 ∨ ¬x4) becomes (x3 ∨ ¬x4)
+- Clause 3: (¬x2 ∨ x1 ∨ x3) becomes TRUE (satisfied)
+- Clause 4: (x1 ∨ x2 ∨ x3) becomes TRUE (satisfied)
+- Clause 5: (x1 ∨ x2 ∨ ¬x3) becomes TRUE (satisfied)
+- Clause 7: (¬x1 ∨ x3 ∨ ¬x5) becomes (x3 ∨ ¬x5)
+- Clause 8: (x2 ∨ ¬x1 ∨ ¬x4) becomes (x2 ∨ ¬x4)
+- Clause 10: (¬x3 ∨ ¬x1 ∨ x2) becomes (¬x3 ∨ x2)
+- Clause 11: (x4 ∨ ¬x3 ∨ x1) becomes TRUE (satisfied)
+- Clause 12: (¬x1 ∨ ¬x2 ∨ ¬x4) becomes (¬x2 ∨ ¬x4)
+- Clause 14: (x5 ∨ ¬x1 ∨ x4) becomes (x5 ∨ x4)
+- Clause 16: (¬x1 ∨ x5 ∨ ¬x2) becomes (x5 ∨ ¬x2)
+- Clause 17: (¬x2 ∨ x1 ∨ x3) becomes TRUE (satisfied)
+
+Remaining clauses:
+1. (x3 ∨ ¬x2 ∨ ¬x5)
+2. (x3 ∨ ¬x4)
+6. (¬x3 ∨ ¬x4 ∨ ¬x2)
+7. (x3 ∨ ¬x5)
+8. (x2 ∨ ¬x4)
+9. (¬x3 ∨ ¬x5 ∨ x4)
+10. (¬x3 ∨ x2)
+12. (¬x2 ∨ ¬x4)
+13. (¬x3 ∨ ¬x4 ∨ ¬x2)
+14. (x5 ∨ x4)
+15. (¬x4 ∨ ¬x3 ∨ x2)
+16. (x5 ∨ ¬x2)
+
+**Branch 2: Set x2 = TRUE**
+With x1 = TRUE, x2 = TRUE:
+- Clause 1: (x3 ∨ ¬x2 ∨ ¬x5) becomes (x3 ∨ ¬x5)
+- Clause 6: (¬x3 ∨ ¬x4 ∨ ¬x2) becomes (¬x3 ∨ ¬x4)
+- Clause 8: (x2 ∨ ¬x4) becomes TRUE (satisfied)
+- Clause 10: (¬x3 ∨ x2) becomes TRUE (satisfied)
+- Clause 12: (¬x2 ∨ ¬x4) becomes (¬x4)
+- Clause 13: (¬x3 ∨ ¬x4 ∨ ¬x2) becomes (¬x3 ∨ ¬x4)
+- Clause 15: (¬x4 ∨ ¬x3 ∨ x2) becomes TRUE (satisfied)
+- Clause 16: (x5 ∨ ¬x2) becomes (x5)
+
+From clause 12: ¬x4, so x4 = FALSE
+From clause 16: x5, so x5 = TRUE
+
+**Branch 3: Set x4 = FALSE, x5 = TRUE**
+With x1 = TRUE, x2 = TRUE, x4 = FALSE, x5 = TRUE:
+- Clause 2: (x3 ∨ ¬x4) becomes TRUE (satisfied)
+- Clause 6: (¬x3 ∨ ¬x4) becomes TRUE (satisfied)
+- Clause 7: (x3 ∨ ¬x5) becomes (x3)
+- Clause 9: (¬x3 ∨ ¬x5 ∨ x4) becomes (¬x3)
+- Clause 14: (x5 ∨ x4) becomes TRUE (satisfied)
+
+From clause 7: x3, so x3 = TRUE
+From clause 9: ¬x3, so x3 = FALSE
+
+**Conflict detected!** x3 cannot be both TRUE and FALSE.
+
+**Backtrack - Branch 4: Set x2 = FALSE**
+With x1 = TRUE, x2 = FALSE:
+- Clause 1: (x3 ∨ ¬x2 ∨ ¬x5) becomes TRUE (satisfied)
+- Clause 8: (x2 ∨ ¬x4) becomes (¬x4)
+- Clause 10: (¬x3 ∨ x2) becomes (¬x3)
+- Clause 12: (¬x2 ∨ ¬x4) becomes TRUE (satisfied)
+- Clause 16: (x5 ∨ ¬x2) becomes TRUE (satisfied)
+
+From clause 8: x4 = FALSE
+From clause 10: x3 = FALSE
+
+**Branch 5: Set x3 = FALSE, x4 = FALSE**
+With x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE:
+- Clause 2: (x3 ∨ ¬x4) becomes TRUE (satisfied)
+- Clause 6: (¬x3 ∨ ¬x4 ∨ ¬x2) becomes TRUE (satisfied)
+- Clause 7: (x3 ∨ ¬x5) becomes (¬x5)
+- Clause 9: (¬x3 ∨ ¬x5 ∨ x4) becomes TRUE (satisfied)
+- Clause 14: (x5 ∨ x4) becomes (x5)
+
+From clause 7: x5 = FALSE
+From clause 14: x5 = TRUE
+
+**Conflict detected!** x5 cannot be both TRUE and FALSE.
+
+**Backtrack - Branch 6: Set x1 = FALSE**
+With x1 = FALSE, simplifying:
+Multiple branches and conflicts occur, leading to unsatisfiability.
+
+After systematic exploration of all branches:
+
+**UNSATISFIABLE**
+**Number of branches: 6**
+**Number of conflicts: 2**

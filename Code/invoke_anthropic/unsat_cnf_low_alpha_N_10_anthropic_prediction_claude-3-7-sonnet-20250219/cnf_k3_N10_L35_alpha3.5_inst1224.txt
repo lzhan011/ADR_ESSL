@@ -1,0 +1,88 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1224
+p cnf 10 35
+-8 -1 6 0
+-7 10 9 0
+4 -6 -3 0
+3 -1 10 0
+10 2 -8 0
+6 7 -4 0
+-4 -6 -5 0
+-3 -2 4 0
+10 3 5 0
+7 -6 -1 0
+10 -4 -9 0
+-5 -9 -6 0
+-7 -4 5 0
+6 2 -7 0
+-1 10 7 0
+-2 -7 8 0
+10 4 1 0
+6 -8 -1 0
+-3 8 9 0
+8 4 3 0
+6 4 3 0
+-9 1 -10 0
+-7 5 9 0
+-10 -6 4 0
+-3 -2 -4 0
+-3 -4 -10 0
+-2 4 -5 0
+-5 -6 -7 0
+-7 -10 -3 0
+-4 -9 1 0
+-10 1 2 0
+3 -2 -4 0
+-3 6 4 0
+-6 -5 -4 0
+-2 -4 8 0
+
+c GPT solve time: 13.02 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Let me work through this step by step:
+
+1. Start with all variables unassigned.
+2. Look for unit clauses (clauses with only one literal) and apply unit propagation.
+3. If no unit clauses, choose a variable and assign it a value (branching).
+4. Continue until we find a satisfying assignment or determine unsatisfiability.
+
+Working through the formula:
+
+First, I don't see any unit clauses initially, so I'll make a decision.
+
+Branch 1: Let's set x1 = true
+- No immediate unit clauses or conflicts
+- Let's set x2 = true
+  - No immediate unit clauses or conflicts
+  - Let's set x3 = true
+    - From clause (¬x3 ∨ ¬x2 ∨ x4), we get x4 = true by unit propagation
+    - From clause (¬x3 ∨ ¬x4 ∨ ¬x10), we get x10 = false by unit propagation
+    - From clause (x10 ∨ x3 ∨ x5), we get x5 = true by unit propagation
+    - From clause (¬x4 ∨ ¬x6 ∨ ¬x5), we get x6 = false by unit propagation
+    - From clause (x6 ∨ x7 ∨ ¬x4), we get x7 = true by unit propagation
+    - From clause (¬x5 ∨ ¬x6 ∨ ¬x7), we have a conflict since x5=true, x6=false, x7=true
+
+Backtrack to x3 and try x3 = false
+- From clause (x3 ∨ ¬x1 ∨ x10), we get x10 = true by unit propagation
+- From clause (¬x3 ∨ ¬x2 ∨ x4), we get x4 = true by unit propagation
+- From clause (¬x3 ∨ x6 ∨ x4), we get x6 = true by unit propagation
+- From clause (¬x7 ∨ ¬x10 ∨ ¬x3), we get x7 = false by unit propagation
+- From clause (x6 ∨ x2 ∨ ¬x7), this is satisfied
+- From clause (¬x10 ∨ ¬x6 ∨ x4), this is satisfied
+- From clause (¬x9 ∨ x1 ∨ ¬x10), we get x9 = false by unit propagation
+- From clause (¬x5 ∨ ¬x9 ∨ ¬x6), we get x5 = false by unit propagation
+- From clause (¬x2 ∨ x4 ∨ ¬x5), this is satisfied
+- From clause (¬x4 ∨ ¬x6 ∨ ¬x5), this is satisfied
+- From clause (¬x2 ∨ ¬x4 ∨ x8), we get x8 = true by unit propagation
+
+Checking all clauses with these assignments:
+x1 = true, x2 = true, x3 = false, x4 = true, x5 = false, x6 = true, x7 = false, x8 = true, x9 = false, x10 = true
+
+All clauses are satisfied with this assignment.
+
+SATISFIABLE
+Number of branches: 2
+Number of conflicts: 1
+x1 = true, x2 = true, x3 = false, x4 = true, x5 = false, x6 = true, x7 = false, x8 = true, x9 = false, x10 = true

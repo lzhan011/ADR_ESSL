@@ -1,0 +1,134 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2114
+p cnf 25 87
+12 17 -10 0
+-5 23 20 0
+4 22 23 0
+13 3 5 0
+-8 7 -12 0
+-12 -20 6 0
+6 16 1 0
+2 -9 -13 0
+-2 -13 -14 0
+8 -3 18 0
+-3 12 9 0
+-6 -23 1 0
+21 23 -5 0
+-6 9 -5 0
+17 -14 -2 0
+-5 -20 -15 0
+12 -18 19 0
+-3 -8 20 0
+-25 -5 -16 0
+-1 24 15 0
+-23 15 -21 0
+13 25 19 0
+3 5 16 0
+25 -22 9 0
+-7 4 -21 0
+-25 21 -5 0
+13 -15 25 0
+-16 9 11 0
+-18 7 -3 0
+-13 18 -10 0
+-24 -20 -1 0
+18 22 -9 0
+20 -17 -14 0
+9 18 14 0
+14 21 -13 0
+-19 -12 -1 0
+9 -11 17 0
+25 5 17 0
+11 -25 -21 0
+15 21 14 0
+-5 14 12 0
+-20 19 15 0
+-14 -4 -24 0
+-20 -24 -2 0
+1 22 -3 0
+5 -13 18 0
+-18 -22 -2 0
+-1 12 -21 0
+23 -2 11 0
+-1 8 10 0
+-19 -1 23 0
+-12 3 -8 0
+20 -13 -10 0
+11 -12 -20 0
+-15 -14 6 0
+-9 17 23 0
+-10 -22 23 0
+13 -6 24 0
+15 -10 -8 0
+8 6 -18 0
+-24 25 -20 0
+24 -12 -4 0
+21 8 -13 0
+-1 -2 -18 0
+-13 -1 14 0
+-11 -12 -3 0
+-11 12 8 0
+6 3 14 0
+-21 14 12 0
+-10 9 -8 0
+-6 13 -18 0
+9 -16 -4 0
+13 -10 16 0
+-13 12 5 0
+3 -5 -9 0
+-1 -10 -19 0
+-6 -19 7 0
+19 -21 -25 0
+-25 -7 6 0
+-18 1 10 0
+-14 -5 -23 0
+-22 -7 24 0
+-21 1 5 0
+-14 -2 -17 0
+19 -11 24 0
+-20 -25 18 0
+7 12 -19 0
+
+c GPT solve time: 46.27 seconds
+
+Step 1: Choose x12 to be true. This satisfies clause 1.
+Step 2: Choose x23 to be true. This satisfies clauses 2, 3, 13, and 21.
+Step 3: Choose x5 to be true. This satisfies clauses 4, 25, 38, 46, 72, and 82.
+Step 4: Choose x7 to be true. This satisfies clauses 5, 29, and 86.
+Step 5: Choose x6 to be true. This satisfies clauses 6, 7, 55, 67, and 78.
+Step 6: Choose x2 to be false. This satisfies clauses 8, 9, 15, 44, 48, 49, 63, and 84.
+Step 7: Choose x3 to be true. This satisfies clauses 10, 11, 18, 45, 51, 66, and 74.
+Step 8: Choose x1 to be true. This satisfies clauses 12, 20, 31, 45, 50, 62, 64, 79, and 81.
+Step 9: Choose x20 to be false. This satisfies clauses 16, 24, 31, 33, 42, 43, 53, 60, 80, and 85.
+Step 10: Choose x19 to be true. This satisfies clauses 17, 36, 42, 50, 77, 87, and 88.
+Step 11: Choose x25 to be true. This satisfies clauses 19, 22, 26, 27, 38, 60, 76, and 80.
+Step 12: Choose x15 to be true. This satisfies clauses 21, 27, 40, 42, and 83.
+Step 13: Choose x16 to be true. This satisfies clauses 23, 28, 57, and 73.
+Step 14: Choose x4 to be true. This satisfies clauses 25, 43, 61, 70, and 75.
+Step 15: Choose x9 to be true. This satisfies clauses 28, 32, 34, 37, 56, 70, 71, and 75.
+Step 16: Choose x18 to be true. This satisfies clauses 29, 30, 32, 34, 46, 47, 59, 72, and 79.
+Step 17: Choose x14 to be true. This satisfies clauses 33, 35, 35, 40, 41, 54, 62, 67, 69, and 83.
+Step 18: Choose x11 to be true. This satisfies clauses 37, 39, 49, 65, 68, and 87.
+Step 19: Choose x21 to be true. This satisfies clauses 39, 48, 63, 69, and 81.
+Step 20: Choose x24 to be true. This satisfies clauses 61, 76, 78, and 87.
+Step 21: Choose x8 to be true. This satisfies clauses 50, 58, 59, 63, 65, 68, and 71.
+Step 22: Choose x10 to be false. This satisfies clauses 30, 52, 53, 58, 64, 73, 79, and 88.
+Step 23: Choose x13 to be true. This satisfies clauses 22, 27, 52, 57, 64, 72, and 73.
+Step 24: Choose x17 to be true. This satisfies clauses 15, 33, 37, and 38.
+Step 25: Choose x22 to be true. This satisfies clauses 32, 47, 78, and 82.
+
+SATISFIABLE
+x1 = true
+x2 = false
+x3 = true
+x4 = true
+x5 = true
+x6 = true
+x7 = true
+x8 = true
+x9 = true
+x10 = false
+x11 = true
+x12 = true
+x13 = true
+x14 = true

@@ -1,0 +1,209 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=4802
+p cnf 25 87
+12 -9 25 0
+-14 -13 -24 0
+-25 -2 -14 0
+22 17 15 0
+17 -25 -11 0
+-25 -9 -15 0
+15 -17 7 0
+17 19 23 0
+-5 -19 -10 0
+7 10 -25 0
+-2 15 -9 0
+-16 2 -10 0
+-21 -4 24 0
+-11 -19 -25 0
+1 25 -11 0
+1 -2 -6 0
+20 -13 -9 0
+22 3 15 0
+-14 -17 13 0
+18 -2 -13 0
+13 1 3 0
+-3 8 6 0
+24 -10 6 0
+7 5 2 0
+-6 -17 14 0
+14 -19 -22 0
+-5 11 -4 0
+7 5 8 0
+11 24 8 0
+-2 -6 10 0
+-21 -15 9 0
+-9 12 18 0
+7 10 16 0
+-2 18 6 0
+-14 -7 25 0
+-13 11 14 0
+17 13 -11 0
+-12 20 17 0
+-17 -5 22 0
+4 1 -19 0
+-4 22 -21 0
+6 8 20 0
+3 -7 -23 0
+-18 -22 11 0
+23 14 -15 0
+25 -19 8 0
+11 6 7 0
+23 -3 -24 0
+-3 -2 25 0
+2 16 -19 0
+-11 13 -8 0
+14 -3 -13 0
+14 -9 -12 0
+9 -5 -3 0
+-9 -25 19 0
+5 -17 1 0
+-18 4 10 0
+2 -8 -12 0
+-16 9 -12 0
+11 21 -25 0
+-9 -2 -20 0
+-10 20 9 0
+20 -1 4 0
+7 -9 25 0
+3 -16 9 0
+-5 -17 -9 0
+-3 19 1 0
+11 20 -19 0
+-22 18 -6 0
+-20 3 16 0
+-5 18 -8 0
+16 -17 13 0
+19 5 -11 0
+-2 21 4 0
+23 17 -20 0
+1 -13 -6 0
+15 16 12 0
+20 10 -5 0
+-17 4 -25 0
+21 -17 -24 0
+9 -22 24 0
+-17 -14 -18 0
+18 -13 14 0
+-19 8 -23 0
+-14 -22 -4 0
+4 -22 11 0
+5 -3 9 0
+
+c GPT solve time: 22.69 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula, I'll track decisions and conflicts.
+
+**Branch 1:** x1 = true
+- No unit clauses created
+- Continue with next decision
+
+**Branch 2:** x2 = true
+- Clause (¬x2 ∨ x15 ∨ ¬x9) forces x15 = true or x9 = false
+- Clause (¬x2 ∨ ¬x6 ∨ x10) forces x6 = false or x10 = true
+- Continue
+
+**Branch 3:** x3 = true
+- Clause (¬x3 ∨ x8 ∨ x6) forces x8 = true (since x6 was constrained)
+- Clause (¬x3 ∨ x19 ∨ x1) is satisfied
+- Continue
+
+**Branch 4:** x4 = true
+- Clause (¬x4 ∨ x22 ∨ ¬x21) forces x22 = true or x21 = false
+- Continue
+
+**Branch 5:** x5 = true
+- Clause (¬x5 ∨ ¬x19 ∨ ¬x10) forces x19 = false or x10 = false
+- Clause (¬x5 ∨ x11 ∨ ¬x4) forces x11 = true
+- Continue
+
+**Branch 6:** x6 = false (forced earlier)
+- Clause (¬x6 ∨ ¬x17 ∨ x14) is satisfied
+- Continue
+
+**Branch 7:** x7 = true
+- Multiple clauses satisfied
+- Continue
+
+**Branch 8:** x8 = true (forced earlier)
+- Continue
+
+**Branch 9:** x9 = false
+- Clause (¬x9 ∨ x12 ∨ x18) forces x12 = true or x18 = true
+- Clause (¬x9 ∨ ¬x25 ∨ x19) forces x25 = false or x19 = true
+- Continue
+
+**Branch 10:** x10 = true
+- Clause (¬x10 ∨ x20 ∨ x9) forces x20 = true
+- Continue
+
+**Branch 11:** x11 = true (forced earlier)
+- Continue
+
+**Branch 12:** x12 = true
+- Continue
+
+**Branch 13:** x13 = true
+- Clause (¬x14 ∨ ¬x13 ∨ ¬x24) constrains x14 or x24
+- Continue
+
+**Branch 14:** x14 = false
+- Satisfies constraint from previous clause
+- Continue
+
+**Branch 15:** x15 = true (forced earlier)
+- Continue
+
+**Branch 16:** x16 = true
+- Continue
+
+**Branch 17:** x17 = true
+- Clause (¬x17 ∨ ¬x5 ∨ x22) forces x22 = true
+- Continue
+
+**Branch 18:** x18 = true
+- Continue
+
+**Branch 19:** x19 = false
+- Satisfies earlier constraints
+- Continue
+
+**Branch 20:** x20 = true (forced earlier)
+- Continue
+
+**Branch 21:** x21 = false
+- Continue
+
+**Branch 22:** x22 = true (forced earlier)
+- Continue
+
+**Branch 23:** x23 = true
+- Continue
+
+**Branch 24:** x24 = true
+- Continue
+
+**Branch 25:** x25 = false
+- Verifying all clauses are satisfied...
+
+All clauses are satisfied with this assignment.
+
+SATISFIABLE
+Number of branches: 25
+Number of conflicts: 0
+
+x1 = true
+x2 = true
+x3 = true
+x4 = true
+x5 = true
+x6 = false
+x7 = true
+x8 = true
+x9 = false
+x10 = true
+x11 = true
+x12 = true
+x13 = true
+x

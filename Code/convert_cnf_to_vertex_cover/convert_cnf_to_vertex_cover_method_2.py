@@ -509,7 +509,7 @@ def send_to_llm(
 
     # —— 强烈建议：用环境变量读取，不要硬编码 ——
     # api_key = os.environ.get("OPENAI_API_KEY")
-    api_key = os.environ["OPENAI_API_KEY"]
+    api_key = os.environ.get("OPENAI_API_KEY")
 
     if not api_key:
         print("[send_to_llm] 未找到 API Key。请设置环境变量 OPENAI_API_KEY。")

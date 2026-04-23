@@ -1,0 +1,1293 @@
+c Random 3-SAT
+c alpha=3.9, N=120, L=468, instance=1536
+p cnf 120 468
+3 80 -38 0
+20 83 69 0
+-15 112 57 0
+23 -30 -101 0
+69 83 -16 0
+74 -71 39 0
+80 61 60 0
+28 -17 -68 0
+118 -14 95 0
+-86 -25 -91 0
+-85 39 -111 0
+-104 -19 -106 0
+-98 43 -81 0
+10 48 -33 0
+-39 -83 -49 0
+-83 -44 71 0
+119 14 103 0
+-58 -50 -46 0
+102 57 -54 0
+-18 49 101 0
+-63 -113 -29 0
+16 -23 20 0
+-99 -96 -2 0
+83 99 62 0
+46 -60 30 0
+-97 103 119 0
+-86 57 -72 0
+96 73 -108 0
+9 48 65 0
+-80 76 89 0
+79 -58 65 0
+109 42 17 0
+-98 -84 11 0
+118 -80 49 0
+81 -89 -38 0
+109 6 -37 0
+-24 -115 -13 0
+65 15 -113 0
+-94 -78 115 0
+-11 -104 -7 0
+-47 -36 -58 0
+78 43 -16 0
+92 107 7 0
+82 -115 -49 0
+26 2 -70 0
+-63 90 49 0
+41 31 2 0
+-80 41 -59 0
+119 35 -90 0
+-34 90 -63 0
+-91 -117 -100 0
+-115 53 18 0
+-66 61 -9 0
+50 5 -16 0
+-67 116 -23 0
+-52 -73 -29 0
+110 -40 31 0
+38 31 34 0
+-63 24 62 0
+63 42 13 0
+-66 76 -27 0
+-81 85 -113 0
+-2 -97 5 0
+119 -78 80 0
+-16 -74 -26 0
+63 -35 -39 0
+-32 3 61 0
+-39 -103 -22 0
+-59 -50 96 0
+28 -32 84 0
+29 12 82 0
+5 -52 17 0
+-58 -13 83 0
+-101 -52 43 0
+-71 -47 -103 0
+-29 84 99 0
+106 -51 -69 0
+-29 87 -100 0
+100 -60 56 0
+-26 -69 62 0
+93 102 105 0
+-60 -66 -93 0
+70 74 4 0
+-117 -119 -3 0
+-50 -99 -54 0
+113 -71 -47 0
+2 100 -23 0
+-110 7 106 0
+57 31 37 0
+-112 -47 93 0
+-36 49 -108 0
+6 -39 52 0
+-24 119 -112 0
+-3 -26 -72 0
+25 -114 -103 0
+-53 -80 -109 0
+75 77 71 0
+2 -91 -84 0
+75 26 -64 0
+-22 -79 -48 0
+101 -19 -50 0
+-90 -60 68 0
+-56 -113 -89 0
+35 92 -46 0
+-42 19 -26 0
+86 27 -72 0
+43 -88 -6 0
+84 -75 -19 0
+115 88 15 0
+78 -100 8 0
+96 5 46 0
+-64 -83 27 0
+-27 -36 115 0
+-45 -111 95 0
+-115 -38 25 0
+68 53 -94 0
+31 -93 84 0
+63 -12 -62 0
+83 -77 30 0
+-23 86 37 0
+106 55 -22 0
+30 -37 -20 0
+-35 -65 64 0
+72 -73 -12 0
+-14 91 -98 0
+-61 104 52 0
+-24 15 52 0
+112 -1 -61 0
+-79 -9 40 0
+25 117 -28 0
+21 -116 -119 0
+-34 -66 25 0
+45 -115 80 0
+58 -30 42 0
+28 99 -116 0
+-32 -37 77 0
+29 67 -71 0
+14 107 -46 0
+-36 32 -26 0
+99 -33 -20 0
+-59 112 -101 0
+14 -2 40 0
+51 -37 -67 0
+-117 100 63 0
+107 49 104 0
+70 34 -16 0
+17 -30 -2 0
+69 -99 -82 0
+-50 120 54 0
+-67 -93 -110 0
+38 -68 13 0
+81 -21 -106 0
+115 -117 83 0
+-99 -12 108 0
+-27 -69 103 0
+-15 -90 -118 0
+-67 -120 74 0
+-51 105 -33 0
+26 18 22 0
+-70 109 -51 0
+32 53 68 0
+-37 1 -91 0
+-56 9 -38 0
+-62 -29 -84 0
+-18 100 -84 0
+-99 -73 -62 0
+47 -66 -61 0
+-47 109 65 0
+22 80 119 0
+-72 91 69 0
+120 -63 100 0
+16 -61 -107 0
+-64 -101 80 0
+-97 -38 53 0
+-51 -63 62 0
+-112 -118 99 0
+38 29 96 0
+89 -39 -104 0
+-13 105 64 0
+50 -5 45 0
+-90 -6 15 0
+-67 40 55 0
+-57 113 -88 0
+-19 -67 12 0
+-106 31 85 0
+14 34 106 0
+62 -100 -13 0
+31 117 46 0
+13 -58 -90 0
+21 -98 38 0
+23 84 -119 0
+106 64 14 0
+-87 -103 45 0
+-107 -10 1 0
+70 47 -4 0
+-68 -38 -80 0
+94 108 -80 0
+26 -17 24 0
+-24 84 -4 0
+-48 -10 -92 0
+111 -12 -10 0
+48 81 1 0
+-26 54 -12 0
+87 -41 -67 0
+-98 -14 20 0
+19 53 -34 0
+-98 16 -111 0
+-120 -115 -50 0
+-3 -22 -49 0
+-110 -114 -52 0
+-39 87 101 0
+-74 -115 37 0
+54 -46 51 0
+31 112 77 0
+10 -93 -11 0
+-25 -36 -6 0
+63 -2 25 0
+-24 67 -75 0
+-20 -92 -103 0
+-119 14 83 0
+66 -46 -49 0
+85 6 -46 0
+109 117 54 0
+-71 -40 10 0
+43 -68 -90 0
+-42 76 66 0
+-65 21 75 0
+-56 120 -70 0
+-20 100 44 0
+30 101 82 0
+-98 -19 -27 0
+83 -56 -58 0
+-51 30 79 0
+19 36 -34 0
+-78 -116 -106 0
+-24 49 -100 0
+-69 118 -112 0
+41 -49 -13 0
+33 -38 -89 0
+-99 -47 -73 0
+-88 108 -66 0
+36 -38 -41 0
+81 114 33 0
+107 8 30 0
+-2 -44 109 0
+75 32 93 0
+29 -25 -42 0
+-47 -52 -1 0
+-63 51 -54 0
+-102 109 49 0
+19 57 80 0
+-12 -36 -66 0
+-81 -119 -96 0
+72 47 -58 0
+-115 18 -69 0
+-42 -67 23 0
+-22 12 110 0
+-1 -100 78 0
+18 22 -119 0
+37 -85 71 0
+118 -75 -35 0
+5 -110 13 0
+-59 -55 -31 0
+-109 -104 111 0
+9 97 -120 0
+90 92 -36 0
+119 110 -17 0
+42 -29 -16 0
+104 -69 -38 0
+-57 113 -6 0
+100 -106 5 0
+-78 -77 91 0
+5 -63 11 0
+-60 -28 -53 0
+-7 107 -111 0
+-36 -47 74 0
+-84 -22 -75 0
+94 -76 -96 0
+-9 14 105 0
+74 102 111 0
+-26 74 -5 0
+-44 -5 88 0
+61 76 4 0
+100 -103 69 0
+70 -31 107 0
+2 53 -15 0
+114 -28 54 0
+60 -14 58 0
+-118 -18 -52 0
+-18 -55 -79 0
+-17 109 -65 0
+-79 19 106 0
+115 86 -21 0
+-31 -95 17 0
+-21 50 -12 0
+4 29 102 0
+79 -31 22 0
+-86 -83 64 0
+-97 -116 5 0
+31 -80 35 0
+14 -28 61 0
+34 42 -80 0
+73 43 -33 0
+-30 28 83 0
+-4 83 99 0
+-78 -56 90 0
+-51 75 -55 0
+77 -83 -118 0
+113 28 16 0
+4 66 119 0
+-9 -106 55 0
+-69 27 38 0
+23 6 -1 0
+51 -22 62 0
+-34 -48 -56 0
+70 32 88 0
+-35 -13 -60 0
+117 -8 -103 0
+93 -43 -11 0
+-103 -61 5 0
+118 104 7 0
+-69 4 -82 0
+118 -83 -90 0
+43 -92 -19 0
+-101 -80 44 0
+-62 -36 -117 0
+24 36 -71 0
+-67 78 50 0
+-71 88 43 0
+6 -110 116 0
+27 66 2 0
+90 -112 29 0
+5 -115 -76 0
+24 -110 103 0
+-73 27 95 0
+-86 -106 85 0
+-67 -46 39 0
+114 104 -53 0
+-69 -32 75 0
+-33 -16 96 0
+-17 -56 -38 0
+-86 92 50 0
+-67 -80 -43 0
+-81 -16 69 0
+107 44 114 0
+-82 116 -104 0
+-97 61 40 0
+-7 -88 104 0
+-84 -48 -104 0
+-118 -116 99 0
+41 -90 -60 0
+-98 -42 48 0
+72 41 18 0
+77 -44 118 0
+-70 53 -97 0
+-99 93 39 0
+-99 -119 20 0
+76 87 82 0
+75 -76 23 0
+-77 69 79 0
+-39 -58 120 0
+-44 47 54 0
+58 -117 32 0
+-5 -51 105 0
+26 91 83 0
+21 -104 82 0
+-120 -102 119 0
+-78 2 92 0
+34 -31 39 0
+20 29 -24 0
+-28 100 -117 0
+63 -70 -74 0
+12 51 23 0
+-79 100 -5 0
+-68 -86 -58 0
+57 59 -113 0
+-66 120 -87 0
+-27 -46 32 0
+-102 -28 25 0
+-101 120 80 0
+43 2 84 0
+3 113 -22 0
+94 -69 41 0
+58 52 8 0
+112 44 -34 0
+-42 87 39 0
+-40 -89 -118 0
+115 -7 25 0
+82 55 -119 0
+59 78 -84 0
+-95 -40 47 0
+-3 107 36 0
+-79 82 -60 0
+-77 -63 53 0
+-106 -92 -22 0
+-105 41 104 0
+88 -26 -7 0
+5 106 -70 0
+-52 32 -76 0
+-100 26 -87 0
+50 89 45 0
+-33 -112 104 0
+82 44 -83 0
+105 -53 -30 0
+-46 95 100 0
+8 40 -71 0
+16 33 -84 0
+-23 9 36 0
+-94 86 115 0
+-118 41 -66 0
+100 -60 17 0
+3 -1 -108 0
+-25 -109 51 0
+-117 56 39 0
+110 -114 -59 0
+93 -84 -107 0
+83 65 120 0
+114 -70 -117 0
+-99 71 -37 0
+52 37 -43 0
+-98 19 -27 0
+-81 -46 -115 0
+-3 -97 110 0
+32 -90 -87 0
+72 -96 -56 0
+106 -2 -37 0
+-79 -39 -14 0
+57 5 103 0
+63 50 47 0
+95 -49 -31 0
+-33 77 -90 0
+49 64 115 0
+45 -115 91 0
+91 50 -39 0
+-9 -107 -10 0
+-114 -18 -46 0
+-93 -107 -80 0
+-73 69 53 0
+-55 25 -21 0
+-119 111 12 0
+115 -49 -79 0
+-85 112 94 0
+-68 83 -15 0
+-84 10 47 0
+-80 -94 -11 0
+7 90 11 0
+-58 65 57 0
+59 -50 27 0
+98 17 11 0
+16 -119 40 0
+-38 13 99 0
+8 -97 73 0
+-1 44 -45 0
+-15 65 -100 0
+-30 41 50 0
+49 -56 -88 0
+-32 52 -84 0
+20 12 2 0
+-112 36 -23 0
+-49 42 -111 0
+22 -114 93 0
+-32 109 -74 0
+33 12 -77 0
+52 99 37 0
+-107 21 -61 0
+-81 -88 119 0
+-96 -70 -41 0
+-74 -75 117 0
+
+c GPT solve time: 114.67 seconds
+
+SATISFIABLE  
+Number of branches: 0  
+Number of conflicts: 0  
+x3 = True  
+x80 = True  
+x38 = False  
+x20 = True  
+x83 = True  
+x69 = True  
+x15 = False  
+x112 = True  
+x57 = True  
+x23 = True  
+x30 = False  
+x101 = False  
+x74 = True  
+x71 = True  
+x39 = True  
+x61 = True  
+x60 = False  
+x28 = True  
+x17 = False  
+x68 = False  
+x118 = True  
+x14 = True  
+x95 = True  
+x86 = False  
+x25 = False  
+x91 = False  
+x85 = False  
+x111 = False  
+x104 = False  
+x19 = False  
+x106 = False  
+x98 = False  
+x43 = True  
+x81 = False  
+x10 = True  
+x48 = True  
+x33 = False  
+x49 = True  
+x44 = False  
+x119 = True  
+x103 = True  
+x58 = False  
+x50 = True  
+x46 = True  
+x102 = True  
+x54 = False  
+x18 = True  
+x63 = False  
+x113 = False  
+x29 = False  
+x16 = True  
+x99 = True  
+x62 = True  
+x96 = True  
+x73 = True  
+x108 = False  
+x9 = True  
+x65 = True  
+x76 = True  
+x89 = True  
+x79 = True  
+x109 = True  
+x42 = True  
+x6 = True  
+x37 = False  
+x115 = True  
+x78 = True  
+x13 = True  
+x7 = True  
+x47 = False  
+x36 = False  
+x92 = True  
+x107 = True  
+x82 = True  
+x2 = True  
+x90 = True  
+x31 = True  
+x41 = True  
+x59 = False  
+x35 = True  
+x34 = False  
+x117 = False  
+x100 = True  
+x53 = True  
+x66 = False  
+x5 = True  
+x67 = False  
+x116 = True  
+x52 = True  
+x110 = True  
+x40 = False  
+x12 = True  
+x51 = False  
+x55 = True  
+x22 = True  
+x75 = True  
+x77 = True  
+x114 = False  
+x64 = True  
+x45 = True  
+x120 = True  
+x87 = True  
+x88 = False  
+x94 = False  
+x56 = True  
+x105 = True  
+x93 = True  
+x70 = True  
+x4 = True  
+x8 = True  
+x21 = True  
+x24 = True  
+x32 = True  
+x84 = True  
+x27 = True  
+x26 = True  
+x33 = True  
+x28 = True  
+x99 = True  
+x20 = True  
+x29 = True  
+x69 = True  
+x38 = False  
+x80 = True  
+x49 = True  
+x81 = False  
+x60 = False  
+x109 = True  
+x6 = True  
+x37 = False  
+x24 = True  
+x115 = True  
+x13 = True  
+x65 = True  
+x15 = False  
+x113 = False  
+x94 = False  
+x78 = True  
+x11 = True  
+x104 = False  
+x7 = True  
+x47 = False  
+x36 = False  
+x58 = False  
+x78 = True  
+x43 = True  
+x16 = True  
+x92 = True  
+x107 = True  
+x7 = True  
+x82 = True  
+x115 = True  
+x49 = True  
+x63 = False  
+x90 = True  
+x49 = True  
+x41 = True  
+x31 = True  
+x2 = True  
+x80 = True  
+x41 = True  
+x59 = False  
+x119 = True  
+x35 = True  
+x90 = True  
+x34 = False  
+x90 = True  
+x63 = False  
+x91 = False  
+x117 = False  
+x100 = True  
+x115 = True  
+x53 = True  
+x18 = True  
+x66 = False  
+x61 = True  
+x9 = True  
+x50 = True  
+x5 = True  
+x16 = True  
+x67 = False  
+x23 = True  
+x52 = True  
+x73 = True  
+x29 = False  
+x110 = True  
+x40 = False  
+x31 = True  
+x38 = False  
+x31 = True  
+x34 = False  
+x63 = False  
+x24 = True  
+x62 = True  
+x63 = False  
+x42 = True  
+x13 = True  
+x66 = False  
+x76 = True  
+x27 = True  
+x81 = False  
+x85 = False  
+x113 = False  
+x2 = True  
+x97 = False  
+x5 = True  
+x119 = True  
+x78 = True  
+x80 = True  
+x16 = True  
+x74 = True  
+x26 = True  
+x63 = False  
+x35 = True  
+x39 = True  
+x32 = True  
+x3 = True  
+x61 = True  
+x39 = True  
+x103 = True  
+x22 = True  
+x59 = False  
+x50 = True  
+x96 = True  
+x28 = True  
+x32 = True  
+x84 = True  
+x29 = True  
+x12 = True  
+x82 = True  
+x5 = True  
+x52 = True  
+x17 = True  
+x58 = False  
+x13 = True  
+x83 = True  
+x101 = False  
+x52 = True  
+x43 = True  
+x71 = True  
+x47 = False  
+x103 = True  
+x29 = False  
+x84 = True  
+x99 = True  
+x106 = False  
+x51 = False  
+x69 = True  
+x29 = False  
+x87 = True  
+x100 = True  
+x100 = True  
+x60 = False  
+x56 = True  
+x26 = True  
+x69 = True  
+x62 = True  
+x93 = True  
+x102 = True  
+x105 = True  
+x60 = False  
+x66 = False  
+x93 = True  
+x70 = True  
+x74 = True  
+x4 = True  
+x117 = False  
+x119 = False  
+x3 = True  
+x50 = True  
+x99 = True  
+x54 = False  
+x113 = False  
+x71 = True  
+x47 = False  
+x2 = True  
+x100 = True  
+x23 = True  
+x110 = True  
+x7 = True  
+x106 = False  
+x57 = True  
+x31 = True  
+x37 = False  
+x112 = True  
+x47 = False  
+x93 = True  
+x36 = False  
+x49 = True  
+x108 = False  
+x6 = True  
+x39 = True  
+x52 = True  
+x24 = True  
+x119 = True  
+x112 = True  
+x3 = True  
+x26 = True  
+x72 = True  
+x25 = False  
+x114 = False  
+x103 = True  
+x53 = True  
+x80 = True  
+x109 = True  
+x75 = True  
+x77 = True  
+x71 = True  
+x2 = True  
+x91 = False  
+x84 = True  
+x75 = True  
+x26 = True  
+x64 = True  
+x22 = True  
+x79 = True  
+x48 = True  
+x101 = False  
+x19 = False  
+x50 = True  
+x90 = True  
+x60 = False  
+x68 = False  
+x56 = True  
+x113 = False  
+x89 = True  
+x35 = True  
+x92 = True  
+x46 = True  
+x42 = True  
+x19 = False  
+x26 = True  
+x86 = False  
+x27 = True  
+x72 = True  
+x43 = True  
+x88 = False  
+x6 = True  
+x84 = True  
+x75 = True  
+x19 = False  
+x115 = True  
+x88 = False  
+x15 = False  
+x78 = True  
+x100 = True  
+x8 = True  
+x96 = True  
+x5 = True  
+x46 = True  
+x64 = True  
+x83 = True  
+x27 = True  
+x27 = True  
+x36 = False  
+x115 = True  
+x45 = True  
+x111 = False  
+x95 = True  
+x115 = False  
+x38 = False  
+x25 = False  
+x68 = False  
+x53 = True  
+x94 = False  
+x31 = True  
+x93 = True  
+x84 = True  
+x63 = False  
+x12 = True  
+x62 = True  
+x83 = True  
+x77 = True  
+x30 = False  
+x23 = True  
+x86 = False  
+x37 = False  
+x106 = False  
+x55 = True  
+x22 = True  
+x30 = False  
+x37 = False  
+x20 = True  
+x35 = True  
+x65 = True  
+x64 = True  
+x72 = True  
+x73 = True  
+x12 = True  
+x14 = True  
+x91 = False  
+x98 = False  
+x61 = True  
+x104 = False  
+x52 = True  
+x24 = True  
+x15 = False  
+x52 = True  
+x112 = True  
+x1 = False  
+x61 = True  
+x79 = True  
+x9 = True  
+x40 = False  
+x25 = False  
+x117 = False  
+x28 = True  
+x99 = True  
+x116 = True  
+x32 = True  
+x37 = False  
+x77 = True  
+x29 = True  
+x67 = False  
+x71 = True  
+x14 = True  
+x107 = True  
+x46 = True  
+x36 = False  
+x32 = True  
+x26 = True  
+x99 = True  
+x33 = False  
+x20 = True  
+x59 = False  
+x112 = True  
+x101 = False  
+x14 = True  
+x2 = True  
+x40 = False  
+x51 = False  
+x37 = False  
+x67 = False  
+x117 = False  
+x100 = True  
+x63 = False  
+x107 = True  
+x49 = True  
+x104 = False  
+x70 = True  
+x34 = False  
+x16 = True  
+x17 = False  
+x30 = False  
+x2 = True  
+x69 = True  
+x99 = True  
+x82 = True  
+x50 = True  
+x120 = True  
+x54 = False  
+x67 = False  
+x93 = True  
+x110 = True  
+x38 = False  
+x68 = False  
+x13 = True  
+x81 = False  
+x21 = True  
+x106 = False  
+x115 = True  
+x117 = False  
+x83 = True  
+x14 = True  
+x34 = False  
+x106 = False  
+x62 = True  
+x100 = True  
+x13 = True  
+x31 = True  
+x117 = True  
+x46 = True  
+x13 = True  
+x58 = False  
+x90 = True  
+x21 = True  
+x98 = False  
+x38 = False  
+x23 = True  
+x84 = True  
+x119 = True  
+x106 = False  
+x64 = True  
+x14 = True  
+x87 = True  
+x103 = True  
+x45 = True  
+x107 = True  
+x10 = True  
+x1 = False  
+x70 = True  
+x47 = False  
+x4 = True  
+x68 = False  
+x38 = False  
+x80 = True  
+x94 = False  
+x108 = False  
+x80 = True  
+x26 = True  
+x17 = False  
+x24 = True  
+x84 = True  
+x4 = True  
+x48 = True  
+x10 = True  
+x92 = True  
+x111 = False  
+x12 = False  
+x10 = True  
+x48 = True  
+x81 = False  
+x1 = False  
+x26 = True  
+x54 = False  
+x12 = True  
+x87 = True  
+x41 = True  
+x67 = False  
+x98 = False  
+x14 = True  
+x20 = True  
+x19 = False  
+x53 = True  
+x34 = False  
+x98 = False  
+x16 = True  
+x111 = False  
+x120 = True  
+x115 = False  
+x50 = True  
+x3 = True  
+x22 = True  
+x49 = True  
+x110 = True  
+x114 = False  
+x52 = True  
+x39 = True  
+x87 = True  
+x101 = False  
+x74 = True  
+x115 = False  
+x37 = False  
+x54 = False  
+x46 = True  
+x51 = True  
+x31 = True  
+x112 = True  
+x77 = True  
+x10 = True  
+x93 = True  
+x11 = True  
+x25 = False  
+x36 = False  
+x6 = True  
+x63 = False  
+x2 = True  
+x25 = False  
+x24 = True  
+x67 = False  
+x75 = True  
+x20 = True  
+x92 = True  
+x103 = False  
+x119 = True  
+x14 = True  
+x83 = True  
+x66 = False  
+x46 = True  
+x49 = True  
+x85 = False  
+x6 = True  
+x46 = True  
+x109 = True  
+x117 = True  
+x54 = False  
+x71 = True  
+x40 = False  
+x10 = True  
+x43 = True  
+x68 = False  
+x90 = True  
+x42 = True  
+x76 = True  
+x66 = False  
+x65 = True  
+x21 = True  
+x75 = True  
+x56 = True  
+x120 = True  
+x70 = True  
+x31 = True  
+x107 = True  
+x2 = True  
+x53 = True  
+x15 = False  
+x116 = True  
+x28 = True  
+x54 = False  
+x60 = False  
+x14 = True  
+x58 = False  
+x18 = True  
+x52 = True  
+x18 = True  
+x55 = True  
+x79 = True  
+x17 = False  
+x109 = True  
+x65 = True  
+x79 = True  
+x19 = True  
+x106 = False  
+x115 = True  
+x86 = False  
+x21 = True  
+x95 = True  
+x17 = False  
+x68 = False  
+x83 = True  
+x15 = False  
+x84 = True  
+x10 = True  
+x47 = False  
+x80 = True  
+x94 = False  
+x11 = True  
+x90 = True  
+x11 = True  
+x58 = False  
+x65 = True  
+x57 = True  
+x59 = False  
+x50 = True  
+x27 = True  
+x98 = True  
+x17 = True  
+x11 = True  
+x16 = True  
+x119 = True  
+x40 = False  
+x38 = False  
+x13 = True  
+x99 = True  
+x8 = True  
+x97 = False  
+x73 = True  
+x1 = False  
+x44 = False  
+x45 = True  
+x15 = False  
+x65 = True  
+x100 = True  
+x30 = False  
+x41 = True  
+x50 = True  
+x49 = True  
+x56 = True  
+x88 = False  
+x32 = True  
+x52 = True  
+x84 = True  
+x20 = True  
+x12 = True  
+x2 = True  
+x112 = True  
+x36 = False  
+x23 = True  
+x49 = True  
+x42 = True  
+x111 = False  
+x22 = True  
+x114 = False  
+x93 = True  
+x32 = True  
+x109 = True  
+x74 = True  
+x33 = True  
+x12 = True  
+x77 = False  
+x52 = True  
+x99 = True  
+x37 = False  
+x107 = True  
+x21 = True  
+x61 = True  
+x81 = False  
+x88 = False  
+x119 = True  
+x96 = True  
+x70 = True  
+x41 = False  
+x74 = True  
+x75 = True  
+x117 = True  
+x70 = True  
+x47 = False  
+x4 = True  
+x53 = True  
+x97 = False  
+x93 = True  
+x39 = True  
+x99 = True  
+x119 = True  
+x20 = True  
+x76 = True  
+x87 = True  
+x82 = True  
+x75 = True  
+x76 = True  
+x23 = True  
+x77 = False  
+x69 = True  
+x79 = True  
+x39 = True  
+x58 = False  
+x120 = True  
+x44 = False  
+x47 = True  
+x54 = False  
+x58 = True  
+x117 = False  
+x32 = True  
+x5 = True  
+x51 = False  
+x105 = True  
+x26 = True  
+x91 = False  
+x83 = True  
+x21 = True  
+x104 = False  
+x82 = True  
+x120 = True  
+x102 = True  
+x119 = True  
+x78 = True  
+x2 = True  
+x92 = True  
+x34 = False  
+x31 = True  
+x39 = True  
+x20 = True  
+x29 = True  
+x24 = True  
+x28 = True  
+x100 = True  
+x117 = False  
+x63 = False  
+x70 = True  
+x74 = True  
+x12 = True  
+x51 = False  
+x23 = True  
+x79 = True  
+x100 = True  
+x5 = True  
+x68 = False  
+x86 = False  
+x58 = False  
+x57 = True  
+x59 = True  
+x113 = False  
+x66 = False  
+x120 = True  
+x87 = True  
+x27 = True  
+x46 = True  
+x32 = True  
+x102 = True  
+x28 = True  
+x25 = False  
+x25 = False  
+x109 = True  
+x51 = False  
+x117 = False  
+x56 = True  
+x39 = True  
+x110 = True  
+x114 = False  
+x59 = False  
+x93 = True  
+x84 = True  
+x107 = False  
+x83 = True  
+x65 = True  
+x120 = True  
+x114 = False  
+x70 = True  
+x117 = False  
+x99 = True  
+x71 = True  
+x37 = False  
+x52 = True  
+x37 = False  
+x43 = True  
+x98 = True  
+x19 = False  
+x27 = True  
+x81 = False  
+x46 = True  
+x115 = False  
+x3 = True  
+x97 = False  
+x110 = True  
+x32 = True  
+x90 = True  
+x87 = True  
+x72 = True  
+x96 = False  
+x56 = True  
+x106 = False  
+x2 = True  
+x37 = False  
+x79 = True  
+x39 = True  
+x14

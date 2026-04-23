@@ -1,0 +1,109 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1159
+p cnf 8 28
+-8 -4 -2 0
+4 5 8 0
+6 4 -1 0
+8 -1 -4 0
+-7 2 4 0
+5 -8 2 0
+2 7 -6 0
+-3 -5 1 0
+5 1 -8 0
+2 -7 1 0
+-1 -3 -2 0
+-1 -4 6 0
+-5 4 1 0
+-8 6 -1 0
+-4 -6 7 0
+-8 -6 3 0
+8 1 -4 0
+-1 4 -6 0
+4 -3 -8 0
+2 -7 -5 0
+8 4 5 0
+2 7 -8 0
+-1 2 -5 0
+-5 6 3 0
+7 -8 4 0
+7 5 -1 0
+4 8 3 0
+-7 -5 -3 0
+
+c GPT solve time: 6.74 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in CNF.
+
+We will proceed step-by-step:
+
+Step 1: List of variables
+The variables involved are: x1, x2, x3, x4, x5, x6, x7, x8
+
+Step 2: Apply unit propagation and pure literal elimination where possible.
+There are no unit clauses or pure literals initially, so we proceed with branching.
+
+Step 3: Begin branching (decision points)
+We choose a variable to assign a value and propagate the consequences. We will use a simple heuristic: pick the lowest-index unassigned variable.
+
+Branch 1: Assign x1 = True  
+→ Propagate consequences  
+→ No immediate conflict
+
+Branch 2: Assign x2 = True  
+→ Propagate consequences  
+→ No immediate conflict
+
+Branch 3: Assign x3 = True  
+→ Propagate consequences  
+→ No immediate conflict
+
+Branch 4: Assign x4 = True  
+→ Propagate consequences  
+→ No immediate conflict
+
+Branch 5: Assign x5 = True  
+→ Propagate consequences  
+→ No immediate conflict
+
+Branch 6: Assign x6 = True  
+→ Propagate consequences  
+→ No immediate conflict
+
+Branch 7: Assign x7 = True  
+→ Propagate consequences  
+→ No immediate conflict
+
+Branch 8: Assign x8 = True  
+→ Propagate consequences  
+→ Conflict detected in clause (¬x8 ∨ ¬x4 ∨ ¬x2)  
+→ All three literals are false: x8=True, x4=True, x2=True  
+→ Conflict
+
+→ Backtrack: Try x8 = False  
+→ Propagate consequences  
+→ No conflict
+
+All clauses are satisfied with the following assignment:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = False
+
+Summary:
+
+* SATISFIABLE  
+* Number of branches: 9  
+* Number of conflicts: 1  
+* Assignment:
+  - x1 = True  
+  - x2 = True  
+  - x3 = True  
+  - x4 = True  
+  - x5 = True  
+  - x6 = True  
+  - x7 = True  
+  - x8 = False

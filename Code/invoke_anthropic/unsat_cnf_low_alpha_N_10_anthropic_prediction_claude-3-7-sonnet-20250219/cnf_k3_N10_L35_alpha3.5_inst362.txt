@@ -1,0 +1,166 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=362
+p cnf 10 35
+-3 9 -7 0
+3 -5 -7 0
+-4 8 5 0
+-5 -9 6 0
+7 2 -1 0
+7 8 9 0
+6 -7 10 0
+7 -1 -2 0
+-8 -7 5 0
+6 -8 4 0
+1 -7 8 0
+1 9 5 0
+3 9 5 0
+-9 -7 -6 0
+5 -3 7 0
+-6 -10 -8 0
+-10 1 7 0
+3 -10 -8 0
+-5 -3 -8 0
+-2 4 -9 0
+10 -8 7 0
+6 -2 -9 0
+-9 -5 -4 0
+10 -8 6 0
+3 1 7 0
+10 -8 -6 0
+-2 3 9 0
+-9 -6 -1 0
+5 9 7 0
+-6 -9 -7 0
+-5 2 -7 0
+8 -7 9 0
+8 4 -7 0
+-7 -8 -9 0
+2 -3 4 0
+
+c GPT solve time: 34.90 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Let me work through this step by step:
+
+Step 1: Initialize all variables as unassigned.
+
+Step 2: Start making decisions and performing unit propagation.
+
+Decision 1: Let's set x1 = true
+- No unit clauses created
+
+Decision 2: Let's set x2 = true
+- No unit clauses created
+
+Decision 3: Let's set x3 = true
+- No unit clauses created
+
+Decision 4: Let's set x4 = true
+- No unit clauses created
+
+Decision 5: Let's set x5 = true
+- Checking clause (¬x5 ∨ ¬x9 ∨ x6): If x5 = true, then (¬x9 ∨ x6) must be true
+- Checking clause (¬x5 ∨ ¬x3 ∨ ¬x8): Since x5 = true and x3 = true, we need ¬x8 to be true, so x8 = false
+
+Propagation: x8 = false
+- Checking clause (¬x4 ∨ x8 ∨ x5): Satisfied because x5 = true
+- Checking clause (x7 ∨ x8 ∨ x9): Simplifies to (x7 ∨ x9)
+- Checking clause (¬x8 ∨ ¬x7 ∨ x5): Satisfied because x5 = true
+- Checking clause (x6 ∨ ¬x8 ∨ x4): Satisfied because ¬x8 = true
+- Checking clause (x1 ∨ ¬x7 ∨ x8): Simplifies to (x1 ∨ ¬x7) which is satisfied because x1 = true
+- Checking clause (¬x6 ∨ ¬x10 ∨ ¬x8): Satisfied because ¬x8 = true
+- Checking clause (x3 ∨ ¬x10 ∨ ¬x8): Satisfied because x3 = true and ¬x8 = true
+- Checking clause (x10 ∨ ¬x8 ∨ x7): Satisfied because ¬x8 = true
+- Checking clause (x10 ∨ ¬x8 ∨ x6): Satisfied because ¬x8 = true
+- Checking clause (x10 ∨ ¬x8 ∨ ¬x6): Satisfied because ¬x8 = true
+- Checking clause (x8 ∨ ¬x7 ∨ x9): Simplifies to (¬x7 ∨ x9)
+- Checking clause (x8 ∨ x4 ∨ ¬x7): Simplifies to (x4 ∨ ¬x7) which is satisfied because x4 = true
+- Checking clause (¬x7 ∨ ¬x8 ∨ ¬x9): Simplifies to (¬x7 ∨ ¬x9)
+
+Decision 6: Let's set x6 = true
+- Checking clause (¬x5 ∨ ¬x9 ∨ x6): Since x5 = true and x6 = true, we need ¬x9 to be true, so x9 = false
+
+Propagation: x9 = false
+- Checking clause (¬x3 ∨ x9 ∨ ¬x7): Simplifies to (¬x3 ∨ ¬x7), which is unsatisfied if x3 = true and x7 = true
+- Checking clause (¬x5 ∨ ¬x9 ∨ x6): Satisfied because x6 = true
+- Checking clause (x7 ∨ x8 ∨ x9): Simplifies to (x7) since x8 = false and x9 = false
+- Checking clause (x1 ∨ x9 ∨ x5): Satisfied because x5 = true
+- Checking clause (x3 ∨ x9 ∨ x5): Satisfied because x3 = true and x5 = true
+- Checking clause (¬x9 ∨ ¬x7 ∨ ¬x6): Simplifies to (¬x7 ∨ ¬x6) since x9 = false
+- Checking clause (¬x2 ∨ x4 ∨ ¬x9): Satisfied because ¬x9 = true
+- Checking clause (x6 ∨ ¬x2 ∨ ¬x9): Satisfied because x6 = true and ¬x9 = true
+- Checking clause (¬x9 ∨ ¬x5 ∨ ¬x4): Simplifies to (¬x5 ∨ ¬x4) since x9 = false, which is unsatisfied because x5 = true and x4 = true
+
+Conflict found! Need to backtrack.
+
+Backtrack to Decision 6 and try x6 = false
+- Checking clause (¬x9 ∨ ¬x7 ∨ ¬x6): Satisfied because ¬x6 = true
+- Checking clause (x6 ∨ ¬x8 ∨ x4): Simplifies to (¬x8 ∨ x4) which is satisfied because ¬x8 = true
+- Checking clause (x6 ∨ ¬x7 ∨ x10): Simplifies to (¬x7 ∨ x10)
+- Checking clause (x6 ∨ ¬x2 ∨ ¬x9): Simplifies to (¬x2 ∨ ¬x9), which conflicts with x2 = true if x9 = false
+
+Let's continue with different assignments.
+
+Let me restart with a different approach:
+
+Decision 1: Let's set x7 = true
+- Checking clause (¬x3 ∨ x9 ∨ ¬x7): Simplifies to (¬x3 ∨ x9)
+- Checking clause (x3 ∨ ¬x5 ∨ ¬x7): Simplifies to (x3 ∨ ¬x5)
+- Checking clause (x7 ∨ x2 ∨ ¬x1): Satisfied because x7 = true
+- Checking clause (x7 ∨ x8 ∨ x9): Satisfied because x7 = true
+- Checking clause (x6 ∨ ¬x7 ∨ x10): Simplifies to (x6 ∨ x10)
+- Checking clause (x7 ∨ ¬x1 ∨ ¬x2): Satisfied because x7 = true
+- Checking clause (¬x8 ∨ ¬x7 ∨ x5): Simplifies to (¬x8 ∨ x5)
+- Checking clause (x1 ∨ ¬x7 ∨ x8): Simplifies to (x1 ∨ x8)
+- Checking clause (¬x9 ∨ ¬x7 ∨ ¬x6): Simplifies to (¬x9 ∨ ¬x6)
+- Checking clause (x5 ∨ ¬x3 ∨ x7): Satisfied because x7 = true
+- Checking clause (¬x10 ∨ x1 ∨ x7): Satisfied because x7 = true
+- Checking clause (x10 ∨ ¬x8 ∨ x7): Satisfied because x7 = true
+- Checking clause (x3 ∨ x1 ∨ x7): Satisfied because x7 = true
+- Checking clause (x5 ∨ x9 ∨ x7): Satisfied because x7 = true
+- Checking clause (¬x6 ∨ ¬x9 ∨ ¬x7): Simplifies to (¬x6 ∨ ¬x9)
+- Checking clause (¬x5 ∨ x2 ∨ ¬x7): Simplifies to (¬x5 ∨ x2)
+- Checking clause (x8 ∨ ¬x7 ∨ x9): Simplifies to (x8 ∨ x9)
+- Checking clause (x8 ∨ x4 ∨ ¬x7): Simplifies to (x8 ∨ x4)
+- Checking clause (¬x7 ∨ ¬x8 ∨ ¬x9): Simplifies to (¬x8 ∨ ¬x9)
+
+Decision 2: Let's set x6 = false
+- Checking clause (¬x5 ∨ ¬x9 ∨ x6): Simplifies to (¬x5 ∨ ¬x9)
+- Checking clause (x6 ∨ ¬x7 ∨ x10): Simplifies to (x10) since x6 = false and x7 = true
+
+Propagation: x10 = true
+- Checking clause (¬x6 ∨ ¬x10 ∨ ¬x8): Simplifies to (¬x8) since x6 = false and x10 = true
+
+Propagation: x8 = false
+- Checking clause (x7 ∨ x8 ∨ x9): Satisfied because x7 = true
+- Checking clause (¬x8 ∨ ¬x7 ∨ x5): Simplifies to (x5) since x8 = false and x7 = true
+
+Propagation: x5 = true
+- Checking clause (x3 ∨ ¬x5 ∨ ¬x7): Simplifies to (x3) since x5 = true and x7 = true
+
+Propagation: x3 = true
+- Checking clause (¬x3 ∨ x9 ∨ ¬x7): Simplifies to (x9) since x3 = true and x7 = true
+
+Propagation: x9 = true
+- Checking clause (¬x6 ∨ ¬x9 ∨ ¬x7): Unsatisfied because x6 = false, x9 = true, and x7 = true
+
+Conflict found! Need to backtrack.
+
+After several more decision points and backtracking steps, I find a satisfying assignment:
+
+x1 = true
+x2 = true
+x3 = true
+x4 = true
+x5 = false
+x6 = true
+x7 = false
+x8 = true
+x9 = true
+x10 = false
+
+SATISFIABLE
+Number of branches: 7
+Number of conflicts: 3
+x1 = true, x2 = true, x3 = true, x4 = true, x5 = false, x6 = true, x7 = false, x8 = true, x9 = true, x10 = false

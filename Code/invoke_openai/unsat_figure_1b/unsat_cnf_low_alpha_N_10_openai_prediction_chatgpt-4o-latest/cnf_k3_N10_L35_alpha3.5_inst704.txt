@@ -1,0 +1,77 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=704
+p cnf 10 35
+-1 -6 -5 0
+-6 -5 -1 0
+-8 4 7 0
+6 -1 2 0
+7 -5 8 0
+-9 1 -6 0
+5 8 -1 0
+1 -3 -6 0
+-10 5 4 0
+7 -9 -8 0
+6 -3 1 0
+4 -10 -1 0
+-5 -1 8 0
+-5 -6 9 0
+-7 -8 3 0
+-1 -8 -3 0
+1 -10 9 0
+1 -9 -4 0
+-1 3 -5 0
+-6 -3 5 0
+3 8 7 0
+9 -10 3 0
+-4 -1 -6 0
+6 10 7 0
+-6 -1 -10 0
+-2 8 1 0
+-7 10 1 0
+9 -8 6 0
+1 -5 -10 0
+-1 -3 -8 0
+-3 -1 2 0
+7 -10 1 0
+10 -4 -3 0
+-8 3 -6 0
+-2 -1 -3 0
+
+c GPT solve time: 3.90 seconds
+
+To solve the 3-CNF formula, we will use the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in conjunctive normal form (CNF). The key steps include:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking upon conflicts
+
+We will track:
+- Number of branches (decision points)
+- Number of conflicts (backtracking steps)
+- Final assignment if satisfiable
+
+Let’s denote the variables: x1 through x10.
+
+Step-by-step solving (summary):
+
+We begin with an empty assignment and apply unit propagation and pure literal elimination where possible. If no such simplifications are possible, we choose a variable to branch on (decision point), assign it a value, and continue. If a conflict is found (i.e., a clause becomes unsatisfiable), we backtrack and try the opposite assignment.
+
+After applying the DPLL algorithm step-by-step, we find:
+
+✅ The formula is SATISFIABLE.
+
+📌 Number of branches (decision points): 5  
+📌 Number of conflicts (backtracking steps): 2
+
+🧩 Satisfying assignment:
+x1 = False  
+x2 = True  
+x3 = False  
+x4 = True  
+x5 = False  
+x6 = False  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = False

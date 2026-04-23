@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 from draw_legend import *
 
 # ------------------------ 配置路径 ------------------------
+# ONE_DATASET由下面的代码生成:invoke_openai/draw_o1_phase_transition_figures/invoke_openai_draw_3_curve_step4_merger_different_models_3_Multiply_3.py
+# SECOND_DATASET由下面的代码生成:invoke_openai/invoke_openai_draw_3_curve_step4_merger_different_models_3_Multiply_3.py
 ONE_DATASET = r'/work/lzhan011/Satisfiability_Solvers/Code/invoke_openai/draw_o1_phase_transition_figures/figures_comparison_1800_instances/draw_o1_cnf_alpha_3_6_N_75/per_file_predictions.xlsx'
 SECOND_DATASET = r'/work/lzhan011/Satisfiability_Solvers/Code/invoke_openai/figures_comparison/cnf_results_openai_/per_file_predictions.xlsx'
 OUT_DIR = os.path.join(os.path.dirname(ONE_DATASET), 'combined_metrics')
@@ -293,7 +295,7 @@ def plot_3x3(agg: pd.DataFrame, out_dir: str, ALPHAS_FIXED, file_stub: str = 'co
     for ext in ('png', 'pdf', 'svg'):
         out_path = os.path.join(out_dir, f'{file_stub}.{ext}')
         fig.savefig(out_path, dpi=600 if ext == 'png' else None, bbox_inches='tight')
-        print(f'[OK] 图已保存: {out_path}')
+        print(f'[OK] Figure Saved: {out_path}')
     plt.close(fig)
 
 # ------------------------ 新增：单独绘制 MCC ------------------------
@@ -389,7 +391,7 @@ def plot_mcc(agg: pd.DataFrame, out_dir: str, ALPHAS_FIXED, file_stub: str = 'co
     for ext in ('png', 'pdf', 'svg'):
         out_path = os.path.join(out_dir, f'{file_stub}.{ext}')
         fig.savefig(out_path, dpi=600 if ext == 'png' else None, bbox_inches='tight')
-        print(f'[OK] MCC 图已保存: {out_path}')
+        print(f'[OK] MCC Figure Saved: {out_path}')
     plt.close(fig)
 
 # ------------------------ 主流程 ------------------------
@@ -564,7 +566,7 @@ def plot_4x3_with_mcc_and_legends(agg: pd.DataFrame, out_dir: str, ALPHAS_FIXED,
     for ext in ('png', 'pdf', 'svg'):
         out_path = os.path.join(out_dir, f'{file_stub}.{ext}')
         fig.savefig(out_path, dpi=600 if ext == 'png' else None, bbox_inches='tight')
-        print(f'[OK] 4x3 图已保存: {out_path}')
+        print(f'[OK] 4x3 Figure Saved: {out_path}')
     plt.close(fig)
 
 

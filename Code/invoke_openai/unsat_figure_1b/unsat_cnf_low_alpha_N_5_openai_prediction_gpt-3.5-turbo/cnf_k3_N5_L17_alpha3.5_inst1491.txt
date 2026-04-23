@@ -1,0 +1,55 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1491
+p cnf 5 17
+3 -5 -4 0
+-4 3 -1 0
+-2 -3 -5 0
+-5 -4 1 0
+-4 -3 5 0
+5 -3 4 0
+2 -3 4 0
+4 -1 3 0
+4 1 -2 0
+-5 -1 2 0
+2 -4 -5 0
+3 -4 1 0
+2 5 1 0
+-5 4 1 0
+3 1 -5 0
+-5 4 -1 0
+-3 5 -1 0
+
+c GPT solve time: 2.70 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment and simplify the formula:
+   (x3 ∨ ¬x5 ∨ ¬x4)
+   (¬x4 ∨ x3 ∨ False)
+   (¬x2 ∨ ¬x3 ∨ ¬x5)
+   (¬x5 ∨ ¬x4 ∨ True)
+   (¬x4 ∨ ¬x3 ∨ True)
+   (True ∨ ¬x3 ∨ x4)
+   (x2 ∨ ¬x3 ∨ x4)
+   (x4 ∨ False ∨ x3)
+   (x4 ∨ True ∨ ¬x2)
+   (¬x5 ∨ True ∨ x2)
+   (x2 ∨ ¬x4 ∨ ¬x5)
+   (x3 ∨ ¬x4 ∨ True)
+   (x2 ∨ x5 ∨ True)
+   (¬x5 ∨ x4 ∨ True)
+   (x3 ∨ True ∨ ¬x5)
+   (¬x5 ∨ x4 ∨ False)
+   (¬x3 ∨ x5 ∨ True)
+4. Repeat step 2 and 3 until all clauses are satisfied or a conflict is reached.
+5. If all clauses are satisfied, the formula is SATISFIABLE. Otherwise, it is UNSATISFIABLE.
+   
+SATISFIABLE
+Number of branches: 1
+Number of conflicts: 0
+Assignment:
+x1 = True
+x2 = True
+x3 = True
+x4 = True
+x5 = False

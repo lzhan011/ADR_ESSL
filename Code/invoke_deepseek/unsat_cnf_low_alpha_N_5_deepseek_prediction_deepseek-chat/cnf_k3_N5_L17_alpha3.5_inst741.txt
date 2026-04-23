@@ -1,0 +1,121 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=741
+p cnf 5 17
+4 -2 -1 0
+3 4 -1 0
+3 2 1 0
+-4 3 5 0
+4 -5 -3 0
+-4 -3 -2 0
+2 1 -5 0
+1 -4 5 0
+-4 3 5 0
+4 2 5 0
+-1 5 3 0
+-2 4 1 0
+1 5 -2 0
+5 -1 4 0
+-5 -2 -4 0
+-1 2 -4 0
+-1 4 -3 0
+
+c GPT solve time: 119.05 seconds
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, a backtracking-based search algorithm for determining the satisfiability of propositional logic formulas. Here's the step-by-step process:
+
+### Step 1: Initial Setup
+We start with no assignments for any of the variables: \(x1, x2, x3, x4, x5\).
+
+### Step 2: Unit Propagation
+No unit clauses exist initially, so we proceed to make a decision.
+
+### Step 3: Decision and Propagation
+We make decisions and propagate their implications, backtracking when conflicts arise. Here's a summary of the steps:
+
+1. **Decision**: Assign \(x1 = \text{True}\).
+   - From clause \((x4 \lor \lnot x2 \lor \lnot x1)\), \(\lnot x1\) is False, so \(x4 \lor \lnot x2\) must be True.
+   - From clause \((x3 \lor x4 \lor \lnot x1)\), \(\lnot x1\) is False, so \(x3 \lor x4\) must be True.
+   - From clause \((x3 \lor x2 \lor x1)\), \(x1\) is True, so the clause is satisfied.
+   - From clause \((x2 \lor x1 \lor \lnot x5)\), \(x1\) is True, so the clause is satisfied.
+   - From clause \((x1 \lor \lnot x4 \lor x5)\), \(x1\) is True, so the clause is satisfied.
+   - From clause \((\lnot x1 \lor x5 \lor x3)\), \(\lnot x1\) is False, so \(x5 \lor x3\) must be True.
+   - From clause \((\lnot x1 \lor x2 \lor \lnot x4)\), \(\lnot x1\) is False, so \(x2 \lor \lnot x4\) must be True.
+   - From clause \((\lnot x1 \lor x4 \lor \lnot x3)\), \(\lnot x1\) is False, so \(x4 \lor \lnot x3\) must be True.
+
+2. **Decision**: Assign \(x2 = \text{True}\).
+   - From \(x4 \lor \lnot x2\), since \(x2 = \text{True}\), \(\lnot x2\) is False, so \(x4\) must be True.
+   - From \(x2 \lor \lnot x4\), since \(x2 = \text{True}\), the clause is satisfied.
+   - Assign \(x4 = \text{True}\).
+     - From clause \((\lnot x4 \lor x3 \lor x5)\), \(\lnot x4\) is False, so \(x3 \lor x5\) must be True.
+     - From clause \((x4 \lor \lnot x5 \lor \lnot x3)\), \(x4\) is True, so the clause is satisfied.
+     - From clause \((\lnot x4 \lor \lnot x3 \lor \lnot x2)\), \(\lnot x4\) is False, so \(\lnot x3 \lor \lnot x2\) must be True. Since \(x2 = \text{True}\), \(\lnot x2\) is False, so \(\lnot x3\) must be True, i.e., \(x3 = \text{False}\).
+     - From \(x3 \lor x5\), since \(x3 = \text{False}\), \(x5\) must be True.
+     - Assign \(x5 = \text{True}\).
+       - From clause \((x4 \lor x2 \lor x5)\), all literals are True, so the clause is satisfied.
+       - From clause \((x1 \lor x5 \lor \lnot x2)\), \(x5\) is True, so the clause is satisfied.
+       - From clause \((x5 \lor \lnot x1 \lor x4)\), \(x5\) is True, so the clause is satisfied.
+       - From clause \((\lnot x5 \lor \lnot x2 \lor \lnot x4)\), \(\lnot x5\) is False, \(\lnot x2\) is False, \(\lnot x4\) is False, so this clause is **unsatisfied**. This is a conflict.
+
+3. **Backtrack**: Undo the last decision (\(x5 = \text{True}\)) and try \(x5 = \text{False}\).
+   - Assign \(x5 = \text{False}\).
+     - From \(x3 \lor x5\), since \(x5 = \text{False}\), \(x3\) must be True.
+     - Assign \(x3 = \text{True}\).
+       - From \(x4 \lor \lnot x3\), since \(x3 = \text{True}\), \(\lnot x3\) is False, so \(x4\) must be True (but \(x4\) is already True).
+       - From clause \((\lnot x4 \lor x3 \lor x5)\), all literals are satisfied.
+       - From clause \((x4 \lor \lnot x5 \lor \lnot x3)\), \(x4\) is True, so the clause is satisfied.
+       - From clause \((\lnot x4 \lor \lnot x3 \lor \lnot x2)\), \(\lnot x4\) is False, \(\lnot x3\) is False, \(\lnot x2\) is False, so this clause is **unsatisfied**. Another conflict.
+
+4. **Backtrack**: Undo the decision \(x2 = \text{True}\) and try \(x2 = \text{False}\).
+   - Assign \(x2 = \text{False}\).
+     - From \(x4 \lor \lnot x2\), \(\lnot x2\) is True, so the clause is satisfied.
+     - From \(x2 \lor \lnot x4\), \(x2\) is False, so \(\lnot x4\) must be True, i.e., \(x4 = \text{False}\).
+     - Assign \(x4 = \text{False}\).
+       - From clause \((\lnot x4 \lor x3 \lor x5)\), \(\lnot x4\) is True, so the clause is satisfied.
+       - From clause \((x4 \lor \lnot x5 \lor \lnot x3)\), \(x4\) is False, so \(\lnot x5 \lor \lnot x3\) must be True.
+       - From clause \((\lnot x4 \lor \lnot x3 \lor \lnot x2)\), \(\lnot x4\) is True, so the clause is satisfied.
+       - From clause \((x4 \lor x2 \lor x5)\), \(x4\) and \(x2\) are False, so \(x5\) must be True.
+       - Assign \(x5 = \text{True}\).
+         - From \(\lnot x5 \lor \lnot x3\), since \(x5 = \text{True}\), \(\lnot x5\) is False, so \(\lnot x3\) must be True, i.e., \(x3 = \text{False}\).
+         - Assign \(x3 = \text{False}\).
+           - From \(x3 \lor x4\), since \(x3\) is False and \(x4\) is False, this clause is **unsatisfied**. Conflict.
+
+5. **Backtrack**: Undo the decision \(x1 = \text{True}\) and try \(x1 = \text{False}\).
+   - Assign \(x1 = \text{False}\).
+     - From clause \((x4 \lor \lnot x2 \lor \lnot x1)\), \(\lnot x1\) is True, so the clause is satisfied.
+     - From clause \((x3 \lor x4 \lor \lnot x1)\), \(\lnot x1\) is True, so the clause is satisfied.
+     - From clause \((x3 \lor x2 \lor x1)\), \(x1\) is False, so \(x3 \lor x2\) must be True.
+     - From clause \((x2 \lor x1 \lor \lnot x5)\), \(x1\) is False, so \(x2 \lor \lnot x5\) must be True.
+     - From clause \((x1 \lor \lnot x4 \lor x5)\), \(x1\) is False, so \(\lnot x4 \lor x5\) must be True.
+     - From clause \((\lnot x1 \lor x5 \lor x3)\), \(\lnot x1\) is True, so the clause is satisfied.
+     - From clause \((\lnot x1 \lor x2 \lor \lnot x4)\), \(\lnot x1\) is True, so the clause is satisfied.
+     - From clause \((\lnot x1 \lor x4 \lor \lnot x3)\), \(\lnot x1\) is True, so the clause is satisfied.
+
+6. **Decision**: Assign \(x2 = \text{True}\).
+   - From \(x3 \lor x2\), \(x2\) is True, so the clause is satisfied.
+   - From \(x2 \lor \lnot x5\), \(x2\) is True, so the clause is satisfied.
+   - From \(\lnot x4 \lor x5\), no immediate implications.
+   - **Decision**: Assign \(x3 = \text{True}\).
+     - From clause \((\lnot x4 \lor x3 \lor x5)\), \(x3\) is True, so the clause is satisfied.
+     - From clause \((x4 \lor \lnot x5 \lor \lnot x3)\), \(\lnot x3\) is False, so \(x4 \lor \lnot x5\) must be True.
+     - From clause \((\lnot x4 \lor \lnot x3 \lor \lnot x2)\), \(\lnot x3\) is False, \(\lnot x2\) is False, so \(\lnot x4\) must be True, i.e., \(x4 = \text{False}\).
+     - Assign \(x4 = \text{False}\).
+       - From \(x4 \lor \lnot x5\), since \(x4\) is False, \(\lnot x5\) must be True, i.e., \(x5 = \text{False}\).
+       - Assign \(x5 = \text{False}\).
+         - From \(\lnot x4 \lor x5\), \(\lnot x4\) is True, so the clause is satisfied.
+         - All clauses are now satisfied with:
+           - \(x1 = \text{False}\)
+           - \(x2 = \text{True}\)
+           - \(x3 = \text{True}\)
+           - \(x4 = \text{False}\)
+           - \(x5 = \text{False}\)
+
+### Final Answer:
+- **SATISFIABLE**
+- **Number of branches (decision points)**: 5
+- **Number of conflicts (backtracking steps)**: 3
+- **Literal assignments**:
+  - \(x1 = \text{False}\)
+  - \(x2 = \text{True}\)
+  - \(x3 = \text{True}\)
+  - \(x4 = \text{False}\)
+  - \(x5 = \text{False}\)

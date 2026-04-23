@@ -1,0 +1,232 @@
+c Random 3-SAT
+c alpha=3.5, N=50, L=175, instance=8426
+p cnf 50 175
+12 15 2 0
+24 -21 -38 0
+29 19 23 0
+-45 -10 30 0
+-28 -17 38 0
+45 13 19 0
+-7 43 38 0
+-35 24 -22 0
+25 9 -7 0
+45 6 -13 0
+43 39 19 0
+-29 -12 22 0
+26 40 -33 0
+-29 28 -35 0
+8 47 38 0
+12 -20 -21 0
+24 23 32 0
+22 46 14 0
+-8 -21 -43 0
+9 -33 -29 0
+-30 31 25 0
+25 5 -33 0
+20 29 -41 0
+-3 28 -50 0
+-33 -31 24 0
+-40 22 18 0
+50 35 46 0
+9 -21 -30 0
+-15 -4 17 0
+17 -49 25 0
+32 -14 18 0
+-17 -16 -15 0
+15 -37 -46 0
+-11 -47 12 0
+-40 26 -43 0
+14 18 29 0
+39 -8 -28 0
+37 44 -40 0
+-10 -7 -22 0
+-9 -41 -23 0
+35 -24 37 0
+45 -46 23 0
+27 -28 4 0
+38 -22 50 0
+-47 -49 -20 0
+-16 -10 4 0
+22 -11 -26 0
+8 -21 -35 0
+-41 7 -29 0
+37 -25 -7 0
+-6 38 -17 0
+-43 13 9 0
+-50 19 -45 0
+-36 20 22 0
+-33 25 44 0
+24 -29 -43 0
+-25 -37 36 0
+-41 49 -47 0
+13 24 41 0
+26 6 46 0
+17 -32 19 0
+8 -14 -35 0
+-48 35 10 0
+48 -39 19 0
+-45 -6 -39 0
+-49 24 -15 0
+33 3 -19 0
+46 -50 -7 0
+50 -2 -21 0
+-43 -41 9 0
+37 20 6 0
+47 3 4 0
+17 -20 10 0
+-29 -19 25 0
+45 -27 28 0
+10 41 46 0
+8 -41 -45 0
+-10 7 45 0
+-35 -49 -13 0
+25 -18 33 0
+-9 25 5 0
+-40 -6 33 0
+40 -13 42 0
+-33 14 5 0
+30 49 34 0
+23 30 -10 0
+42 41 20 0
+-16 36 -31 0
+-43 16 -3 0
+-7 -8 -44 0
+-34 40 -26 0
+-24 -42 44 0
+1 -41 -3 0
+-13 48 8 0
+20 32 39 0
+20 -41 -1 0
+31 -23 -5 0
+-12 41 -50 0
+45 -42 -11 0
+18 -10 34 0
+-18 -43 33 0
+19 -27 -35 0
+9 37 -46 0
+-42 14 28 0
+43 -44 -15 0
+35 -28 18 0
+3 36 -37 0
+-12 16 -47 0
+-37 -5 33 0
+13 7 -15 0
+14 22 21 0
+-25 -38 -32 0
+-1 17 24 0
+46 24 9 0
+-14 41 22 0
+40 -18 33 0
+-45 -5 -38 0
+-3 14 1 0
+-14 -45 38 0
+-40 44 -49 0
+41 12 13 0
+-21 46 2 0
+44 -29 12 0
+-37 41 -6 0
+-35 -3 -6 0
+28 37 20 0
+21 16 -40 0
+3 -38 -6 0
+-10 -25 -9 0
+-3 16 -25 0
+15 -38 41 0
+-42 32 23 0
+-12 -38 18 0
+-16 48 -7 0
+-21 13 26 0
+-4 -26 1 0
+39 37 35 0
+10 18 -23 0
+-49 -50 -31 0
+34 5 -32 0
+33 39 36 0
+-47 14 -5 0
+18 -19 6 0
+-24 21 -35 0
+33 -13 -44 0
+44 32 34 0
+13 48 37 0
+-11 16 -39 0
+-15 -10 -39 0
+42 -34 -12 0
+45 -30 41 0
+49 -31 28 0
+-12 -19 -46 0
+22 2 -49 0
+-42 12 17 0
+41 -37 21 0
+-20 10 -1 0
+14 -3 -13 0
+30 42 -35 0
+38 28 42 0
+-3 -9 -27 0
+-25 -49 -11 0
+-20 -8 29 0
+4 -30 -46 0
+30 34 20 0
+-26 -24 42 0
+25 50 -6 0
+49 -28 -30 0
+25 -30 -50 0
+16 -48 -50 0
+37 17 14 0
+24 36 -35 0
+-43 36 29 0
+-3 39 46 0
+46 36 13 0
+
+c GPT solve time: 43.27 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Step 1: Assign x12 = True. This satisfies clause 1.
+Step 2: Assign x24 = True. This satisfies clauses 8 and 17.
+Step 3: Assign x29 = True. This satisfies clause 3.
+Step 4: Assign x45 = True. This satisfies clauses 6 and 10.
+Step 5: Assign x38 = True. This satisfies clauses 5, 7 and 15.
+Step 6: Assign x19 = True. This satisfies clause 11.
+Step 7: Assign x25 = True. This satisfies clause 9.
+Step 8: Assign x43 = True. This satisfies clause 7.
+Step 9: Assign x22 = True. This satisfies clause 18.
+Step 10: Assign x9 = True. This satisfies clause 9.
+Step 11: Assign x20 = True. This satisfies clause 23.
+Step 12: Assign x28 = True. This satisfies clause 14.
+Step 13: Assign x50 = True. This satisfies clause 27.
+Step 14: Assign x35 = True. This satisfies clause 27.
+Step 15: Assign x46 = True. This satisfies clause 27.
+Step 16: Assign x17 = True. This satisfies clause 30.
+Step 17: Assign x32 = True. This satisfies clause 31.
+Step 18: Assign x18 = True. This satisfies clauses 31 and 36.
+Step 19: Assign x14 = True. This satisfies clause 36.
+Step 20: Assign x39 = True. This satisfies clause 37.
+Step 21: Assign x37 = True. This satisfies clause 38.
+Step 22: Assign x44 = True. This satisfies clause 38.
+Step 23: Assign x23 = True. This satisfies clause 42.
+Step 24: Assign x4 = True. This satisfies clause 43.
+Step 25: Assign x27 = True. This satisfies clause 43.
+Step 26: Assign x13 = True. This satisfies clause 51.
+Step 27: Assign x41 = True. This satisfies clause 59.
+Step 28: Assign x26 = True. This satisfies clause 60.
+Step 29: Assign x6 = True. This satisfies clause 60.
+Step 30: Assign x8 = True. This satisfies clause 62.
+Step 31: Assign x48 = True. This satisfies clause 63.
+Step 32: Assign x10 = True. This satisfies clause 63.
+Step 33: Assign x33 = True. This satisfies clause 66.
+Step 34: Assign x3 = True. This satisfies clause 66.
+Step 35: Assign x47 = True. This satisfies clause 72.
+Step 36: Assign x34 = True. This satisfies clause 84.
+Step 37: Assign x49 = True. This satisfies clause 84.
+Step 38: Assign x30 = True. This satisfies clause 84.
+Step 39: Assign x42 = True. This satisfies clause 86.
+Step 40: Assign x1 = True. This satisfies clause 89.
+Step 41: Assign x36 = True. This satisfies clause 101.
+Step 42: Assign x2 = True. This satisfies clause 111.
+Step 43: Assign x21 = True. This satisfies clause 114.
+Step 44: Assign x16 = True. This satisfies clause 114.
+Step 45: Assign x5 = True. This satisfies clause 129.
+Step 46: Assign x31 = False. This satisfies clause 133.
+Step 47: Assign x7 = False. This satisfies clause 134.
+Step 48: Assign x11 = False. This satisfies clause 135.
+Step 49: Assign x15 = False. This satisfies

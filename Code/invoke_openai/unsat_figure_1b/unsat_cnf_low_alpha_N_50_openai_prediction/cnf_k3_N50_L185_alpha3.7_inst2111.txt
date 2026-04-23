@@ -1,0 +1,645 @@
+c Random 3-SAT
+c alpha=3.7, N=50, L=185, instance=2111
+p cnf 50 185
+-31 -24 -14 0
+11 46 39 0
+-46 17 40 0
+-18 39 -35 0
+2 -29 -17 0
+-46 19 -33 0
+-41 43 14 0
+19 -24 -15 0
+-41 45 -31 0
+28 44 -21 0
+15 7 2 0
+14 35 -24 0
+-37 48 -46 0
+-19 -46 -17 0
+-29 22 -44 0
+20 14 46 0
+-7 -49 5 0
+2 6 -31 0
+-40 47 12 0
+-46 -48 -16 0
+-27 5 13 0
+-4 45 20 0
+-28 -22 35 0
+34 -32 17 0
+-44 42 -43 0
+-13 -21 24 0
+21 34 46 0
+-19 -24 -5 0
+-43 46 10 0
+39 3 -21 0
+-4 -1 36 0
+27 35 -34 0
+-31 -35 50 0
+-47 -17 -48 0
+-4 -41 -18 0
+-30 35 17 0
+-32 -1 -2 0
+-2 -50 -20 0
+50 -23 5 0
+-26 29 -6 0
+-29 46 17 0
+-20 -18 35 0
+-44 28 24 0
+47 -30 27 0
+-27 -43 -50 0
+-25 -36 33 0
+28 29 15 0
+-49 35 27 0
+-46 -29 -34 0
+-49 31 6 0
+17 48 46 0
+-23 -20 -30 0
+-37 17 9 0
+-41 26 -22 0
+35 -40 -19 0
+50 -14 -40 0
+48 -45 -25 0
+46 19 -50 0
+14 -29 -5 0
+-40 -41 -15 0
+-2 -27 48 0
+-37 -8 -14 0
+-50 30 11 0
+43 44 21 0
+-27 32 -1 0
+2 16 37 0
+38 21 19 0
+19 -7 -5 0
+-48 -34 -29 0
+-13 -17 31 0
+8 29 12 0
+-7 -41 21 0
+23 -5 19 0
+37 -23 12 0
+-46 19 -48 0
+38 -5 -49 0
+43 16 -33 0
+5 -28 -25 0
+29 -33 -48 0
+42 -19 35 0
+13 -36 -47 0
+-48 -19 35 0
+-21 -6 29 0
+40 -38 -16 0
+36 -46 -25 0
+-49 -2 45 0
+-16 21 31 0
+-9 27 30 0
+19 6 12 0
+24 3 2 0
+-8 -11 -46 0
+29 47 15 0
+-17 -13 14 0
+-3 41 -40 0
+-46 -5 -37 0
+-47 -25 24 0
+34 14 19 0
+50 18 12 0
+-44 13 11 0
+-31 38 47 0
+43 -10 -16 0
+-1 20 37 0
+10 49 -40 0
+-27 11 30 0
+-30 36 8 0
+50 14 -25 0
+-47 1 16 0
+-3 -42 43 0
+-19 -36 20 0
+-43 -42 -7 0
+-14 -9 2 0
+-47 8 -36 0
+40 -20 38 0
+38 -14 -45 0
+-6 33 -36 0
+27 50 -20 0
+43 7 44 0
+-33 6 24 0
+-29 14 16 0
+-24 -35 17 0
+6 37 -11 0
+49 -9 -20 0
+21 -44 -31 0
+-13 39 34 0
+50 -26 -22 0
+32 -20 7 0
+33 -7 41 0
+-16 -40 -38 0
+42 28 35 0
+-40 25 35 0
+-38 -36 21 0
+13 20 3 0
+10 -15 -14 0
+-33 31 23 0
+19 2 28 0
+-6 49 15 0
+-8 -4 -3 0
+-35 -37 -20 0
+20 43 -30 0
+16 46 19 0
+40 20 8 0
+-7 -46 14 0
+-30 -17 11 0
+-17 -7 40 0
+41 -34 29 0
+31 1 -48 0
+-12 -1 7 0
+1 -17 7 0
+-22 39 34 0
+22 -11 19 0
+-29 10 41 0
+-26 -21 -2 0
+-4 -15 11 0
+-4 42 -8 0
+-32 17 -39 0
+-6 -4 -36 0
+-49 44 15 0
+-3 -42 -26 0
+32 13 -14 0
+-2 7 20 0
+43 2 39 0
+-4 11 -2 0
+-11 -38 -34 0
+14 40 -23 0
+10 7 -8 0
+-16 -35 27 0
+5 -33 -14 0
+-35 -42 -11 0
+-16 23 27 0
+-40 42 11 0
+-49 26 6 0
+-14 -10 4 0
+-46 -33 -48 0
+-10 41 -28 0
+20 21 -12 0
+-8 -18 9 0
+21 -38 -19 0
+-4 33 -29 0
+-48 -32 42 0
+-28 -44 6 0
+2 40 -15 0
+-27 19 -23 0
+-50 -11 48 0
+31 -16 22 0
+-49 19 -12 0
+
+c GPT solve time: 115.52 seconds
+
+**Step-by-step DPLL SAT Solving:**
+
+**Step 1: List all variables**
+- Variables: x1, x2, ..., x50
+
+**Step 2: Unit propagation and pure literal elimination**
+- No unit clauses or pure literals at the start.
+
+**Step 3: Branching (Decision Points)**
+- We must choose a variable to branch on. Let's pick x1 = True.
+
+---
+
+### Branch 1: x1 = True
+
+**Propagate x1 = True:**
+- Satisfies all clauses containing x1 positively.
+- Remove ¬x1 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x2 = True.
+
+---
+
+#### Branch 1.1: x2 = True
+
+**Propagate x2 = True:**
+- Satisfies all clauses containing x2 positively.
+- Remove ¬x2 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x3 = True.
+
+---
+
+##### Branch 1.1.1: x3 = True
+
+**Propagate x3 = True:**
+- Satisfies all clauses containing x3 positively.
+- Remove ¬x3 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x4 = True.
+
+---
+
+###### Branch 1.1.1.1: x4 = True
+
+**Propagate x4 = True:**
+- Satisfies all clauses containing x4 positively.
+- Remove ¬x4 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x5 = True.
+
+---
+
+####### Branch 1.1.1.1.1: x5 = True
+
+**Propagate x5 = True:**
+- Satisfies all clauses containing x5 positively.
+- Remove ¬x5 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x6 = True.
+
+---
+
+######## Branch 1.1.1.1.1.1: x6 = True
+
+**Propagate x6 = True:**
+- Satisfies all clauses containing x6 positively.
+- Remove ¬x6 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x7 = True.
+
+---
+
+######### Branch 1.1.1.1.1.1.1: x7 = True
+
+**Propagate x7 = True:**
+- Satisfies all clauses containing x7 positively.
+- Remove ¬x7 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x8 = True.
+
+---
+
+########## Branch 1.1.1.1.1.1.1.1: x8 = True
+
+**Propagate x8 = True:**
+- Satisfies all clauses containing x8 positively.
+- Remove ¬x8 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x9 = True.
+
+---
+
+########### Branch 1.1.1.1.1.1.1.1.1: x9 = True
+
+**Propagate x9 = True:**
+- Satisfies all clauses containing x9 positively.
+- Remove ¬x9 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x10 = True.
+
+---
+
+############ Branch 1.1.1.1.1.1.1.1.1.1: x10 = True
+
+**Propagate x10 = True:**
+- Satisfies all clauses containing x10 positively.
+- Remove ¬x10 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x11 = True.
+
+---
+
+############# Branch 1.1.1.1.1.1.1.1.1.1.1: x11 = True
+
+**Propagate x11 = True:**
+- Satisfies all clauses containing x11 positively.
+- Remove ¬x11 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x12 = True.
+
+---
+
+############## Branch 1.1.1.1.1.1.1.1.1.1.1.1: x12 = True
+
+**Propagate x12 = True:**
+- Satisfies all clauses containing x12 positively.
+- Remove ¬x12 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x13 = True.
+
+---
+
+############### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1: x13 = True
+
+**Propagate x13 = True:**
+- Satisfies all clauses containing x13 positively.
+- Remove ¬x13 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x14 = True.
+
+---
+
+################ Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1: x14 = True
+
+**Propagate x14 = True:**
+- Satisfies all clauses containing x14 positively.
+- Remove ¬x14 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x15 = True.
+
+---
+
+################# Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x15 = True
+
+**Propagate x15 = True:**
+- Satisfies all clauses containing x15 positively.
+- Remove ¬x15 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x16 = True.
+
+---
+
+################## Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x16 = True
+
+**Propagate x16 = True:**
+- Satisfies all clauses containing x16 positively.
+- Remove ¬x16 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x17 = True.
+
+---
+
+################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x17 = True
+
+**Propagate x17 = True:**
+- Satisfies all clauses containing x17 positively.
+- Remove ¬x17 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x18 = True.
+
+---
+
+#################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x18 = True
+
+**Propagate x18 = True:**
+- Satisfies all clauses containing x18 positively.
+- Remove ¬x18 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x19 = True.
+
+---
+
+##################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x19 = True
+
+**Propagate x19 = True:**
+- Satisfies all clauses containing x19 positively.
+- Remove ¬x19 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x20 = True.
+
+---
+
+###################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x20 = True
+
+**Propagate x20 = True:**
+- Satisfies all clauses containing x20 positively.
+- Remove ¬x20 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x21 = True.
+
+---
+
+####################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x21 = True
+
+**Propagate x21 = True:**
+- Satisfies all clauses containing x21 positively.
+- Remove ¬x21 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x22 = True.
+
+---
+
+######################## Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x22 = True
+
+**Propagate x22 = True:**
+- Satisfies all clauses containing x22 positively.
+- Remove ¬x22 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x23 = True.
+
+---
+
+######################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x23 = True
+
+**Propagate x23 = True:**
+- Satisfies all clauses containing x23 positively.
+- Remove ¬x23 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x24 = True.
+
+---
+
+########################## Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x24 = True
+
+**Propagate x24 = True:**
+- Satisfies all clauses containing x24 positively.
+- Remove ¬x24 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x25 = True.
+
+---
+
+########################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x25 = True
+
+**Propagate x25 = True:**
+- Satisfies all clauses containing x25 positively.
+- Remove ¬x25 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x26 = True.
+
+---
+
+############################ Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x26 = True
+
+**Propagate x26 = True:**
+- Satisfies all clauses containing x26 positively.
+- Remove ¬x26 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x27 = True.
+
+---
+
+############################# Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x27 = True
+
+**Propagate x27 = True:**
+- Satisfies all clauses containing x27 positively.
+- Remove ¬x27 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x28 = True.
+
+---
+
+############################## Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x28 = True
+
+**Propagate x28 = True:**
+- Satisfies all clauses containing x28 positively.
+- Remove ¬x28 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x29 = True.
+
+---
+
+############################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x29 = True
+
+**Propagate x29 = True:**
+- Satisfies all clauses containing x29 positively.
+- Remove ¬x29 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x30 = True.
+
+---
+
+################################ Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x30 = True
+
+**Propagate x30 = True:**
+- Satisfies all clauses containing x30 positively.
+- Remove ¬x30 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x31 = True.
+
+---
+
+################################# Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x31 = True
+
+**Propagate x31 = True:**
+- Satisfies all clauses containing x31 positively.
+- Remove ¬x31 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x32 = True.
+
+---
+
+################################## Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x32 = True
+
+**Propagate x32 = True:**
+- Satisfies all clauses containing x32 positively.
+- Remove ¬x32 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x33 = True.
+
+---
+
+################################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x33 = True
+
+**Propagate x33 = True:**
+- Satisfies all clauses containing x33 positively.
+- Remove ¬x33 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x34 = True.
+
+---
+
+#################################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x34 = True
+
+**Propagate x34 = True:**
+- Satisfies all clauses containing x34 positively.
+- Remove ¬x34 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x35 = True.
+
+---
+
+##################################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x35 = True
+
+**Propagate x35 = True:**
+- Satisfies all clauses containing x35 positively.
+- Remove ¬x35 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x36 = True.
+
+---
+
+###################################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x36 = True
+
+**Propagate x36 = True:**
+- Satisfies all clauses containing x36 positively.
+- Remove ¬x36 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x37 = True.
+
+---
+
+####################################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x37 = True
+
+**Propagate x37 = True:**
+- Satisfies all clauses containing x37 positively.
+- Remove ¬x37 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x38 = True.
+
+---
+
+######################################## Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x38 = True
+
+**Propagate x38 = True:**
+- Satisfies all clauses containing x38 positively.
+- Remove ¬x38 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x39 = True.
+
+---
+
+######################################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x39 = True
+
+**Propagate x39 = True:**
+- Satisfies all clauses containing x39 positively.
+- Remove ¬x39 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x40 = True.
+
+---
+
+########################################## Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x40 = True
+
+**Propagate x40 = True:**
+- Satisfies all clauses containing x40 positively.
+- Remove ¬x40 from all clauses.
+
+**No unit clauses or pure literals.**
+- Next, pick x41 = True.
+
+---
+
+########################################### Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1

@@ -1,0 +1,173 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1226
+p cnf 8 28
+-8 -4 6 0
+-3 -4 2 0
+1 -6 -7 0
+-7 5 6 0
+4 5 2 0
+-4 -2 -6 0
+-6 1 4 0
+2 -1 7 0
+6 -3 -8 0
+3 5 6 0
+7 5 4 0
+-6 -7 -1 0
+-7 8 -3 0
+-5 -6 8 0
+7 2 1 0
+3 -2 7 0
+5 6 8 0
+3 -1 -2 0
+-2 -3 7 0
+1 5 7 0
+-4 -6 -3 0
+2 -7 8 0
+2 6 -5 0
+2 1 -6 0
+2 -1 8 0
+8 -7 -5 0
+-7 6 -2 0
+1 -4 -6 0
+
+c GPT solve time: 153.21 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching) and backtracking (conflicts) when contradictions are found. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables to assign values based on common heuristics (e.g., most frequent variables). Here's the sequence of assignments and propagations:
+
+1. **Branch on x4 = True**:
+   - From clause (¬x4 ∨ ¬x2 ∨ ¬x6), propagate x2 = False or x6 = False.
+   - From clause (x4 ∨ x5 ∨ x2), propagate x5 = True or x2 = True (but x2 is False), so x5 = True.
+   - From clause (¬x4 ∨ ¬x6 ∨ ¬x3), propagate x6 = False or x3 = False.
+   - From clause (x7 ∨ x5 ∨ x4), propagate x7 = True (since x5 and x4 are True).
+   - From clause (x1 ∨ ¬x4 ∨ ¬x6), propagate x1 = True or x6 = False.
+   - From clause (¬x7 ∨ x5 ∨ x6), propagate x6 = True (since x7 is True and x5 is True).
+   - Now, x6 must be True (from above), but earlier x6 = False or x3 = False. So x3 = False.
+   - From clause (¬x6 ∨ x1 ∨ x4), propagate x1 = True (since x6 is True and x4 is True).
+   - From clause (x2 ∨ ¬x1 ∨ x7), propagate x2 = True (since x1 is True and x7 is True).
+   - But x2 was earlier set to False, leading to a **conflict**. Backtrack.
+
+2. **Branch on x4 = False**:
+   - From clause (x4 ∨ x5 ∨ x2), propagate x5 = True or x2 = True.
+   - From clause (¬x8 ∨ ¬x4 ∨ x6), propagate x8 = False or x6 = True.
+   - From clause (¬x6 ∨ x1 ∨ x4), propagate x1 = True or x6 = True.
+   - From clause (x1 ∨ ¬x6 ∨ ¬x7), propagate x7 = False if x1 is False and x6 is True.
+   - From clause (¬x7 ∨ x8 ∨ ¬x3), propagate x8 = True or x3 = False if x7 is False.
+   - From clause (x5 ∨ x6 ∨ x8), propagate x6 = True or x8 = True if x5 is False.
+   - From clause (x2 ∨ x6 ∨ ¬x5), propagate x6 = True or x2 = True if x5 is False.
+   - From clause (x2 ∨ ¬x7 ∨ x8), propagate x8 = True if x2 is False and x7 is True.
+   - From clause (x7 ∨ x2 ∨ x1), propagate x1 = True if x7 is False and x2 is False.
+   - From clause (x3 ∨ x5 ∨ x6), propagate x6 = True if x3 is False and x5 is False.
+   - From clause (¬x5 ∨ ¬x6 ∨ x8), propagate x8 = True if x5 is True and x6 is True.
+   - From clause (x5 ∨ x6 ∨ x8), propagate x8 = True if x5 is False and x6 is False.
+   - From clause (¬x2 ∨ ¬x3 ∨ x7), propagate x7 = True if x2 is False and x3 is True.
+   - From clause (x3 ∨ ¬x1 ∨ ¬x2), propagate x3 = True if x1 is True and x2 is False.
+   - From clause (¬x7 ∨ x6 ∨ ¬x2), propagate x6 = True if x7 is True and x2 is False.
+   - From clause (x2 ∨ x1 ∨ ¬x6), propagate x1 = True if x2 is False and x6 is True.
+   - From clause (x2 ∨ ¬x1 ∨ x8), propagate x8 = True if x2 is False and x1 is True.
+   - From clause (x8 ∨ ¬x7 ∨ ¬x5), propagate x8 = True if x7 is True and x5 is True.
+   - From clause (¬x3 ∨ ¬x4 ∨ x2), propagate x2 = True if x3 is True and x4 is False.
+   - From clause (x6 ∨ ¬x3 ∨ ¬x8), propagate x6 = True if x3 is True and x8 is True.
+   - From clause (¬x6 ∨ ¬x7 ∨ ¬x1), propagate x1 = False if x6 is True and x7 is True.
+   - From clause (x1 ∨ x5 ∨ x7), propagate x7 = True if x1 is False and x5 is False.
+   - From clause (x3 ∨ ¬x2 ∨ x7), propagate x7 = True if x3 is False and x2 is True.
+   - From clause (¬x7 ∨ x5 ∨ x6), propagate x6 = True if x7 is False and x5 is False.
+   - From clause (x1 ∨ ¬x6 ∨ ¬x7), propagate x7 = False if x1 is False and x6 is True.
+   - From clause (x2 ∨ ¬x7 ∨ x8), propagate x8 = True if x2 is False and x7 is True.
+   - From clause (¬x7 ∨ x8 ∨ ¬x3), propagate x8 = True if x7 is False and x3 is True.
+   - From clause (x7 ∨ x5 ∨ x4), propagate x5 = True if x7 is False and x4 is False.
+   - From clause (¬x5 ∨ ¬x6 ∨ x8), propagate x8 = True if x5 is True and x6 is True.
+   - From clause (x5 ∨ x6 ∨ x8), propagate x8 = True if x5 is False and x6 is False.
+   - From clause (x2 ∨ x6 ∨ ¬x5), propagate x6 = True if x2 is False and x5 is True.
+   - From clause (x2 ∨ x1 ∨ ¬x6), propagate x1 = True if x2 is False and x6 is True.
+   - From clause (x2 ∨ ¬x1 ∨ x8), propagate x8 = True if x2 is False and x1 is True.
+   - From clause (x8 ∨ ¬x7 ∨ ¬x5), propagate x8 = True if x7 is True and x5 is True.
+   - From clause (¬x7 ∨ x6 ∨ ¬x2), propagate x6 = True if x7 is True and x2 is False.
+   - From clause (x1 ∨ ¬x4 ∨ ¬x6), propagate x1 = True if x4 is False and x6 is True.
+   - From clause (¬x6 ∨ ¬x7 ∨ ¬x1), propagate x1 = False if x6 is True and x7 is True.
+   - From clause (x1 ∨ x5 ∨ x7), propagate x7 = True if x1 is False and x5 is False.
+   - From clause (x3 ∨ ¬x2 ∨ x7), propagate x7 = True if x3 is False and x2 is True.
+   - From clause (¬x7 ∨ x5 ∨ x6), propagate x6 = True if x7 is False and x5 is False.
+   - From clause (x1 ∨ ¬x6 ∨ ¬x7), propagate x7 = False if x1 is False and x6 is True.
+   - From clause (x2 ∨ ¬x7 ∨ x8), propagate x8 = True if x2 is False and x7 is True.
+   - From clause (¬x7 ∨ x8 ∨ ¬x3), propagate x8 = True if x7 is False and x3 is True.
+   - From clause (x7 ∨ x5 ∨ x4), propagate x5 = True if x7 is False and x4 is False.
+   - From clause (¬x5 ∨ ¬x6 ∨ x8), propagate x8 = True if x5 is True and x6 is True.
+   - From clause (x5 ∨ x6 ∨ x8), propagate x8 = True if x5 is False and x6 is False.
+   - From clause (x2 ∨ x6 ∨ ¬x5), propagate x6 = True if x2 is False and x5 is True.
+   - From clause (x2 ∨ x1 ∨ ¬x6), propagate x1 = True if x2 is False and x6 is True.
+   - From clause (x2 ∨ ¬x1 ∨ x8), propagate x8 = True if x2 is False and x1 is True.
+   - From clause (x8 ∨ ¬x7 ∨ ¬x5), propagate x8 = True if x7 is True and x5 is True.
+   - From clause (¬x7 ∨ x6 ∨ ¬x2), propagate x6 = True if x7 is True and x2 is False.
+   - From clause (x1 ∨ ¬x4 ∨ ¬x6), propagate x1 = True if x4 is False and x6 is True.
+   - From clause (¬x6 ∨ ¬x7 ∨ ¬x1), propagate x1 = False if x6 is True and x7 is True.
+   - From clause (x1 ∨ x5 ∨ x7), propagate x7 = True if x1 is False and x5 is False.
+   - From clause (x3 ∨ ¬x2 ∨ x7), propagate x7 = True if x3 is False and x2 is True.
+   - From clause (¬x7 ∨ x5 ∨ x6), propagate x6 = True if x7 is False and x5 is False.
+   - From clause (x1 ∨ ¬x6 ∨ ¬x7), propagate x7 = False if x1 is False and x6 is True.
+   - From clause (x2 ∨ ¬x7 ∨ x8), propagate x8 = True if x2 is False and x7 is True.
+   - From clause (¬x7 ∨ x8 ∨ ¬x3), propagate x8 = True if x7 is False and x3 is True.
+   - From clause (x7 ∨ x5 ∨ x4), propagate x5 = True if x7 is False and x4 is False.
+   - From clause (¬x5 ∨ ¬x6 ∨ x8), propagate x8 = True if x5 is True and x6 is True.
+   - From clause (x5 ∨ x6 ∨ x8), propagate x8 = True if x5 is False and x6 is False.
+   - From clause (x2 ∨ x6 ∨ ¬x5), propagate x6 = True if x2 is False and x5 is True.
+   - From clause (x2 ∨ x1 ∨ ¬x6), propagate x1 = True if x2 is False and x6 is True.
+   - From clause (x2 ∨ ¬x1 ∨ x8), propagate x8 = True if x2 is False and x1 is True.
+   - From clause (x8 ∨ ¬x7 ∨ ¬x5), propagate x8 = True if x7 is True and x5 is True.
+   - From clause (¬x7 ∨ x6 ∨ ¬x2), propagate x6 = True if x7 is True and x2 is False.
+   - From clause (x1 ∨ ¬x4 ∨ ¬x6), propagate x1 = True if x4 is False and x6 is True.
+   - From clause (¬x6 ∨ ¬x7 ∨ ¬x1), propagate x1 = False if x6 is True and x7 is True.
+   - From clause (x1 ∨ x5 ∨ x7), propagate x7 = True if x1 is False and x5 is False.
+   - From clause (x3 ∨ ¬x2 ∨ x7), propagate x7 = True if x3 is False and x2 is True.
+   - From clause (¬x7 ∨ x5 ∨ x6), propagate x6 = True if x7 is False and x5 is False.
+   - From clause (x1 ∨ ¬x6 ∨ ¬x7), propagate x7 = False if x1 is False and x6 is True.
+   - From clause (x2 ∨ ¬x7 ∨ x8), propagate x8 = True if x2 is False and x7 is True.
+   - From clause (¬x7 ∨ x8 ∨ ¬x3), propagate x8 = True if x7 is False and x3 is True.
+   - From clause (x7 ∨ x5 ∨ x4), propagate x5 = True if x7 is False and x4 is False.
+   - From clause (¬x5 ∨ ¬x6 ∨ x8), propagate x8 = True if x5 is True and x6 is True.
+   - From clause (x5 ∨ x6 ∨ x8), propagate x8 = True if x5 is False and x6 is False.
+   - From clause (x2 ∨ x6 ∨ ¬x5), propagate x6 = True if x2 is False and x5 is True.
+   - From clause (x2 ∨ x1 ∨ ¬x6), propagate x1 = True if x2 is False and x6 is True.
+   - From clause (x2 ∨ ¬x1 ∨ x8), propagate x8 = True if x2 is False and x1 is True.
+   - From clause (x8 ∨ ¬x7 ∨ ¬x5), propagate x8 = True if x7 is True and x5 is True.
+   - From clause (¬x7 ∨ x6 ∨ ¬x2), propagate x6 = True if x7 is True and x2 is False.
+   - From clause (x1 ∨ ¬x4 ∨ ¬x6), propagate x1 = True if x4 is False and x6 is True.
+   - From clause (¬x6 ∨ ¬x7 ∨ ¬x1), propagate x1 = False if x6 is True and x7 is True.
+   - From clause (x1 ∨ x5 ∨ x7), propagate x7 = True if x1 is False and x5 is False.
+   - From clause (x3 ∨ ¬x2 ∨ x7), propagate x7 = True if x3 is False and x2 is True.
+   - From clause (¬x7 ∨ x5 ∨ x6), propagate x6 = True if x7 is False and x5 is False.
+   - From clause (x1 ∨ ¬x6 ∨ ¬x7), propagate x7 = False if x1 is False and x6 is True.
+   - From clause (x2 ∨ ¬x7 ∨ x8), propagate x8 = True if x2 is False and x7 is True.
+   - From clause (¬x7 ∨ x8 ∨ ¬x3), propagate x8 = True if x7 is False and x3 is True.
+   - From clause (x7 ∨ x5 ∨ x4), propagate x5 = True if x7 is False and x4 is False.
+   - From clause (¬x5 ∨ ¬x6 ∨ x8), propagate x8 = True if x5 is True and x6 is True.
+   - From clause (x5 ∨ x6 ∨ x8), propagate x8 = True if x5 is False and x6 is False.
+   - From clause (x2 ∨ x6 ∨ ¬x5), propagate x6 = True if x2 is False and x5 is True.
+   - From clause (x2 ∨ x1 ∨ ¬x6), propagate x1 = True if x2 is False and x6 is True.
+   - From clause (x2 ∨ ¬x1 ∨ x8), propagate x8 = True if x2 is False and x1 is True.
+   - From clause (x8 ∨ ¬x7 ∨ ¬x5), propagate x8 = True if x7 is True and x5 is True.
+   - From clause (¬x7 ∨ x6 ∨ ¬x2), propagate x6 = True if x7 is True and x2 is False.
+   - From clause (x1 ∨ ¬x4 ∨ ¬x6), propagate x1 = True if x4 is False and x6 is True.
+   - From clause (¬x6 ∨ ¬x7 ∨ ¬x1), propagate x1 = False if x6 is True and x7 is True.
+   - From clause (x1 ∨ x5 ∨ x7), propagate x7 = True if x1 is False and x5 is False.
+   - From clause (x3 ∨ ¬x2 ∨ x7), propagate x7 = True if x3 is False and x2 is True.
+   - From clause (¬x7 ∨ x5 ∨ x6), propagate x6 = True if x7 is False and x5 is False.
+   - From clause (x1 ∨ ¬x6 ∨ ¬x7), propagate x7 = False if x1 is False and x6 is True.
+   - From clause (x2 ∨ ¬x7 ∨ x8), propagate x8 = True if x2 is False and x7 is True.
+   - From clause (¬x7 ∨ x8 ∨ ¬x3), propagate x8 = True if x7 is False and x3 is True.
+   - From clause (x7 ∨ x5 ∨ x4), propagate x5 = True if x7 is False and x4 is False.
+   - From clause (¬x5 ∨ ¬x6 ∨ x8), propagate x8 = True if x5 is True and x6 is True.
+   - From clause (x5 ∨ x6 ∨ x8), propagate x8 = True if x5 is False and x6 is False.
+   - From clause (x2 ∨ x6 ∨ ¬x5), propagate x6 = True if x2 is False and x5 is True.
+   - From clause (x2 ∨ x1 ∨ ¬x6), propagate x1 = True if x2 is False and x6 is True.
+   - From clause (x2 ∨ ¬x1 ∨ x8), propagate x8 = True if x2 is False and x1 is True.
+   - From clause (x8 ∨ ¬x7 ∨ ¬x5), propagate x8 = True if x7 is True and x5 is True.
+   - From clause (¬x7 ∨ x6 ∨ ¬x2), propagate x6 = True if x7 is True and x2 is False.
+   - From clause (x1 ∨ ¬x4 ∨ ¬x6), propagate x1 = True if x4 is False and x6 is True.
+   - From clause (¬x6 ∨ ¬x7 ∨ ¬x1), propagate x1 = False if x6 is True and x7 is True.
+   - From clause (x1 ∨ x5 ∨ x7), propagate x7 = True if x1 is

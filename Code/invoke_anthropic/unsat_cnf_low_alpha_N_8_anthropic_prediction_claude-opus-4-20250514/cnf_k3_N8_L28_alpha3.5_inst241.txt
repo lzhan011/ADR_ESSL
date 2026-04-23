@@ -1,0 +1,77 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=241
+p cnf 8 28
+4 -5 8 0
+-8 7 3 0
+1 -2 -5 0
+8 -5 3 0
+-8 -1 -4 0
+6 -5 1 0
+-3 -5 -6 0
+-8 -3 5 0
+-8 4 5 0
+-7 -4 5 0
+8 7 1 0
+6 -3 -4 0
+6 1 -4 0
+8 -7 -4 0
+1 3 -4 0
+-2 -6 -7 0
+5 4 -7 0
+6 -2 -1 0
+-2 -5 4 0
+2 4 -5 0
+-1 8 2 0
+-8 6 7 0
+4 1 -6 0
+-2 5 -4 0
+6 -3 8 0
+4 6 5 0
+3 4 -1 0
+-1 8 5 0
+
+c GPT solve time: 18.88 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Starting with the formula, I'll track decisions (branches) and conflicts (backtracking).
+
+**Initial state**: All variables unassigned.
+
+**Branch 1**: Assign x1 = true
+- No unit propagation triggered
+- No conflicts
+
+**Branch 2**: Assign x2 = true
+- Check clause 16: (¬x2 ∨ ¬x6 ∨ ¬x7) → (¬x6 ∨ ¬x7) must be true
+- Check clause 18: (x6 ∨ ¬x2 ∨ ¬x1) → x6 must be true (unit clause)
+- Propagate x6 = true
+- Now clause 16 becomes: ¬x7 must be true
+- Propagate x7 = false
+- No conflicts yet
+
+**Branch 3**: Assign x3 = true
+- Check clause 7: (¬x3 ∨ ¬x5 ∨ ¬x6) → ¬x5 must be true (since x3=true, x6=true)
+- Propagate x5 = false
+- Check clause 8: (¬x8 ∨ ¬x3 ∨ x5) → ¬x8 must be true (since x3=true, x5=false)
+- Propagate x8 = false
+- Check clause 1: (x4 ∨ ¬x5 ∨ x8) → x4 must be true (since x5=false, x8=false)
+- Propagate x4 = true
+
+**Checking all clauses with current assignment**:
+- x1=true, x2=true, x3=true, x4=true, x5=false, x6=true, x7=false, x8=false
+
+Verifying each clause:
+1. (x4 ∨ ¬x5 ∨ x8) = (true ∨ true ∨ false) = true ✓
+2. (¬x8 ∨ x7 ∨ x3) = (true ∨ false ∨ true) = true ✓
+3. (x1 ∨ ¬x2 ∨ ¬x5) = (true ∨ false ∨ true) = true ✓
+4. (x8 ∨ ¬x5 ∨ x3) = (false ∨ true ∨ true) = true ✓
+5. (¬x8 ∨ ¬x1 ∨ ¬x4) = (true ∨ false ∨ false) = true ✓
+6. (x6 ∨ ¬x5 ∨ x1) = (true ∨ true ∨ true) = true ✓
+7. (¬x3 ∨ ¬x5 ∨ ¬x6) = (false ∨ true ∨ false) = true ✓
+8. (¬x8 ∨ ¬x3 ∨ x5) = (true ∨ false ∨ false) = true ✓
+9. (¬x8 ∨ x4 ∨ x5) = (true ∨ true ∨ false) = true ✓
+10. (¬x7 ∨ ¬x4 ∨ x5) = (true ∨ false ∨ false) = true ✓
+11. (x8 ∨ x7 ∨ x1) = (false ∨ false ∨ true) = true ✓
+12. (x6 ∨ ¬x3 ∨ ¬x4) = (true ∨ false ∨ false) = true ✓
+13. (x6

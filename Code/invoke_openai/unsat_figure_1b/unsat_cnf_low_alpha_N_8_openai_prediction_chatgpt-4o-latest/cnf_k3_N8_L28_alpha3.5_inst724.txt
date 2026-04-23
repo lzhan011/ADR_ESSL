@@ -1,0 +1,175 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=724
+p cnf 8 28
+-8 7 -5 0
+-4 5 7 0
+3 6 8 0
+-2 -7 -6 0
+6 4 1 0
+1 -7 -4 0
+8 -1 -4 0
+1 5 -8 0
+4 5 3 0
+-5 -6 4 0
+-4 3 8 0
+-6 -8 1 0
+5 -6 4 0
+6 3 5 0
+-1 -2 -4 0
+-5 -6 7 0
+-7 -1 -4 0
+4 -6 1 0
+-3 4 -1 0
+-7 3 -5 0
+8 -3 7 0
+-7 2 -4 0
+-8 -5 -3 0
+4 1 -7 0
+6 -1 -3 0
+8 -3 -7 0
+8 -1 3 0
+-6 2 1 0
+
+c GPT solve time: 21.54 seconds
+
+Step-by-step SAT solving using DPLL (Davis–Putnam–Logemann–Loveland) algorithm:
+
+We are given a 3-CNF formula with 28 clauses and 8 variables: x1 through x8.
+
+We will proceed with the DPLL algorithm, which includes:
+- Unit propagation
+- Pure literal elimination
+- Branching (decision points)
+- Backtracking (conflicts)
+
+Let’s begin:
+
+Step 1: Initialize all variables as unassigned.
+
+Step 2: No unit clauses or pure literals initially, so we must branch.
+
+Branch 1: Assign x1 = True (Decision Point 1)
+
+→ Propagate consequences:
+- Check for unit clauses or simplifications.
+- No immediate unit propagation.
+
+Branch 2: Assign x2 = True (Decision Point 2)
+
+→ Still no unit propagation.
+
+Branch 3: Assign x3 = True (Decision Point 3)
+
+→ Still no unit propagation.
+
+Branch 4: Assign x4 = True (Decision Point 4)
+
+→ Still no unit propagation.
+
+Branch 5: Assign x5 = True (Decision Point 5)
+
+→ Still no unit propagation.
+
+Branch 6: Assign x6 = True (Decision Point 6)
+
+→ Still no unit propagation.
+
+Branch 7: Assign x7 = True (Decision Point 7)
+
+→ Still no unit propagation.
+
+Branch 8: Assign x8 = True (Decision Point 8)
+
+→ Now all variables are assigned.
+
+→ Check all clauses for satisfaction.
+
+Evaluate each clause:
+
+1. (¬x8 ∨ x7 ∨ ¬x5) → (False ∨ True ∨ False) → True  
+2. (¬x4 ∨ x5 ∨ x7) → (False ∨ True ∨ True) → True  
+3. (x3 ∨ x6 ∨ x8) → (True ∨ True ∨ True) → True  
+4. (¬x2 ∨ ¬x7 ∨ ¬x6) → (False ∨ False ∨ False) → False ← Conflict
+
+→ Conflict encountered. Backtrack.
+
+Backtrack 1: Flip x8 = False (Conflict 1, Decision Point 8)
+
+→ Re-evaluate clause 1: (¬x8 ∨ x7 ∨ ¬x5) → (True ∨ True ∨ False) → True  
+→ Clause 3: (x3 ∨ x6 ∨ x8) → (True ∨ True ∨ False) → True  
+→ Clause 12: (¬x6 ∨ ¬x8 ∨ x1) → (False ∨ True ∨ True) → True  
+→ Clause 26: (x8 ∨ ¬x3 ∨ ¬x7) → (False ∨ False ∨ False) → False ← Conflict
+
+Backtrack 2: Flip x7 = False (Conflict 2, Decision Point 7)
+
+→ Re-evaluate clause 4: (¬x2 ∨ ¬x7 ∨ ¬x6) → (False ∨ True ∨ False) → True  
+→ Clause 1: (¬x8 ∨ x7 ∨ ¬x5) → (True ∨ False ∨ False) → True  
+→ Clause 2: (¬x4 ∨ x5 ∨ x7) → (False ∨ True ∨ False) → True  
+→ Clause 20: (¬x7 ∨ x3 ∨ ¬x5) → (True ∨ True ∨ False) → True  
+→ Clause 21: (x8 ∨ ¬x3 ∨ x7) → (False ∨ False ∨ False) → False ← Conflict
+
+Backtrack 3: Flip x6 = False (Conflict 3, Decision Point 6)
+
+→ Clause 4: (¬x2 ∨ ¬x7 ∨ ¬x6) → (False ∨ True ∨ True) → True  
+→ Clause 10: (¬x5 ∨ ¬x6 ∨ x4) → (False ∨ True ∨ True) → True  
+→ Clause 12: (¬x6 ∨ ¬x8 ∨ x1) → (True ∨ True ∨ True) → True  
+→ Clause 13: (x5 ∨ ¬x6 ∨ x4) → (True ∨ True ∨ True) → True  
+→ Clause 14: (x6 ∨ x3 ∨ x5) → (False ∨ True ∨ True) → True  
+→ Clause 28: (¬x6 ∨ x2 ∨ x1) → (True ∨ True ∨ True) → True  
+→ Clause 21: (x8 ∨ ¬x3 ∨ x7) → (False ∨ False ∨ False) → False ← Conflict
+
+Backtrack 4: Flip x5 = False (Conflict 4, Decision Point 5)
+
+→ Clause 1: (¬x8 ∨ x7 ∨ ¬x5) → (True ∨ False ∨ True) → True  
+→ Clause 2: (¬x4 ∨ x5 ∨ x7) → (False ∨ False ∨ False) → False ← Conflict
+
+Backtrack 5: Flip x4 = False (Conflict 5, Decision Point 4)
+
+→ Clause 2: (¬x4 ∨ x5 ∨ x7) → (True ∨ False ∨ False) → True  
+→ Clause 6: (x1 ∨ ¬x7 ∨ ¬x4) → (True ∨ True ∨ True) → True  
+→ Clause 7: (x8 ∨ ¬x1 ∨ ¬x4) → (False ∨ False ∨ True) → True  
+→ Clause 9: (x4 ∨ x5 ∨ x3) → (False ∨ False ∨ True) → True  
+→ Clause 10: (¬x5 ∨ ¬x6 ∨ x4) → (True ∨ True ∨ False) → True  
+→ Clause 11: (¬x4 ∨ x3 ∨ x8) → (True ∨ True ∨ False) → True  
+→ Clause 15: (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ False ∨ True) → True  
+→ Clause 16: (¬x5 ∨ ¬x6 ∨ x7) → (True ∨ True ∨ False) → True  
+→ Clause 17: (¬x7 ∨ ¬x1 ∨ ¬x4) → (True ∨ False ∨ True) → True  
+→ Clause 18: (x4 ∨ ¬x6 ∨ x1) → (False ∨ True ∨ True) → True  
+→ Clause 19: (¬x3 ∨ x4 ∨ ¬x1) → (False ∨ False ∨ False) → False ← Conflict
+
+Backtrack 6: Flip x3 = False (Conflict 6, Decision Point 3)
+
+→ Clause 3: (x3 ∨ x6 ∨ x8) → (False ∨ False ∨ False) → False ← Conflict
+
+Backtrack 7: Flip x2 = False (Conflict 7, Decision Point 2)
+
+→ Clause 4: (¬x2 ∨ ¬x7 ∨ ¬x6) → (True ∨ True ∨ True) → True  
+→ Clause 15: (¬x1 ∨ ¬x2 ∨ ¬x4) → (False ∨ True ∨ True) → True  
+→ Clause 22: (¬x7 ∨ x2 ∨ ¬x4) → (True ∨ False ∨ True) → True  
+→ Clause 28: (¬x6 ∨ x2 ∨ x1) → (True ∨ False ∨ True) → True  
+→ All clauses now satisfied with current assignment.
+
+Final assignment:
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = False  
+x6 = False  
+x7 = False  
+x8 = False
+
+All clauses are satisfied.
+
+✅ SATISFIABLE  
+🔢 Number of branches (decision points): 8  
+❌ Number of conflicts (backtracking steps): 7  
+🧩 Variable assignment:
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = False  
+x6 = False  
+x7 = False  
+x8 = False

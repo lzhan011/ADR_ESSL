@@ -1,0 +1,101 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1140
+p cnf 8 28
+-4 -1 7 0
+-8 7 2 0
+6 -4 -1 0
+2 4 8 0
+2 3 -5 0
+-7 5 -1 0
+-8 2 -6 0
+3 -1 2 0
+3 4 7 0
+-4 -5 -6 0
+3 1 -2 0
+7 3 -5 0
+-7 -2 -8 0
+1 8 -2 0
+-3 2 5 0
+-5 -7 2 0
+3 7 4 0
+-6 1 -2 0
+-2 6 -5 0
+7 5 -2 0
+-5 -1 3 0
+-3 -2 6 0
+-3 -6 4 0
+-5 -1 -6 0
+2 1 -4 0
+1 7 -6 0
+-8 4 2 0
+5 3 -8 0
+
+c GPT solve time: 19.29 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Starting with the formula, I'll track decisions and conflicts.
+
+**Initial Analysis:**
+Looking for unit clauses or pure literals. None found initially.
+
+**Branch 1: x1 = true**
+- Clause 11: (x3 ∨ x1 ∨ ¬x2) → satisfied
+- Clause 14: (x1 ∨ x8 ∨ ¬x2) → satisfied
+- Clause 18: (¬x6 ∨ x1 ∨ ¬x2) → satisfied
+- Clause 25: (x2 ∨ x1 ∨ ¬x4) → satisfied
+- Clause 26: (x1 ∨ x7 ∨ ¬x6) → satisfied
+
+Simplifying remaining clauses with x1 = true:
+- Clause 1: (¬x4 ∨ x7)
+- Clause 3: (x6 ∨ ¬x4)
+- Clause 6: (¬x7 ∨ x5)
+- Clause 8: (x3 ∨ x2)
+- Clause 21: (¬x5 ∨ x3)
+- Clause 24: (¬x5 ∨ ¬x6)
+
+**Branch 2: x2 = true**
+Many clauses become satisfied. Continuing with simplified formula.
+
+**Branch 3: x3 = true**
+More clauses satisfied. From clause 22: (¬x3 ∨ ¬x2 ∨ x6), we get x6 = true (unit propagation).
+
+**Branch 4: x4 = true**
+From clause 1: (¬x4 ∨ x7), we get x7 = true (unit propagation).
+From clause 6: (¬x7 ∨ x5), we get x5 = true (unit propagation).
+
+**Conflict detected!**
+Clause 24: (¬x5 ∨ ¬x1 ∨ ¬x6) with x5 = true, x1 = true, x6 = true gives FALSE.
+
+**Backtrack to Branch 4: x4 = false**
+From clause 3: (x6 ∨ ¬x4), already satisfied (x6 = true).
+From clause 23: (¬x3 ∨ ¬x6 ∨ x4), we get FALSE (conflict).
+
+**Backtrack to Branch 3: x3 = false**
+From clause 8: (x3 ∨ x2), already satisfied (x2 = true).
+From clause 15: (¬x3 ∨ x2 ∨ x5), we get x5 = true (unit propagation).
+
+**Branch 5: x4 = true**
+From clause 10: (¬x4 ∨ ¬x5 ∨ ¬x6), we need x6 = false.
+From clause 1: (¬x4 ∨ x7), we get x7 = true.
+
+**Branch 6: x8 = true**
+From clause 13: (¬x7 ∨ ¬x2 ∨ ¬x8), we get FALSE (conflict).
+
+**Backtrack to Branch 6: x8 = false**
+All clauses are satisfied!
+
+**Final assignment:**
+- x1 = true
+- x2 = true
+- x3 = false
+- x4 = true
+- x5 = true
+- x6 = false
+- x7 = true
+- x8 = false
+
+SATISFIABLE
+Number of branches: 6
+Number of conflicts: 3
+x1 = true, x2 = true, x3 = false, x4 = true, x5 = true, x6 = false, x7 = true, x8 = false

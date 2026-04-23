@@ -1,0 +1,153 @@
+c Random 3-SAT
+c alpha=5.0, N=5, L=25, instance=4
+p cnf 5 25
+-1 3 -5 0
+-2 -5 -4 0
+-1 3 -2 0
+-1 -3 5 0
+1 4 -5 0
+-4 5 3 0
+1 -4 -2 0
+3 1 5 0
+-2 -1 -3 0
+-1 -5 -3 0
+4 2 -3 0
+2 -4 3 0
+-2 4 1 0
+-3 1 -4 0
+1 5 -3 0
+-2 5 -1 0
+5 3 4 0
+5 2 3 0
+-2 -3 -4 0
+-3 4 5 0
+1 3 -2 0
+-2 3 4 0
+5 -3 -1 0
+-5 -2 -4 0
+3 4 5 0
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, a backtracking-based search algorithm for determining the satisfiability of propositional logic formulas. Here's the step-by-step process:
+
+### Step 1: Initial Setup
+The formula consists of 25 clauses over variables \( x1, x2, x3, x4, x5 \). We start with no assignments and proceed to make decisions and propagate unit clauses.
+
+### Step 2: Unit Propagation and Decisions
+We will make decisions on variables, propagate implications, and backtrack if a conflict arises.
+
+#### Decision 1: Assign \( x1 = \text{True} \)
+- Clause 5: \( (x1 \lor x4 \lor \lnot x5) \) is satisfied.
+- Clause 7: \( (x1 \lor \lnot x4 \lor \lnot x2) \) is satisfied.
+- Clause 8: \( (x3 \lor x1 \lor x5) \) is satisfied.
+- Clause 13: \( (\lnot x2 \lor x4 \lor x1) \) is satisfied.
+- Clause 14: \( (\lnot x3 \lor x1 \lor \lnot x4) \) is satisfied.
+- Clause 15: \( (x1 \lor x5 \lor \lnot x3) \) is satisfied.
+- Clause 16: \( (\lnot x2 \lor x5 \lor \lnot x1) \) simplifies to \( (\lnot x2 \lor x5) \).
+- Clause 21: \( (x1 \lor x3 \lor \lnot x2) \) is satisfied.
+- Clause 23: \( (x5 \lor \lnot x3 \lor \lnot x1) \) simplifies to \( (x5 \lor \lnot x3) \).
+
+Now, we look for unit clauses:
+- No unit clauses yet, so we make another decision.
+
+#### Decision 2: Assign \( x2 = \text{True} \)
+- Clause 2: \( (\lnot x2 \lor \lnot x5 \lor \lnot x4) \) simplifies to \( (\lnot x5 \lor \lnot x4) \).
+- Clause 3: \( (\lnot x1 \lor x3 \lor \lnot x2) \) simplifies to \( (\lnot x1 \lor x3) \), already satisfied.
+- Clause 9: \( (\lnot x2 \lor \lnot x1 \lor \lnot x3) \) simplifies to \( (\lnot x1 \lor \lnot x3) \), already satisfied.
+- Clause 12: \( (x2 \lor \lnot x4 \lor x3) \) is satisfied.
+- Clause 19: \( (\lnot x2 \lor \lnot x3 \lor \lnot x4) \) simplifies to \( (\lnot x3 \lor \lnot x4) \).
+- Clause 22: \( (\lnot x2 \lor x3 \lor x4) \) simplifies to \( (x3 \lor x4) \).
+- Clause 24: \( (\lnot x5 \lor \lnot x2 \lor \lnot x4) \) simplifies to \( (\lnot x5 \lor \lnot x4) \).
+
+Now, we look for unit clauses:
+- No unit clauses yet, so we make another decision.
+
+#### Decision 3: Assign \( x3 = \text{True} \)
+- Clause 1: \( (\lnot x1 \lor x3 \lor \lnot x5) \) is satisfied.
+- Clause 4: \( (\lnot x1 \lor \lnot x3 \lor x5) \) simplifies to \( (\lnot x1 \lor x5) \), already satisfied.
+- Clause 6: \( (\lnot x4 \lor x5 \lor x3) \) is satisfied.
+- Clause 10: \( (\lnot x1 \lor \lnot x5 \lor \lnot x3) \) simplifies to \( (\lnot x1 \lor \lnot x5) \).
+- Clause 11: \( (x4 \lor x2 \lor \lnot x3) \) simplifies to \( (x4 \lor x2) \), already satisfied.
+- Clause 17: \( (x5 \lor x3 \lor x4) \) is satisfied.
+- Clause 18: \( (x5 \lor x2 \lor x3) \) is satisfied.
+- Clause 20: \( (\lnot x3 \lor x4 \lor x5) \) simplifies to \( (x4 \lor x5) \).
+- Clause 25: \( (x3 \lor x4 \lor x5) \) is satisfied.
+
+Now, we look for unit clauses:
+- Clause 10: \( (\lnot x1 \lor \lnot x5) \) implies \( \lnot x5 \) (since \( x1 \) is True).
+  - Assign \( x5 = \text{False} \).
+    - Clause 16: \( (\lnot x2 \lor x5) \) simplifies to \( (\lnot x2) \), which conflicts with \( x2 = \text{True} \).
+
+#### Conflict Detected
+We backtrack to Decision 3 and try \( x3 = \text{False} \).
+
+#### Decision 3 (Backtrack): Assign \( x3 = \text{False} \)
+- Clause 1: \( (\lnot x1 \lor x3 \lor \lnot x5) \) simplifies to \( (\lnot x1 \lor \lnot x5) \), already satisfied.
+- Clause 3: \( (\lnot x1 \lor x3 \lor \lnot x2) \) simplifies to \( (\lnot x1 \lor \lnot x2) \), already satisfied.
+- Clause 4: \( (\lnot x1 \lor \lnot x3 \lor x5) \) simplifies to \( (\lnot x1 \lor x5) \), already satisfied.
+- Clause 6: \( (\lnot x4 \lor x5 \lor x3) \) simplifies to \( (\lnot x4 \lor x5) \).
+- Clause 10: \( (\lnot x1 \lor \lnot x5 \lor \lnot x3) \) simplifies to \( (\lnot x1 \lor \lnot x5) \), already satisfied.
+- Clause 11: \( (x4 \lor x2 \lor \lnot x3) \) simplifies to \( (x4 \lor x2) \), already satisfied.
+- Clause 14: \( (\lnot x3 \lor x1 \lor \lnot x4) \) simplifies to \( (x1 \lor \lnot x4) \), already satisfied.
+- Clause 15: \( (x1 \lor x5 \lor \lnot x3) \) simplifies to \( (x1 \lor x5) \), already satisfied.
+- Clause 17: \( (x5 \lor x3 \lor x4) \) simplifies to \( (x5 \lor x4) \).
+- Clause 18: \( (x5 \lor x2 \lor x3) \) simplifies to \( (x5 \lor x2) \), already satisfied.
+- Clause 19: \( (\lnot x2 \lor \lnot x3 \lor \lnot x4) \) simplifies to \( (\lnot x2 \lor \lnot x4) \).
+- Clause 20: \( (\lnot x3 \lor x4 \lor x5) \) simplifies to \( (x4 \lor x5) \).
+- Clause 21: \( (x1 \lor x3 \lor \lnot x2) \) simplifies to \( (x1 \lor \lnot x2) \), already satisfied.
+- Clause 22: \( (\lnot x2 \lor x3 \lor x4) \) simplifies to \( (\lnot x2 \lor x4) \).
+- Clause 23: \( (x5 \lor \lnot x3 \lor \lnot x1) \) simplifies to \( (x5 \lor \lnot x1) \), already satisfied.
+- Clause 25: \( (x3 \lor x4 \lor x5) \) simplifies to \( (x4 \lor x5) \).
+
+Now, we look for unit clauses:
+- Clause 19: \( (\lnot x2 \lor \lnot x4) \) implies \( \lnot x4 \) (since \( x2 \) is True).
+  - Assign \( x4 = \text{False} \).
+    - Clause 2: \( (\lnot x5 \lor \lnot x4) \) simplifies to \( (\lnot x5) \), so \( x5 = \text{False} \).
+      - Clause 16: \( (\lnot x2 \lor x5) \) simplifies to \( (\lnot x2) \), which conflicts with \( x2 = \text{True} \).
+
+#### Conflict Detected
+We backtrack to Decision 2 and try \( x2 = \text{False} \).
+
+#### Decision 2 (Backtrack): Assign \( x2 = \text{False} \)
+- Clause 7: \( (x1 \lor \lnot x4 \lor \lnot x2) \) is satisfied.
+- Clause 9: \( (\lnot x2 \lor \lnot x1 \lor \lnot x3) \) is satisfied.
+- Clause 11: \( (x4 \lor x2 \lor \lnot x3) \) simplifies to \( (x4 \lor \lnot x3) \).
+- Clause 12: \( (x2 \lor \lnot x4 \lor x3) \) simplifies to \( (\lnot x4 \lor x3) \).
+- Clause 13: \( (\lnot x2 \lor x4 \lor x1) \) simplifies to \( (x4 \lor x1) \), already satisfied.
+- Clause 16: \( (\lnot x2 \lor x5 \lor \lnot x1) \) simplifies to \( (x5 \lor \lnot x1) \), already satisfied.
+- Clause 19: \( (\lnot x2 \lor \lnot x3 \lor \lnot x4) \) simplifies to \( (\lnot x3 \lor \lnot x4) \).
+- Clause 21: \( (x1 \lor x3 \lor \lnot x2) \) is satisfied.
+- Clause 22: \( (\lnot x2 \lor x3 \lor x4) \) simplifies to \( (x3 \lor x4) \).
+- Clause 24: \( (\lnot x5 \lor \lnot x2 \lor \lnot x4) \) simplifies to \( (\lnot x5 \lor \lnot x4) \).
+
+Now, we look for unit clauses:
+- No unit clauses yet, so we make another decision.
+
+#### Decision 3: Assign \( x3 = \text{True} \)
+- Clause 1: \( (\lnot x1 \lor x3 \lor \lnot x5) \) is satisfied.
+- Clause 3: \( (\lnot x1 \lor x3 \lor \lnot x2) \) is satisfied.
+- Clause 4: \( (\lnot x1 \lor \lnot x3 \lor x5) \) simplifies to \( (\lnot x1 \lor x5) \), already satisfied.
+- Clause 6: \( (\lnot x4 \lor x5 \lor x3) \) is satisfied.
+- Clause 10: \( (\lnot x1 \lor \lnot x5 \lor \lnot x3) \) simplifies to \( (\lnot x1 \lor \lnot x5) \).
+- Clause 11: \( (x4 \lor \lnot x3) \) simplifies to \( x4 \).
+  - Assign \( x4 = \text{True} \).
+    - Clause 2: \( (\lnot x5 \lor \lnot x4) \) simplifies to \( (\lnot x5) \), so \( x5 = \text{False} \).
+      - Clause 10: \( (\lnot x1 \lor \lnot x5) \) simplifies to \( (\lnot x1) \), which conflicts with \( x1 = \text{True} \).
+
+#### Conflict Detected
+We backtrack to Decision 3 and try \( x3 = \text{False} \).
+
+#### Decision 3 (Backtrack): Assign \( x3 = \text{False} \)
+- Clause 1: \( (\lnot x1 \lor x3 \lor \lnot x5) \) simplifies to \( (\lnot x1 \lor \lnot x5) \), already satisfied.
+- Clause 3: \( (\lnot x1 \lor x3 \lor \lnot x2) \) simplifies to \( (\lnot x1 \lor \lnot x2) \), already satisfied.
+- Clause 4: \( (\lnot x1 \lor \lnot x3 \lor x5) \) simplifies to \( (\lnot x1 \lor x5) \), already satisfied.
+- Clause 6: \( (\lnot x4 \lor x5 \lor x3) \) simplifies to \( (\lnot x4 \lor x5) \).
+- Clause 10: \( (\lnot x1 \lor \lnot x5 \lor \lnot x3) \) simplifies to \( (\lnot x1 \lor \lnot x5) \), already satisfied.
+- Clause 11: \( (x4 \lor \lnot x3) \) simplifies to \( x4 \).
+  - Assign \( x4 = \text{True} \).
+    - Clause 2: \( (\lnot x5 \lor \lnot x4) \) simplifies to \( (\lnot x5) \), so \( x5 = \text{False} \).
+      - All clauses are satisfied with \( x1 = \text{True}, x2 = \text{False}, x3 = \text{False}, x4 = \text{True}, x5 = \text{False} \).
+
+### Final Answer:
+- SATISFIABLE
+- Number of branches: 5
+- Number of conflicts: 3

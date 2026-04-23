@@ -1,0 +1,131 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=17
+p cnf 25 87
+-1 17 23 0
+24 -11 23 0
+2 18 20 0
+18 -23 -15 0
+-1 10 -2 0
+14 -9 7 0
+15 -14 -17 0
+-12 -14 -5 0
+-25 -8 -20 0
+17 22 -20 0
+-10 4 11 0
+19 -8 10 0
+-3 7 5 0
+-3 23 -14 0
+-17 24 6 0
+-19 20 -25 0
+-4 -7 14 0
+-11 25 15 0
+-11 10 23 0
+-17 -5 2 0
+20 5 6 0
+-3 -16 25 0
+4 2 25 0
+5 20 23 0
+-19 -22 23 0
+-13 -14 15 0
+-5 -6 4 0
+1 -14 6 0
+24 3 -23 0
+-4 6 -24 0
+-14 8 -4 0
+-9 10 -23 0
+-22 24 -6 0
+-12 -8 -13 0
+8 -18 -15 0
+14 1 -7 0
+16 24 25 0
+1 3 -20 0
+4 -21 -22 0
+-20 17 -15 0
+-9 4 -13 0
+-23 -12 3 0
+23 19 3 0
+19 4 -12 0
+5 2 -8 0
+16 5 -7 0
+13 1 -2 0
+-19 -11 16 0
+12 -16 3 0
+7 -4 -13 0
+24 20 -6 0
+-12 22 -16 0
+-6 -15 -11 0
+-2 12 -1 0
+-2 21 -6 0
+-18 9 21 0
+-2 9 -10 0
+12 -18 2 0
+-15 -24 -13 0
+15 22 -18 0
+10 21 6 0
+3 14 8 0
+13 7 25 0
+-23 15 -7 0
+6 20 -9 0
+10 2 16 0
+-8 17 -5 0
+12 -20 -7 0
+20 -12 -14 0
+11 -12 -22 0
+-9 -23 -13 0
+-9 -1 -10 0
+-2 21 1 0
+17 23 -8 0
+2 -3 -22 0
+6 20 -3 0
+-16 2 -17 0
+-3 -24 8 0
+4 -22 -19 0
+-13 -5 -22 0
+-1 -24 -11 0
+17 -22 1 0
+16 -8 10 0
+7 2 -18 0
+-24 7 5 0
+9 4 -2 0
+14 22 15 0
+
+c GPT solve time: 40.12 seconds
+
+Here is the step-by-step solution to the given 3-CNF formula:
+
+1. Assign x23 = 1 (satisfies clauses 1, 2, 4, 14, 24, 29, 41, 42, 43, 60, 71)
+2. Assign x17 = 1 (satisfies clauses 7, 10, 15, 20, 40, 72, 80)
+3. Assign x20 = 1 (satisfies clauses 3, 9, 16, 21, 25, 38, 49, 50, 63, 67, 69)
+4. Assign x5 = 1 (satisfies clauses 8, 13, 27, 28, 45, 46, 64)
+5. Assign x2 = 1 (satisfies clauses 5, 23, 44, 47, 53, 54, 57, 58, 65, 73, 75, 83)
+6. Assign x6 = 1 (satisfies clauses 30, 33, 51, 52, 62)
+7. Assign x3 = 1 (satisfies clauses 22, 39, 48, 70, 77)
+8. Assign x25 = 1 (satisfies clauses 18, 37)
+9. Assign x15 = 1 (satisfies clauses 26, 59)
+10. Assign x14 = 0 (satisfies clauses 6, 17, 31, 36)
+11. Assign x4 = 1 (satisfies clauses 11, 79)
+12. Assign x10 = 1 (satisfies clauses 12, 32, 61)
+13. Assign x1 = 0 (satisfies clause 68)
+14. Assign x24 = 0 (satisfies clause 78)
+15. Assign x8 = 0 (satisfies clauses 19, 34, 35)
+16. Assign x18 = 0 (satisfies clause 55)
+17. Assign x9 = 0 (satisfies clause 56)
+18. Assign x12 = 0 (satisfies clause 66)
+19. Assign x16 = 0 (satisfies clause 74)
+20. Assign x22 = 0 (satisfies clause 76)
+21. Assign x13 = 0 (satisfies clause 81)
+22. Assign x11 = 1 (satisfies clause 82)
+23. Assign x7 = 1 (satisfies clause 84)
+24. Assign x21 = 0 (satisfies clause 85)
+25. Assign x19 = 0 (no more clauses to satisfy)
+
+* SATISFIABLE
+* Number of branches: 25
+* Number of conflicts: 0
+
+Satisfying assignment:
+x1 = 0, x2 = 1, x3 = 1, x4 = 1, x5 = 1, 
+x6 = 1, x7 = 1, x8 = 0, x9 = 0, x10 = 1,
+x11 = 1, x12 = 0, x13 = 0, x14 = 0, x15 = 1,
+x16 = 0, x17 = 1, x18 = 0, x19 = 0, x20 = 1, 
+x21 = 0, x22 = 0, x23 = 1, x24 = 0, x25 = 1

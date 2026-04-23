@@ -1,0 +1,214 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1265
+p cnf 5 17
+-4 -2 3 0
+5 3 2 0
+3 4 -1 0
+5 -2 -1 0
+-5 2 3 0
+-5 3 -2 0
+1 -5 -2 0
+-4 3 5 0
+-1 -2 -5 0
+-2 -5 -1 0
+-5 2 -4 0
+4 1 -2 0
+-1 2 5 0
+3 4 2 0
+1 2 -3 0
+-5 -3 2 0
+-3 -2 -4 0
+
+c GPT solve time: 45.21 seconds
+
+Let's solve the formula step by step.
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Try assigning x1 = True
+
+#### Propagate x1 = True
+
+- Clause 3: (x3 ∨ x4 ∨ ¬x1) → (x3 ∨ x4 ∨ False) → (x3 ∨ x4)
+- Clause 4: (x5 ∨ ¬x2 ∨ ¬x1) → (x5 ∨ ¬x2 ∨ False) → (x5 ∨ ¬x2)
+- Clause 7: (x1 ∨ ¬x5 ∨ ¬x2) → (True ∨ ...) → satisfied
+- Clause 10: (¬x2 ∨ ¬x5 ∨ ¬x1) → (¬x2 ∨ ¬x5 ∨ False) → (¬x2 ∨ ¬x5)
+- Clause 12: (x4 ∨ x1 ∨ ¬x2) → (x4 ∨ True ∨ ...) → satisfied
+- Clause 14: (x3 ∨ x4 ∨ x2)
+- Clause 15: (x1 ∨ x2 ∨ ¬x3) → (True ∨ ...) → satisfied
+
+#### Try x2 = True
+
+- Clause 1: (¬x4 ∨ ¬x2 ∨ x3) → (¬x4 ∨ False ∨ x3) → (¬x4 ∨ x3)
+- Clause 2: (x5 ∨ x3 ∨ x2) → (x5 ∨ x3 ∨ True) → satisfied
+- Clause 4: (x5 ∨ ¬x2) → (x5 ∨ False) → (x5)
+- Clause 5: (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ True ∨ x3) → satisfied
+- Clause 6: (¬x5 ∨ x3 ∨ ¬x2) → (¬x5 ∨ x3 ∨ False) → (¬x5 ∨ x3)
+- Clause 9: (¬x1 ∨ ¬x2 ∨ ¬x5) → (False ∨ False ∨ ¬x5) → (¬x5)
+- Clause 10: (¬x2 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+- Clause 11: (¬x5 ∨ x2 ∨ ¬x4) → (¬x5 ∨ True ∨ ¬x4) → satisfied
+- Clause 12: satisfied
+- Clause 13: (¬x1 ∨ x2 ∨ x5) → (False ∨ True ∨ x5) → satisfied
+- Clause 14: (x3 ∨ x4 ∨ x2) → (x3 ∨ x4 ∨ True) → satisfied
+- Clause 15: satisfied
+- Clause 16: (¬x5 ∨ ¬x3 ∨ x2) → (¬x5 ∨ ¬x3 ∨ True) → satisfied
+- Clause 17: (¬x3 ∨ ¬x2 ∨ ¬x4) → (¬x3 ∨ False ∨ ¬x4) → (¬x3 ∨ ¬x4)
+
+#### Now, from above, we have:
+- (¬x4 ∨ x3)
+- (x3 ∨ x4)
+- (x5)
+- (¬x5 ∨ x3)
+- (¬x5)
+- (¬x3 ∨ ¬x4)
+
+From (x5) and (¬x5), **conflict**.  
+**Backtrack:** x2 = False
+
+---
+
+### Step 2: x1 = True, x2 = False
+
+#### Propagate x2 = False
+
+- Clause 1: (¬x4 ∨ ¬x2 ∨ x3) → (¬x4 ∨ True ∨ x3) → satisfied
+- Clause 2: (x5 ∨ x3 ∨ x2) → (x5 ∨ x3 ∨ False) → (x5 ∨ x3)
+- Clause 4: (x5 ∨ ¬x2 ∨ ¬x1) → (x5 ∨ True ∨ False) → satisfied
+- Clause 5: (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ False ∨ x3) → (¬x5 ∨ x3)
+- Clause 6: (¬x5 ∨ x3 ∨ ¬x2) → (¬x5 ∨ x3 ∨ True) → satisfied
+- Clause 7: (x1 ∨ ¬x5 ∨ ¬x2) → (True ∨ ... ) → satisfied
+- Clause 9: (¬x1 ∨ ¬x2 ∨ ¬x5) → (False ∨ True ∨ ¬x5) → satisfied
+- Clause 10: (¬x2 ∨ ¬x5 ∨ ¬x1) → (True ∨ ... ) → satisfied
+- Clause 11: (¬x5 ∨ x2 ∨ ¬x4) → (¬x5 ∨ False ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- Clause 12: (x4 ∨ x1 ∨ ¬x2) → (x4 ∨ True ∨ True) → satisfied
+- Clause 13: (¬x1 ∨ x2 ∨ x5) → (False ∨ False ∨ x5) → (x5)
+- Clause 14: (x3 ∨ x4 ∨ x2) → (x3 ∨ x4 ∨ False) → (x3 ∨ x4)
+- Clause 15: (x1 ∨ x2 ∨ ¬x3) → (True ∨ ... ) → satisfied
+- Clause 16: (¬x5 ∨ ¬x3 ∨ x2) → (¬x5 ∨ ¬x3 ∨ False) → (¬x5 ∨ ¬x3)
+- Clause 17: (¬x3 ∨ ¬x2 ∨ ¬x4) → (¬x3 ∨ True ∨ ¬x4) → satisfied
+
+Now, we have:
+- (x5 ∨ x3)
+- (¬x5 ∨ x3)
+- (¬x5 ∨ ¬x4)
+- (x5)
+- (x3 ∨ x4)
+- (¬x5 ∨ ¬x3)
+
+From (x5), propagate x5 = True.
+
+#### Propagate x5 = True
+
+- (x5 ∨ x3): satisfied
+- (¬x5 ∨ x3): (False ∨ x3) → (x3)
+- (¬x5 ∨ ¬x4): (False ∨ ¬x4) → (¬x4)
+- (x3 ∨ x4): (x3 ∨ x4)
+- (¬x5 ∨ ¬x3): (False ∨ ¬x3) → (¬x3)
+
+Now, (x3) and (¬x3): **conflict**  
+**Backtrack:** x5 = False
+
+---
+
+### Step 3: x1 = True, x2 = False, x5 = False
+
+#### Propagate x5 = False
+
+- (x5 ∨ x3): (False ∨ x3) → (x3)
+- (¬x5 ∨ x3): (True ∨ x3) → satisfied
+- (¬x5 ∨ ¬x4): (True ∨ ¬x4) → satisfied
+- (x3 ∨ x4): (x3 ∨ x4)
+- (¬x5 ∨ ¬x3): (True ∨ ¬x3) → satisfied
+- (x5): (False) → **conflict**
+
+**Backtrack:** x1 = False
+
+---
+
+### Step 4: x1 = False
+
+#### Propagate x1 = False
+
+- Clause 3: (x3 ∨ x4 ∨ ¬x1) → (x3 ∨ x4 ∨ True) → satisfied
+- Clause 4: (x5 ∨ ¬x2 ∨ ¬x1) → (x5 ∨ ¬x2 ∨ True) → satisfied
+- Clause 7: (x1 ∨ ¬x5 ∨ ¬x2) → (False ∨ ¬x5 ∨ ¬x2) → (¬x5 ∨ ¬x2)
+- Clause 9: (¬x1 ∨ ¬x2 ∨ ¬x5) → (True ∨ ... ) → satisfied
+- Clause 10: (¬x2 ∨ ¬x5 ∨ ¬x1) → (¬x2 ∨ ¬x5 ∨ True) → satisfied
+- Clause 12: (x4 ∨ x1 ∨ ¬x2) → (x4 ∨ False ∨ ¬x2) → (x4 ∨ ¬x2)
+- Clause 13: (¬x1 ∨ x2 ∨ x5) → (True ∨ ... ) → satisfied
+- Clause 15: (x1 ∨ x2 ∨ ¬x3) → (False ∨ x2 ∨ ¬x3) → (x2 ∨ ¬x3)
+
+#### Try x2 = True
+
+- Clause 1: (¬x4 ∨ ¬x2 ∨ x3) → (¬x4 ∨ False ∨ x3) → (¬x4 ∨ x3)
+- Clause 2: (x5 ∨ x3 ∨ x2) → (x5 ∨ x3 ∨ True) → satisfied
+- Clause 5: (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ True ∨ x3) → satisfied
+- Clause 6: (¬x5 ∨ x3 ∨ ¬x2) → (¬x5 ∨ x3 ∨ False) → (¬x5 ∨ x3)
+- Clause 7: (¬x5 ∨ ¬x2) → (¬x5 ∨ False) → (¬x5)
+- Clause 11: (¬x5 ∨ x2 ∨ ¬x4) → (¬x5 ∨ True ∨ ¬x4) → satisfied
+- Clause 12: (x4 ∨ ¬x2) → (x4 ∨ False) → (x4)
+- Clause 14: (x3 ∨ x4 ∨ x2) → (x3 ∨ x4 ∨ True) → satisfied
+- Clause 15: (x2 ∨ ¬x3) → (True ∨ ¬x3) → satisfied
+- Clause 16: (¬x5 ∨ ¬x3 ∨ x2) → (¬x5 ∨ ¬x3 ∨ True) → satisfied
+- Clause 17: (¬x3 ∨ ¬x2 ∨ ¬x4) → (¬x3 ∨ False ∨ ¬x4) → (¬x3 ∨ ¬x4)
+
+Now, we have:
+- (¬x4 ∨ x3)
+- (¬x5 ∨ x3)
+- (¬x5)
+- (x4)
+- (¬x3 ∨ ¬x4)
+
+From (¬x5), x5 = False.
+
+From (x4), x4 = True.
+
+From (¬x3 ∨ ¬x4): (¬x3 ∨ False) → (¬x3) → x3 = False.
+
+From (¬x4 ∨ x3): (False ∨ False) → False. **Conflict**
+
+**Backtrack:** x2 = False
+
+---
+
+### Step 5: x1 = False, x2 = False
+
+- Clause 1: (¬x4 ∨ ¬x2 ∨ x3) → (¬x4 ∨ True ∨ x3) → satisfied
+- Clause 2: (x5 ∨ x3 ∨ x2) → (x5 ∨ x3 ∨ False) → (x5 ∨ x3)
+- Clause 5: (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ False ∨ x3) → (¬x5 ∨ x3)
+- Clause 6: (¬x5 ∨ x3 ∨ ¬x2) → (¬x5 ∨ x3 ∨ True) → satisfied
+- Clause 7: (¬x5 ∨ ¬x2) → (¬x5 ∨ True) → satisfied
+- Clause 11: (¬x5 ∨ x2 ∨ ¬x4) → (¬x5 ∨ False ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- Clause 12: (x4 ∨ ¬x2) → (x4 ∨ True) → satisfied
+- Clause 14: (x3 ∨ x4 ∨ x2) → (x3 ∨ x4 ∨ False) → (x3 ∨ x4)
+- Clause 15: (x2 ∨ ¬x3) → (False ∨ ¬x3) → (¬x3)
+- Clause 16: (¬x5 ∨ ¬x3 ∨ x2) → (¬x5 ∨ ¬x3 ∨ False) → (¬x5 ∨ ¬x3)
+- Clause 17: (¬x3 ∨ ¬x2 ∨ ¬x4) → (¬x3 ∨ True ∨ ¬x4) → satisfied
+
+Now, we have:
+- (x5 ∨ x3)
+- (¬x5 ∨ x3)
+- (¬x5 ∨ ¬x4)
+- (x3 ∨ x4)
+- (¬x3)
+- (¬x5 ∨ ¬x3)
+
+From (¬x3), x3 = False.
+
+From (x5 ∨ x3): (x5 ∨ False) → (x5)
+From (¬x5 ∨ x3): (¬x5 ∨ False) → (¬x5)
+So, (x5) and (¬x5): **conflict**
+
+---
+
+## Summary
+
+All branches lead to a conflict. Therefore, the formula is **UNSATISFIABLE**.
+
+---
+
+### Final Output
+
+- **UNSATISFIABLE**
+- **Number of branches:** 5
+- **Number of conflicts:** 5

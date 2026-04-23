@@ -1,0 +1,98 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1575
+p cnf 5 17
+-2 -3 4 0
+3 -5 -2 0
+1 2 4 0
+3 4 1 0
+3 -5 2 0
+5 2 -4 0
+5 4 -1 0
+-4 2 -3 0
+-2 -4 -5 0
+-4 2 -1 0
+-2 -1 5 0
+-2 4 -1 0
+-3 -5 -1 0
+-3 4 -5 0
+-2 5 -4 0
+1 4 2 0
+-1 -3 4 0
+
+c GPT solve time: 19.15 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+**Step 1: Initial formula analysis**
+- Variables: x1, x2, x3, x4, x5
+- 17 clauses total
+
+**Step 2: Branch 1 - Assign x1 = TRUE**
+Simplifying with x1 = TRUE:
+- Clauses (3), (4), (16) are satisfied (contain x1)
+- Clauses (7), (10), (11), (12), (13), (17) have ¬x1 removed
+
+Remaining clauses after simplification:
+1. (¬x2 ∨ ¬x3 ∨ x4)
+2. (x3 ∨ ¬x5 ∨ ¬x2)
+5. (x3 ∨ ¬x5 ∨ x2)
+6. (x5 ∨ x2 ∨ ¬x4)
+7. (x5 ∨ x4)
+8. (¬x4 ∨ x2 ∨ ¬x3)
+9. (¬x2 ∨ ¬x4 ∨ ¬x5)
+10. (¬x4 ∨ x2)
+11. (¬x2 ∨ x5)
+12. (¬x2 ∨ x4)
+13. (¬x3 ∨ ¬x5)
+14. (¬x3 ∨ x4 ∨ ¬x5)
+15. (¬x2 ∨ x5 ∨ ¬x4)
+17. (¬x3 ∨ x4)
+
+**Step 3: Unit propagation from clause (13): ¬x3 ∨ ¬x5**
+Cannot derive unit clause yet.
+
+**Step 4: Branch 2 - Assign x2 = FALSE**
+With x1 = TRUE, x2 = FALSE:
+- Clauses with ¬x2 are satisfied: (1), (2), (9), (11), (12), (15)
+- Remove x2 from remaining clauses
+
+Remaining:
+5. (x3 ∨ ¬x5)
+6. (x5 ∨ ¬x4)
+7. (x5 ∨ x4)
+8. (¬x4 ∨ ¬x3)
+10. (¬x4)
+13. (¬x3 ∨ ¬x5)
+14. (¬x3 ∨ x4 ∨ ¬x5)
+17. (¬x3 ∨ x4)
+
+**Step 5: Unit propagation from clause (10): x4 = FALSE**
+With x4 = FALSE:
+- Clauses (6), (8), (10) are satisfied
+- Remove ¬x4 from other clauses
+
+Remaining:
+5. (x3 ∨ ¬x5)
+7. (x5)
+13. (¬x3 ∨ ¬x5)
+14. (¬x3 ∨ ¬x5)
+17. (¬x3)
+
+**Step 6: Unit propagation from clause (7): x5 = TRUE**
+With x5 = TRUE:
+- Clause (7) is satisfied
+- Remove ¬x5 from other clauses
+
+Remaining:
+5. (x3)
+13. (¬x3)
+14. (¬x3)
+17. (¬x3)
+
+**Step 7: Unit propagation from clause (5): x3 = TRUE**
+But clauses (13), (14), (17) all require ¬x3.
+**CONFLICT!**
+
+**Step 8: Backtrack - Try x2 = TRUE**
+With x1 = TRUE, x2 = TRUE:
+- Clauses with x2 are satisfie

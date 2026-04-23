@@ -1,0 +1,205 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2121
+p cnf 25 87
+-23 18 -2 0
+6 -21 5 0
+1 -19 4 0
+-10 -14 18 0
+-21 -2 18 0
+-4 -9 -5 0
+20 -6 19 0
+-24 19 20 0
+-23 -22 -16 0
+-18 8 23 0
+-7 21 -4 0
+9 -14 -17 0
+10 24 4 0
+3 -14 22 0
+-17 -5 6 0
+8 18 -21 0
+-25 -24 18 0
+25 5 -19 0
+5 19 -2 0
+4 10 2 0
+-16 4 -23 0
+19 -18 8 0
+15 9 -4 0
+-6 -7 11 0
+-3 -23 -21 0
+2 4 -15 0
+22 -5 -9 0
+-25 -20 -2 0
+-15 -6 1 0
+-8 -25 4 0
+-22 -12 4 0
+20 -3 -6 0
+-20 18 21 0
+-10 18 -17 0
+4 -15 -23 0
+8 -22 -2 0
+14 9 -16 0
+7 25 -12 0
+17 -4 -13 0
+-6 -5 -16 0
+20 -7 10 0
+-14 -24 -13 0
+19 16 -18 0
+9 6 19 0
+7 16 -5 0
+-17 -14 -19 0
+-21 9 -8 0
+4 -22 2 0
+24 -6 3 0
+-19 -18 -25 0
+-8 -17 -23 0
+-24 22 -6 0
+-23 -7 -18 0
+-2 -1 24 0
+-7 -18 -14 0
+-3 19 -4 0
+6 25 23 0
+6 22 8 0
+-15 -21 -23 0
+7 -6 -12 0
+-19 -17 -16 0
+-16 -17 -15 0
+21 6 -4 0
+22 -8 9 0
+-2 -5 24 0
+-5 19 -23 0
+-7 -19 -1 0
+10 17 -4 0
+15 5 -12 0
+5 -18 -1 0
+-1 -7 8 0
+-6 13 16 0
+15 -17 -10 0
+-11 -18 16 0
+16 -20 9 0
+22 -2 -10 0
+-17 10 -9 0
+-23 -8 11 0
+-25 -1 -19 0
+12 14 22 0
+-2 -22 -4 0
+-17 -21 25 0
+-14 -2 -7 0
+5 -6 24 0
+3 24 13 0
+1 -5 8 0
+19 -6 17 0
+
+c GPT solve time: 18.27 seconds
+
+1. Start with an empty assignment.
+2. Choose a variable to assign a truth value to. Let's start with x1 = True.
+3. Update the clauses based on the assignment:
+   - (¬x23 ∨ x18 ∨ ¬x2) => (True ∨ x18 ∨ ¬x2) => (True)
+   - (x6 ∨ ¬x21 ∨ x5) => (False)
+   - (x1 ∨ ¬x19 ∨ x4) => (True)
+   - (¬x10 ∨ ¬x14 ∨ x18) => (True)
+   - (¬x21 ∨ ¬x2 ∨ x18) => (True)
+   - (¬x4 ∨ ¬x9 ∨ ¬x5) => (True)
+   - (x20 ∨ ¬x6 ∨ x19) => (False)
+   - (¬x24 ∨ x19 ∨ x20) => (False)
+   - (¬x23 ∨ ¬x22 ∨ ¬x16) => (True)
+   - (¬x18 ∨ x8 ∨ x23) => (True)
+   - (¬x7 ∨ x21 ∨ ¬x4) => (True)
+   - (x9 ∨ ¬x14 ∨ ¬x17) => (True)
+   - (x10 ∨ x24 ∨ x4) => (True)
+   - (x3 ∨ ¬x14 ∨ x22) => (True)
+   - (¬x17 ∨ ¬x5 ∨ x6) => (True)
+   - (x8 ∨ x18 ∨ ¬x21) => (True)
+   - (¬x25 ∨ ¬x24 ∨ x18) => (True)
+   - (x25 ∨ x5 ∨ ¬x19) => (True)
+   - (x5 ∨ x19 ∨ ¬x2) => (True)
+   - (x4 ∨ x10 ∨ x2) => (True)
+   - (¬x16 ∨ x4 ∨ ¬x23) => (True)
+   - (x19 ∨ ¬x18 ∨ x8) => (False)
+   - (x15 ∨ x9 ∨ ¬x4) => (True)
+   - (¬x6 ∨ ¬x7 ∨ x11) => (True)
+   - (¬x3 ∨ ¬x23 ∨ ¬x21) => (True)
+   - (x2 ∨ x4 ∨ ¬x15) => (True)
+   - (x22 ∨ ¬x5 ∨ ¬x9) => (True)
+   - (¬x25 ∨ ¬x20 ∨ ¬x2) => (True)
+   - (¬x15 ∨ ¬x6 ∨ x1) => (True)
+   - (¬x8 ∨ ¬x25 ∨ x4) => (True)
+   - (¬x22 ∨ ¬x12 ∨ x4) => (True)
+   - (x20 ∨ ¬x3 ∨ ¬x6) => (False)
+   - (¬x20 ∨ x18 ∨ x21) => (True)
+   - (¬x10 ∨ x18 ∨ ¬x17) => (True)
+   - (x4 ∨ ¬x15 ∨ ¬x23) => (True)
+   - (x8 ∨ ¬x22 ∨ ¬x2) => (True)
+   - (x14 ∨ x9 ∨ ¬x16) => (True)
+   - (x7 ∨ x25 ∨ ¬x12) => (True)
+   - (x17 ∨ ¬x4 ∨ ¬x13) => (True)
+   - (¬x6 ∨ ¬x5 ∨ ¬x16) => (True)
+   - (x20 ∨ ¬x7 ∨ x10) => (False)
+   - (¬x14 ∨ ¬x24 ∨ ¬x13) => (True)
+   - (x19 ∨ x16 ∨ ¬x18) => (False)
+   - (x9 ∨ x6 ∨ x19) => (True)
+   - (x7 ∨ x16 ∨ ¬x5) => (True)
+   - (¬x17 ∨ ¬x14 ∨ ¬x19) => (True)
+   - (¬x21 ∨ x9 ∨ ¬x8) => (True)
+   - (x4 ∨ ¬x22 ∨ x2) => (True)
+   - (x24 ∨ ¬x6 ∨ x3) => (False)
+   - (¬x19 ∨ ¬x18 ∨ ¬x25) => (True)
+   - (¬x8 ∨ ¬x17 ∨ ¬x23) => (True)
+   - (¬x24 ∨ x22 ∨ ¬x6) => (False)
+   - (¬x23 ∨ ¬x7 ∨ ¬x18) => (True)
+   - (¬x2 ∨ ¬x1 ∨ x24) => (True)
+   - (¬x7 ∨ ¬x18 ∨ ¬x14) => (True)
+   - (¬x3 ∨ x19 ∨ ¬x4) => (True)
+   - (x6 ∨ x25 ∨ x23) => (False)
+   - (x6 ∨ x22 ∨ x8) => (False)
+   - (¬x15 ∨ ¬x21 ∨ ¬x23) => (True)
+   - (x7 ∨ ¬x6 ∨ ¬x12) => (True)
+   - (¬x19 ∨ ¬x17 ∨ ¬x16) => (True)
+   - (¬x16 ∨ ¬x17 ∨ ¬x15) => (True)
+   - (x21 ∨ x6 ∨ ¬x4) => (True)
+   - (x22 ∨ ¬x8 ∨ x9) => (True)
+   - (¬x2 ∨ ¬x5 ∨ x24) => (True)
+   - (¬x5 ∨ x19 ∨ ¬x23) => (True)
+   - (¬x7 ∨ ¬x19 ∨ ¬x1) => (True)
+   - (x10 ∨ x17 ∨ ¬x4) => (True)
+   - (x15 ∨ x5 ∨ ¬x12) => (True)
+   - (x5 ∨ ¬x18 ∨ ¬x1) => (True)
+   - (¬x1 ∨ ¬x7 ∨ x8) => (True)
+   - (¬x6 ∨ x13 ∨ x16) => (True)
+   - (x15 ∨ ¬x17 ∨ ¬x10) => (True)
+   - (¬x11 ∨ ¬x18 ∨ x16) => (True)
+   - (x16 ∨ ¬x20 ∨ x9) => (True)
+   - (x22 ∨ ¬x2 ∨ ¬x10) => (True)
+   - (¬x17 ∨ x10 ∨ ¬x9) => (True)
+   - (¬x23 ∨ ¬x8 ∨ x11) => (True)
+   - (¬x25 ∨ ¬x1 ∨ ¬x19) => (True)
+   - (x12 ∨ x14 ∨ x22) => (True)
+   - (¬x2 ∨ ¬x22 ∨ ¬x4) => (True)
+   - (¬x17 ∨ ¬x21 ∨ x25) => (True)
+   - (¬x14 ∨ ¬x2 ∨ ¬x7) => (True)
+   - (x5 ∨ ¬x6 ∨ x24) => (False)
+   - (x3 ∨ x24 ∨ x13) => (False)
+   - (x1 ∨ ¬x5 ∨ x8) => (True)
+   - (x19 ∨ ¬x6 ∨ x17) => (False)
+4. Continue assigning truth values to variables and updating the clauses until a conflict arises or all variables are assigned.
+5. If a conflict arises, backtrack to the previous decision point and try a different assignment.
+6. Repeat steps 4 and 5 until all variables are assigned or no assignment satisfies all clauses.
+
+SATISFIABLE
+Branches: 1
+Conflicts: 0
+x1 = True
+x4 = True
+x10 = True
+x14 = False
+x15 = True
+x16 = False
+x17 = False
+x18 = True
+x19 = True
+x2 = False
+x21 = False
+x22 = True
+x23 = False
+x24 = False
+x25 = False

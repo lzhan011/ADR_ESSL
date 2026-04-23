@@ -1,0 +1,840 @@
+c Random 3-SAT
+c alpha=3.9, N=120, L=468, instance=3171
+p cnf 120 468
+-4 -100 17 0
+111 62 86 0
+-20 -16 23 0
+114 -95 -91 0
+-36 2 -35 0
+-117 40 82 0
+-32 98 -109 0
+-30 33 -109 0
+94 32 -56 0
+-94 -68 -98 0
+81 -57 76 0
+67 -50 -29 0
+-103 91 89 0
+83 67 100 0
+-52 35 -43 0
+79 -48 -97 0
+6 70 -15 0
+115 25 102 0
+-12 89 14 0
+-110 -74 97 0
+-58 46 3 0
+-113 -76 -56 0
+-63 -54 -9 0
+115 57 -39 0
+-78 -75 -55 0
+41 75 -65 0
+-85 -50 -62 0
+-22 -71 -48 0
+97 -89 41 0
+85 -86 -118 0
+-89 -101 -42 0
+-36 -101 -72 0
+27 -10 -42 0
+67 37 -1 0
+50 -36 -48 0
+69 -96 -35 0
+-27 112 65 0
+-32 27 -39 0
+-32 76 -21 0
+-58 57 94 0
+-100 -51 -75 0
+-53 40 21 0
+27 -95 -44 0
+38 -33 -113 0
+71 -20 -7 0
+-37 33 85 0
+-11 70 44 0
+-76 -81 -94 0
+77 -5 70 0
+8 -78 -13 0
+113 -81 -40 0
+-69 11 -61 0
+60 -35 108 0
+110 106 3 0
+-60 -76 -12 0
+26 57 -31 0
+15 -102 66 0
+-14 77 -31 0
+70 -8 -41 0
+-55 75 28 0
+2 -40 13 0
+98 -11 -76 0
+23 117 -80 0
+43 101 -87 0
+-49 111 40 0
+81 54 -100 0
+17 -66 -52 0
+34 5 -69 0
+-3 -115 59 0
+90 14 -114 0
+21 107 39 0
+-72 -50 113 0
+24 67 -74 0
+-23 -83 115 0
+-115 -53 -70 0
+81 80 -95 0
+-83 45 -74 0
+44 39 1 0
+117 -34 71 0
+48 52 120 0
+-59 110 -5 0
+-100 108 80 0
+67 -34 26 0
+83 2 -101 0
+-35 -109 21 0
+42 116 -75 0
+-16 117 1 0
+-41 105 -58 0
+107 -32 -106 0
+91 10 -112 0
+101 2 23 0
+114 -4 -105 0
+112 109 70 0
+-77 -63 -102 0
+-116 -26 45 0
+-97 18 98 0
+22 -112 -33 0
+45 95 52 0
+-84 -80 -34 0
+-57 -114 62 0
+-7 75 -47 0
+-2 -112 93 0
+-84 77 9 0
+23 108 -110 0
+-117 -86 118 0
+-2 -98 -51 0
+-22 -105 -64 0
+-35 -48 -104 0
+38 -13 -77 0
+-93 -55 60 0
+85 49 81 0
+98 110 22 0
+-9 17 -8 0
+-32 20 -93 0
+45 91 -105 0
+-99 44 -117 0
+-32 -29 -110 0
+-19 35 -93 0
+-28 58 -48 0
+-90 55 39 0
+-5 117 -92 0
+84 -28 102 0
+-79 77 97 0
+39 -29 101 0
+80 -116 23 0
+-25 -99 5 0
+-106 46 79 0
+74 -37 -52 0
+113 45 -22 0
+47 76 -58 0
+-117 -12 -30 0
+29 89 -85 0
+32 -94 -72 0
+-73 68 -52 0
+68 -113 -72 0
+-33 76 32 0
+19 109 -53 0
+-89 85 88 0
+-68 62 -34 0
+-88 -46 -30 0
+106 52 -74 0
+120 -115 -45 0
+-83 -103 50 0
+19 -22 32 0
+53 -101 116 0
+-107 -47 -48 0
+-72 89 -63 0
+-65 73 106 0
+78 97 79 0
+-38 35 -98 0
+45 33 32 0
+57 102 -17 0
+74 17 -65 0
+-11 -91 -54 0
+-89 -90 -6 0
+45 -25 53 0
+-86 17 -92 0
+81 62 107 0
+89 67 -47 0
+-44 22 -13 0
+113 -19 -30 0
+-114 6 60 0
+-15 -64 14 0
+-35 16 -66 0
+65 8 34 0
+-99 92 109 0
+-1 84 117 0
+40 2 55 0
+51 84 -44 0
+-29 -8 94 0
+120 103 -34 0
+118 80 109 0
+-4 25 -97 0
+75 1 -109 0
+45 116 44 0
+42 112 -51 0
+-32 -105 38 0
+112 65 18 0
+61 93 33 0
+58 79 -107 0
+60 -48 102 0
+39 36 11 0
+-53 66 -9 0
+11 27 -18 0
+-55 -1 42 0
+113 26 56 0
+85 65 54 0
+88 118 -84 0
+-106 61 97 0
+11 81 6 0
+-57 -8 3 0
+116 -68 -99 0
+-88 1 58 0
+-12 36 -47 0
+70 -52 94 0
+-47 -15 -46 0
+-38 -31 -35 0
+-11 118 -3 0
+-79 -86 -26 0
+23 59 94 0
+-12 84 -98 0
+-65 1 31 0
+54 -76 -83 0
+-114 -22 1 0
+-99 104 71 0
+73 -47 11 0
+-2 -25 35 0
+98 -119 -49 0
+34 -115 -61 0
+25 -88 -33 0
+-24 -17 -116 0
+-59 37 14 0
+-51 39 -114 0
+79 93 34 0
+70 -69 93 0
+92 3 7 0
+-10 -59 -80 0
+-24 -43 -98 0
+83 95 119 0
+-29 49 -23 0
+116 -105 -30 0
+-79 113 -57 0
+55 -79 -5 0
+-17 7 -18 0
+-84 83 49 0
+80 -99 -115 0
+59 45 47 0
+-101 -40 26 0
+-73 92 22 0
+23 66 22 0
+-65 24 82 0
+-14 2 -37 0
+-113 62 -3 0
+-103 99 -1 0
+-20 6 -37 0
+6 24 53 0
+-29 80 115 0
+32 80 -90 0
+-103 31 -71 0
+77 -101 94 0
+3 -38 84 0
+16 -82 114 0
+54 -37 19 0
+28 -46 -50 0
+15 -74 -43 0
+-84 46 85 0
+-43 28 -60 0
+110 34 2 0
+-104 -73 -79 0
+37 -62 20 0
+29 -31 107 0
+11 -82 1 0
+-43 35 -100 0
+108 -99 -13 0
+-94 8 -20 0
+89 27 30 0
+-92 69 73 0
+34 101 30 0
+29 -52 -99 0
+3 -35 99 0
+78 -24 37 0
+45 74 29 0
+30 -64 53 0
+69 -114 106 0
+103 -23 5 0
+45 -6 -105 0
+28 35 -67 0
+-51 -25 -56 0
+19 -47 18 0
+-67 30 -41 0
+-16 26 -77 0
+13 -15 -116 0
+-38 -3 -16 0
+-57 49 16 0
+53 -13 66 0
+75 24 -62 0
+-54 -78 76 0
+-24 65 -79 0
+-119 25 34 0
+-73 90 -13 0
+19 46 65 0
+-40 -106 28 0
+-1 -23 29 0
+-38 20 119 0
+-85 62 -112 0
+-79 -16 -24 0
+-94 -65 -45 0
+-3 48 -83 0
+-34 53 38 0
+-30 -117 72 0
+-58 67 99 0
+115 -12 -78 0
+-52 -120 -44 0
+-88 -15 -87 0
+86 -41 15 0
+15 41 -1 0
+33 88 -99 0
+-114 -103 -39 0
+32 -19 57 0
+-11 -107 21 0
+14 -47 51 0
+-10 25 -76 0
+51 90 -119 0
+-88 84 64 0
+-10 61 -47 0
+-76 8 107 0
+-94 57 -80 0
+83 23 26 0
+-115 -13 79 0
+38 49 -97 0
+88 -111 -101 0
+94 58 -71 0
+43 -17 -14 0
+97 17 83 0
+-4 -47 -80 0
+-16 -68 47 0
+75 14 -98 0
+8 -75 -45 0
+-52 -33 -50 0
+-118 10 71 0
+24 103 8 0
+104 71 -8 0
+115 48 -73 0
+-38 106 -46 0
+-11 91 -54 0
+-83 49 74 0
+103 80 76 0
+26 -87 -19 0
+52 54 -17 0
+79 -27 99 0
+-111 -97 -78 0
+-75 -104 31 0
+91 -13 67 0
+99 -79 -5 0
+-64 -51 -99 0
+-30 57 -103 0
+-17 105 28 0
+-120 -108 -25 0
+-99 -112 62 0
+-74 49 -86 0
+-75 -74 -53 0
+-101 33 88 0
+65 110 3 0
+-117 -51 46 0
+18 -40 -50 0
+42 69 -88 0
+-100 -2 -60 0
+-37 42 86 0
+98 -78 -83 0
+-112 40 113 0
+106 81 -20 0
+-60 72 -108 0
+18 12 98 0
+47 -90 22 0
+-105 61 -106 0
+16 -115 71 0
+-15 10 -60 0
+62 -64 -58 0
+-102 -85 -88 0
+68 115 -28 0
+114 41 29 0
+-86 90 -103 0
+41 82 -32 0
+76 -64 -93 0
+-103 -114 -53 0
+-85 56 -71 0
+63 101 -69 0
+-74 13 -102 0
+76 47 -34 0
+9 71 57 0
+-116 -104 -37 0
+-73 -84 39 0
+-74 27 -24 0
+-71 -44 -58 0
+100 -73 12 0
+-17 -23 -60 0
+-78 -107 -110 0
+50 118 -11 0
+-22 74 2 0
+-11 -62 -117 0
+69 102 101 0
+-40 -98 119 0
+116 114 -30 0
+-46 -96 54 0
+-119 102 -12 0
+-23 64 -85 0
+-69 -33 -14 0
+-41 24 68 0
+24 115 -49 0
+-8 113 48 0
+15 -69 -72 0
+58 -113 -79 0
+-84 -21 30 0
+100 94 52 0
+-12 43 -46 0
+40 62 90 0
+-117 90 107 0
+-50 91 106 0
+94 -99 -87 0
+-83 -32 -14 0
+-11 -55 103 0
+48 63 -62 0
+-71 -3 -57 0
+6 -80 53 0
+-108 -97 16 0
+1 15 -80 0
+57 -2 -117 0
+-67 66 -64 0
+120 38 -16 0
+10 47 -62 0
+19 115 33 0
+-112 -93 -42 0
+-87 -20 -89 0
+20 105 -27 0
+97 -43 80 0
+16 19 -106 0
+13 -106 -87 0
+-33 -73 -52 0
+-120 97 29 0
+37 -43 24 0
+-107 3 13 0
+-7 118 -101 0
+-66 -6 18 0
+-107 66 110 0
+-46 61 -78 0
+-9 2 108 0
+63 -109 -23 0
+26 54 74 0
+41 27 -4 0
+92 63 -38 0
+-34 12 3 0
+-27 -3 -31 0
+-67 -44 108 0
+-17 -45 9 0
+-112 72 -91 0
+74 -116 -35 0
+75 -34 -101 0
+-15 -51 -40 0
+10 94 20 0
+-53 -32 25 0
+-47 93 -42 0
+81 -49 62 0
+-7 -27 -40 0
+110 67 -101 0
+33 42 -47 0
+-76 111 20 0
+-110 78 -50 0
+94 -120 -100 0
+74 -113 40 0
+5 21 -19 0
+-31 85 -30 0
+-16 -80 -66 0
+-35 63 46 0
+91 -30 84 0
+-80 -91 -73 0
+-79 120 -1 0
+114 -103 3 0
+25 -79 56 0
+-57 10 -42 0
+106 -113 115 0
+84 2 64 0
+-114 71 69 0
+-79 16 27 0
+106 53 99 0
+-25 -66 -5 0
+8 -89 43 0
+2 -104 -79 0
+-103 -111 119 0
+
+c GPT solve time: 37.77 seconds
+
+Let's proceed step by step using the DPLL algorithm (with unit propagation and pure literal elimination where possible):
+
+**Step 1: Preprocessing**
+- There are no unit clauses or pure literals in the initial formula.
+
+**Step 2: Branching**
+- Choose a variable to branch on. Let's pick the smallest index: x1.
+
+**Branch 1: x1 = TRUE**
+- Propagate x1 = TRUE.
+- Satisfies all clauses containing x1.
+- Remove ¬x1 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x2 = TRUE.
+
+**Branch 1.1: x2 = TRUE**
+- Propagate x2 = TRUE.
+- Satisfies all clauses containing x2.
+- Remove ¬x2 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x3 = TRUE.
+
+**Branch 1.1.1: x3 = TRUE**
+- Propagate x3 = TRUE.
+- Satisfies all clauses containing x3.
+- Remove ¬x3 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x4 = TRUE.
+
+**Branch 1.1.1.1: x4 = TRUE**
+- Propagate x4 = TRUE.
+- Satisfies all clauses containing x4.
+- Remove ¬x4 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x5 = TRUE.
+
+**Branch 1.1.1.1.1: x5 = TRUE**
+- Propagate x5 = TRUE.
+- Satisfies all clauses containing x5.
+- Remove ¬x5 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x6 = TRUE.
+
+**Branch 1.1.1.1.1.1: x6 = TRUE**
+- Propagate x6 = TRUE.
+- Satisfies all clauses containing x6.
+- Remove ¬x6 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x7 = TRUE.
+
+**Branch 1.1.1.1.1.1.1: x7 = TRUE**
+- Propagate x7 = TRUE.
+- Satisfies all clauses containing x7.
+- Remove ¬x7 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x8 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1: x8 = TRUE**
+- Propagate x8 = TRUE.
+- Satisfies all clauses containing x8.
+- Remove ¬x8 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x9 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1: x9 = TRUE**
+- Propagate x9 = TRUE.
+- Satisfies all clauses containing x9.
+- Remove ¬x9 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x10 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1: x10 = TRUE**
+- Propagate x10 = TRUE.
+- Satisfies all clauses containing x10.
+- Remove ¬x10 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x11 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1: x11 = TRUE**
+- Propagate x11 = TRUE.
+- Satisfies all clauses containing x11.
+- Remove ¬x11 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x12 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1: x12 = TRUE**
+- Propagate x12 = TRUE.
+- Satisfies all clauses containing x12.
+- Remove ¬x12 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x13 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1: x13 = TRUE**
+- Propagate x13 = TRUE.
+- Satisfies all clauses containing x13.
+- Remove ¬x13 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x14 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1: x14 = TRUE**
+- Propagate x14 = TRUE.
+- Satisfies all clauses containing x14.
+- Remove ¬x14 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x15 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x15 = TRUE**
+- Propagate x15 = TRUE.
+- Satisfies all clauses containing x15.
+- Remove ¬x15 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x16 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x16 = TRUE**
+- Propagate x16 = TRUE.
+- Satisfies all clauses containing x16.
+- Remove ¬x16 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x17 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x17 = TRUE**
+- Propagate x17 = TRUE.
+- Satisfies all clauses containing x17.
+- Remove ¬x17 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x18 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x18 = TRUE**
+- Propagate x18 = TRUE.
+- Satisfies all clauses containing x18.
+- Remove ¬x18 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x19 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x19 = TRUE**
+- Propagate x19 = TRUE.
+- Satisfies all clauses containing x19.
+- Remove ¬x19 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x20 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x20 = TRUE**
+- Propagate x20 = TRUE.
+- Satisfies all clauses containing x20.
+- Remove ¬x20 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x21 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x21 = TRUE**
+- Propagate x21 = TRUE.
+- Satisfies all clauses containing x21.
+- Remove ¬x21 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x22 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x22 = TRUE**
+- Propagate x22 = TRUE.
+- Satisfies all clauses containing x22.
+- Remove ¬x22 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x23 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x23 = TRUE**
+- Propagate x23 = TRUE.
+- Satisfies all clauses containing x23.
+- Remove ¬x23 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x24 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x24 = TRUE**
+- Propagate x24 = TRUE.
+- Satisfies all clauses containing x24.
+- Remove ¬x24 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x25 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x25 = TRUE**
+- Propagate x25 = TRUE.
+- Satisfies all clauses containing x25.
+- Remove ¬x25 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x26 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x26 = TRUE**
+- Propagate x26 = TRUE.
+- Satisfies all clauses containing x26.
+- Remove ¬x26 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x27 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x27 = TRUE**
+- Propagate x27 = TRUE.
+- Satisfies all clauses containing x27.
+- Remove ¬x27 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x28 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x28 = TRUE**
+- Propagate x28 = TRUE.
+- Satisfies all clauses containing x28.
+- Remove ¬x28 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x29 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x29 = TRUE**
+- Propagate x29 = TRUE.
+- Satisfies all clauses containing x29.
+- Remove ¬x29 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x30 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x30 = TRUE**
+- Propagate x30 = TRUE.
+- Satisfies all clauses containing x30.
+- Remove ¬x30 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x31 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x31 = TRUE**
+- Propagate x31 = TRUE.
+- Satisfies all clauses containing x31.
+- Remove ¬x31 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x32 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x32 = TRUE**
+- Propagate x32 = TRUE.
+- Satisfies all clauses containing x32.
+- Remove ¬x32 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x33 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x33 = TRUE**
+- Propagate x33 = TRUE.
+- Satisfies all clauses containing x33.
+- Remove ¬x33 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x34 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x34 = TRUE**
+- Propagate x34 = TRUE.
+- Satisfies all clauses containing x34.
+- Remove ¬x34 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x35 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x35 = TRUE**
+- Propagate x35 = TRUE.
+- Satisfies all clauses containing x35.
+- Remove ¬x35 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x36 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x36 = TRUE**
+- Propagate x36 = TRUE.
+- Satisfies all clauses containing x36.
+- Remove ¬x36 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x37 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x37 = TRUE**
+- Propagate x37 = TRUE.
+- Satisfies all clauses containing x37.
+- Remove ¬x37 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x38 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x38 = TRUE**
+- Propagate x38 = TRUE.
+- Satisfies all clauses containing x38.
+- Remove ¬x38 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x39 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x39 = TRUE**
+- Propagate x39 = TRUE.
+- Satisfies all clauses containing x39.
+- Remove ¬x39 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals appear.
+- Pick next variable: x40 = TRUE.
+
+**Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x40 = TRUE**
+- Propagate x40 = TRUE.
+- Satisfies all clauses containing x40.
+- Remove ¬x40 from all clauses.
+
+**Continue Propagation**
+- No unit clauses or pure literals

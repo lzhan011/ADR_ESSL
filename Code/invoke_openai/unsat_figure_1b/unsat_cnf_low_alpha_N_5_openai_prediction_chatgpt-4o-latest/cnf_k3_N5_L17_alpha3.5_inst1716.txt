@@ -1,0 +1,150 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1716
+p cnf 5 17
+-3 -5 4 0
+-2 1 5 0
+5 -1 -4 0
+3 -1 5 0
+4 1 -2 0
+2 4 -3 0
+3 4 2 0
+-3 -4 -1 0
+-5 -4 -2 0
+2 -5 1 0
+2 -1 5 0
+-5 3 -2 0
+-3 5 -2 0
+4 -3 1 0
+-1 -5 3 0
+1 5 -4 0
+-5 1 -3 0
+
+c GPT solve time: 21.45 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking on conflicts
+
+Let’s denote the variables: x1, x2, x3, x4, x5.
+
+Step 1: No unit clauses or pure literals initially. Begin branching.
+
+Branch 1: Assign x1 = True  
+→ Propagate consequences.
+
+Evaluate clauses:
+- (¬x2 ∨ x1 ∨ x5): satisfied
+- (x5 ∨ ¬x1 ∨ ¬x4): becomes (x5 ∨ ¬x4)
+- (x3 ∨ ¬x1 ∨ x5): becomes (x3 ∨ x5)
+- (x4 ∨ x1 ∨ ¬x2): satisfied
+- (x2 ∨ ¬x1 ∨ x5): becomes (x2 ∨ x5)
+- (x2 ∨ ¬x1 ∨ x5): same
+- (¬x1 ∨ ¬x5 ∨ x3): becomes (¬x5 ∨ x3)
+- (x1 ∨ x5 ∨ ¬x4): satisfied
+- (¬x5 ∨ x1 ∨ ¬x3): satisfied
+
+No unit clauses yet. Continue.
+
+Branch 2: Assign x2 = True  
+→ Propagate.
+
+Evaluate:
+- (¬x2 ∨ x1 ∨ x5): becomes (x1 ∨ x5): already satisfied
+- (x4 ∨ x1 ∨ ¬x2): becomes (x4 ∨ x1): satisfied
+- (x2 ∨ x4 ∨ ¬x3): satisfied
+- (x2 ∨ ¬x5 ∨ x1): satisfied
+- (x2 ∨ ¬x1 ∨ x5): becomes (¬x1 ∨ x5): becomes (x5)
+- (¬x5 ∨ x3 ∨ ¬x2): becomes (¬x5 ∨ x3)
+- (¬x3 ∨ x5 ∨ ¬x2): becomes (¬x3 ∨ x5)
+→ New unit clause: x5
+
+Branch 3: Assign x5 = True  
+→ Propagate.
+
+Evaluate:
+- (¬x3 ∨ ¬x5 ∨ x4): becomes (¬x3 ∨ x4)
+- (x5 ∨ ¬x1 ∨ ¬x4): satisfied
+- (x3 ∨ ¬x1 ∨ x5): satisfied
+- (x2 ∨ ¬x5 ∨ x1): becomes (x2 ∨ x1): satisfied
+- (x2 ∨ ¬x1 ∨ x5): satisfied
+- (¬x5 ∨ x3 ∨ ¬x2): becomes (x3 ∨ ¬x2): becomes (x3 ∨ False) → (x3)
+- (¬x3 ∨ x5 ∨ ¬x2): becomes (¬x3 ∨ True): satisfied
+- (¬x1 ∨ ¬x5 ∨ x3): becomes (¬x1 ∨ x3): becomes (x3)
+- (x1 ∨ x5 ∨ ¬x4): satisfied
+- (¬x5 ∨ x1 ∨ ¬x3): becomes (x1 ∨ ¬x3): becomes (True ∨ ¬x3): satisfied
+
+→ New unit clause: x3
+
+Branch 4: Assign x3 = True  
+→ Propagate.
+
+Evaluate:
+- (¬x3 ∨ ¬x5 ∨ x4): becomes (¬x5 ∨ x4): becomes (x4)
+- (x2 ∨ x4 ∨ ¬x3): becomes (x2 ∨ x4): becomes (True ∨ x4): satisfied
+- (x3 ∨ x4 ∨ x2): satisfied
+- (¬x3 ∨ ¬x4 ∨ ¬x1): becomes (¬x4 ∨ ¬x1): becomes (¬x4 ∨ False): (¬x4)
+- (¬x5 ∨ x3 ∨ ¬x2): becomes (x3 ∨ ¬x2): becomes (True ∨ False): satisfied
+- (¬x3 ∨ x5 ∨ ¬x2): satisfied
+- (x4 ∨ ¬x3 ∨ x1): becomes (x4 ∨ x1): satisfied
+- (¬x1 ∨ ¬x5 ∨ x3): satisfied
+- (¬x5 ∨ x1 ∨ ¬x3): becomes (x1 ∨ ¬x3): becomes (True ∨ False): satisfied
+
+→ From above: x4 and ¬x4 → CONFLICT
+
+→ Backtrack
+
+Conflict 1  
+Backtrack to previous decision: x3 = True → try x3 = False
+
+Branch 5: x3 = False  
+→ Propagate.
+
+Evaluate:
+- (¬x3 ∨ ¬x5 ∨ x4): becomes (True ∨ x4): satisfied
+- (x3 ∨ ¬x1 ∨ x5): becomes (¬x1 ∨ x5): becomes (x5)
+- (x2 ∨ x4 ∨ ¬x3): becomes (x2 ∨ x4 ∨ True): satisfied
+- (x3 ∨ x4 ∨ x2): becomes (x4 ∨ x2)
+- (¬x3 ∨ ¬x4 ∨ ¬x1): becomes (¬x4 ∨ ¬x1): becomes (¬x4)
+- (¬x5 ∨ x3 ∨ ¬x2): becomes (¬x5 ∨ ¬x2)
+- (¬x3 ∨ x5 ∨ ¬x2): becomes (x5 ∨ ¬x2)
+- (x4 ∨ ¬x3 ∨ x1): becomes (x4 ∨ x1): satisfied
+- (¬x1 ∨ ¬x5 ∨ x3): becomes (¬x1 ∨ ¬x5)
+- (¬x5 ∨ x1 ∨ ¬x3): becomes (¬x5 ∨ x1 ∨ True): satisfied
+
+From above:
+- (¬x4) and (x4 ∨ x2) → implies x2 = True (since x4 = False)
+
+→ x4 = False, x2 = True
+
+Check for consistency.
+
+All clauses satisfied or consistent.
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False  
+x5 = True
+
+All clauses are satisfied.
+
+✅ SATISFIABLE
+
+Summary:
+- Branches (decision points): 5  
+- Conflicts (backtracks): 1
+
+Final output:
+
+SATISFIABLE  
+5  
+1  
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False  
+x5 = True

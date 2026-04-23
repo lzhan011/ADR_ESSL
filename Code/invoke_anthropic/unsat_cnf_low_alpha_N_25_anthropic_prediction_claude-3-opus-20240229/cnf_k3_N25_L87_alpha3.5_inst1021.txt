@@ -1,0 +1,144 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1021
+p cnf 25 87
+-17 18 -3 0
+17 11 12 0
+-19 2 8 0
+-21 -18 1 0
+6 -14 2 0
+-23 22 -24 0
+21 -12 18 0
+3 -9 18 0
+-25 14 -8 0
+-22 15 1 0
+20 11 -6 0
+12 -25 6 0
+-22 14 -11 0
+-12 22 21 0
+-3 6 10 0
+-6 2 19 0
+-18 9 4 0
+7 -25 3 0
+-23 -12 -8 0
+23 -19 13 0
+16 25 -4 0
+-2 15 -20 0
+-23 16 5 0
+2 -15 17 0
+25 -22 19 0
+18 -21 11 0
+3 -20 11 0
+5 -12 -7 0
+-12 13 -1 0
+-20 9 8 0
+24 -22 -16 0
+-21 17 19 0
+-13 22 -5 0
+-4 -23 24 0
+13 20 -3 0
+-24 20 -4 0
+-16 21 9 0
+23 -24 -17 0
+25 12 7 0
+21 23 13 0
+7 1 -9 0
+7 -12 10 0
+6 -14 -18 0
+8 -18 -21 0
+-20 14 1 0
+12 -21 10 0
+-7 5 17 0
+16 25 17 0
+-8 -23 21 0
+11 -5 -12 0
+-10 8 7 0
+19 -6 -8 0
+21 -3 22 0
+12 20 11 0
+3 -9 25 0
+11 19 20 0
+24 -10 -19 0
+19 -8 25 0
+-8 -7 -9 0
+-20 -2 -19 0
+20 -7 -2 0
+-19 15 -8 0
+-8 -6 -19 0
+-20 16 4 0
+-8 24 7 0
+-16 25 21 0
+4 5 18 0
+25 -8 -10 0
+-7 18 -11 0
+-16 -21 -1 0
+-23 -3 -10 0
+-14 24 -9 0
+13 4 -23 0
+-14 21 10 0
+14 18 24 0
+13 -8 -17 0
+-11 16 -2 0
+-25 20 -17 0
+-21 -2 -10 0
+-2 22 8 0
+-17 -23 12 0
+19 -25 -10 0
+-9 16 -18 0
+17 9 -23 0
+25 -7 -14 0
+17 -23 19 0
+-23 11 5 0
+
+c GPT solve time: 38.41 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Assign x1 = True. This satisfies clauses 4, 10, 29, 69.
+
+Assign x2 = True. This satisfies clauses 3, 5, 16, 24, 80.
+
+Assign x3 = True. This satisfies clauses 1, 8, 15, 18, 27, 35, 53, 71.
+
+Assign x4 = True. This satisfies clauses 17, 21, 34, 36, 64, 73.
+
+Assign x5 = True. This satisfies clauses 23, 28, 47, 87.
+
+Assign x6 = True. This satisfies clauses 5, 12, 15, 16, 20, 43, 52, 62.
+
+Assign x7 = True. This satisfies clauses 18, 39, 41, 42, 47, 50, 60, 65, 85.
+
+Assign x8 = True. This satisfies clauses 3, 9, 19, 30, 44, 49, 52, 57, 59, 60, 62, 80.
+
+Assign x9 = True. This satisfies clauses 8, 17, 30, 37, 41, 53, 82, 84.
+
+Assign x10 = True. This satisfies clauses 15, 42, 46, 54, 74, 78, 81.
+
+Assign x11 = True. This satisfies clauses 2, 11, 13, 18, 26, 27, 49, 54, 66, 77, 87.
+
+Assign x12 = True. This satisfies clauses 2, 7, 12, 14, 28, 29, 39, 46, 49, 54, 79, 83.
+
+Assign x13 = True. This satisfies clauses 20, 29, 33, 35, 40, 73, 75.
+
+Assign x14 = True. This satisfies clauses 9, 13, 43, 45, 72, 74, 76.
+
+Assign x15 = True. This satisfies clauses 10, 19, 22, 24, 61.
+
+Assign x16 = True. This satisfies clauses 21, 23, 24, 31, 37, 65, 77, 82, 84.
+
+Assign x17 = True. This satisfies clauses 1, 2, 24, 38, 47, 48, 75, 83, 86.
+
+Assign x18 = True. This satisfies clauses 1, 4, 7, 8, 17, 26, 43, 44, 64, 66, 76.
+
+Assign x19 = True. This satisfies clauses 3, 16, 20, 25, 32, 52, 54, 57, 59, 61, 79, 86.
+
+Assign x20 = True. This satisfies clauses 11, 22, 30, 35, 36, 55, 56, 58, 60, 64, 77.
+
+Assign x21 = True. This satisfies clauses 4, 7, 8, 14, 32, 37, 40, 44, 48, 65, 69, 74, 78, 81.
+
+Assign x22 = True. This satisfies clauses 6, 10, 13, 14, 25, 31, 33, 80.
+
+Assign x23 = False. This satisfies clauses 6, 19, 20, 23, 34, 38, 71, 79, 82, 84, 87.
+
+Assign x24 = True. This satisfies clauses 6, 31, 34, 36, 38, 72, 76.
+
+Assign x25 = True. This satisfies clauses 9, 12, 18, 21, 25, 39, 48, 53, 57, 65, 67,

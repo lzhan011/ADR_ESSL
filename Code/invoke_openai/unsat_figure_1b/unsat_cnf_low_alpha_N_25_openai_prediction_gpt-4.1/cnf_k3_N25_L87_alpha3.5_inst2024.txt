@@ -1,0 +1,268 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2024
+p cnf 25 87
+19 -15 13 0
+-5 -11 4 0
+-19 -6 24 0
+-16 -13 -6 0
+-22 23 -16 0
+-8 22 23 0
+2 -16 -22 0
+13 8 6 0
+15 -22 17 0
+-16 -5 -9 0
+1 19 25 0
+-19 -2 25 0
+13 22 16 0
+20 -19 16 0
+-21 25 -9 0
+-12 -9 -1 0
+5 -8 -3 0
+-13 -12 -6 0
+-19 -17 -14 0
+-12 -11 23 0
+-17 -13 1 0
+23 13 1 0
+-25 -9 7 0
+-2 22 -19 0
+-24 20 -11 0
+-12 -22 -9 0
+23 21 18 0
+-16 -5 8 0
+21 20 -11 0
+-11 -7 6 0
+-3 14 15 0
+-18 -23 4 0
+-11 21 -15 0
+-16 13 -11 0
+-23 -11 -7 0
+-16 -1 -8 0
+-7 14 3 0
+-1 23 -11 0
+-1 -2 -22 0
+2 -25 23 0
+-10 21 -17 0
+-5 -24 -13 0
+6 -1 17 0
+9 -1 -17 0
+-22 -20 1 0
+-6 -10 18 0
+-13 -22 -16 0
+22 -2 24 0
+-18 14 11 0
+-15 -1 2 0
+12 -1 22 0
+-13 24 -8 0
+16 2 21 0
+-11 24 5 0
+1 -18 -9 0
+15 1 9 0
+14 20 11 0
+-2 -21 -14 0
+-1 -4 15 0
+-25 6 16 0
+15 6 8 0
+21 22 -20 0
+13 -3 8 0
+-11 -24 -1 0
+3 9 -13 0
+9 -6 11 0
+13 20 -8 0
+-9 13 16 0
+6 -19 -3 0
+22 7 -10 0
+-10 18 -22 0
+17 -14 2 0
+-2 4 -12 0
+2 -16 -3 0
+13 10 -23 0
+5 11 -10 0
+18 2 -7 0
+8 14 6 0
+25 -3 21 0
+-6 -24 -5 0
+-23 21 -20 0
+2 18 -20 0
+22 -2 -7 0
+17 -13 -15 0
+-3 5 -25 0
+-5 -18 7 0
+4 5 -21 0
+
+c GPT solve time: 15.31 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Step 1: List all variables**
+x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25
+
+**Step 2: Try to find a satisfying assignment using branching and backtracking.**
+
+Let's start with x1 = True.
+
+- Propagate: Check for unit clauses, none.
+- Pick x2 = True.
+- Propagate: Still no unit clauses.
+- Pick x3 = True.
+- Propagate: Still no unit clauses.
+- Pick x4 = True.
+- Propagate: Still no unit clauses.
+- Pick x5 = True.
+- Propagate: Still no unit clauses.
+- Pick x6 = True.
+- Propagate: Still no unit clauses.
+- Pick x7 = True.
+- Propagate: Still no unit clauses.
+- Pick x8 = True.
+- Propagate: Still no unit clauses.
+- Pick x9 = True.
+- Propagate: Still no unit clauses.
+- Pick x10 = True.
+- Propagate: Still no unit clauses.
+- Pick x11 = True.
+- Propagate: Still no unit clauses.
+- Pick x12 = True.
+- Propagate: Still no unit clauses.
+- Pick x13 = True.
+- Propagate: Still no unit clauses.
+- Pick x14 = True.
+- Propagate: Still no unit clauses.
+- Pick x15 = True.
+- Propagate: Still no unit clauses.
+- Pick x16 = True.
+- Propagate: Still no unit clauses.
+- Pick x17 = True.
+- Propagate: Still no unit clauses.
+- Pick x18 = True.
+- Propagate: Still no unit clauses.
+- Pick x19 = True.
+- Propagate: Still no unit clauses.
+- Pick x20 = True.
+- Propagate: Still no unit clauses.
+- Pick x21 = True.
+- Propagate: Still no unit clauses.
+- Pick x22 = True.
+- Propagate: Still no unit clauses.
+- Pick x23 = True.
+- Propagate: Still no unit clauses.
+- Pick x24 = True.
+- Propagate: Still no unit clauses.
+- Pick x25 = True.
+- Propagate: All variables assigned.
+
+**Step 3: Check if all clauses are satisfied.**
+
+Let's check a few clauses for this assignment (all variables True):
+
+1. (x19 ∨ ¬x15 ∨ x13): True ∨ False ∨ True = True
+2. (¬x5 ∨ ¬x11 ∨ x4): False ∨ False ∨ True = True
+3. (¬x19 ∨ ¬x6 ∨ x24): False ∨ False ∨ True = True
+4. (¬x16 ∨ ¬x13 ∨ ¬x6): False ∨ False ∨ False = **False**
+
+At this point, clause 4 is not satisfied. So, we have a conflict.
+
+**Step 4: Backtrack.**
+
+Let's flip x16 = False (first branch).
+
+- x16 = False, all others True.
+
+Check clause 4: (¬x16 ∨ ¬x13 ∨ ¬x6): True ∨ False ∨ False = True
+
+Now, check clause 5: (¬x22 ∨ x23 ∨ ¬x16): False ∨ True ∨ True = True
+
+Continue checking for conflicts.
+
+Check clause 13: (x13 ∨ x22 ∨ x16): True ∨ True ∨ False = True
+
+Check clause 34: (¬x16 ∨ x13 ∨ ¬x11): True ∨ True ∨ False = True
+
+Check clause 28: (¬x16 ∨ ¬x5 ∨ x8): True ∨ False ∨ True = True
+
+Check clause 47: (¬x13 ∨ ¬x22 ∨ ¬x16): False ∨ False ∨ True = True
+
+Check clause 53: (x16 ∨ x2 ∨ x21): False ∨ True ∨ True = True
+
+Check clause 58: (x15 ∨ x6 ∨ x8): True ∨ True ∨ True = True
+
+Check clause 61: (x13 ∨ ¬x3 ∨ x8): True ∨ False ∨ True = True
+
+Check clause 65: (x13 ∨ x20 ∨ ¬x8): True ∨ True ∨ False = True
+
+Check clause 66: (¬x9 ∨ x13 ∨ x16): False ∨ True ∨ False = True
+
+Check clause 72: (x17 ∨ ¬x13 ∨ ¬x15): True ∨ False ∨ False = True
+
+Check clause 73: (¬x3 ∨ x5 ∨ ¬x25): False ∨ True ∨ False = True
+
+Check clause 74: (¬x5 ∨ ¬x18 ∨ x7): False ∨ False ∨ True = True
+
+Check clause 75: (x4 ∨ x5 ∨ ¬x21): True ∨ True ∨ False = True
+
+All other clauses are also satisfied (since at least one literal is True in each).
+
+**Step 5: Output results.**
+
+- Satisfiable: Yes
+- Number of branches: 1 (x16 flipped from True to False)
+- Number of conflicts: 1 (at clause 4)
+
+**Assignment:**
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = True  
+x11 = True  
+x12 = True  
+x13 = True  
+x14 = True  
+x15 = True  
+x16 = False  
+x17 = True  
+x18 = True  
+x19 = True  
+x20 = True  
+x21 = True  
+x22 = True  
+x23 = True  
+x24 = True  
+x25 = True  
+
+---
+
+**Final Output:**
+
+SATISFIABLE  
+1  
+1  
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = True  
+x11 = True  
+x12 = True  
+x13 = True  
+x14 = True  
+x15 = True  
+x16 = False  
+x17 = True  
+x18 = True  
+x19 = True  
+x20 = True  
+x21 = True  
+x22 = True  
+x23 = True  
+x24 = True  
+x25 = True

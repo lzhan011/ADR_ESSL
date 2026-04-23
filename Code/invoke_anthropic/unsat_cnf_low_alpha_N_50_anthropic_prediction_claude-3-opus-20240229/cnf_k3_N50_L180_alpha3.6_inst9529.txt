@@ -1,0 +1,245 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=9529
+p cnf 50 180
+24 18 22 0
+3 30 -31 0
+-35 -36 -7 0
+-49 26 -1 0
+-18 35 -3 0
+5 35 38 0
+-24 28 34 0
+-25 -29 26 0
+6 -13 43 0
+33 -48 -6 0
+-7 5 -1 0
+37 46 2 0
+-47 6 42 0
+1 46 47 0
+9 -7 -32 0
+32 -21 44 0
+1 27 47 0
+38 48 -10 0
+48 29 46 0
+-38 15 28 0
+-43 4 -36 0
+49 -20 26 0
+-3 -36 31 0
+-24 18 7 0
+-28 5 12 0
+-27 -18 -17 0
+-37 26 -27 0
+31 -41 32 0
+16 33 28 0
+-47 46 37 0
+16 -4 -3 0
+-16 25 -42 0
+4 -16 -26 0
+48 38 -47 0
+17 -36 -12 0
+30 11 1 0
+-18 6 -9 0
+18 -13 34 0
+21 10 27 0
+18 25 20 0
+-49 -6 43 0
+-46 -42 -20 0
+-43 -3 44 0
+-14 46 -3 0
+13 28 -16 0
+-40 8 14 0
+7 -25 -31 0
+-35 34 -50 0
+-2 -6 -44 0
+-30 45 -31 0
+16 14 -23 0
+15 29 2 0
+16 12 -9 0
+39 17 9 0
+-1 41 -29 0
+-8 41 -9 0
+-44 38 27 0
+50 19 -30 0
+17 16 41 0
+-28 -38 25 0
+-37 42 -31 0
+42 -37 -5 0
+1 42 7 0
+-10 28 21 0
+27 -1 44 0
+-13 43 -1 0
+-46 -1 31 0
+-44 -38 -46 0
+37 22 26 0
+41 -45 42 0
+-35 23 -20 0
+13 -12 17 0
+42 -30 41 0
+-32 36 -12 0
+-4 -39 -29 0
+42 27 17 0
+-25 -31 15 0
+-14 -37 -6 0
+7 13 -8 0
+10 29 25 0
+4 -34 -17 0
+20 36 49 0
+-40 41 29 0
+-5 -46 -35 0
+43 8 -9 0
+-37 -16 43 0
+1 -43 -25 0
+-38 -41 -20 0
+-20 8 -22 0
+-21 -17 23 0
+25 30 5 0
+2 29 12 0
+22 1 2 0
+18 50 -19 0
+34 -38 -26 0
+-16 -30 -37 0
+17 43 -15 0
+4 -34 25 0
+25 -12 21 0
+31 -27 20 0
+46 18 21 0
+-40 14 23 0
+-25 -9 19 0
+19 18 24 0
+43 24 5 0
+5 -44 4 0
+-15 40 -13 0
+-36 -23 -18 0
+3 37 44 0
+7 41 26 0
+11 7 -27 0
+50 -28 -25 0
+21 -1 -5 0
+38 -25 -47 0
+-21 -23 -2 0
+-18 -26 -49 0
+34 9 -7 0
+-48 21 5 0
+-47 33 -16 0
+19 6 50 0
+29 41 43 0
+46 38 14 0
+-23 29 -42 0
+26 -38 -22 0
+15 13 9 0
+20 -23 7 0
+-5 -6 45 0
+-3 35 -6 0
+23 -20 -3 0
+-3 -29 22 0
+-7 43 10 0
+-24 32 -48 0
+13 -2 29 0
+-10 -34 27 0
+3 -29 18 0
+-31 50 37 0
+2 36 40 0
+-46 -15 9 0
+-7 -46 28 0
+26 4 6 0
+21 -45 -34 0
+-50 -48 31 0
+-46 16 -32 0
+14 -45 32 0
+-15 37 29 0
+-38 6 29 0
+43 -7 24 0
+-19 -27 -3 0
+13 32 15 0
+46 -14 47 0
+16 -47 44 0
+13 -36 47 0
+8 -3 -44 0
+17 -9 -48 0
+-21 -48 46 0
+-30 -15 -39 0
+33 -10 -8 0
+10 -43 8 0
+-15 -36 21 0
+-20 17 34 0
+15 47 36 0
+-39 -22 36 0
+16 24 -28 0
+-25 -12 33 0
+29 -5 -49 0
+29 20 -26 0
+-42 32 -5 0
+38 -25 -14 0
+-30 -50 -35 0
+1 37 -33 0
+-29 2 -9 0
+-5 31 46 0
+30 34 -3 0
+-39 -44 47 0
+2 13 -12 0
+14 -42 46 0
+-29 25 39 0
+2 37 -42 0
+-14 -42 39 0
+50 13 3 0
+
+c GPT solve time: 34.07 seconds
+
+Here is the step-by-step solution to the given 3-CNF formula:
+
+1. Assign x24 = 1 (satisfies clause 1)
+2. Assign x3 = 1 (satisfies clause 2)
+3. Assign x35 = 0 (satisfies clause 5)
+4. Assign x36 = 0 (satisfies clause 3)
+5. Assign x7 = 0 (satisfies clause 3)
+6. Assign x49 = 0 (satisfies clause 4)
+7. Assign x26 = 1 (satisfies clause 4)
+8. Assign x1 = 0 (satisfies clause 4)
+9. Assign x18 = 1 (satisfies clause 1)
+10. Assign x5 = 1 (satisfies clause 6)
+11. Assign x38 = 1 (satisfies clause 6)
+12. Assign x28 = 1 (satisfies clause 7)
+13. Assign x34 = 1 (satisfies clause 7)
+14. Assign x25 = 0 (satisfies clause 8)
+15. Assign x29 = 0 (satisfies clause 8)
+16. Assign x6 = 1 (satisfies clause 9)
+17. Assign x13 = 0 (satisfies clause 9)
+18. Assign x43 = 1 (satisfies clause 9)
+19. Assign x33 = 1 (satisfies clause 10)
+20. Assign x48 = 0 (satisfies clause 10)
+21. Assign x37 = 1 (satisfies clause 12)
+22. Assign x46 = 1 (satisfies clause 12)
+23. Assign x2 = 1 (satisfies clause 12)
+24. Assign x47 = 1 (satisfies clause 13)
+25. Assign x42 = 1 (satisfies clause 13)
+26. Assign x9 = 1 (satisfies clause 15)
+27. Assign x32 = 1 (satisfies clause 15)
+28. Assign x21 = 0 (satisfies clause 16)
+29. Assign x44 = 1 (satisfies clause 16)
+30. Assign x27 = 1 (satisfies clause 17)
+31. Assign x10 = 0 (satisfies clause 18)
+32. Assign x15 = 1 (satisfies clause 20)
+33. Assign x4 = 1 (satisfies clause 21)
+34. Assign x20 = 0 (satisfies clause 22)
+35. Assign x31 = 1 (satisfies clause 23)
+36. Assign x12 = 1 (satisfies clause 25)
+37. Assign x17 = 0 (satisfies clause 26)
+38. Assign x41 = 1 (satisfies clause 28)
+39. Assign x16 = 1 (satisfies clause 29)
+40. Assign x30 = 1 (satisfies clause 36)
+41. Assign x11 = 1 (satisfies clause 36)
+42. Assign x8 = 1 (satisfies clause 46)
+43. Assign x14 = 1 (satisfies clause 46)
+44. Assign x50 = 1 (satisfies clause 48)
+45. Assign x45 = 1 (satisfies clause 50)
+46. Assign x23 = 1 (satisfies clause 51)
+47. Assign x39 = 1 (satisfies clause 54)
+48. Assign x19 = 1 (satisfies clause 58)
+49. Assign x40 = 1 (satisfies clause 83)
+50. Assign x22 = 0 (satisfies clause 70)
+
+* SATISFIABLE
+* Number of branches: 50
+* Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = 0, x2 = 1, x3 = 1, x4 =

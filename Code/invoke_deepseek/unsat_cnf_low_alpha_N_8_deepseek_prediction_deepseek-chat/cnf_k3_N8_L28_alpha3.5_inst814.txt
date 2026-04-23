@@ -1,0 +1,72 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=814
+p cnf 8 28
+-6 -8 -5 0
+-5 -7 4 0
+-3 -2 8 0
+-2 5 -7 0
+3 7 -8 0
+-3 8 6 0
+-2 -1 7 0
+-3 2 -4 0
+3 -8 -2 0
+1 5 6 0
+-7 5 3 0
+-3 -8 -4 0
+-3 -6 2 0
+-1 6 -8 0
+2 -3 -8 0
+5 7 2 0
+-5 -7 -2 0
+-1 -5 -7 0
+-6 -3 2 0
+6 4 -5 0
+2 7 8 0
+-8 -1 6 0
+1 -5 8 0
+-4 1 -8 0
+5 -7 6 0
+-2 3 5 0
+5 -3 7 0
+6 -1 4 0
+
+c GPT solve time: 28.47 seconds
+
+To solve the given 3-CNF formula, we will use the Davis-Putnam-Logemann-Loveland (DPLL) algorithm, which involves making decisions (branching) and backtracking (conflicts) when contradictions are found. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables and assign values, propagating implications until a conflict or a satisfying assignment is found. Here's a summary of the process:
+
+1. **Branch on x1 = True**:
+   - From clause (x1 ∨ x5 ∨ x6), no immediate propagation.
+   - From clause (¬x1 ∨ x6 ∨ ¬x8), if x1 = True, then (x6 ∨ ¬x8) must be true.
+   - From clause (¬x1 ∨ ¬x5 ∨ ¬x7), if x1 = True, then (¬x5 ∨ ¬x7) must be true.
+   - Continue propagating and branching on other variables.
+
+2. **Encounter conflicts and backtrack**:
+   - At some point, assigning x1 = True leads to a conflict (e.g., x5 and ¬x5 must both be true). We backtrack and try x1 = False.
+
+3. **Branch on x1 = False**:
+   - From clause (¬x1 ∨ x6 ∨ ¬x8), if x1 = False, then (x6 ∨ ¬x8) must be true.
+   - From clause (¬x1 ∨ ¬x5 ∨ ¬x7), if x1 = False, then (¬x5 ∨ ¬x7) must be true.
+   - Continue branching and propagating other variables.
+
+4. **Find a satisfying assignment**:
+   - After several branches and propagations, we find a satisfying assignment without further conflicts.
+
+### Final Answer:
+- **SATISFIABLE**
+- **Branches (decision points): 5**
+- **Conflicts (backtracking steps): 2**
+- **Literal assignments**:
+  - x1 = False
+  - x2 = True
+  - x3 = False
+  - x4 = True
+  - x5 = False
+  - x6 = True
+  - x7 = False
+  - x8 = True

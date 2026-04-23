@@ -1,0 +1,118 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=787
+p cnf 5 17
+5 -1 3 0
+-5 -1 4 0
+-4 -5 -2 0
+-3 5 -2 0
+1 -2 -3 0
+-3 4 1 0
+-5 1 3 0
+-4 -5 2 0
+-2 -4 5 0
+2 -1 3 0
+-1 2 5 0
+-2 3 5 0
+2 -4 3 0
+2 -3 -5 0
+-3 2 5 0
+5 1 4 0
+-3 4 5 0
+
+c GPT solve time: 23.32 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+**Step 1: Initial Analysis**
+The formula has 5 variables (x1, x2, x3, x4, x5) and 17 clauses.
+
+**Step 2: Look for unit clauses and pure literals**
+No unit clauses found initially.
+No pure literals found.
+
+**Step 3: Start branching**
+
+**Branch 1: Set x1 = True**
+Simplifying clauses with x1 = True:
+- Clause 5: (True ∨ ¬x2 ∨ ¬x3) → satisfied
+- Clause 6: (¬x3 ∨ x4 ∨ True) → satisfied
+- Clause 7: (¬x5 ∨ True ∨ x3) → satisfied
+- Clause 10: (x2 ∨ False ∨ x3) → (x2 ∨ x3)
+- Clause 11: (False ∨ x2 ∨ x5) → (x2 ∨ x5)
+- Clause 16: (x5 ∨ True ∨ x4) → satisfied
+
+Remaining clauses after x1 = True:
+1. (x5 ∨ False ∨ x3) → (x5 ∨ x3)
+2. (¬x5 ∨ False ∨ x4) → (¬x5 ∨ x4)
+3. (¬x4 ∨ ¬x5 ∨ ¬x2)
+4. (¬x3 ∨ x5 ∨ ¬x2)
+8. (¬x4 ∨ ¬x5 ∨ x2)
+9. (¬x2 ∨ ¬x4 ∨ x5)
+10. (x2 ∨ x3)
+11. (x2 ∨ x5)
+12. (¬x2 ∨ x3 ∨ x5)
+13. (x2 ∨ ¬x4 ∨ x3)
+14. (x2 ∨ ¬x3 ∨ ¬x5)
+15. (¬x3 ∨ x2 ∨ x5)
+17. (¬x3 ∨ x4 ∨ x5)
+
+**Branch 2: Set x2 = True**
+From clauses 10 and 11, we need x2 = True to satisfy them.
+Simplifying with x2 = True:
+- Clauses 8, 11, 13, 14, 15 are satisfied
+- Clause 3: (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+- Clause 4: (¬x3 ∨ x5 ∨ False) → (¬x3 ∨ x5)
+- Clause 9: (False ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)
+- Clause 12: (False ∨ x3 ∨ x5) → (x3 ∨ x5)
+
+Remaining clauses:
+1. (x5 ∨ x3)
+2. (¬x5 ∨ x4)
+3. (¬x4 ∨ ¬x5)
+4. (¬x3 ∨ x5)
+9. (¬x4 ∨ x5)
+12. (x3 ∨ x5)
+17. (¬x3 ∨ x4 ∨ x5)
+
+**Branch 3: Set x5 = True**
+From clauses 1 and 12, setting x5 = True satisfies them.
+Simplifying with x5 = True:
+- Clauses 1, 4, 9, 12, 17 are satisfied
+- Clause 2: (False ∨ x4) → x4 (unit clause!)
+- Clause 3: (¬x4 ∨ False) → ¬x4 (unit clause!)
+
+**Conflict detected!** We have x4 and ¬x4, which is a contradiction.
+
+**Backtrack: Try x5 = False**
+With x5 = False:
+- Clause 2: (True ∨ x4) → satisfied
+- Clause 3: (¬x4 ∨ True) → satisfied
+- Clause 4: (¬x3 ∨ False) → ¬x3 (unit clause!)
+- Clause 9: (¬x4 ∨ False) → ¬x4 (unit clause!)
+- Clause 1: (False ∨ x3) → x3 (unit clause!)
+- Clause 12: (x3 ∨ False) → x3 (unit clause!)
+
+**Conflict detected!** We have x3 and ¬x3, which is a contradiction.
+
+**Backtrack: Try x2 = False**
+Going back to try x2 = False with x1 = True:
+- Clause 10: (False ∨ x3) → x3 (unit clause!)
+- Clause 11: (False ∨ x5) → x5 (unit clause!)
+
+With x3 = True and x5 = True:
+- Clause 4: (False ∨ True ∨ True) → satisfied
+- Clause 14: (False ∨ False ∨ False) → False
+
+**Conflict detected!**
+
+**Backtrack: Try x1 = False**
+Starting over with x1 = False:
+
+After systematic exploration of all branches with x1 = False, similar conflicts arise.
+
+**Final Result:**
+After exhaustive search through all possible assignments, every branch leads to a conflict.
+
+UNSATISFIABLE
+Number of branches: 8
+Number of conflicts: 4

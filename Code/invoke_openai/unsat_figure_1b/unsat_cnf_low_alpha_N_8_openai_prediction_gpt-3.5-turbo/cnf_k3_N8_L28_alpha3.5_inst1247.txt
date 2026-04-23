@@ -1,0 +1,67 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1247
+p cnf 8 28
+7 -6 1 0
+6 -4 -2 0
+1 -8 2 0
+3 6 5 0
+2 -7 -6 0
+-2 -7 -3 0
+4 -3 -1 0
+-6 -7 8 0
+1 5 -3 0
+7 -1 5 0
+7 -1 -2 0
+-6 1 -4 0
+8 -4 -3 0
+6 4 2 0
+3 5 -1 0
+3 -6 7 0
+1 -4 2 0
+7 -3 2 0
+-1 5 -4 0
+-3 6 -2 0
+-5 -2 -1 0
+-6 -1 2 0
+-6 4 -7 0
+-1 -6 -3 0
+-1 -8 -3 0
+8 -3 4 0
+3 6 -5 0
+-6 4 7 0
+
+c GPT solve time: 5.98 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x7.
+3. Assign x7 = True.
+4. Update the clauses:
+   (x7 ∨ ¬x6 ∨ x1) -> (True ∨ ¬x6 ∨ x1) -> True
+   (x7 ∨ ¬x1 ∨ x5) -> (True ∨ ¬x1 ∨ x5) -> True
+   (x7 ∨ ¬x1 ∨ ¬x2) -> (True ∨ ¬x1 ∨ ¬x2) -> True
+   (x7 ∨ ¬x3 ∨ x2) -> (True ∨ ¬x3 ∨ x2) -> True
+5. Check for any unit clauses and update the assignment:
+   x1 = True (from the clause (x7 ∨ ¬x6 ∨ x1))
+   x5 = True (from the clause (x7 ∨ ¬x1 ∨ x5))
+   x2 = True (from the clause (x7 ∨ ¬x1 ∨ ¬x2))
+   x3 = True (from the clause (x7 ∨ ¬x3 ∨ x2))
+6. Update the remaining clauses:
+   (x6 ∨ ¬x4 ∨ ¬x2) -> (False ∨ ¬x4 ∨ ¬x2) -> ¬x4
+   (x1 ∨ ¬x8 ∨ x2) -> (True ∨ ¬x8 ∨ True) -> True
+   (x3 ∨ x6 ∨ x5) -> (True ∨ False ∨ True) -> True
+   (x2 ∨ ¬x7 ∨ ¬x6) -> (True ∨ ¬x7 ∨ False) -> True
+   (¬x2 ∨ ¬x7 ∨ ¬x3) -> (False ∨ ¬x7 ∨ False) -> ¬x7
+   (x4 ∨ ¬x3 ∨ ¬x1) -> (False ∨ False ∨ True) -> True
+   (¬x6 ∨ ¬x7 ∨ x8) -> (False ∨ ¬x7 ∨ True) -> True
+   (x1 ∨ x5 ∨ ¬x3) -> (True ∨ True ∨ False) -> True
+   (¬x6 ∨ x1 ∨ ¬x4) -> (False ∨ True ∨ ¬x4) -> True
+   (x8 ∨ ¬x4 ∨ ¬x3) -> (True ∨ ¬x4 ∨ False) -> True
+   (x6 ∨ x4 ∨ x2) -> (False ∨ False ∨ True) -> True
+   (x3 ∨ x5 ∨ ¬x1) -> (True ∨ True ∨ False) -> True
+   (x3 ∨ ¬x6 ∨ x7) -> (True ∨ False ∨ True) -> True
+   (x1 ∨ ¬x4 ∨ x2) -> (True ∨ False ∨ True) -> True
+   (¬x1 ∨ x5 ∨ ¬x4) -> (False ∨ True ∨ True) -> True
+   (¬x3 ∨ x6 ∨ ¬x2) -> (False ∨ False ∨ False) -> UNSATISFIABLE
+7. The formula is UNSATISFIABLE.
+8. Number of branches (decision points): 1
+9. Number of conflicts (backtracking steps): 0

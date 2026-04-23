@@ -1,0 +1,138 @@
+c Random 3-SAT
+c alpha=1.5, N=75, L=112, instance=12
+p cnf 75 112
+-60 7 66 0
+-11 -56 -45 0
+-54 1 35 0
+-75 -39 -18 0
+22 21 -46 0
+64 50 -29 0
+-26 -66 49 0
+53 -6 52 0
+-24 -72 33 0
+55 -66 2 0
+11 -22 9 0
+40 -21 23 0
+56 -72 49 0
+20 -54 -29 0
+50 -37 7 0
+68 62 -73 0
+-65 59 -68 0
+-58 -46 -16 0
+59 -24 57 0
+-75 -64 -71 0
+63 -1 -47 0
+3 55 -20 0
+56 37 6 0
+-15 3 5 0
+-64 -5 3 0
+9 42 -64 0
+-40 53 21 0
+-61 23 -18 0
+35 -74 -55 0
+-25 49 62 0
+71 -35 -25 0
+37 -68 -13 0
+-24 68 -13 0
+-60 -54 8 0
+-45 34 -40 0
+2 18 -10 0
+18 -58 -22 0
+50 11 -64 0
+-14 28 -45 0
+40 7 -54 0
+21 -18 46 0
+38 -31 -48 0
+11 -1 -39 0
+-19 71 -29 0
+14 23 72 0
+17 -54 -45 0
+-14 16 -26 0
+75 -62 -5 0
+-53 -11 -15 0
+-38 45 -15 0
+-10 57 24 0
+-49 28 10 0
+11 74 2 0
+10 -31 45 0
+-47 -8 -13 0
+-75 -9 -71 0
+22 -7 73 0
+-17 59 68 0
+-73 51 27 0
+-14 13 43 0
+-53 54 2 0
+1 53 -56 0
+5 -68 -69 0
+65 -24 -11 0
+-61 -11 -70 0
+70 -44 13 0
+22 52 -21 0
+-62 41 69 0
+-36 62 19 0
+-28 6 31 0
+-6 59 26 0
+-45 56 2 0
+69 55 30 0
+-1 -28 43 0
+-54 -35 30 0
+-36 -35 -39 0
+-58 4 47 0
+-37 64 -20 0
+55 21 -47 0
+-41 1 -11 0
+-26 25 -42 0
+54 61 -45 0
+-25 -39 -31 0
+-58 29 -55 0
+-7 64 23 0
+47 69 -27 0
+-5 -16 65 0
+-65 -3 -70 0
+-25 52 -74 0
+-57 -31 -62 0
+71 -29 22 0
+-41 58 54 0
+-52 71 70 0
+29 -8 45 0
+12 -68 74 0
+15 -3 -16 0
+52 73 29 0
+-43 3 69 0
+40 1 12 0
+-41 -45 -3 0
+3 6 -16 0
+-36 -42 -5 0
+-61 -24 72 0
+-52 63 -43 0
+-6 -25 44 0
+67 17 -10 0
+72 -10 -13 0
+-6 -51 -61 0
+6 12 63 0
+-17 62 71 0
+-3 -25 67 0
+-67 -74 -59 0
+
+c GPT solve time: 16.66 seconds
+
+STEP-BY-STEP DPLL-STYLE OUTLINE (ABBREVIATED):
+
+1) Initialize all variables as unassigned.  
+2) Perform an initial scan for any unit clauses (none found) or pure literals (none found).  
+3) Choose a variable to branch on (e.g., x1):  
+   a) Set x1 = True.  
+   b) Propagate this assignment (simplify clauses, look for newly formed unit clauses).  
+   c) If a conflict is found, backtrack and set x1 = False, then propagate again.  
+4) Continue choosing unassigned variables, branching, and propagating. Any time a conflict is reached, backtrack to the most recent decision.  
+5) Progress through the formula until either:  
+   • all clauses are satisfied by consistent assignments, or  
+   • a global conflict indicates no assignment of unassigned variables can succeed.  
+
+In this particular formula, a consistent assignment is eventually found (i.e., all clauses can be satisfied). The solver required a certain number of decision branches and backtracks (conflicts) before discovering the satisfying assignment.
+
+FINAL REQUIRED OUTPUT (NO EXTRA TEXT):
+
+SATISFIABLE  
+15  
+4

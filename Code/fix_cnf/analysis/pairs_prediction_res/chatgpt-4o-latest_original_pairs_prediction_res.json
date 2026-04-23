@@ -1,0 +1,3659 @@
+{
+    "5": {
+        "cnf_k3_N10_L35_alpha3.5_inst1040": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1050": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1057": {},
+        "cnf_k3_N10_L35_alpha3.5_inst106": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1086": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1132": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1172": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1201": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1251": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1254": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1290": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1298": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1307": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1333": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1349": {},
+        "cnf_k3_N10_L35_alpha3.5_inst137": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1419": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1429": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1433": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1435": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1491": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1535": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1541": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1551": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1573": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1613": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1614": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1621": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1624": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1635": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1673": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1675": {},
+        "cnf_k3_N10_L35_alpha3.5_inst169": {},
+        "cnf_k3_N10_L35_alpha3.5_inst276": {},
+        "cnf_k3_N10_L35_alpha3.5_inst305": {},
+        "cnf_k3_N10_L35_alpha3.5_inst368": {},
+        "cnf_k3_N10_L35_alpha3.5_inst386": {},
+        "cnf_k3_N10_L35_alpha3.5_inst392": {},
+        "cnf_k3_N10_L35_alpha3.5_inst425": {},
+        "cnf_k3_N10_L35_alpha3.5_inst44": {},
+        "cnf_k3_N10_L35_alpha3.5_inst442": {},
+        "cnf_k3_N10_L35_alpha3.5_inst485": {},
+        "cnf_k3_N10_L35_alpha3.5_inst5": {},
+        "cnf_k3_N10_L35_alpha3.5_inst515": {},
+        "cnf_k3_N10_L35_alpha3.5_inst52": {},
+        "cnf_k3_N10_L35_alpha3.5_inst554": {},
+        "cnf_k3_N10_L35_alpha3.5_inst571": {},
+        "cnf_k3_N10_L35_alpha3.5_inst607": {},
+        "cnf_k3_N10_L35_alpha3.5_inst611": {},
+        "cnf_k3_N10_L35_alpha3.5_inst626": {},
+        "cnf_k3_N10_L35_alpha3.5_inst634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst650": {},
+        "cnf_k3_N10_L35_alpha3.5_inst698": {},
+        "cnf_k3_N10_L35_alpha3.5_inst704": {},
+        "cnf_k3_N10_L35_alpha3.5_inst751": {},
+        "cnf_k3_N10_L35_alpha3.5_inst759": {},
+        "cnf_k3_N10_L35_alpha3.5_inst771": {},
+        "cnf_k3_N10_L35_alpha3.5_inst778": {},
+        "cnf_k3_N10_L35_alpha3.5_inst793": {},
+        "cnf_k3_N10_L35_alpha3.5_inst80": {},
+        "cnf_k3_N10_L35_alpha3.5_inst804": {},
+        "cnf_k3_N10_L35_alpha3.5_inst816": {},
+        "cnf_k3_N10_L35_alpha3.5_inst837": {},
+        "cnf_k3_N10_L35_alpha3.5_inst845": {},
+        "cnf_k3_N10_L35_alpha3.5_inst864": {},
+        "cnf_k3_N10_L35_alpha3.5_inst866": {},
+        "cnf_k3_N10_L35_alpha3.5_inst951": {},
+        "cnf_k3_N10_L35_alpha3.5_inst956": {},
+        "cnf_k3_N10_L35_alpha3.5_inst966": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1124": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1153": {},
+        "cnf_k3_N25_L87_alpha3.5_inst117": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1204": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1219": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1225": {},
+        "cnf_k3_N25_L87_alpha3.5_inst151": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1622": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1710": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1728": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1766": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1814": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1815": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1823": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2004": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2104": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2121": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2122": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2248": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2493": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2500": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2792": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2798": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2877": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2904": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2962": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2978": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3126": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3174": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3195": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3274": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3352": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3556": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3584": {},
+        "cnf_k3_N25_L87_alpha3.5_inst372": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3976": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4017": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4118": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4142": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4156": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4172": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4180": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4238": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4258": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4399": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4445": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4564": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4574": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4578": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4610": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4620": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4720": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4722": {},
+        "cnf_k3_N25_L87_alpha3.5_inst489": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4934": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5016": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5071": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5081": {},
+        "cnf_k3_N25_L87_alpha3.5_inst526": {},
+        "cnf_k3_N25_L87_alpha3.5_inst608": {},
+        "cnf_k3_N25_L87_alpha3.5_inst647": {},
+        "cnf_k3_N25_L87_alpha3.5_inst657": {},
+        "cnf_k3_N25_L87_alpha3.5_inst685": {},
+        "cnf_k3_N25_L87_alpha3.5_inst789": {},
+        "cnf_k3_N25_L87_alpha3.5_inst791": {},
+        "cnf_k3_N25_L87_alpha3.5_inst849": {},
+        "cnf_k3_N25_L87_alpha3.5_inst862": {},
+        "cnf_k3_N25_L87_alpha3.5_inst950": {},
+        "cnf_k3_N50_L175_alpha3.5_inst2662": {},
+        "cnf_k3_N50_L175_alpha3.5_inst3960": {},
+        "cnf_k3_N50_L175_alpha3.5_inst4524": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5329": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5410": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5887": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6029": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6301": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6636": {},
+        "cnf_k3_N50_L175_alpha3.5_inst7399": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8373": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8935": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1594": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1738": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1813": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1988": {},
+        "cnf_k3_N50_L180_alpha3.6_inst200": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2217": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2402": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2570": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2614": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3164": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3293": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3318": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3380": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3509": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3584": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3689": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3818": {},
+        "cnf_k3_N50_L180_alpha3.6_inst464": {},
+        "cnf_k3_N50_L180_alpha3.6_inst4746": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5035": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5050": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5250": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5282": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5284": {},
+        "cnf_k3_N50_L180_alpha3.6_inst543": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5434": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5721": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6547": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6687": {},
+        "cnf_k3_N50_L180_alpha3.6_inst680": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6863": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7163": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7259": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7266": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7414": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7820": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7886": {},
+        "cnf_k3_N50_L180_alpha3.6_inst8258": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9539": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9774": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9788": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9865": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9919": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9971": {},
+        "cnf_k3_N50_L185_alpha3.7_inst432": {},
+        "cnf_k3_N50_L185_alpha3.7_inst452": {},
+        "cnf_k3_N50_L185_alpha3.7_inst509": {},
+        "cnf_k3_N50_L185_alpha3.7_inst527": {},
+        "cnf_k3_N50_L185_alpha3.7_inst561": {},
+        "cnf_k3_N50_L185_alpha3.7_inst570": {},
+        "cnf_k3_N50_L185_alpha3.7_inst620": {},
+        "cnf_k3_N50_L185_alpha3.7_inst672": {},
+        "cnf_k3_N50_L185_alpha3.7_inst785": {},
+        "cnf_k3_N50_L185_alpha3.7_inst819": {},
+        "cnf_k3_N50_L185_alpha3.7_inst825": {},
+        "cnf_k3_N50_L185_alpha3.7_inst842": {},
+        "cnf_k3_N50_L185_alpha3.7_inst877": {},
+        "cnf_k3_N50_L185_alpha3.7_inst887": {},
+        "cnf_k3_N5_L17_alpha3.5_inst101": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst102": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1034": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1069": {
+            "Predictions_after_fix": false,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1078": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1084": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst109": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1092": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1149": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1155": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1169": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1220": {
+            "Predictions_after_fix": false,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1233": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1251": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1265": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1277": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst129": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1321": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1322": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1346": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": false
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1416": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1488": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1491": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1492": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1498": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1522": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1530": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1556": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1578": {
+            "Predictions_after_fix": false,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1595": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1619": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1644": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1673": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1707": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1716": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1734": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1757": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1768": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1772": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1778": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1797": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1849": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1862": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1877": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1882": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1898": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1904": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst1909": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst236": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst241": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst247": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst265": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst361": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst369": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst390": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst411": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst478": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst502": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst546": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst566": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst59": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst607": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst614": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst624": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst775": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst802": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst819": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst823": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst888": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst902": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L210_alpha3.5_inst2935": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4296": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4317": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5708": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5943": {},
+        "cnf_k3_N60_L210_alpha3.5_inst6047": {},
+        "cnf_k3_N60_L210_alpha3.5_inst8397": {},
+        "cnf_k3_N60_L210_alpha3.5_inst9426": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1021": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1165": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1345": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1412": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2396": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2731": {},
+        "cnf_k3_N60_L216_alpha3.6_inst3265": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4631": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4661": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5400": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5573": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6229": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6325": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7020": {},
+        "cnf_k3_N60_L216_alpha3.6_inst735": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7509": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7910": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8410": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8548": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8587": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9080": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9496": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9553": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9685": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1184": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1294": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1339": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1491": {},
+        "cnf_k3_N60_L222_alpha3.7_inst150": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1661": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1741": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1795": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2039": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2095": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2777": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2905": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3023": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3189": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3400": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3441": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3481": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3569": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3714": {},
+        "cnf_k3_N60_L222_alpha3.7_inst372": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3915": {},
+        "cnf_k3_N60_L222_alpha3.7_inst4108": {},
+        "cnf_k3_N60_L222_alpha3.7_inst504": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1052": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1065": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1067": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1074": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1087": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1099": {},
+        "cnf_k3_N8_L28_alpha3.5_inst113": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1159": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1175": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1177": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1180": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1199": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1212": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1243": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1247": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1252": {},
+        "cnf_k3_N8_L28_alpha3.5_inst126": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1261": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1363": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1431": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1432": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1446": {},
+        "cnf_k3_N8_L28_alpha3.5_inst194": {},
+        "cnf_k3_N8_L28_alpha3.5_inst196": {},
+        "cnf_k3_N8_L28_alpha3.5_inst206": {},
+        "cnf_k3_N8_L28_alpha3.5_inst22": {},
+        "cnf_k3_N8_L28_alpha3.5_inst229": {},
+        "cnf_k3_N8_L28_alpha3.5_inst244": {},
+        "cnf_k3_N8_L28_alpha3.5_inst248": {},
+        "cnf_k3_N8_L28_alpha3.5_inst251": {},
+        "cnf_k3_N8_L28_alpha3.5_inst276": {},
+        "cnf_k3_N8_L28_alpha3.5_inst278": {},
+        "cnf_k3_N8_L28_alpha3.5_inst28": {},
+        "cnf_k3_N8_L28_alpha3.5_inst301": {},
+        "cnf_k3_N8_L28_alpha3.5_inst320": {},
+        "cnf_k3_N8_L28_alpha3.5_inst330": {},
+        "cnf_k3_N8_L28_alpha3.5_inst345": {},
+        "cnf_k3_N8_L28_alpha3.5_inst378": {},
+        "cnf_k3_N8_L28_alpha3.5_inst385": {},
+        "cnf_k3_N8_L28_alpha3.5_inst399": {},
+        "cnf_k3_N8_L28_alpha3.5_inst401": {},
+        "cnf_k3_N8_L28_alpha3.5_inst414": {},
+        "cnf_k3_N8_L28_alpha3.5_inst434": {},
+        "cnf_k3_N8_L28_alpha3.5_inst444": {},
+        "cnf_k3_N8_L28_alpha3.5_inst461": {},
+        "cnf_k3_N8_L28_alpha3.5_inst486": {},
+        "cnf_k3_N8_L28_alpha3.5_inst511": {},
+        "cnf_k3_N8_L28_alpha3.5_inst55": {},
+        "cnf_k3_N8_L28_alpha3.5_inst553": {},
+        "cnf_k3_N8_L28_alpha3.5_inst566": {},
+        "cnf_k3_N8_L28_alpha3.5_inst580": {},
+        "cnf_k3_N8_L28_alpha3.5_inst605": {},
+        "cnf_k3_N8_L28_alpha3.5_inst631": {},
+        "cnf_k3_N8_L28_alpha3.5_inst66": {},
+        "cnf_k3_N8_L28_alpha3.5_inst664": {},
+        "cnf_k3_N8_L28_alpha3.5_inst673": {},
+        "cnf_k3_N8_L28_alpha3.5_inst692": {},
+        "cnf_k3_N8_L28_alpha3.5_inst698": {},
+        "cnf_k3_N8_L28_alpha3.5_inst724": {},
+        "cnf_k3_N8_L28_alpha3.5_inst73": {},
+        "cnf_k3_N8_L28_alpha3.5_inst755": {},
+        "cnf_k3_N8_L28_alpha3.5_inst756": {},
+        "cnf_k3_N8_L28_alpha3.5_inst77": {},
+        "cnf_k3_N8_L28_alpha3.5_inst778": {},
+        "cnf_k3_N8_L28_alpha3.5_inst796": {},
+        "cnf_k3_N8_L28_alpha3.5_inst82": {},
+        "cnf_k3_N8_L28_alpha3.5_inst853": {},
+        "cnf_k3_N8_L28_alpha3.5_inst886": {},
+        "cnf_k3_N8_L28_alpha3.5_inst891": {},
+        "cnf_k3_N8_L28_alpha3.5_inst925": {}
+    },
+    "8": {
+        "cnf_k3_N10_L35_alpha3.5_inst1040": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1050": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1057": {},
+        "cnf_k3_N10_L35_alpha3.5_inst106": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1086": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1132": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1172": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1201": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1251": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1254": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1290": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1298": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1307": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1333": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1349": {},
+        "cnf_k3_N10_L35_alpha3.5_inst137": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1419": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1429": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1433": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1435": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1491": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1535": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1541": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1551": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1573": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1613": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1614": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1621": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1624": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1635": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1673": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1675": {},
+        "cnf_k3_N10_L35_alpha3.5_inst169": {},
+        "cnf_k3_N10_L35_alpha3.5_inst276": {},
+        "cnf_k3_N10_L35_alpha3.5_inst305": {},
+        "cnf_k3_N10_L35_alpha3.5_inst368": {},
+        "cnf_k3_N10_L35_alpha3.5_inst386": {},
+        "cnf_k3_N10_L35_alpha3.5_inst392": {},
+        "cnf_k3_N10_L35_alpha3.5_inst425": {},
+        "cnf_k3_N10_L35_alpha3.5_inst44": {},
+        "cnf_k3_N10_L35_alpha3.5_inst442": {},
+        "cnf_k3_N10_L35_alpha3.5_inst485": {},
+        "cnf_k3_N10_L35_alpha3.5_inst5": {},
+        "cnf_k3_N10_L35_alpha3.5_inst515": {},
+        "cnf_k3_N10_L35_alpha3.5_inst52": {},
+        "cnf_k3_N10_L35_alpha3.5_inst554": {},
+        "cnf_k3_N10_L35_alpha3.5_inst571": {},
+        "cnf_k3_N10_L35_alpha3.5_inst607": {},
+        "cnf_k3_N10_L35_alpha3.5_inst611": {},
+        "cnf_k3_N10_L35_alpha3.5_inst626": {},
+        "cnf_k3_N10_L35_alpha3.5_inst634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst650": {},
+        "cnf_k3_N10_L35_alpha3.5_inst698": {},
+        "cnf_k3_N10_L35_alpha3.5_inst704": {},
+        "cnf_k3_N10_L35_alpha3.5_inst751": {},
+        "cnf_k3_N10_L35_alpha3.5_inst759": {},
+        "cnf_k3_N10_L35_alpha3.5_inst771": {},
+        "cnf_k3_N10_L35_alpha3.5_inst778": {},
+        "cnf_k3_N10_L35_alpha3.5_inst793": {},
+        "cnf_k3_N10_L35_alpha3.5_inst80": {},
+        "cnf_k3_N10_L35_alpha3.5_inst804": {},
+        "cnf_k3_N10_L35_alpha3.5_inst816": {},
+        "cnf_k3_N10_L35_alpha3.5_inst837": {},
+        "cnf_k3_N10_L35_alpha3.5_inst845": {},
+        "cnf_k3_N10_L35_alpha3.5_inst864": {},
+        "cnf_k3_N10_L35_alpha3.5_inst866": {},
+        "cnf_k3_N10_L35_alpha3.5_inst951": {},
+        "cnf_k3_N10_L35_alpha3.5_inst956": {},
+        "cnf_k3_N10_L35_alpha3.5_inst966": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1124": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1153": {},
+        "cnf_k3_N25_L87_alpha3.5_inst117": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1204": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1219": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1225": {},
+        "cnf_k3_N25_L87_alpha3.5_inst151": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1622": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1710": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1728": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1766": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1814": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1815": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1823": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2004": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2104": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2121": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2122": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2248": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2493": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2500": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2792": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2798": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2877": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2904": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2962": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2978": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3126": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3174": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3195": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3274": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3352": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3556": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3584": {},
+        "cnf_k3_N25_L87_alpha3.5_inst372": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3976": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4017": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4118": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4142": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4156": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4172": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4180": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4238": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4258": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4399": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4445": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4564": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4574": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4578": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4610": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4620": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4720": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4722": {},
+        "cnf_k3_N25_L87_alpha3.5_inst489": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4934": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5016": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5071": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5081": {},
+        "cnf_k3_N25_L87_alpha3.5_inst526": {},
+        "cnf_k3_N25_L87_alpha3.5_inst608": {},
+        "cnf_k3_N25_L87_alpha3.5_inst647": {},
+        "cnf_k3_N25_L87_alpha3.5_inst657": {},
+        "cnf_k3_N25_L87_alpha3.5_inst685": {},
+        "cnf_k3_N25_L87_alpha3.5_inst789": {},
+        "cnf_k3_N25_L87_alpha3.5_inst791": {},
+        "cnf_k3_N25_L87_alpha3.5_inst849": {},
+        "cnf_k3_N25_L87_alpha3.5_inst862": {},
+        "cnf_k3_N25_L87_alpha3.5_inst950": {},
+        "cnf_k3_N50_L175_alpha3.5_inst2662": {},
+        "cnf_k3_N50_L175_alpha3.5_inst3960": {},
+        "cnf_k3_N50_L175_alpha3.5_inst4524": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5329": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5410": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5887": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6029": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6301": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6636": {},
+        "cnf_k3_N50_L175_alpha3.5_inst7399": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8373": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8935": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1594": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1738": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1813": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1988": {},
+        "cnf_k3_N50_L180_alpha3.6_inst200": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2217": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2402": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2570": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2614": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3164": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3293": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3318": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3380": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3509": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3584": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3689": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3818": {},
+        "cnf_k3_N50_L180_alpha3.6_inst464": {},
+        "cnf_k3_N50_L180_alpha3.6_inst4746": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5035": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5050": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5250": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5282": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5284": {},
+        "cnf_k3_N50_L180_alpha3.6_inst543": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5434": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5721": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6547": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6687": {},
+        "cnf_k3_N50_L180_alpha3.6_inst680": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6863": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7163": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7259": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7266": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7414": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7820": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7886": {},
+        "cnf_k3_N50_L180_alpha3.6_inst8258": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9539": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9774": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9788": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9865": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9919": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9971": {},
+        "cnf_k3_N50_L185_alpha3.7_inst432": {},
+        "cnf_k3_N50_L185_alpha3.7_inst452": {},
+        "cnf_k3_N50_L185_alpha3.7_inst509": {},
+        "cnf_k3_N50_L185_alpha3.7_inst527": {},
+        "cnf_k3_N50_L185_alpha3.7_inst561": {},
+        "cnf_k3_N50_L185_alpha3.7_inst570": {},
+        "cnf_k3_N50_L185_alpha3.7_inst620": {},
+        "cnf_k3_N50_L185_alpha3.7_inst672": {},
+        "cnf_k3_N50_L185_alpha3.7_inst785": {},
+        "cnf_k3_N50_L185_alpha3.7_inst819": {},
+        "cnf_k3_N50_L185_alpha3.7_inst825": {},
+        "cnf_k3_N50_L185_alpha3.7_inst842": {},
+        "cnf_k3_N50_L185_alpha3.7_inst877": {},
+        "cnf_k3_N50_L185_alpha3.7_inst887": {},
+        "cnf_k3_N5_L17_alpha3.5_inst101": {},
+        "cnf_k3_N5_L17_alpha3.5_inst102": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1034": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1069": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1078": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1084": {},
+        "cnf_k3_N5_L17_alpha3.5_inst109": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1092": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1149": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1155": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1169": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1220": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1233": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1251": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1277": {},
+        "cnf_k3_N5_L17_alpha3.5_inst129": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1321": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1322": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1346": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1416": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1488": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1491": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1492": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1498": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1522": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1530": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1556": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1578": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1595": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1619": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1644": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1673": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1707": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1716": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1734": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1757": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1768": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1772": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1778": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1797": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1849": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1862": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1877": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1882": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1898": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1904": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1909": {},
+        "cnf_k3_N5_L17_alpha3.5_inst236": {},
+        "cnf_k3_N5_L17_alpha3.5_inst241": {},
+        "cnf_k3_N5_L17_alpha3.5_inst247": {},
+        "cnf_k3_N5_L17_alpha3.5_inst265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst361": {},
+        "cnf_k3_N5_L17_alpha3.5_inst369": {},
+        "cnf_k3_N5_L17_alpha3.5_inst390": {},
+        "cnf_k3_N5_L17_alpha3.5_inst411": {},
+        "cnf_k3_N5_L17_alpha3.5_inst478": {},
+        "cnf_k3_N5_L17_alpha3.5_inst502": {},
+        "cnf_k3_N5_L17_alpha3.5_inst546": {},
+        "cnf_k3_N5_L17_alpha3.5_inst566": {},
+        "cnf_k3_N5_L17_alpha3.5_inst59": {},
+        "cnf_k3_N5_L17_alpha3.5_inst607": {},
+        "cnf_k3_N5_L17_alpha3.5_inst614": {},
+        "cnf_k3_N5_L17_alpha3.5_inst624": {},
+        "cnf_k3_N5_L17_alpha3.5_inst775": {},
+        "cnf_k3_N5_L17_alpha3.5_inst802": {},
+        "cnf_k3_N5_L17_alpha3.5_inst819": {},
+        "cnf_k3_N5_L17_alpha3.5_inst823": {},
+        "cnf_k3_N5_L17_alpha3.5_inst888": {},
+        "cnf_k3_N5_L17_alpha3.5_inst902": {},
+        "cnf_k3_N60_L210_alpha3.5_inst2935": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4296": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4317": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5708": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5943": {},
+        "cnf_k3_N60_L210_alpha3.5_inst6047": {},
+        "cnf_k3_N60_L210_alpha3.5_inst8397": {},
+        "cnf_k3_N60_L210_alpha3.5_inst9426": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1021": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1165": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1345": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1412": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2396": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2731": {},
+        "cnf_k3_N60_L216_alpha3.6_inst3265": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4631": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4661": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5400": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5573": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6229": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6325": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7020": {},
+        "cnf_k3_N60_L216_alpha3.6_inst735": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7509": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7910": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8410": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8548": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8587": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9080": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9496": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9553": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9685": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1184": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1294": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1339": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1491": {},
+        "cnf_k3_N60_L222_alpha3.7_inst150": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1661": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1741": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1795": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2039": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2095": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2777": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2905": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3023": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3189": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3400": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3441": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3481": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3569": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3714": {},
+        "cnf_k3_N60_L222_alpha3.7_inst372": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3915": {},
+        "cnf_k3_N60_L222_alpha3.7_inst4108": {},
+        "cnf_k3_N60_L222_alpha3.7_inst504": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1052": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1065": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1067": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1074": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1087": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1099": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst113": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1159": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1175": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1177": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": false
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1180": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1199": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1212": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1243": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1247": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1252": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst126": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1261": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1363": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1431": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1432": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1446": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst194": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst196": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst206": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst22": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst229": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst244": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst248": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst251": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst276": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst278": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst28": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst301": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst320": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst330": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst345": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst378": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst385": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": false
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst399": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst401": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst414": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst434": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst444": {
+            "Predictions_after_fix": false,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst461": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst486": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst511": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst55": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst553": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst566": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst580": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst605": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst631": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst66": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst664": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst673": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst692": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst698": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst724": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst73": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst755": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst756": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst77": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst778": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst796": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst82": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst853": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst886": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst891": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst925": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        }
+    },
+    "10": {
+        "cnf_k3_N10_L35_alpha3.5_inst1040": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1050": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1057": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst106": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1086": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1132": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1172": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1201": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1251": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1254": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1290": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1298": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1307": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1333": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1349": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst137": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1419": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1429": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1433": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1435": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1491": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1535": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1541": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1551": {
+            "Predictions_after_fix": false,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1573": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1613": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1614": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1621": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1624": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1634": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1635": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1673": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst1675": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst169": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst276": {
+            "Predictions_after_fix": false,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst305": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst368": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst386": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst392": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst425": {
+            "Predictions_after_fix": false,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst44": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst442": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst485": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst5": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst515": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst52": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst554": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst571": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst607": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst611": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst626": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": false
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst634": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst650": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst698": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst704": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst751": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst759": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst771": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst778": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst793": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst80": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst804": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst816": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst837": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst845": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst864": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst866": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst951": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst956": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N10_L35_alpha3.5_inst966": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1124": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1153": {},
+        "cnf_k3_N25_L87_alpha3.5_inst117": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1204": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1219": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1225": {},
+        "cnf_k3_N25_L87_alpha3.5_inst151": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1622": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1710": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1728": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1766": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1814": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1815": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1823": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2004": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2104": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2121": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2122": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2248": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2493": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2500": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2792": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2798": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2877": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2904": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2962": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2978": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3126": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3174": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3195": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3274": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3352": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3556": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3584": {},
+        "cnf_k3_N25_L87_alpha3.5_inst372": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3976": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4017": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4118": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4142": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4156": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4172": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4180": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4238": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4258": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4399": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4445": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4564": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4574": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4578": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4610": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4620": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4720": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4722": {},
+        "cnf_k3_N25_L87_alpha3.5_inst489": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4934": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5016": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5071": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5081": {},
+        "cnf_k3_N25_L87_alpha3.5_inst526": {},
+        "cnf_k3_N25_L87_alpha3.5_inst608": {},
+        "cnf_k3_N25_L87_alpha3.5_inst647": {},
+        "cnf_k3_N25_L87_alpha3.5_inst657": {},
+        "cnf_k3_N25_L87_alpha3.5_inst685": {},
+        "cnf_k3_N25_L87_alpha3.5_inst789": {},
+        "cnf_k3_N25_L87_alpha3.5_inst791": {},
+        "cnf_k3_N25_L87_alpha3.5_inst849": {},
+        "cnf_k3_N25_L87_alpha3.5_inst862": {},
+        "cnf_k3_N25_L87_alpha3.5_inst950": {},
+        "cnf_k3_N50_L175_alpha3.5_inst2662": {},
+        "cnf_k3_N50_L175_alpha3.5_inst3960": {},
+        "cnf_k3_N50_L175_alpha3.5_inst4524": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5329": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5410": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5887": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6029": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6301": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6636": {},
+        "cnf_k3_N50_L175_alpha3.5_inst7399": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8373": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8935": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1594": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1738": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1813": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1988": {},
+        "cnf_k3_N50_L180_alpha3.6_inst200": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2217": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2402": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2570": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2614": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3164": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3293": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3318": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3380": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3509": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3584": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3689": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3818": {},
+        "cnf_k3_N50_L180_alpha3.6_inst464": {},
+        "cnf_k3_N50_L180_alpha3.6_inst4746": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5035": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5050": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5250": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5282": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5284": {},
+        "cnf_k3_N50_L180_alpha3.6_inst543": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5434": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5721": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6547": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6687": {},
+        "cnf_k3_N50_L180_alpha3.6_inst680": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6863": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7163": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7259": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7266": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7414": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7820": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7886": {},
+        "cnf_k3_N50_L180_alpha3.6_inst8258": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9539": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9774": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9788": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9865": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9919": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9971": {},
+        "cnf_k3_N50_L185_alpha3.7_inst432": {},
+        "cnf_k3_N50_L185_alpha3.7_inst452": {},
+        "cnf_k3_N50_L185_alpha3.7_inst509": {},
+        "cnf_k3_N50_L185_alpha3.7_inst527": {},
+        "cnf_k3_N50_L185_alpha3.7_inst561": {},
+        "cnf_k3_N50_L185_alpha3.7_inst570": {},
+        "cnf_k3_N50_L185_alpha3.7_inst620": {},
+        "cnf_k3_N50_L185_alpha3.7_inst672": {},
+        "cnf_k3_N50_L185_alpha3.7_inst785": {},
+        "cnf_k3_N50_L185_alpha3.7_inst819": {},
+        "cnf_k3_N50_L185_alpha3.7_inst825": {},
+        "cnf_k3_N50_L185_alpha3.7_inst842": {},
+        "cnf_k3_N50_L185_alpha3.7_inst877": {},
+        "cnf_k3_N50_L185_alpha3.7_inst887": {},
+        "cnf_k3_N5_L17_alpha3.5_inst101": {},
+        "cnf_k3_N5_L17_alpha3.5_inst102": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1034": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1069": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1078": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1084": {},
+        "cnf_k3_N5_L17_alpha3.5_inst109": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1092": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1149": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1155": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1169": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1220": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1233": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1251": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1277": {},
+        "cnf_k3_N5_L17_alpha3.5_inst129": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1321": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1322": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1346": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1416": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1488": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1491": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1492": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1498": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1522": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1530": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1556": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1578": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1595": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1619": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1644": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1673": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1707": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1716": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1734": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1757": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1768": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1772": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1778": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1797": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1849": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1862": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1877": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1882": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1898": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1904": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1909": {},
+        "cnf_k3_N5_L17_alpha3.5_inst236": {},
+        "cnf_k3_N5_L17_alpha3.5_inst241": {},
+        "cnf_k3_N5_L17_alpha3.5_inst247": {},
+        "cnf_k3_N5_L17_alpha3.5_inst265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst361": {},
+        "cnf_k3_N5_L17_alpha3.5_inst369": {},
+        "cnf_k3_N5_L17_alpha3.5_inst390": {},
+        "cnf_k3_N5_L17_alpha3.5_inst411": {},
+        "cnf_k3_N5_L17_alpha3.5_inst478": {},
+        "cnf_k3_N5_L17_alpha3.5_inst502": {},
+        "cnf_k3_N5_L17_alpha3.5_inst546": {},
+        "cnf_k3_N5_L17_alpha3.5_inst566": {},
+        "cnf_k3_N5_L17_alpha3.5_inst59": {},
+        "cnf_k3_N5_L17_alpha3.5_inst607": {},
+        "cnf_k3_N5_L17_alpha3.5_inst614": {},
+        "cnf_k3_N5_L17_alpha3.5_inst624": {},
+        "cnf_k3_N5_L17_alpha3.5_inst775": {},
+        "cnf_k3_N5_L17_alpha3.5_inst802": {},
+        "cnf_k3_N5_L17_alpha3.5_inst819": {},
+        "cnf_k3_N5_L17_alpha3.5_inst823": {},
+        "cnf_k3_N5_L17_alpha3.5_inst888": {},
+        "cnf_k3_N5_L17_alpha3.5_inst902": {},
+        "cnf_k3_N60_L210_alpha3.5_inst2935": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4296": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4317": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5708": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5943": {},
+        "cnf_k3_N60_L210_alpha3.5_inst6047": {},
+        "cnf_k3_N60_L210_alpha3.5_inst8397": {},
+        "cnf_k3_N60_L210_alpha3.5_inst9426": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1021": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1165": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1345": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1412": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2396": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2731": {},
+        "cnf_k3_N60_L216_alpha3.6_inst3265": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4631": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4661": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5400": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5573": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6229": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6325": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7020": {},
+        "cnf_k3_N60_L216_alpha3.6_inst735": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7509": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7910": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8410": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8548": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8587": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9080": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9496": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9553": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9685": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1184": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1294": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1339": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1491": {},
+        "cnf_k3_N60_L222_alpha3.7_inst150": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1661": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1741": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1795": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2039": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2095": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2777": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2905": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3023": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3189": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3400": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3441": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3481": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3569": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3714": {},
+        "cnf_k3_N60_L222_alpha3.7_inst372": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3915": {},
+        "cnf_k3_N60_L222_alpha3.7_inst4108": {},
+        "cnf_k3_N60_L222_alpha3.7_inst504": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1052": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1065": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1067": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1074": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1087": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1099": {},
+        "cnf_k3_N8_L28_alpha3.5_inst113": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1159": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1175": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1177": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1180": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1199": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1212": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1243": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1247": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1252": {},
+        "cnf_k3_N8_L28_alpha3.5_inst126": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1261": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1363": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1431": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1432": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1446": {},
+        "cnf_k3_N8_L28_alpha3.5_inst194": {},
+        "cnf_k3_N8_L28_alpha3.5_inst196": {},
+        "cnf_k3_N8_L28_alpha3.5_inst206": {},
+        "cnf_k3_N8_L28_alpha3.5_inst22": {},
+        "cnf_k3_N8_L28_alpha3.5_inst229": {},
+        "cnf_k3_N8_L28_alpha3.5_inst244": {},
+        "cnf_k3_N8_L28_alpha3.5_inst248": {},
+        "cnf_k3_N8_L28_alpha3.5_inst251": {},
+        "cnf_k3_N8_L28_alpha3.5_inst276": {},
+        "cnf_k3_N8_L28_alpha3.5_inst278": {},
+        "cnf_k3_N8_L28_alpha3.5_inst28": {},
+        "cnf_k3_N8_L28_alpha3.5_inst301": {},
+        "cnf_k3_N8_L28_alpha3.5_inst320": {},
+        "cnf_k3_N8_L28_alpha3.5_inst330": {},
+        "cnf_k3_N8_L28_alpha3.5_inst345": {},
+        "cnf_k3_N8_L28_alpha3.5_inst378": {},
+        "cnf_k3_N8_L28_alpha3.5_inst385": {},
+        "cnf_k3_N8_L28_alpha3.5_inst399": {},
+        "cnf_k3_N8_L28_alpha3.5_inst401": {},
+        "cnf_k3_N8_L28_alpha3.5_inst414": {},
+        "cnf_k3_N8_L28_alpha3.5_inst434": {},
+        "cnf_k3_N8_L28_alpha3.5_inst444": {},
+        "cnf_k3_N8_L28_alpha3.5_inst461": {},
+        "cnf_k3_N8_L28_alpha3.5_inst486": {},
+        "cnf_k3_N8_L28_alpha3.5_inst511": {},
+        "cnf_k3_N8_L28_alpha3.5_inst55": {},
+        "cnf_k3_N8_L28_alpha3.5_inst553": {},
+        "cnf_k3_N8_L28_alpha3.5_inst566": {},
+        "cnf_k3_N8_L28_alpha3.5_inst580": {},
+        "cnf_k3_N8_L28_alpha3.5_inst605": {},
+        "cnf_k3_N8_L28_alpha3.5_inst631": {},
+        "cnf_k3_N8_L28_alpha3.5_inst66": {},
+        "cnf_k3_N8_L28_alpha3.5_inst664": {},
+        "cnf_k3_N8_L28_alpha3.5_inst673": {},
+        "cnf_k3_N8_L28_alpha3.5_inst692": {},
+        "cnf_k3_N8_L28_alpha3.5_inst698": {},
+        "cnf_k3_N8_L28_alpha3.5_inst724": {},
+        "cnf_k3_N8_L28_alpha3.5_inst73": {},
+        "cnf_k3_N8_L28_alpha3.5_inst755": {},
+        "cnf_k3_N8_L28_alpha3.5_inst756": {},
+        "cnf_k3_N8_L28_alpha3.5_inst77": {},
+        "cnf_k3_N8_L28_alpha3.5_inst778": {},
+        "cnf_k3_N8_L28_alpha3.5_inst796": {},
+        "cnf_k3_N8_L28_alpha3.5_inst82": {},
+        "cnf_k3_N8_L28_alpha3.5_inst853": {},
+        "cnf_k3_N8_L28_alpha3.5_inst886": {},
+        "cnf_k3_N8_L28_alpha3.5_inst891": {},
+        "cnf_k3_N8_L28_alpha3.5_inst925": {}
+    },
+    "25": {
+        "cnf_k3_N10_L35_alpha3.5_inst1040": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1050": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1057": {},
+        "cnf_k3_N10_L35_alpha3.5_inst106": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1086": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1132": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1172": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1201": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1251": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1254": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1290": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1298": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1307": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1333": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1349": {},
+        "cnf_k3_N10_L35_alpha3.5_inst137": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1419": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1429": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1433": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1435": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1491": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1535": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1541": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1551": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1573": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1613": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1614": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1621": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1624": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1635": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1673": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1675": {},
+        "cnf_k3_N10_L35_alpha3.5_inst169": {},
+        "cnf_k3_N10_L35_alpha3.5_inst276": {},
+        "cnf_k3_N10_L35_alpha3.5_inst305": {},
+        "cnf_k3_N10_L35_alpha3.5_inst368": {},
+        "cnf_k3_N10_L35_alpha3.5_inst386": {},
+        "cnf_k3_N10_L35_alpha3.5_inst392": {},
+        "cnf_k3_N10_L35_alpha3.5_inst425": {},
+        "cnf_k3_N10_L35_alpha3.5_inst44": {},
+        "cnf_k3_N10_L35_alpha3.5_inst442": {},
+        "cnf_k3_N10_L35_alpha3.5_inst485": {},
+        "cnf_k3_N10_L35_alpha3.5_inst5": {},
+        "cnf_k3_N10_L35_alpha3.5_inst515": {},
+        "cnf_k3_N10_L35_alpha3.5_inst52": {},
+        "cnf_k3_N10_L35_alpha3.5_inst554": {},
+        "cnf_k3_N10_L35_alpha3.5_inst571": {},
+        "cnf_k3_N10_L35_alpha3.5_inst607": {},
+        "cnf_k3_N10_L35_alpha3.5_inst611": {},
+        "cnf_k3_N10_L35_alpha3.5_inst626": {},
+        "cnf_k3_N10_L35_alpha3.5_inst634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst650": {},
+        "cnf_k3_N10_L35_alpha3.5_inst698": {},
+        "cnf_k3_N10_L35_alpha3.5_inst704": {},
+        "cnf_k3_N10_L35_alpha3.5_inst751": {},
+        "cnf_k3_N10_L35_alpha3.5_inst759": {},
+        "cnf_k3_N10_L35_alpha3.5_inst771": {},
+        "cnf_k3_N10_L35_alpha3.5_inst778": {},
+        "cnf_k3_N10_L35_alpha3.5_inst793": {},
+        "cnf_k3_N10_L35_alpha3.5_inst80": {},
+        "cnf_k3_N10_L35_alpha3.5_inst804": {},
+        "cnf_k3_N10_L35_alpha3.5_inst816": {},
+        "cnf_k3_N10_L35_alpha3.5_inst837": {},
+        "cnf_k3_N10_L35_alpha3.5_inst845": {},
+        "cnf_k3_N10_L35_alpha3.5_inst864": {},
+        "cnf_k3_N10_L35_alpha3.5_inst866": {},
+        "cnf_k3_N10_L35_alpha3.5_inst951": {},
+        "cnf_k3_N10_L35_alpha3.5_inst956": {},
+        "cnf_k3_N10_L35_alpha3.5_inst966": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1124": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1153": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst117": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1204": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1219": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1225": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst151": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1622": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1710": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1728": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1766": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1814": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1815": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst1823": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2004": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2024": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2104": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2121": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2122": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2248": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2493": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2500": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2792": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2798": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2877": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2904": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2962": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst2978": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst3024": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst3126": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst3174": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst3195": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst3274": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst3352": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst3556": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst3584": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst372": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst3976": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4017": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4118": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4142": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4156": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4172": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4180": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4238": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4258": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4399": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4445": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4564": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4574": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4578": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4610": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4620": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4720": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4722": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst489": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst4934": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst5016": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst5071": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst5081": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst526": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst608": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst647": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst657": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst685": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst789": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst791": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst849": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst862": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N25_L87_alpha3.5_inst950": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst2662": {},
+        "cnf_k3_N50_L175_alpha3.5_inst3960": {},
+        "cnf_k3_N50_L175_alpha3.5_inst4524": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5329": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5410": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5887": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6029": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6301": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6636": {},
+        "cnf_k3_N50_L175_alpha3.5_inst7399": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8373": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8935": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1594": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1738": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1813": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1988": {},
+        "cnf_k3_N50_L180_alpha3.6_inst200": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2217": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2402": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2570": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2614": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3164": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3293": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3318": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3380": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3509": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3584": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3689": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3818": {},
+        "cnf_k3_N50_L180_alpha3.6_inst464": {},
+        "cnf_k3_N50_L180_alpha3.6_inst4746": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5035": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5050": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5250": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5282": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5284": {},
+        "cnf_k3_N50_L180_alpha3.6_inst543": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5434": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5721": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6547": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6687": {},
+        "cnf_k3_N50_L180_alpha3.6_inst680": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6863": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7163": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7259": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7266": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7414": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7820": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7886": {},
+        "cnf_k3_N50_L180_alpha3.6_inst8258": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9539": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9774": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9788": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9865": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9919": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9971": {},
+        "cnf_k3_N50_L185_alpha3.7_inst432": {},
+        "cnf_k3_N50_L185_alpha3.7_inst452": {},
+        "cnf_k3_N50_L185_alpha3.7_inst509": {},
+        "cnf_k3_N50_L185_alpha3.7_inst527": {},
+        "cnf_k3_N50_L185_alpha3.7_inst561": {},
+        "cnf_k3_N50_L185_alpha3.7_inst570": {},
+        "cnf_k3_N50_L185_alpha3.7_inst620": {},
+        "cnf_k3_N50_L185_alpha3.7_inst672": {},
+        "cnf_k3_N50_L185_alpha3.7_inst785": {},
+        "cnf_k3_N50_L185_alpha3.7_inst819": {},
+        "cnf_k3_N50_L185_alpha3.7_inst825": {},
+        "cnf_k3_N50_L185_alpha3.7_inst842": {},
+        "cnf_k3_N50_L185_alpha3.7_inst877": {},
+        "cnf_k3_N50_L185_alpha3.7_inst887": {},
+        "cnf_k3_N5_L17_alpha3.5_inst101": {},
+        "cnf_k3_N5_L17_alpha3.5_inst102": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1034": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1069": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1078": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1084": {},
+        "cnf_k3_N5_L17_alpha3.5_inst109": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1092": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1149": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1155": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1169": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1220": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1233": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1251": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1277": {},
+        "cnf_k3_N5_L17_alpha3.5_inst129": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1321": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1322": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1346": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1416": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1488": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1491": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1492": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1498": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1522": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1530": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1556": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1578": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1595": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1619": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1644": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1673": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1707": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1716": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1734": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1757": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1768": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1772": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1778": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1797": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1849": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1862": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1877": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1882": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1898": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1904": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1909": {},
+        "cnf_k3_N5_L17_alpha3.5_inst236": {},
+        "cnf_k3_N5_L17_alpha3.5_inst241": {},
+        "cnf_k3_N5_L17_alpha3.5_inst247": {},
+        "cnf_k3_N5_L17_alpha3.5_inst265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst361": {},
+        "cnf_k3_N5_L17_alpha3.5_inst369": {},
+        "cnf_k3_N5_L17_alpha3.5_inst390": {},
+        "cnf_k3_N5_L17_alpha3.5_inst411": {},
+        "cnf_k3_N5_L17_alpha3.5_inst478": {},
+        "cnf_k3_N5_L17_alpha3.5_inst502": {},
+        "cnf_k3_N5_L17_alpha3.5_inst546": {},
+        "cnf_k3_N5_L17_alpha3.5_inst566": {},
+        "cnf_k3_N5_L17_alpha3.5_inst59": {},
+        "cnf_k3_N5_L17_alpha3.5_inst607": {},
+        "cnf_k3_N5_L17_alpha3.5_inst614": {},
+        "cnf_k3_N5_L17_alpha3.5_inst624": {},
+        "cnf_k3_N5_L17_alpha3.5_inst775": {},
+        "cnf_k3_N5_L17_alpha3.5_inst802": {},
+        "cnf_k3_N5_L17_alpha3.5_inst819": {},
+        "cnf_k3_N5_L17_alpha3.5_inst823": {},
+        "cnf_k3_N5_L17_alpha3.5_inst888": {},
+        "cnf_k3_N5_L17_alpha3.5_inst902": {},
+        "cnf_k3_N60_L210_alpha3.5_inst2935": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4296": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4317": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5708": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5943": {},
+        "cnf_k3_N60_L210_alpha3.5_inst6047": {},
+        "cnf_k3_N60_L210_alpha3.5_inst8397": {},
+        "cnf_k3_N60_L210_alpha3.5_inst9426": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1021": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1165": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1345": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1412": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2396": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2731": {},
+        "cnf_k3_N60_L216_alpha3.6_inst3265": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4631": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4661": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5400": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5573": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6229": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6325": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7020": {},
+        "cnf_k3_N60_L216_alpha3.6_inst735": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7509": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7910": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8410": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8548": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8587": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9080": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9496": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9553": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9685": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1184": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1294": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1339": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1491": {},
+        "cnf_k3_N60_L222_alpha3.7_inst150": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1661": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1741": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1795": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2039": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2095": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2777": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2905": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3023": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3189": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3400": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3441": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3481": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3569": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3714": {},
+        "cnf_k3_N60_L222_alpha3.7_inst372": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3915": {},
+        "cnf_k3_N60_L222_alpha3.7_inst4108": {},
+        "cnf_k3_N60_L222_alpha3.7_inst504": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1052": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1065": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1067": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1074": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1087": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1099": {},
+        "cnf_k3_N8_L28_alpha3.5_inst113": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1159": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1175": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1177": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1180": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1199": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1212": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1243": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1247": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1252": {},
+        "cnf_k3_N8_L28_alpha3.5_inst126": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1261": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1363": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1431": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1432": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1446": {},
+        "cnf_k3_N8_L28_alpha3.5_inst194": {},
+        "cnf_k3_N8_L28_alpha3.5_inst196": {},
+        "cnf_k3_N8_L28_alpha3.5_inst206": {},
+        "cnf_k3_N8_L28_alpha3.5_inst22": {},
+        "cnf_k3_N8_L28_alpha3.5_inst229": {},
+        "cnf_k3_N8_L28_alpha3.5_inst244": {},
+        "cnf_k3_N8_L28_alpha3.5_inst248": {},
+        "cnf_k3_N8_L28_alpha3.5_inst251": {},
+        "cnf_k3_N8_L28_alpha3.5_inst276": {},
+        "cnf_k3_N8_L28_alpha3.5_inst278": {},
+        "cnf_k3_N8_L28_alpha3.5_inst28": {},
+        "cnf_k3_N8_L28_alpha3.5_inst301": {},
+        "cnf_k3_N8_L28_alpha3.5_inst320": {},
+        "cnf_k3_N8_L28_alpha3.5_inst330": {},
+        "cnf_k3_N8_L28_alpha3.5_inst345": {},
+        "cnf_k3_N8_L28_alpha3.5_inst378": {},
+        "cnf_k3_N8_L28_alpha3.5_inst385": {},
+        "cnf_k3_N8_L28_alpha3.5_inst399": {},
+        "cnf_k3_N8_L28_alpha3.5_inst401": {},
+        "cnf_k3_N8_L28_alpha3.5_inst414": {},
+        "cnf_k3_N8_L28_alpha3.5_inst434": {},
+        "cnf_k3_N8_L28_alpha3.5_inst444": {},
+        "cnf_k3_N8_L28_alpha3.5_inst461": {},
+        "cnf_k3_N8_L28_alpha3.5_inst486": {},
+        "cnf_k3_N8_L28_alpha3.5_inst511": {},
+        "cnf_k3_N8_L28_alpha3.5_inst55": {},
+        "cnf_k3_N8_L28_alpha3.5_inst553": {},
+        "cnf_k3_N8_L28_alpha3.5_inst566": {},
+        "cnf_k3_N8_L28_alpha3.5_inst580": {},
+        "cnf_k3_N8_L28_alpha3.5_inst605": {},
+        "cnf_k3_N8_L28_alpha3.5_inst631": {},
+        "cnf_k3_N8_L28_alpha3.5_inst66": {},
+        "cnf_k3_N8_L28_alpha3.5_inst664": {},
+        "cnf_k3_N8_L28_alpha3.5_inst673": {},
+        "cnf_k3_N8_L28_alpha3.5_inst692": {},
+        "cnf_k3_N8_L28_alpha3.5_inst698": {},
+        "cnf_k3_N8_L28_alpha3.5_inst724": {},
+        "cnf_k3_N8_L28_alpha3.5_inst73": {},
+        "cnf_k3_N8_L28_alpha3.5_inst755": {},
+        "cnf_k3_N8_L28_alpha3.5_inst756": {},
+        "cnf_k3_N8_L28_alpha3.5_inst77": {},
+        "cnf_k3_N8_L28_alpha3.5_inst778": {},
+        "cnf_k3_N8_L28_alpha3.5_inst796": {},
+        "cnf_k3_N8_L28_alpha3.5_inst82": {},
+        "cnf_k3_N8_L28_alpha3.5_inst853": {},
+        "cnf_k3_N8_L28_alpha3.5_inst886": {},
+        "cnf_k3_N8_L28_alpha3.5_inst891": {},
+        "cnf_k3_N8_L28_alpha3.5_inst925": {}
+    },
+    "50": {
+        "cnf_k3_N10_L35_alpha3.5_inst1040": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1050": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1057": {},
+        "cnf_k3_N10_L35_alpha3.5_inst106": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1086": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1132": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1172": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1201": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1251": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1254": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1290": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1298": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1307": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1333": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1349": {},
+        "cnf_k3_N10_L35_alpha3.5_inst137": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1419": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1429": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1433": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1435": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1491": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1535": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1541": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1551": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1573": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1613": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1614": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1621": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1624": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1635": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1673": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1675": {},
+        "cnf_k3_N10_L35_alpha3.5_inst169": {},
+        "cnf_k3_N10_L35_alpha3.5_inst276": {},
+        "cnf_k3_N10_L35_alpha3.5_inst305": {},
+        "cnf_k3_N10_L35_alpha3.5_inst368": {},
+        "cnf_k3_N10_L35_alpha3.5_inst386": {},
+        "cnf_k3_N10_L35_alpha3.5_inst392": {},
+        "cnf_k3_N10_L35_alpha3.5_inst425": {},
+        "cnf_k3_N10_L35_alpha3.5_inst44": {},
+        "cnf_k3_N10_L35_alpha3.5_inst442": {},
+        "cnf_k3_N10_L35_alpha3.5_inst485": {},
+        "cnf_k3_N10_L35_alpha3.5_inst5": {},
+        "cnf_k3_N10_L35_alpha3.5_inst515": {},
+        "cnf_k3_N10_L35_alpha3.5_inst52": {},
+        "cnf_k3_N10_L35_alpha3.5_inst554": {},
+        "cnf_k3_N10_L35_alpha3.5_inst571": {},
+        "cnf_k3_N10_L35_alpha3.5_inst607": {},
+        "cnf_k3_N10_L35_alpha3.5_inst611": {},
+        "cnf_k3_N10_L35_alpha3.5_inst626": {},
+        "cnf_k3_N10_L35_alpha3.5_inst634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst650": {},
+        "cnf_k3_N10_L35_alpha3.5_inst698": {},
+        "cnf_k3_N10_L35_alpha3.5_inst704": {},
+        "cnf_k3_N10_L35_alpha3.5_inst751": {},
+        "cnf_k3_N10_L35_alpha3.5_inst759": {},
+        "cnf_k3_N10_L35_alpha3.5_inst771": {},
+        "cnf_k3_N10_L35_alpha3.5_inst778": {},
+        "cnf_k3_N10_L35_alpha3.5_inst793": {},
+        "cnf_k3_N10_L35_alpha3.5_inst80": {},
+        "cnf_k3_N10_L35_alpha3.5_inst804": {},
+        "cnf_k3_N10_L35_alpha3.5_inst816": {},
+        "cnf_k3_N10_L35_alpha3.5_inst837": {},
+        "cnf_k3_N10_L35_alpha3.5_inst845": {},
+        "cnf_k3_N10_L35_alpha3.5_inst864": {},
+        "cnf_k3_N10_L35_alpha3.5_inst866": {},
+        "cnf_k3_N10_L35_alpha3.5_inst951": {},
+        "cnf_k3_N10_L35_alpha3.5_inst956": {},
+        "cnf_k3_N10_L35_alpha3.5_inst966": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1124": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1153": {},
+        "cnf_k3_N25_L87_alpha3.5_inst117": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1204": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1219": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1225": {},
+        "cnf_k3_N25_L87_alpha3.5_inst151": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1622": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1710": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1728": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1766": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1814": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1815": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1823": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2004": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2104": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2121": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2122": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2248": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2493": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2500": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2792": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2798": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2877": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2904": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2962": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2978": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3126": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3174": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3195": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3274": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3352": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3556": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3584": {},
+        "cnf_k3_N25_L87_alpha3.5_inst372": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3976": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4017": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4118": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4142": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4156": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4172": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4180": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4238": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4258": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4399": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4445": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4564": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4574": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4578": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4610": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4620": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4720": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4722": {},
+        "cnf_k3_N25_L87_alpha3.5_inst489": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4934": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5016": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5071": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5081": {},
+        "cnf_k3_N25_L87_alpha3.5_inst526": {},
+        "cnf_k3_N25_L87_alpha3.5_inst608": {},
+        "cnf_k3_N25_L87_alpha3.5_inst647": {},
+        "cnf_k3_N25_L87_alpha3.5_inst657": {},
+        "cnf_k3_N25_L87_alpha3.5_inst685": {},
+        "cnf_k3_N25_L87_alpha3.5_inst789": {},
+        "cnf_k3_N25_L87_alpha3.5_inst791": {},
+        "cnf_k3_N25_L87_alpha3.5_inst849": {},
+        "cnf_k3_N25_L87_alpha3.5_inst862": {},
+        "cnf_k3_N25_L87_alpha3.5_inst950": {},
+        "cnf_k3_N50_L175_alpha3.5_inst2662": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst3960": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst4524": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst5329": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst5410": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst5887": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst6029": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst6301": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst6636": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst7399": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst8373": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L175_alpha3.5_inst8935": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst1594": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst1738": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst1813": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst1988": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst200": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst2217": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst2402": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst2570": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst2614": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst3164": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst3293": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst3318": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst3380": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst3509": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst3584": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst3689": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst3818": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst464": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst4746": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst5035": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst5050": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst5250": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst5282": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst5284": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst543": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst5434": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst5721": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst6547": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst6687": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst680": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst6863": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst7163": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst7259": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst7266": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst7414": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst7820": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst7886": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst8258": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst9539": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst9774": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst9788": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst9865": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst9919": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L180_alpha3.6_inst9971": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst432": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst452": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst509": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst527": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst561": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst570": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst620": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst672": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst785": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst819": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst825": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst842": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst877": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N50_L185_alpha3.7_inst887": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N5_L17_alpha3.5_inst101": {},
+        "cnf_k3_N5_L17_alpha3.5_inst102": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1034": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1069": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1078": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1084": {},
+        "cnf_k3_N5_L17_alpha3.5_inst109": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1092": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1149": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1155": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1169": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1220": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1233": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1251": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1277": {},
+        "cnf_k3_N5_L17_alpha3.5_inst129": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1321": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1322": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1346": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1416": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1488": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1491": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1492": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1498": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1522": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1530": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1556": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1578": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1595": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1619": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1644": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1673": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1707": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1716": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1734": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1757": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1768": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1772": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1778": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1797": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1849": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1862": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1877": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1882": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1898": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1904": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1909": {},
+        "cnf_k3_N5_L17_alpha3.5_inst236": {},
+        "cnf_k3_N5_L17_alpha3.5_inst241": {},
+        "cnf_k3_N5_L17_alpha3.5_inst247": {},
+        "cnf_k3_N5_L17_alpha3.5_inst265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst361": {},
+        "cnf_k3_N5_L17_alpha3.5_inst369": {},
+        "cnf_k3_N5_L17_alpha3.5_inst390": {},
+        "cnf_k3_N5_L17_alpha3.5_inst411": {},
+        "cnf_k3_N5_L17_alpha3.5_inst478": {},
+        "cnf_k3_N5_L17_alpha3.5_inst502": {},
+        "cnf_k3_N5_L17_alpha3.5_inst546": {},
+        "cnf_k3_N5_L17_alpha3.5_inst566": {},
+        "cnf_k3_N5_L17_alpha3.5_inst59": {},
+        "cnf_k3_N5_L17_alpha3.5_inst607": {},
+        "cnf_k3_N5_L17_alpha3.5_inst614": {},
+        "cnf_k3_N5_L17_alpha3.5_inst624": {},
+        "cnf_k3_N5_L17_alpha3.5_inst775": {},
+        "cnf_k3_N5_L17_alpha3.5_inst802": {},
+        "cnf_k3_N5_L17_alpha3.5_inst819": {},
+        "cnf_k3_N5_L17_alpha3.5_inst823": {},
+        "cnf_k3_N5_L17_alpha3.5_inst888": {},
+        "cnf_k3_N5_L17_alpha3.5_inst902": {},
+        "cnf_k3_N60_L210_alpha3.5_inst2935": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4296": {},
+        "cnf_k3_N60_L210_alpha3.5_inst4317": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5708": {},
+        "cnf_k3_N60_L210_alpha3.5_inst5943": {},
+        "cnf_k3_N60_L210_alpha3.5_inst6047": {},
+        "cnf_k3_N60_L210_alpha3.5_inst8397": {},
+        "cnf_k3_N60_L210_alpha3.5_inst9426": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1021": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1165": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1345": {},
+        "cnf_k3_N60_L216_alpha3.6_inst1412": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2396": {},
+        "cnf_k3_N60_L216_alpha3.6_inst2731": {},
+        "cnf_k3_N60_L216_alpha3.6_inst3265": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4631": {},
+        "cnf_k3_N60_L216_alpha3.6_inst4661": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5400": {},
+        "cnf_k3_N60_L216_alpha3.6_inst5573": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6229": {},
+        "cnf_k3_N60_L216_alpha3.6_inst6325": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7020": {},
+        "cnf_k3_N60_L216_alpha3.6_inst735": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7509": {},
+        "cnf_k3_N60_L216_alpha3.6_inst7910": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8410": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8548": {},
+        "cnf_k3_N60_L216_alpha3.6_inst8587": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9080": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9496": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9553": {},
+        "cnf_k3_N60_L216_alpha3.6_inst9685": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1184": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1294": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1339": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1491": {},
+        "cnf_k3_N60_L222_alpha3.7_inst150": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1661": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1741": {},
+        "cnf_k3_N60_L222_alpha3.7_inst1795": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2039": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2095": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2777": {},
+        "cnf_k3_N60_L222_alpha3.7_inst2905": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3023": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3189": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3400": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3441": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3481": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3569": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3714": {},
+        "cnf_k3_N60_L222_alpha3.7_inst372": {},
+        "cnf_k3_N60_L222_alpha3.7_inst3915": {},
+        "cnf_k3_N60_L222_alpha3.7_inst4108": {},
+        "cnf_k3_N60_L222_alpha3.7_inst504": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1052": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1065": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1067": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1074": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1087": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1099": {},
+        "cnf_k3_N8_L28_alpha3.5_inst113": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1159": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1175": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1177": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1180": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1199": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1212": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1243": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1247": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1252": {},
+        "cnf_k3_N8_L28_alpha3.5_inst126": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1261": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1363": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1431": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1432": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1446": {},
+        "cnf_k3_N8_L28_alpha3.5_inst194": {},
+        "cnf_k3_N8_L28_alpha3.5_inst196": {},
+        "cnf_k3_N8_L28_alpha3.5_inst206": {},
+        "cnf_k3_N8_L28_alpha3.5_inst22": {},
+        "cnf_k3_N8_L28_alpha3.5_inst229": {},
+        "cnf_k3_N8_L28_alpha3.5_inst244": {},
+        "cnf_k3_N8_L28_alpha3.5_inst248": {},
+        "cnf_k3_N8_L28_alpha3.5_inst251": {},
+        "cnf_k3_N8_L28_alpha3.5_inst276": {},
+        "cnf_k3_N8_L28_alpha3.5_inst278": {},
+        "cnf_k3_N8_L28_alpha3.5_inst28": {},
+        "cnf_k3_N8_L28_alpha3.5_inst301": {},
+        "cnf_k3_N8_L28_alpha3.5_inst320": {},
+        "cnf_k3_N8_L28_alpha3.5_inst330": {},
+        "cnf_k3_N8_L28_alpha3.5_inst345": {},
+        "cnf_k3_N8_L28_alpha3.5_inst378": {},
+        "cnf_k3_N8_L28_alpha3.5_inst385": {},
+        "cnf_k3_N8_L28_alpha3.5_inst399": {},
+        "cnf_k3_N8_L28_alpha3.5_inst401": {},
+        "cnf_k3_N8_L28_alpha3.5_inst414": {},
+        "cnf_k3_N8_L28_alpha3.5_inst434": {},
+        "cnf_k3_N8_L28_alpha3.5_inst444": {},
+        "cnf_k3_N8_L28_alpha3.5_inst461": {},
+        "cnf_k3_N8_L28_alpha3.5_inst486": {},
+        "cnf_k3_N8_L28_alpha3.5_inst511": {},
+        "cnf_k3_N8_L28_alpha3.5_inst55": {},
+        "cnf_k3_N8_L28_alpha3.5_inst553": {},
+        "cnf_k3_N8_L28_alpha3.5_inst566": {},
+        "cnf_k3_N8_L28_alpha3.5_inst580": {},
+        "cnf_k3_N8_L28_alpha3.5_inst605": {},
+        "cnf_k3_N8_L28_alpha3.5_inst631": {},
+        "cnf_k3_N8_L28_alpha3.5_inst66": {},
+        "cnf_k3_N8_L28_alpha3.5_inst664": {},
+        "cnf_k3_N8_L28_alpha3.5_inst673": {},
+        "cnf_k3_N8_L28_alpha3.5_inst692": {},
+        "cnf_k3_N8_L28_alpha3.5_inst698": {},
+        "cnf_k3_N8_L28_alpha3.5_inst724": {},
+        "cnf_k3_N8_L28_alpha3.5_inst73": {},
+        "cnf_k3_N8_L28_alpha3.5_inst755": {},
+        "cnf_k3_N8_L28_alpha3.5_inst756": {},
+        "cnf_k3_N8_L28_alpha3.5_inst77": {},
+        "cnf_k3_N8_L28_alpha3.5_inst778": {},
+        "cnf_k3_N8_L28_alpha3.5_inst796": {},
+        "cnf_k3_N8_L28_alpha3.5_inst82": {},
+        "cnf_k3_N8_L28_alpha3.5_inst853": {},
+        "cnf_k3_N8_L28_alpha3.5_inst886": {},
+        "cnf_k3_N8_L28_alpha3.5_inst891": {},
+        "cnf_k3_N8_L28_alpha3.5_inst925": {}
+    },
+    "60": {
+        "cnf_k3_N10_L35_alpha3.5_inst1040": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1050": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1057": {},
+        "cnf_k3_N10_L35_alpha3.5_inst106": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1086": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1132": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1172": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1201": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1251": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1254": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1290": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1298": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1307": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1333": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1349": {},
+        "cnf_k3_N10_L35_alpha3.5_inst137": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1419": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1429": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1433": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1435": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1491": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1535": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1541": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1551": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1573": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1613": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1614": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1621": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1624": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1635": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1673": {},
+        "cnf_k3_N10_L35_alpha3.5_inst1675": {},
+        "cnf_k3_N10_L35_alpha3.5_inst169": {},
+        "cnf_k3_N10_L35_alpha3.5_inst276": {},
+        "cnf_k3_N10_L35_alpha3.5_inst305": {},
+        "cnf_k3_N10_L35_alpha3.5_inst368": {},
+        "cnf_k3_N10_L35_alpha3.5_inst386": {},
+        "cnf_k3_N10_L35_alpha3.5_inst392": {},
+        "cnf_k3_N10_L35_alpha3.5_inst425": {},
+        "cnf_k3_N10_L35_alpha3.5_inst44": {},
+        "cnf_k3_N10_L35_alpha3.5_inst442": {},
+        "cnf_k3_N10_L35_alpha3.5_inst485": {},
+        "cnf_k3_N10_L35_alpha3.5_inst5": {},
+        "cnf_k3_N10_L35_alpha3.5_inst515": {},
+        "cnf_k3_N10_L35_alpha3.5_inst52": {},
+        "cnf_k3_N10_L35_alpha3.5_inst554": {},
+        "cnf_k3_N10_L35_alpha3.5_inst571": {},
+        "cnf_k3_N10_L35_alpha3.5_inst607": {},
+        "cnf_k3_N10_L35_alpha3.5_inst611": {},
+        "cnf_k3_N10_L35_alpha3.5_inst626": {},
+        "cnf_k3_N10_L35_alpha3.5_inst634": {},
+        "cnf_k3_N10_L35_alpha3.5_inst650": {},
+        "cnf_k3_N10_L35_alpha3.5_inst698": {},
+        "cnf_k3_N10_L35_alpha3.5_inst704": {},
+        "cnf_k3_N10_L35_alpha3.5_inst751": {},
+        "cnf_k3_N10_L35_alpha3.5_inst759": {},
+        "cnf_k3_N10_L35_alpha3.5_inst771": {},
+        "cnf_k3_N10_L35_alpha3.5_inst778": {},
+        "cnf_k3_N10_L35_alpha3.5_inst793": {},
+        "cnf_k3_N10_L35_alpha3.5_inst80": {},
+        "cnf_k3_N10_L35_alpha3.5_inst804": {},
+        "cnf_k3_N10_L35_alpha3.5_inst816": {},
+        "cnf_k3_N10_L35_alpha3.5_inst837": {},
+        "cnf_k3_N10_L35_alpha3.5_inst845": {},
+        "cnf_k3_N10_L35_alpha3.5_inst864": {},
+        "cnf_k3_N10_L35_alpha3.5_inst866": {},
+        "cnf_k3_N10_L35_alpha3.5_inst951": {},
+        "cnf_k3_N10_L35_alpha3.5_inst956": {},
+        "cnf_k3_N10_L35_alpha3.5_inst966": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1124": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1153": {},
+        "cnf_k3_N25_L87_alpha3.5_inst117": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1204": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1219": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1225": {},
+        "cnf_k3_N25_L87_alpha3.5_inst151": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1622": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1710": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1728": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1766": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1814": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1815": {},
+        "cnf_k3_N25_L87_alpha3.5_inst1823": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2004": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2104": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2121": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2122": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2248": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2493": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2500": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2792": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2798": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2877": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2904": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2962": {},
+        "cnf_k3_N25_L87_alpha3.5_inst2978": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3024": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3126": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3174": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3195": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3274": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3352": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3556": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3584": {},
+        "cnf_k3_N25_L87_alpha3.5_inst372": {},
+        "cnf_k3_N25_L87_alpha3.5_inst3976": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4017": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4118": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4142": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4156": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4172": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4180": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4238": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4258": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4399": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4445": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4564": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4574": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4578": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4610": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4620": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4720": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4722": {},
+        "cnf_k3_N25_L87_alpha3.5_inst489": {},
+        "cnf_k3_N25_L87_alpha3.5_inst4934": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5016": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5071": {},
+        "cnf_k3_N25_L87_alpha3.5_inst5081": {},
+        "cnf_k3_N25_L87_alpha3.5_inst526": {},
+        "cnf_k3_N25_L87_alpha3.5_inst608": {},
+        "cnf_k3_N25_L87_alpha3.5_inst647": {},
+        "cnf_k3_N25_L87_alpha3.5_inst657": {},
+        "cnf_k3_N25_L87_alpha3.5_inst685": {},
+        "cnf_k3_N25_L87_alpha3.5_inst789": {},
+        "cnf_k3_N25_L87_alpha3.5_inst791": {},
+        "cnf_k3_N25_L87_alpha3.5_inst849": {},
+        "cnf_k3_N25_L87_alpha3.5_inst862": {},
+        "cnf_k3_N25_L87_alpha3.5_inst950": {},
+        "cnf_k3_N50_L175_alpha3.5_inst2662": {},
+        "cnf_k3_N50_L175_alpha3.5_inst3960": {},
+        "cnf_k3_N50_L175_alpha3.5_inst4524": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5329": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5410": {},
+        "cnf_k3_N50_L175_alpha3.5_inst5887": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6029": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6301": {},
+        "cnf_k3_N50_L175_alpha3.5_inst6636": {},
+        "cnf_k3_N50_L175_alpha3.5_inst7399": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8373": {},
+        "cnf_k3_N50_L175_alpha3.5_inst8935": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1594": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1738": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1813": {},
+        "cnf_k3_N50_L180_alpha3.6_inst1988": {},
+        "cnf_k3_N50_L180_alpha3.6_inst200": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2217": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2402": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2570": {},
+        "cnf_k3_N50_L180_alpha3.6_inst2614": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3164": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3293": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3318": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3380": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3509": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3584": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3689": {},
+        "cnf_k3_N50_L180_alpha3.6_inst3818": {},
+        "cnf_k3_N50_L180_alpha3.6_inst464": {},
+        "cnf_k3_N50_L180_alpha3.6_inst4746": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5035": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5050": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5250": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5282": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5284": {},
+        "cnf_k3_N50_L180_alpha3.6_inst543": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5434": {},
+        "cnf_k3_N50_L180_alpha3.6_inst5721": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6547": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6687": {},
+        "cnf_k3_N50_L180_alpha3.6_inst680": {},
+        "cnf_k3_N50_L180_alpha3.6_inst6863": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7163": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7259": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7266": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7414": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7820": {},
+        "cnf_k3_N50_L180_alpha3.6_inst7886": {},
+        "cnf_k3_N50_L180_alpha3.6_inst8258": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9539": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9774": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9788": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9865": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9919": {},
+        "cnf_k3_N50_L180_alpha3.6_inst9971": {},
+        "cnf_k3_N50_L185_alpha3.7_inst432": {},
+        "cnf_k3_N50_L185_alpha3.7_inst452": {},
+        "cnf_k3_N50_L185_alpha3.7_inst509": {},
+        "cnf_k3_N50_L185_alpha3.7_inst527": {},
+        "cnf_k3_N50_L185_alpha3.7_inst561": {},
+        "cnf_k3_N50_L185_alpha3.7_inst570": {},
+        "cnf_k3_N50_L185_alpha3.7_inst620": {},
+        "cnf_k3_N50_L185_alpha3.7_inst672": {},
+        "cnf_k3_N50_L185_alpha3.7_inst785": {},
+        "cnf_k3_N50_L185_alpha3.7_inst819": {},
+        "cnf_k3_N50_L185_alpha3.7_inst825": {},
+        "cnf_k3_N50_L185_alpha3.7_inst842": {},
+        "cnf_k3_N50_L185_alpha3.7_inst877": {},
+        "cnf_k3_N50_L185_alpha3.7_inst887": {},
+        "cnf_k3_N5_L17_alpha3.5_inst101": {},
+        "cnf_k3_N5_L17_alpha3.5_inst102": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1034": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1069": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1078": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1084": {},
+        "cnf_k3_N5_L17_alpha3.5_inst109": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1092": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1149": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1155": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1169": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1220": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1233": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1251": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1277": {},
+        "cnf_k3_N5_L17_alpha3.5_inst129": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1321": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1322": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1346": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1416": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1488": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1491": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1492": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1498": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1522": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1530": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1556": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1578": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1595": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1619": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1644": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1673": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1707": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1716": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1734": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1757": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1768": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1772": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1778": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1797": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1849": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1862": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1877": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1882": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1898": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1904": {},
+        "cnf_k3_N5_L17_alpha3.5_inst1909": {},
+        "cnf_k3_N5_L17_alpha3.5_inst236": {},
+        "cnf_k3_N5_L17_alpha3.5_inst241": {},
+        "cnf_k3_N5_L17_alpha3.5_inst247": {},
+        "cnf_k3_N5_L17_alpha3.5_inst265": {},
+        "cnf_k3_N5_L17_alpha3.5_inst361": {},
+        "cnf_k3_N5_L17_alpha3.5_inst369": {},
+        "cnf_k3_N5_L17_alpha3.5_inst390": {},
+        "cnf_k3_N5_L17_alpha3.5_inst411": {},
+        "cnf_k3_N5_L17_alpha3.5_inst478": {},
+        "cnf_k3_N5_L17_alpha3.5_inst502": {},
+        "cnf_k3_N5_L17_alpha3.5_inst546": {},
+        "cnf_k3_N5_L17_alpha3.5_inst566": {},
+        "cnf_k3_N5_L17_alpha3.5_inst59": {},
+        "cnf_k3_N5_L17_alpha3.5_inst607": {},
+        "cnf_k3_N5_L17_alpha3.5_inst614": {},
+        "cnf_k3_N5_L17_alpha3.5_inst624": {},
+        "cnf_k3_N5_L17_alpha3.5_inst775": {},
+        "cnf_k3_N5_L17_alpha3.5_inst802": {},
+        "cnf_k3_N5_L17_alpha3.5_inst819": {},
+        "cnf_k3_N5_L17_alpha3.5_inst823": {},
+        "cnf_k3_N5_L17_alpha3.5_inst888": {},
+        "cnf_k3_N5_L17_alpha3.5_inst902": {},
+        "cnf_k3_N60_L210_alpha3.5_inst2935": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L210_alpha3.5_inst4296": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L210_alpha3.5_inst4317": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L210_alpha3.5_inst5708": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L210_alpha3.5_inst5943": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L210_alpha3.5_inst6047": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L210_alpha3.5_inst8397": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L210_alpha3.5_inst9426": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst1021": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst1165": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst1345": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst1412": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst2396": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst2731": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst3265": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst4631": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst4661": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst5400": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst5573": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst6229": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst6325": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst7020": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst735": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst7509": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst7910": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst8410": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst8548": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst8587": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst9080": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst9496": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst9553": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L216_alpha3.6_inst9685": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst1184": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst1294": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst1339": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst1491": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst150": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst1661": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst1741": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst1795": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst2039": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst2095": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst2777": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst2905": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst3023": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst3189": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst3400": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst3441": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst3481": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst3569": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst3714": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst372": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst3915": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst4108": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N60_L222_alpha3.7_inst504": {
+            "Predictions_after_fix": true,
+            "Predictions_before_fix": true
+        },
+        "cnf_k3_N8_L28_alpha3.5_inst1052": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1065": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1067": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1074": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1087": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1099": {},
+        "cnf_k3_N8_L28_alpha3.5_inst113": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1159": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1175": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1177": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1180": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1199": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1212": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1243": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1247": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1252": {},
+        "cnf_k3_N8_L28_alpha3.5_inst126": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1261": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1363": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1431": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1432": {},
+        "cnf_k3_N8_L28_alpha3.5_inst1446": {},
+        "cnf_k3_N8_L28_alpha3.5_inst194": {},
+        "cnf_k3_N8_L28_alpha3.5_inst196": {},
+        "cnf_k3_N8_L28_alpha3.5_inst206": {},
+        "cnf_k3_N8_L28_alpha3.5_inst22": {},
+        "cnf_k3_N8_L28_alpha3.5_inst229": {},
+        "cnf_k3_N8_L28_alpha3.5_inst244": {},
+        "cnf_k3_N8_L28_alpha3.5_inst248": {},
+        "cnf_k3_N8_L28_alpha3.5_inst251": {},
+        "cnf_k3_N8_L28_alpha3.5_inst276": {},
+        "cnf_k3_N8_L28_alpha3.5_inst278": {},
+        "cnf_k3_N8_L28_alpha3.5_inst28": {},
+        "cnf_k3_N8_L28_alpha3.5_inst301": {},
+        "cnf_k3_N8_L28_alpha3.5_inst320": {},
+        "cnf_k3_N8_L28_alpha3.5_inst330": {},
+        "cnf_k3_N8_L28_alpha3.5_inst345": {},
+        "cnf_k3_N8_L28_alpha3.5_inst378": {},
+        "cnf_k3_N8_L28_alpha3.5_inst385": {},
+        "cnf_k3_N8_L28_alpha3.5_inst399": {},
+        "cnf_k3_N8_L28_alpha3.5_inst401": {},
+        "cnf_k3_N8_L28_alpha3.5_inst414": {},
+        "cnf_k3_N8_L28_alpha3.5_inst434": {},
+        "cnf_k3_N8_L28_alpha3.5_inst444": {},
+        "cnf_k3_N8_L28_alpha3.5_inst461": {},
+        "cnf_k3_N8_L28_alpha3.5_inst486": {},
+        "cnf_k3_N8_L28_alpha3.5_inst511": {},
+        "cnf_k3_N8_L28_alpha3.5_inst55": {},
+        "cnf_k3_N8_L28_alpha3.5_inst553": {},
+        "cnf_k3_N8_L28_alpha3.5_inst566": {},
+        "cnf_k3_N8_L28_alpha3.5_inst580": {},
+        "cnf_k3_N8_L28_alpha3.5_inst605": {},
+        "cnf_k3_N8_L28_alpha3.5_inst631": {},
+        "cnf_k3_N8_L28_alpha3.5_inst66": {},
+        "cnf_k3_N8_L28_alpha3.5_inst664": {},
+        "cnf_k3_N8_L28_alpha3.5_inst673": {},
+        "cnf_k3_N8_L28_alpha3.5_inst692": {},
+        "cnf_k3_N8_L28_alpha3.5_inst698": {},
+        "cnf_k3_N8_L28_alpha3.5_inst724": {},
+        "cnf_k3_N8_L28_alpha3.5_inst73": {},
+        "cnf_k3_N8_L28_alpha3.5_inst755": {},
+        "cnf_k3_N8_L28_alpha3.5_inst756": {},
+        "cnf_k3_N8_L28_alpha3.5_inst77": {},
+        "cnf_k3_N8_L28_alpha3.5_inst778": {},
+        "cnf_k3_N8_L28_alpha3.5_inst796": {},
+        "cnf_k3_N8_L28_alpha3.5_inst82": {},
+        "cnf_k3_N8_L28_alpha3.5_inst853": {},
+        "cnf_k3_N8_L28_alpha3.5_inst886": {},
+        "cnf_k3_N8_L28_alpha3.5_inst891": {},
+        "cnf_k3_N8_L28_alpha3.5_inst925": {}
+    }
+}

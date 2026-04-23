@@ -1,0 +1,653 @@
+c Random 3-SAT
+c alpha=3.5, N=50, L=175, instance=5410
+p cnf 50 175
+-6 -21 25 0
+5 34 17 0
+-38 47 -27 0
+28 32 -15 0
+24 -8 -42 0
+-9 41 30 0
+1 48 -47 0
+22 47 35 0
+-38 41 -12 0
+40 7 24 0
+-26 -45 50 0
+10 17 8 0
+-10 44 -16 0
+-16 18 -22 0
+14 -2 -44 0
+-24 31 10 0
+16 46 -34 0
+-23 -44 -6 0
+-46 -11 -17 0
+-37 -12 -40 0
+-41 49 24 0
+13 -30 16 0
+12 -50 19 0
+42 3 -17 0
+46 16 -30 0
+50 29 14 0
+-4 -11 44 0
+-36 34 -18 0
+6 -35 12 0
+44 50 -15 0
+-38 -22 -17 0
+-36 -20 4 0
+-35 -43 -24 0
+5 11 22 0
+14 24 43 0
+8 -30 -4 0
+2 -32 50 0
+-23 25 42 0
+-34 -24 -20 0
+13 41 43 0
+-9 50 -27 0
+-34 26 9 0
+-34 17 -5 0
+11 41 29 0
+40 -1 34 0
+34 19 10 0
+16 -49 3 0
+-30 17 -43 0
+-45 21 25 0
+-17 38 24 0
+15 4 -30 0
+45 8 29 0
+24 10 49 0
+-1 19 28 0
+-46 33 6 0
+-23 6 -26 0
+46 -20 1 0
+33 -9 22 0
+-39 -35 26 0
+2 13 18 0
+39 17 -34 0
+-11 26 46 0
+38 -5 41 0
+-44 21 24 0
+-22 -20 13 0
+37 -35 -41 0
+9 18 -35 0
+1 -21 -36 0
+44 34 -13 0
+-17 30 -47 0
+-8 -23 -11 0
+-25 12 -42 0
+35 -29 -19 0
+15 32 22 0
+13 -29 -34 0
+-1 -15 9 0
+-43 18 -5 0
+-39 -36 -17 0
+-15 12 2 0
+1 -18 25 0
+25 -6 -50 0
+-30 45 -43 0
+44 -32 14 0
+-47 -1 39 0
+1 -17 -30 0
+5 -32 4 0
+-11 26 -23 0
+28 -40 -38 0
+28 -16 -32 0
+35 39 38 0
+32 -34 9 0
+35 47 49 0
+-30 -14 22 0
+48 -10 43 0
+30 -45 36 0
+11 -34 -17 0
+7 -19 37 0
+-38 -42 28 0
+-31 40 22 0
+-31 32 2 0
+28 -15 20 0
+-49 19 -33 0
+30 -6 -27 0
+8 -25 -40 0
+-5 17 -15 0
+45 -15 35 0
+-3 -48 -46 0
+26 31 -23 0
+-20 9 41 0
+11 -9 16 0
+-38 -34 44 0
+14 -8 -4 0
+15 11 2 0
+-41 -30 47 0
+16 8 12 0
+27 47 38 0
+-37 4 29 0
+-13 41 -48 0
+48 31 36 0
+4 49 -46 0
+10 49 -39 0
+-8 -46 36 0
+-38 14 30 0
+-33 -49 9 0
+-9 -27 -39 0
+14 35 34 0
+-7 15 32 0
+-33 -19 -7 0
+21 8 42 0
+36 8 -42 0
+-34 -2 17 0
+30 -12 40 0
+43 -44 -40 0
+-21 -1 22 0
+-48 -24 -18 0
+-21 -33 36 0
+-34 -16 4 0
+13 42 -25 0
+-17 47 -8 0
+-18 -16 46 0
+-19 -48 -1 0
+20 48 30 0
+10 20 -28 0
+-31 49 -1 0
+10 -42 -33 0
+43 -42 4 0
+-12 43 -15 0
+-44 8 36 0
+14 17 -13 0
+27 5 -40 0
+-38 -8 21 0
+29 -16 44 0
+-25 -50 -40 0
+30 -10 8 0
+34 40 -32 0
+49 33 -18 0
+-10 50 -46 0
+12 46 23 0
+43 -31 44 0
+3 36 11 0
+-44 46 -9 0
+22 34 -37 0
+-6 26 -40 0
+-44 35 -42 0
+-20 -24 -26 0
+-20 -43 -2 0
+6 38 -13 0
+-26 15 -9 0
+2 35 31 0
+24 42 13 0
+-8 -24 43 0
+-32 23 17 0
+-16 40 -31 0
+36 -4 -24 0
+-41 30 -18 0
+
+c GPT solve time: 64.56 seconds
+
+**Step-by-step SAT Solving (DPLL-style):**
+
+1. **Preprocessing:**  
+   - There are 50 variables (x1 to x50).
+   - All clauses are in 3-CNF.
+   - No unit clauses, so no immediate propagation.
+
+2. **Branching:**  
+   - Pick the first variable, x1. Try x1 = True.
+
+---
+
+### Branch 1: x1 = True
+
+- Propagate x1 = True.
+- Satisfies all clauses containing x1 positively.
+- Remove ¬x1 from all clauses.
+
+Continue with x2 = True.
+
+---
+
+### Branch 1.1: x1 = True, x2 = True
+
+- Propagate x2 = True.
+- Satisfies all clauses containing x2 positively.
+- Remove ¬x2 from all clauses.
+
+Continue with x3 = True.
+
+---
+
+### Branch 1.1.1: x1 = True, x2 = True, x3 = True
+
+- Propagate x3 = True.
+- Satisfies all clauses containing x3 positively.
+- Remove ¬x3 from all clauses.
+
+Continue with x4 = True.
+
+---
+
+### Branch 1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True
+
+- Propagate x4 = True.
+- Satisfies all clauses containing x4 positively.
+- Remove ¬x4 from all clauses.
+
+Continue with x5 = True.
+
+---
+
+### Branch 1.1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True, x5 = True
+
+- Propagate x5 = True.
+- Satisfies all clauses containing x5 positively.
+- Remove ¬x5 from all clauses.
+
+Continue with x6 = True.
+
+---
+
+### Continue this process...
+
+Given the random nature of the formula and the lack of unit clauses, let's try assigning all variables to True and see if any clause is unsatisfied.
+
+#### Check for conflicts with all variables True:
+
+- Any clause of the form (¬xi ∨ ¬xj ∨ xk) with xi = True, xj = True, xk = True:  
+  - ¬xi = False, ¬xj = False, xk = True → clause is satisfied.
+- Any clause of the form (¬xi ∨ ¬xj ∨ ¬xk) with all True:  
+  - All literals are False → clause is UNSATISFIED.
+
+Let's check for such a clause.
+
+#### Example: (¬x9 ∨ ¬x27 ∨ ¬x39)
+
+- x9 = True, x27 = True, x39 = True
+- ¬x9 = False, ¬x27 = False, ¬x39 = False → clause is UNSATISFIED.
+
+So, all True is not a solution.
+
+---
+
+### Backtrack: Try x39 = False
+
+- x39 = False
+- Now, (¬x9 ∨ ¬x27 ∨ ¬x39): ¬x39 = True, so clause is satisfied.
+
+Check if this causes a conflict elsewhere.
+
+#### Check clause (x39 ∨ x17 ∨ ¬x34):
+
+- x39 = False, x17 = True, x34 = True
+- x17 = True → clause is satisfied.
+
+#### Check clause (x35 ∨ x39 ∨ x38):
+
+- x35 = True, x39 = False, x38 = True
+- x35 = True → clause is satisfied.
+
+#### Check clause (¬x39 ∨ ¬x35 ∨ x26):
+
+- x39 = False, x35 = True, x26 = True
+- ¬x39 = True → clause is satisfied.
+
+#### Check clause (¬x39 ∨ ¬x36 ∨ ¬x17):
+
+- x39 = False, x36 = True, x17 = True
+- ¬x39 = True → clause is satisfied.
+
+#### Check clause (¬x19 ∨ ¬x48 ∨ ¬x1):
+
+- x19 = True, x48 = True, x1 = True
+- All negations are False → clause is UNSATISFIED.
+
+So, try x1 = False.
+
+---
+
+### Branch: x1 = False, x2 = True, ..., x39 = False, all others True
+
+Check (¬x19 ∨ ¬x48 ∨ ¬x1):
+
+- x19 = True, x48 = True, x1 = False
+- ¬x1 = True → clause is satisfied.
+
+Check (x1 ∨ x48 ∨ ¬x47):
+
+- x1 = False, x48 = True, x47 = True
+- x48 = True → clause is satisfied.
+
+Check (¬x1 ∨ x19 ∨ x28):
+
+- x1 = False, x19 = True, x28 = True
+- ¬x1 = True → clause is satisfied.
+
+Check (¬x21 ∨ ¬x1 ∨ x22):
+
+- x21 = True, x1 = False, x22 = True
+- ¬x1 = True → clause is satisfied.
+
+Check (x1 ∨ ¬x21 ∨ ¬x36):
+
+- x1 = False, x21 = True, x36 = True
+- ¬x21 = False, ¬x36 = False, x1 = False → clause is UNSATISFIED.
+
+Try x21 = False.
+
+---
+
+### Branch: x1 = False, x21 = False, x2 = True, ..., x39 = False, all others True
+
+Check (x1 ∨ ¬x21 ∨ ¬x36):
+
+- x1 = False, ¬x21 = True, ¬x36 = False
+- ¬x21 = True → clause is satisfied.
+
+Check (¬x21 ∨ ¬x33 ∨ x36):
+
+- x21 = False, x33 = True, x36 = True
+- ¬x21 = True → clause is satisfied.
+
+Check (x22 ∨ x47 ∨ x35):
+
+- x22 = True, x47 = True, x35 = True
+- x22 = True → clause is satisfied.
+
+Check (¬x21 ∨ ¬x1 ∨ x22):
+
+- x21 = False, x1 = False, x22 = True
+- ¬x21 = True → clause is satisfied.
+
+Check (¬x6 ∨ ¬x21 ∨ x25):
+
+- x6 = True, x21 = False, x25 = True
+- ¬x21 = True → clause is satisfied.
+
+Check (x1 ∨ x48 ∨ ¬x47):
+
+- x1 = False, x48 = True, x47 = True
+- x48 = True → clause is satisfied.
+
+Check (¬x47 ∨ ¬x1 ∨ x39):
+
+- x47 = True, x1 = False, x39 = False
+- ¬x47 = False, ¬x1 = True, x39 = False → ¬x1 = True → clause is satisfied.
+
+Check (¬x19 ∨ ¬x48 ∨ ¬x1):
+
+- x19 = True, x48 = True, x1 = False
+- ¬x1 = True → clause is satisfied.
+
+Check (¬x9 ∨ ¬x27 ∨ ¬x39):
+
+- x9 = True, x27 = True, x39 = False
+- ¬x39 = True → clause is satisfied.
+
+Check (¬x33 ∨ ¬x49 ∨ x9):
+
+- x33 = True, x49 = True, x9 = True
+- ¬x33 = False, ¬x49 = False, x9 = True → x9 = True → clause is satisfied.
+
+Check (¬x33 ∨ ¬x19 ∨ ¬x7):
+
+- x33 = True, x19 = True, x7 = True
+- All negations are False → clause is UNSATISFIED.
+
+Try x33 = False.
+
+---
+
+### Branch: x1 = False, x21 = False, x33 = False, x2 = True, ..., x39 = False, all others True
+
+Check (¬x33 ∨ ¬x19 ∨ ¬x7):
+
+- x33 = False, x19 = True, x7 = True
+- ¬x33 = True → clause is satisfied.
+
+Check (x33 ∨ ¬x9 ∨ x22):
+
+- x33 = False, x9 = True, x22 = True
+- x33 = False, ¬x9 = False, x22 = True → x22 = True → clause is satisfied.
+
+Check (x49 ∨ x33 ∨ ¬x18):
+
+- x49 = True, x33 = False, x18 = True
+- x49 = True → clause is satisfied.
+
+Check (¬x33 ∨ ¬x49 ∨ x9):
+
+- x33 = False, x49 = True, x9 = True
+- ¬x33 = True → clause is satisfied.
+
+Check (¬x31 ∨ x32 ∨ x2):
+
+- x31 = True, x32 = True, x2 = True
+- x31 = True → ¬x31 = False, x32 = True, x2 = True → x32 = True → clause is satisfied.
+
+Check (¬x31 ∨ x40 ∨ x22):
+
+- x31 = True, x40 = True, x22 = True
+- x40 = True → clause is satisfied.
+
+Check (¬x31 ∨ x49 ∨ ¬x1):
+
+- x31 = True, x49 = True, x1 = False
+- x49 = True → clause is satisfied.
+
+Check (x48 ∨ x31 ∨ x36):
+
+- x48 = True, x31 = True, x36 = True
+- x48 = True → clause is satisfied.
+
+Check (x26 ∨ x31 ∨ ¬x23):
+
+- x26 = True, x31 = True, x23 = True
+- x26 = True → clause is satisfied.
+
+Check (¬x23 ∨ x25 ∨ x42):
+
+- x23 = True, x25 = True, x42 = True
+- x25 = True → clause is satisfied.
+
+Check (¬x23 ∨ x6 ∨ ¬x26):
+
+- x23 = True, x6 = True, x26 = True
+- ¬x23 = False, x6 = True, ¬x26 = False → x6 = True → clause is satisfied.
+
+Check (¬x23 ∨ ¬x44 ∨ ¬x6):
+
+- x23 = True, x44 = True, x6 = True
+- All negations are False → clause is UNSATISFIED.
+
+Try x23 = False.
+
+---
+
+### Branch: x1 = False, x21 = False, x33 = False, x23 = False, x2 = True, ..., x39 = False, all others True
+
+Check (¬x23 ∨ ¬x44 ∨ ¬x6):
+
+- x23 = False, x44 = True, x6 = True
+- ¬x23 = True → clause is satisfied.
+
+Check (¬x23 ∨ x25 ∨ x42):
+
+- x23 = False, x25 = True, x42 = True
+- ¬x23 = True → clause is satisfied.
+
+Check (¬x23 ∨ x6 ∨ ¬x26):
+
+- x23 = False, x6 = True, x26 = True
+- ¬x23 = True → clause is satisfied.
+
+Check (x26 ∨ x31 ∨ ¬x23):
+
+- x26 = True, x31 = True, x23 = False
+- ¬x23 = True → clause is satisfied.
+
+Check (¬x11 ∨ x26 ∨ ¬x23):
+
+- x11 = True, x26 = True, x23 = False
+- ¬x23 = True → clause is satisfied.
+
+Check (¬x8 ∨ ¬x23 ∨ ¬x11):
+
+- x8 = True, x23 = False, x11 = True
+- ¬x23 = True → clause is satisfied.
+
+Check (x12 ∨ x46 ∨ x23):
+
+- x12 = True, x46 = True, x23 = False
+- x12 = True → clause is satisfied.
+
+Check (¬x32 ∨ x23 ∨ x17):
+
+- x32 = True, x23 = False, x17 = True
+- ¬x32 = False, x23 = False, x17 = True → x17 = True → clause is satisfied.
+
+Check (x12 ∨ ¬x50 ∨ x19):
+
+- x12 = True, x50 = True, x19 = True
+- x12 = True → clause is satisfied.
+
+Check (¬x12 ∨ x43 ∨ ¬x15):
+
+- x12 = True, x43 = True, x15 = True
+- x43 = True → clause is satisfied.
+
+Check (x30 ∨ ¬x12 ∨ x40):
+
+- x30 = True, x12 = True, x40 = True
+- x30 = True → clause is satisfied.
+
+Check (¬x37 ∨ ¬x12 ∨ ¬x40):
+
+- x37 = True, x12 = True, x40 = True
+- All negations are False → clause is UNSATISFIED.
+
+Try x37 = False.
+
+---
+
+### Branch: x1 = False, x21 = False, x33 = False, x23 = False, x37 = False, x2 = True, ..., x39 = False, all others True
+
+Check (¬x37 ∨ ¬x12 ∨ ¬x40):
+
+- x37 = False, x12 = True, x40 = True
+- ¬x37 = True → clause is satisfied.
+
+Check (x37 ∨ ¬x35 ∨ ¬x41):
+
+- x37 = False, x35 = True, x41 = True
+- x37 = False, ¬x35 = False, ¬x41 = False → all False → clause is UNSATISFIED.
+
+Try x35 = False.
+
+---
+
+### Branch: x1 = False, x21 = False, x33 = False, x23 = False, x37 = False, x35 = False, x2 = True, ..., x39 = False, all others True
+
+Check (x37 ∨ ¬x35 ∨ ¬x41):
+
+- x37 = False, x35 = False, x41 = True
+- ¬x35 = True → clause is satisfied.
+
+Check (x35 ∨ x39 ∨ x38):
+
+- x35 = False, x39 = False, x38 = True
+- x38 = True → clause is satisfied.
+
+Check (x35 ∨ x47 ∨ x49):
+
+- x35 = False, x47 = True, x49 = True
+- x47 = True → clause is satisfied.
+
+Check (x35 ∨ ¬x29 ∨ ¬x19):
+
+- x35 = False, x29 = True, x19 = True
+- ¬x29 = False, ¬x19 = False, x35 = False → all False → clause is UNSATISFIED.
+
+Try x29 = False.
+
+---
+
+### Branch: x1 = False, x21 = False, x33 = False, x23 = False, x37 = False, x35 = False, x29 = False, x2 = True, ..., x39 = False, all others True
+
+Check (x35 ∨ ¬x29 ∨ ¬x19):
+
+- x35 = False, x29 = False, x19 = True
+- ¬x29 = True → clause is satisfied.
+
+Check (x13 ∨ ¬x29 ∨ ¬x34):
+
+- x13 = True, x29 = False, x34 = True
+- ¬x29 = True → clause is satisfied.
+
+Check (x25 ∨ x29 ∨ x14):
+
+- x25 = True, x29 = False, x14 = True
+- x25 = True → clause is satisfied.
+
+Check (x45 ∨ x8 ∨ x29):
+
+- x45 = True, x8 = True, x29 = False
+- x45 = True → clause is satisfied.
+
+Check (x14 ∨ ¬x29 ∨ ¬x34):
+
+- x14 = True, x29 = False, x34 = True
+- x14 = True → clause is satisfied.
+
+Check (x29 ∨ ¬x16 ∨ x44):
+
+- x29 = False, x16 = True, x44 = True
+- ¬x16 = False, x44 = True, x29 = False → x44 = True → clause is satisfied.
+
+Check (x27 ∨ x5 ∨ ¬x40):
+
+- x27 = True, x5 = True, x40 = True
+- x27 = True → clause is satisfied.
+
+Check (¬x7 ∨ x15 ∨ x32):
+
+- x7 = True, x15 = True, x32 = True
+- x15 = True → clause is satisfied.
+
+Check (¬x33 ∨ ¬x49 ∨ x9):
+
+- x33 = False, x49 = True, x9 = True
+- ¬x33 = True → clause is satisfied.
+
+Check (x49 ∨ x33 ∨ ¬x18):
+
+- x49 = True, x33 = False, x18 = True
+- x49 = True → clause is satisfied.
+
+Check (¬x49 ∨ x19 ∨ ¬x33):
+
+- x49 = True, x19 = True, x33 = False
+- x19 = True → clause is satisfied.
+
+Check (x16 ∨ ¬x49 ∨ x3):
+
+- x16 = True, x49 = True, x3 = True
+- x16 = True → clause is satisfied.
+
+Check (x4 ∨ x49 ∨ ¬x46):
+
+- x4 = True, x49 = True, x46 = True
+- x4 = True → clause is satisfied.
+
+Check (¬x33 ∨ ¬x19 ∨ ¬x7):
+
+- x33 = False, x19 = True, x7 = True
+- ¬x33 = True → clause is satisfied.
+
+Check (x49 ∨ x33 ∨ ¬x18):
+
+- x49 = True, x33 = False, x18 = True
+- x49 = True → clause is satisfied.
+
+Check (¬x49 ∨ x19 ∨ ¬x33):
+
+- x49 = True, x19 = True, x33 = False
+- x19 = True → clause is satisfied.
+
+Check (x16 ∨ ¬x49 ∨ x3):
+
+- x16 = True, x49 = True, x3 = True
+- x16 = True → clause

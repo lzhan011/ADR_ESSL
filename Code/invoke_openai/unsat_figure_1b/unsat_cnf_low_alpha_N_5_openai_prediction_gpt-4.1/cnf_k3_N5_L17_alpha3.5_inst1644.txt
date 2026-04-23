@@ -1,0 +1,333 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1644
+p cnf 5 17
+-4 2 -1 0
+1 2 -5 0
+-4 -2 5 0
+-2 -3 -4 0
+-4 1 2 0
+-3 2 -4 0
+-2 4 -5 0
+1 4 -3 0
+4 2 -1 0
+4 2 1 0
+3 5 -2 0
+-1 -3 -5 0
+4 -1 -2 0
+1 -4 -5 0
+-4 1 5 0
+5 -3 1 0
+-1 -5 3 0
+
+c GPT solve time: 33.26 seconds
+
+Step-by-step DPLL SAT solving:
+
+**Step 1: List variables:**  
+x1, x2, x3, x4, x5
+
+**Step 2: Choose a variable to branch on.**  
+Let’s start with x1 = True.
+
+---
+
+### Branch 1: x1 = True
+
+**Substitute x1 = True into all clauses:**
+
+- Any clause with x1 is satisfied: (2), (5), (8), (10), (14), (15), (16)
+- Remove ¬x1 from clauses: (1), (9), (12), (13), (17)
+
+**Remaining clauses:**
+1. (¬x4 ∨ x2)
+3. (¬x4 ∨ ¬x2 ∨ x5)
+4. (¬x2 ∨ ¬x3 ∨ ¬x4)
+6. (¬x3 ∨ x2 ∨ ¬x4)
+7. (¬x2 ∨ x4 ∨ ¬x5)
+9. (x4 ∨ x2)
+11. (x3 ∨ x5 ∨ ¬x2)
+12. (¬x3 ∨ ¬x5)
+13. (x4 ∨ ¬x2)
+15. (¬x4 ∨ x5)
+17. (¬x5 ∨ x3)
+
+---
+
+#### Branch 1.1: x2 = True
+
+**Substitute x2 = True:**
+
+- (1): (¬x4 ∨ True) → True
+- (3): (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5)
+- (4): (False ∨ ¬x3 ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- (6): (¬x3 ∨ True ∨ ¬x4) → True
+- (7): (False ∨ x4 ∨ ¬x5) → (x4 ∨ ¬x5)
+- (9): (x4 ∨ True) → True
+- (11): (x3 ∨ x5 ∨ False) → (x3 ∨ x5)
+- (12): (¬x3 ∨ ¬x5)
+- (13): (x4 ∨ False) → (x4)
+- (15): (¬x4 ∨ x5)
+- (17): (¬x5 ∨ x3)
+
+**Remaining clauses:**
+3. (¬x4 ∨ x5)
+4. (¬x3 ∨ ¬x4)
+7. (x4 ∨ ¬x5)
+11. (x3 ∨ x5)
+12. (¬x3 ∨ ¬x5)
+13. (x4)
+15. (¬x4 ∨ x5)
+17. (¬x5 ∨ x3)
+
+**Unit clause (13): x4 = True**
+
+---
+
+##### Branch 1.1.1: x4 = True
+
+Substitute x4 = True:
+
+- (3): (False ∨ x5) → (x5)
+- (4): (¬x3 ∨ False) → (¬x3)
+- (7): (True ∨ ¬x5) → True
+- (11): (x3 ∨ x5)
+- (12): (¬x3 ∨ ¬x5)
+- (15): (False ∨ x5) → (x5)
+- (17): (¬x5 ∨ x3)
+
+**Unit clauses: (x5), (¬x3)**
+
+Assign x5 = True, x3 = False
+
+Substitute x5 = True, x3 = False:
+
+- (11): (False ∨ True) → True
+- (12): (True ∨ False) → True
+- (17): (False ∨ False) → False
+
+**Conflict in (17): (¬x5 ∨ x3) = (False ∨ False) = False**
+
+**Backtrack to previous decision: x4 = True, x5 = True, x3 = False → Conflict**
+
+---
+
+##### Branch 1.1.2: x4 = False
+
+But (13): (x4) is a unit clause, so x4 must be True. No other option.
+
+---
+
+#### Branch 1.2: x2 = False
+
+Substitute x2 = False:
+
+- (1): (¬x4 ∨ False) → (¬x4)
+- (3): (¬x4 ∨ True ∨ x5) → True
+- (4): (True ∨ ¬x3 ∨ ¬x4) → True
+- (6): (¬x3 ∨ False ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- (7): (True ∨ x4 ∨ ¬x5) → True
+- (9): (x4 ∨ False) → (x4)
+- (11): (x3 ∨ x5 ∨ True) → True
+- (12): (¬x3 ∨ ¬x5)
+- (13): (x4 ∨ True) → True
+- (15): (¬x4 ∨ x5)
+- (17): (¬x5 ∨ x3)
+
+**Remaining clauses:**
+1. (¬x4)
+6. (¬x3 ∨ ¬x4)
+9. (x4)
+12. (¬x3 ∨ ¬x5)
+15. (¬x4 ∨ x5)
+17. (¬x5 ∨ x3)
+
+**Unit clauses: (¬x4), (x4) → Conflict**
+
+**Backtrack: x2 = False leads to conflict.**
+
+---
+
+### Branch 2: x1 = False
+
+Substitute x1 = False:
+
+- (1): (¬x4 ∨ x2 ∨ True) → (¬x4 ∨ x2)
+- (2): (False ∨ x2 ∨ ¬x5) → (x2 ∨ ¬x5)
+- (3): (¬x4 ∨ ¬x2 ∨ x5)
+- (4): (¬x2 ∨ ¬x3 ∨ ¬x4)
+- (5): (¬x4 ∨ False ∨ x2) → (¬x4 ∨ x2)
+- (6): (¬x3 ∨ x2 ∨ ¬x4)
+- (7): (¬x2 ∨ x4 ∨ ¬x5)
+- (8): (False ∨ x4 ∨ ¬x3) → (x4 ∨ ¬x3)
+- (9): (x4 ∨ x2 ∨ False) → (x4 ∨ x2)
+- (10): (x4 ∨ x2 ∨ False) → (x4 ∨ x2)
+- (11): (x3 ∨ x5 ∨ ¬x2)
+- (12): (True ∨ ¬x3 ∨ ¬x5) → True
+- (13): (x4 ∨ True ∨ ¬x2) → True
+- (14): (False ∨ ¬x4 ∨ ¬x5) → (¬x4 ∨ ¬x5)
+- (15): (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5)
+- (16): (x5 ∨ ¬x3 ∨ False) → (x5 ∨ ¬x3)
+- (17): (True ∨ ¬x5 ∨ x3) → (¬x5 ∨ x3)
+
+**Remaining clauses:**
+1. (¬x4 ∨ x2)
+2. (x2 ∨ ¬x5)
+3. (¬x4 ∨ ¬x2 ∨ x5)
+4. (¬x2 ∨ ¬x3 ∨ ¬x4)
+5. (¬x4 ∨ x2)
+6. (¬x3 ∨ x2 ∨ ¬x4)
+7. (¬x2 ∨ x4 ∨ ¬x5)
+8. (x4 ∨ ¬x3)
+9. (x4 ∨ x2)
+10. (x4 ∨ x2)
+11. (x3 ∨ x5 ∨ ¬x2)
+14. (¬x4 ∨ ¬x5)
+15. (¬x4 ∨ x5)
+16. (x5 ∨ ¬x3)
+17. (¬x5 ∨ x3)
+
+---
+
+#### Branch 2.1: x2 = True
+
+Substitute x2 = True:
+
+- (1): (¬x4 ∨ True) → True
+- (2): (True ∨ ¬x5) → True
+- (3): (¬x4 ∨ False ∨ x5) → (¬x4 ∨ x5)
+- (4): (False ∨ ¬x3 ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- (5): (¬x4 ∨ True) → True
+- (6): (¬x3 ∨ True ∨ ¬x4) → True
+- (7): (False ∨ x4 ∨ ¬x5) → (x4 ∨ ¬x5)
+- (8): (x4 ∨ ¬x3)
+- (9): (x4 ∨ True) → True
+- (10): (x4 ∨ True) → True
+- (11): (x3 ∨ x5 ∨ False) → (x3 ∨ x5)
+- (14): (¬x4 ∨ ¬x5)
+- (15): (¬x4 ∨ x5)
+- (16): (x5 ∨ ¬x3)
+- (17): (¬x5 ∨ x3)
+
+**Remaining clauses:**
+3. (¬x4 ∨ x5)
+4. (¬x3 ∨ ¬x4)
+7. (x4 ∨ ¬x5)
+8. (x4 ∨ ¬x3)
+11. (x3 ∨ x5)
+14. (¬x4 ∨ ¬x5)
+15. (¬x4 ∨ x5)
+16. (x5 ∨ ¬x3)
+17. (¬x5 ∨ x3)
+
+---
+
+##### Branch 2.1.1: x4 = True
+
+Substitute x4 = True:
+
+- (3): (False ∨ x5) → (x5)
+- (4): (¬x3 ∨ False) → (¬x3)
+- (7): (True ∨ ¬x5) → True
+- (8): (True ∨ ¬x3) → True
+- (11): (x3 ∨ x5)
+- (14): (False ∨ ¬x5) → (¬x5)
+- (15): (False ∨ x5) → (x5)
+- (16): (x5 ∨ ¬x3)
+- (17): (¬x5 ∨ x3)
+
+**Unit clauses: (x5), (¬x3), (¬x5)**
+
+Assign x5 = True, x3 = False
+
+But (¬x5) is a unit clause, so x5 = False
+
+Conflict: x5 = True and x5 = False
+
+**Backtrack: x4 = True leads to conflict**
+
+---
+
+##### Branch 2.1.2: x4 = False
+
+Substitute x4 = False:
+
+- (3): (True ∨ x5) → True
+- (4): (¬x3 ∨ True) → True
+- (7): (x4 ∨ ¬x5) → (False ∨ ¬x5) → (¬x5)
+- (8): (False ∨ ¬x3) → (¬x3)
+- (11): (x3 ∨ x5)
+- (14): (True ∨ ¬x5) → True
+- (15): (True ∨ x5) → True
+- (16): (x5 ∨ ¬x3)
+- (17): (¬x5 ∨ x3)
+
+**Unit clauses: (¬x5), (¬x3)**
+
+Assign x5 = False, x3 = False
+
+Substitute x5 = False, x3 = False:
+
+- (11): (False ∨ False) → False
+- (16): (False ∨ True) → True
+- (17): (True ∨ False) → True
+
+**Conflict in (11): (x3 ∨ x5) = (False ∨ False) = False**
+
+**Backtrack: x4 = False leads to conflict**
+
+---
+
+#### Branch 2.2: x2 = False
+
+Substitute x2 = False:
+
+- (1): (¬x4 ∨ False) → (¬x4)
+- (2): (False ∨ ¬x5) → (¬x5)
+- (3): (¬x4 ∨ True ∨ x5) → True
+- (4): (True ∨ ¬x3 ∨ ¬x4) → True
+- (5): (¬x4 ∨ False) → (¬x4)
+- (6): (¬x3 ∨ False ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- (7): (True ∨ x4 ∨ ¬x5) → True
+- (8): (x4 ∨ ¬x3)
+- (9): (x4 ∨ False) → (x4)
+- (10): (x4 ∨ False) → (x4)
+- (11): (x3 ∨ x5 ∨ True) → True
+- (14): (¬x4 ∨ ¬x5)
+- (15): (¬x4 ∨ x5)
+- (16): (x5 ∨ ¬x3)
+- (17): (¬x5 ∨ x3)
+
+**Remaining clauses:**
+1. (¬x4)
+2. (¬x5)
+5. (¬x4)
+6. (¬x3 ∨ ¬x4)
+8. (x4 ∨ ¬x3)
+9. (x4)
+10. (x4)
+14. (¬x4 ∨ ¬x5)
+15. (¬x4 ∨ x5)
+16. (x5 ∨ ¬x3)
+17. (¬x5 ∨ x3)
+
+**Unit clauses: (¬x4), (¬x5), (x4)**
+
+Assign x4 = False, x5 = False
+
+But (x4) is a unit clause, so x4 = True
+
+Conflict: x4 = False and x4 = True
+
+---
+
+## Summary
+
+All branches lead to a conflict. Therefore, the formula is **UNSATISFIABLE**.
+
+---
+
+### Final Answers
+
+- UNSATISFIABLE
+- Number of branches (decision points): 6
+- Number of conflicts (backtracking steps): 6

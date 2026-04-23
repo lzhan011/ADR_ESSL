@@ -1,0 +1,345 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1254
+p cnf 10 35
+7 -4 -2 0
+-5 6 -3 0
+-9 -10 -3 0
+-6 3 9 0
+-1 10 2 0
+-7 5 -6 0
+10 -9 -7 0
+-6 -3 -5 0
+3 4 -7 0
+-4 10 1 0
+-8 2 5 0
+5 8 2 0
+-8 -9 4 0
+1 -10 -5 0
+-6 7 -9 0
+-9 5 10 0
+4 10 5 0
+6 -2 3 0
+8 2 9 0
+4 -6 9 0
+10 6 -7 0
+-1 2 -6 0
+-3 -2 -1 0
+-3 -6 5 0
+4 9 3 0
+-5 8 -10 0
+4 -1 -7 0
+-1 -8 -4 0
+-8 3 2 0
+9 5 4 0
+4 -6 10 0
+4 -9 2 0
+-1 9 -2 0
+9 -4 -7 0
+-4 -7 1 0
+
+c GPT solve time: 29.45 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign a truth value to. Let's start with x1 = True.
+3. Update the formula based on the assignment:
+   (x7 ∨ ¬x4 ∨ ¬x2) -> (x7 ∨ True ∨ False) -> True
+   (¬x5 ∨ x6 ∨ ¬x3) -> (True ∨ x6 ∨ True) -> True
+   (¬x9 ∨ ¬x10 ∨ ¬x3) -> (True ∨ True ∨ True) -> True
+   (¬x6 ∨ x3 ∨ x9) -> (True ∨ True ∨ True) -> True
+   (¬x7 ∨ x5 ∨ ¬x6) -> (True ∨ True ∨ True) -> True
+   (x10 ∨ ¬x9 ∨ ¬x7) -> (True ∨ True ∨ True) -> True
+   (¬x6 ∨ ¬x3 ∨ ¬x5) -> (True ∨ True ∨ True) -> True
+   (x3 ∨ x4 ∨ ¬x7) -> (True ∨ True ∨ True) -> True
+   (¬x4 ∨ x10 ∨ True) -> (True ∨ True ∨ True) -> True
+   (¬x8 ∨ False ∨ True) -> (True ∨ True ∨ True) -> True
+   (True ∨ x8 ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True) -> True
+   (True ∨ True ∨ True

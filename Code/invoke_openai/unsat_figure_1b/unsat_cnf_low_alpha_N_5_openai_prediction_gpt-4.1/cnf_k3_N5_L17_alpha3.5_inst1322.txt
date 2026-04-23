@@ -1,0 +1,118 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1322
+p cnf 5 17
+5 1 -2 0
+-5 1 4 0
+4 -1 -2 0
+-2 -3 5 0
+2 -4 -3 0
+2 3 1 0
+4 -1 -2 0
+5 2 1 0
+-5 3 -4 0
+3 4 -1 0
+4 -3 -1 0
+-5 -4 -3 0
+1 2 -5 0
+-2 -3 -1 0
+5 2 -3 0
+5 -1 -2 0
+-1 -4 5 0
+
+c GPT solve time: 10.19 seconds
+
+Step-by-step DPLL-style SAT solving:
+
+**Step 1: List variables:** x1, x2, x3, x4, x5
+
+**Step 2: Try x1 = True**
+
+- Substitute x1 = True into all clauses:
+    - Any clause with x1 is satisfied.
+    - Remove ¬x1 from clauses.
+
+Clauses left (after removing satisfied ones and simplifying):
+(¬x2)  
+(¬x2 ∨ ¬x3 ∨ x5)  
+(x2 ∨ ¬x4 ∨ ¬x3)  
+(x4 ∨ ¬x2)  
+(x5 ∨ x2)  
+(¬x5 ∨ x3 ∨ ¬x4)  
+(x4 ∨ ¬x3)  
+(¬x5 ∨ ¬x4 ∨ ¬x3)  
+(¬x2 ∨ ¬x3)  
+(x5 ∨ x2 ∨ ¬x3)  
+(x5 ∨ ¬x2)  
+(¬x4 ∨ x5)
+
+**Step 3: Try x2 = False** (from (¬x2))
+
+- Substitute x2 = False:
+    - Any clause with ¬x2 is satisfied.
+    - Remove x2 from clauses.
+
+Clauses left:
+(¬x3 ∨ x5)  
+(¬x4 ∨ ¬x3)  
+(x4)  
+(x5)  
+(¬x5 ∨ x3 ∨ ¬x4)  
+(x4 ∨ ¬x3)  
+(¬x5 ∨ ¬x4 ∨ ¬x3)  
+(x5 ∨ ¬x3)  
+(¬x4 ∨ x5)
+
+**Step 4: Try x4 = True** (from (x4))
+
+- Substitute x4 = True:
+    - Any clause with x4 is satisfied.
+    - Remove ¬x4 from clauses.
+
+Clauses left:
+(¬x3 ∨ x5)  
+(¬x3)  
+(x5)  
+(x5 ∨ ¬x3)  
+
+**Step 5: Try x3 = False** (from (¬x3))
+
+- Substitute x3 = False:
+    - Any clause with ¬x3 is satisfied.
+    - Remove x3 from clauses.
+
+Clauses left:
+(x5)  
+(x5)  
+
+**Step 6: Try x5 = True** (from (x5))
+
+- All clauses are satisfied.
+
+**Assignment found:**
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = True  
+x5 = True  
+
+**Branching points:**
+1. x1 = True
+2. x2 = False
+3. x4 = True
+4. x3 = False
+5. x5 = True
+
+**No conflicts occurred.**
+
+---
+
+**Final output:**
+
+SATISFIABLE  
+5  
+0  
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = True  
+x5 = True

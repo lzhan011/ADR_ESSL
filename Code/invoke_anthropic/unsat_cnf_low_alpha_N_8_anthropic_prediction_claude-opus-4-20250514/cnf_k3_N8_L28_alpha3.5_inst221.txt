@@ -1,0 +1,94 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=221
+p cnf 8 28
+-6 -4 3 0
+-1 8 -5 0
+3 -8 -7 0
+-5 -2 -4 0
+-6 -4 -3 0
+1 2 8 0
+3 -5 -4 0
+-6 -2 3 0
+-8 5 3 0
+-1 7 8 0
+7 1 8 0
+6 1 -7 0
+4 5 6 0
+6 5 -4 0
+-8 -3 7 0
+3 -7 6 0
+-2 8 -6 0
+-1 -6 5 0
+-6 -8 4 0
+4 1 -8 0
+-8 4 -1 0
+8 4 6 0
+-4 -5 -1 0
+7 4 8 0
+7 4 1 0
+3 -8 -4 0
+2 4 -1 0
+-8 -6 -7 0
+
+c GPT solve time: 18.99 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8
+- 28 clauses total
+
+**Step 1: Check for unit clauses**
+No unit clauses found initially.
+
+**Step 2: Check for pure literals**
+No pure literals found (all variables appear in both positive and negative forms).
+
+**Step 3: Make first decision (Branch 1)**
+Decision: x1 = true
+
+After setting x1 = true:
+- Clause 6: (x1 ∨ x2 ∨ x8) → satisfied
+- Clause 11: (x7 ∨ x1 ∨ x8) → satisfied
+- Clause 12: (x6 ∨ x1 ∨ ¬x7) → satisfied
+- Clause 20: (x4 ∨ x1 ∨ ¬x8) → satisfied
+- Clause 25: (x7 ∨ x4 ∨ x1) → satisfied
+
+Simplified clauses:
+- Clause 2: (x8 ∨ ¬x5) [from (¬x1 ∨ x8 ∨ ¬x5)]
+- Clause 10: (x7 ∨ x8) [from (¬x1 ∨ x7 ∨ x8)]
+- Clause 18: (¬x6 ∨ x5) [from (¬x1 ∨ ¬x6 ∨ x5)]
+- Clause 21: (¬x8 ∨ x4) [from (¬x8 ∨ x4 ∨ ¬x1)]
+- Clause 23: (¬x4 ∨ ¬x5) [from (¬x4 ∨ ¬x5 ∨ ¬x1)]
+- Clause 27: (x2 ∨ x4) [from (x2 ∨ x4 ∨ ¬x1)]
+
+**Step 4: Unit propagation**
+From clause 21: (¬x8 ∨ x4), and clause 2: (x8 ∨ ¬x5)
+No immediate unit clauses.
+
+**Step 5: Make second decision (Branch 2)**
+Decision: x8 = true
+
+After setting x8 = true:
+- Clause 2: (x8 ∨ ¬x5) → satisfied
+- Clause 10: (x7 ∨ x8) → satisfied
+- Clause 22: (x8 ∨ x4 ∨ x6) → satisfied
+- Clause 24: (x7 ∨ x4 ∨ x8) → satisfied
+
+From clause 21: (¬x8 ∨ x4) → x4 = true (unit propagation)
+
+**Step 6: Propagate x4 = true**
+- Clause 13: (x4 ∨ x5 ∨ x6) → satisfied
+- Clause 20: already satisfied
+- Clause 21: satisfied
+- Clause 24: already satisfied
+- Clause 25: already satisfied
+- Clause 27: satisfied
+
+From clause 23: (¬x4 ∨ ¬x5) → x5 = false (unit propagation)
+
+**Step 7: Propagate x5 = false**
+- Clause 4: (¬x5 ∨ ¬x2 ∨ ¬x4) → satisfied
+- Clause 7: (x3 ∨ ¬x5 ∨ ¬x4) → satisfied
+- Clause 14: (x6 ∨ x5 ∨ ¬x4) → (x6 ∨ ¬x4) → x6 = true
+-

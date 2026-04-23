@@ -1,0 +1,88 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=959
+p cnf 8 28
+-2 6 -5 0
+-6 1 7 0
+-1 8 -5 0
+-4 1 -7 0
+-8 3 6 0
+2 -6 -8 0
+7 8 3 0
+8 6 4 0
+-1 -8 2 0
+-1 -6 -5 0
+-2 -1 6 0
+8 -1 5 0
+1 6 -3 0
+2 1 -8 0
+-8 -6 -7 0
+8 -3 6 0
+-4 8 7 0
+8 -3 2 0
+-2 -6 7 0
+-5 7 6 0
+6 -3 5 0
+-8 -2 7 0
+-2 4 1 0
+-6 -4 3 0
+1 -7 -8 0
+-6 4 1 0
+4 3 -2 0
+5 -2 -8 0
+
+c GPT solve time: 31.82 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Starting with the formula, I'll track decisions (branches) and conflicts (backtracking).
+
+**Branch 1:** Let me try x1 = true
+
+Simplifying with x1 = true:
+- Clause 2: (¬x6 ∨ true ∨ x7) = satisfied
+- Clause 4: (¬x4 ∨ true ∨ ¬x7) = satisfied
+- Clause 13: (true ∨ x6 ∨ ¬x3) = satisfied
+- Clause 14: (x2 ∨ true ∨ ¬x8) = satisfied
+- Clause 23: (¬x2 ∨ x4 ∨ true) = satisfied
+- Clause 25: (true ∨ ¬x7 ∨ ¬x8) = satisfied
+- Clause 26: (¬x6 ∨ x4 ∨ true) = satisfied
+
+Remaining clauses with ¬x1:
+- Clause 3: (false ∨ x8 ∨ ¬x5) = (x8 ∨ ¬x5)
+- Clause 9: (false ∨ ¬x8 ∨ x2) = (¬x8 ∨ x2)
+- Clause 10: (false ∨ ¬x6 ∨ ¬x5) = (¬x6 ∨ ¬x5)
+- Clause 11: (¬x2 ∨ false ∨ x6) = (¬x2 ∨ x6)
+- Clause 12: (x8 ∨ false ∨ x5) = (x8 ∨ x5)
+
+From clause 3 and 9: x8 ∨ ¬x5 and ¬x8 ∨ x2
+
+**Branch 2:** Let me try x8 = true
+
+This gives:
+- From clause 9: x2 = true
+- From clause 12: satisfied
+
+With x8 = true and x2 = true:
+- Clause 6: (true ∨ ¬x6 ∨ ¬true) = (¬x6)
+- Clause 11: (¬true ∨ x6) = x6
+
+This gives x6 = false and x6 = true - **Conflict 1**
+
+**Backtrack to Branch 2:** Try x8 = false
+
+From clause 3: ¬x5 must be true, so x5 = false
+From clause 12: false ∨ false ∨ false = false - **Conflict 2**
+
+**Backtrack to Branch 1:** Try x1 = false
+
+Simplifying with x1 = false:
+- Clause 3: (¬false ∨ x8 ∨ ¬x5) = satisfied
+- Clause 9: (¬false ∨ ¬x8 ∨ x2) = satisfied
+- Clause 10: (¬false ∨ ¬x6 ∨ ¬x5) = satisfied
+- Clause 11: (¬x2 ∨ ¬false ∨ x6) = satisfied
+- Clause 12: (x8 ∨ ¬false ∨ x5) = satisfied
+
+Remaining clauses with x1:
+- Clause 2: (¬x6 ∨ false ∨ x7) = (¬x6 ∨ x7)
+- Clause 4: (¬x4 ∨ false ∨ ¬x7) = (¬x4 ∨ ¬x7)
+- Clause 13: (false ∨ x6 ∨ ¬x3) = (x6 ∨ ¬x3)

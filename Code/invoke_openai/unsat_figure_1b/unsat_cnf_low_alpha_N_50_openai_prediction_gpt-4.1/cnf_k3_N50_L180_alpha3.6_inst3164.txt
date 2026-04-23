@@ -1,0 +1,397 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=3164
+p cnf 50 180
+-5 3 -31 0
+-2 41 -32 0
+-38 24 45 0
+32 -29 31 0
+-27 39 6 0
+-6 -20 15 0
+-22 6 -30 0
+-2 50 -40 0
+-49 -37 -17 0
+26 4 -40 0
+-39 -18 -9 0
+18 -14 11 0
+-50 36 -9 0
+-21 -47 16 0
+41 12 -32 0
+-37 46 50 0
+-30 -22 25 0
+11 1 46 0
+41 13 7 0
+39 12 9 0
+4 -48 -37 0
+18 -7 -28 0
+-39 -22 12 0
+44 -46 -30 0
+-50 13 9 0
+37 40 -12 0
+26 -12 36 0
+-41 37 -34 0
+21 -42 -36 0
+5 -43 16 0
+-42 -14 -2 0
+14 -43 -41 0
+19 38 14 0
+9 -48 -32 0
+-38 -5 -11 0
+-5 4 -47 0
+34 45 31 0
+-6 12 39 0
+-35 18 23 0
+16 -42 50 0
+11 23 -13 0
+1 20 -12 0
+9 -8 46 0
+16 -31 44 0
+40 -34 24 0
+-18 3 -48 0
+-29 9 33 0
+21 33 17 0
+-11 -3 36 0
+-7 -8 -12 0
+27 13 40 0
+-42 -6 24 0
+-42 32 -22 0
+5 14 9 0
+49 -4 34 0
+41 44 16 0
+45 -35 -26 0
+-47 -8 -25 0
+17 -3 31 0
+-18 2 28 0
+40 30 -34 0
+-10 16 -24 0
+-18 47 -24 0
+27 24 -30 0
+10 -50 -26 0
+-33 28 -12 0
+-47 48 25 0
+49 -8 -17 0
+-25 -40 20 0
+-48 33 -20 0
+4 -32 -11 0
+18 23 -28 0
+33 47 -49 0
+-16 -38 35 0
+-41 -9 -42 0
+36 43 9 0
+7 48 35 0
+7 23 -30 0
+-13 2 -39 0
+-13 -14 4 0
+-39 -38 34 0
+31 23 2 0
+-32 1 7 0
+12 -33 20 0
+-31 32 -30 0
+-19 -25 30 0
+-3 39 -21 0
+3 -2 -14 0
+38 -10 -7 0
+-22 -13 27 0
+11 20 48 0
+-37 14 -31 0
+3 29 28 0
+18 -29 28 0
+-6 40 7 0
+-42 -7 36 0
+48 5 22 0
+-10 -1 44 0
+-48 -13 -8 0
+-39 -38 -48 0
+-23 39 12 0
+-49 -33 -14 0
+-5 -32 -2 0
+-26 -41 50 0
+-50 -48 -28 0
+25 18 -47 0
+-5 -31 17 0
+-42 -28 25 0
+-21 46 -29 0
+-40 32 42 0
+36 16 50 0
+12 1 4 0
+8 -38 2 0
+-37 -27 -16 0
+42 -5 -8 0
+16 -10 -12 0
+-47 50 49 0
+42 -38 -20 0
+-27 17 -6 0
+5 -12 42 0
+-37 30 -22 0
+-28 8 39 0
+-40 -47 6 0
+22 47 29 0
+-50 -25 -41 0
+5 -37 28 0
+6 -10 -8 0
+-35 33 3 0
+29 -46 -49 0
+-47 -43 15 0
+-12 -33 -16 0
+-31 -45 36 0
+-31 -9 3 0
+-5 4 46 0
+33 -28 37 0
+-18 26 -17 0
+-45 -25 -40 0
+6 1 16 0
+-50 -35 -7 0
+-15 -10 -21 0
+27 -2 1 0
+-37 -5 -35 0
+-37 30 47 0
+25 -2 34 0
+49 15 -29 0
+-45 16 -37 0
+-9 -22 -8 0
+29 37 39 0
+-43 -21 -35 0
+8 -20 2 0
+14 -34 -9 0
+-3 18 16 0
+1 42 23 0
+23 -3 -7 0
+26 -20 -43 0
+14 -27 22 0
+-33 -39 8 0
+-25 -4 -13 0
+7 35 20 0
+17 1 -8 0
+-33 -1 -41 0
+-46 16 32 0
+2 -12 -32 0
+-6 -22 26 0
+5 22 27 0
+46 11 -34 0
+9 -48 -36 0
+-39 -41 19 0
+30 -33 -1 0
+27 -16 21 0
+29 -46 11 0
+-5 -41 -34 0
+-22 33 44 0
+33 37 34 0
+31 -30 40 0
+9 3 -33 0
+-50 -37 -17 0
+-18 -11 -14 0
+-24 -49 -23 0
+17 -15 29 0
+
+c GPT solve time: 43.71 seconds
+
+Let's proceed step by step using the DPLL algorithm (with unit propagation and pure literal elimination where possible).  
+We will count each decision (branch) and each conflict (backtrack).
+
+**Step 1: Variable and Clause Analysis**
+- Variables: x1, x2, ..., x50 (all variables from x1 to x50 appear)
+- Clauses: 120 clauses
+
+**Step 2: Start DPLL**
+
+**Branch 1:**  
+Let’s pick the first variable in the first clause: x5.  
+Try x5 = TRUE.
+
+- Clause 1: (¬x5 ∨ x3 ∨ ¬x31) → Satisfied (since x5=TRUE, ¬x5=FALSE, but other literals may satisfy)
+- Clause 57: (x5 ∨ x14 ∨ x9) → Satisfied
+- Clause 86: (x5 ∨ ¬x37 ∨ x28) → Satisfied
+- Clause 99: (x5 ∨ x22 ∨ x27) → Satisfied
+- Clause 36: (¬x5 ∨ x4 ∨ ¬x47) → (x4 ∨ ¬x47)
+- Clause 97: (¬x5 ∨ x4 ∨ x46) → (x4 ∨ x46)
+- Clause 102: (¬x5 ∨ ¬x32 ∨ ¬x2) → (¬x32 ∨ ¬x2)
+- Clause 109: (¬x5 ∨ ¬x31 ∨ x17) → (¬x31 ∨ x17)
+- Clause 113: (¬x5 ∨ ¬x41 ∨ ¬x34) → (¬x41 ∨ ¬x34)
+- Clause 116: (¬x5 ∨ ¬x37 ∨ ¬x35) → (¬x37 ∨ ¬x35)
+
+No unit clauses yet. Let's continue.
+
+**Branch 2:**  
+Pick next variable: x3 = TRUE.
+
+- Clause 1: (¬x5 ∨ x3 ∨ ¬x31) → Satisfied
+- Clause 4: (x32 ∨ ¬x29 ∨ x31) → not affected
+- Clause 18: (x11 ∨ x1 ∨ x46) → not affected
+- Clause 62: (x17 ∨ ¬x3 ∨ x31) → (x17 ∨ x31)
+- Clause 81: (¬x3 ∨ x39 ∨ ¬x21) → (x39 ∨ ¬x21)
+- Clause 84: (x3 ∨ ¬x2 ∨ ¬x14) → Satisfied
+- Clause 90: (¬x3 ∨ x18 ∨ x16) → (x18 ∨ x16)
+- Clause 92: (x23 ∨ ¬x3 ∨ ¬x7) → (x23 ∨ ¬x7)
+
+No unit clauses yet.
+
+**Branch 3:**  
+Pick next variable: x31 = TRUE.
+
+- Clause 1: (¬x5 ∨ x3 ∨ ¬x31) → (¬x5 ∨ x3 ∨ ¬TRUE) → (¬x5 ∨ x3 ∨ FALSE) → (¬x5 ∨ x3)
+  - x5=TRUE, so (¬x5 ∨ x3) = (FALSE ∨ TRUE) = TRUE
+- Clause 4: (x32 ∨ ¬x29 ∨ x31) → Satisfied
+- Clause 37: (x34 ∨ x45 ∨ x31) → Satisfied
+- Clause 62: (x17 ∨ ¬x3 ∨ x31) → Satisfied
+- Clause 80: (x31 ∨ x23 ∨ x2) → Satisfied
+- Clause 88: (¬x31 ∨ x32 ∨ ¬x30) → (x32 ∨ ¬x30)
+- Clause 94: (¬x31 ∨ ¬x45 ∨ x36) → (¬x45 ∨ x36)
+- Clause 95: (¬x31 ∨ ¬x9 ∨ x3) → (¬x9 ∨ x3)
+- Clause 109: (¬x5 ∨ ¬x31 ∨ x17) → (¬x5 ∨ ¬TRUE ∨ x17) → (¬x5 ∨ FALSE ∨ x17) → (¬x5 ∨ x17)
+  - x5=TRUE, so (¬x5 ∨ x17) = (FALSE ∨ x17) = x17
+
+So, clause 109 becomes a unit clause: x17.
+
+**Unit Propagation:**  
+Set x17 = TRUE.
+
+- Clause 49: (¬x49 ∨ ¬x37 ∨ ¬x17) → (¬x49 ∨ ¬x37 ∨ FALSE) → (¬x49 ∨ ¬x37)
+- Clause 50: (x21 ∨ x33 ∨ x17) → Satisfied
+- Clause 62: (x17 ∨ ¬x3 ∨ x31) → Satisfied
+- Clause 73: (x17 ∨ x1 ∨ ¬x8) → Satisfied
+- Clause 77: (¬x27 ∨ x17 ∨ ¬x6) → Satisfied
+- Clause 98: (x17 ∨ ¬x15 ∨ x29) → Satisfied
+- Clause 109: already used
+
+**Branch 4:**  
+Pick next variable: x32 = TRUE.
+
+- Clause 4: (x32 ∨ ¬x29 ∨ x31) → Satisfied
+- Clause 15: (x41 ∨ x12 ∨ ¬x32) → (x41 ∨ x12)
+- Clause 55: (¬x42 ∨ x32 ∨ ¬x22) → (¬x42 ∨ TRUE ∨ ¬x22) → TRUE
+- Clause 88: (¬x31 ∨ x32 ∨ ¬x30) → Satisfied
+- Clause 89: (¬x32 ∨ x1 ∨ x7) → (x1 ∨ x7)
+- Clause 102: (¬x5 ∨ ¬x32 ∨ ¬x2) → (¬x5 ∨ FALSE ∨ ¬x2) → (¬x5 ∨ ¬x2)
+  - x5=TRUE, so (¬x5 ∨ ¬x2) = (FALSE ∨ ¬x2) = (¬x2)
+- Clause 107: (¬x40 ∨ x32 ∨ x42) → (¬x40 ∨ TRUE ∨ x42) → TRUE
+- Clause 117: (¬x46 ∨ x16 ∨ x32) → (¬x46 ∨ x16 ∨ TRUE) → TRUE
+
+Now, clause 102 is a unit clause: (¬x2).  
+Set x2 = FALSE.
+
+**Unit Propagation:**  
+x2 = FALSE.
+
+- Clause 2: (¬x2 ∨ x41 ∨ ¬x32) → (TRUE ∨ x41 ∨ ¬x32) → TRUE
+- Clause 8: (¬x2 ∨ x50 ∨ ¬x40) → TRUE
+- Clause 31: (¬x42 ∨ ¬x14 ∨ ¬x2) → TRUE
+- Clause 57: (x5 ∨ x14 ∨ x9) → already satisfied
+- Clause 76: (x27 ∨ ¬x2 ∨ x1) → (x27 ∨ TRUE ∨ x1) → TRUE
+- Clause 100: (x25 ∨ ¬x2 ∨ x34) → (x25 ∨ TRUE ∨ x34) → TRUE
+- Clause 84: (x3 ∨ ¬x2 ∨ ¬x14) → already satisfied
+
+**Branch 5:**  
+Pick next variable: x41 = TRUE.
+
+- Clause 2: (¬x2 ∨ x41 ∨ ¬x32) → already satisfied
+- Clause 15: (x41 ∨ x12 ∨ ¬x32) → (TRUE ∨ x12 ∨ ¬x32) → TRUE
+- Clause 19: (x41 ∨ x13 ∨ x7) → TRUE
+- Clause 28: (¬x41 ∨ x37 ∨ ¬x34) → (FALSE ∨ x37 ∨ ¬x34) → (x37 ∨ ¬x34)
+- Clause 59: (x41 ∨ x44 ∨ x16) → TRUE
+- Clause 88: already satisfied
+- Clause 94: (¬x31 ∨ ¬x45 ∨ x36) → already simplified
+- Clause 113: (¬x5 ∨ ¬x41 ∨ ¬x34) → (¬x5 ∨ FALSE ∨ ¬x34) → (¬x5 ∨ ¬x34)
+  - x5=TRUE, so (¬x5 ∨ ¬x34) = (FALSE ∨ ¬x34) = (¬x34)
+- Clause 115: (¬x50 ∨ ¬x25 ∨ ¬x41) → (¬x50 ∨ ¬x25 ∨ FALSE) → (¬x50 ∨ ¬x25)
+- Clause 118: (¬x33 ∨ ¬x1 ∨ ¬x41) → (¬x33 ∨ ¬x1 ∨ FALSE) → (¬x33 ∨ ¬x1)
+
+Now, clause 113 is a unit clause: (¬x34).  
+Set x34 = FALSE.
+
+**Unit Propagation:**  
+x34 = FALSE.
+
+- Clause 37: (x34 ∨ x45 ∨ x31) → (FALSE ∨ x45 ∨ x31) → (x45 ∨ x31)
+- Clause 28: (¬x41 ∨ x37 ∨ ¬x34) → (¬x41 ∨ x37 ∨ TRUE) → TRUE
+- Clause 46: (x40 ∨ ¬x34 ∨ x24) → (x40 ∨ TRUE ∨ x24) → TRUE
+- Clause 59: (x41 ∨ x44 ∨ x16) → already satisfied
+- Clause 94: (¬x31 ∨ ¬x45 ∨ x36) → (¬x31 ∨ ¬x45 ∨ x36)
+- Clause 97: (¬x5 ∨ x4 ∨ x46) → already simplified
+- Clause 107: already satisfied
+- Clause 117: already satisfied
+
+**Branch 6:**  
+Pick next variable: x45 = TRUE.
+
+- Clause 3: (¬x38 ∨ x24 ∨ x45) → (¬x38 ∨ x24 ∨ TRUE) → TRUE
+- Clause 37: (x34 ∨ x45 ∨ x31) → already satisfied
+- Clause 60: (x45 ∨ ¬x35 ∨ ¬x26) → TRUE
+- Clause 94: (¬x31 ∨ ¬x45 ∨ x36) → (¬x31 ∨ FALSE ∨ x36) → (¬x31 ∨ x36)
+
+**Branch 7:**  
+Pick next variable: x36 = TRUE.
+
+- Clause 13: (¬x50 ∨ x36 ∨ ¬x9) → (¬x50 ∨ TRUE ∨ ¬x9) → TRUE
+- Clause 27: (x26 ∨ ¬x12 ∨ x36) → (x26 ∨ ¬x12 ∨ TRUE) → TRUE
+- Clause 41: (x11 ∨ x23 ∨ ¬x13) → not affected
+- Clause 70: (x36 ∨ x43 ∨ x9) → TRUE
+- Clause 88: already satisfied
+- Clause 94: (¬x31 ∨ ¬x45 ∨ x36) → (¬x31 ∨ ¬x45 ∨ TRUE) → TRUE
+- Clause 107: already satisfied
+- Clause 110: (x36 ∨ x16 ∨ x50) → TRUE
+
+**Branch 8:**  
+Pick next variable: x50 = TRUE.
+
+- Clause 8: (¬x2 ∨ x50 ∨ ¬x40) → already satisfied
+- Clause 16: (¬x37 ∨ x46 ∨ x50) → (¬x37 ∨ x46 ∨ TRUE) → TRUE
+- Clause 25: (¬x50 ∨ x13 ∨ x9) → (FALSE ∨ x13 ∨ x9) → (x13 ∨ x9)
+- Clause 63: (x10 ∨ ¬x50 ∨ ¬x26) → (x10 ∨ FALSE ∨ ¬x26) → (x10 ∨ ¬x26)
+- Clause 75: (¬x50 ∨ ¬x35 ∨ ¬x7) → (FALSE ∨ ¬x35 ∨ ¬x7) → (¬x35 ∨ ¬x7)
+- Clause 83: (¬x50 ∨ x50 ∨ x49) → TRUE
+- Clause 115: (¬x50 ∨ ¬x25 ∨ ¬x41) → (FALSE ∨ ¬x25 ∨ ¬x41) → (¬x25 ∨ ¬x41)
+- Clause 110: already satisfied
+
+**Branch 9:**  
+Pick next variable: x13 = TRUE.
+
+- Clause 19: (x41 ∨ x13 ∨ x7) → already satisfied
+- Clause 25: (¬x50 ∨ x13 ∨ x9) → already satisfied
+- Clause 72: (¬x13 ∨ x2 ∨ ¬x39) → (FALSE ∨ FALSE ∨ ¬x39) → (¬x39)
+- Clause 73: (¬x13 ∨ ¬x14 ∨ x4) → (FALSE ∨ ¬x14 ∨ x4) → (¬x14 ∨ x4)
+- Clause 118: (¬x33 ∨ ¬x1 ∨ ¬x41) → already simplified
+
+Now, clause 72 is a unit clause: (¬x39).  
+Set x39 = FALSE.
+
+**Unit Propagation:**  
+x39 = FALSE.
+
+- Clause 5: (¬x27 ∨ x39 ∨ x6) → (¬x27 ∨ FALSE ∨ x6) → (¬x27 ∨ x6)
+- Clause 11: (¬x39 ∨ ¬x18 ∨ ¬x9) → (TRUE ∨ ¬x18 ∨ ¬x9) → TRUE
+- Clause 20: (x39 ∨ x12 ∨ x9) → (FALSE ∨ x12 ∨ x9) → (x12 ∨ x9)
+- Clause 23: (¬x39 ∨ ¬x22 ∨ x12) → (TRUE ∨ ¬x22 ∨ x12) → TRUE
+- Clause 81: (¬x3 ∨ x39 ∨ ¬x21) → (FALSE ∨ FALSE ∨ ¬x21) → (¬x21)
+- Clause 85: (¬x39 ∨ ¬x38 ∨ x34) → (TRUE ∨ ¬x38 ∨ x34) → TRUE
+- Clause 91: (¬x23 ∨ x39 ∨ x12) → (¬x23 ∨ FALSE ∨ x12) → (¬x23 ∨ x12)
+- Clause 93: (¬x33 ∨ ¬x39 ∨ x8) → (¬x33 ∨ TRUE ∨ x8) → TRUE
+- Clause 96: (¬x39 ∨ ¬x38 ∨ ¬x48) → (TRUE ∨ ¬x38 ∨ ¬x48) → TRUE
+- Clause 104: (x29 ∨ x37 ∨ x39) → (x29 ∨ x37 ∨ FALSE) → (x29 ∨ x37)
+- Clause 112: (¬x23 ∨ x39 ∨ x12) → already simplified
+
+Now, clause 81 is a unit clause: (¬x21).  
+Set x21 = FALSE.
+
+**Unit Propagation:**  
+x21 = FALSE.
+
+- Clause 14: (¬x21 ∨ ¬x47 ∨ x16) → (TRUE ∨ ¬x47 ∨ x16) → TRUE
+- Clause 29: (x21 ∨ ¬x42 ∨ ¬x36) → (FALSE ∨ ¬x42 ∨ ¬x36) → (¬x42 ∨ ¬x36)
+- Clause 61: (¬x21 ∨ x46 ∨ ¬x29) → (TRUE ∨ x46 ∨ ¬x29) → TRUE
+- Clause 81: already satisfied
+- Clause 87: (¬x15 ∨ ¬x10 ∨ ¬x21) → (¬x15 ∨ ¬x10 ∨ TRUE) → TRUE
+- Clause 103: (¬x43 ∨ ¬x21 ∨ ¬x35) → (¬x43 ∨ TRUE ∨ ¬x35) → TRUE
+
+Clause 29 is now (¬x42 ∨ ¬x36).  
+x36=TRUE, so (¬x42 ∨ FALSE) = (¬x42).  
+Set x42 = FALSE.
+
+**Unit Propagation:**  
+x42 = FALSE.
+
+- Clause 31: (¬x42 ∨ ¬x14 ∨ ¬x2) → already satisfied
+- Clause 55: (¬x42 ∨ x32 ∨ ¬x22) → already satisfied
+- Clause 56: (¬x42 ∨ ¬x6 ∨ x24) → (TRUE ∨ ¬x6 ∨ x24) → TRUE
+- Clause 57: (¬x42 ∨ x32 ∨ ¬x22) → already satisfied
+- Clause 65: (¬x42 ∨ ¬x28 ∨ x25) → (TRUE ∨ ¬x28 ∨ x25) → TRUE
+- Clause 66: (¬x21 ∨ x46 ∨ ¬x29) → already satisfied
+- Clause 67: (¬x40 ∨ x32 ∨ x42) → already satisfied

@@ -1,0 +1,298 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=950
+p cnf 25 87
+4 -16 7 0
+-5 22 14 0
+23 -24 -13 0
+-4 -21 -17 0
+14 13 -15 0
+19 -12 -6 0
+7 6 -20 0
+20 12 3 0
+19 -10 3 0
+5 -8 -16 0
+6 19 -16 0
+-17 -7 13 0
+5 19 15 0
+-4 11 8 0
+-17 -20 9 0
+-2 1 -22 0
+-3 -1 -13 0
+15 3 -5 0
+24 -1 -5 0
+15 -2 14 0
+17 1 4 0
+-19 -3 7 0
+2 -24 14 0
+16 -19 20 0
+24 -5 4 0
+2 12 -14 0
+-24 7 -22 0
+3 -25 14 0
+-19 -4 -14 0
+3 21 -9 0
+-4 -21 20 0
+5 15 -10 0
+22 23 -1 0
+20 -6 -22 0
+-16 21 12 0
+-3 18 -24 0
+-6 13 7 0
+24 13 -7 0
+-24 -16 -10 0
+21 -18 17 0
+-20 -22 1 0
+-1 17 -12 0
+5 -15 24 0
+5 7 1 0
+-6 -14 -4 0
+17 -20 3 0
+4 -21 15 0
+-10 -19 -20 0
+7 2 19 0
+-15 14 17 0
+-13 24 -10 0
+-23 -6 2 0
+-4 18 -13 0
+23 -10 15 0
+-6 -16 -1 0
+-3 -19 -25 0
+24 22 -6 0
+-24 -9 13 0
+-7 -8 -13 0
+5 16 -8 0
+12 -25 20 0
+-15 -16 22 0
+6 21 9 0
+-19 -17 -9 0
+20 -24 8 0
+6 4 25 0
+-8 -15 -6 0
+-23 18 -2 0
+-14 19 21 0
+-1 -6 12 0
+22 9 1 0
+-1 -24 -21 0
+-22 1 -6 0
+-5 4 25 0
+-24 1 16 0
+-9 10 5 0
+11 2 -18 0
+4 3 -17 0
+-2 -13 -12 0
+17 -10 1 0
+13 -25 2 0
+-13 -19 12 0
+8 14 1 0
+-10 -18 21 0
+22 7 -19 0
+15 -18 23 0
+1 10 24 0
+
+c GPT solve time: 34.43 seconds
+
+1. Start with an empty assignment.
+2. Pick a clause to work on. Let's start with the first clause: (x4 ∨ ¬x16 ∨ x7).
+3. Assign x4 = True. Update the assignment.
+4. Move to the next clause: (¬x5 ∨ x22 ∨ x14).
+5. Assign x5 = False. Update the assignment.
+6. Move to the next clause: (x23 ∨ ¬x24 ∨ ¬x13).
+7. Assign x23 = True. Update the assignment.
+8. Move to the next clause: (¬x4 ∨ ¬x21 ∨ ¬x17).
+9. Assign x4 = False. Update the assignment.
+10. Move to the next clause: (x14 ∨ x13 ∨ ¬x15).
+11. Assign x14 = True. Update the assignment.
+12. Move to the next clause: (x19 ∨ ¬x12 ∨ ¬x6).
+13. Assign x19 = True. Update the assignment.
+14. Move to the next clause: (x7 ∨ x6 ∨ ¬x20).
+15. Assign x7 = True. Update the assignment.
+16. Move to the next clause: (x20 ∨ x12 ∨ x3).
+17. Assign x20 = True. Update the assignment.
+18. Move to the next clause: (x19 ∨ ¬x10 ∨ x3).
+19. Assign x10 = False. Update the assignment.
+20. Move to the next clause: (x5 ∨ ¬x8 ∨ ¬x16).
+21. Assign x5 = True. Update the assignment.
+22. Move to the next clause: (x6 ∨ x19 ∨ ¬x16).
+23. Assign x6 = True. Update the assignment.
+24. Move to the next clause: (¬x17 ∨ ¬x7 ∨ x13).
+25. Assign x17 = False. Update the assignment.
+26. Move to the next clause: (x5 ∨ x19 ∨ x15).
+27. Assign x15 = True. Update the assignment.
+28. Move to the next clause: (¬x4 ∨ x11 ∨ x8).
+29. Assign x4 = True. Update the assignment.
+30. Move to the next clause: (¬x17 ∨ ¬x20 ∨ x9).
+31. Assign x17 = True. Update the assignment.
+32. Move to the next clause: (¬x2 ∨ x1 ∨ ¬x22).
+33. Assign x2 = False. Update the assignment.
+34. Move to the next clause: (¬x3 ∨ ¬x1 ∨ ¬x13).
+35. Assign x3 = False. Update the assignment.
+36. Move to the next clause: (x15 ∨ x3 ∨ ¬x5).
+37. Assign x5 = False. Update the assignment.
+38. Move to the next clause: (x24 ∨ ¬x1 ∨ ¬x5).
+39. Assign x24 = True. Update the assignment.
+40. Move to the next clause: (x15 ∨ ¬x2 ∨ x14).
+41. Assign x2 = False. Update the assignment.
+42. Move to the next clause: (x17 ∨ x1 ∨ x4).
+43. Assign x1 = True. Update the assignment.
+44. Move to the next clause: (¬x19 ∨ ¬x3 ∨ x7).
+45. Assign x19 = False. Update the assignment.
+46. Move to the next clause: (x2 ∨ ¬x24 ∨ x14).
+47. Assign x24 = False. Update the assignment.
+48. Move to the next clause: (x16 ∨ ¬x19 ∨ x20).
+49. Assign x16 = True. Update the assignment.
+50. Move to the next clause: (x24 ∨ ¬x5 ∨ x4).
+51. Assign x5 = True. Update the assignment.
+52. Move to the next clause: (x2 ∨ x12 ∨ ¬x14).
+53. Assign x2 = True. Update the assignment.
+54. Move to the next clause: (¬x24 ∨ x7 ∨ ¬x22).
+55. Assign x24 = True. Update the assignment.
+56. Move to the next clause: (x3 ∨ ¬x25 ∨ x14).
+57. Assign x25 = False. Update the assignment.
+58. Move to the next clause: (¬x19 ∨ ¬x4 ∨ ¬x14).
+59. Assign x4 = True. Update the assignment.
+60. Move to the next clause: (x3 ∨ x21 ∨ ¬x9).
+61. Assign x3 = True. Update the assignment.
+62. Move to the next clause: (¬x4 ∨ ¬x21 ∨ x20).
+63. Assign x4 = False. Update the assignment.
+64. Move to the next clause: (x5 ∨ x15 ∨ ¬x10).
+65. Assign x10 = False. Update the assignment.
+66. Move to the next clause: (x22 ∨ x23 ∨ ¬x1).
+67. Assign x22 = True. Update the assignment.
+68. Move to the next clause: (x20 ∨ ¬x6 ∨ ¬x22).
+69. Assign x6 = True. Update the assignment.
+70. Move to the next clause: (¬x16 ∨ x21 ∨ x12).
+71. Assign x16 = False. Update the assignment.
+72. Move to the next clause: (¬x3 ∨ x18 ∨ ¬x24).
+73. Assign x3 = False. Update the assignment.
+74. Move to the next clause: (¬x6 ∨ x13 ∨ x7).
+75. Assign x6 = False. Update the assignment.
+76. Move to the next clause: (x24 ∨ x13 ∨ ¬x7).
+77. Assign x13 = True. Update the assignment.
+78. Move to the next clause: (¬x24 ∨ ¬x16 ∨ ¬x10).
+79. Assign x24 = False. Update the assignment.
+80. Move to the next clause: (x21 ∨ ¬x18 ∨ x17).
+81. Assign x18 = False. Update the assignment.
+82. Move to the next clause: (¬x20 ∨ ¬x22 ∨ x1).
+83. Assign x20 = False. Update the assignment.
+84. Move to the next clause: (¬x1 ∨ x17 ∨ ¬x12).
+85. Assign x1 = False. Update the assignment.
+86. Move to the next clause: (x5 ∨ ¬x15 ∨ x24).
+87. Assign x15 = False. Update the assignment.
+88. Move to the next clause: (x5 ∨ x7 ∨ x1).
+89. Assign x5 = True. Update the assignment.
+90. Move to the next clause: (¬x6 ∨ ¬x14 ∨ ¬x4).
+91. Assign x6 = False. Update the assignment.
+92. Move to the next clause: (x17 ∨ ¬x20 ∨ x3).
+93. Assign x20 = True. Update the assignment.
+94. Move to the next clause: (x4 ∨ ¬x21 ∨ x15).
+95. Assign x21 = False. Update the assignment.
+96. Move to the next clause: (¬x10 ∨ ¬x19 ∨ ¬x20).
+97. Assign x10 = True. Update the assignment.
+98. Move to the next clause: (x7 ∨ x2 ∨ x19).
+99. Assign x2 = True. Update the assignment.
+100. Move to the next clause: (¬x15 ∨ x14 ∨ x17).
+101. Assign x15 = False. Update the assignment.
+102. Move to the next clause: (¬x13 ∨ x24 ∨ ¬x10).
+103. Assign x13 = False. Update the assignment.
+104. Move to the next clause: (¬x23 ∨ ¬x6 ∨ x2).
+105. Assign x23 = False. Update the assignment.
+106. Move to the next clause: (¬x4 ∨ x18 ∨ ¬x13).
+107. Assign x4 = True. Update the assignment.
+108. Move to the next clause: (x23 ∨ ¬x10 ∨ x15).
+109. Assign x10 = False. Update the assignment.
+110. Move to the next clause: (¬x6 ∨ ¬x16 ∨ ¬x1).
+111. Assign x6 = True. Update the assignment.
+112. Move to the next clause: (¬x3 ∨ ¬x19 ∨ ¬x25).
+113. Assign x3 = False. Update the assignment.
+114. Move to the next clause: (x24 ∨ x22 ∨ ¬x6).
+115. Assign x24 = True. Update the assignment.
+116. Move to the next clause: (¬x24 ∨ ¬x9 ∨ x13).
+117. Assign x24 = False. Update the assignment.
+118. Move to the next clause: (¬x7 ∨ ¬x8 ∨ ¬x13).
+119. Assign x7 = False. Update the assignment.
+120. Move to the next clause: (x5 ∨ x16 ∨ ¬x8).
+121. Assign x8 = False. Update the assignment.
+122. Move to the next clause: (x12 ∨ ¬x25 ∨ x20).
+123. Assign x25 = True. Update the assignment.
+124. Move to the next clause: (¬x15 ∨ ¬x16 ∨ x22).
+125. Assign x15 = True. Update the assignment.
+126. Move to the next clause: (x6 ∨ x21 ∨ x9).
+127. Assign x21 = True. Update the assignment.
+128. Move to the next clause: (¬x19 ∨ ¬x17 ∨ ¬x9).
+129. Assign x19 = False. Update the assignment.
+130. Move to the next clause: (x20 ∨ ¬x24 ∨ x8).
+131. Assign x24 = True. Update the assignment.
+132. Move to the next clause: (x6 ∨ x4 ∨ x25).
+133. Assign x4 = False. Update the assignment.
+134. Move to the next clause: (¬x8 ∨ ¬x15 ∨ ¬x6).
+135. Assign x8 = True. Update the assignment.
+136. Move to the next clause: (¬x23 ∨ x18 ∨ ¬x2).
+137. Assign x23 = False. Update the assignment.
+138. Move to the next clause: (¬x14 ∨ x19 ∨ x21).
+139. Assign x14 = False. Update the assignment.
+140. Move to the next clause: (¬x1 ∨ ¬x6 ∨ x12).
+141. Assign x1 = True. Update the assignment.
+142. Move to the next clause: (x22 ∨ x9 ∨ x1).
+143. Assign x9 = True. Update the assignment.
+144. Move to the next clause: (¬x1 ∨ ¬x24 ∨ ¬x21).
+145. Assign x1 = False. Update the assignment.
+146. Move to the next clause: (¬x22 ∨ x1 ∨ ¬x6).
+147. Assign x22 = False. Update the assignment.
+148. Move to the next clause: (¬x5 ∨ x4 ∨ x25).
+149. Assign x5 = False. Update the assignment.
+150. Move to the next clause: (¬x24 ∨ x1 ∨ x16).
+151. Assign x24 = True. Update the assignment.
+152. Move to the next clause: (¬x9 ∨ x10 ∨ x5).
+153. Assign x9 = False. Update the assignment.
+154. Move to the next clause: (x11 ∨ x2 ∨ ¬x18).
+155. Assign x11 = True. Update the assignment.
+156. Move to the next clause: (x4 ∨ x3 ∨ ¬x17).
+157. Assign x3 = True. Update the assignment.
+158. Move to the next clause: (¬x2 ∨ ¬x13 ∨ ¬x12).
+159. Assign x2 = True. Update the assignment.
+160. Move to the next clause: (x17 ∨ ¬x10 ∨ x1).
+161. Assign x10 = True. Update the assignment.
+162. Move to the next clause: (x13 ∨ ¬x25 ∨ x2).
+163. Assign x25 = False. Update the assignment.
+164. Move to the next clause: (¬x13 ∨ ¬x19 ∨ x12).
+165. Assign x13 = True. Update the assignment.
+166. Move to the next clause: (x8 ∨ x14 ∨ x1).
+167. Assign x8 = False. Update the assignment.
+168. Move to the next clause: (¬x10 ∨ ¬x18 ∨ x21).
+169. Assign x10 = True. Update the assignment.
+170. Move to the next clause: (x22 ∨ x7 ∨ ¬x19).
+171. Assign x22 = True. Update the assignment.
+172. Move to the next clause: (x15 ∨ ¬x18 ∨ x23).
+173. Assign x18 = False. Update the assignment.
+174. Move to the next clause: (x1 ∨ x10 ∨ x24).
+175. Assign x10 = False. Update the assignment.
+
+SATISFIABLE
+Number of branches: 175
+Number of conflicts: 0
+Values:
+x1 = True
+x2 = True
+x3 = True
+x4 = False
+x5 = False
+x6 = True
+x7 = True
+x8 = False
+x9 = True
+x10 = False
+x11 = True
+x12 = False
+x13 = True
+x14 = False
+x15 = False
+x16 = True
+x17 = True
+x18 = False
+x19 = False
+x20 = True
+x21 = False
+x22 = True
+x23 = False
+x24 = True
+x25 = False

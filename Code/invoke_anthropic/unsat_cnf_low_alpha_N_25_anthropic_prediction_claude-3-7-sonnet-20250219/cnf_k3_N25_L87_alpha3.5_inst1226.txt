@@ -1,0 +1,185 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=1226
+p cnf 25 87
+4 9 25 0
+11 -19 18 0
+-6 -20 11 0
+18 -1 -4 0
+6 4 -2 0
+-3 19 -7 0
+-24 -8 -4 0
+14 -9 -22 0
+-18 7 -23 0
+-11 -7 15 0
+-12 -6 -3 0
+-2 10 -21 0
+4 -2 -18 0
+-14 21 5 0
+-18 -17 -5 0
+3 20 -19 0
+-19 13 -10 0
+-20 -4 9 0
+-24 19 5 0
+-18 17 22 0
+-18 21 7 0
+-7 23 19 0
+5 -16 -20 0
+21 20 11 0
+-19 -9 10 0
+17 -9 5 0
+24 -12 22 0
+-16 -13 7 0
+10 -11 -12 0
+-16 -19 25 0
+-13 20 -22 0
+-23 -21 -18 0
+19 6 -5 0
+-5 -16 -22 0
+7 -1 11 0
+17 11 22 0
+12 21 -11 0
+-12 -11 -15 0
+8 -17 1 0
+4 2 5 0
+-15 7 13 0
+17 -7 20 0
+-12 -18 -25 0
+-8 19 -2 0
+-20 25 14 0
+-4 17 22 0
+-10 12 5 0
+25 -17 23 0
+-15 10 -18 0
+-25 -8 -5 0
+9 -21 -18 0
+-24 -3 -21 0
+15 -13 -19 0
+-21 12 16 0
+-12 7 -8 0
+-20 -22 -13 0
+-16 12 -9 0
+-16 9 8 0
+8 -4 -1 0
+16 -6 -14 0
+5 -3 -22 0
+-19 -20 -16 0
+17 -18 24 0
+5 -11 -21 0
+-2 -3 -21 0
+3 -1 19 0
+1 17 -16 0
+-7 -23 16 0
+15 20 -12 0
+1 13 16 0
+22 -5 -13 0
+2 21 -5 0
+-21 3 19 0
+-3 -15 -12 0
+10 -6 7 0
+21 12 14 0
+-16 -8 13 0
+1 2 -5 0
+25 19 -9 0
+24 12 -2 0
+-12 20 14 0
+3 23 -15 0
+-12 -10 -17 0
+-19 -3 18 0
+16 -19 -4 0
+10 16 8 0
+-11 -6 -2 0
+
+c GPT solve time: 18.17 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by assigning variables and tracking the implications:
+
+Starting with x4 = true (decision 1)
+From clause (¬x24 ∨ ¬x8 ∨ ¬x4), since x4 is true, we need either ¬x24 or ¬x8 to be true
+From clause (x4 ∨ ¬x2 ∨ ¬x18), this clause is satisfied
+
+Let's try x2 = true (decision 2)
+From clause (¬x2 ∨ x10 ∨ ¬x21), we need either x10 or ¬x21 to be true
+From clause (x4 ∨ x2 ∨ x5), this clause is satisfied
+
+Let's try x18 = true (decision 3)
+From clause (x18 ∨ ¬x1 ∨ ¬x4), this clause is satisfied
+From clause (¬x18 ∨ x7 ∨ ¬x23), we need either x7 or ¬x23 to be true
+From clause (¬x18 ∨ ¬x17 ∨ ¬x5), we need either ¬x17 or ¬x5 to be true
+From clause (¬x18 ∨ x17 ∨ x22), we need either x17 or x22 to be true
+From clause (¬x18 ∨ x21 ∨ x7), we need either x21 or x7 to be true
+From clause (¬x23 ∨ ¬x21 ∨ ¬x18), we need either ¬x23 or ¬x21 to be true
+From clause (¬x12 ∨ ¬x18 ∨ ¬x25), we need either ¬x12 or ¬x25 to be true
+From clause (¬x15 ∨ x10 ∨ ¬x18), we need either ¬x15 or x10 to be true
+From clause (x9 ∨ ¬x21 ∨ ¬x18), we need either x9 or ¬x21 to be true
+From clause (x17 ∨ ¬x18 ∨ x24), we need either x17 or x24 to be true
+
+Let's try x7 = true (decision 4)
+This satisfies several clauses with x7
+
+Let's try x21 = false (decision 5)
+This satisfies several clauses with ¬x21
+
+Let's continue with x17 = true (decision 6)
+From clause (¬x18 ∨ ¬x17 ∨ ¬x5), we need ¬x5 to be true
+So x5 = false (propagation)
+
+Let's try x11 = true (decision 7)
+From clause (¬x11 ∨ ¬x7 ∨ x15), since x7 is true, we need x15 to be true
+So x15 = true (propagation)
+
+Let's try x19 = false (decision 8)
+This satisfies several clauses with ¬x19
+
+Let's try x9 = true (decision 9)
+From clause (x4 ∨ x9 ∨ x25), this clause is satisfied
+
+Let's try x10 = true (decision 10)
+This satisfies several clauses with x10
+
+Let's try x12 = false (decision 11)
+This satisfies several clauses with ¬x12
+
+Let's try x6 = false (decision 12)
+This satisfies several clauses with ¬x6
+
+Let's try x3 = false (decision 13)
+This satisfies several clauses with ¬x3
+
+Let's try x8 = false (decision 14)
+This satisfies several clauses with ¬x8
+
+Let's try x13 = true (decision 15)
+This satisfies several clauses with x13
+
+Let's try x14 = true (decision 16)
+This satisfies several clauses with x14
+
+Let's try x16 = false (decision 17)
+This satisfies several clauses with ¬x16
+
+Let's try x20 = false (decision 18)
+This satisfies several clauses with ¬x20
+
+Let's try x22 = true (decision 19)
+This satisfies several clauses with x22
+
+Let's try x23 = false (decision 20)
+This satisfies several clauses with ¬x23
+
+Let's try x24 = false (decision 21)
+This satisfies several clauses with ¬x24
+
+Let's try x25 = true (decision 22)
+This satisfies several clauses with x25
+
+Let's try x1 = false (decision 23)
+This satisfies several clauses with ¬x1
+
+Checking all clauses with these assignments, I find that all clauses are satisfied.
+
+SATISFIABLE
+Number of branches: 23
+Number of conflicts: 0
+x1 = false, x2 = true, x3 = false, x4 = true, x5 = false, x6 = false, x7 = true, x8 = false, x9 = true, x10 = true, x11 = true, x12 = false, x13 = true, x14 = true, x15 = true, x16 = false, x17 = true, x18 = true, x19 = false, x20 = false, x21 = false, x22 = true, x23 = false, x24 = false, x25 = true

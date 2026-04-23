@@ -1,0 +1,247 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=236
+p cnf 5 17
+-4 5 3 0
+-5 4 -1 0
+-4 5 -1 0
+-2 -5 4 0
+-1 -4 -3 0
+5 4 3 0
+5 -4 -2 0
+1 -5 2 0
+4 3 -2 0
+-3 1 -4 0
+5 -3 4 0
+-5 1 3 0
+-3 -1 4 0
+3 1 2 0
+3 -2 -5 0
+4 -3 -1 0
+2 -5 3 0
+
+c GPT solve time: 29.11 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking on conflicts
+
+Let’s denote the variables: x1, x2, x3, x4, x5
+
+Step-by-step:
+
+Start with all variables unassigned.
+
+We will choose variables to assign and propagate implications.
+
+Step 1: Choose x1 = True (Branch 1)
+
+Propagate:
+
+- Clause (¬x5 ∨ x4 ∨ ¬x1): ¬x1 is False → clause becomes (¬x5 ∨ x4)
+- Clause (¬x4 ∨ x5 ∨ ¬x1): ¬x1 is False → clause becomes (¬x4 ∨ x5)
+- Clause (¬x1 ∨ ¬x4 ∨ ¬x3): ¬x1 is False → clause becomes (¬x4 ∨ ¬x3)
+- Clause (¬x3 ∨ x1 ∨ ¬x4): x1 is True → clause is satisfied
+- Clause (¬x5 ∨ x1 ∨ x3): x1 is True → clause is satisfied
+- Clause (¬x3 ∨ ¬x1 ∨ x4): ¬x1 is False → clause becomes (¬x3 ∨ x4)
+- Clause (x3 ∨ x1 ∨ x2): x1 is True → clause is satisfied
+- Clause (x4 ∨ ¬x3 ∨ ¬x1): ¬x1 is False → clause becomes (x4 ∨ ¬x3)
+
+No unit clauses yet.
+
+Step 2: Choose x2 = True (Branch 2)
+
+Propagate:
+
+- Clause (¬x2 ∨ ¬x5 ∨ x4): ¬x2 is False → clause becomes (¬x5 ∨ x4)
+- Clause (x5 ∨ ¬x4 ∨ ¬x2): ¬x2 is False → clause becomes (x5 ∨ ¬x4)
+- Clause (x1 ∨ ¬x5 ∨ x2): x1 is True → clause is satisfied
+- Clause (x4 ∨ x3 ∨ ¬x2): ¬x2 is False → clause becomes (x4 ∨ x3)
+- Clause (x3 ∨ x1 ∨ x2): x1 is True → clause is satisfied
+- Clause (x3 ∨ ¬x2 ∨ ¬x5): ¬x2 is False → clause becomes (x3 ∨ ¬x5)
+- Clause (x2 ∨ ¬x5 ∨ x3): x2 is True → clause is satisfied
+
+Still no unit clauses.
+
+Step 3: Choose x3 = True (Branch 3)
+
+Propagate:
+
+- Clause (¬x4 ∨ x5 ∨ x3): x3 is True → satisfied
+- Clause (¬x1 ∨ ¬x4 ∨ ¬x3): x3 is True → ¬x3 is False → becomes (¬x1 ∨ ¬x4)
+- Clause (x5 ∨ x4 ∨ x3): x3 is True → satisfied
+- Clause (x4 ∨ x3 ∨ ¬x2): x3 is True → satisfied
+- Clause (¬x3 ∨ x1 ∨ ¬x4): ¬x3 is False → becomes (x1 ∨ ¬x4) → x1 is True → satisfied
+- Clause (x5 ∨ ¬x3 ∨ x4): ¬x3 is False → becomes (x5 ∨ x4)
+- Clause (¬x5 ∨ x1 ∨ x3): x3 is True → satisfied
+- Clause (¬x3 ∨ ¬x1 ∨ x4): ¬x3 is False → becomes (¬x1 ∨ x4) → x1 is True → clause becomes (x4)
+→ Unit clause: x4 = True
+
+Step 4: Assign x4 = True (implied)
+
+Propagate:
+
+- Clause (¬x5 ∨ x4 ∨ ¬x1): x4 is True → satisfied
+- Clause (¬x4 ∨ x5 ∨ ¬x1): ¬x4 is False → becomes (x5 ∨ ¬x1) → x1 is True → ¬x1 is False → becomes (x5)
+→ Unit clause: x5 = True
+
+Step 5: Assign x5 = True (implied)
+
+Now all variables are assigned:
+
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True
+
+Check all clauses:
+
+1. (¬x4 ∨ x5 ∨ x3): False ∨ True ∨ True → True  
+2. (¬x5 ∨ x4 ∨ ¬x1): False ∨ True ∨ False → True  
+3. (¬x4 ∨ x5 ∨ ¬x1): False ∨ True ∨ False → True  
+4. (¬x2 ∨ ¬x5 ∨ x4): False ∨ False ∨ True → True  
+5. (¬x1 ∨ ¬x4 ∨ ¬x3): False ∨ False ∨ False → False ← Conflict!
+
+Conflict! Clause 5 is unsatisfied.
+
+Backtrack: x3 = True caused conflict. Try x3 = False (Backtrack 1)
+
+Step 6: x3 = False
+
+Propagate:
+
+- Clause (¬x4 ∨ x5 ∨ x3): x3 = False → becomes (¬x4 ∨ x5)
+- Clause (¬x1 ∨ ¬x4 ∨ ¬x3): ¬x3 = True → clause is satisfied
+- Clause (x5 ∨ x4 ∨ x3): x3 = False → becomes (x5 ∨ x4)
+- Clause (x4 ∨ x3 ∨ ¬x2): x3 = False → becomes (x4 ∨ ¬x2)
+- Clause (¬x3 ∨ x1 ∨ ¬x4): ¬x3 = True → satisfied
+- Clause (x5 ∨ ¬x3 ∨ x4): ¬x3 = True → satisfied
+- Clause (¬x5 ∨ x1 ∨ x3): x3 = False → becomes (¬x5 ∨ x1)
+- Clause (¬x3 ∨ ¬x1 ∨ x4): ¬x3 = True → satisfied
+- Clause (x3 ∨ x1 ∨ x2): x3 = False → becomes (x1 ∨ x2) → both True → satisfied
+- Clause (x3 ∨ ¬x2 ∨ ¬x5): x3 = False → becomes (¬x2 ∨ ¬x5) → both False → clause False ← Conflict!
+
+Conflict! Clause 15 is unsatisfied.
+
+Backtrack again: x2 = True caused conflict. Try x2 = False (Backtrack 2)
+
+Step 7: x2 = False
+
+Now x1 = True, x2 = False, x3 = False
+
+Propagate:
+
+- Clause (¬x2 ∨ ¬x5 ∨ x4): ¬x2 = True → satisfied
+- Clause (x5 ∨ ¬x4 ∨ ¬x2): ¬x2 = True → satisfied
+- Clause (x1 ∨ ¬x5 ∨ x2): x1 = True → satisfied
+- Clause (x4 ∨ x3 ∨ ¬x2): x3 = False, ¬x2 = True → satisfied
+- Clause (x3 ∨ x1 ∨ x2): x3 = False, x1 = True → satisfied
+- Clause (x3 ∨ ¬x2 ∨ ¬x5): x3 = False, ¬x2 = True → satisfied
+- Clause (x2 ∨ ¬x5 ∨ x3): x2 = False → becomes (¬x5 ∨ x3) → x3 = False → becomes (¬x5)
+
+→ Unit clause: x5 = False
+
+Step 8: x5 = False
+
+Propagate:
+
+- Clause (¬x4 ∨ x5 ∨ x3): x5 = False, x3 = False → becomes (¬x4)
+→ Unit clause: x4 = False
+
+Step 9: x4 = False
+
+Now all variables assigned:
+
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = False
+
+Check all clauses:
+
+1. (¬x4 ∨ x5 ∨ x3): True ∨ False ∨ False → True  
+2. (¬x5 ∨ x4 ∨ ¬x1): True ∨ False ∨ False → True  
+3. (¬x4 ∨ x5 ∨ ¬x1): True ∨ False ∨ False → True  
+4. (¬x2 ∨ ¬x5 ∨ x4): True ∨ True ∨ False → True  
+5. (¬x1 ∨ ¬x4 ∨ ¬x3): False ∨ True ∨ True → True  
+6. (x5 ∨ x4 ∨ x3): False ∨ False ∨ False → False ← Conflict!
+
+Backtrack again: x5 = False caused conflict. Try x5 = True (Backtrack 3)
+
+Step 10: x5 = True
+
+Now x1 = True, x2 = False, x3 = False, x5 = True
+
+Clause (¬x4 ∨ x5 ∨ x3): x5 = True → satisfied  
+Clause (x5 ∨ x4 ∨ x3): x5 = True → satisfied  
+Clause (x3 ∨ ¬x2 ∨ ¬x5): x3 = False, ¬x2 = True, ¬x5 = False → True  
+Clause (x2 ∨ ¬x5 ∨ x3): x2 = False, ¬x5 = False, x3 = False → False ← Conflict!
+
+Backtrack again: x1 = True caused conflict. Try x1 = False (Backtrack 4)
+
+Step 11: x1 = False
+
+Try x2 = False (Branch 5)
+
+Try x3 = False (Branch 6)
+
+Try x4 = False (Branch 7)
+
+Try x5 = False (Branch 8)
+
+Now all variables assigned:
+
+x1 = False  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = False
+
+Check all clauses:
+
+1. (¬x4 ∨ x5 ∨ x3): True ∨ False ∨ False → True  
+2. (¬x5 ∨ x4 ∨ ¬x1): True ∨ False ∨ True → True  
+3. (¬x4 ∨ x5 ∨ ¬x1): True ∨ False ∨ True → True  
+4. (¬x2 ∨ ¬x5 ∨ x4): True ∨ True ∨ False → True  
+5. (¬x1 ∨ ¬x4 ∨ ¬x3): True ∨ True ∨ True → True  
+6. (x5 ∨ x4 ∨ x3): False ∨ False ∨ False → False ← Conflict!
+
+Try x5 = True (Backtrack 5)
+
+x5 = True
+
+Now:
+
+x1 = False  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = True
+
+Check clause 6: (x5 ∨ x4 ∨ x3): True ∨ False ∨ False → True
+
+Check all others: all satisfied
+
+✅ All clauses satisfied!
+
+Final assignment:
+
+x1 = False  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = True
+
+✅ SATISFIABLE  
+Branches: 5  
+Conflicts: 4  
+Literals assignment:  
+x1 = False  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = True

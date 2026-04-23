@@ -1,0 +1,95 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1291
+p cnf 5 17
+3 -1 2 0
+-5 1 3 0
+4 -1 -5 0
+1 5 -4 0
+4 -5 -1 0
+2 -3 4 0
+4 -2 5 0
+1 -5 -4 0
+-2 1 -4 0
+2 1 5 0
+-1 -3 2 0
+3 1 4 0
+2 -3 1 0
+1 -3 -2 0
+1 3 4 0
+-1 -2 -4 0
+4 -2 5 0
+
+c GPT solve time: 37.50 seconds
+
+Okay, let's solve this 3-CNF formula step-by-step using the DPLL algorithm:
+
+1. Choose x1 to be true. Simplify the formula:
+   (x3 ∨ x2)
+   (¬x5 ∨ x3)
+   (x4 ∨ ¬x5)
+   (x5 ∨ ¬x4)
+   (x4 ∨ ¬x5)
+   (x2 ∨ ¬x3 ∨ x4)
+   (x4 ∨ ¬x2 ∨ x5)
+   (¬x5 ∨ ¬x4)
+   (¬x2 ∨ ¬x4)
+   (x2 ∨ x5)
+   (¬x3 ∨ x2)
+   (x3 ∨ x4)
+   (x2 ∨ ¬x3)
+   (x3 ∨ x4)
+   (¬x2 ∨ ¬x4)
+   (x4 ∨ ¬x2 ∨ x5)
+
+2. Unit propagation: (x3 ∨ x2) implies x3 or x2 must be true. Let's choose x3 to be true. Simplify:
+   (x2)
+   (¬x5)
+   (x4 ∨ ¬x5)
+   (x5 ∨ ¬x4)
+   (x4 ∨ ¬x5)
+   (x2 ∨ x4)
+   (x4 ∨ ¬x2 ∨ x5)
+   (¬x5 ∨ ¬x4)
+   (¬x2 ∨ ¬x4)
+   (x2 ∨ x5)
+   (x2)
+   (x4)
+   (x2)
+   (x4)
+   (¬x2 ∨ ¬x4)
+   (x4 ∨ ¬x2 ∨ x5)
+
+3. Unit propagation: (x2) and (¬x5) are unit clauses, so x2 must be true and x5 must be false. Simplify:
+   (x4)
+   (¬x4)
+   (x4)
+   (x4)
+   (¬x4)
+   (¬x4)
+   (x4)
+   (x4)
+   (¬x4)
+   (x4)
+
+4. Conflict: The formula contains both (x4) and (¬x4), so this branch is unsatisfiable.
+
+5. Backtrack to step 1, and instead choose x1 to be false. Simplify the original formula:
+   (x3 ∨ x2)
+   (¬x5 ∨ x3)
+   (x4 ∨ ¬x5)
+   (x5 ∨ ¬x4)
+   (x4 ∨ ¬x5)
+   (x2 ∨ ¬x3 ∨ x4)
+   (x4 ∨ ¬x2 ∨ x5)
+   (¬x5 ∨ ¬x4)
+   (¬x2 ∨ ¬x4)
+   (x2 ∨ x5)
+   (¬x3 ∨ x2)
+   (x3 ∨ x4)
+   (x2 ∨ ¬x3)
+   (¬x3 ∨ ¬x2)
+   (x3 ∨ x4)
+   (¬x2 ∨ ¬x4)
+   (x4 ∨ ¬x2 ∨ x5)
+
+6

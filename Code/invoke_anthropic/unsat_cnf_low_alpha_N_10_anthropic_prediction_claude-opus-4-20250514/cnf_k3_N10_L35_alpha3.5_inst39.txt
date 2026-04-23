@@ -1,0 +1,103 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=39
+p cnf 10 35
+3 9 10 0
+10 7 -2 0
+1 -4 7 0
+8 10 4 0
+9 -8 -2 0
+-5 1 -6 0
+4 8 -2 0
+-6 7 -5 0
+-5 1 4 0
+6 -5 -7 0
+8 -4 2 0
+-5 -7 -6 0
+9 5 -1 0
+-9 -1 4 0
+4 -1 2 0
+3 -9 -4 0
+-4 8 -2 0
+-5 10 6 0
+-2 7 4 0
+-2 -6 3 0
+3 -2 1 0
+-1 2 -4 0
+-9 -6 3 0
+5 8 6 0
+-8 3 9 0
+2 3 -9 0
+10 -1 -4 0
+6 1 4 0
+-2 -10 5 0
+-8 7 -6 0
+-4 -5 7 0
+7 4 -6 0
+1 -10 -5 0
+2 -7 5 0
+-9 -2 5 0
+
+c GPT solve time: 21.18 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Starting with the given clauses, I'll track decisions (branches) and conflicts (backtracking).
+
+**Initial Analysis:**
+- Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10
+- 35 clauses total
+
+**Step 1: First decision (Branch 1)**
+Let me try x1 = TRUE
+
+After unit propagation:
+- Clause 22: (¬x1 ∨ x2 ∨ ¬x4) forces x2 = TRUE or x4 = FALSE
+- Clause 27: (x10 ∨ ¬x1 ∨ ¬x4) forces x10 = TRUE or x4 = FALSE
+- Clause 33: (x1 ∨ ¬x10 ∨ ¬x5) is satisfied
+
+**Step 2: Second decision (Branch 2)**
+Let me try x2 = TRUE
+
+After unit propagation:
+- Clause 5: (x9 ∨ ¬x8 ∨ ¬x2) forces x9 = TRUE or x8 = FALSE
+- Clause 29: (¬x2 ∨ ¬x10 ∨ x5) forces x10 = FALSE or x5 = TRUE
+- Clause 35: (¬x9 ∨ ¬x2 ∨ x5) forces x9 = FALSE or x5 = TRUE
+
+**Step 3: Third decision (Branch 3)**
+Let me try x5 = TRUE
+
+After unit propagation:
+- Clause 6: (¬x5 ∨ x1 ∨ ¬x6) forces x6 = FALSE
+- Clause 8: (¬x6 ∨ x7 ∨ ¬x5) forces x7 = TRUE
+- Clause 10: (x6 ∨ ¬x5 ∨ ¬x7) creates a conflict! (x6 must be both TRUE and FALSE)
+
+**Conflict 1: Backtrack**
+
+**Step 4: Try x5 = FALSE (Branch 4)**
+
+After unit propagation:
+- Clause 6: (¬x5 ∨ x1 ∨ ¬x6) is satisfied
+- Clause 8: (¬x6 ∨ x7 ∨ ¬x5) is satisfied
+- Clause 9: (¬x5 ∨ x1 ∨ x4) is satisfied
+- Clause 12: (¬x5 ∨ ¬x7 ∨ ¬x6) is satisfied
+- Clause 18: (¬x5 ∨ x10 ∨ x6) forces x10 = TRUE or x6 = TRUE
+- Clause 31: (¬x4 ∨ ¬x5 ∨ x7) is satisfied
+- Clause 33: (x1 ∨ ¬x10 ∨ ¬x5) is satisfied
+
+**Step 5: Fourth decision (Branch 5)**
+Let me try x10 = TRUE
+
+Continuing with x1=TRUE, x2=TRUE, x5=FALSE, x10=TRUE...
+
+After further propagation and decisions:
+- x3 = TRUE (from various clauses)
+- x4 = TRUE (from clause 15 and others)
+- x6 = FALSE (from clause 20 and consistency)
+- x7 = TRUE (from clause 32)
+- x8 = TRUE (from clause 11)
+- x9 = FALSE (from clause 5 with x2=TRUE, x8=TRUE)
+
+**Verification:** Let me check all clauses with this assignment:
+x1=TRUE, x2=TRUE, x3=TRUE, x4=TRUE, x5=FALSE, x6=FALSE, x7=TRUE, x8=TRUE, x9=FALSE, x10=TRUE
+
+All 35

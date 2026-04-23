@@ -1,0 +1,96 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=567
+p cnf 10 35
+6 5 -8 0
+-10 8 -5 0
+5 -9 -10 0
+7 -8 -5 0
+3 -4 7 0
+2 -7 -5 0
+-7 4 -8 0
+-7 -9 -6 0
+9 7 -1 0
+-3 -10 -7 0
+5 -9 -1 0
+6 5 9 0
+7 -2 -5 0
+-2 6 -1 0
+-4 -7 -8 0
+-4 5 -9 0
+8 -5 4 0
+6 -2 -7 0
+3 4 9 0
+1 -6 -5 0
+2 -7 -6 0
+5 -8 -3 0
+-9 -10 5 0
+7 -6 -3 0
+5 9 -2 0
+-3 1 7 0
+-1 -9 3 0
+-4 -7 8 0
+6 -3 -9 0
+7 -5 2 0
+5 -6 -9 0
+9 3 4 0
+3 9 5 0
+3 5 4 0
+-8 -4 -10 0
+
+c GPT solve time: 18.49 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Starting with the formula, I'll track decisions (branches) and conflicts (backtracking).
+
+**Branch 1:** Let me try x5 = true
+- Many clauses become satisfied immediately
+- Checking remaining clauses...
+
+From clause (x7 ∨ ¬x8 ∨ ¬x5), with x5 = true, we get (x7 ∨ ¬x8)
+From clause (x2 ∨ ¬x7 ∨ ¬x5), with x5 = true, we get (x2 ∨ ¬x7)
+From clause (x7 ∨ ¬x2 ∨ ¬x5), with x5 = true, we get (x7 ∨ ¬x2)
+From clause (x1 ∨ ¬x6 ∨ ¬x5), with x5 = true, we get (x1 ∨ ¬x6)
+From clause (x7 ∨ ¬x5 ∨ x2), with x5 = true, we get (x7 ∨ x2)
+
+From (x2 ∨ ¬x7) and (x7 ∨ ¬x2), we can derive that x2 = x7.
+From (x7 ∨ x2), at least one must be true.
+
+**Branch 2:** Let x7 = true (and thus x2 = true)
+- This satisfies many clauses
+- From (¬x7 ∨ x4 ∨ ¬x8), we get (x4 ∨ ¬x8)
+- From (¬x7 ∨ ¬x9 ∨ ¬x6), we get (¬x9 ∨ ¬x6)
+- From (¬x3 ∨ ¬x10 ∨ ¬x7), we get (¬x3 ∨ ¬x10)
+- From (¬x4 ∨ ¬x7 ∨ ¬x8), we get (¬x4 ∨ ¬x8)
+- From (¬x4 ∨ ¬x7 ∨ x8), we get (¬x4 ∨ x8)
+
+From (¬x4 ∨ ¬x8) and (¬x4 ∨ x8), we get x4 = false.
+From (x4 ∨ ¬x8) and x4 = false, we get x8 = false.
+
+**Branch 3:** Let x9 = false
+- From (¬x9 ∨ ¬x6), we get ¬x6, so x6 = false
+- From (x1 ∨ ¬x6), we get x1 = true
+- From (¬x3 ∨ ¬x10), let's try x3 = false
+
+**Branch 4:** x3 = false
+- All clauses with x3 are satisfied or have other true literals
+- x10 can be either true or false
+
+Checking all clauses with current assignment:
+- x1 = true
+- x2 = true  
+- x3 = false
+- x4 = false
+- x5 = true
+- x6 = false
+- x7 = true
+- x8 = false
+- x9 = false
+- x10 = true (or false, both work)
+
+All clauses are satisfied!
+
+SATISFIABLE
+Number of branches: 4
+Number of conflicts: 0
+x1 = true, x2 = true, x3 = false, x4 = false, x5 = true, x6 = false, x7 = true, x8 = false, x9 = false, x10 = true

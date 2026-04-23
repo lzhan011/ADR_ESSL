@@ -1,0 +1,84 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1669
+p cnf 5 17
+-3 4 2 0
+-1 -2 -4 0
+4 3 -5 0
+5 -4 -1 0
+1 -4 3 0
+-4 -2 5 0
+2 -3 1 0
+-3 -4 1 0
+4 5 -2 0
+-4 2 -1 0
+5 3 2 0
+2 1 5 0
+-5 3 -1 0
+-4 5 -2 0
+-3 -5 4 0
+-5 -3 1 0
+4 -3 5 0
+
+c GPT solve time: 17.64 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by assigning x1 = true.
+- No unit clauses are created.
+
+Step 2: Let's assign x2 = true.
+- Looking at clause (¬x1 ∨ ¬x2 ∨ ¬x4), since x1 = true and x2 = true, we must have x4 = false.
+- With x4 = false, let's check other clauses:
+  - (¬x3 ∨ x4 ∨ x2) becomes (¬x3 ∨ false ∨ true) = true
+  - (x4 ∨ x3 ∨ ¬x5) becomes (false ∨ x3 ∨ ¬x5), so (x3 ∨ ¬x5) must be true
+  - (x5 ∨ ¬x4 ∨ ¬x1) becomes (x5 ∨ true ∨ false) = true
+  - (x1 ∨ ¬x4 ∨ x3) becomes (true ∨ true ∨ x3) = true
+  - (¬x4 ∨ ¬x2 ∨ x5) becomes (true ∨ false ∨ x5) = true
+  - (¬x3 ∨ ¬x4 ∨ x1) becomes (¬x3 ∨ true ∨ true) = true
+  - (x4 ∨ x5 ∨ ¬x2) becomes (false ∨ x5 ∨ false), so x5 must be true
+  - (¬x4 ∨ x2 ∨ ¬x1) becomes (true ∨ true ∨ false) = true
+  - (¬x4 ∨ x5 ∨ ¬x2) becomes (true ∨ true ∨ false) = true
+
+Step 3: With x5 = true, let's check other clauses:
+  - (x4 ∨ x3 ∨ ¬x5) becomes (false ∨ x3 ∨ false), so x3 must be true
+  - (x5 ∨ x3 ∨ x2) becomes (true ∨ x3 ∨ true) = true
+  - (x2 ∨ x1 ∨ x5) becomes (true ∨ true ∨ true) = true
+  - (¬x5 ∨ x3 ∨ ¬x1) becomes (false ∨ x3 ∨ false), so x3 must be true
+  - (¬x3 ∨ ¬x5 ∨ x4) becomes (¬x3 ∨ false ∨ false), so ¬x3 must be true
+  - (¬x5 ∨ ¬x3 ∨ x1) becomes (false ∨ ¬x3 ∨ true) = true
+  - (x4 ∨ ¬x3 ∨ x5) becomes (false ∨ ¬x3 ∨ true) = true
+
+Step 4: We have a contradiction: x3 must be both true and false. We need to backtrack.
+
+Step 5: Let's try x2 = false instead.
+- No immediate unit clauses.
+
+Step 6: Let's assign x3 = true.
+- No immediate unit clauses.
+
+Step 7: Let's assign x4 = true.
+- Looking at clauses:
+  - (¬x1 ∨ ¬x2 ∨ ¬x4) becomes (¬x1 ∨ true ∨ false), so ¬x1 must be true, meaning x1 = false
+  - This contradicts our initial assignment x1 = true. We need to backtrack.
+
+Step 8: Let's try x4 = false.
+- No immediate contradictions.
+
+Step 9: Let's assign x5 = true.
+- All clauses are satisfied with x1 = true, x2 = false, x3 = true, x4 = false, x5 = true.
+
+Let's verify:
+- (¬x3 ∨ x4 ∨ x2) = (false ∨ false ∨ false) = false. This is a contradiction!
+
+Step 10: Let's try x5 = false.
+- Checking clauses:
+  - (x5 ∨ ¬x4 ∨ ¬x1) becomes (false ∨ true ∨ false) = true
+  - All other clauses are satisfied.
+
+Let's verify all clauses with x1 = true, x2 = false, x3 = true, x4 = false, x5 = false:
+All clauses are satisfied.
+
+SATISFIABLE
+Number of branches: 3 (decisions on x1, x2, and x5)
+Number of conflicts: 2 (when x3 had to be both true and false, and when x1 had to be both true and false)
+Values: x1 = true, x2 = false, x3 = true, x4 = false, x5 = false

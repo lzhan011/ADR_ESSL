@@ -1,0 +1,131 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=4852
+p cnf 25 87
+-17 12 -20 0
+-8 -6 25 0
+-20 -19 -4 0
+-16 22 -25 0
+16 -1 8 0
+-12 11 22 0
+14 -2 -10 0
+-22 1 -8 0
+-5 -22 25 0
+-8 -10 -20 0
+-2 -15 -9 0
+11 25 -6 0
+-20 5 -11 0
+-19 -3 -7 0
+13 22 -6 0
+-12 17 2 0
+7 -5 3 0
+15 12 7 0
+-11 -8 13 0
+-1 -12 18 0
+-16 -3 -5 0
+-4 -5 -24 0
+16 -8 19 0
+22 5 12 0
+-22 5 -16 0
+-2 -11 -12 0
+-9 -21 11 0
+17 -10 22 0
+-24 -6 -21 0
+25 -18 -13 0
+2 7 -25 0
+12 -7 -1 0
+-7 20 -16 0
+8 -6 18 0
+12 -18 -11 0
+15 -3 -19 0
+5 -6 4 0
+-15 11 -4 0
+-17 2 1 0
+-24 -13 -8 0
+22 19 10 0
+-2 9 -10 0
+-24 23 18 0
+-13 25 1 0
+13 2 8 0
+-12 -21 -8 0
+2 12 -6 0
+21 11 20 0
+13 12 -21 0
+-24 6 -21 0
+-13 1 -14 0
+24 -13 4 0
+-22 -9 -19 0
+8 16 11 0
+16 -10 -1 0
+-21 -14 -9 0
+7 9 6 0
+11 -22 18 0
+-1 14 -9 0
+25 4 -24 0
+-3 -2 18 0
+10 -5 -15 0
+24 -25 -1 0
+-19 16 -9 0
+-12 6 -4 0
+-4 -11 -6 0
+4 -25 2 0
+-25 -12 -5 0
+-18 14 15 0
+10 3 24 0
+15 -10 -9 0
+-24 18 21 0
+2 12 -5 0
+1 -16 -4 0
+17 -13 -12 0
+14 -20 22 0
+-25 24 15 0
+7 12 6 0
+-18 -20 -25 0
+6 8 20 0
+-25 22 10 0
+11 -22 12 0
+-8 -17 -20 0
+25 -6 -23 0
+-8 -9 -5 0
+-2 -16 11 0
+25 -10 -8 0
+
+c GPT solve time: 38.23 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Step 1: Assign x17 = 0. This satisfies clause 1.
+Step 2: Assign x8 = 0. This satisfies clauses 5, 8, 10, 19, 23, 34, 40, 45, 47, 53, 54, 80, 83, 84.
+Step 3: Assign x20 = 0. This satisfies clauses 3, 33. 
+Step 4: Assign x16 = 1. This satisfies clauses 4, 21, 25.
+Step 5: Assign x1 = 0. This satisfies clauses 20, 39, 55, 73.
+Step 6: Assign x12 = 1. This satisfies clauses 6, 15, 18, 32, 35, 46, 47, 69, 72, 76.
+Step 7: Assign x22 = 1. This satisfies clauses 9, 13, 17, 24, 28, 41, 51, 74.
+Step 8: Assign x25 = 1. This satisfies clauses 11, 30, 43, 59, 60, 63, 75, 81.
+Step 9: Assign x6 = 0. This satisfies clauses 12, 37, 64, 82.
+Step 10: Assign x19 = 0. This satisfies clauses 14, 36, 52, 62.
+Step 11: Assign x3 = 0. This satisfies clause 21.
+Step 12: Assign x5 = 1. This satisfies clauses 7, 16, 22, 38.
+Step 13: Assign x11 = 1. This satisfies clauses 26, 27, 38, 48, 56, 65.
+Step 14: Assign x2 = 1. This satisfies clauses 29, 31, 39, 42, 44, 58, 66.
+Step 15: Assign x7 = 1. This satisfies clauses 17, 31, 33.
+Step 16: Assign x18 = 1. This satisfies clauses 20, 34, 43, 58, 67.
+Step 17: Assign x13 = 0. This satisfies clauses 40, 49, 50.
+Step 18: Assign x21 = 0. This satisfies clauses 29, 45, 48, 49, 55, 68.
+Step 19: Assign x24 = 1. This satisfies clauses 22, 43, 60, 68.
+Step 20: Assign x9 = 0. This satisfies clauses 11, 52, 55, 62, 83.
+Step 21: Assign x10 = 0. This satisfies clauses 7, 42, 61, 70.
+Step 22: Assign x15 = 1. This satisfies clauses 36, 61, 67, 70, 75.
+Step 23: Assign x4 = 1. This satisfies clauses 22, 37, 57, 64, 73.
+Step 24: Assign x14 = 1. This satisfies clause 50.
+Step 25: Assign x23 = 0. This satisfies clause 82.
+
+All clauses are satisfied. The formula is SATISFIABLE.
+
+Number of branches: 25
+Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = 0, x2 = 1, x3 = 0, x4 = 1, x5 = 1, 
+x6 = 0, x7 = 1, x8 = 0, x9 = 0, x10 = 0,
+x11 = 1, x12 = 1, x13 = 0, x14 = 1, x15 = 1,
+x16 = 1, x17 = 0, x18 = 1, x19 = 0

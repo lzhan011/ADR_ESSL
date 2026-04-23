@@ -9,9 +9,9 @@ import time
 import re
 
 # 设置 OpenAI API KEY
-# openai.api_key = os.environ["OPENAI_API_KEY"]  # 你的API KEY
+# openai.api_key = os.environ.get("OPENAI_API_KEY")  # 你的API KEY
 
-openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 openai.api_base = "https://api.openai.com/v1"
 # openai.api_base = 'https://api.openai.com/v1/responses'
@@ -33,7 +33,7 @@ alpha_values = np.arange(3.0, 6.0, 0.5)
 
 instances_per_alpha = 20  # 测试阶段建议值小
 
-api_key = os.environ["OPENAI_API_KEY"]
+api_key = os.environ.get("OPENAI_API_KEY")
 
 api_base = "https://api.openai.com/v1"
 # Use OpenAI v1 interface

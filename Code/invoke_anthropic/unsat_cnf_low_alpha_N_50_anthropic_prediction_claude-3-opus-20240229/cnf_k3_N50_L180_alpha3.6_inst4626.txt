@@ -1,0 +1,238 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=4626
+p cnf 50 180
+46 -19 2 0
+-4 -37 -21 0
+-48 -11 -47 0
+18 -39 -31 0
+-37 2 -28 0
+12 3 -50 0
+-31 43 28 0
+-26 -30 12 0
+2 -40 6 0
+-5 -43 -23 0
+-10 -13 -26 0
+25 -38 -33 0
+-47 48 -45 0
+-40 13 -41 0
+1 22 21 0
+46 30 9 0
+-31 50 -48 0
+28 5 38 0
+-45 -8 46 0
+3 28 48 0
+15 -16 22 0
+-24 -1 15 0
+27 16 44 0
+13 43 -49 0
+34 -17 -2 0
+-32 -43 -35 0
+22 -46 37 0
+19 -44 16 0
+34 28 -13 0
+-9 -23 -15 0
+23 24 34 0
+19 -9 -42 0
+13 -34 -24 0
+3 -27 -7 0
+-22 17 13 0
+-38 13 7 0
+-1 -37 20 0
+47 -32 -35 0
+-3 -33 9 0
+28 -46 -50 0
+46 39 -17 0
+-15 12 -8 0
+37 -5 -26 0
+23 -25 -31 0
+23 -2 43 0
+24 -46 -5 0
+30 38 16 0
+2 42 -31 0
+6 38 -32 0
+-4 33 -9 0
+42 14 -24 0
+-3 22 -13 0
+-21 42 5 0
+-46 10 -20 0
+-23 -16 -18 0
+-49 3 -35 0
+27 -3 -34 0
+-33 -38 -44 0
+46 -2 -15 0
+2 -49 -22 0
+-45 32 -27 0
+29 -44 46 0
+33 -50 -36 0
+-16 -24 1 0
+-44 -26 34 0
+33 27 41 0
+13 -23 7 0
+-38 -11 -9 0
+-14 30 49 0
+33 -22 30 0
+-42 -27 47 0
+3 14 -34 0
+25 -14 29 0
+15 -26 35 0
+21 30 -46 0
+-19 -34 -23 0
+47 16 9 0
+39 -17 46 0
+1 -22 7 0
+-50 2 29 0
+-36 47 7 0
+50 -23 -32 0
+28 -22 35 0
+-7 -2 -8 0
+2 -4 33 0
+-20 23 1 0
+-39 -21 -49 0
+6 34 32 0
+8 23 -43 0
+-16 -30 -1 0
+24 30 -15 0
+-17 32 -45 0
+-19 39 -10 0
+-22 -8 -16 0
+-43 36 -41 0
+-17 26 -39 0
+37 9 10 0
+8 44 -4 0
+-33 4 40 0
+-29 -11 -40 0
+-14 20 32 0
+28 -17 -40 0
+14 13 -3 0
+20 -30 -13 0
+-6 41 23 0
+-44 -13 -41 0
+-28 -33 3 0
+-32 20 1 0
+22 -32 2 0
+46 -7 29 0
+44 9 32 0
+-9 1 8 0
+-11 41 46 0
+40 33 31 0
+-6 15 -19 0
+-12 42 35 0
+4 10 -23 0
+-7 -48 -44 0
+-42 -27 -4 0
+-25 7 -42 0
+-11 -18 -8 0
+-21 40 26 0
+-23 46 34 0
+47 23 30 0
+-50 -49 -15 0
+-34 -10 16 0
+40 -14 -7 0
+38 -34 10 0
+-47 8 -13 0
+19 12 -41 0
+-44 -17 2 0
+14 -3 29 0
+43 -15 -22 0
+-8 -28 -14 0
+-28 -33 16 0
+16 11 14 0
+-36 15 -12 0
+-36 -44 15 0
+-39 -46 5 0
+11 28 35 0
+19 8 -11 0
+-25 -14 -50 0
+-16 37 -31 0
+21 -36 31 0
+-22 -34 -9 0
+50 3 34 0
+-13 -49 -47 0
+17 6 44 0
+-28 13 -8 0
+43 -24 44 0
+-15 22 -30 0
+-35 -36 -45 0
+3 47 -37 0
+36 -20 12 0
+-37 -4 -19 0
+25 8 15 0
+-42 -46 -2 0
+8 -7 -34 0
+-15 20 28 0
+21 -49 -22 0
+-45 33 -42 0
+3 -38 48 0
+-10 -40 -20 0
+-19 33 16 0
+-3 -38 -16 0
+-48 -23 -9 0
+-29 -37 -41 0
+-41 -37 19 0
+31 -37 -13 0
+-15 -11 10 0
+20 37 -15 0
+32 -38 -30 0
+39 33 -10 0
+35 -16 7 0
+-6 -20 -1 0
+28 -9 21 0
+1 44 21 0
+36 -28 -12 0
+50 29 -27 0
+-26 2 -1 0
+
+c GPT solve time: 36.26 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Step 1: Assign x46 = 1 to satisfy clause 1.
+Step 2: Assign x4 = 0 to satisfy clause 2.
+Step 3: Assign x48 = 0 to satisfy clause 3.
+Step 4: Assign x18 = 1 to satisfy clause 4.
+Step 5: Assign x2 = 1 to satisfy clause 5.
+Step 6: Assign x12 = 1 to satisfy clause 6.
+Step 7: Assign x43 = 1 to satisfy clause 7.
+Step 8: Assign x26 = 0 to satisfy clause 11.
+Step 9: Assign x25 = 1 to satisfy clause 12.
+Step 10: Assign x45 = 0 to satisfy clause 13.
+Step 11: Assign x13 = 1 to satisfy clause 14.
+Step 12: Assign x1 = 1 to satisfy clause 15.
+Step 13: Assign x30 = 1 to satisfy clause 16.
+Step 14: Assign x50 = 1 to satisfy clause 17.
+Step 15: Assign x5 = 1 to satisfy clause 18.
+Step 16: Assign x8 = 0 to satisfy clause 19.
+Step 17: Assign x3 = 1 to satisfy clause 20.
+Step 18: Assign x15 = 1 to satisfy clause 21.
+Step 19: Assign x24 = 0 to satisfy clause 22.
+Step 20: Assign x27 = 1 to satisfy clause 23.
+Step 21: Assign x49 = 0 to satisfy clause 24.
+Step 22: Assign x34 = 1 to satisfy clause 25.
+Step 23: Assign x32 = 0 to satisfy clause 26.
+Step 24: Assign x37 = 1 to satisfy clause 27.
+Step 25: Assign x19 = 1 to satisfy clause 28.
+Step 26: Assign x9 = 0 to satisfy clause 30.
+Step 27: Assign x23 = 1 to satisfy clause 31.
+Step 28: Assign x42 = 0 to satisfy clause 32.
+Step 29: Assign x7 = 1 to satisfy clause 36.
+Step 30: Assign x20 = 1 to satisfy clause 37.
+Step 31: Assign x47 = 1 to satisfy clause 38.
+Step 32: Assign x33 = 1 to satisfy clause 39.
+Step 33: Assign x39 = 1 to satisfy clause 41.
+Step 34: Assign x17 = 1 to satisfy clause 46.
+Step 35: Assign x6 = 1 to satisfy clause 48.
+Step 36: Assign x38 = 1 to satisfy clause 49.
+Step 37: Assign x14 = 1 to satisfy clause 50.
+Step 38: Assign x21 = 1 to satisfy clause 52.
+Step 39: Assign x10 = 1 to satisfy clause 53.
+Step 40: Assign x16 = 0 to satisfy clause 54.
+Step 41: Assign x35 = 1 to satisfy clause 55.
+Step 42: Assign x29 = 1 to satisfy clause 60.
+Step 43: Assign x36 = 1 to satisfy clause 62.
+Step 44: Assign x11 = 0 to satisfy clause 66.
+Step 45: Assign x22 = 1 to satisfy clause 77.
+Step 46: Assign x40 = 1 to satisfy clause 95.
+Step 47: Assign x41 = 1 to satisfy clause 105.
+Step 48: Assign x44 = 1 to satisfy clause 108.
+Step 49: Assign x28 = 1 to satisfy clause 116.
+Step 50: Assign x31 = 0 to satisfy clause 126

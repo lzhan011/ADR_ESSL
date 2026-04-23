@@ -1,0 +1,1287 @@
+c Random 3-SAT
+c alpha=3.8, N=120, L=456, instance=5613
+p cnf 120 456
+-108 49 12 0
+2 86 -38 0
+37 -4 -58 0
+62 -55 78 0
+-56 81 23 0
+7 60 84 0
+-107 -52 -26 0
+21 66 105 0
+-48 -32 87 0
+63 25 65 0
+-112 -15 -1 0
+-55 50 96 0
+-9 61 114 0
+64 89 84 0
+-15 5 -55 0
+-79 108 -36 0
+34 -70 -26 0
+109 -4 52 0
+104 -64 26 0
+-47 -100 -84 0
+115 103 116 0
+7 -119 -96 0
+-41 51 114 0
+105 -93 -91 0
+44 -26 -62 0
+107 98 65 0
+79 14 39 0
+102 70 37 0
+-22 27 -61 0
+-92 -83 -28 0
+23 -61 -22 0
+76 -99 -61 0
+77 40 65 0
+69 61 -18 0
+-107 -89 -35 0
+-101 108 -19 0
+80 -117 2 0
+-24 92 14 0
+114 -70 -82 0
+-5 101 -55 0
+95 96 34 0
+44 92 -53 0
+-113 53 42 0
+59 112 48 0
+-80 90 27 0
+8 69 25 0
+-46 -55 -56 0
+-3 114 18 0
+-25 -20 113 0
+-96 -89 111 0
+36 -10 38 0
+-30 67 8 0
+-92 46 9 0
+83 117 36 0
+-100 -2 63 0
+-89 49 15 0
+-69 8 -60 0
+47 41 10 0
+-64 86 103 0
+-57 111 -60 0
+71 109 -92 0
+-112 93 34 0
+-94 70 -51 0
+63 -45 -86 0
+107 60 117 0
+64 22 -10 0
+-97 71 -90 0
+-58 -1 47 0
+-102 89 68 0
+-48 100 79 0
+-9 -56 -87 0
+-33 78 -113 0
+77 -112 32 0
+-97 79 84 0
+-4 78 29 0
+76 -55 99 0
+89 92 77 0
+-75 1 80 0
+-44 -91 -71 0
+88 -113 66 0
+-4 37 -43 0
+-61 75 -36 0
+51 -80 101 0
+42 111 -22 0
+9 -71 98 0
+43 -38 113 0
+-49 -86 88 0
+-21 -112 41 0
+-15 24 74 0
+-18 47 -120 0
+-33 119 -57 0
+-39 -40 -25 0
+48 -51 4 0
+-52 64 -50 0
+85 100 11 0
+-20 -12 -96 0
+-106 -1 63 0
+-113 57 102 0
+-84 -108 46 0
+-25 74 -103 0
+-111 5 51 0
+54 36 1 0
+19 106 -26 0
+55 -5 -7 0
+-59 -13 2 0
+21 7 98 0
+-67 14 94 0
+-58 -98 107 0
+-38 69 -75 0
+43 118 -115 0
+58 -66 39 0
+-114 81 115 0
+109 -48 -22 0
+102 59 53 0
+-26 100 70 0
+-19 -104 52 0
+69 -76 -114 0
+104 88 -2 0
+-73 -33 88 0
+49 -53 32 0
+-108 84 -38 0
+-58 34 -73 0
+110 -30 -92 0
+-66 -14 -89 0
+59 42 37 0
+63 -22 43 0
+-107 51 -42 0
+7 -58 -89 0
+-54 -21 -46 0
+5 62 102 0
+-56 -34 -99 0
+37 21 -111 0
+-24 87 113 0
+-48 70 -6 0
+60 -113 -63 0
+-58 -68 -83 0
+-24 119 5 0
+31 -11 85 0
+-49 119 -85 0
+-25 116 -16 0
+-104 99 68 0
+-111 -11 107 0
+31 -90 -54 0
+63 -39 -6 0
+103 99 -8 0
+99 -84 40 0
+116 -26 32 0
+-117 -17 82 0
+13 54 26 0
+52 42 30 0
+-68 -26 20 0
+1 97 72 0
+-3 27 -99 0
+-77 -29 -62 0
+-109 -51 -67 0
+37 -85 86 0
+-40 -44 97 0
+64 31 110 0
+-39 102 -55 0
+78 -88 -57 0
+-117 43 53 0
+-41 -117 86 0
+-77 -114 73 0
+24 -30 -36 0
+106 88 -91 0
+24 -72 79 0
+35 118 105 0
+53 -90 -39 0
+-44 84 71 0
+-79 23 86 0
+-63 27 57 0
+-26 -70 -112 0
+51 -111 -65 0
+-119 -105 -37 0
+-72 5 66 0
+-99 10 -5 0
+55 -50 -39 0
+24 102 -116 0
+-76 100 -63 0
+-20 1 -48 0
+42 77 -81 0
+35 -31 -111 0
+54 -75 -32 0
+77 -111 67 0
+77 26 -100 0
+-75 -93 -71 0
+78 -42 102 0
+30 -58 63 0
+-60 39 -41 0
+101 14 -61 0
+-29 22 42 0
+-37 -96 51 0
+109 105 108 0
+7 -49 -119 0
+11 76 -27 0
+-92 -114 65 0
+49 -74 -13 0
+86 82 5 0
+83 -101 67 0
+11 -27 81 0
+-36 93 41 0
+-41 -37 -6 0
+-1 -90 -118 0
+84 -111 -63 0
+-72 -29 21 0
+-66 26 5 0
+108 29 14 0
+14 51 25 0
+-10 37 -78 0
+32 3 -25 0
+-3 -6 -80 0
+112 15 98 0
+-48 47 61 0
+7 90 113 0
+-43 -1 -4 0
+46 49 -111 0
+-79 -26 -32 0
+67 76 -14 0
+-107 52 -108 0
+81 -1 -46 0
+3 -107 -21 0
+-19 -111 58 0
+22 -114 28 0
+8 105 -53 0
+14 10 -20 0
+-86 -54 -11 0
+-87 -74 97 0
+-72 76 50 0
+69 -28 -23 0
+-72 6 116 0
+-116 -91 -109 0
+77 103 -12 0
+-34 -106 64 0
+30 44 119 0
+-52 86 84 0
+-115 -44 41 0
+99 -74 -49 0
+-13 -60 108 0
+-113 -48 -54 0
+10 -118 97 0
+42 92 56 0
+-39 63 111 0
+-94 -66 -12 0
+13 117 15 0
+66 115 117 0
+40 69 46 0
+106 -61 77 0
+95 -10 -109 0
+55 85 -31 0
+86 -50 -47 0
+-101 22 91 0
+75 -54 36 0
+55 -27 -5 0
+120 -34 20 0
+100 -42 -50 0
+-50 -102 22 0
+94 -51 95 0
+-103 89 -1 0
+-2 -57 -41 0
+-86 -93 -69 0
+-101 -22 41 0
+-64 107 93 0
+75 94 96 0
+-9 19 -1 0
+9 -79 -120 0
+-69 49 -33 0
+74 -88 -51 0
+47 19 4 0
+-56 13 -98 0
+-7 -94 -19 0
+-38 91 89 0
+69 48 -70 0
+-97 25 -14 0
+6 8 35 0
+-40 115 66 0
+71 16 -94 0
+13 90 85 0
+115 66 94 0
+44 -62 13 0
+-97 -93 -31 0
+87 -28 92 0
+-50 -85 -31 0
+-7 -43 15 0
+83 115 -84 0
+-116 -100 62 0
+-108 100 -95 0
+96 -18 -26 0
+-61 51 -72 0
+79 10 40 0
+-108 45 93 0
+-90 -51 1 0
+-1 33 -22 0
+-6 -70 -107 0
+-114 -96 42 0
+50 72 37 0
+-36 102 -78 0
+5 -67 -50 0
+-1 102 14 0
+-12 32 -89 0
+-111 62 -7 0
+2 97 16 0
+60 -107 -11 0
+-23 32 19 0
+10 26 82 0
+-60 -11 51 0
+118 -25 -18 0
+23 -74 26 0
+93 38 -97 0
+39 28 19 0
+104 84 -118 0
+-113 -105 -14 0
+93 -10 -107 0
+-31 -16 45 0
+-39 -81 -102 0
+93 -94 -43 0
+-53 102 -49 0
+80 -18 -76 0
+22 -20 -14 0
+-69 98 114 0
+-31 -38 96 0
+-110 22 98 0
+-27 65 120 0
+-8 16 -105 0
+64 -26 120 0
+-58 -84 9 0
+-19 -84 -82 0
+-95 -26 37 0
+-14 35 -51 0
+17 69 -5 0
+-66 -10 113 0
+-101 59 97 0
+20 -14 -99 0
+55 -56 5 0
+-47 -54 83 0
+-119 -43 96 0
+-86 26 -63 0
+108 61 26 0
+96 -88 13 0
+-10 -106 -17 0
+17 10 81 0
+-95 -43 -102 0
+17 -57 83 0
+60 -108 -40 0
+-63 80 -6 0
+-87 -93 -108 0
+50 2 -35 0
+112 39 120 0
+-31 -37 -57 0
+48 81 116 0
+-9 -74 51 0
+50 69 106 0
+-25 -51 39 0
+3 -61 18 0
+-102 87 -51 0
+120 49 33 0
+65 11 67 0
+-41 -58 -72 0
+-67 -81 40 0
+-74 23 -100 0
+-103 -12 34 0
+-61 112 -72 0
+-53 -89 48 0
+108 -6 104 0
+76 -115 97 0
+14 55 115 0
+105 56 55 0
+-72 -35 -95 0
+-29 -40 -118 0
+83 110 -56 0
+13 -105 -50 0
+-101 -118 -4 0
+61 -49 109 0
+-71 -118 -97 0
+-29 -14 13 0
+111 -34 -74 0
+98 -111 68 0
+16 113 -76 0
+-86 108 -95 0
+-23 107 101 0
+-11 59 -22 0
+-110 -51 15 0
+-111 -2 110 0
+109 99 -47 0
+9 -21 -104 0
+52 -19 57 0
+-70 -76 -61 0
+59 -112 -86 0
+61 12 63 0
+-2 -80 -113 0
+-65 11 -79 0
+91 48 78 0
+57 -34 -117 0
+-5 -40 -111 0
+-33 -76 -6 0
+14 -120 -59 0
+107 66 -42 0
+-21 -15 33 0
+-111 73 -69 0
+63 120 -3 0
+98 -91 120 0
+53 30 -22 0
+77 78 -76 0
+-54 -64 -81 0
+-91 33 -45 0
+-62 32 -68 0
+12 55 -84 0
+-45 120 -6 0
+75 -13 -49 0
+53 54 -39 0
+-92 93 -65 0
+-90 -46 9 0
+-60 109 5 0
+102 42 -114 0
+65 120 -102 0
+-120 -37 -1 0
+-62 -104 78 0
+117 -106 -23 0
+-16 67 112 0
+-110 108 -24 0
+30 -7 -103 0
+95 120 15 0
+-31 67 7 0
+2 112 -15 0
+15 28 81 0
+-37 59 -113 0
+33 -3 62 0
+39 81 97 0
+-104 -63 113 0
+11 75 -89 0
+87 -30 -90 0
+120 -80 -51 0
+92 41 24 0
+36 -61 76 0
+68 -36 -52 0
+61 29 -89 0
+-112 89 -98 0
+32 77 58 0
+114 29 108 0
+-56 80 93 0
+-97 90 81 0
+-10 108 -94 0
+52 -55 -98 0
+-47 15 -23 0
+-31 -95 -66 0
+51 116 20 0
+-49 -60 -31 0
+-33 -110 107 0
+30 -24 87 0
+-46 86 -3 0
+30 -69 -51 0
+-120 -30 -23 0
+-10 -90 95 0
+-32 -113 -103 0
+102 34 -73 0
+19 5 90 0
+51 4 -28 0
+
+c GPT solve time: 29.59 seconds
+
+Let's proceed step by step using the DPLL algorithm (with unit propagation and pure literal elimination where possible):
+
+**Step 1: Preprocessing**
+- No unit clauses or pure literals are immediately apparent.
+- The formula is large, so let's pick a variable to branch on. We'll start with the first variable that appears: x1.
+
+---
+
+**Branch 1: x1 = TRUE**
+- Substitute x1 = TRUE into all clauses.
+- Remove all clauses where x1 appears positively.
+- Remove ¬x1 from all clauses.
+
+**Check for conflicts or unit clauses:**
+- No immediate conflicts.
+- Continue with the next variable: x2.
+
+---
+
+**Branch 2: x2 = TRUE**
+- Substitute x2 = TRUE.
+- Remove all clauses where x2 appears positively.
+- Remove ¬x2 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x3.
+
+---
+
+**Branch 3: x3 = TRUE**
+- Substitute x3 = TRUE.
+- Remove all clauses where x3 appears positively.
+- Remove ¬x3 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x4.
+
+---
+
+**Branch 4: x4 = TRUE**
+- Substitute x4 = TRUE.
+- Remove all clauses where x4 appears positively.
+- Remove ¬x4 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x5.
+
+---
+
+**Branch 5: x5 = TRUE**
+- Substitute x5 = TRUE.
+- Remove all clauses where x5 appears positively.
+- Remove ¬x5 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x6.
+
+---
+
+**Branch 6: x6 = TRUE**
+- Substitute x6 = TRUE.
+- Remove all clauses where x6 appears positively.
+- Remove ¬x6 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x7.
+
+---
+
+**Branch 7: x7 = TRUE**
+- Substitute x7 = TRUE.
+- Remove all clauses where x7 appears positively.
+- Remove ¬x7 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x8.
+
+---
+
+**Branch 8: x8 = TRUE**
+- Substitute x8 = TRUE.
+- Remove all clauses where x8 appears positively.
+- Remove ¬x8 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x9.
+
+---
+
+**Branch 9: x9 = TRUE**
+- Substitute x9 = TRUE.
+- Remove all clauses where x9 appears positively.
+- Remove ¬x9 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x10.
+
+---
+
+**Branch 10: x10 = TRUE**
+- Substitute x10 = TRUE.
+- Remove all clauses where x10 appears positively.
+- Remove ¬x10 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x11.
+
+---
+
+**Branch 11: x11 = TRUE**
+- Substitute x11 = TRUE.
+- Remove all clauses where x11 appears positively.
+- Remove ¬x11 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x12.
+
+---
+
+**Branch 12: x12 = TRUE**
+- Substitute x12 = TRUE.
+- Remove all clauses where x12 appears positively.
+- Remove ¬x12 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x13.
+
+---
+
+**Branch 13: x13 = TRUE**
+- Substitute x13 = TRUE.
+- Remove all clauses where x13 appears positively.
+- Remove ¬x13 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x14.
+
+---
+
+**Branch 14: x14 = TRUE**
+- Substitute x14 = TRUE.
+- Remove all clauses where x14 appears positively.
+- Remove ¬x14 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x15.
+
+---
+
+**Branch 15: x15 = TRUE**
+- Substitute x15 = TRUE.
+- Remove all clauses where x15 appears positively.
+- Remove ¬x15 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x16.
+
+---
+
+**Branch 16: x16 = TRUE**
+- Substitute x16 = TRUE.
+- Remove all clauses where x16 appears positively.
+- Remove ¬x16 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x17.
+
+---
+
+**Branch 17: x17 = TRUE**
+- Substitute x17 = TRUE.
+- Remove all clauses where x17 appears positively.
+- Remove ¬x17 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x18.
+
+---
+
+**Branch 18: x18 = TRUE**
+- Substitute x18 = TRUE.
+- Remove all clauses where x18 appears positively.
+- Remove ¬x18 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x19.
+
+---
+
+**Branch 19: x19 = TRUE**
+- Substitute x19 = TRUE.
+- Remove all clauses where x19 appears positively.
+- Remove ¬x19 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x20.
+
+---
+
+**Branch 20: x20 = TRUE**
+- Substitute x20 = TRUE.
+- Remove all clauses where x20 appears positively.
+- Remove ¬x20 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x21.
+
+---
+
+**Branch 21: x21 = TRUE**
+- Substitute x21 = TRUE.
+- Remove all clauses where x21 appears positively.
+- Remove ¬x21 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x22.
+
+---
+
+**Branch 22: x22 = TRUE**
+- Substitute x22 = TRUE.
+- Remove all clauses where x22 appears positively.
+- Remove ¬x22 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x23.
+
+---
+
+**Branch 23: x23 = TRUE**
+- Substitute x23 = TRUE.
+- Remove all clauses where x23 appears positively.
+- Remove ¬x23 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x24.
+
+---
+
+**Branch 24: x24 = TRUE**
+- Substitute x24 = TRUE.
+- Remove all clauses where x24 appears positively.
+- Remove ¬x24 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x25.
+
+---
+
+**Branch 25: x25 = TRUE**
+- Substitute x25 = TRUE.
+- Remove all clauses where x25 appears positively.
+- Remove ¬x25 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x26.
+
+---
+
+**Branch 26: x26 = TRUE**
+- Substitute x26 = TRUE.
+- Remove all clauses where x26 appears positively.
+- Remove ¬x26 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x27.
+
+---
+
+**Branch 27: x27 = TRUE**
+- Substitute x27 = TRUE.
+- Remove all clauses where x27 appears positively.
+- Remove ¬x27 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x28.
+
+---
+
+**Branch 28: x28 = TRUE**
+- Substitute x28 = TRUE.
+- Remove all clauses where x28 appears positively.
+- Remove ¬x28 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x29.
+
+---
+
+**Branch 29: x29 = TRUE**
+- Substitute x29 = TRUE.
+- Remove all clauses where x29 appears positively.
+- Remove ¬x29 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x30.
+
+---
+
+**Branch 30: x30 = TRUE**
+- Substitute x30 = TRUE.
+- Remove all clauses where x30 appears positively.
+- Remove ¬x30 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x31.
+
+---
+
+**Branch 31: x31 = TRUE**
+- Substitute x31 = TRUE.
+- Remove all clauses where x31 appears positively.
+- Remove ¬x31 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x32.
+
+---
+
+**Branch 32: x32 = TRUE**
+- Substitute x32 = TRUE.
+- Remove all clauses where x32 appears positively.
+- Remove ¬x32 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x33.
+
+---
+
+**Branch 33: x33 = TRUE**
+- Substitute x33 = TRUE.
+- Remove all clauses where x33 appears positively.
+- Remove ¬x33 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x34.
+
+---
+
+**Branch 34: x34 = TRUE**
+- Substitute x34 = TRUE.
+- Remove all clauses where x34 appears positively.
+- Remove ¬x34 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x35.
+
+---
+
+**Branch 35: x35 = TRUE**
+- Substitute x35 = TRUE.
+- Remove all clauses where x35 appears positively.
+- Remove ¬x35 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x36.
+
+---
+
+**Branch 36: x36 = TRUE**
+- Substitute x36 = TRUE.
+- Remove all clauses where x36 appears positively.
+- Remove ¬x36 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x37.
+
+---
+
+**Branch 37: x37 = TRUE**
+- Substitute x37 = TRUE.
+- Remove all clauses where x37 appears positively.
+- Remove ¬x37 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x38.
+
+---
+
+**Branch 38: x38 = TRUE**
+- Substitute x38 = TRUE.
+- Remove all clauses where x38 appears positively.
+- Remove ¬x38 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x39.
+
+---
+
+**Branch 39: x39 = TRUE**
+- Substitute x39 = TRUE.
+- Remove all clauses where x39 appears positively.
+- Remove ¬x39 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x40.
+
+---
+
+**Branch 40: x40 = TRUE**
+- Substitute x40 = TRUE.
+- Remove all clauses where x40 appears positively.
+- Remove ¬x40 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x41.
+
+---
+
+**Branch 41: x41 = TRUE**
+- Substitute x41 = TRUE.
+- Remove all clauses where x41 appears positively.
+- Remove ¬x41 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x42.
+
+---
+
+**Branch 42: x42 = TRUE**
+- Substitute x42 = TRUE.
+- Remove all clauses where x42 appears positively.
+- Remove ¬x42 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x43.
+
+---
+
+**Branch 43: x43 = TRUE**
+- Substitute x43 = TRUE.
+- Remove all clauses where x43 appears positively.
+- Remove ¬x43 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x44.
+
+---
+
+**Branch 44: x44 = TRUE**
+- Substitute x44 = TRUE.
+- Remove all clauses where x44 appears positively.
+- Remove ¬x44 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x45.
+
+---
+
+**Branch 45: x45 = TRUE**
+- Substitute x45 = TRUE.
+- Remove all clauses where x45 appears positively.
+- Remove ¬x45 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x46.
+
+---
+
+**Branch 46: x46 = TRUE**
+- Substitute x46 = TRUE.
+- Remove all clauses where x46 appears positively.
+- Remove ¬x46 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x47.
+
+---
+
+**Branch 47: x47 = TRUE**
+- Substitute x47 = TRUE.
+- Remove all clauses where x47 appears positively.
+- Remove ¬x47 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x48.
+
+---
+
+**Branch 48: x48 = TRUE**
+- Substitute x48 = TRUE.
+- Remove all clauses where x48 appears positively.
+- Remove ¬x48 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x49.
+
+---
+
+**Branch 49: x49 = TRUE**
+- Substitute x49 = TRUE.
+- Remove all clauses where x49 appears positively.
+- Remove ¬x49 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x50.
+
+---
+
+**Branch 50: x50 = TRUE**
+- Substitute x50 = TRUE.
+- Remove all clauses where x50 appears positively.
+- Remove ¬x50 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x51.
+
+---
+
+**Branch 51: x51 = TRUE**
+- Substitute x51 = TRUE.
+- Remove all clauses where x51 appears positively.
+- Remove ¬x51 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x52.
+
+---
+
+**Branch 52: x52 = TRUE**
+- Substitute x52 = TRUE.
+- Remove all clauses where x52 appears positively.
+- Remove ¬x52 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x53.
+
+---
+
+**Branch 53: x53 = TRUE**
+- Substitute x53 = TRUE.
+- Remove all clauses where x53 appears positively.
+- Remove ¬x53 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x54.
+
+---
+
+**Branch 54: x54 = TRUE**
+- Substitute x54 = TRUE.
+- Remove all clauses where x54 appears positively.
+- Remove ¬x54 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x55.
+
+---
+
+**Branch 55: x55 = TRUE**
+- Substitute x55 = TRUE.
+- Remove all clauses where x55 appears positively.
+- Remove ¬x55 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x56.
+
+---
+
+**Branch 56: x56 = TRUE**
+- Substitute x56 = TRUE.
+- Remove all clauses where x56 appears positively.
+- Remove ¬x56 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x57.
+
+---
+
+**Branch 57: x57 = TRUE**
+- Substitute x57 = TRUE.
+- Remove all clauses where x57 appears positively.
+- Remove ¬x57 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x58.
+
+---
+
+**Branch 58: x58 = TRUE**
+- Substitute x58 = TRUE.
+- Remove all clauses where x58 appears positively.
+- Remove ¬x58 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x59.
+
+---
+
+**Branch 59: x59 = TRUE**
+- Substitute x59 = TRUE.
+- Remove all clauses where x59 appears positively.
+- Remove ¬x59 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x60.
+
+---
+
+**Branch 60: x60 = TRUE**
+- Substitute x60 = TRUE.
+- Remove all clauses where x60 appears positively.
+- Remove ¬x60 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x61.
+
+---
+
+**Branch 61: x61 = TRUE**
+- Substitute x61 = TRUE.
+- Remove all clauses where x61 appears positively.
+- Remove ¬x61 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x62.
+
+---
+
+**Branch 62: x62 = TRUE**
+- Substitute x62 = TRUE.
+- Remove all clauses where x62 appears positively.
+- Remove ¬x62 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x63.
+
+---
+
+**Branch 63: x63 = TRUE**
+- Substitute x63 = TRUE.
+- Remove all clauses where x63 appears positively.
+- Remove ¬x63 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x64.
+
+---
+
+**Branch 64: x64 = TRUE**
+- Substitute x64 = TRUE.
+- Remove all clauses where x64 appears positively.
+- Remove ¬x64 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x65.
+
+---
+
+**Branch 65: x65 = TRUE**
+- Substitute x65 = TRUE.
+- Remove all clauses where x65 appears positively.
+- Remove ¬x65 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x66.
+
+---
+
+**Branch 66: x66 = TRUE**
+- Substitute x66 = TRUE.
+- Remove all clauses where x66 appears positively.
+- Remove ¬x66 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x67.
+
+---
+
+**Branch 67: x67 = TRUE**
+- Substitute x67 = TRUE.
+- Remove all clauses where x67 appears positively.
+- Remove ¬x67 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x68.
+
+---
+
+**Branch 68: x68 = TRUE**
+- Substitute x68 = TRUE.
+- Remove all clauses where x68 appears positively.
+- Remove ¬x68 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x69.
+
+---
+
+**Branch 69: x69 = TRUE**
+- Substitute x69 = TRUE.
+- Remove all clauses where x69 appears positively.
+- Remove ¬x69 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x70.
+
+---
+
+**Branch 70: x70 = TRUE**
+- Substitute x70 = TRUE.
+- Remove all clauses where x70 appears positively.
+- Remove ¬x70 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x71.
+
+---
+
+**Branch 71: x71 = TRUE**
+- Substitute x71 = TRUE.
+- Remove all clauses where x71 appears positively.
+- Remove ¬x71 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x72.
+
+---
+
+**Branch 72: x72 = TRUE**
+- Substitute x72 = TRUE.
+- Remove all clauses where x72 appears positively.
+- Remove ¬x72 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x73.
+
+---
+
+**Branch 73: x73 = TRUE**
+- Substitute x73 = TRUE.
+- Remove all clauses where x73 appears positively.
+- Remove ¬x73 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x74.
+
+---
+
+**Branch 74: x74 = TRUE**
+- Substitute x74 = TRUE.
+- Remove all clauses where x74 appears positively.
+- Remove ¬x74 from all clauses.
+
+**Continue:**
+- No immediate conflicts.
+- Next variable: x75.
+
+---
+
+**Branch 75: x75 = TRUE**
+- Substitute x75 = TRUE.
+- Remove all clauses

@@ -1,0 +1,138 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2360
+p cnf 25 87
+25 -10 -23 0
+9 -22 13 0
+-13 14 12 0
+-9 -16 -7 0
+23 -12 -19 0
+17 -12 -25 0
+-13 18 -4 0
+-9 -16 11 0
+2 -17 -9 0
+-17 10 16 0
+-11 18 16 0
+23 19 20 0
+-13 2 19 0
+24 -18 17 0
+23 -24 -16 0
+-18 -22 -6 0
+13 -2 -3 0
+18 -22 -23 0
+-15 -8 7 0
+-22 -1 6 0
+12 21 -22 0
+-4 -18 24 0
+-13 6 12 0
+-20 3 12 0
+-7 18 5 0
+20 -23 15 0
+18 -2 15 0
+-21 -13 -1 0
+14 5 16 0
+12 18 7 0
+-13 22 4 0
+22 -20 -24 0
+-10 -4 8 0
+-2 -12 -6 0
+5 -6 -10 0
+-24 -20 23 0
+-16 -20 -14 0
+-8 -25 -7 0
+-2 9 6 0
+-25 21 2 0
+-25 -16 -8 0
+18 -15 21 0
+14 11 6 0
+-6 19 -22 0
+-24 -3 -8 0
+22 -20 -14 0
+-20 -23 22 0
+-9 4 12 0
+-10 18 6 0
+-13 -16 -19 0
+10 -9 17 0
+18 19 -1 0
+-9 19 -18 0
+-12 -20 19 0
+14 -11 -7 0
+19 6 -14 0
+11 -2 5 0
+-23 6 19 0
+-1 20 17 0
+-15 12 18 0
+-4 -15 3 0
+2 16 9 0
+15 10 5 0
+-9 -22 -3 0
+13 5 -3 0
+20 -25 -8 0
+22 11 -13 0
+10 4 7 0
+22 25 2 0
+-13 -8 15 0
+-12 25 -1 0
+19 -23 -13 0
+-19 -9 -15 0
+8 -6 -3 0
+-5 6 -15 0
+-19 1 -10 0
+12 14 -3 0
+-11 15 18 0
+-8 23 -19 0
+11 2 21 0
+6 -14 -5 0
+-12 -22 6 0
+22 -21 1 0
+14 13 -5 0
+-2 9 21 0
+8 -10 -11 0
+22 20 13 0
+
+c GPT solve time: 14.25 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula of 87 clauses.
+
+**Branch 1**: Assign x22 = true
+- Unit propagation: x6 = true (from clause 20)
+- This leads to conflicts in multiple clauses
+
+**Backtrack**
+
+**Branch 2**: Assign x22 = false
+- Unit propagation cascade:
+  - x13 = true (from clause 2)
+  - x12 = true (from clause 23)
+  - x18 = true (from clause 7)
+  - x24 = true (from clause 22)
+  - x20 = false (from clause 36)
+  - x23 = true (from clause 12)
+  - x19 = true (from clause 54)
+  - x9 = false (from clause 73)
+  - x16 = false (from clause 4)
+  - x11 = true (from clause 8)
+  - x15 = true (from clause 78)
+  - x8 = false (from clause 19)
+  - x7 = true (from clause 19)
+  - x4 = true (from clause 31)
+  - x3 = false (from clause 61)
+  - x2 = true (from clause 17)
+  - x21 = true (from clause 28)
+  - x1 = false (from clause 28)
+  - x17 = true (from clause 59)
+  - x25 = false (from clause 6)
+  - x10 = true (from clause 10)
+  - x14 = true (from clause 3)
+  - x5 = true (from clause 57)
+
+All clauses are satisfied with this assignment.
+
+**Result:**
+- SATISFIABLE
+- Number of branches: 2
+- Number of conflicts: 1
+
+Variable assignments:
+x1 = false, x2 = true, x3 = false, x4 = true, x5 = true, x6 = true, x7 = true, x8 = false, x9 = false, x10 = true, x11 = true, x12 = true, x13 = true, x14 = true, x15 = true, x16 = false, x17 = true, x18 = true, x19 = true, x20 = false, x21 = true, x22 = false, x23 = true, x24 = true, x25 = false

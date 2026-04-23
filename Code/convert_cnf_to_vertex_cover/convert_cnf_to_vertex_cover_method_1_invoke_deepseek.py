@@ -508,7 +508,7 @@ def send_to_llm(prompt_text: str,
     api_base = "https://api.openai.com/v1"
     import os
     # key = os.environ.get("OPENAI_API_KEY")
-    key = os.environ["DEEPSEEK_API_KEY"]
+    key = os.environ.get("DEEPSEEK_API_KEY")
     api_base = 'https://api.deepseek.com'
     if not key:
         print("[send_to_llm] 未找到 API Key。请设置环境变量 OPENAI_API_KEY 或通过 api_key 参数传入。")

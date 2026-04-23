@@ -1,0 +1,161 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=59
+p cnf 5 17
+4 -3 -5 0
+-4 5 2 0
+-3 4 -2 0
+2 4 -3 0
+-2 1 3 0
+-3 -2 -1 0
+1 -2 -3 0
+-2 -4 5 0
+3 -4 -5 0
+-5 2 -1 0
+-2 -4 1 0
+-5 2 1 0
+-1 2 3 0
+2 4 3 0
+-1 4 3 0
+-5 -3 1 0
+1 -2 -5 0
+
+c GPT solve time: 27.50 seconds
+
+Step-by-step DPLL SAT solving:
+
+**Step 1: List variables:**  
+x1, x2, x3, x4, x5
+
+**Step 2: Choose a variable to branch on.**  
+Let’s start with x1 = True.
+
+---
+
+### Branch 1: x1 = True
+
+**Propagate x1 = True:**
+- Any clause with x1 is satisfied.
+- Remove ¬x1 from clauses.
+
+**Simplified formula:**
+1. (x4 ∨ ¬x3 ∨ ¬x5)
+2. (¬x4 ∨ x5 ∨ x2)
+3. (¬x3 ∨ x4 ∨ ¬x2)
+4. (x2 ∨ x4 ∨ ¬x3)
+5. (¬x2 ∨ x3)         [from (¬x2 ∨ x1 ∨ x3)]
+6. (¬x3 ∨ ¬x2)        [from (¬x3 ∨ ¬x2 ∨ ¬x1)]
+7. (x2 ∨ x4 ∨ x3)
+8. (¬x2 ∨ ¬x4 ∨ x5)
+9. (x3 ∨ ¬x4 ∨ ¬x5)
+10. (¬x5 ∨ x2)        [from (¬x5 ∨ x2 ∨ ¬x1)]
+11. (¬x2 ∨ ¬x4)       [from (¬x2 ∨ ¬x4 ∨ x1)]
+12. (¬x5 ∨ x2)        [from (¬x5 ∨ x2 ∨ x1)]
+13. (x2 ∨ x4 ∨ x3)
+14. (¬x1 ∨ x4 ∨ x3)   [already satisfied, skip]
+15. (¬x5 ∨ ¬x3)       [from (¬x5 ∨ ¬x3 ∨ x1)]
+16. (x1 ∨ ¬x2 ∨ ¬x5)  [already satisfied, skip]
+
+---
+
+#### Branch 1.1: x2 = True
+
+**Propagate x2 = True:**
+- Any clause with x2 is satisfied.
+- Remove ¬x2 from clauses.
+
+Remaining clauses:
+1. (x4 ∨ ¬x3 ∨ ¬x5)
+2. (¬x4 ∨ x5 ∨ x2) [satisfied]
+3. (¬x3 ∨ x4 ∨ ¬x2) [becomes (¬x3 ∨ x4)]
+4. (x2 ∨ x4 ∨ ¬x3) [satisfied]
+5. (¬x2 ∨ x3) [becomes (x3)]
+6. (¬x3 ∨ ¬x2) [becomes (¬x3)]
+7. (x2 ∨ x4 ∨ x3) [satisfied]
+8. (¬x2 ∨ ¬x4 ∨ x5) [becomes (¬x4 ∨ x5)]
+9. (x3 ∨ ¬x4 ∨ ¬x5)
+10. (¬x5 ∨ x2) [satisfied]
+11. (¬x2 ∨ ¬x4) [becomes (¬x4)]
+12. (¬x5 ∨ x2) [satisfied]
+13. (x2 ∨ x4 ∨ x3) [satisfied]
+14. (¬x1 ∨ x4 ∨ x3) [already satisfied]
+15. (¬x5 ∨ ¬x3)
+16. (x1 ∨ ¬x2 ∨ ¬x5) [already satisfied]
+
+Now, (x3) and (¬x3) are both present. **Conflict!**
+
+**Backtrack.**
+
+---
+
+#### Branch 1.2: x2 = False
+
+**Propagate x2 = False:**
+- Any clause with ¬x2 is satisfied.
+- Remove x2 from clauses.
+
+Remaining clauses:
+1. (x4 ∨ ¬x3 ∨ ¬x5)
+2. (¬x4 ∨ x5)
+3. (¬x3 ∨ x4)
+4. (x4 ∨ ¬x3)
+5. (x3) [from (¬x2 ∨ x3)]
+6. (¬x3) [from (¬x3 ∨ ¬x2)]
+7. (x4 ∨ x3)
+8. (¬x4 ∨ x5)
+9. (x3 ∨ ¬x4 ∨ ¬x5)
+10. (¬x5) [from (¬x5 ∨ x2)]
+11. (¬x4) [from (¬x2 ∨ ¬x4)]
+12. (¬x5) [from (¬x5 ∨ x2)]
+13. (x4 ∨ x3)
+14. (¬x1 ∨ x4 ∨ x3) [already satisfied]
+15. (¬x5 ∨ ¬x3)
+16. (x1 ∨ ¬x2 ∨ ¬x5) [already satisfied]
+
+Again, (x3) and (¬x3) are both present. **Conflict!**
+
+**Backtrack.**
+
+---
+
+### Branch 2: x1 = False
+
+**Propagate x1 = False:**
+- Any clause with ¬x1 is satisfied.
+- Remove x1 from clauses.
+
+**Simplified formula:**
+1. (x4 ∨ ¬x3 ∨ ¬x5)
+2. (¬x4 ∨ x5 ∨ x2)
+3. (¬x3 ∨ x4 ∨ ¬x2)
+4. (x2 ∨ x4 ∨ ¬x3)
+5. (¬x2 ∨ x3)         [from (¬x2 ∨ x1 ∨ x3)]
+6. (¬x3 ∨ ¬x2)        [from (¬x3 ∨ ¬x2 ∨ ¬x1)]
+7. (x2 ∨ x4 ∨ x3)
+8. (¬x2 ∨ ¬x4 ∨ x5)
+9. (x3 ∨ ¬x4 ∨ ¬x5)
+10. (¬x5 ∨ x2)        [from (¬x5 ∨ x2 ∨ ¬x1)]
+11. (¬x2 ∨ ¬x4)       [from (¬x2 ∨ ¬x4 ∨ x1)]
+12. (¬x5 ∨ x2)        [from (¬x5 ∨ x2 ∨ x1)]
+13. (x2 ∨ x4 ∨ x3)
+14. (¬x1 ∨ x4 ∨ x3)   [satisfied, skip]
+15. (¬x5 ∨ ¬x3)       [from (¬x5 ∨ ¬x3 ∨ x1)]
+16. (¬x2 ∨ ¬x5)       [from (x1 ∨ ¬x2 ∨ ¬x5)]
+
+This is the same as the x1 = True case after removing satisfied clauses. So, the same conflicts will occur.
+
+---
+
+## Summary
+
+- Branch 1: x1 = True → x2 = True (conflict), x2 = False (conflict)
+- Branch 2: x1 = False → same as above
+
+**All branches lead to conflict.**
+
+---
+
+**Final answers:**
+
+- UNSATISFIABLE
+- Number of branches: 4
+- Number of conflicts: 4

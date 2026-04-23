@@ -1,0 +1,160 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1772
+p cnf 5 17
+-1 -4 2 0
+-1 5 4 0
+1 5 2 0
+1 -5 4 0
+3 2 4 0
+2 1 -3 0
+-1 -2 3 0
+1 -2 -5 0
+-2 -4 1 0
+4 5 1 0
+-3 -1 -4 0
+1 2 -4 0
+5 4 2 0
+-3 -1 4 0
+2 -5 -1 0
+-3 -5 2 0
+-3 -5 2 0
+
+c GPT solve time: 78.48 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Assign x1 = True (Branch 1)
+- Check for unit propagation:
+    - (¬x1 ∨ ¬x4 ∨ x2): (False ∨ ¬x4 ∨ x2) → (¬x4 ∨ x2)
+    - (¬x1 ∨ x5 ∨ x4): (False ∨ x5 ∨ x4) → (x5 ∨ x4)
+    - (x1 ∨ x5 ∨ x2): (True ∨ x5 ∨ x2) → True
+    - (x1 ∨ ¬x5 ∨ x4): (True ∨ ¬x5 ∨ x4) → True
+    - (x2 ∨ x1 ∨ ¬x3): (x2 ∨ True ∨ ¬x3) → True
+    - (¬x1 ∨ ¬x2 ∨ x3): (False ∨ ¬x2 ∨ x3) → (¬x2 ∨ x3)
+    - (x1 ∨ ¬x2 ∨ ¬x5): (True ∨ ¬x2 ∨ ¬x5) → True
+    - (¬x2 ∨ ¬x4 ∨ x1): (¬x2 ∨ ¬x4 ∨ True) → True
+    - (x4 ∨ x5 ∨ x1): (x4 ∨ x5 ∨ True) → True
+    - (¬x3 ∨ ¬x1 ∨ ¬x4): (¬x3 ∨ False ∨ ¬x4) → (¬x3 ∨ ¬x4)
+    - (x1 ∨ x2 ∨ ¬x4): (True ∨ x2 ∨ ¬x4) → True
+    - (x5 ∨ x4 ∨ x2): (x5 ∨ x4 ∨ x2)
+    - (¬x3 ∨ ¬x1 ∨ x4): (¬x3 ∨ False ∨ x4) → (¬x3 ∨ x4)
+    - (x2 ∨ ¬x5 ∨ ¬x1): (x2 ∨ ¬x5 ∨ False) → (x2 ∨ ¬x5)
+    - (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ x2)
+    - (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ x2)
+
+### Step 2: Assign x2 = True (Branch 2)
+- (¬x4 ∨ x2): (¬x4 ∨ True) → True
+- (x5 ∨ x4): (x5 ∨ x4)
+- (¬x2 ∨ x3): (False ∨ x3) → x3
+- (¬x3 ∨ ¬x4): (¬x3 ∨ ¬x4)
+- (x5 ∨ x4 ∨ x2): (x5 ∨ x4 ∨ True) → True
+- (x2 ∨ ¬x5): (True ∨ ¬x5) → True
+- (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ True) → True
+
+#### Unit propagation: (¬x2 ∨ x3) → x3 = True
+
+### Step 3: Assign x3 = True (Branch 3)
+- (¬x3 ∨ ¬x4): (False ∨ ¬x4) → (¬x4)
+- (¬x3 ∨ x4): (False ∨ x4) → (x4)
+- (¬x3 ∨ ¬x5 ∨ x2): (False ∨ ¬x5 ∨ True) → True
+
+#### Unit propagation: (¬x4) and (x4) → Conflict!
+
+### Step 4: Backtrack x3 = False (Conflict 1)
+- (¬x2 ∨ x3): (False ∨ False) → False (Conflict!)
+
+### Step 5: Backtrack x2 = False (Conflict 2)
+- (¬x4 ∨ x2): (¬x4 ∨ False) → (¬x4)
+- (x5 ∨ x4): (x5 ∨ x4)
+- (¬x2 ∨ x3): (True ∨ x3) → True
+- (x2 ∨ x1 ∨ ¬x3): (False ∨ True ∨ ¬x3) → True
+- (x1 ∨ x2 ∨ ¬x4): (True ∨ False ∨ ¬x4) → True
+- (x2 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+- (x5 ∨ x4 ∨ x2): (x5 ∨ x4 ∨ False) → (x5 ∨ x4)
+- (¬x3 ∨ ¬x4): (¬x3 ∨ ¬x4)
+- (¬x3 ∨ x4): (¬x3 ∨ x4)
+- (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ False) → (¬x3 ∨ ¬x5)
+- (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ False) → (¬x3 ∨ ¬x5)
+
+#### Unit propagation: (¬x4), (¬x5)
+
+### Step 6: Assign x4 = False (from ¬x4)
+- (x5 ∨ x4): (x5 ∨ False) → (x5)
+- (x5 ∨ x4): (x5 ∨ False) → (x5)
+- (¬x3 ∨ ¬x4): (¬x3 ∨ True) → True
+- (¬x3 ∨ x4): (¬x3 ∨ False) → (¬x3)
+- (x1 ∨ x2 ∨ ¬x4): (True ∨ False ∨ True) → True
+
+#### Unit propagation: (x5), (¬x5) → Conflict!
+
+### Step 7: Backtrack x4 = True (Conflict 3)
+- (¬x4): (False) → Conflict!
+
+### Step 8: Backtrack x1 = False (Conflict 4)
+- (¬x1 ∨ ¬x4 ∨ x2): (True ∨ ¬x4 ∨ x2) → True
+- (¬x1 ∨ x5 ∨ x4): (True ∨ x5 ∨ x4) → True
+- (x1 ∨ x5 ∨ x2): (False ∨ x5 ∨ x2) → (x5 ∨ x2)
+- (x1 ∨ ¬x5 ∨ x4): (False ∨ ¬x5 ∨ x4) → (¬x5 ∨ x4)
+- (x2 ∨ x1 ∨ ¬x3): (x2 ∨ False ∨ ¬x3) → (x2 ∨ ¬x3)
+- (¬x1 ∨ ¬x2 ∨ x3): (True ∨ ¬x2 ∨ x3) → True
+- (x1 ∨ ¬x2 ∨ ¬x5): (False ∨ ¬x2 ∨ ¬x5) → (¬x2 ∨ ¬x5)
+- (¬x2 ∨ ¬x4 ∨ x1): (¬x2 ∨ ¬x4 ∨ False) → (¬x2 ∨ ¬x4)
+- (x4 ∨ x5 ∨ x1): (x4 ∨ x5 ∨ False) → (x4 ∨ x5)
+- (¬x3 ∨ ¬x1 ∨ ¬x4): (¬x3 ∨ True ∨ ¬x4) → True
+- (x1 ∨ x2 ∨ ¬x4): (False ∨ x2 ∨ ¬x4) → (x2 ∨ ¬x4)
+- (x5 ∨ x4 ∨ x2): (x5 ∨ x4 ∨ x2)
+- (¬x3 ∨ ¬x1 ∨ x4): (¬x3 ∨ True ∨ x4) → True
+- (x2 ∨ ¬x5 ∨ ¬x1): (x2 ∨ ¬x5 ∨ True) → True
+- (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ x2)
+- (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ x2)
+
+### Step 9: Assign x2 = True (Branch 5)
+- (x5 ∨ x2): (x5 ∨ True) → True
+- (¬x5 ∨ x4): (¬x5 ∨ x4)
+- (x2 ∨ ¬x3): (True ∨ ¬x3) → True
+- (¬x2 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+- (¬x2 ∨ ¬x4): (False ∨ ¬x4) → (¬x4)
+- (x4 ∨ x5): (x4 ∨ x5)
+- (x2 ∨ ¬x4): (True ∨ ¬x4) → True
+- (x5 ∨ x4 ∨ x2): (x5 ∨ x4 ∨ True) → True
+- (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ True) → True
+
+#### Unit propagation: (¬x5), (¬x4)
+
+### Step 10: Assign x5 = False, x4 = False
+- (¬x5 ∨ x4): (True ∨ False) → True
+- (x4 ∨ x5): (False ∨ False) → False (Conflict!)
+
+### Step 11: Backtrack x2 = False (Conflict 5)
+- (x5 ∨ x2): (x5 ∨ False) → (x5)
+- (¬x5 ∨ x4): (¬x5 ∨ x4)
+- (x2 ∨ ¬x3): (False ∨ ¬x3) → (¬x3)
+- (¬x2 ∨ ¬x5): (True ∨ ¬x5) → True
+- (¬x2 ∨ ¬x4): (True ∨ ¬x4) → True
+- (x4 ∨ x5): (x4 ∨ x5)
+- (x2 ∨ ¬x4): (False ∨ ¬x4) → (¬x4)
+- (x5 ∨ x4 ∨ x2): (x5 ∨ x4 ∨ False) → (x5 ∨ x4)
+- (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ False) → (¬x3 ∨ ¬x5)
+- (¬x3 ∨ ¬x5 ∨ x2): (¬x3 ∨ ¬x5 ∨ False) → (¬x3 ∨ ¬x5)
+
+#### Unit propagation: (x5), (¬x3), (¬x4)
+
+### Step 12: Assign x5 = True, x3 = False, x4 = False
+- (¬x5 ∨ x4): (False ∨ False) → False (Conflict!)
+
+### Step 13: Backtrack x5 = False (Conflict 6)
+- (x5): (False) → Conflict!
+
+---
+
+## All branches explored, all lead to conflict.
+
+---
+
+### Final Answers
+
+- **UNSATISFIABLE**
+- **Number of branches (decision points): 6**
+- **Number of conflicts (backtracking steps): 6**

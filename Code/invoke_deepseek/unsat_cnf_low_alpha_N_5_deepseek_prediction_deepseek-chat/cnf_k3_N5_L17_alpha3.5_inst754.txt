@@ -1,0 +1,94 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=754
+p cnf 5 17
+4 5 3 0
+5 -1 2 0
+-3 2 -5 0
+-2 5 -3 0
+-3 4 -2 0
+4 1 -5 0
+5 -1 -4 0
+-4 -1 3 0
+1 -2 -3 0
+-3 -1 -5 0
+-4 -3 -2 0
+3 -4 1 0
+4 5 3 0
+-3 1 5 0
+-1 4 3 0
+5 2 4 0
+3 -5 4 0
+
+c GPT solve time: 55.62 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm. We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to make a decision.
+
+### Step 2: Decision and Propagation
+1. **Decision**: Let’s assign `x1 = True`.  
+   - From clause `(x5 ∨ ¬x1 ∨ x2)`: `x5 ∨ x2` must be true.  
+   - From clause `(x5 ∨ ¬x1 ∨ ¬x4)`: `x5 ∨ ¬x4` must be true.  
+   - From clause `(¬x3 ∨ ¬x1 ∨ ¬x5)`: `¬x3 ∨ ¬x5` must be true.  
+   - From clause `(x1 ∨ ¬x2 ∨ ¬x3)`: `¬x2 ∨ ¬x3` must be true.  
+   - From clause `(¬x1 ∨ x4 ∨ x3)`: `x4 ∨ x3` must be true.  
+
+2. **Decision**: Assign `x2 = True`.  
+   - From clause `(¬x2 ∨ x5 ∨ ¬x3)`: `x5 ∨ ¬x3` must be true.  
+   - From clause `(¬x3 ∨ x2 ∨ ¬x5)`: `¬x3 ∨ ¬x5` must be true.  
+   - From clause `(x5 ∨ x2 ∨ x4)`: `x5 ∨ x4` must be true.  
+
+3. **Decision**: Assign `x3 = True`.  
+   - From clause `(¬x3 ∨ x4 ∨ ¬x2)`: `x4` must be true (since `¬x2` is false and `¬x3` is false).  
+   - From clause `(¬x4 ∨ ¬x3 ∨ ¬x2)`: Conflict (all literals are false).  
+   - **Conflict detected**: Backtrack.  
+
+   **Conflict count**: 1  
+
+4. **Backtrack**: Undo `x3 = True`, try `x3 = False`.  
+   - From clause `(x4 ∨ x5 ∨ x3)`: `x4 ∨ x5` must be true.  
+   - From clause `(¬x3 ∨ x4 ∨ ¬x2)`: `x4` must be true (since `¬x2` is false and `¬x3` is true).  
+   - Assign `x4 = True`.  
+   - From clause `(x4 ∨ x1 ∨ ¬x5)`: `¬x5` must be true (since `x4` and `x1` are true).  
+   - Assign `x5 = False`.  
+   - From clause `(x5 ∨ ¬x1 ∨ x2)`: Conflict (all literals are false).  
+   - **Conflict detected**: Backtrack.  
+
+   **Conflict count**: 2  
+
+5. **Backtrack**: Undo `x2 = True`, try `x2 = False`.  
+   - From clause `(x5 ∨ ¬x1 ∨ x2)`: `x5` must be true (since `¬x1` is false and `x2` is false).  
+   - Assign `x5 = True`.  
+   - From clause `(¬x3 ∨ x2 ∨ ¬x5)`: `¬x3` must be true (since `x2` is false and `¬x5` is false).  
+   - Assign `x3 = False`.  
+   - From clause `(¬x3 ∨ x1 ∨ x5)`: Satisfied (all literals are true).  
+   - From clause `(x3 ∨ ¬x4 ∨ x1)`: `¬x4` must be true (since `x3` is false and `x1` is true).  
+   - Assign `x4 = False`.  
+   - From clause `(x4 ∨ x5 ∨ x3)`: Satisfied (all literals are true).  
+   - From clause `(¬x4 ∨ ¬x1 ∨ x3)`: Satisfied (all literals are true).  
+   - From clause `(x5 ∨ x2 ∨ x4)`: Satisfied (all literals are true).  
+   - From clause `(x3 ∨ ¬x5 ∨ x4)`: Satisfied (all literals are true).  
+
+### Final Assignment:
+- `x1 = True`  
+- `x2 = False`  
+- `x3 = False`  
+- `x4 = False`  
+- `x5 = True`  
+
+### Verification:
+All clauses are satisfied with this assignment.  
+
+### Output:
+- SATISFIABLE  
+- Branches: 3 (decisions on `x1`, `x2`, and `x3`)  
+- Conflicts: 2  
+
+### Final Answer:
+```
+SATISFIABLE
+2
+2
+x1=True, x2=False, x3=False, x4=False, x5=True
+```

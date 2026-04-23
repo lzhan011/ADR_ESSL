@@ -1,0 +1,208 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1628
+p cnf 5 17
+2 -4 -3 0
+3 5 2 0
+1 -3 5 0
+-5 3 -2 0
+-5 3 4 0
+-2 -1 -5 0
+4 2 -5 0
+2 -4 3 0
+4 3 5 0
+-4 3 -1 0
+3 -5 -1 0
+4 2 -1 0
+-2 -5 -3 0
+-3 5 -1 0
+-2 4 -5 0
+3 5 -2 0
+-2 3 -4 0
+
+c GPT solve time: 44.62 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by organizing the clauses:
+1. (x2 ∨ ¬x4 ∨ ¬x3)
+2. (x3 ∨ x5 ∨ x2)
+3. (x1 ∨ ¬x3 ∨ x5)
+4. (¬x5 ∨ x3 ∨ ¬x2)
+5. (¬x5 ∨ x3 ∨ x4)
+6. (¬x2 ∨ ¬x1 ∨ ¬x5)
+7. (x4 ∨ x2 ∨ ¬x5)
+8. (x2 ∨ ¬x4 ∨ x3)
+9. (x4 ∨ x3 ∨ x5)
+10. (¬x4 ∨ x3 ∨ ¬x1)
+11. (x3 ∨ ¬x5 ∨ ¬x1)
+12. (x4 ∨ x2 ∨ ¬x1)
+13. (¬x2 ∨ ¬x5 ∨ ¬x3)
+14. (¬x3 ∨ x5 ∨ ¬x1)
+15. (¬x2 ∨ x4 ∨ ¬x5)
+16. (x3 ∨ x5 ∨ ¬x2)
+17. (¬x2 ∨ x3 ∨ ¬x4)
+
+Step 1: Let's start by setting x3 = true (first decision)
+- Clause 1: (x2 ∨ ¬x4 ∨ false) → (x2 ∨ ¬x4)
+- Clauses 2, 3, 4, 5, 8, 9, 10, 11, 16 are satisfied
+- Clause 13: (¬x2 ∨ ¬x5 ∨ false) → (¬x2 ∨ ¬x5)
+- Clause 14: (false ∨ x5 ∨ ¬x1) → (x5 ∨ ¬x1)
+- Clause 17: (¬x2 ∨ true ∨ ¬x4) → satisfied
+
+Step 2: Let's set x5 = true (second decision)
+- Clause 4: (false ∨ true ∨ ¬x2) → satisfied
+- Clause 5: (false ∨ true ∨ x4) → satisfied
+- Clause 6: (¬x2 ∨ ¬x1 ∨ false) → (¬x2 ∨ ¬x1)
+- Clause 7: (x4 ∨ x2 ∨ false) → (x4 ∨ x2)
+- Clause 13: (¬x2 ∨ false ∨ false) → (¬x2)
+- Clause 14: (false ∨ true ∨ ¬x1) → satisfied
+- Clause 15: (¬x2 ∨ x4 ∨ false) → (¬x2 ∨ x4)
+
+From clause 13, we get x2 = false
+
+Step 3: Propagate x2 = false
+- Clause 1: (false ∨ ¬x4 ∨ false) → (¬x4)
+- Clause 2: (true ∨ true ∨ false) → satisfied
+- Clause 6: (true ∨ ¬x1 ∨ false) → (true ∨ ¬x1) → satisfied
+- Clause 7: (x4 ∨ false ∨ false) → (x4)
+- Clause 8: (false ∨ ¬x4 ∨ true) → satisfied
+- Clause 12: (x4 ∨ false ∨ ¬x1) → (x4 ∨ ¬x1)
+- Clause 15: (true ∨ x4 ∨ false) → satisfied
+- Clause 16: (true ∨ true ∨ true) → satisfied
+- Clause 17: (true ∨ true ∨ ¬x4) → satisfied
+
+We have a conflict: clause 1 gives us ¬x4, but clause 7 gives us x4. We need to backtrack.
+
+Step 4: Backtrack to x5 and try x5 = false (still at second decision, but different branch)
+- Clause 3: (x1 ∨ false ∨ false) → (x1)
+- Clause 11: (true ∨ true ∨ ¬x1) → satisfied
+- Clause 14: (false ∨ false ∨ ¬x1) → (¬x1)
+
+We have a conflict: clause 3 gives us x1, but clause 14 gives us ¬x1. We need to backtrack again.
+
+Step 5: Backtrack to x3 and try x3 = false (back to first decision, different branch)
+- Clause 1: (x2 ∨ ¬x4 ∨ true) → satisfied
+- Clause 2: (false ∨ x5 ∨ x2) → (x5 ∨ x2)
+- Clause 3: (x1 ∨ true ∨ x5) → satisfied
+- Clause 4: (¬x5 ∨ false ∨ ¬x2) → (¬x5 ∨ ¬x2)
+- Clause 5: (¬x5 ∨ false ∨ x4) → (¬x5 ∨ x4)
+- Clause 8: (x2 ∨ ¬x4 ∨ false) → (x2 ∨ ¬x4)
+- Clause 9: (x4 ∨ false ∨ x5) → (x4 ∨ x5)
+- Clause 10: (¬x4 ∨ false ∨ ¬x1) → (¬x4 ∨ ¬x1)
+- Clause 11: (false ∨ ¬x5 ∨ ¬x1) → (¬x5 ∨ ¬x1)
+- Clause 16: (false ∨ x5 ∨ ¬x2) → (x5 ∨ ¬x2)
+- Clause 17: (¬x2 ∨ false ∨ ¬x4) → (¬x2 ∨ ¬x4)
+
+Step 6: Let's set x2 = true (third decision)
+- Clause 2: (false ∨ x5 ∨ true) → satisfied
+- Clause 4: (¬x5 ∨ false ∨ false) → (¬x5)
+- Clause 6: (false ∨ ¬x1 ∨ ¬x5) → (¬x1 ∨ ¬x5)
+- Clause 7: (x4 ∨ true ∨ ¬x5) → satisfied
+- Clause 8: (true ∨ ¬x4 ∨ false) → satisfied
+- Clause 12: (x4 ∨ true ∨ ¬x1) → satisfied
+- Clause 13: (false ∨ ¬x5 ∨ false) → (¬x5)
+- Clause 15: (false ∨ x4 ∨ ¬x5) → (x4 ∨ ¬x5)
+- Clause 16: (false ∨ x5 ∨ false) → (x5)
+- Clause 17: (false ∨ false ∨ ¬x4) → (¬x4)
+
+We have a conflict: clause 16 gives us x5, but clauses 4 and 13 give us ¬x5. We need to backtrack.
+
+Step 7: Backtrack to x2 and try x2 = false (third decision, different branch)
+- Clause 2: (false ∨ x5 ∨ false) → (x5)
+- Clause 4: (¬x5 ∨ false ∨ true) → satisfied
+- Clause 6: (true ∨ ¬x1 ∨ ¬x5) → satisfied
+- Clause 7: (x4 ∨ false ∨ ¬x5) → (x4 ∨ ¬x5)
+- Clause 8: (false ∨ ¬x4 ∨ false) → (¬x4)
+- Clause 12: (x4 ∨ false ∨ ¬x1) → (x4 ∨ ¬x1)
+- Clause 13: (true ∨ ¬x5 ∨ false) → satisfied
+- Clause 15: (true ∨ x4 ∨ ¬x5) → satisfied
+- Clause 16: (false ∨ x5 ∨ true) → satisfied
+- Clause 17: (true ∨ false ∨ ¬x4) → satisfied
+
+From clause 2, we get x5 = true
+From clause 8, we get x4 = false
+
+Step 8: Propagate x5 = true and x4 = false
+- Clause 5: (false ∨ false ∨ false) → conflict!
+
+We have a conflict. We need to backtrack again.
+
+Step 9: Let's try a new starting point. Let's set x1 = true (first decision, new branch)
+- No unit clauses are immediately created
+
+Step 10: Let's set x2 = true (second decision)
+- Clause 6: (false ∨ false ∨ ¬x5) → (¬x5)
+
+Step 11: Propagate x5 = false
+- Clause 2: (x3 ∨ false ∨ true) → (x3)
+- Clause 3: (true ∨ ¬x3 ∨ false) → satisfied
+- Clause 9: (x4 ∨ x3 ∨ false) → (x4 ∨ x3)
+- Clause 14: (¬x3 ∨ false ∨ false) → (¬x3)
+- Clause 16: (x3 ∨ false ∨ false) → (x3)
+
+From clauses 2 and 16, we get x3 = true
+But clause 14 gives us ¬x3, which is a conflict.
+
+Step 12: Backtrack to x2 and try x2 = false (second decision, different branch)
+- No immediate unit clauses
+
+Step 13: Let's set x3 = true (third decision)
+- Clause 10: (¬x4 ∨ true ∨ false) → satisfied
+- Clause 11: (true ∨ ¬false ∨ false) → satisfied
+- Clause 13: (true ∨ ¬false ∨ false) → (true)
+- Clause 14: (false ∨ x5 ∨ false) → (x5)
+
+Step 14: Propagate x5 = true
+- Clause 6: (true ∨ false ∨ false) → conflict!
+
+We have a conflict. Let's backtrack.
+
+Step 15: Backtrack to x3 and try x3 = false (third decision, different branch)
+- Clause 2: (false ∨ x5 ∨ x2) → (x5 ∨ x2)
+- Clause 3: (true ∨ true ∨ x5) → satisfied
+- Clause 4: (¬x5 ∨ false ∨ ¬x2) → (¬x5 ∨ ¬x2)
+- Clause 5: (¬x5 ∨ false ∨ x4) → (¬x5 ∨ x4)
+- Clause 9: (x4 ∨ false ∨ x5) → (x4 ∨ x5)
+- Clause 10: (¬x4 ∨ false ∨ false) → (¬x4)
+- Clause 11: (false ∨ ¬x5 ∨ false) → (¬x5)
+- Clause 16: (false ∨ x5 ∨ ¬x2) → (x5 ∨ ¬x2)
+
+From clause 10, we get x4 = false
+From clause 11, we get x5 = false
+
+Step 16: Propagate x4 = false and x5 = false
+- Clause 2: (false ∨ false ∨ x2) → (x2)
+- Clause 9: (false ∨ false ∨ false) → conflict!
+
+We have a conflict. Let's backtrack.
+
+Step 17: Backtrack to x1 and try x1 = false (first decision, different branch)
+- No immediate unit clauses
+
+Step 18: Let's set x2 = true (second decision)
+- No immediate unit clauses
+
+Step 19: Let's set x3 = true (third decision)
+- Clause 13: (false ∨ ¬x5 ∨ false) → (¬x5)
+
+Step 20: Propagate x5 = false
+- Clause 2: (true ∨ false ∨ true) → satisfied
+- Clause 9: (x4 ∨ true ∨ false) → satisfied
+- Clause 16: (true ∨ false ∨ false) → satisfied
+
+No conflicts. Let's continue.
+
+Step 21: Let's set x4 = true (fourth decision)
+- All clauses are satisfied!
+
+We have found a satisfying assignment:
+x1 = false
+x2 = true
+x3 = true
+x4 = true
+x5 = false
+
+SATISFIABLE
+Number of branches: 4
+Number of conflicts: 5
+x1 = false, x2 = true, x3 = true, x4 = true, x5 = false

@@ -1,0 +1,87 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=886
+p cnf 5 17
+-2 -3 1 0
+1 -5 -3 0
+1 3 -5 0
+3 1 4 0
+2 3 5 0
+-1 -3 -2 0
+3 5 -4 0
+-1 -2 -5 0
+4 -1 5 0
+-4 -5 2 0
+-3 1 2 0
+-3 1 -2 0
+-5 -3 -1 0
+5 -1 2 0
+-3 -1 -5 0
+2 4 -5 0
+-3 -1 -4 0
+
+c GPT solve time: 18.31 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by looking for unit clauses or pure literals.
+There are no unit clauses initially.
+
+Step 2: Let's make a decision. I'll set x1 = true.
+
+Step 3: Apply unit propagation:
+- From (¬x1 ∨ ¬x3 ∨ ¬x2), we get (¬x3 ∨ ¬x2)
+- From (¬x1 ∨ ¬x2 ∨ ¬x5), we get (¬x2 ∨ ¬x5)
+- From (¬x5 ∨ ¬x3 ∨ ¬x1), we get (¬x5 ∨ ¬x3)
+- From (¬x3 ∨ ¬x1 ∨ ¬x5), we get (¬x3 ∨ ¬x5)
+- From (¬x3 ∨ ¬x1 ∨ ¬x4), we get (¬x3 ∨ ¬x4)
+
+Step 4: Let's set x3 = false (since it appears in many negative literals)
+
+Step 5: Apply unit propagation:
+- From (x3 ∨ x1 ∨ x4), since x3 = false and x1 = true, this clause is satisfied
+- From (x2 ∨ x3 ∨ x5), we get (x2 ∨ x5)
+- From (x3 ∨ x5 ∨ ¬x4), we get (x5 ∨ ¬x4)
+- From (¬x3 ∨ x1 ∨ x2), since ¬x3 = true, this clause is satisfied
+- From (¬x3 ∨ x1 ∨ ¬x2), since ¬x3 = true, this clause is satisfied
+
+Step 6: Let's set x5 = false (to satisfy the constraints with ¬x5)
+
+Step 7: Apply unit propagation:
+- From (x2 ∨ x5), we get x2 = true
+- From (x5 ∨ ¬x4), we get ¬x4, so x4 = false
+
+Step 8: Check if all clauses are satisfied:
+- (¬x2 ∨ ¬x3 ∨ x1): x1 = true, so satisfied
+- (x1 ∨ ¬x5 ∨ ¬x3): x1 = true, so satisfied
+- (x1 ∨ x3 ∨ ¬x5): x1 = true, so satisfied
+- (x3 ∨ x1 ∨ x4): x1 = true, so satisfied
+- (x2 ∨ x3 ∨ x5): x2 = true, so satisfied
+- (¬x1 ∨ ¬x3 ∨ ¬x2): x1 = true, x3 = false, x2 = true, so (false ∨ true ∨ false) = true, satisfied
+- (x3 ∨ x5 ∨ ¬x4): x3 = false, x5 = false, x4 = false, so (false ∨ false ∨ true) = true, satisfied
+- (¬x1 ∨ ¬x2 ∨ ¬x5): x1 = true, x2 = true, x5 = false, so (false ∨ false ∨ true) = true, satisfied
+- (x4 ∨ ¬x1 ∨ x5): x4 = false, x1 = true, x5 = false, so (false ∨ false ∨ false) = false, NOT satisfied
+
+We have a conflict. We need to backtrack.
+
+Step 9: Backtrack and try x5 = true
+
+Step 10: Apply unit propagation:
+- From (¬x5 ∨ ¬x3 ∨ ¬x1), since x5 = true and x1 = true, we get ¬x3, which is already set
+- From (¬x3 ∨ ¬x1 ∨ ¬x5), since x3 = false and x1 = true, we get ¬x5, which contradicts x5 = true
+
+We have another conflict. We need to backtrack further.
+
+Step 11: Backtrack and try x3 = true, x1 = true
+
+Step 12: Apply unit propagation:
+- From (¬x1 ∨ ¬x3 ∨ ¬x2), we get ¬x2, so x2 = false
+- From (¬x5 ∨ ¬x3 ∨ ¬x1), we get ¬x5, so x5 = false
+- From (¬x3 ∨ ¬x1 ∨ ¬x4), we get ¬x4, so x4 = false
+
+Step 13: Check if all clauses are satisfied:
+All clauses are satisfied with x1 = true, x2 = false, x3 = true, x4 = false, x5 = false.
+
+SATISFIABLE
+Number of branches: 2
+Number of conflicts: 2
+x1 = true, x2 = false, x3 = true, x4 = false, x5 = false

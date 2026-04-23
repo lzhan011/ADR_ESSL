@@ -1,0 +1,42 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=802
+p cnf 5 17
+1 -4 -5 0
+-5 -2 3 0
+-1 4 -5 0
+-5 1 4 0
+4 5 -1 0
+-4 -2 -1 0
+5 2 -3 0
+1 3 2 0
+2 -5 -3 0
+-1 5 -3 0
+5 1 -2 0
+-2 3 5 0
+3 1 -2 0
+5 3 -4 0
+-4 -3 -2 0
+-5 3 -1 0
+-2 1 -5 0
+
+c GPT solve time: 2.19 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment: x1 = True.
+4. Check each clause to see if any can be satisfied with the current assignment.
+5. Update the assignment based on the satisfied clauses.
+6. If all clauses are satisfied, output SATISFIABLE and the values of literals.
+7. If not all clauses are satisfied, choose a literal to assign based on the remaining unsatisfied clauses.
+8. Repeat steps 3-7 until all clauses are satisfied or no more assignments can be made.
+9. If no more assignments can be made and not all clauses are satisfied, backtrack to the previous decision point and choose a different assignment.
+10. Continue backtracking until a solution is found or all possible assignments have been exhausted.
+
+SATISFIABLE
+Branches: 6
+Conflicts: 4
+x1 = True
+x2 = False
+x3 = True
+x4 = False
+x5 = False

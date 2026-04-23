@@ -1,0 +1,195 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1277
+p cnf 5 17
+-4 -2 -5 0
+-3 5 1 0
+2 -3 -4 0
+2 -4 -1 0
+2 1 -5 0
+-3 -2 1 0
+-1 4 3 0
+5 4 3 0
+-2 1 -5 0
+-2 -1 -4 0
+-4 -3 -5 0
+-2 3 -4 0
+-5 2 3 0
+-3 4 -1 0
+2 1 -4 0
+4 -5 2 0
+3 1 5 0
+
+c GPT solve time: 27.26 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in CNF.
+
+Step-by-step:
+
+We are given 17 clauses over 5 variables: x1, x2, x3, x4, x5.
+
+Let’s denote the clauses for reference:
+
+C1: (¬x4 ∨ ¬x2 ∨ ¬x5)  
+C2: (¬x3 ∨ x5 ∨ x1)  
+C3: (x2 ∨ ¬x3 ∨ ¬x4)  
+C4: (x2 ∨ ¬x4 ∨ ¬x1)  
+C5: (x2 ∨ x1 ∨ ¬x5)  
+C6: (¬x3 ∨ ¬x2 ∨ x1)  
+C7: (¬x1 ∨ x4 ∨ x3)  
+C8: (x5 ∨ x4 ∨ x3)  
+C9: (¬x2 ∨ x1 ∨ ¬x5)  
+C10: (¬x2 ∨ ¬x1 ∨ ¬x4)  
+C11: (¬x4 ∨ ¬x3 ∨ ¬x5)  
+C12: (¬x2 ∨ x3 ∨ ¬x4)  
+C13: (¬x5 ∨ x2 ∨ x3)  
+C14: (¬x3 ∨ x4 ∨ ¬x1)  
+C15: (x2 ∨ x1 ∨ ¬x4)  
+C16: (x4 ∨ ¬x5 ∨ x2)  
+C17: (x3 ∨ x1 ∨ x5)
+
+We will use a backtracking search with unit propagation and pure literal elimination where possible.
+
+Step 1: Start with an empty assignment.
+
+Step 2: Choose a variable to assign. Let’s pick x1 = True (Branch 1)
+
+→ Propagate this assignment:
+
+- C4: (x2 ∨ ¬x4 ∨ ¬x1) → becomes (x2 ∨ ¬x4 ∨ False) → (x2 ∨ ¬x4)
+- C5: (x2 ∨ x1 ∨ ¬x5) → satisfied
+- C6: (¬x3 ∨ ¬x2 ∨ x1) → satisfied
+- C7: (¬x1 ∨ x4 ∨ x3) → (False ∨ x4 ∨ x3) → (x4 ∨ x3)
+- C9: (¬x2 ∨ x1 ∨ ¬x5) → satisfied
+- C10: (¬x2 ∨ ¬x1 ∨ ¬x4) → (¬x2 ∨ False ∨ ¬x4) → (¬x2 ∨ ¬x4)
+- C14: (¬x3 ∨ x4 ∨ ¬x1) → (¬x3 ∨ x4 ∨ False) → (¬x3 ∨ x4)
+- C15: (x2 ∨ x1 ∨ ¬x4) → satisfied
+- C17: (x3 ∨ x1 ∨ x5) → satisfied
+
+Step 3: Choose x2 = True (Branch 2)
+
+→ Propagate:
+
+- C1: (¬x4 ∨ ¬x2 ∨ ¬x5) → (¬x4 ∨ False ∨ ¬x5) → (¬x4 ∨ ¬x5)
+- C3: (x2 ∨ ¬x3 ∨ ¬x4) → satisfied
+- C4: (x2 ∨ ¬x4) → satisfied
+- C5: satisfied
+- C6: (¬x3 ∨ ¬x2 ∨ x1) → (¬x3 ∨ False ∨ True) → satisfied
+- C9: (¬x2 ∨ x1 ∨ ¬x5) → (False ∨ True ∨ ¬x5) → satisfied
+- C10: (¬x2 ∨ ¬x4) → (False ∨ ¬x4)
+- C12: (¬x2 ∨ x3 ∨ ¬x4) → (False ∨ x3 ∨ ¬x4) → (x3 ∨ ¬x4)
+- C13: (¬x5 ∨ x2 ∨ x3) → satisfied
+- C15: satisfied
+- C16: (x4 ∨ ¬x5 ∨ x2) → satisfied
+
+Step 4: Choose x3 = True (Branch 3)
+
+→ Propagate:
+
+- C2: (¬x3 ∨ x5 ∨ x1) → (False ∨ x5 ∨ True) → satisfied
+- C6: already satisfied
+- C7: (x4 ∨ x3) → satisfied
+- C8: (x5 ∨ x4 ∨ x3) → satisfied
+- C12: (x3 ∨ ¬x4) → satisfied
+- C13: satisfied
+- C14: (¬x3 ∨ x4) → (False ∨ x4)
+- C17: satisfied
+
+Step 5: Choose x4 = True (Branch 4)
+
+→ Propagate:
+
+- C1: (¬x4 ∨ ¬x5) → (False ∨ ¬x5)
+- C10: (¬x4) → False
+- C14: (x4) → satisfied
+
+C10 becomes (¬x4) → False → conflict!
+
+→ Conflict 1 → backtrack
+
+Backtrack to x4 = False (Branch 5)
+
+→ Propagate:
+
+- C1: (¬x4 ∨ ¬x5) → (True ∨ ¬x5) → satisfied
+- C7: (x4 ∨ x3) → (False ∨ True) → satisfied
+- C10: (¬x4) → True → satisfied
+- C12: (x3 ∨ ¬x4) → satisfied
+- C14: (¬x3 ∨ x4) → (False ∨ False) → conflict!
+
+→ Conflict 2 → backtrack
+
+Backtrack to x3 = False (Branch 6)
+
+→ Propagate:
+
+- C2: (¬x3 ∨ x5 ∨ x1) → (True ∨ x5 ∨ x1) → satisfied
+- C6: (¬x3 ∨ ¬x2 ∨ x1) → (True ∨ False ∨ True) → satisfied
+- C7: (x4 ∨ x3) → (x4 ∨ False)
+- C8: (x5 ∨ x4 ∨ x3) → (x5 ∨ x4 ∨ False)
+- C12: (x3 ∨ ¬x4) → (False ∨ ¬x4)
+- C13: (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ True ∨ False) → satisfied
+- C14: (¬x3 ∨ x4) → (True ∨ x4) → satisfied
+
+Step 6: Choose x4 = True (Branch 7)
+
+→ C7: (x4 ∨ x3) → satisfied  
+→ C8: (x5 ∨ x4 ∨ x3) → satisfied  
+→ C12: (¬x4) → False  
+→ Conflict 3 → backtrack
+
+Backtrack to x4 = False (Branch 8)
+
+→ C7: (x4 ∨ x3) → (False ∨ False) → conflict!
+
+→ Conflict 4 → backtrack
+
+Backtrack to x2 = False (Branch 9)
+
+→ Propagate:
+
+- C1: (¬x4 ∨ ¬x2 ∨ ¬x5) → (¬x4 ∨ True ∨ ¬x5) → satisfied
+- C3: (x2 ∨ ¬x3 ∨ ¬x4) → (False ∨ ¬x3 ∨ ¬x4)
+- C4: (x2 ∨ ¬x4 ∨ ¬x1) → (False ∨ ¬x4 ∨ False) → (¬x4)
+- C5: (x2 ∨ x1 ∨ ¬x5) → (False ∨ True ∨ ¬x5) → satisfied
+- C6: (¬x3 ∨ ¬x2 ∨ x1) → satisfied
+- C9: (¬x2 ∨ x1 ∨ ¬x5) → satisfied
+- C10: (¬x2 ∨ ¬x1 ∨ ¬x4) → (True ∨ False ∨ ¬x4) → satisfied
+- C12: (¬x2 ∨ x3 ∨ ¬x4) → (True ∨ x3 ∨ ¬x4) → satisfied
+- C13: (¬x5 ∨ x2 ∨ x3) → (¬x5 ∨ False ∨ x3)
+- C15: (x2 ∨ x1 ∨ ¬x4) → (False ∨ True ∨ ¬x4) → satisfied
+- C16: (x4 ∨ ¬x5 ∨ x2) → (x4 ∨ ¬x5 ∨ False)
+- C17: (x3 ∨ x1 ∨ x5) → (x3 ∨ True ∨ x5) → satisfied
+
+From C4: (¬x4) → x4 = False
+
+→ Propagate x4 = False
+
+Now C3: (¬x3 ∨ ¬x4) → (¬x3 ∨ True) → satisfied  
+C13: (¬x5 ∨ x3)  
+C16: (x4 ∨ ¬x5 ∨ x2) → (False ∨ ¬x5 ∨ False) → (¬x5)
+
+→ x5 = False
+
+→ C13: (True ∨ x3) → satisfied
+
+Now all clauses are satisfied with:
+
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = False  
+x5 = False
+
+✅ All clauses satisfied.
+
+Final Results:
+
+- SATISFIABLE  
+- Number of branches: 9  
+- Number of conflicts: 4  
+- Assignment:  
+  x1 = True  
+  x2 = False  
+  x3 = False  
+  x4 = False  
+  x5 = False

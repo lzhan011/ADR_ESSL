@@ -1,0 +1,166 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1078
+p cnf 5 17
+4 -3 2 0
+-3 -2 5 0
+5 4 3 0
+1 -4 5 0
+3 -1 -5 0
+-4 -1 3 0
+-2 1 4 0
+3 1 -2 0
+3 2 -1 0
+1 -2 -4 0
+1 3 -5 0
+-2 -1 -5 0
+4 5 2 0
+1 -5 3 0
+-4 2 -3 0
+2 -3 5 0
+-3 -1 -5 0
+
+c GPT solve time: 12.82 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which involves:
+
+1. Unit propagation
+2. Pure literal elimination
+3. Branching (decision points)
+4. Backtracking upon conflicts
+
+We will track:
+- Number of branches (decision points)
+- Number of conflicts (backtracking steps)
+- Final assignment if satisfiable
+
+Let’s denote the variables: x1, x2, x3, x4, x5
+
+Step-by-step:
+
+Start with no assignments.
+
+Try assigning x1 = True (Branch 1)
+
+→ Propagate consequences:
+Check for unit clauses — none yet.
+
+Try assigning x2 = True (Branch 2)
+
+→ Propagate consequences:
+Still no unit clauses.
+
+Try assigning x3 = True (Branch 3)
+
+→ Propagate:
+Clause (¬x3 ∨ ¬x2 ∨ x5) becomes (False ∨ False ∨ x5) → x5 must be True (unit propagation)
+
+→ Assign x5 = True
+
+Now propagate further:
+Clause (x3 ∨ ¬x1 ∨ ¬x5) = (True ∨ False ∨ False) → satisfied
+
+Clause (¬x2 ∨ ¬x1 ∨ ¬x5) = (False ∨ False ∨ False) → CONFLICT
+
+→ Backtrack (Conflict 1)
+
+Backtrack x3 = True → x3 = False (Branch 4)
+
+→ Propagate:
+Clause (x4 ∨ ¬x3 ∨ x2) = (x4 ∨ True ∨ True) → satisfied
+
+Clause (¬x3 ∨ ¬x2 ∨ x5) = (True ∨ False ∨ x5) → satisfied
+
+Clause (x5 ∨ x4 ∨ x3) = (x5 ∨ x4 ∨ False)
+
+No unit clauses yet.
+
+Try assigning x4 = True (Branch 5)
+
+→ Clause (x5 ∨ x4 ∨ x3) = (x5 ∨ True ∨ False) → satisfied
+
+Clause (x1 ∨ ¬x4 ∨ x5) = (True ∨ False ∨ x5) → satisfied
+
+Clause (¬x4 ∨ ¬x1 ∨ x3) = (False ∨ False ∨ False) → CONFLICT
+
+→ Backtrack (Conflict 2)
+
+Try x4 = False (Branch 6)
+
+→ Clause (x5 ∨ x4 ∨ x3) = (x5 ∨ False ∨ False) → becomes (x5)
+
+→ Unit propagate x5 = True
+
+Now check clause (¬x2 ∨ ¬x1 ∨ ¬x5) = (False ∨ False ∨ False) → CONFLICT
+
+→ Backtrack (Conflict 3)
+
+Backtrack x4 = False → no more options for x4
+
+Backtrack x3 = False → no more options
+
+Backtrack x2 = True → try x2 = False (Branch 7)
+
+→ Propagate:
+Clause (¬x2 ∨ x1 ∨ x4) = (True ∨ x1 ∨ x4) → satisfied
+
+Clause (x3 ∨ x1 ∨ ¬x2) = (x3 ∨ x1 ∨ True) → satisfied
+
+Clause (x3 ∨ x2 ∨ ¬x1) = (x3 ∨ False ∨ False) → becomes (x3)
+
+→ Unit propagate x3 = True
+
+Clause (¬x3 ∨ ¬x2 ∨ x5) = (False ∨ True ∨ x5) → satisfied
+
+Clause (x5 ∨ x4 ∨ x3) = (x5 ∨ x4 ∨ True) → satisfied
+
+Clause (x1 ∨ ¬x4 ∨ x5) = (True ∨ ¬x4 ∨ x5) → satisfied
+
+Clause (x3 ∨ ¬x1 ∨ ¬x5) = (True ∨ False ∨ ¬x5) → satisfied
+
+Clause (¬x4 ∨ ¬x1 ∨ x3) = (¬x4 ∨ False ∨ True) → satisfied
+
+Clause (¬x2 ∨ ¬x1 ∨ ¬x5) = (True ∨ False ∨ ¬x5) → satisfied
+
+Clause (x1 ∨ x3 ∨ ¬x5) = (True ∨ True ∨ ¬x5) → satisfied
+
+Clause (¬x3 ∨ ¬x1 ∨ ¬x5) = (False ∨ False ∨ ¬x5) → becomes (¬x5)
+
+→ Unit propagate x5 = False
+
+Now check clause (x4 ∨ x5 ∨ x2) = (x4 ∨ False ∨ False) → becomes (x4)
+
+→ Unit propagate x4 = True
+
+Now all variables assigned:
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = True  
+x5 = False
+
+Check all clauses — all are satisfied.
+
+✅ SATISFIABLE
+
+Summary:
+
+- Branches (decision points): 7  
+- Conflicts (backtracks): 3
+
+Final assignment:
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = True  
+x5 = False
+
+Answer:
+
+SATISFIABLE  
+7  
+3  
+x1 = True  
+x2 = False  
+x3 = True  
+x4 = True  
+x5 = False

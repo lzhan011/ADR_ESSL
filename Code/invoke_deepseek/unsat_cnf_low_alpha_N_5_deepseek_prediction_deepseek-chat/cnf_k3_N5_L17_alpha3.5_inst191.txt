@@ -1,0 +1,148 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=191
+p cnf 5 17
+-4 -2 -5 0
+2 -4 -3 0
+-2 5 4 0
+-4 5 -2 0
+4 -1 3 0
+3 -1 2 0
+3 -4 5 0
+4 1 -3 0
+4 -3 2 0
+2 3 5 0
+-1 -3 -5 0
+4 1 5 0
+-2 1 -5 0
+-3 2 4 0
+2 -4 -5 0
+2 -5 3 0
+5 -3 -4 0
+
+c GPT solve time: 134.51 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm. We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially.
+
+### Step 2: Make Decisions and Propagate
+We'll choose variables in order: \( x_1, x_2, x_3, x_4, x_5 \).
+
+#### Decision 1: \( x_1 = \text{True} \) (Branch 1)
+- Propagate \( x_1 = \text{True} \):
+  - Clause \( (x_4 \lor \neg x_1 \lor x_3) \) simplifies to \( (x_4 \lor x_3) \).
+  - Clause \( (x_3 \lor \neg x_1 \lor x_2) \) simplifies to \( (x_3 \lor x_2) \).
+  - Clause \( (x_4 \lor x_1 \lor \neg x_3) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (x_4 \lor x_1 \lor x_5) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (\neg x_1 \lor \neg x_3 \lor \neg x_5) \) simplifies to \( (\neg x_3 \lor \neg x_5) \).
+
+#### Decision 2: \( x_2 = \text{True} \) (Branch 2)
+- Propagate \( x_2 = \text{True} \):
+  - Clause \( (\neg x_4 \lor \neg x_2 \lor \neg x_5) \) simplifies to \( (\neg x_4 \lor \neg x_5) \).
+  - Clause \( (x_2 \lor \neg x_4 \lor \neg x_3) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (\neg x_2 \lor x_5 \lor x_4) \) simplifies to \( (x_5 \lor x_4) \).
+  - Clause \( (\neg x_4 \lor x_5 \lor \neg x_2) \) simplifies to \( (\neg x_4 \lor x_5) \).
+  - Clause \( (x_3 \lor x_2) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (x_4 \lor \neg x_3 \lor x_2) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (x_2 \lor x_3 \lor x_5) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (\neg x_2 \lor x_1 \lor \neg x_5) \) simplifies to \( (x_1 \lor \neg x_5) \).
+  - Clause \( (\neg x_3 \lor x_2 \lor x_4) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (x_2 \lor \neg x_4 \lor \neg x_5) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (x_2 \lor \neg x_5 \lor x_3) \) simplifies to \( \text{True} \) (satisfied).
+
+#### Decision 3: \( x_3 = \text{True} \) (Branch 3)
+- Propagate \( x_3 = \text{True} \):
+  - Clause \( (x_4 \lor x_3) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (\neg x_3 \lor \neg x_5) \) simplifies to \( (\neg x_5) \). This forces \( x_5 = \text{False} \).
+  - Clause \( (x_5 \lor \neg x_3 \lor \neg x_4) \) simplifies to \( (\text{False} \lor \neg x_4) \), which simplifies to \( (\neg x_4) \). This forces \( x_4 = \text{False} \).
+
+Now check clauses involving \( x_4 \) and \( x_5 \):
+- Clause \( (\neg x_4 \lor \neg x_5) \) simplifies to \( (\text{True} \lor \text{True}) = \text{True} \).
+- Clause \( (x_5 \lor x_4) \) simplifies to \( (\text{False} \lor \text{False}) = \text{False} \). **Conflict!**
+
+#### Conflict Resolution (Conflict 1)
+Backtrack to Decision 3 and set \( x_3 = \text{False} \).
+
+#### Decision 4: \( x_3 = \text{False} \) (Branch 4)
+- Propagate \( x_3 = \text{False} \):
+  - Clause \( (x_4 \lor x_3) \) simplifies to \( (x_4) \). This forces \( x_4 = \text{True} \).
+  - Clause \( (\neg x_3 \lor \neg x_5) \) simplifies to \( \text{True} \) (satisfied).
+  - Clause \( (x_5 \lor \neg x_3 \lor \neg x_4) \) simplifies to \( (x_5 \lor \text{True} \lor \text{False}) = \text{True} \).
+
+Now propagate \( x_4 = \text{True} \):
+- Clause \( (\neg x_4 \lor \neg x_5) \) simplifies to \( (\neg x_5) \). This forces \( x_5 = \text{False} \).
+- Clause \( (x_5 \lor x_4) \) simplifies to \( \text{True} \) (satisfied).
+- Clause \( (\neg x_4 \lor x_5) \) simplifies to \( (x_5) \), which conflicts with \( x_5 = \text{False} \). **Conflict!**
+
+#### Conflict Resolution (Conflict 2)
+Backtrack to Decision 2 and set \( x_2 = \text{False} \).
+
+#### Decision 5: \( x_2 = \text{False} \) (Branch 5)
+- Propagate \( x_2 = \text{False} \):
+  - Clause \( (\neg x_2 \lor x_5 \lor x_4) \) simplifies to \( (x_5 \lor x_4) \).
+  - Clause \( (\neg x_4 \lor x_5 \lor \neg x_2) \) simplifies to \( (\neg x_4 \lor x_5) \).
+  - Clause \( (x_3 \lor \neg x_1 \lor x_2) \) simplifies to \( (x_3) \). This forces \( x_3 = \text{True} \).
+  - Clause \( (x_2 \lor x_3 \lor x_5) \) simplifies to \( (x_3 \lor x_5) \).
+  - Clause \( (\neg x_2 \lor x_1 \lor \neg x_5) \) simplifies to \( (x_1 \lor \neg x_5) \).
+  - Clause \( (\neg x_3 \lor x_2 \lor x_4) \) simplifies to \( (\neg x_3 \lor x_4) \).
+  - Clause \( (x_2 \lor \neg x_4 \lor \neg x_5) \) simplifies to \( (\neg x_4 \lor \neg x_5) \).
+  - Clause \( (x_2 \lor \neg x_5 \lor x_3) \) simplifies to \( (\neg x_5 \lor x_3) \).
+
+Now propagate \( x_3 = \text{True} \):
+- Clause \( (\neg x_3 \lor \neg x_5) \) simplifies to \( (\neg x_5) \). This forces \( x_5 = \text{False} \).
+- Clause \( (x_5 \lor \neg x_3 \lor \neg x_4) \) simplifies to \( (\text{False} \lor \text{False} \lor \neg x_4) = (\neg x_4) \). This forces \( x_4 = \text{False} \).
+
+Now check clauses involving \( x_4 \) and \( x_5 \):
+- Clause \( (x_5 \lor x_4) \) simplifies to \( (\text{False} \lor \text{False}) = \text{False} \). **Conflict!**
+
+#### Conflict Resolution (Conflict 3)
+Backtrack to Decision 1 and set \( x_1 = \text{False} \).
+
+#### Decision 6: \( x_1 = \text{False} \) (Branch 6)
+- Propagate \( x_1 = \text{False} \):
+  - Clause \( (x_4 \lor \neg x_1 \lor x_3) \) simplifies to \( (x_4 \lor x_3) \).
+  - Clause \( (x_3 \lor \neg x_1 \lor x_2) \) simplifies to \( (x_3 \lor x_2) \).
+  - Clause \( (x_4 \lor x_1 \lor \neg x_3) \) simplifies to \( (x_4 \lor \neg x_3) \).
+  - Clause \( (x_4 \lor x_1 \lor x_5) \) simplifies to \( (x_4 \lor x_5) \).
+  - Clause \( (\neg x_1 \lor \neg x_3 \lor \neg x_5) \) simplifies to \( \text{True} \) (satisfied).
+
+#### Decision 7: \( x_2 = \text{True} \) (Branch 7)
+- Propagate \( x_2 = \text{True} \):
+  - Similar to earlier steps, but now \( x_1 = \text{False} \).
+  - Clause \( (\neg x_2 \lor x_1 \lor \neg x_5) \) simplifies to \( (\neg x_5) \). This forces \( x_5 = \text{False} \).
+
+Now propagate \( x_5 = \text{False} \):
+- Clause \( (x_4 \lor x_5) \) simplifies to \( (x_4) \). This forces \( x_4 = \text{True} \).
+
+Now propagate \( x_4 = \text{True} \):
+- Clause \( (x_4 \lor x_3) \) simplifies to \( \text{True} \) (satisfied).
+- Clause \( (x_4 \lor \neg x_3) \) simplifies to \( \text{True} \) (satisfied).
+- Clause \( (\neg x_4 \lor \neg x_5) \) simplifies to \( \text{True} \) (satisfied).
+- Clause \( (\neg x_4 \lor x_5) \) simplifies to \( (\text{False}) \). **Conflict!**
+
+#### Conflict Resolution (Conflict 4)
+Backtrack to Decision 7 and set \( x_2 = \text{False} \).
+
+#### Decision 8: \( x_2 = \text{False} \) (Branch 8)
+- Propagate \( x_2 = \text{False} \):
+  - Clause \( (x_3 \lor x_2) \) simplifies to \( (x_3) \). This forces \( x_3 = \text{True} \).
+
+Now propagate \( x_3 = \text{True} \):
+- Clause \( (x_4 \lor x_3) \) simplifies to \( \text{True} \) (satisfied).
+- Clause \( (x_4 \lor \neg x_3) \) simplifies to \( (x_4) \). This forces \( x_4 = \text{True} \).
+- Clause \( (x_5 \lor \neg x_3 \lor \neg x_4) \) simplifies to \( (x_5 \lor \text{False} \lor \text{False}) = (x_5) \). This forces \( x_5 = \text{True} \).
+
+Now check all clauses:
+- All clauses are satisfied with:
+  - \( x_1 = \text{False} \),
+  - \( x_2 = \text{False} \),
+  - \( x_3 = \text{True} \),
+  - \( x_4 = \text{True} \),
+  - \( x_5 = \text{True} \).
+
+### Final Answer:
+- SATISFIABLE
+- Branches: 8
+- Conflicts: 4
+- Literals: \( x_1 = \text{False}, x_2 = \text{False}, x_3 = \text{True}, x_4 = \text{True}, x_5 = \text{True} \)

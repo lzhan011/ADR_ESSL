@@ -10,7 +10,7 @@ import re
 from typing import Tuple, List, Optional
 
 # ========= 基础配置（除模型外，其它尽量保持不变） =========
-openai.api_key  = os.environ["OPENAI_API_KEY"]
+openai.api_key  = os.environ.get("OPENAI_API_KEY")
 openai.api_base = "https://api.openai.com/v1"
 
 # 遍历的模型列表（把原来的 model_selected 改为这个列表）

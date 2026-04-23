@@ -1,0 +1,173 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1443
+p cnf 5 17
+3 -2 1 0
+-3 4 -2 0
+4 2 -1 0
+-4 -1 3 0
+1 -3 -4 0
+1 -2 4 0
+2 3 -5 0
+-4 -3 -1 0
+1 2 5 0
+-1 -4 -3 0
+3 -5 -4 0
+-3 2 -5 0
+2 4 3 0
+-3 5 4 0
+1 -5 -4 0
+2 -1 3 0
+-2 -1 3 0
+
+c GPT solve time: 41.29 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me list the clauses:
+1. (x3 ∨ ¬x2 ∨ x1)
+2. (¬x3 ∨ x4 ∨ ¬x2)
+3. (x4 ∨ x2 ∨ ¬x1)
+4. (¬x4 ∨ ¬x1 ∨ x3)
+5. (x1 ∨ ¬x3 ∨ ¬x4)
+6. (x1 ∨ ¬x2 ∨ x4)
+7. (x2 ∨ x3 ∨ ¬x5)
+8. (¬x4 ∨ ¬x3 ∨ ¬x1)
+9. (x1 ∨ x2 ∨ x5)
+10. (¬x1 ∨ ¬x4 ∨ ¬x3)
+11. (x3 ∨ ¬x5 ∨ ¬x4)
+12. (¬x3 ∨ x2 ∨ ¬x5)
+13. (x2 ∨ x4 ∨ x3)
+14. (¬x3 ∨ x5 ∨ x4)
+15. (x1 ∨ ¬x5 ∨ ¬x4)
+16. (x2 ∨ ¬x1 ∨ x3)
+17. (¬x2 ∨ ¬x1 ∨ x3)
+
+Step 1: Let's start by setting x1 = true
+- Clauses 3, 4, 8, 10, 16, 17 are affected
+- Clause 3 becomes (x4 ∨ x2)
+- Clause 4 becomes (¬x4 ∨ x3)
+- Clause 8 becomes (¬x4 ∨ ¬x3)
+- Clause 10 becomes (¬x4 ∨ ¬x3)
+- Clause 16 becomes (x2 ∨ x3)
+- Clause 17 becomes (¬x2 ∨ x3)
+
+Step 2: Let's set x2 = true
+- Clauses 1, 2, 7, 12, 13, 16, 17 are affected
+- Clause 1 becomes (x3 ∨ false ∨ x1) = (x3 ∨ x1) = satisfied (since x1 = true)
+- Clause 2 becomes (¬x3 ∨ x4 ∨ false) = (¬x3 ∨ x4)
+- Clause 7 becomes (true ∨ x3 ∨ ¬x5) = satisfied
+- Clause 12 becomes (¬x3 ∨ true ∨ ¬x5) = satisfied
+- Clause 13 becomes (true ∨ x4 ∨ x3) = satisfied
+- Clause 16 becomes (true ∨ ¬x1 ∨ x3) = satisfied
+- Clause 17 becomes (false ∨ ¬x1 ∨ x3) = (¬x1 ∨ x3) = (x3) (since x1 = true)
+
+So we must have x3 = true.
+
+Step 3: Set x3 = true
+- Clauses 2, 4, 5, 8, 10, 11, 14 are affected
+- Clause 2 becomes (false ∨ x4 ∨ ¬x2) = (x4 ∨ ¬x2) = (x4) (since x2 = true)
+- Clause 4 becomes (¬x4 ∨ ¬x1 ∨ true) = satisfied
+- Clause 5 becomes (x1 ∨ false ∨ ¬x4) = (x1 ∨ ¬x4) = satisfied (since x1 = true)
+- Clause 8 becomes (¬x4 ∨ false ∨ ¬x1) = (¬x4 ∨ ¬x1) = (¬x4) (since x1 = true)
+- Clause 10 becomes (¬x1 ∨ ¬x4 ∨ false) = (¬x1 ∨ ¬x4) = (¬x4) (since x1 = true)
+- Clause 11 becomes (true ∨ ¬x5 ∨ ¬x4) = satisfied
+- Clause 14 becomes (false ∨ x5 ∨ x4) = (x5 ∨ x4)
+
+We have a contradiction: Clause 2 requires x4 = true, but Clauses 8 and 10 require x4 = false.
+
+Step 4: Backtrack and try x3 = false
+But we can't do this because we derived x3 = true as a unit clause.
+
+Step 5: Backtrack and try x2 = false
+- Clauses 1, 2, 6, 7, 9, 12, 13, 16, 17 are affected
+- Clause 1 becomes (x3 ∨ true ∨ x1) = satisfied
+- Clause 2 becomes (¬x3 ∨ x4 ∨ true) = satisfied
+- Clause 6 becomes (x1 ∨ true ∨ x4) = satisfied
+- Clause 7 becomes (false ∨ x3 ∨ ¬x5) = (x3 ∨ ¬x5)
+- Clause 9 becomes (x1 ∨ false ∨ x5) = (x1 ∨ x5) = satisfied (since x1 = true)
+- Clause 12 becomes (¬x3 ∨ false ∨ ¬x5) = (¬x3 ∨ ¬x5)
+- Clause 13 becomes (false ∨ x4 ∨ x3) = (x4 ∨ x3)
+- Clause 16 becomes (false ∨ ¬x1 ∨ x3) = (¬x1 ∨ x3) = (x3) (since x1 = true)
+- Clause 17 becomes (true ∨ ¬x1 ∨ x3) = satisfied
+
+So we must have x3 = true.
+
+Step 6: Set x3 = true
+- Clauses 2, 4, 5, 7, 8, 10, 11, 12, 14 are affected
+- Clause 2 becomes (false ∨ x4 ∨ true) = satisfied
+- Clause 4 becomes (¬x4 ∨ ¬x1 ∨ true) = satisfied
+- Clause 5 becomes (x1 ∨ false ∨ ¬x4) = (x1 ∨ ¬x4) = satisfied (since x1 = true)
+- Clause 7 becomes (false ∨ true ∨ ¬x5) = satisfied
+- Clause 8 becomes (¬x4 ∨ false ∨ ¬x1) = (¬x4 ∨ ¬x1) = (¬x4) (since x1 = true)
+- Clause 10 becomes (¬x1 ∨ ¬x4 ∨ false) = (¬x1 ∨ ¬x4) = (¬x4) (since x1 = true)
+- Clause 11 becomes (true ∨ ¬x5 ∨ ¬x4) = satisfied
+- Clause 12 becomes (false ∨ false ∨ ¬x5) = (¬x5)
+- Clause 13 becomes (false ∨ x4 ∨ true) = satisfied
+- Clause 14 becomes (false ∨ x5 ∨ x4) = (x5 ∨ x4)
+
+We have x4 = false (from clauses 8 and 10) and x5 = false (from clause 12).
+
+Let's check if this assignment satisfies clause 14: (false ∨ false ∨ false) = false
+
+We have a contradiction. Clause 14 is not satisfied.
+
+Step 7: Backtrack and try x1 = false
+- Clauses 1, 3, 4, 5, 6, 8, 9, 10, 15, 16, 17 are affected
+- Clause 1 becomes (x3 ∨ ¬x2 ∨ false) = (x3 ∨ ¬x2)
+- Clause 3 becomes (x4 ∨ x2 ∨ true) = satisfied
+- Clause 4 becomes (¬x4 ∨ true ∨ x3) = satisfied
+- Clause 5 becomes (false ∨ ¬x3 ∨ ¬x4) = (¬x3 ∨ ¬x4)
+- Clause 6 becomes (false ∨ ¬x2 ∨ x4) = (¬x2 ∨ x4)
+- Clause 8 becomes (¬x4 ∨ ¬x3 ∨ true) = satisfied
+- Clause 9 becomes (false ∨ x2 ∨ x5) = (x2 ∨ x5)
+- Clause 10 becomes (true ∨ ¬x4 ∨ ¬x3) = satisfied
+- Clause 15 becomes (false ∨ ¬x5 ∨ ¬x4) = (¬x5 ∨ ¬x4)
+- Clause 16 becomes (x2 ∨ true ∨ x3) = satisfied
+- Clause 17 becomes (¬x2 ∨ true ∨ x3) = satisfied
+
+Step 8: Let's set x2 = true
+- Clauses 1, 2, 6, 7, 9, 12, 13, 16, 17 are affected
+- Clause 1 becomes (x3 ∨ false ∨ false) = (x3)
+- Clause 2 becomes (¬x3 ∨ x4 ∨ false) = (¬x3 ∨ x4)
+- Clause 6 becomes (false ∨ false ∨ x4) = (x4)
+- Clause 7 becomes (true ∨ x3 ∨ ¬x5) = satisfied
+- Clause 9 becomes (false ∨ true ∨ x5) = satisfied
+- Clause 12 becomes (¬x3 ∨ true ∨ ¬x5) = satisfied
+- Clause 13 becomes (true ∨ x4 ∨ x3) = satisfied
+- Clause 16 becomes (true ∨ true ∨ x3) = satisfied
+- Clause 17 becomes (false ∨ true ∨ x3) = satisfied
+
+We have unit clauses: x3 = true and x4 = true
+
+Step 9: Set x3 = true and x4 = true
+- With x3 = true, clause 2 becomes (false ∨ true ∨ false) = satisfied
+- With x3 = true, clause 5 becomes (false ∨ false ∨ false) = false
+
+We have a contradiction. Clause 5 is not satisfied.
+
+Step 10: Backtrack and try x2 = false
+- Clauses 1, 2, 6, 7, 9, 12, 13, 16, 17 are affected
+- Clause 1 becomes (x3 ∨ true ∨ false) = (x3)
+- Clause 2 becomes (¬x3 ∨ x4 ∨ true) = satisfied
+- Clause 6 becomes (false ∨ true ∨ x4) = satisfied
+- Clause 7 becomes (false ∨ x3 ∨ ¬x5) = (x3 ∨ ¬x5)
+- Clause 9 becomes (false ∨ false ∨ x5) = (x5)
+- Clause 12 becomes (¬x3 ∨ false ∨ ¬x5) = (¬x3 ∨ ¬x5)
+- Clause 13 becomes (false ∨ x4 ∨ x3) = (x4 ∨ x3)
+- Clause 16 becomes (false ∨ true ∨ x3) = satisfied
+- Clause 17 becomes (true ∨ true ∨ x3) = satisfied
+
+We have unit clauses: x3 = true and x5 = true
+
+Step 11: Set x3 = true and x5 = true
+- With x3 = true, clause 5 becomes (false ∨ false ∨ ¬x4) = (¬x4)
+- With x3 = true, clause 7 becomes (false ∨ true ∨ false) = satisfied
+- With x3 = true, clause 12 becomes (false ∨ false ∨ false) = false
+
+We have a contradiction. Clause 12 is not satisfied.
+
+After exploring all possible branches, we find that the formula is UNSATISFIABLE.
+
+UNSATISFIABLE
+Number of branches: 3
+Number of conflicts: 3

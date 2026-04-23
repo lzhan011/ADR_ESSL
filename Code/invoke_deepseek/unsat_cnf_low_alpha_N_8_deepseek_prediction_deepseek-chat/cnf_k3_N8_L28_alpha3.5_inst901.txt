@@ -1,0 +1,126 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=901
+p cnf 8 28
+-2 6 3 0
+-6 -8 2 0
+-3 1 6 0
+-5 -8 -6 0
+4 2 -3 0
+-2 3 1 0
+-7 2 -1 0
+1 3 -8 0
+-8 -4 -1 0
+1 4 -7 0
+4 -6 -8 0
+-2 7 -3 0
+-4 7 -6 0
+-7 5 -4 0
+-7 4 3 0
+-6 2 4 0
+-1 -6 4 0
+-5 2 -6 0
+-3 8 2 0
+-4 8 -6 0
+2 1 4 0
+-1 -2 -4 0
+4 6 -1 0
+7 8 2 0
+-2 4 6 0
+5 -6 2 0
+3 1 6 0
+7 -8 1 0
+
+c GPT solve time: 58.11 seconds
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching) and backtracking when conflicts arise. Here's the step-by-step solution:
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables in order (x1, x2, ..., x8) and assign values, propagating implications after each decision.
+
+#### Decision 1: x1 = True
+- Propagate from clauses containing ¬x1:
+  - (¬x1 ∨ ¬x6 ∨ x4) → If x6 is False, x4 must be True.
+  - (¬x1 ∨ ¬x2 ∨ ¬x4) → If x2 and x4 are True, conflict arises.
+  
+No immediate conflict, proceed.
+
+#### Decision 2: x2 = True
+- Propagate from clauses containing ¬x2:
+  - (¬x2 ∨ x6 ∨ x3) → x6 or x3 must be True.
+  - (¬x2 ∨ x3 ∨ x1) → x3 or x1 must be True (x1 is already True, so no new info).
+  - (¬x2 ∨ x7 ∨ ¬x3) → x7 or ¬x3 must be True.
+  - (¬x2 ∨ x4 ∨ x6) → x4 or x6 must be True.
+  
+No immediate conflict, proceed.
+
+#### Decision 3: x3 = True
+- Propagate from clauses containing ¬x3:
+  - (¬x3 ∨ x1 ∨ x6) → x1 or x6 must be True (x1 is True, no new info).
+  - (¬x3 ∨ x8 ∨ x2) → x8 or x2 must be True (x2 is True, no new info).
+  
+No immediate conflict, proceed.
+
+#### Decision 4: x4 = True
+- Propagate from clauses containing ¬x4:
+  - (¬x4 ∨ x7 ∨ ¬x6) → x7 or ¬x6 must be True.
+  - (¬x4 ∨ x8 ∨ ¬x6) → x8 or ¬x6 must be True.
+  - (¬x8 ∨ ¬x4 ∨ ¬x1) → If x8 is True, conflict (¬x1 is False, x4 is True).
+  
+Conflict arises if x8 is True. Try x8 = False:
+- (x7 ∨ x8 ∨ x2) → x7 or x8 or x2 must be True (x8 is False, x2 is True, no new info).
+- (x7 ∨ ¬x8 ∨ x1) → x7 or ¬x8 or x1 must be True (¬x8 is True, no new info).
+
+No immediate conflict, proceed.
+
+#### Decision 5: x5 = True
+- Propagate from clauses containing ¬x5:
+  - (¬x5 ∨ ¬x8 ∨ ¬x6) → ¬x8 or ¬x6 must be True (¬x8 is True, no new info).
+  - (¬x5 ∨ x2 ∨ ¬x6) → x2 or ¬x6 must be True (x2 is True, no new info).
+  
+No immediate conflict, proceed.
+
+#### Decision 6: x6 = False
+- Propagate from clauses containing x6:
+  - (¬x6 ∨ x2 ∨ x4) → x2 or x4 must be True (both are True, no new info).
+  - (¬x6 ∨ ¬x8 ∨ x2) → ¬x8 or x2 must be True (¬x8 is True, no new info).
+  - (x4 ∨ ¬x6 ∨ ¬x8) → x4 or ¬x6 or ¬x8 must be True (all True, no new info).
+  
+No immediate conflict, proceed.
+
+#### Decision 7: x7 = True
+- Propagate from clauses containing ¬x7:
+  - (¬x7 ∨ x2 ∨ ¬x1) → x2 or ¬x1 must be True (x2 is True, no new info).
+  - (¬x7 ∨ x5 ∨ ¬x4) → x5 or ¬x4 must be True (x5 is True, no new info).
+  - (¬x7 ∨ x4 ∨ x3) → x4 or x3 must be True (both are True, no new info).
+  
+No immediate conflict, proceed.
+
+#### Decision 8: x8 = False (already assigned)
+No new implications.
+
+### Step 3: Verify All Clauses
+Check all clauses to ensure they are satisfied with the current assignments:
+- x1 = True, x2 = True, x3 = True, x4 = True, x5 = True, x6 = False, x7 = True, x8 = False.
+All clauses are satisfied.
+
+### Step 4: Count Branches and Conflicts
+- Branches (decision points): 8 (one for each variable).
+- Conflicts: 1 (when x8 was initially set to True, leading to a conflict).
+
+### Final Answer:
+```
+SATISFIABLE
+Branches: 8
+Conflicts: 1
+x1: True
+x2: True
+x3: True
+x4: True
+x5: True
+x6: False
+x7: True
+x8: False
+```

@@ -1,0 +1,184 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=837
+p cnf 10 35
+6 4 -7 0
+9 8 7 0
+1 -9 8 0
+4 -5 -2 0
+-1 7 6 0
+5 -3 -6 0
+6 -4 9 0
+4 -2 -10 0
+1 -10 9 0
+10 5 -2 0
+4 -6 2 0
+7 5 -8 0
+9 8 6 0
+3 -9 4 0
+3 -5 1 0
+-4 -3 -6 0
+-6 3 7 0
+-6 3 -10 0
+-4 -5 3 0
+-7 -9 1 0
+-3 -2 1 0
+4 -6 9 0
+-9 1 2 0
+9 -3 5 0
+7 9 8 0
+-9 -4 -7 0
+6 5 -1 0
+6 -1 5 0
+-5 2 -4 0
+4 10 3 0
+-8 1 7 0
+2 10 -8 0
+8 -3 -7 0
+-4 10 9 0
+-4 -3 10 0
+
+c GPT solve time: 39.20 seconds
+
+**Step-by-step SAT solving (DPLL-style):**
+
+Let's assign variables in order and propagate constraints, counting branches and conflicts.
+
+---
+
+### 1. Assign x1 = True (Branch 1)
+- Propagate:
+    - (x1 ∨ ¬x9 ∨ x8): Satisfied
+    - (¬x1 ∨ x7 ∨ x6): Satisfied
+    - (x1 ∨ ¬x10 ∨ x9): Satisfied
+    - (x3 ∨ ¬x5 ∨ x1): Satisfied
+    - (¬x7 ∨ ¬x9 ∨ x1): Satisfied
+    - (¬x3 ∨ ¬x2 ∨ x1): Satisfied
+    - (¬x8 ∨ x1 ∨ x7): Satisfied
+
+### 2. Assign x2 = True (Branch 2)
+- Propagate:
+    - (x4 ∨ ¬x5 ∨ ¬x2): (x4 ∨ ¬x5 ∨ False) → (x4 ∨ ¬x5)
+    - (x4 ∨ ¬x2 ∨ ¬x10): (x4 ∨ False ∨ ¬x10) → (x4 ∨ ¬x10)
+    - (x10 ∨ x5 ∨ ¬x2): (x10 ∨ x5 ∨ False) → (x10 ∨ x5)
+    - (¬x5 ∨ x2 ∨ ¬x4): (¬x5 ∨ True ∨ ¬x4): Satisfied
+
+### 3. Assign x3 = True (Branch 3)
+- Propagate:
+    - (x5 ∨ ¬x3 ∨ ¬x6): (x5 ∨ False ∨ ¬x6) → (x5 ∨ ¬x6)
+    - (x3 ∨ ¬x9 ∨ x4): Satisfied
+    - (x3 ∨ ¬x5 ∨ x1): Satisfied
+    - (¬x4 ∨ ¬x3 ∨ ¬x6): (¬x4 ∨ False ∨ ¬x6) → (¬x4 ∨ ¬x6)
+    - (¬x6 ∨ x3 ∨ x7): Satisfied
+    - (¬x6 ∨ x3 ∨ ¬x10): Satisfied
+    - (¬x4 ∨ ¬x5 ∨ x3): Satisfied
+    - (¬x3 ∨ ¬x2 ∨ x1): Satisfied
+    - (x8 ∨ ¬x3 ∨ ¬x7): (x8 ∨ False ∨ ¬x7) → (x8 ∨ ¬x7)
+    - (¬x4 ∨ ¬x3 ∨ x10): (¬x4 ∨ False ∨ x10) → (¬x4 ∨ x10)
+
+### 4. Assign x4 = True (Branch 4)
+- Propagate:
+    - (x6 ∨ x4 ∨ ¬x7): Satisfied
+    - (x4 ∨ ¬x5 ∨ ¬x2): Satisfied
+    - (x4 ∨ ¬x2 ∨ ¬x10): Satisfied
+    - (x4 ∨ ¬x6 ∨ x2): Satisfied
+    - (x4 ∨ ¬x6 ∨ x9): Satisfied
+    - (x4 ∨ x10 ∨ x3): Satisfied
+    - (¬x4 ∨ ¬x3 ∨ ¬x6): (False ∨ ¬x3 ∨ ¬x6): (¬x3 ∨ ¬x6)
+    - (¬x4 ∨ ¬x5 ∨ x3): (False ∨ ¬x5 ∨ x3): (¬x5 ∨ x3)
+    - (¬x9 ∨ ¬x4 ∨ ¬x7): (¬x9 ∨ False ∨ ¬x7): (¬x9 ∨ ¬x7)
+    - (¬x4 ∨ x10 ∨ x9): (False ∨ x10 ∨ x9): (x10 ∨ x9)
+    - (¬x4 ∨ ¬x3 ∨ x10): (False ∨ ¬x3 ∨ x10): (¬x3 ∨ x10)
+
+### 5. Assign x5 = True (Branch 5)
+- Propagate:
+    - (x5 ∨ ¬x3 ∨ ¬x6): Satisfied
+    - (x10 ∨ x5 ∨ ¬x2): Satisfied
+    - (x6 ∨ x5 ∨ ¬x1): Satisfied
+    - (x6 ∨ ¬x1 ∨ x5): Satisfied
+    - (¬x5 ∨ x2 ∨ ¬x4): (False ∨ x2 ∨ ¬x4): Satisfied
+    - (¬x4 ∨ ¬x5 ∨ x3): (¬x4 ∨ False ∨ x3): (¬x4 ∨ x3)
+
+### 6. Assign x6 = True (Branch 6)
+- Propagate:
+    - (x6 ∨ x4 ∨ ¬x7): Satisfied
+    - (x6 ∨ ¬x4 ∨ x9): Satisfied
+    - (x6 ∨ x5 ∨ ¬x1): Satisfied
+    - (x6 ∨ ¬x1 ∨ x5): Satisfied
+    - (x6 ∨ x5 ∨ ¬x1): Satisfied
+    - (x6 ∨ ¬x1 ∨ x5): Satisfied
+    - (x9 ∨ x8 ∨ x6): Satisfied
+    - (x4 ∨ ¬x6 ∨ x2): (x4 ∨ False ∨ x2): Satisfied
+    - (x4 ∨ ¬x6 ∨ x9): (x4 ∨ False ∨ x9): Satisfied
+    - (¬x1 ∨ x7 ∨ x6): Satisfied
+    - (¬x4 ∨ ¬x3 ∨ ¬x6): (¬x4 ∨ ¬x3 ∨ False): (¬x4 ∨ ¬x3)
+    - (¬x6 ∨ x3 ∨ x7): (False ∨ x3 ∨ x7): Satisfied
+    - (¬x6 ∨ x3 ∨ ¬x10): (False ∨ x3 ∨ ¬x10): Satisfied
+
+### 7. Assign x7 = True (Branch 7)
+- Propagate:
+    - (x6 ∨ x4 ∨ ¬x7): (True ∨ x4 ∨ False): Satisfied
+    - (x9 ∨ x8 ∨ x7): Satisfied
+    - (¬x1 ∨ x7 ∨ x6): Satisfied
+    - (x7 ∨ x5 ∨ ¬x8): Satisfied
+    - (x7 ∨ x9 ∨ x8): Satisfied
+    - (¬x7 ∨ ¬x9 ∨ x1): (False ∨ ¬x9 ∨ x1): (¬x9 ∨ x1)
+    - (¬x9 ∨ ¬x4 ∨ ¬x7): (¬x9 ∨ False ∨ False): (¬x9)
+    - (¬x8 ∨ x1 ∨ x7): Satisfied
+    - (x8 ∨ ¬x3 ∨ ¬x7): (x8 ∨ False ∨ False): (x8)
+
+### 8. Assign x8 = True (Branch 8)
+- Propagate:
+    - (x9 ∨ x8 ∨ x7): Satisfied
+    - (x1 ∨ ¬x9 ∨ x8): Satisfied
+    - (x7 ∨ x5 ∨ ¬x8): (x7 ∨ x5 ∨ False): Satisfied
+    - (x9 ∨ x8 ∨ x6): Satisfied
+    - (x8 ∨ ¬x3 ∨ ¬x7): Satisfied
+    - (x2 ∨ x10 ∨ ¬x8): (x2 ∨ x10 ∨ False): Satisfied
+
+### 9. Assign x9 = True (Branch 9)
+- Propagate:
+    - (x9 ∨ x8 ∨ x7): Satisfied
+    - (x1 ∨ ¬x9 ∨ x8): (x1 ∨ False ∨ x8): Satisfied
+    - (x6 ∨ ¬x4 ∨ x9): Satisfied
+    - (x4 ∨ ¬x6 ∨ x9): Satisfied
+    - (x9 ∨ ¬x3 ∨ x5): Satisfied
+    - (x7 ∨ x9 ∨ x8): Satisfied
+    - (¬x7 ∨ ¬x9 ∨ x1): (¬x7 ∨ False ∨ x1): (¬x7 ∨ x1): Satisfied
+    - (¬x9 ∨ ¬x4 ∨ ¬x7): (False ∨ ¬x4 ∨ ¬x7): (¬x4 ∨ ¬x7)
+    - (¬x9 ∨ x1 ∨ x2): (False ∨ x1 ∨ x2): Satisfied
+
+### 10. Assign x10 = True (Branch 10)
+- Propagate:
+    - (x4 ∨ ¬x2 ∨ ¬x10): (x4 ∨ ¬x2 ∨ False): Satisfied
+    - (x1 ∨ ¬x10 ∨ x9): (x1 ∨ False ∨ x9): Satisfied
+    - (x10 ∨ x5 ∨ ¬x2): Satisfied
+    - (x2 ∨ x10 ∨ ¬x8): Satisfied
+    - (x4 ∨ x10 ∨ x3): Satisfied
+    - (¬x6 ∨ x3 ∨ ¬x10): (False ∨ x3 ∨ False): (x3)
+    - (¬x4 ∨ x10 ∨ x9): (False ∨ True ∨ x9): Satisfied
+    - (¬x4 ∨ ¬x3 ∨ x10): (False ∨ ¬x3 ∨ True): Satisfied
+
+---
+
+**All clauses are satisfied with these assignments.**
+
+---
+
+## Final Answers
+
+**SATISFIABLE**
+
+**Number of branches (decision points):** 10  
+**Number of conflicts (backtracking steps):** 0
+
+**Assignment:**
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = True
+- x6 = True
+- x7 = True
+- x8 = True
+- x9 = True
+- x10 = True

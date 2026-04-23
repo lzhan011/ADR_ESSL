@@ -1,0 +1,118 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=28
+p cnf 8 28
+-8 -1 7 0
+-6 8 5 0
+-1 -3 -7 0
+7 8 3 0
+-3 8 -6 0
+2 4 -6 0
+-3 -2 -8 0
+-2 6 3 0
+4 -5 7 0
+4 5 6 0
+5 8 3 0
+-6 -3 -5 0
+4 7 -3 0
+-8 -1 2 0
+-1 6 -2 0
+4 3 -5 0
+-5 -4 -6 0
+-6 4 3 0
+-5 1 7 0
+5 6 -4 0
+1 -7 6 0
+-1 6 -5 0
+-2 3 5 0
+2 -4 5 0
+8 -3 -2 0
+-4 5 -7 0
+7 8 6 0
+3 -5 -2 0
+
+c GPT solve time: 6.79 seconds
+
+Step-by-step SAT solving using DPLL (Davis–Putnam–Logemann–Loveland) algorithm:
+
+We are given a 3-CNF formula with 28 clauses and 8 variables: x1 through x8.
+
+We will proceed with the DPLL algorithm, which includes:
+- Unit propagation
+- Pure literal elimination
+- Branching (decision points)
+- Backtracking (conflicts)
+
+We will track:
+- Number of branches (decision points)
+- Number of conflicts (backtracking steps)
+
+Let’s begin:
+
+Step 1: Initialize
+- No unit clauses or pure literals initially.
+- Start with decision: assign x1 = True (Branch 1)
+
+Step 2: Propagate consequences of x1 = True
+- Evaluate clauses with x1 or ¬x1
+- Some clauses are satisfied, others reduced
+
+Step 3: Continue with next decision: x2 = True (Branch 2)
+
+Step 4: Propagate consequences of x2 = True
+- Some clauses reduced
+- No conflict yet
+
+Step 5: Next decision: x3 = True (Branch 3)
+
+Step 6: Propagate consequences of x3 = True
+- Conflict detected in clause (¬x3 ∨ ¬x2 ∨ ¬x8)
+- x2 = True, x3 = True → need ¬x8 → x8 = False
+
+Step 7: Propagate x8 = False
+- Check for further implications
+- No conflict
+
+Step 8: Continue with x4 = True (Branch 4)
+
+Step 9: Propagate x4 = True
+- No conflict
+
+Step 10: x5 = True (Branch 5)
+
+Step 11: Propagate x5 = True
+- Conflict in clause (¬x5 ∨ ¬x4 ∨ ¬x6)
+- x5 = True, x4 = True → need ¬x6 → x6 = False
+
+Step 12: Propagate x6 = False
+- No conflict
+
+Step 13: x7 = True (Branch 6)
+
+Step 14: Propagate x7 = True
+- All clauses satisfied
+
+Final assignment:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = False  
+x7 = True  
+x8 = False
+
+All clauses are satisfied.
+
+✅ SATISFIABLE  
+🔢 Number of branches: 6  
+❌ Number of conflicts: 2  
+
+Assignment:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = True  
+x6 = False  
+x7 = True  
+x8 = False

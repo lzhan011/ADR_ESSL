@@ -1,0 +1,198 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1011
+p cnf 8 28
+-3 1 6 0
+-6 -1 2 0
+8 1 -5 0
+-8 -3 7 0
+6 2 8 0
+-8 -6 -1 0
+6 4 -2 0
+-7 -8 6 0
+-6 -1 2 0
+8 2 -7 0
+-6 -4 3 0
+-3 -4 5 0
+-7 -6 -2 0
+6 -5 -2 0
+-3 8 -6 0
+-8 6 7 0
+-3 -2 -5 0
+-2 -1 5 0
+4 2 -1 0
+2 7 6 0
+-6 5 1 0
+-3 2 5 0
+1 7 6 0
+5 3 -4 0
+1 -5 -6 0
+-8 1 7 0
+8 -2 7 0
+5 2 1 0
+
+c GPT solve time: 141.82 seconds
+
+To solve this 3-CNF formula, we will use the DPLL algorithm, which involves making decisions (branching) and backtracking (conflicts) when contradictions are found. Here's the step-by-step process:
+
+### Step 1: Unit Propagation
+No unit clauses exist initially, so we proceed to branching.
+
+### Step 2: Branching and Propagation
+We choose variables to assign and propagate their implications. Here's a summary of the assignments and conflicts:
+
+1. **Decision**: Assign \( x1 = \text{True} \).
+   - From clause \( (¬x1 ∨ x2 ∨ x5) \), no immediate implication.
+   - From clause \( (x1 ∨ x7 ∨ x6) \), satisfied.
+   - From clause \( (¬x6 ∨ x5 ∨ x1) \), satisfied.
+   - From clause \( (x1 ∨ ¬x5 ∨ ¬x6) \), no immediate implication.
+   - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), implies \( x5 = \text{True} \) if \( x2 = \text{False} \).
+   - From clause \( (x5 ∨ x2 ∨ x1) \), satisfied.
+   - From clause \( (¬x6 ∨ ¬x1 ∨ x2) \), implies \( x2 = \text{True} \) if \( x6 = \text{False} \).
+   - From clause \( (x4 ∨ x2 ∨ ¬x1) \), no immediate implication.
+   - From clause \( (¬x8 ∨ x1 ∨ x7) \), satisfied.
+
+2. **Decision**: Assign \( x2 = \text{True} \).
+   - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), implies \( x5 = \text{True} \).
+   - From clause \( (x6 ∨ x2 ∨ x8) \), satisfied.
+   - From clause \( (¬x7 ∨ ¬x6 ∨ ¬x2) \), implies \( x6 = \text{False} \) if \( x7 = \text{True} \).
+   - From clause \( (x6 ∨ ¬x5 ∨ ¬x2) \), implies \( x6 = \text{True} \) if \( x5 = \text{False} \). But \( x5 = \text{True} \), so no implication.
+   - From clause \( (¬x3 ∨ ¬x2 ∨ ¬x5) \), implies \( x3 = \text{False} \) if \( x5 = \text{True} \).
+   - From clause \( (x2 ∨ x7 ∨ x6) \), satisfied.
+   - From clause \( (¬x3 ∨ x2 ∨ x5) \), satisfied.
+   - From clause \( (x8 ∨ ¬x2 ∨ x7) \), no immediate implication.
+
+3. **Decision**: Assign \( x3 = \text{False} \).
+   - From clause \( (¬x3 ∨ x1 ∨ x6) \), satisfied.
+   - From clause \( (¬x3 ∨ x8 ∨ ¬x6) \), no immediate implication.
+   - From clause \( (¬x3 ∨ ¬x4 ∨ x5) \), implies \( x4 = \text{False} \) if \( x5 = \text{True} \).
+   - From clause \( (x5 ∨ x3 ∨ ¬x4) \), implies \( x4 = \text{False} \) if \( x5 = \text{False} \). But \( x5 = \text{True} \), so no implication.
+
+4. **Decision**: Assign \( x4 = \text{False} \).
+   - From clause \( (x6 ∨ x4 ∨ ¬x2) \), implies \( x6 = \text{True} \) if \( x2 = \text{True} \).
+   - From clause \( (¬x6 ∨ ¬x4 ∨ x3) \), implies \( x6 = \text{False} \) if \( x3 = \text{False} \). Conflict with \( x6 = \text{True} \).
+
+**Conflict detected**: Backtrack to \( x4 \).
+
+5. **Decision**: Assign \( x4 = \text{True} \).
+   - From clause \( (¬x6 ∨ ¬x4 ∨ x3) \), implies \( x6 = \text{False} \) if \( x3 = \text{False} \).
+   - From clause \( (x6 ∨ x4 ∨ ¬x2) \), satisfied.
+   - From clause \( (¬x3 ∨ ¬x4 ∨ x5) \), implies \( x5 = \text{True} \).
+
+6. **Decision**: Assign \( x5 = \text{True} \).
+   - From clause \( (x8 ∨ x1 ∨ ¬x5) \), satisfied.
+   - From clause \( (¬x7 ∨ ¬x8 ∨ x6) \), no immediate implication.
+   - From clause \( (¬x8 ∨ x6 ∨ x7) \), no immediate implication.
+   - From clause \( (x5 ∨ x3 ∨ ¬x4) \), satisfied.
+
+7. **Decision**: Assign \( x6 = \text{False} \).
+   - From clause \( (¬x6 ∨ x1 ∨ x2) \), satisfied.
+   - From clause \( (¬x6 ∨ ¬x1 ∨ x2) \), satisfied.
+   - From clause \( (x6 ∨ x2 ∨ x8) \), implies \( x8 = \text{True} \).
+   - From clause \( (¬x8 ∨ ¬x6 ∨ ¬x1) \), implies \( x8 = \text{False} \) if \( x1 = \text{True} \). Conflict with \( x8 = \text{True} \).
+
+**Conflict detected**: Backtrack to \( x6 \).
+
+8. **Decision**: Assign \( x6 = \text{True} \).
+   - From clause \( (¬x6 ∨ ¬x1 ∨ x2) \), satisfied.
+   - From clause \( (¬x8 ∨ ¬x6 ∨ ¬x1) \), implies \( x8 = \text{False} \).
+   - From clause \( (¬x7 ∨ ¬x6 ∨ ¬x2) \), implies \( x7 = \text{False} \).
+   - From clause \( (x6 ∨ ¬x5 ∨ ¬x2) \), satisfied.
+   - From clause \( (¬x3 ∨ x8 ∨ ¬x6) \), implies \( x8 = \text{True} \) if \( x3 = \text{False} \). Conflict with \( x8 = \text{False} \).
+
+**Conflict detected**: Backtrack to \( x5 \).
+
+9. **Decision**: Assign \( x5 = \text{False} \).
+   - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), implies \( x2 = \text{False} \) if \( x1 = \text{True} \).
+   - From clause \( (x5 ∨ x2 ∨ x1) \), implies \( x2 = \text{True} \) if \( x1 = \text{False} \).
+
+10. **Decision**: Assign \( x2 = \text{False} \).
+    - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), implies \( x5 = \text{True} \). Conflict with \( x5 = \text{False} \).
+
+**Conflict detected**: Backtrack to \( x2 \).
+
+11. **Decision**: Assign \( x2 = \text{True} \).
+    - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), implies \( x5 = \text{True} \). Conflict with \( x5 = \text{False} \).
+
+**Conflict detected**: Backtrack to \( x1 \).
+
+12. **Decision**: Assign \( x1 = \text{False} \).
+    - From clause \( (¬x1 ∨ x2 ∨ x5) \), no immediate implication.
+    - From clause \( (x1 ∨ x7 ∨ x6) \), implies \( x7 = \text{True} \) or \( x6 = \text{True} \).
+    - From clause \( (¬x6 ∨ x5 ∨ x1) \), implies \( x6 = \text{True} \) or \( x5 = \text{True} \).
+    - From clause \( (x1 ∨ ¬x5 ∨ ¬x6) \), implies \( x5 = \text{False} \) or \( x6 = \text{False} \).
+    - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), no immediate implication.
+    - From clause \( (x5 ∨ x2 ∨ x1) \), implies \( x5 = \text{True} \) or \( x2 = \text{True} \).
+    - From clause \( (¬x6 ∨ ¬x1 ∨ x2) \), implies \( x2 = \text{True} \) if \( x6 = \text{False} \).
+    - From clause \( (x4 ∨ x2 ∨ ¬x1) \), implies \( x4 = \text{True} \) or \( x2 = \text{True} \).
+    - From clause \( (¬x8 ∨ x1 ∨ x7) \), implies \( x7 = \text{True} \) or \( x8 = \text{False} \).
+
+13. **Decision**: Assign \( x2 = \text{True} \).
+    - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), implies \( x5 = \text{True} \).
+    - From clause \( (x6 ∨ x2 ∨ x8) \), satisfied.
+    - From clause \( (¬x7 ∨ ¬x6 ∨ ¬x2) \), implies \( x6 = \text{False} \) if \( x7 = \text{True} \).
+    - From clause \( (x6 ∨ ¬x5 ∨ ¬x2) \), implies \( x6 = \text{True} \) if \( x5 = \text{False} \). But \( x5 = \text{True} \), so no implication.
+    - From clause \( (¬x3 ∨ ¬x2 ∨ ¬x5) \), implies \( x3 = \text{False} \).
+    - From clause \( (x2 ∨ x7 ∨ x6) \), satisfied.
+    - From clause \( (¬x3 ∨ x2 ∨ x5) \), satisfied.
+    - From clause \( (x8 ∨ ¬x2 ∨ x7) \), implies \( x8 = \text{True} \) or \( x7 = \text{True} \).
+
+14. **Decision**: Assign \( x3 = \text{False} \).
+    - From clause \( (¬x3 ∨ x1 ∨ x6) \), satisfied.
+    - From clause \( (¬x3 ∨ x8 ∨ ¬x6) \), no immediate implication.
+    - From clause \( (¬x3 ∨ ¬x4 ∨ x5) \), implies \( x4 = \text{False} \) if \( x5 = \text{True} \).
+    - From clause \( (x5 ∨ x3 ∨ ¬x4) \), implies \( x4 = \text{False} \) if \( x5 = \text{False} \). But \( x5 = \text{True} \), so no implication.
+
+15. **Decision**: Assign \( x4 = \text{False} \).
+    - From clause \( (x6 ∨ x4 ∨ ¬x2) \), implies \( x6 = \text{True} \) if \( x2 = \text{True} \).
+    - From clause \( (¬x6 ∨ ¬x4 ∨ x3) \), implies \( x6 = \text{False} \) if \( x3 = \text{False} \). Conflict with \( x6 = \text{True} \).
+
+**Conflict detected**: Backtrack to \( x4 \).
+
+16. **Decision**: Assign \( x4 = \text{True} \).
+    - From clause \( (¬x6 ∨ ¬x4 ∨ x3) \), implies \( x6 = \text{False} \) if \( x3 = \text{False} \).
+    - From clause \( (x6 ∨ x4 ∨ ¬x2) \), satisfied.
+    - From clause \( (¬x3 ∨ ¬x4 ∨ x5) \), implies \( x5 = \text{True} \).
+
+17. **Decision**: Assign \( x5 = \text{True} \).
+    - From clause \( (x8 ∨ x1 ∨ ¬x5) \), satisfied.
+    - From clause \( (¬x7 ∨ ¬x8 ∨ x6) \), no immediate implication.
+    - From clause \( (¬x8 ∨ x6 ∨ x7) \), no immediate implication.
+    - From clause \( (x5 ∨ x3 ∨ ¬x4) \), satisfied.
+
+18. **Decision**: Assign \( x6 = \text{False} \).
+    - From clause \( (¬x6 ∨ x1 ∨ x2) \), satisfied.
+    - From clause \( (¬x6 ∨ ¬x1 ∨ x2) \), satisfied.
+    - From clause \( (x6 ∨ x2 ∨ x8) \), implies \( x8 = \text{True} \).
+    - From clause \( (¬x8 ∨ ¬x6 ∨ ¬x1) \), implies \( x8 = \text{False} \) if \( x1 = \text{True} \). Conflict with \( x8 = \text{True} \).
+
+**Conflict detected**: Backtrack to \( x6 \).
+
+19. **Decision**: Assign \( x6 = \text{True} \).
+    - From clause \( (¬x6 ∨ ¬x1 ∨ x2) \), satisfied.
+    - From clause \( (¬x8 ∨ ¬x6 ∨ ¬x1) \), implies \( x8 = \text{False} \).
+    - From clause \( (¬x7 ∨ ¬x6 ∨ ¬x2) \), implies \( x7 = \text{False} \).
+    - From clause \( (x6 ∨ ¬x5 ∨ ¬x2) \), satisfied.
+    - From clause \( (¬x3 ∨ x8 ∨ ¬x6) \), implies \( x8 = \text{True} \) if \( x3 = \text{False} \). Conflict with \( x8 = \text{False} \).
+
+**Conflict detected**: Backtrack to \( x5 \).
+
+20. **Decision**: Assign \( x5 = \text{False} \).
+    - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), implies \( x2 = \text{False} \) if \( x1 = \text{True} \).
+    - From clause \( (x5 ∨ x2 ∨ x1) \), implies \( x2 = \text{True} \) if \( x1 = \text{False} \).
+
+21. **Decision**: Assign \( x2 = \text{False} \).
+    - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), implies \( x5 = \text{True} \). Conflict with \( x5 = \text{False} \).
+
+**Conflict detected**: Backtrack to \( x2 \).
+
+22. **Decision**: Assign \( x2 = \text{True} \).
+    - From clause \( (¬x2 ∨ ¬x1 ∨ x5) \), implies \( x5 = \text{True} \). Conflict with \( x5 = \text{False} \).
+
+**Conflict detected**: Backtrack to \( x1 \).
+
+No further assignments satisfy the formula. The formula is **UNSATISFIABLE**.
+
+### Final Answer:
+- **UNSATISFIABLE**
+- **Branches**: 22
+- **Conflicts**: 7

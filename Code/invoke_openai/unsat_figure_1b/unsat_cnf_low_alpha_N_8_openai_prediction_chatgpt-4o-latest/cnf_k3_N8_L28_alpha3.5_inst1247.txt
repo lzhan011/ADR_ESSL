@@ -1,0 +1,212 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1247
+p cnf 8 28
+7 -6 1 0
+6 -4 -2 0
+1 -8 2 0
+3 6 5 0
+2 -7 -6 0
+-2 -7 -3 0
+4 -3 -1 0
+-6 -7 8 0
+1 5 -3 0
+7 -1 5 0
+7 -1 -2 0
+-6 1 -4 0
+8 -4 -3 0
+6 4 2 0
+3 5 -1 0
+3 -6 7 0
+1 -4 2 0
+7 -3 2 0
+-1 5 -4 0
+-3 6 -2 0
+-5 -2 -1 0
+-6 -1 2 0
+-6 4 -7 0
+-1 -6 -3 0
+-1 -8 -3 0
+8 -3 4 0
+3 6 -5 0
+-6 4 7 0
+
+c GPT solve time: 31.51 seconds
+
+To solve the 3-CNF formula, we will use the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in conjunctive normal form (CNF). We will proceed step-by-step, making decisions (branches), propagating implications (unit propagation), and backtracking upon conflicts.
+
+We will denote:
+- A branch as a decision where we assign a value to a variable without it being forced by unit propagation.
+- A conflict as a situation where a clause becomes unsatisfiable under the current partial assignment, requiring backtracking.
+
+Let’s begin solving:
+
+Step 1: Start with an empty assignment.
+
+Step 2: Choose a variable to assign (branch). Let's pick x1 = True (Branch 1)
+
+→ Propagate implications:
+- Clause (x7 ∨ ¬x6 ∨ x1): satisfied
+- Clause (x1 ∨ ¬x8 ∨ x2): satisfied
+- Clause (x4 ∨ ¬x3 ∨ ¬x1): becomes (x4 ∨ ¬x3 ∨ False)
+- Clause (x1 ∨ x5 ∨ ¬x3): satisfied
+- Clause (x7 ∨ ¬x1 ∨ x5): becomes (x7 ∨ False ∨ x5)
+- Clause (x7 ∨ ¬x1 ∨ ¬x2): becomes (x7 ∨ False ∨ ¬x2)
+- Clause (¬x6 ∨ x1 ∨ ¬x4): becomes (¬x6 ∨ True ∨ ¬x4): satisfied
+- Clause (x3 ∨ x5 ∨ ¬x1): becomes (x3 ∨ x5 ∨ False)
+- Clause (x1 ∨ ¬x4 ∨ x2): satisfied
+- Clause (¬x1 ∨ x5 ∨ ¬x4): becomes (False ∨ x5 ∨ ¬x4)
+- Clause (¬x5 ∨ ¬x2 ∨ ¬x1): becomes (¬x5 ∨ ¬x2 ∨ False)
+- Clause (¬x6 ∨ ¬x1 ∨ x2): becomes (¬x6 ∨ False ∨ x2)
+- Clause (¬x1 ∨ ¬x6 ∨ ¬x3): becomes (False ∨ ¬x6 ∨ ¬x3)
+- Clause (¬x1 ∨ ¬x8 ∨ ¬x3): becomes (False ∨ ¬x8 ∨ ¬x3)
+
+No unit clauses yet. Continue.
+
+Step 3: Choose x2 = True (Branch 2)
+
+→ Propagate:
+- Clause (x6 ∨ ¬x4 ∨ ¬x2): becomes (x6 ∨ ¬x4 ∨ False)
+- Clause (x1 ∨ ¬x8 ∨ x2): already satisfied
+- Clause (x2 ∨ ¬x7 ∨ ¬x6): satisfied
+- Clause (¬x2 ∨ ¬x7 ∨ ¬x3): becomes (False ∨ ¬x7 ∨ ¬x3)
+- Clause (x1 ∨ ¬x4 ∨ x2): satisfied
+- Clause (x7 ∨ ¬x3 ∨ x2): satisfied
+- Clause (¬x5 ∨ ¬x2 ∨ ¬x1): becomes (¬x5 ∨ False ∨ False) → becomes (¬x5) → Unit clause → x5 = False
+
+→ Propagate x5 = False
+
+- Clause (x3 ∨ x6 ∨ x5): becomes (x3 ∨ x6 ∨ False)
+- Clause (x1 ∨ x5 ∨ ¬x3): becomes (True ∨ False ∨ ¬x3): satisfied
+- Clause (x3 ∨ x5 ∨ ¬x1): becomes (x3 ∨ False ∨ False) → (x3) → Unit clause → x3 = True
+
+→ Propagate x3 = True
+
+- Clause (x4 ∨ ¬x3 ∨ ¬x1): becomes (x4 ∨ False ∨ False) → (x4)
+- Clause (x8 ∨ ¬x4 ∨ ¬x3): becomes (x8 ∨ ¬x4 ∨ False)
+- Clause (¬x1 ∨ ¬x6 ∨ ¬x3): becomes (False ∨ ¬x6 ∨ False) → (¬x6)
+- Clause (¬x1 ∨ ¬x8 ∨ ¬x3): becomes (False ∨ ¬x8 ∨ False) → (¬x8)
+
+→ From above:
+- x4 = True (from x4)
+- ¬x6 → x6 = False
+- ¬x8 → x8 = False
+
+→ Propagate x4 = True, x6 = False, x8 = False
+
+Now all variables are assigned:
+x1 = True  
+x2 = True  
+x3 = True  
+x4 = True  
+x5 = False  
+x6 = False  
+x7 = (not yet assigned)  
+x8 = False
+
+→ Check clause (x7 ∨ ¬x6 ∨ x1): becomes (x7 ∨ True ∨ True): satisfied  
+→ Clause (x6 ∨ ¬x4 ∨ ¬x2): (False ∨ False ∨ False): CONFLICT
+
+→ Conflict! Backtrack.
+
+Backtrack x2 = True → x2 = False (Conflict 1, Branch 3)
+
+→ Propagate:
+- Clause (x6 ∨ ¬x4 ∨ ¬x2): becomes (x6 ∨ ¬x4 ∨ True): satisfied
+- Clause (x1 ∨ ¬x8 ∨ x2): becomes (True ∨ ¬x8 ∨ False): satisfied
+- Clause (x2 ∨ ¬x7 ∨ ¬x6): becomes (False ∨ ¬x7 ∨ ¬x6)
+- Clause (¬x2 ∨ ¬x7 ∨ ¬x3): becomes (True ∨ ¬x7 ∨ ¬x3): satisfied
+- Clause (x1 ∨ ¬x4 ∨ x2): becomes (True ∨ ¬x4 ∨ False): satisfied
+- Clause (x7 ∨ ¬x3 ∨ x2): becomes (x7 ∨ ¬x3 ∨ False)
+- Clause (¬x5 ∨ ¬x2 ∨ ¬x1): becomes (¬x5 ∨ True ∨ False): satisfied
+- Clause (¬x6 ∨ ¬x1 ∨ x2): becomes (¬x6 ∨ False ∨ False)
+→ Unit clause: ¬x6 → x6 = False
+
+→ Propagate x6 = False
+
+- Clause (x3 ∨ x6 ∨ x5): becomes (x3 ∨ False ∨ x5)
+- Clause (x7 ∨ ¬x6 ∨ x1): becomes (x7 ∨ True ∨ True): satisfied
+- Clause (¬x6 ∨ ¬x7 ∨ x8): becomes (True ∨ ¬x7 ∨ x8): satisfied
+- Clause (¬x6 ∨ x1 ∨ ¬x4): becomes (True ∨ True ∨ ¬x4): satisfied
+- Clause (x3 ∨ ¬x6 ∨ x7): becomes (x3 ∨ True ∨ x7): satisfied
+- Clause (¬x1 ∨ ¬x6 ∨ ¬x3): becomes (False ∨ True ∨ ¬x3): satisfied
+- Clause (¬x1 ∨ ¬x8 ∨ ¬x3): becomes (False ∨ ¬x8 ∨ ¬x3)
+- Clause (x3 ∨ x6 ∨ ¬x5): becomes (x3 ∨ False ∨ ¬x5)
+
+Still no unit clauses. Continue.
+
+Assign x3 = True (Branch 4)
+
+→ Propagate:
+- Clause (x3 ∨ x6 ∨ x5): satisfied
+- Clause (x3 ∨ x5 ∨ ¬x1): satisfied
+- Clause (x4 ∨ ¬x3 ∨ ¬x1): becomes (x4 ∨ False ∨ False) → x4 = True
+- Clause (x8 ∨ ¬x4 ∨ ¬x3): becomes (x8 ∨ False ∨ False) → x8 = True
+- Clause (¬x1 ∨ ¬x8 ∨ ¬x3): becomes (False ∨ False ∨ False): CONFLICT
+
+→ Conflict! Backtrack x3 = True → x3 = False (Conflict 2, Branch 5)
+
+→ Clause (x4 ∨ ¬x3 ∨ ¬x1): becomes (x4 ∨ True ∨ False): satisfied  
+→ Clause (x8 ∨ ¬x4 ∨ ¬x3): becomes (x8 ∨ ¬x4 ∨ True): satisfied  
+→ Clause (¬x1 ∨ ¬x8 ∨ ¬x3): becomes (False ∨ ¬x8 ∨ True): satisfied  
+→ Clause (x3 ∨ x6 ∨ x5): becomes (False ∨ False ∨ x5)  
+→ Clause (x3 ∨ x5 ∨ ¬x1): becomes (False ∨ x5 ∨ False) → (x5) → x5 = True
+
+→ Propagate x5 = True
+
+→ Clause (¬x5 ∨ ¬x2 ∨ ¬x1): becomes (False ∨ True ∨ False): satisfied  
+→ Clause (x1 ∨ x5 ∨ ¬x3): satisfied  
+→ Clause (x3 ∨ x6 ∨ ¬x5): becomes (False ∨ False ∨ False): CONFLICT
+
+→ Conflict! Backtrack x5 = True → x5 = False (Conflict 3, Branch 6)
+
+→ Clause (x3 ∨ x6 ∨ ¬x5): becomes (False ∨ False ∨ True): satisfied
+
+Now all variables are assigned:
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = True  
+x5 = False  
+x6 = False  
+x7 = (unassigned)  
+x8 = (unassigned)
+
+→ Clause (x7 ∨ ¬x3 ∨ x2): becomes (x7 ∨ True ∨ False): satisfied  
+→ Clause (x7 ∨ ¬x1 ∨ x5): becomes (x7 ∨ False ∨ False): (x7) → x7 = True  
+→ Clause (¬x6 ∨ ¬x7 ∨ x8): becomes (True ∨ False ∨ x8): satisfied  
+→ Clause (¬x1 ∨ ¬x8 ∨ ¬x3): becomes (False ∨ ¬x8 ∨ True): satisfied  
+→ Clause (x8 ∨ ¬x4 ∨ ¬x3): becomes (x8 ∨ False ∨ True): satisfied  
+→ Clause (x7 ∨ ¬x1 ∨ ¬x2): becomes (True ∨ False ∨ True): satisfied  
+→ Clause (¬x6 ∨ x4 ∨ ¬x7): becomes (True ∨ True ∨ False): satisfied  
+→ Clause (¬x6 ∨ x4 ∨ x7): becomes (True ∨ True ∨ True): satisfied
+
+→ x8 can be either True or False. Pick x8 = False
+
+All clauses are satisfied.
+
+✅ SATISFIABLE
+
+Final assignment:
+x1 = True  
+x2 = False  
+x3 = False  
+x4 = True  
+x5 = False  
+x6 = False  
+x7 = True  
+x8 = False
+
+Summary:
+
+- SATISFIABLE  
+- Number of branches: 6  
+- Number of conflicts: 3  
+- Assignment:
+  - x1 = True  
+  - x2 = False  
+  - x3 = False  
+  - x4 = True  
+  - x5 = False  
+  - x6 = False  
+  - x7 = True  
+  - x8 = False

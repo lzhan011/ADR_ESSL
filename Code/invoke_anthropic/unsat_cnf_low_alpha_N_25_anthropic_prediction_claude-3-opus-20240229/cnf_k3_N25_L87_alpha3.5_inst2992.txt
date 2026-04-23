@@ -1,0 +1,157 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2992
+p cnf 25 87
+3 7 15 0
+-14 11 15 0
+24 13 -17 0
+12 24 -6 0
+8 2 -13 0
+-18 22 15 0
+-5 -2 -24 0
+22 5 -3 0
+15 16 -10 0
+4 -7 22 0
+10 7 -15 0
+21 -14 20 0
+6 24 -19 0
+17 23 -15 0
+-22 19 20 0
+18 9 -7 0
+18 -21 13 0
+22 -15 3 0
+-23 -15 -10 0
+2 -14 9 0
+19 -17 12 0
+-22 13 -16 0
+-2 17 24 0
+17 22 6 0
+-1 16 -10 0
+-10 25 -17 0
+-17 1 -8 0
+2 -22 14 0
+23 6 -10 0
+25 -12 -8 0
+-20 25 11 0
+16 15 23 0
+11 22 -15 0
+-1 -3 -2 0
+13 -6 -18 0
+-19 -13 10 0
+4 -23 -21 0
+17 18 4 0
+13 -8 9 0
+14 21 -24 0
+-13 2 -8 0
+-19 10 3 0
+21 -5 10 0
+24 9 20 0
+11 -2 8 0
+17 -10 -24 0
+-5 -7 9 0
+13 -23 18 0
+-20 -24 8 0
+15 -19 -16 0
+-9 -2 15 0
+-23 1 -6 0
+8 -12 2 0
+16 -18 -19 0
+-22 7 -19 0
+10 -18 -9 0
+23 19 -17 0
+12 3 13 0
+-23 -12 -7 0
+-5 23 -19 0
+-7 11 -3 0
+3 -5 2 0
+10 -8 -25 0
+25 15 -2 0
+-1 7 -13 0
+-15 -1 -22 0
+24 10 23 0
+3 -15 -16 0
+7 10 16 0
+25 7 -17 0
+21 11 -5 0
+23 -6 -2 0
+-20 -23 4 0
+-10 -12 -14 0
+7 11 -8 0
+12 -17 2 0
+-8 2 6 0
+-6 25 -24 0
+-4 19 -1 0
+-21 -12 8 0
+-7 -1 -8 0
+6 -13 -4 0
+19 13 -3 0
+-21 19 -1 0
+5 2 -4 0
+-11 -14 4 0
+-19 25 15 0
+
+c GPT solve time: 36.48 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Step 1: Assign x3 = True. This satisfies clause 1 and clause 8.
+
+Step 2: Assign x15 = True. This satisfies clause 2, clause 6, clause 9, clause 11, clause 14, clause 18, clause 19, clause 32, clause 33, clause 50, clause 64, clause 66, clause 81, and clause 84.
+
+Step 3: Assign x22 = True. This satisfies clause 4, clause 15, clause 22, clause 24, clause 28, clause 55, and clause 63.
+
+Step 4: Assign x5 = False. This satisfies clause 7 and clause 47.
+
+Step 5: Assign x2 = False. This satisfies clause 34, clause 61, and clause 85.
+
+Step 6: Assign x24 = False. This satisfies clause 12, clause 20, clause 40, clause 46, clause 49, and clause 77.
+
+Step 7: Assign x17 = True. This satisfies clause 3, clause 21, clause 23, clause 26, clause 27, clause 38, clause 45, clause 56, clause 67, and clause 69.
+
+Step 8: Assign x13 = True. This satisfies clause 18, clause 35, clause 39, clause 41, clause 48, and clause 58.
+
+Step 9: Assign x8 = False. This satisfies clause 5, clause 25, clause 30, clause 60, clause 74, and clause 76.
+
+Step 10: Assign x7 = False. This satisfies clause 10, clause 16, clause 59, clause 78, and clause 80.
+
+Step 11: Assign x10 = False. This satisfies clause 23, clause 29, clause 43, clause 57, and clause 73.
+
+Step 12: Assign x19 = True. This satisfies clause 13, clause 36, clause 42, clause 51, and clause 82.
+
+Step 13: Assign x6 = True. This satisfies clause 17, clause 52, clause 75, and clause 79.
+
+Step 14: Assign x18 = True. This satisfies clause 37 and clause 54.
+
+Step 15: Assign x4 = True. This satisfies clause 38, clause 72, and clause 86.
+
+Step 16: Assign x9 = True. This satisfies clause 20, clause 39, clause 44, and clause 53.
+
+Step 17: Assign x14 = False. This satisfies clause 12, clause 28, and clause 71.
+
+Step 18: Assign x21 = True. This satisfies clause 37, clause 68, and clause 83.
+
+Step 19: Assign x20 = True. This satisfies clause 31 and clause 44.
+
+Step 20: Assign x11 = True. This satisfies clause 31, clause 45, clause 62, and clause 70.
+
+Step 21: Assign x1 = False. This satisfies clause 25, clause 27, clause 65, clause 82, and clause 83.
+
+Step 22: Assign x25 = True. This satisfies clause 26, clause 30, clause 64, clause 84, and clause 87.
+
+Step 23: Assign x12 = True. This satisfies clause 4, clause 19, clause 58, clause 73, and clause 75.
+
+Step 24: Assign x23 = True. This satisfies clause 16, clause 24, clause 29, clause 32, clause 48, clause 56, clause 65, and clause 72.
+
+Step 25: Assign x16 = False. This satisfies clause 3, clause 22, clause 50, clause 54, and clause 68.
+
+All clauses are satisfied, so the formula is SATISFIABLE.
+
+Number of branches (decision points): 25
+Number of conflicts (backtracking steps): 0
+
+The satisfying assignment is:
+x1 = False
+x2 = False 
+x3 = True
+x4 = True
+x5 = False
+x

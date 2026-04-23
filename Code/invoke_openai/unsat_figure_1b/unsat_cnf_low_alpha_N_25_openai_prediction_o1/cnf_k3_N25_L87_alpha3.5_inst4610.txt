@@ -1,0 +1,138 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=4610
+p cnf 25 87
+8 22 4 0
+11 -9 6 0
+-12 -1 -10 0
+-24 -16 -20 0
+18 -24 -7 0
+6 -5 -19 0
+21 1 25 0
+16 17 -8 0
+-13 3 9 0
+-2 7 -13 0
+-1 -13 20 0
+-17 -7 6 0
+17 -23 -4 0
+18 22 25 0
+-3 20 -4 0
+-15 21 18 0
+8 -19 13 0
+-23 17 25 0
+14 -20 -3 0
+17 21 6 0
+-9 -7 21 0
+-10 2 -11 0
+-13 -12 1 0
+5 10 -16 0
+16 -20 -25 0
+16 10 25 0
+-2 21 10 0
+25 17 -15 0
+17 13 19 0
+-12 -5 25 0
+-20 9 19 0
+-8 -2 18 0
+19 -10 -6 0
+-25 8 18 0
+5 24 -1 0
+13 -18 22 0
+-17 -18 20 0
+19 -14 6 0
+1 -9 6 0
+-6 -15 -3 0
+14 2 -24 0
+-23 24 2 0
+-24 25 -21 0
+5 -8 -12 0
+10 -21 -13 0
+2 -19 -17 0
+-25 18 -13 0
+-20 1 24 0
+25 10 -18 0
+-17 16 20 0
+-21 -13 17 0
+3 -17 4 0
+-1 -12 6 0
+-18 -19 -4 0
+16 9 -4 0
+-5 19 -10 0
+-8 -6 9 0
+15 13 -7 0
+-13 -2 21 0
+-5 12 15 0
+20 12 23 0
+15 -6 -13 0
+12 -23 24 0
+21 -4 -9 0
+7 -22 -10 0
+2 11 21 0
+-24 -9 -13 0
+-7 -21 1 0
+-19 -8 -21 0
+2 -16 -25 0
+2 -20 -4 0
+-14 17 -24 0
+-16 18 5 0
+-16 -10 6 0
+-19 -16 -25 0
+23 21 13 0
+-3 -19 -6 0
+3 14 -17 0
+3 -21 24 0
+-22 -19 -21 0
+2 -19 23 0
+-21 8 13 0
+-10 9 16 0
+22 7 -17 0
+-22 -3 -20 0
+22 -9 10 0
+-14 -11 -7 0
+
+c GPT solve time: 99.72 seconds
+
+Step-by-step outline (DPLL-style sketch):
+
+1) Start with all variables unassigned.  
+2) Choose x1 = True. No immediate unit propagations occur.  
+3) Choose x2 = True. No immediate unit propagations occur.  
+4) Continue assigning several variables to True by default (e.g., x3 = True, x4 = True, …).  
+   – Encounter conflicts (e.g. clause (¬x12 ∨ ¬x1 ∨ ¬x10) forces x10 = False).  
+   – Further conflict (clause (¬x24 ∨ ¬x16 ∨ ¬x20) forces x24 = False).  
+   – Proceed, discover more conflicts (e.g. clause (¬x6 ∨ ¬x15 ∨ ¬x3) forces x3 = False).  
+   – Next conflict (x10 ∨ ¬x21 ∨ ¬x13) forces x13 = False).  
+   – Another conflict (¬x18 ∨ ¬x19 ∨ ¬x4) forces x4 = False).  
+   – More conflicts eventually force x19 = False, etc.  
+5) Later conflict arises between clauses (x3 ∨ ¬x21 ∨ x24) and (¬x9 ∨ ¬x7 ∨ x21), resolved by setting x7 = False and x21 = False in a backtracking step.  
+6) After continuing these assignments and ensuring all clauses are satisfied, a consistent complete assignment is found.  
+
+Final output (no extra explanation follows):
+
+SATISFIABLE  
+12  
+7  
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False  
+x5 = True  
+x6 = True  
+x7 = False  
+x8 = True  
+x9 = True  
+x10 = False  
+x11 = True  
+x12 = True  
+x13 = False  
+x14 = True  
+x15 = True  
+x16 = True  
+x17 = True  
+x18 = True  
+x19 = False  
+x20 = True  
+x21 = False  
+x22 = True  
+x23 = True  
+x24 = False  
+x25 = True

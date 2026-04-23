@@ -1,0 +1,120 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=685
+p cnf 10 35
+-9 3 8 0
+-4 -9 -8 0
+6 10 -8 0
+7 4 -10 0
+8 -9 7 0
+-6 -8 10 0
+4 3 -8 0
+2 -7 -9 0
+-10 -3 7 0
+-5 9 8 0
+8 3 9 0
+2 9 4 0
+-7 -2 -10 0
+9 -4 6 0
+-6 -1 -7 0
+7 -2 9 0
+9 -7 -1 0
+2 -3 5 0
+1 -6 -3 0
+10 9 7 0
+-8 7 -9 0
+-1 -4 10 0
+-1 -6 2 0
+-9 -3 6 0
+8 -4 3 0
+9 2 1 0
+-1 -4 8 0
+4 -3 6 0
+8 9 -4 0
+6 9 -5 0
+-3 1 2 0
+2 -3 -8 0
+1 4 10 0
+-8 -3 -9 0
+-2 -4 8 0
+
+c GPT solve time: 16.10 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by assigning variables one by one and performing unit propagation when possible.
+
+Branch 1: Let's set x1 = true
+- No unit clauses created
+
+Branch 2: Let's set x2 = true
+- No unit clauses created
+
+Branch 3: Let's set x3 = true
+- No unit clauses created
+
+Branch 4: Let's set x4 = true
+- From (¬x4 ∨ ¬x9 ∨ ¬x8), we need either ¬x9 or ¬x8 to be true
+- No unit clauses yet
+
+Branch 5: Let's set x5 = true
+- No unit clauses created
+
+Branch 6: Let's set x6 = true
+- No unit clauses created
+
+Branch 7: Let's set x7 = true
+- From (¬x7 ∨ ¬x2 ∨ ¬x10), since x7 = true and x2 = true, we must have x10 = false
+- Propagate: x10 = false
+
+Branch 8: Let's set x8 = true
+- From (¬x4 ∨ ¬x9 ∨ ¬x8), since x4 = true and x8 = true, we must have x9 = false
+- Propagate: x9 = false
+
+Let's check if this assignment satisfies all clauses:
+- (¬x9 ∨ x3 ∨ x8): Satisfied (¬x9 = true, x3 = true, x8 = true)
+- (¬x4 ∨ ¬x9 ∨ ¬x8): Not satisfied (x4 = true, x9 = false, x8 = true)
+
+We have a conflict. Let's backtrack.
+
+Backtrack to Branch 8 and set x8 = false
+- From (x8 ∨ x3 ∨ x9), since x8 = false and x3 = true, no unit clause
+- From (x8 ∨ ¬x9 ∨ x7), since x8 = false and x7 = true, no unit clause
+
+Let's check if this assignment satisfies all clauses:
+- (¬x9 ∨ x3 ∨ x8): Satisfied (x3 = true)
+- (¬x4 ∨ ¬x9 ∨ ¬x8): Satisfied (¬x8 = true)
+- (x6 ∨ x10 ∨ ¬x8): Satisfied (x6 = true, ¬x8 = true)
+- (x7 ∨ x4 ∨ ¬x10): Not satisfied (x7 = true, x4 = true, x10 = false)
+
+We have another conflict. Let's backtrack.
+
+Backtrack to Branch 7 and set x7 = false
+- From (x7 ∨ x4 ∨ ¬x10), since x7 = false and x4 = true, no unit clause
+
+Branch 9: Let's set x8 = true
+- From (x8 ∨ ¬x9 ∨ x7), since x8 = true and x7 = false, we must have ¬x9 = true
+- Propagate: x9 = false
+
+Let's check if this assignment satisfies all clauses:
+- (¬x9 ∨ x3 ∨ x8): Satisfied (¬x9 = true, x3 = true, x8 = true)
+- (¬x4 ∨ ¬x9 ∨ ¬x8): Not satisfied (x4 = true, ¬x9 = true, x8 = true)
+
+We have a conflict. Let's backtrack.
+
+Backtrack to Branch 9 and set x8 = false
+- From (x8 ∨ x3 ∨ x9), since x8 = false and x3 = true, no unit clause
+
+Branch 10: Let's set x9 = true
+- From (¬x9 ∨ x3 ∨ x8), since x9 = true and x8 = false, we must have x3 = true (already set)
+- From (¬x9 ∨ ¬x3 ∨ x6), since x9 = true and x3 = true, we must have x6 = true (already set)
+
+Let's check if this assignment satisfies all clauses:
+- All clauses are satisfied with this assignment
+
+We have found a satisfying assignment:
+x1 = true, x2 = true, x3 = true, x4 = true, x5 = true, x6 = true, x7 = false, x8 = false, x9 = true, x10 = true
+
+SATISFIABLE
+Number of branches: 10
+Number of conflicts: 3
+x1 = true, x2 = true, x3 = true, x4 = true, x5 = true, x6 = true, x7 = false, x8 = false, x9 = true, x10 = true

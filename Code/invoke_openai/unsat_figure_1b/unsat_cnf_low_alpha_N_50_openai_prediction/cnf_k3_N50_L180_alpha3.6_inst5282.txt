@@ -1,0 +1,379 @@
+c Random 3-SAT
+c alpha=3.6, N=50, L=180, instance=5282
+p cnf 50 180
+-35 17 19 0
+40 -5 1 0
+22 13 -1 0
+-7 36 -42 0
+21 -4 34 0
+8 21 -13 0
+-46 -29 -49 0
+30 9 39 0
+-18 43 -11 0
+-35 -33 7 0
+-45 10 11 0
+-39 4 -36 0
+12 49 6 0
+22 25 -5 0
+30 -31 39 0
+44 -48 -23 0
+46 20 -25 0
+-8 7 15 0
+50 -39 31 0
+32 -29 -42 0
+-46 14 42 0
+33 -46 13 0
+-22 40 -36 0
+-17 6 25 0
+40 -38 50 0
+-20 7 48 0
+-36 42 29 0
+29 37 17 0
+33 37 6 0
+18 42 -29 0
+-27 47 -30 0
+29 16 44 0
+-29 -49 5 0
+19 -9 -49 0
+-8 2 10 0
+9 -49 -33 0
+-9 27 2 0
+-8 -39 -13 0
+49 40 38 0
+18 -31 42 0
+-44 -17 -50 0
+-42 34 18 0
+26 -41 -15 0
+29 -26 40 0
+13 -10 8 0
+-11 -49 17 0
+-7 45 5 0
+46 -13 -1 0
+7 26 20 0
+3 -33 39 0
+-32 -45 7 0
+-39 -44 13 0
+-24 -27 -36 0
+-23 16 34 0
+34 46 -39 0
+-12 -18 -38 0
+8 -37 -18 0
+-31 -17 -21 0
+30 31 25 0
+10 -18 -37 0
+7 10 25 0
+10 47 -5 0
+36 18 -40 0
+42 -36 -15 0
+-17 21 47 0
+43 1 -17 0
+-29 -9 15 0
+-27 -11 -40 0
+1 -33 43 0
+30 -12 8 0
+20 7 31 0
+-17 14 -37 0
+-47 -16 44 0
+14 -1 -15 0
+-17 8 -30 0
+-49 -15 -18 0
+14 13 -39 0
+-37 -47 10 0
+4 -10 -34 0
+42 -43 -50 0
+-37 35 -46 0
+-50 11 42 0
+-22 -9 -48 0
+-50 -11 -36 0
+-44 -29 22 0
+18 -32 -3 0
+-8 -30 -6 0
+-6 -10 27 0
+35 34 -13 0
+-1 13 -28 0
+-28 -10 -20 0
+6 24 -22 0
+-21 9 -30 0
+-10 -4 -34 0
+5 -22 -3 0
+-31 -23 37 0
+16 -17 -31 0
+-16 -36 -6 0
+48 49 24 0
+-44 -5 -45 0
+5 50 41 0
+39 -8 46 0
+50 -37 13 0
+-1 4 -41 0
+10 11 -29 0
+-40 17 -39 0
+-49 11 -37 0
+-27 -42 49 0
+-42 -44 -29 0
+33 16 -13 0
+-18 40 36 0
+-7 2 9 0
+-16 42 10 0
+-5 32 -15 0
+1 6 21 0
+29 14 45 0
+-25 -19 31 0
+-38 -3 -37 0
+-20 -46 11 0
+-5 -41 -48 0
+19 -48 41 0
+-33 18 13 0
+-50 4 -24 0
+-48 38 -9 0
+25 32 4 0
+-10 26 -11 0
+43 -6 -8 0
+-4 5 46 0
+21 37 45 0
+31 -1 19 0
+25 -8 -10 0
+37 -11 -16 0
+-23 36 48 0
+-41 -11 -31 0
+8 32 23 0
+-46 11 20 0
+23 -37 26 0
+31 -8 -21 0
+-33 -7 -40 0
+1 -13 -6 0
+-41 7 -48 0
+44 -28 15 0
+48 -47 -19 0
+48 -4 45 0
+-4 19 -49 0
+6 -7 -17 0
+47 33 5 0
+19 -39 50 0
+12 42 34 0
+-9 -25 26 0
+23 -3 -10 0
+-18 34 32 0
+43 3 21 0
+-10 -18 -16 0
+-24 -36 9 0
+48 -16 49 0
+-10 -41 37 0
+42 11 -3 0
+21 11 23 0
+47 -25 -40 0
+-9 39 -15 0
+41 -12 44 0
+34 9 -20 0
+-26 48 25 0
+-32 24 7 0
+30 -47 27 0
+37 -10 -49 0
+-21 -9 -25 0
+19 -29 -12 0
+-2 -30 50 0
+-40 23 8 0
+5 -13 -11 0
+34 -5 18 0
+-36 4 23 0
+40 -50 -33 0
+-2 -44 -43 0
+35 6 -46 0
+37 31 -20 0
+-43 -14 -32 0
+-46 9 -43 0
+
+c GPT solve time: 131.78 seconds
+
+**Step-by-step SAT Solving (DPLL/CDCL-style):**
+
+1. **Variable selection:** There are 50 variables (x1 to x50).
+2. **Unit propagation:** No unit clauses initially.
+3. **Pure literal elimination:** Not directly applicable due to the size and mix of literals.
+4. **Branching:** We will branch on variables as needed, counting each decision point.
+5. **Conflict detection:** If a clause is unsatisfiable under current assignment, backtrack and count as a conflict.
+
+Given the size, let's proceed with a systematic approach, making decisions and propagating consequences, and counting branches and conflicts.
+
+---
+
+### 1. Assign x1 = True (Branch 1)
+- Propagate consequences:
+    - (x40 ∨ ¬x5 ∨ x1): Satisfied.
+    - (x22 ∨ x13 ∨ ¬x1): (x22 ∨ x13 ∨ False) → (x22 ∨ x13)
+    - (x43 ∨ x1 ∨ ¬x17): Satisfied.
+    - (x1 ∨ ¬x33 ∨ x43): Satisfied.
+    - (x31 ∨ ¬x1 ∨ x19): (x31 ∨ False ∨ x19) → (x31 ∨ x19)
+    - (¬x1 ∨ x13 ∨ ¬x28): (False ∨ x13 ∨ ¬x28) → (x13 ∨ ¬x28)
+    - (¬x1 ∨ x4 ∨ ¬x41): (False ∨ x4 ∨ ¬x41) → (x4 ∨ ¬x41)
+    - (x1 ∨ ¬x13 ∨ ¬x6): Satisfied.
+
+### 2. Assign x2 = True (Branch 2)
+- Propagate:
+    - (¬x8 ∨ x2 ∨ x10): Satisfied.
+    - (¬x2 ∨ ¬x30 ∨ x50): (False ∨ ¬x30 ∨ x50) → (¬x30 ∨ x50)
+    - (¬x2 ∨ ¬x44 ∨ ¬x43): (False ∨ ¬x44 ∨ ¬x43) → (¬x44 ∨ ¬x43)
+
+### 3. Assign x3 = True (Branch 3)
+- Propagate:
+    - (x3 ∨ ¬x33 ∨ x39): Satisfied.
+    - (¬x38 ∨ ¬x3 ∨ ¬x37): (¬x38 ∨ False ∨ ¬x37) → (¬x38 ∨ ¬x37)
+    - (x43 ∨ x3 ∨ x21): Satisfied.
+    - (x23 ∨ ¬x3 ∨ ¬x10): (x23 ∨ False ∨ ¬x10) → (x23 ∨ ¬x10)
+
+### 4. Assign x4 = True (Branch 4)
+- Propagate:
+    - (x21 ∨ ¬x4 ∨ x34): (x21 ∨ False ∨ x34) → (x21 ∨ x34)
+    - (¬x39 ∨ x4 ∨ ¬x36): (¬x39 ∨ True ∨ ¬x36): Satisfied.
+    - (¬x1 ∨ x4 ∨ ¬x41): Satisfied.
+    - (x25 ∨ x32 ∨ x4): Satisfied.
+    - (¬x4 ∨ x5 ∨ x46): (False ∨ x5 ∨ x46) → (x5 ∨ x46)
+    - (x48 ∨ ¬x4 ∨ x45): (x48 ∨ False ∨ x45) → (x48 ∨ x45)
+    - (¬x4 ∨ x19 ∨ ¬x49): (False ∨ x19 ∨ ¬x49) → (x19 ∨ ¬x49)
+    - (¬x10 ∨ ¬x4 ∨ ¬x34): (¬x10 ∨ False ∨ ¬x34) → (¬x10 ∨ ¬x34)
+    - (x36 ∨ x4 ∨ x23): Satisfied.
+
+### 5. Assign x5 = True (Branch 5)
+- Propagate:
+    - (x40 ∨ ¬x5 ∨ x1): Satisfied.
+    - (x14 ∨ ¬x1 ∨ ¬x15): Satisfied.
+    - (x5 ∨ x50 ∨ x41): Satisfied.
+    - (x5 ∨ ¬x22 ∨ ¬x3): Satisfied.
+    - (¬x44 ∨ ¬x5 ∨ ¬x45): (¬x44 ∨ False ∨ ¬x45) → (¬x44 ∨ ¬x45)
+    - (x47 ∨ x33 ∨ x5): Satisfied.
+
+### 6. Assign x6 = True (Branch 6)
+- Propagate:
+    - (x12 ∨ x49 ∨ x6): Satisfied.
+    - (x6 ∨ x24 ∨ ¬x22): Satisfied.
+    - (x1 ∨ x6 ∨ x21): Satisfied.
+    - (x35 ∨ x6 ∨ ¬x46): Satisfied.
+
+### 7. Assign x7 = True (Branch 7)
+- Propagate:
+    - (¬x7 ∨ x36 ∨ ¬x42): (False ∨ x36 ∨ ¬x42) → (x36 ∨ ¬x42)
+    - (¬x35 ∨ ¬x33 ∨ x7): Satisfied.
+    - (¬x8 ∨ x7 ∨ x15): Satisfied.
+    - (¬x7 ∨ x45 ∨ x5): (False ∨ x45 ∨ x5): Satisfied.
+    - (x7 ∨ x26 ∨ x20): Satisfied.
+    - (¬x32 ∨ ¬x45 ∨ x7): Satisfied.
+    - (¬x41 ∨ x7 ∨ ¬x48): (¬x41 ∨ True ∨ ¬x48): Satisfied.
+    - (x20 ∨ x7 ∨ x31): Satisfied.
+    - (x6 ∨ ¬x7 ∨ ¬x17): (True ∨ False ∨ ¬x17): Satisfied.
+
+### 8. Assign x8 = True (Branch 8)
+- Propagate:
+    - (x8 ∨ x21 ∨ ¬x13): Satisfied.
+    - (¬x8 ∨ x2 ∨ x10): Satisfied.
+    - (¬x8 ∨ ¬x39 ∨ ¬x13): (False ∨ ¬x39 ∨ ¬x13) → (¬x39 ∨ ¬x13)
+    - (x8 ∨ ¬x37 ∨ ¬x18): Satisfied.
+    - (x8 ∨ x32 ∨ x23): Satisfied.
+    - (x25 ∨ ¬x8 ∨ ¬x10): (x25 ∨ False ∨ ¬x10) → (x25 ∨ ¬x10)
+    - (x39 ∨ ¬x8 ∨ x46): (x39 ∨ False ∨ x46) → (x39 ∨ x46)
+
+### 9. Assign x9 = True (Branch 9)
+- Propagate:
+    - (x30 ∨ x9 ∨ x39): Satisfied.
+    - (x9 ∨ ¬x49 ∨ ¬x33): Satisfied.
+    - (¬x9 ∨ x27 ∨ x2): (False ∨ x27 ∨ x2) → (x27 ∨ x2)
+    - (¬x29 ∨ ¬x9 ∨ x15): (¬x29 ∨ False ∨ x15) → (¬x29 ∨ x15)
+    - (¬x22 ∨ ¬x9 ∨ ¬x48): (¬x22 ∨ False ∨ ¬x48) → (¬x22 ∨ ¬x48)
+    - (¬x21 ∨ x9 ∨ ¬x30): (¬x21 ∨ True ∨ ¬x30): Satisfied.
+    - (x34 ∨ x9 ∨ ¬x20): Satisfied.
+    - (¬x24 ∨ ¬x36 ∨ x9): (¬x24 ∨ ¬x36 ∨ True): Satisfied.
+
+### 10. Assign x10 = True (Branch 10)
+- Propagate:
+    - (¬x45 ∨ x10 ∨ x11): Satisfied.
+    - (x10 ∨ ¬x18 ∨ ¬x37): Satisfied.
+    - (x7 ∨ x10 ∨ x25): Satisfied.
+    - (x10 ∨ x47 ∨ ¬x5): Satisfied.
+    - (x14 ∨ ¬x1 ∨ ¬x15): Satisfied.
+    - (¬x28 ∨ ¬x10 ∨ ¬x20): (¬x28 ∨ False ∨ ¬x20) → (¬x28 ∨ ¬x20)
+    - (¬x10 ∨ ¬x4 ∨ ¬x34): (False ∨ False ∨ ¬x34) → (¬x34)
+    - (¬x10 ∨ x26 ∨ ¬x11): (False ∨ x26 ∨ ¬x11) → (x26 ∨ ¬x11)
+    - (¬x10 ∨ ¬x18 ∨ ¬x16): (False ∨ ¬x18 ∨ ¬x16) → (¬x18 ∨ ¬x16)
+    - (x37 ∨ ¬x10 ∨ ¬x49): (x37 ∨ False ∨ ¬x49) → (x37 ∨ ¬x49)
+    - (x23 ∨ ¬x3 ∨ ¬x10): (x23 ∨ False ∨ False) → (x23)
+
+### 11. Assign x11 = True (Branch 11)
+- Propagate:
+    - (¬x18 ∨ x43 ∨ ¬x11): (¬x18 ∨ x43 ∨ False) → (¬x18 ∨ x43)
+    - (¬x45 ∨ x10 ∨ x11): Satisfied.
+    - (¬x11 ∨ ¬x49 ∨ x17): (False ∨ ¬x49 ∨ x17) → (¬x49 ∨ x17)
+    - (¬x50 ∨ x11 ∨ x42): (¬x50 ∨ True ∨ x42): Satisfied.
+    - (¬x50 ∨ ¬x11 ∨ ¬x36): (¬x50 ∨ False ∨ ¬x36) → (¬x50 ∨ ¬x36)
+    - (x10 ∨ x11 ∨ ¬x29): Satisfied.
+    - (x42 ∨ x11 ∨ ¬x3): Satisfied.
+    - (x21 ∨ x11 ∨ x23): Satisfied.
+    - (¬x41 ∨ ¬x11 ∨ ¬x31): (¬x41 ∨ False ∨ ¬x31) → (¬x41 ∨ ¬x31)
+
+### 12. Assign x12 = True (Branch 12)
+- Propagate:
+    - (x12 ∨ x49 ∨ x6): Satisfied.
+    - (x30 ∨ ¬x12 ∨ x8): (x30 ∨ False ∨ x8): Satisfied.
+    - (x12 ∨ x42 ∨ x34): Satisfied.
+    - (x41 ∨ ¬x12 ∨ x44): (x41 ∨ False ∨ x44): (x41 ∨ x44)
+
+### 13. Assign x13 = True (Branch 13)
+- Propagate:
+    - (x22 ∨ x13 ∨ ¬x1): Satisfied.
+    - (x8 ∨ x21 ∨ ¬x13): (x8 ∨ x21 ∨ False): Satisfied.
+    - (x33 ∨ ¬x46 ∨ x13): Satisfied.
+    - (¬x39 ∨ ¬x44 ∨ x13): (¬x39 ∨ ¬x44 ∨ True): Satisfied.
+    - (x14 ∨ x13 ∨ ¬x39): (x14 ∨ True ∨ ¬x39): Satisfied.
+    - (¬x33 ∨ x18 ∨ x13): (¬x33 ∨ x18 ∨ True): Satisfied.
+    - (x1 ∨ ¬x13 ∨ ¬x6): (True ∨ False ∨ False): Satisfied.
+    - (x5 ∨ ¬x13 ∨ ¬x11): (True ∨ False ∨ False): Satisfied.
+    - (x34 ∨ ¬x5 ∨ x18): Satisfied.
+    - (x33 ∨ x16 ∨ ¬x13): (x33 ∨ x16 ∨ False): (x33 ∨ x16)
+
+### 14. Assign x14 = True (Branch 14)
+- Propagate:
+    - (x46 ∨ x20 ∨ ¬x25): (x46 ∨ x20 ∨ ¬x25)
+    - (¬x46 ∨ x14 ∨ x42): (¬x46 ∨ True ∨ x42): Satisfied.
+    - (¬x17 ∨ x14 ∨ ¬x37): (¬x17 ∨ True ∨ ¬x37): Satisfied.
+    - (x14 ∨ ¬x1 ∨ ¬x15): Satisfied.
+    - (x14 ∨ x13 ∨ ¬x39): Satisfied.
+    - (x29 ∨ x14 ∨ x45): Satisfied.
+    - (x44 ∨ ¬x28 ∨ x15): Satisfied.
+
+### 15. Assign x15 = True (Branch 15)
+- Propagate:
+    - (¬x8 ∨ x7 ∨ x15): Satisfied.
+    - (x42 ∨ ¬x36 ∨ ¬x15): (x42 ∨ ¬x36 ∨ False): (x42 ∨ ¬x36)
+    - (x14 ∨ ¬x1 ∨ ¬x15): (x14 ∨ False ∨ False): Satisfied.
+    - (¬x49 ∨ ¬x15 ∨ ¬x18): (¬x49 ∨ False ∨ ¬x18): (¬x49 ∨ ¬x18)
+    - (¬x29 ∨ ¬x9 ∨ x15): (¬x29 ∨ False ∨ True): Satisfied.
+    - (¬x5 ∨ x32 ∨ ¬x15): (False ∨ x32 ∨ False): (x32)
+    - (¬x9 ∨ x39 ∨ ¬x15): (False ∨ x39 ∨ False): (x39)
+
+### 16. Assign x16 = True (Branch 16)
+- Propagate:
+    - (x29 ∨ x16 ∨ x44): Satisfied.
+    - (¬x47 ∨ ¬x16 ∨ x44): (¬x47 ∨ False ∨ x44): (¬x47 ∨ x44)
+    - (x33 ∨ x16 ∨ ¬x13): Satisfied.
+    - (x16 ∨ ¬x17 ∨ ¬x31): Satisfied.
+    - (¬x16 ∨ ¬x36 ∨ ¬x6): (False ∨ ¬x36 ∨ False): (¬x36)
+    - (¬x16 ∨ x42 ∨ x10): (False ∨ x42 ∨ x10): (x42 ∨ x10)
+
+### 17. Assign x17 = True (Branch 17)
+- Propagate:
+    - (¬x35 ∨ x17 ∨ x19): Satisfied.
+    - (¬x22 ∨ x40 ∨ ¬x36): (¬x22 ∨ x40 ∨ ¬x36)
+    - (¬x17 ∨ x6 ∨ x25): (False ∨ True ∨ x25): Satisfied.
+    - (¬x17 ∨ x21 ∨ x47): (False ∨ x21 ∨ x47): (x21 ∨ x47)
+    - (x43 ∨ x1 ∨ ¬x17): Satisfied.
+    - (¬x31 ∨ ¬x17 ∨ ¬x21): (¬x31 ∨ False ∨ ¬x21): (¬x31 ∨ ¬x21)
+    - (¬x17 ∨ x14 ∨ ¬x37): (False ∨ True ∨ ¬x37): Satisfied.
+    - (¬x17 ∨ x8 ∨ ¬x30): (False ∨ True ∨ ¬x30): Satisfied.
+
+### 18. Assign x18 = True (Branch 18)
+- Propagate:
+    - (¬x18 ∨ x43 ∨ ¬x11): (False ∨ x43 ∨ False): (x43)
+    - (x18 ∨ x42 ∨ ¬x29): Satisfied.
+    - (x18 ∨ ¬x31 ∨ x42): Satisfied.
+    - (¬x12 ∨ ¬x18 ∨ ¬x38): (¬x12 ∨ False ∨ ¬x38): (¬x12 ∨ ¬x38)
+    - (x36 ∨ x18 ∨ ¬x40): Satisfied.
+    - (¬x18 ∨ x40 ∨ x36): (False ∨ x40 ∨ x36): (x40 ∨ x36)
+    - (¬x18 ∨ x34 ∨ x32): (False ∨ x34 ∨ x32): (x34 ∨ x32)
+    - (¬x10 ∨ ¬x18 ∨ ¬x16): (False ∨ False

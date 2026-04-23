@@ -1,0 +1,108 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1369
+p cnf 5 17
+-1 -2 -4 0
+-1 3 2 0
+4 3 -1 0
+2 -3 4 0
+-4 2 -5 0
+1 -4 -5 0
+-4 -1 2 0
+2 -1 -5 0
+2 3 -5 0
+1 2 3 0
+-4 1 5 0
+1 2 3 0
+1 -4 -5 0
+4 -2 1 0
+-4 1 -5 0
+-3 -5 -1 0
+5 4 -3 0
+
+c GPT solve time: 36.27 seconds
+
+Step 1: Assign x1 = True
+(¬x2 ∨ ¬x4)
+(x3 ∨ x2)
+(x4 ∨ x3)
+(x2 ∨ ¬x3 ∨ x4)
+(¬x4 ∨ x2 ∨ ¬x5)
+(¬x4 ∨ ¬x5)
+(¬x4 ∨ x2)
+(x2 ∨ ¬x5)
+(x2 ∨ x3 ∨ ¬x5)
+(x2 ∨ x3)
+(¬x4 ∨ x5)
+(x2 ∨ x3)
+(¬x4 ∨ ¬x5)
+(x4 ∨ ¬x2)
+(¬x4 ∨ ¬x5)
+(¬x3 ∨ ¬x5)
+(x5 ∨ x4 ∨ ¬x3)
+
+Step 2: Assign x2 = True
+(¬x4)
+(x3)
+(x4 ∨ x3)
+(¬x3 ∨ x4)
+(¬x4 ∨ ¬x5)
+(¬x4 ∨ ¬x5)
+(¬x4)
+(¬x5)
+(x3 ∨ ¬x5)
+(x3)
+(¬x4 ∨ x5)
+(x3)
+(¬x4 ∨ ¬x5)
+(x4)
+(¬x4 ∨ ¬x5)
+(¬x3 ∨ ¬x5)
+(x5 ∨ x4 ∨ ¬x3)
+
+Conflict: (¬x4) and (x4)
+
+Step 3: Backtrack and assign x2 = False
+(¬x4)
+(x3)
+(x4 ∨ x3)
+(¬x3 ∨ x4)
+(¬x4 ∨ ¬x5)
+(¬x4 ∨ ¬x5)
+(¬x4)
+(¬x5)
+(x3 ∨ ¬x5)
+(x3)
+(¬x4 ∨ x5)
+(x3)
+(¬x4 ∨ ¬x5)
+(¬x4 ∨ ¬x5)
+(¬x3 ∨ ¬x5)
+(x5 ∨ x4 ∨ ¬x3)
+
+Step 4: Assign x4 = False
+(x3)
+(x3)
+(¬x3)
+(¬x5)
+(¬x5)
+(¬x5)
+(x3 ∨ ¬x5)
+(x3)
+(x5)
+(x3)
+(¬x5)
+(¬x5)
+(¬x3 ∨ ¬x5)
+(¬x3)
+
+Conflict: (x3) and (¬x3)
+
+Step 5: Backtrack and assign x1 = False
+(x3 ∨ x2)
+(x4 ∨ x3 ∨ ¬x1)
+(x2 ∨ ¬x3 ∨ x4)
+(¬x4 ∨ x2 ∨ ¬x5)
+(¬x4 ∨ x2)
+(x2 ∨ ¬x5)
+(x2 ∨ x3 ∨ ¬x5)
+(x4 ∨

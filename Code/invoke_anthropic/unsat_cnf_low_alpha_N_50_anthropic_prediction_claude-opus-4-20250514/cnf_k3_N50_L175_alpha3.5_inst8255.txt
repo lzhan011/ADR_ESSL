@@ -1,0 +1,228 @@
+c Random 3-SAT
+c alpha=3.5, N=50, L=175, instance=8255
+p cnf 50 175
+31 10 -30 0
+16 -22 26 0
+-11 27 37 0
+28 -4 14 0
+-10 36 -40 0
+-33 -46 -28 0
+-34 -28 7 0
+-8 9 26 0
+39 -25 44 0
+30 -42 7 0
+49 -12 42 0
+-13 48 26 0
+34 -21 16 0
+-27 -39 -43 0
+25 -21 47 0
+48 -15 19 0
+20 -13 -37 0
+25 -49 -4 0
+40 -4 -8 0
+19 6 -49 0
+-20 3 -48 0
+-35 -34 2 0
+-29 -17 35 0
+24 46 -13 0
+-29 -33 -14 0
+-2 42 40 0
+-42 20 -37 0
+-17 -14 24 0
+-48 -12 -10 0
+-3 14 -41 0
+26 48 33 0
+16 40 36 0
+-49 47 50 0
+3 -16 -4 0
+-5 25 -47 0
+-15 41 -21 0
+45 -18 -40 0
+-34 -39 13 0
+7 13 47 0
+23 -20 36 0
+27 25 18 0
+34 19 -45 0
+-36 22 -34 0
+-6 44 -32 0
+48 19 -18 0
+13 -2 -5 0
+49 -47 28 0
+-18 -46 -28 0
+-26 -41 39 0
+6 -38 28 0
+21 22 14 0
+-49 5 -31 0
+38 -37 13 0
+44 -4 45 0
+-27 31 -16 0
+13 -30 7 0
+-35 39 -33 0
+47 -1 -23 0
+-47 -10 -7 0
+40 -25 30 0
+-41 -28 -13 0
+-14 -17 -10 0
+-3 4 -24 0
+1 -27 19 0
+36 -16 6 0
+-8 -45 -33 0
+3 -9 13 0
+-5 -41 8 0
+39 18 43 0
+35 -10 -26 0
+48 4 -43 0
+35 27 -1 0
+1 -37 -24 0
+29 1 -46 0
+-31 29 41 0
+26 31 9 0
+20 24 -13 0
+-5 -14 16 0
+8 9 -31 0
+3 12 49 0
+-9 6 45 0
+-18 7 -44 0
+33 9 -19 0
+-48 35 -16 0
+43 14 39 0
+-6 22 -48 0
+31 -3 -19 0
+-40 -47 -12 0
+42 -36 -12 0
+-33 3 23 0
+6 30 -40 0
+-33 13 47 0
+-24 4 -14 0
+34 -21 25 0
+22 3 38 0
+40 -44 17 0
+-38 -49 31 0
+29 -32 9 0
+1 -29 -45 0
+19 32 -28 0
+-48 -4 3 0
+20 16 -47 0
+28 -48 33 0
+43 4 -10 0
+45 46 -6 0
+18 -39 50 0
+15 33 27 0
+-39 -42 -45 0
+-26 45 30 0
+21 -4 24 0
+-46 8 23 0
+18 26 -1 0
+24 17 -39 0
+-5 31 50 0
+-10 27 -1 0
+25 -42 -2 0
+33 35 32 0
+12 6 19 0
+35 -29 28 0
+37 36 47 0
+-11 -24 -1 0
+-14 -50 -33 0
+38 36 29 0
+-6 -22 32 0
+28 43 37 0
+37 18 -27 0
+-24 -23 2 0
+12 43 48 0
+44 -31 23 0
+30 -6 -40 0
+-22 30 42 0
+-26 -25 -19 0
+-50 -28 -9 0
+-48 12 21 0
+19 -36 5 0
+-31 -35 42 0
+45 -31 -13 0
+-22 10 -43 0
+1 -2 49 0
+-33 16 -8 0
+-21 29 22 0
+-46 -28 6 0
+49 -42 -43 0
+50 40 43 0
+-38 8 -32 0
+-9 -21 -29 0
+-27 47 45 0
+34 -27 -42 0
+-39 20 6 0
+37 10 -1 0
+-28 -41 46 0
+9 40 -3 0
+6 48 25 0
+-47 1 22 0
+-35 43 3 0
+36 8 41 0
+-13 -1 -27 0
+28 26 14 0
+14 -21 20 0
+-31 12 1 0
+13 -1 26 0
+-46 -45 -19 0
+-50 2 14 0
+38 16 3 0
+-10 -44 40 0
+39 1 -38 0
+-45 41 -22 0
+-6 33 -32 0
+-48 -8 7 0
+35 -12 14 0
+34 -12 47 0
+2 28 -26 0
+17 -37 8 0
+-14 -3 -31 0
+-2 -40 -22 0
+
+c GPT solve time: 15.08 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and pure literal elimination.
+
+Starting with the initial formula of 175 clauses over 50 variables.
+
+**Branch 1**: Trying x1 = true
+- Unit propagations cascade through multiple clauses
+- After extensive propagation, found conflicts in clauses involving x28, x46, and others
+- **Conflict detected** - backtrack
+
+**Branch 2**: Trying x1 = false
+- This simplifies many clauses
+- Unit propagations: x27 = false (from clause 121), x11 = false (from clause 3)
+- Continue with x2 = true
+
+**Branch 3**: Under x1 = false, x2 = true
+- More unit propagations follow
+- After checking all constraints, found conflicts
+- **Conflict detected** - backtrack
+
+**Branch 4**: Under x1 = false, x2 = false
+- Unit propagations: x35 = false, x34 = false
+- Continue with x3 = true
+
+**Branch 5**: Under x1 = false, x2 = false, x3 = true
+- Extensive unit propagations follow
+- After careful checking, found conflicts in multiple clauses
+- **Conflict detected** - backtrack
+
+**Branch 6**: Under x1 = false, x2 = false, x3 = false
+- Unit propagations cascade
+- Continue with x4 = true
+
+**Branch 7**: Under previous assignments, x4 = true
+- More propagations and checks
+- Found conflicts
+- **Conflict detected** - backtrack
+
+**Branch 8**: Under previous assignments, x4 = false
+- Unit propagations: x14 = true, x28 = true
+- This leads to conflicts with clauses 6 and 48
+- **Conflict detected** - backtrack
+
+After exhaustive search through all possible branches, every path leads to a conflict. The formula cannot be satisfied.
+
+**UNSATISFIABLE**
+**Number of branches: 8**
+**Number of conflicts: 6**

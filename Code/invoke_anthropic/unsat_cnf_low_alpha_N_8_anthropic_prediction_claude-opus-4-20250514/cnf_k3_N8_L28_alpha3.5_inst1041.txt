@@ -1,0 +1,79 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1041
+p cnf 8 28
+1 -2 8 0
+8 1 -2 0
+5 -7 -3 0
+-6 -3 1 0
+4 -2 -1 0
+4 -5 -3 0
+7 -1 5 0
+4 -7 1 0
+1 7 4 0
+5 2 3 0
+-7 -5 -6 0
+-1 2 -4 0
+-4 -7 -6 0
+3 -1 -5 0
+2 6 -8 0
+-1 6 -2 0
+2 8 1 0
+3 6 -4 0
+-2 -1 -7 0
+7 -2 -5 0
+5 8 1 0
+-6 8 7 0
+-1 7 -3 0
+-1 -6 2 0
+-8 7 -4 0
+-2 -8 -5 0
+8 4 7 0
+8 2 -4 0
+
+c GPT solve time: 21.05 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Let me start by analyzing the formula and making decisions:
+
+**Branch 1: x1 = true**
+- Clause 1: (x1 ∨ ¬x2 ∨ x8) → satisfied
+- Clause 2: (x8 ∨ x1 ∨ ¬x2) → satisfied
+- Clause 4: (¬x6 ∨ ¬x3 ∨ x1) → satisfied
+- Clause 8: (x4 ∨ ¬x7 ∨ x1) → satisfied
+- Clause 9: (x1 ∨ x7 ∨ x4) → satisfied
+- Clause 17: (x2 ∨ x8 ∨ x1) → satisfied
+- Clause 21: (x5 ∨ x8 ∨ x1) → satisfied
+
+Remaining clauses need:
+- Clause 7: (x7 ∨ ¬x1 ∨ x5) → (x7 ∨ x5)
+- Clause 12: (¬x1 ∨ x2 ∨ ¬x4) → (x2 ∨ ¬x4)
+- Clause 14: (x3 ∨ ¬x1 ∨ ¬x5) → (x3 ∨ ¬x5)
+- Clause 16: (¬x1 ∨ x6 ∨ ¬x2) → (x6 ∨ ¬x2)
+- Clause 19: (¬x2 ∨ ¬x1 ∨ ¬x7) → (¬x2 ∨ ¬x7)
+- Clause 23: (¬x1 ∨ x7 ∨ ¬x3) → (x7 ∨ ¬x3)
+- Clause 24: (¬x1 ∨ ¬x6 ∨ x2) → (¬x6 ∨ x2)
+
+**Branch 2: x2 = true**
+- Clause 12: (x2 ∨ ¬x4) → satisfied
+- Clause 24: (¬x6 ∨ x2) → satisfied
+- Clause 10: (x5 ∨ x2 ∨ x3) → satisfied
+- Clause 15: (x2 ∨ x6 ∨ ¬x8) → satisfied
+- Clause 17: already satisfied
+- Clause 28: (x8 ∨ x2 ∨ ¬x4) → satisfied
+
+From clause 19: (¬x2 ∨ ¬x7) → ¬x7 (unit propagation: x7 = false)
+From clause 16: (x6 ∨ ¬x2) → x6 = false
+
+With x7 = false:
+- Clause 7: (x7 ∨ x5) → x5 = true
+- Clause 23: (x7 ∨ ¬x3) → ¬x3 (x3 = false)
+
+With x5 = true and x3 = false:
+- Clause 14: (x3 ∨ ¬x5) → false ∨ false = CONFLICT
+
+**Backtrack: x2 = false**
+- Clause 5: (x4 ∨ ¬x2 ∨ ¬x1) → (x4 ∨ true) → satisfied
+- Clause 19: (¬x2 ∨ ¬x7) → satisfied
+- Clause 20: (x7 ∨ ¬x2 ∨ ¬x5) → satisfied
+- Clause 26

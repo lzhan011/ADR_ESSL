@@ -1,0 +1,238 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1950
+p cnf 5 17
+-2 3 -5 0
+-2 -1 -4 0
+2 3 5 0
+1 -5 -3 0
+-2 5 4 0
+3 -1 4 0
+-4 3 5 0
+5 -3 -1 0
+-1 -4 3 0
+1 -3 5 0
+-4 -5 -2 0
+1 3 2 0
+-5 -3 -1 0
+1 -2 5 0
+2 3 5 0
+-1 2 3 0
+4 -1 5 0
+
+c GPT solve time: 142.14 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm. We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Initial Formula:
+1. (¬x2 ∨ x3 ∨ ¬x5)  
+2. (¬x2 ∨ ¬x1 ∨ ¬x4)  
+3. (x2 ∨ x3 ∨ x5)  
+4. (x1 ∨ ¬x5 ∨ ¬x3)  
+5. (¬x2 ∨ x5 ∨ x4)  
+6. (x3 ∨ ¬x1 ∨ x4)  
+7. (¬x4 ∨ x3 ∨ x5)  
+8. (x5 ∨ ¬x3 ∨ ¬x1)  
+9. (¬x1 ∨ ¬x4 ∨ x3)  
+10. (x1 ∨ ¬x3 ∨ x5)  
+11. (¬x4 ∨ ¬x5 ∨ ¬x2)  
+12. (x1 ∨ x3 ∨ x2)  
+13. (¬x5 ∨ ¬x3 ∨ ¬x1)  
+14. (x1 ∨ ¬x2 ∨ x5)  
+15. (x2 ∨ x3 ∨ x5)  
+16. (¬x1 ∨ x2 ∨ x3)  
+17. (x4 ∨ ¬x1 ∨ x5)  
+
+### Step 1: Unit Propagation
+No unit clauses exist initially.
+
+### Step 2: Make a decision (Branch)
+Let’s choose `x1 = True` (first decision point).  
+- Assign `x1 = True`.  
+
+#### Simplify clauses with `x1 = True`:
+- Clause 2: (¬x2 ∨ ¬x1 ∨ ¬x4) → (¬x2 ∨ ¬x4)  
+- Clause 4: (x1 ∨ ¬x5 ∨ ¬x3) → satisfied (remove)  
+- Clause 6: (x3 ∨ ¬x1 ∨ x4) → (x3 ∨ x4)  
+- Clause 8: (x5 ∨ ¬x3 ∨ ¬x1) → (x5 ∨ ¬x3)  
+- Clause 9: (¬x1 ∨ ¬x4 ∨ x3) → (¬x4 ∨ x3)  
+- Clause 10: (x1 ∨ ¬x3 ∨ x5) → satisfied (remove)  
+- Clause 12: (x1 ∨ x3 ∨ x2) → satisfied (remove)  
+- Clause 13: (¬x5 ∨ ¬x3 ∨ ¬x1) → (¬x5 ∨ ¬x3)  
+- Clause 14: (x1 ∨ ¬x2 ∨ x5) → satisfied (remove)  
+- Clause 16: (¬x1 ∨ x2 ∨ x3) → (x2 ∨ x3)  
+- Clause 17: (x4 ∨ ¬x1 ∨ x5) → (x4 ∨ x5)  
+
+Remaining clauses:  
+1. (¬x2 ∨ x3 ∨ ¬x5)  
+2. (¬x2 ∨ ¬x4)  
+3. (x2 ∨ x3 ∨ x5)  
+5. (¬x2 ∨ x5 ∨ x4)  
+6. (x3 ∨ x4)  
+7. (¬x4 ∨ x3 ∨ x5)  
+8. (x5 ∨ ¬x3)  
+9. (¬x4 ∨ x3)  
+11. (¬x4 ∨ ¬x5 ∨ ¬x2)  
+13. (¬x5 ∨ ¬x3)  
+15. (x2 ∨ x3 ∨ x5)  
+16. (x2 ∨ x3)  
+17. (x4 ∨ x5)  
+
+#### Unit Propagation:
+- Clause 16: (x2 ∨ x3) → no unit.  
+- Clause 9: (¬x4 ∨ x3) → no unit.  
+- Clause 8: (x5 ∨ ¬x3) → no unit.  
+- Clause 13: (¬x5 ∨ ¬x3) → no unit.  
+
+No further simplification.  
+
+### Step 3: Make another decision (Branch)
+Let’s choose `x2 = True` (second decision point).  
+- Assign `x2 = True`.  
+
+#### Simplify clauses with `x2 = True`:
+- Clause 1: (¬x2 ∨ x3 ∨ ¬x5) → (x3 ∨ ¬x5)  
+- Clause 2: (¬x2 ∨ ¬x4) → (¬x4)  
+  - Now `¬x4` is a unit clause. Assign `x4 = False`.  
+- Clause 3: (x2 ∨ x3 ∨ x5) → satisfied (remove)  
+- Clause 5: (¬x2 ∨ x5 ∨ x4) → (x5 ∨ x4) → (x5 ∨ False) → (x5)  
+  - Now `x5` is a unit clause. Assign `x5 = True`.  
+- Clause 6: (x3 ∨ x4) → (x3 ∨ False) → (x3)  
+  - Now `x3` is a unit clause. Assign `x3 = True`.  
+- Clause 7: (¬x4 ∨ x3 ∨ x5) → (True ∨ x3 ∨ x5) → satisfied (remove)  
+- Clause 11: (¬x4 ∨ ¬x5 ∨ ¬x2) → (True ∨ ¬x5 ∨ False) → satisfied (remove)  
+- Clause 15: (x2 ∨ x3 ∨ x5) → satisfied (remove)  
+- Clause 16: (x2 ∨ x3) → satisfied (remove)  
+- Clause 17: (x4 ∨ x5) → (False ∨ True) → satisfied (remove)  
+
+Remaining clauses:  
+1. (x3 ∨ ¬x5) → (True ∨ False) → satisfied  
+8. (x5 ∨ ¬x3) → (True ∨ False) → satisfied  
+13. (¬x5 ∨ ¬x3) → (False ∨ False) → conflict!  
+
+#### Conflict detected:
+- `x5 = True` and `x3 = True` contradict clause 13: (¬x5 ∨ ¬x3).  
+- Backtrack to the last decision (`x2 = True`).  
+
+### Step 4: Backtrack (Conflict 1)
+Undo `x2 = True` and try `x2 = False`.  
+- Assign `x2 = False`.  
+
+#### Simplify clauses with `x2 = False`:
+- Clause 1: (¬x2 ∨ x3 ∨ ¬x5) → satisfied (remove)  
+- Clause 2: (¬x2 ∨ ¬x4) → satisfied (remove)  
+- Clause 3: (x2 ∨ x3 ∨ x5) → (x3 ∨ x5)  
+- Clause 5: (¬x2 ∨ x5 ∨ x4) → satisfied (remove)  
+- Clause 11: (¬x4 ∨ ¬x5 ∨ ¬x2) → satisfied (remove)  
+- Clause 15: (x2 ∨ x3 ∨ x5) → (x3 ∨ x5)  
+- Clause 16: (x2 ∨ x3) → (x3)  
+  - Now `x3` is a unit clause. Assign `x3 = True`.  
+
+Remaining clauses:  
+3. (x3 ∨ x5) → satisfied (x3 = True)  
+6. (x3 ∨ x4) → satisfied  
+7. (¬x4 ∨ x3 ∨ x5) → satisfied  
+8. (x5 ∨ ¬x3) → (x5 ∨ False) → (x5)  
+  - Now `x5` is a unit clause. Assign `x5 = True`.  
+9. (¬x4 ∨ x3) → satisfied  
+13. (¬x5 ∨ ¬x3) → (False ∨ False) → conflict!  
+
+#### Conflict detected:
+- `x5 = True` and `x3 = True` contradict clause 13: (¬x5 ∨ ¬x3).  
+- Backtrack to the last decision (`x1 = True`).  
+
+### Step 5: Backtrack (Conflict 2)
+Undo `x1 = True` and try `x1 = False`.  
+- Assign `x1 = False`.  
+
+#### Simplify clauses with `x1 = False`:
+- Clause 4: (x1 ∨ ¬x5 ∨ ¬x3) → (¬x5 ∨ ¬x3)  
+- Clause 6: (x3 ∨ ¬x1 ∨ x4) → (x3 ∨ x4)  
+- Clause 8: (x5 ∨ ¬x3 ∨ ¬x1) → (x5 ∨ ¬x3)  
+- Clause 9: (¬x1 ∨ ¬x4 ∨ x3) → (¬x4 ∨ x3)  
+- Clause 10: (x1 ∨ ¬x3 ∨ x5) → (¬x3 ∨ x5)  
+- Clause 12: (x1 ∨ x3 ∨ x2) → (x3 ∨ x2)  
+- Clause 13: (¬x5 ∨ ¬x3 ∨ ¬x1) → (¬x5 ∨ ¬x3)  
+- Clause 14: (x1 ∨ ¬x2 ∨ x5) → (¬x2 ∨ x5)  
+- Clause 16: (¬x1 ∨ x2 ∨ x3) → (x2 ∨ x3)  
+- Clause 17: (x4 ∨ ¬x1 ∨ x5) → (x4 ∨ x5)  
+
+Remaining clauses:  
+1. (¬x2 ∨ x3 ∨ ¬x5)  
+2. (¬x2 ∨ ¬x1 ∨ ¬x4) → (¬x2 ∨ ¬x4)  
+3. (x2 ∨ x3 ∨ x5)  
+5. (¬x2 ∨ x5 ∨ x4)  
+7. (¬x4 ∨ x3 ∨ x5)  
+11. (¬x4 ∨ ¬x5 ∨ ¬x2)  
+15. (x2 ∨ x3 ∨ x5)  
+
+#### Unit Propagation:
+No unit clauses.  
+
+### Step 6: Make a decision (Branch)
+Let’s choose `x2 = True` (third decision point).  
+- Assign `x2 = True`.  
+
+#### Simplify clauses with `x2 = True`:
+- Clause 1: (¬x2 ∨ x3 ∨ ¬x5) → satisfied (remove)  
+- Clause 2: (¬x2 ∨ ¬x4) → (¬x4)  
+  - Now `¬x4` is a unit clause. Assign `x4 = False`.  
+- Clause 3: (x2 ∨ x3 ∨ x5) → satisfied (remove)  
+- Clause 5: (¬x2 ∨ x5 ∨ x4) → (x5 ∨ x4) → (x5 ∨ False) → (x5)  
+  - Now `x5` is a unit clause. Assign `x5 = True`.  
+- Clause 7: (¬x4 ∨ x3 ∨ x5) → (True ∨ x3 ∨ True) → satisfied (remove)  
+- Clause 11: (¬x4 ∨ ¬x5 ∨ ¬x2) → (True ∨ False ∨ False) → satisfied (remove)  
+- Clause 15: (x2 ∨ x3 ∨ x5) → satisfied (remove)  
+
+Remaining clauses:  
+4. (¬x5 ∨ ¬x3) → (¬True ∨ ¬x3) → (¬x3)  
+  - Now `¬x3` is a unit clause. Assign `x3 = False`.  
+
+Check other clauses:  
+- Clause 6: (x3 ∨ x4) → (False ∨ False) → conflict!  
+
+#### Conflict detected:
+- `x3 = False` and `x4 = False` contradict clause 6: (x3 ∨ x4).  
+- Backtrack to the last decision (`x2 = True`).  
+
+### Step 7: Backtrack (Conflict 3)
+Undo `x2 = True` and try `x2 = False`.  
+- Assign `x2 = False`.  
+
+#### Simplify clauses with `x2 = False`:
+- Clause 1: (¬x2 ∨ x3 ∨ ¬x5) → satisfied (remove)  
+- Clause 2: (¬x2 ∨ ¬x4) → satisfied (remove)  
+- Clause 3: (x2 ∨ x3 ∨ x5) → (x3 ∨ x5)  
+- Clause 5: (¬x2 ∨ x5 ∨ x4) → satisfied (remove)  
+- Clause 11: (¬x4 ∨ ¬x5 ∨ ¬x2) → satisfied (remove)  
+- Clause 15: (x2 ∨ x3 ∨ x5) → (x3 ∨ x5)  
+
+Remaining clauses:  
+3. (x3 ∨ x5)  
+4. (¬x5 ∨ ¬x3)  
+6. (x3 ∨ x4)  
+7. (¬x4 ∨ x3 ∨ x5)  
+8. (x5 ∨ ¬x3)  
+9. (¬x4 ∨ x3)  
+10. (¬x3 ∨ x5)  
+12. (x3 ∨ x2) → (x3)  
+  - Now `x3` is a unit clause. Assign `x3 = True`.  
+
+#### Simplify with `x3 = True`:
+- Clause 3: (x3 ∨ x5) → satisfied (remove)  
+- Clause 4: (¬x5 ∨ ¬x3) → (¬x5 ∨ False) → (¬x5)  
+  - Now `¬x5` is a unit clause. Assign `x5 = False`.  
+- Clause 6: (x3 ∨ x4) → satisfied (remove)  
+- Clause 7: (¬x4 ∨ x3 ∨ x5) → satisfied (remove)  
+- Clause 8: (x5 ∨ ¬x3) → (False ∨ False) → conflict!  
+
+#### Conflict detected:
+- `x5 = False` and `x3 = True` contradict clause 8: (x5 ∨ ¬x3).  
+- No more decisions to backtrack.  
+
+### Final Result:
+The formula is **UNSATISFIABLE**.  
+
+### Summary:
+- **SATISFIABLE or UNSATISFIABLE**: UNSATISFIABLE  
+- **Number of branches (decision points)**: 3  
+- **Number of conflicts (backtracking steps)**: 3

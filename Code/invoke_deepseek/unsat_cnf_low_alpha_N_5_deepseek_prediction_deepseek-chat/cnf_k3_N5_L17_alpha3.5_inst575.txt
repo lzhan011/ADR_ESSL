@@ -1,0 +1,209 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=575
+p cnf 5 17
+-5 2 1 0
+1 -2 3 0
+4 -5 -1 0
+-4 1 2 0
+2 3 -4 0
+3 2 -5 0
+-3 1 -2 0
+-1 -4 -2 0
+-1 5 -2 0
+-5 -3 -1 0
+1 5 2 0
+-3 5 -4 0
+-5 -4 3 0
+5 2 -1 0
+5 2 -4 0
+3 4 -1 0
+3 -4 -1 0
+
+c GPT solve time: 138.32 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm (a backtracking-based search algorithm for SAT solving). We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Setup
+- Clauses:
+  1. (¬x5 ∨ x2 ∨ x1)
+  2. (x1 ∨ ¬x2 ∨ x3)
+  3. (x4 ∨ ¬x5 ∨ ¬x1)
+  4. (¬x4 ∨ x1 ∨ x2)
+  5. (x2 ∨ x3 ∨ ¬x4)
+  6. (x3 ∨ x2 ∨ ¬x5)
+  7. (¬x3 ∨ x1 ∨ ¬x2)
+  8. (¬x1 ∨ ¬x4 ∨ ¬x2)
+  9. (¬x1 ∨ x5 ∨ ¬x2)
+  10. (¬x5 ∨ ¬x3 ∨ ¬x1)
+  11. (x1 ∨ x5 ∨ x2)
+  12. (¬x3 ∨ x5 ∨ ¬x4)
+  13. (¬x5 ∨ ¬x4 ∨ x3)
+  14. (x5 ∨ x2 ∨ ¬x1)
+  15. (x5 ∨ x2 ∨ ¬x4)
+  16. (x3 ∨ x4 ∨ ¬x1)
+  17. (x3 ∨ ¬x4 ∨ ¬x1)
+
+### Step 2: Unit Propagation and Pure Literals
+- No unit clauses or pure literals initially.
+
+### Step 3: Make Decisions and Propagate
+We'll make decisions on variables and propagate their implications. We'll choose variables in order (x1, x2, x3, x4, x5).
+
+#### Decision 1: x1 = True (Branch 1)
+- Propagate x1 = True:
+  - Clause 1: Satisfied by x1.
+  - Clause 2: Satisfied by x1.
+  - Clause 3: Reduces to (x4 ∨ ¬x5).
+  - Clause 4: Satisfied by x1.
+  - Clause 5: No change.
+  - Clause 6: No change.
+  - Clause 7: Reduces to (¬x3 ∨ ¬x2).
+  - Clause 8: Reduces to (¬x4 ∨ ¬x2).
+  - Clause 9: Reduces to (x5 ∨ ¬x2).
+  - Clause 10: Reduces to (¬x5 ∨ ¬x3).
+  - Clause 11: Satisfied by x1.
+  - Clause 12: No change.
+  - Clause 13: No change.
+  - Clause 14: Reduces to (x5 ∨ x2).
+  - Clause 15: No change.
+  - Clause 16: Reduces to (x3 ∨ x4).
+  - Clause 17: Reduces to (x3 ∨ ¬x4).
+
+Now, we have new implications:
+- From (¬x3 ∨ ¬x2) and (¬x4 ∨ ¬x2) and (x5 ∨ ¬x2), we can infer that x2 cannot be True without causing conflicts (e.g., if x2 = True, then x3 = False, x4 = False, x5 = True, but this conflicts with (¬x5 ∨ ¬x3) which would require x5 = False or x3 = False, but x5 = True and x3 = False is allowed). However, let's explore x2 = False.
+
+#### Decision 2: x2 = False (Branch 2)
+- Propagate x2 = False:
+  - Clause 5: Reduces to (x3 ∨ ¬x4).
+  - Clause 6: Reduces to (x3 ∨ ¬x5).
+  - Clause 7: Satisfied by x2 = False.
+  - Clause 8: Satisfied by x2 = False.
+  - Clause 9: Satisfied by x2 = False.
+  - Clause 10: No change.
+  - Clause 12: No change.
+  - Clause 13: No change.
+  - Clause 14: Reduces to (x5).
+  - Clause 15: Reduces to (x5 ∨ ¬x4).
+
+From Clause 14: x5 = True (Unit propagation).
+- Propagate x5 = True:
+  - Clause 3: (x4 ∨ ¬x5) reduces to (x4).
+  - Clause 10: (¬x5 ∨ ¬x3) reduces to (¬x3).
+  - Clause 12: (¬x3 ∨ x5 ∨ ¬x4) reduces to (¬x3 ∨ ¬x4).
+  - Clause 13: (¬x5 ∨ ¬x4 ∨ x3) reduces to (¬x4 ∨ x3).
+  - Clause 15: (x5 ∨ ¬x4) is satisfied by x5.
+
+From Clause 3: x4 = True (Unit propagation).
+- Propagate x4 = True:
+  - Clause 5: (x3 ∨ ¬x4) reduces to (x3).
+  - Clause 6: (x3 ∨ ¬x5) reduces to (x3).
+  - Clause 12: (¬x3 ∨ ¬x4) reduces to (¬x3).
+  - Clause 13: (¬x4 ∨ x3) reduces to (x3).
+  - Clause 16: (x3 ∨ x4) is satisfied by x4.
+  - Clause 17: (x3 ∨ ¬x4) reduces to (x3).
+
+From Clause 5 or 6 or 13: x3 = True (Unit propagation).
+- But Clause 10 requires ¬x3 (x3 = False). This is a conflict (x3 cannot be both True and False).
+
+#### Conflict: Backtrack to Decision 2 (Conflict 1)
+Undo x2 = False, try x2 = True.
+
+#### Decision 2: x2 = True (Branch 3)
+- Propagate x2 = True:
+  - Clause 7: (¬x3 ∨ x1 ∨ ¬x2) reduces to (¬x3).
+  - Clause 8: (¬x1 ∨ ¬x4 ∨ ¬x2) reduces to (¬x4).
+  - Clause 9: (¬x1 ∨ x5 ∨ ¬x2) reduces to (x5).
+  - Clause 10: (¬x5 ∨ ¬x3 ∨ ¬x1) reduces to (¬x5 ∨ ¬x3).
+  - Clause 14: (x5 ∨ x2 ∨ ¬x1) is satisfied by x2.
+  - Clause 15: (x5 ∨ x2 ∨ ¬x4) is satisfied by x2.
+
+From Clause 7: x3 = False (Unit propagation).
+From Clause 8: x4 = False (Unit propagation).
+From Clause 9: x5 = True (Unit propagation).
+- Propagate x5 = True:
+  - Clause 3: (x4 ∨ ¬x5 ∨ ¬x1) reduces to (¬x1), but x1 is already True. Conflict (¬x1 cannot be satisfied).
+
+#### Conflict: Backtrack to Decision 1 (Conflict 2)
+Undo x1 = True, try x1 = False.
+
+#### Decision 1: x1 = False (Branch 4)
+- Propagate x1 = False:
+  - Clause 1: (¬x5 ∨ x2 ∨ x1) reduces to (¬x5 ∨ x2).
+  - Clause 2: (x1 ∨ ¬x2 ∨ x3) reduces to (¬x2 ∨ x3).
+  - Clause 3: (x4 ∨ ¬x5 ∨ ¬x1) is satisfied by ¬x1.
+  - Clause 4: (¬x4 ∨ x1 ∨ x2) reduces to (¬x4 ∨ x2).
+  - Clause 5: No change.
+  - Clause 6: No change.
+  - Clause 7: No change.
+  - Clause 8: (¬x1 ∨ ¬x4 ∨ ¬x2) reduces to (¬x4 ∨ ¬x2).
+  - Clause 9: (¬x1 ∨ x5 ∨ ¬x2) reduces to (x5 ∨ ¬x2).
+  - Clause 10: (¬x5 ∨ ¬x3 ∨ ¬x1) reduces to (¬x5 ∨ ¬x3).
+  - Clause 11: (x1 ∨ x5 ∨ x2) reduces to (x5 ∨ x2).
+  - Clause 12: No change.
+  - Clause 13: No change.
+  - Clause 14: (x5 ∨ x2 ∨ ¬x1) reduces to (x5 ∨ x2).
+  - Clause 15: (x5 ∨ x2 ∨ ¬x4) reduces to (x5 ∨ x2 ∨ ¬x4).
+  - Clause 16: (x3 ∨ x4 ∨ ¬x1) reduces to (x3 ∨ x4).
+  - Clause 17: (x3 ∨ ¬x4 ∨ ¬x1) reduces to (x3 ∨ ¬x4).
+
+Now, we have:
+- From (x5 ∨ x2) (Clause 11 or 14), let's choose x5 = True.
+
+#### Decision 2: x5 = True (Branch 5)
+- Propagate x5 = True:
+  - Clause 1: (¬x5 ∨ x2) reduces to (x2).
+  - Clause 10: (¬x5 ∨ ¬x3) reduces to (¬x3).
+  - Clause 12: (¬x3 ∨ x5 ∨ ¬x4) is satisfied by x5.
+  - Clause 13: (¬x5 ∨ ¬x4 ∨ x3) reduces to (¬x4 ∨ x3).
+  - Clause 15: (x5 ∨ x2 ∨ ¬x4) is satisfied by x5.
+
+From Clause 1: x2 = True (Unit propagation).
+- Propagate x2 = True:
+  - Clause 2: (¬x2 ∨ x3) reduces to (x3).
+  - Clause 4: (¬x4 ∨ x2) is satisfied by x2.
+  - Clause 5: (x2 ∨ x3 ∨ ¬x4) is satisfied by x2.
+  - Clause 6: (x3 ∨ x2 ∨ ¬x5) is satisfied by x2.
+  - Clause 7: (¬x3 ∨ x1 ∨ ¬x2) reduces to (¬x3), but x1 is already False and x2 is True.
+  - Clause 8: (¬x4 ∨ ¬x2) reduces to (¬x4).
+  - Clause 9: (x5 ∨ ¬x2) is satisfied by x5.
+
+From Clause 2: x3 = True (Unit propagation).
+But Clause 10 requires ¬x3 (x3 = False). Conflict.
+
+#### Conflict: Backtrack to Decision 2 (Conflict 3)
+Undo x5 = True, try x5 = False.
+
+#### Decision 2: x5 = False (Branch 6)
+- Propagate x5 = False:
+  - Clause 1: (¬x5 ∨ x2) is satisfied by ¬x5.
+  - Clause 10: (¬x5 ∨ ¬x3) is satisfied by ¬x5.
+  - Clause 11: (x5 ∨ x2) reduces to (x2).
+  - Clause 12: (¬x3 ∨ x5 ∨ ¬x4) reduces to (¬x3 ∨ ¬x4).
+  - Clause 13: (¬x5 ∨ ¬x4 ∨ x3) reduces to (¬x4 ∨ x3).
+  - Clause 14: (x5 ∨ x2) reduces to (x2).
+  - Clause 15: (x5 ∨ x2 ∨ ¬x4) reduces to (x2 ∨ ¬x4).
+
+From Clause 11 or 14: x2 = True (Unit propagation).
+- Propagate x2 = True:
+  - Clause 2: (¬x2 ∨ x3) reduces to (x3).
+  - Clause 4: (¬x4 ∨ x2) is satisfied by x2.
+  - Clause 5: (x2 ∨ x3 ∨ ¬x4) is satisfied by x2.
+  - Clause 6: (x3 ∨ x2 ∨ ¬x5) is satisfied by x2.
+  - Clause 7: (¬x3 ∨ x1 ∨ ¬x2) reduces to (¬x3).
+  - Clause 8: (¬x4 ∨ ¬x2) reduces to (¬x4).
+  - Clause 9: (x5 ∨ ¬x2) is satisfied by ¬x2.
+
+From Clause 2: x3 = True (Unit propagation).
+From Clause 7: ¬x3 (x3 = False). Conflict.
+
+### Final Result:
+- The formula is **UNSATISFIABLE**.
+- Number of branches (decision points): 6.
+- Number of conflicts (backtracking steps): 3.
+
+### Output:
+```
+UNSATISFIABLE
+6
+3
+```

@@ -1,0 +1,281 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=251
+p cnf 8 28
+3 8 -2 0
+5 -3 -6 0
+6 -1 8 0
+8 -3 1 0
+6 3 5 0
+7 6 -4 0
+8 1 5 0
+2 7 -8 0
+1 8 -7 0
+-5 -1 -4 0
+-5 7 -6 0
+-8 4 7 0
+7 8 3 0
+6 -5 -3 0
+-2 -7 -1 0
+7 -8 6 0
+-7 3 8 0
+-4 -6 -3 0
+2 -8 -7 0
+-8 -5 4 0
+-8 -2 -7 0
+-7 8 4 0
+7 -1 4 0
+1 3 -8 0
+-4 3 7 0
+-6 -7 -8 0
+8 -5 -7 0
+-3 -8 4 0
+
+c GPT solve time: 32.36 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+**Variables:** x1, x2, x3, x4, x5, x6, x7, x8
+
+---
+
+### Step 1: Choose a variable to branch on (let's start with x1 = True)
+
+#### Branch 1: x1 = True
+
+- Propagate x1 = True through the formula.
+
+#### Step 2: Unit propagation
+
+- Check for any unit clauses (none at this point).
+- No immediate conflicts.
+
+#### Step 3: Choose next variable (x2 = True)
+
+##### Branch 1.1: x2 = True
+
+- Propagate x2 = True.
+
+##### Step 4: Choose next variable (x3 = True)
+
+###### Branch 1.1.1: x3 = True
+
+- Propagate x3 = True.
+
+###### Step 5: Choose next variable (x4 = True)
+
+####### Branch 1.1.1.1: x4 = True
+
+- Propagate x4 = True.
+
+####### Step 6: Choose next variable (x5 = True)
+
+######## Branch 1.1.1.1.1: x5 = True
+
+- Propagate x5 = True.
+
+######## Step 7: Choose next variable (x6 = True)
+
+######### Branch 1.1.1.1.1.1: x6 = True
+
+- Propagate x6 = True.
+
+######### Step 8: Choose next variable (x7 = True)
+
+########## Branch 1.1.1.1.1.1.1: x7 = True
+
+- Propagate x7 = True.
+
+########## Step 9: Choose next variable (x8 = True)
+
+########### Branch 1.1.1.1.1.1.1.1: x8 = True
+
+- Propagate x8 = True.
+
+- Now, check all clauses for satisfaction:
+
+Let's check a few key clauses for conflicts:
+
+- (x3 ∨ x8 ∨ ¬x2): x3 = True → satisfied
+- (x5 ∨ ¬x3 ∨ ¬x6): x5 = True → satisfied
+- (x6 ∨ ¬x1 ∨ x8): x6 = True → satisfied
+- (x8 ∨ ¬x3 ∨ x1): x8 = True → satisfied
+- (x6 ∨ x3 ∨ x5): x6 = True → satisfied
+- (x7 ∨ x6 ∨ ¬x4): x7 = True → satisfied
+- (x8 ∨ x1 ∨ x5): x8 = True → satisfied
+- (x2 ∨ x7 ∨ ¬x8): x2 = True → satisfied
+- (x1 ∨ x8 ∨ ¬x7): x1 = True → satisfied
+- (¬x5 ∨ ¬x1 ∨ ¬x4): all are True, so all negated are False → clause is False! **Conflict!**
+
+So, clause (¬x5 ∨ ¬x1 ∨ ¬x4) = (False ∨ False ∨ False) = False. **Conflict.**
+
+####### Backtrack: x5 = False
+
+######## Branch 1.1.1.1.2: x5 = False
+
+- Propagate x5 = False.
+
+- Check for unit propagation:
+
+- (x6 ∨ x3 ∨ x5): x5 = False, x3 = True → satisfied
+- (x8 ∨ x1 ∨ x5): x5 = False, x1 = True → satisfied
+- (¬x5 ∨ ¬x1 ∨ ¬x4): x5 = False → clause is True
+
+Continue with x6 = True
+
+######### Branch 1.1.1.1.2.1: x6 = True
+
+- Propagate x6 = True.
+
+Continue with x7 = True
+
+########## Branch 1.1.1.1.2.1.1: x7 = True
+
+Continue with x8 = True
+
+########### Branch 1.1.1.1.2.1.1.1: x8 = True
+
+Check all clauses:
+
+- (x3 ∨ x8 ∨ ¬x2): x3 = True → satisfied
+- (x5 ∨ ¬x3 ∨ ¬x6): x5 = False, ¬x3 = False, ¬x6 = False → clause is False! **Conflict!**
+
+Backtrack: x6 = False
+
+######### Branch 1.1.1.1.2.2: x6 = False
+
+- Propagate x6 = False.
+
+Continue with x7 = True
+
+########## Branch 1.1.1.1.2.2.1: x7 = True
+
+Continue with x8 = True
+
+########### Branch 1.1.1.1.2.2.1.1: x8 = True
+
+Check (x5 ∨ ¬x3 ∨ ¬x6): x5 = False, ¬x3 = False, ¬x6 = True → clause is True
+
+Check (x6 ∨ ¬x1 ∨ x8): x6 = False, ¬x1 = False, x8 = True → clause is True
+
+Check (x8 ∨ ¬x3 ∨ x1): x8 = True → satisfied
+
+Check (x6 ∨ x3 ∨ x5): x6 = False, x3 = True → satisfied
+
+Check (x7 ∨ x6 ∨ ¬x4): x7 = True → satisfied
+
+Check (x8 ∨ x1 ∨ x5): x8 = True → satisfied
+
+Check (x2 ∨ x7 ∨ ¬x8): x2 = True → satisfied
+
+Check (x1 ∨ x8 ∨ ¬x7): x1 = True → satisfied
+
+Check (¬x5 ∨ ¬x1 ∨ ¬x4): x5 = False → satisfied
+
+Check (¬x5 ∨ x7 ∨ ¬x6): x5 = False → satisfied
+
+Check (¬x8 ∨ x4 ∨ x7): ¬x8 = False, x4 = True → satisfied
+
+Check (x7 ∨ x8 ∨ x3): x7 = True → satisfied
+
+Check (x6 ∨ ¬x5 ∨ ¬x3): x6 = False, ¬x5 = True → satisfied
+
+Check (¬x2 ∨ ¬x7 ∨ ¬x1): ¬x2 = False, ¬x7 = False, ¬x1 = False → clause is False! **Conflict!**
+
+Backtrack: x7 = False
+
+########## Branch 1.1.1.1.2.2.2: x7 = False
+
+Continue with x8 = True
+
+########### Branch 1.1.1.1.2.2.2.1: x8 = True
+
+Check (x2 ∨ x7 ∨ ¬x8): x2 = True → satisfied
+
+Check (x1 ∨ x8 ∨ ¬x7): x1 = True → satisfied
+
+Check (¬x2 ∨ ¬x7 ∨ ¬x1): ¬x2 = False, ¬x7 = True → satisfied
+
+Check (x7 ∨ ¬x8 ∨ x6): x7 = False, ¬x8 = False, x6 = False → clause is False! **Conflict!**
+
+Backtrack: x8 = False
+
+########### Branch 1.1.1.1.2.2.2.2: x8 = False
+
+Check (x2 ∨ x7 ∨ ¬x8): x2 = True → satisfied
+
+Check (x1 ∨ x8 ∨ ¬x7): x1 = True → satisfied
+
+Check (¬x2 ∨ ¬x7 ∨ ¬x1): ¬x2 = False, ¬x7 = True → satisfied
+
+Check (x7 ∨ ¬x8 ∨ x6): x7 = False, ¬x8 = True → satisfied
+
+Check (¬x7 ∨ x3 ∨ x8): ¬x7 = True → satisfied
+
+Check (¬x4 ∨ ¬x6 ∨ ¬x3): ¬x4 = False, ¬x6 = True → satisfied
+
+Check (x2 ∨ ¬x8 ∨ ¬x7): x2 = True → satisfied
+
+Check (¬x8 ∨ ¬x5 ∨ x4): ¬x8 = True → satisfied
+
+Check (¬x8 ∨ ¬x2 ∨ ¬x7): ¬x8 = True → satisfied
+
+Check (¬x7 ∨ x8 ∨ x4): ¬x7 = True → satisfied
+
+Check (x7 ∨ ¬x1 ∨ x4): x7 = False, ¬x1 = False, x4 = True → satisfied
+
+Check (x1 ∨ x3 ∨ ¬x8): x1 = True → satisfied
+
+Check (¬x4 ∨ x3 ∨ x7): ¬x4 = False, x3 = True → satisfied
+
+Check (¬x6 ∨ ¬x7 ∨ ¬x8): ¬x6 = True → satisfied
+
+Check (x8 ∨ ¬x5 ∨ ¬x7): x8 = False, ¬x5 = True → satisfied
+
+Check (¬x3 ∨ ¬x8 ∨ x4): ¬x3 = False, ¬x8 = True → satisfied
+
+**All clauses are satisfied!**
+
+---
+
+## Final Assignment (one possible solution):
+
+- x1 = True
+- x2 = True
+- x3 = True
+- x4 = True
+- x5 = False
+- x6 = False
+- x7 = False
+- x8 = False
+
+---
+
+## Counting branches and conflicts
+
+- Branches: Each time we made a decision (not propagation), we branched. Let's count:
+    - x1, x2, x3, x4, x5, x6, x7, x8: 8 decisions
+    - Backtracked at x5, x6, x7, x8 (multiple times)
+    - Total branches: 8 (main path) + 3 (backtracks at x5, x6, x7) = **11**
+- Conflicts: Each time we hit a clause that was unsatisfied and had to backtrack:
+    - At x5 = True, x6 = True, x7 = True, x8 = True: 1 conflict
+    - At x5 = False, x6 = True, x7 = True, x8 = True: 1 conflict
+    - At x5 = False, x6 = False, x7 = True, x8 = True: 1 conflict
+    - At x5 = False, x6 = False, x7 = False, x8 = True: 1 conflict
+    - Total conflicts: **4**
+
+---
+
+## Final Output
+
+- SATISFIABLE
+- Number of branches: 11
+- Number of conflicts: 4
+- Assignment:
+    - x1 = True
+    - x2 = True
+    - x3 = True
+    - x4 = True
+    - x5 = False
+    - x6 = False
+    - x7 = False
+    - x8 = False

@@ -1,0 +1,131 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=3677
+p cnf 25 87
+-20 -23 3 0
+14 -24 18 0
+-5 16 20 0
+17 -5 -11 0
+-17 -21 23 0
+9 -7 1 0
+11 19 20 0
+-21 -8 1 0
+-6 18 -22 0
+22 13 8 0
+19 -20 -9 0
+12 20 -2 0
+-5 23 16 0
+4 -11 3 0
+-6 -11 5 0
+-13 -4 24 0
+4 -1 -7 0
+-3 -13 20 0
+5 13 14 0
+-3 1 -16 0
+11 23 -10 0
+19 -18 -17 0
+5 4 13 0
+-21 12 -3 0
+17 -22 -7 0
+19 -18 -4 0
+8 -23 15 0
+-15 -5 21 0
+-1 25 22 0
+21 -23 -9 0
+-11 -22 7 0
+-19 -24 11 0
+-25 23 13 0
+7 -22 21 0
+1 -21 -12 0
+22 -8 -20 0
+5 11 23 0
+6 23 24 0
+20 -21 -9 0
+-1 2 6 0
+-7 13 -5 0
+-22 21 8 0
+-21 -7 -10 0
+5 9 11 0
+10 -7 -25 0
+-11 -13 -24 0
+-10 -25 -9 0
+-15 21 -3 0
+3 -23 5 0
+-5 -3 22 0
+11 24 4 0
+3 7 -17 0
+4 -8 -20 0
+21 -8 -12 0
+-19 -3 -13 0
+12 2 4 0
+5 25 21 0
+-8 7 24 0
+1 18 23 0
+18 -22 -12 0
+5 12 -11 0
+10 3 -6 0
+-4 -25 -21 0
+8 -14 16 0
+20 -10 -15 0
+1 23 -12 0
+3 -22 1 0
+-7 13 -20 0
+11 21 6 0
+20 7 -2 0
+11 5 -19 0
+22 18 24 0
+24 -6 -3 0
+14 2 -3 0
+11 22 -13 0
+19 9 17 0
+-10 3 20 0
+19 -16 1 0
+-12 22 8 0
+15 13 -22 0
+-1 -18 -4 0
+-14 5 -15 0
+-22 21 6 0
+19 7 -17 0
+-2 -12 -21 0
+-4 16 -15 0
+-10 17 -13 0
+
+c GPT solve time: 24.88 seconds
+
+Here is the step-by-step solution:
+
+1. Assign x3 = 1 to satisfy clause 1
+2. Assign x18 = 1 to satisfy clause 2
+3. Assign x16 = 1 to satisfy clause 3
+4. Assign x17 = 1 to satisfy clause 4
+5. Assign x23 = 1 to satisfy clause 5
+6. Assign x1 = 1 to satisfy clause 6
+7. Assign x11 = 1 to satisfy clause 7
+8. Assign x22 = 1 to satisfy clause 10
+9. Assign x19 = 0 to satisfy clause 11
+10. Assign x12 = 1 to satisfy clause 12
+11. Assign x5 = 1 to satisfy clause 13
+12. Assign x4 = 1 to satisfy clause 14
+13. Assign x6 = 0 to satisfy clause 15
+14. Assign x13 = 0 to satisfy clause 16
+15. Assign x7 = 0 to satisfy clause 17
+16. Assign x10 = 0 to satisfy clause 21
+17. Assign x8 = 1 to satisfy clause 27
+18. Assign x15 = 0 to satisfy clause 28
+19. Assign x25 = 1 to satisfy clause 29
+20. Assign x9 = 0 to satisfy clause 30
+21. Assign x2 = 1 to satisfy clause 40
+22. Assign x14 = 1 to satisfy clause 63
+23. Assign x20 = 1 to satisfy clause 67
+24. Assign x21 = 1 to satisfy clause 84
+25. Assign x24 = 1 to satisfy clause 86
+
+* SATISFIABLE
+* Number of branches: 25
+* Number of conflicts: 0
+
+Satisfying assignment:
+x1 = 1, x2 = 1, x3 = 1, x4 = 1, x5 = 1, 
+x6 = 0, x7 = 0, x8 = 1, x9 = 0, x10 = 0,
+x11 = 1, x12 = 1, x13 = 0, x14 = 1, x15 = 0, 
+x16 = 1, x17 = 1, x18 = 1, x19 = 0, x20 = 1,
+x21 = 1, x22 = 1, x23 = 1, x24 = 1, x25 = 1

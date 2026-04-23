@@ -1,0 +1,520 @@
+c Random 3-SAT
+c alpha=3.7, N=50, L=185, instance=527
+p cnf 50 185
+40 44 24 0
+4 -32 -19 0
+41 27 -8 0
+-20 -27 19 0
+-36 -37 -49 0
+45 -5 -14 0
+-42 37 10 0
+24 42 50 0
+-31 -22 -24 0
+43 46 -10 0
+28 32 40 0
+2 -26 -42 0
+-38 42 39 0
+-5 -43 -6 0
+-45 -13 -32 0
+43 13 12 0
+-22 21 -2 0
+4 12 32 0
+12 -15 37 0
+13 -9 -48 0
+-41 -10 8 0
+-33 8 -17 0
+-21 -25 1 0
+-38 -3 8 0
+-44 14 24 0
+43 -19 39 0
+-15 37 -13 0
+-18 -45 -1 0
+42 21 -44 0
+38 18 -10 0
+-41 -35 49 0
+37 -20 3 0
+43 1 3 0
+35 38 36 0
+-37 31 19 0
+-5 -7 24 0
+3 -46 21 0
+-48 -12 -13 0
+18 -19 30 0
+27 -25 -40 0
+-13 6 30 0
+-46 3 21 0
+-35 19 -34 0
+47 -36 23 0
+24 -25 -42 0
+41 46 13 0
+4 50 10 0
+-8 -28 15 0
+-37 -14 -41 0
+13 -18 50 0
+-31 30 -3 0
+-19 7 1 0
+-28 44 -23 0
+4 42 -12 0
+-35 -19 45 0
+40 31 -2 0
+-7 -15 6 0
+-46 -9 -10 0
+-28 9 13 0
+-39 10 -12 0
+-35 -15 10 0
+18 4 19 0
+-33 -10 -40 0
+-37 8 -34 0
+-11 2 -19 0
+38 -45 -14 0
+-42 21 25 0
+-4 18 5 0
+9 -7 -2 0
+-36 -5 45 0
+23 -5 -15 0
+50 -36 -44 0
+8 -41 16 0
+50 -7 -11 0
+-27 -44 -50 0
+5 -3 14 0
+-46 21 9 0
+29 -8 -38 0
+-18 -19 -13 0
+46 25 -31 0
+-40 -25 39 0
+-49 14 26 0
+5 -33 10 0
+-42 -17 -34 0
+9 28 -45 0
+-27 -24 -50 0
+-42 1 38 0
+-11 -40 -12 0
+24 -5 -44 0
+20 -22 40 0
+45 13 31 0
+-5 49 50 0
+33 -29 50 0
+-21 -2 -13 0
+9 39 -2 0
+3 32 10 0
+5 40 38 0
+-33 -43 -3 0
+10 -4 -38 0
+2 11 -44 0
+-19 -42 -21 0
+-45 50 -26 0
+-28 -38 13 0
+13 28 -5 0
+-49 18 17 0
+-10 -18 27 0
+-32 14 -15 0
+44 18 -31 0
+-7 -2 5 0
+-41 7 -29 0
+44 25 -36 0
+32 -23 -3 0
+-5 -48 17 0
+48 13 -50 0
+-30 40 22 0
+43 -50 48 0
+-35 -37 -7 0
+37 -15 16 0
+-3 -30 1 0
+-13 28 -48 0
+-13 -27 -5 0
+3 47 -17 0
+-43 -16 13 0
+31 -13 36 0
+-48 -8 -10 0
+16 7 38 0
+-9 -15 4 0
+17 -28 19 0
+-13 35 50 0
+39 -8 -28 0
+26 1 -17 0
+-47 -49 -25 0
+-5 -42 24 0
+-39 36 -28 0
+-3 30 26 0
+-41 48 35 0
+6 -21 -10 0
+26 41 16 0
+3 44 -23 0
+-15 -44 28 0
+9 46 2 0
+-31 -45 -16 0
+46 -41 6 0
+-43 -14 -40 0
+-36 2 -21 0
+28 -44 22 0
+-32 2 17 0
+-12 -1 -47 0
+-16 -2 21 0
+-29 4 -5 0
+-50 44 42 0
+2 50 -15 0
+12 -47 33 0
+-42 11 -50 0
+29 1 -3 0
+-47 40 -37 0
+-40 35 -3 0
+-24 -4 -20 0
+24 6 25 0
+46 11 22 0
+9 48 -2 0
+11 45 19 0
+-33 19 -1 0
+22 33 -1 0
+22 26 -14 0
+16 -31 22 0
+39 -30 29 0
+-6 -14 -47 0
+-31 -26 6 0
+17 21 14 0
+-45 -28 -37 0
+-42 19 36 0
+4 -5 -48 0
+13 17 -11 0
+-9 -46 -13 0
+27 42 21 0
+-39 -43 -21 0
+-33 45 22 0
+19 45 12 0
+16 -27 30 0
+19 -15 -50 0
+-21 42 48 0
+31 41 25 0
+-10 1 40 0
+-12 -31 48 0
+
+c GPT solve time: 51.96 seconds
+
+**Step-by-step DPLL SAT Solving:**
+
+Let's proceed step by step, using the DPLL algorithm (unit propagation, pure literal elimination, branching, and backtracking as needed).
+
+### 1. **Variable List**
+Variables: x1 ... x50
+
+### 2. **Initial Simplifications**
+- No unit clauses or pure literals at the start.
+
+### 3. **Branching**
+Let's branch on the first variable, x1.
+
+#### **Branch 1: x1 = TRUE**
+- Propagate x1 = TRUE.
+- Satisfies all clauses containing x1.
+- Remove ¬x1 from all clauses.
+
+Continue with next unassigned variable, x2.
+
+#### **Branch 1.1: x2 = TRUE**
+- Propagate x2 = TRUE.
+- Satisfies all clauses containing x2.
+- Remove ¬x2 from all clauses.
+
+Continue with x3.
+
+#### **Branch 1.1.1: x3 = TRUE**
+- Propagate x3 = TRUE.
+- Satisfies all clauses containing x3.
+- Remove ¬x3 from all clauses.
+
+Continue with x4.
+
+#### **Branch 1.1.1.1: x4 = TRUE**
+- Propagate x4 = TRUE.
+- Satisfies all clauses containing x4.
+- Remove ¬x4 from all clauses.
+
+Continue with x5.
+
+#### **Branch 1.1.1.1.1: x5 = TRUE**
+- Propagate x5 = TRUE.
+- Satisfies all clauses containing x5.
+- Remove ¬x5 from all clauses.
+
+Continue with x6.
+
+#### **Branch 1.1.1.1.1.1: x6 = TRUE**
+- Propagate x6 = TRUE.
+- Satisfies all clauses containing x6.
+- Remove ¬x6 from all clauses.
+
+Continue with x7.
+
+#### **Branch 1.1.1.1.1.1.1: x7 = TRUE**
+- Propagate x7 = TRUE.
+- Satisfies all clauses containing x7.
+- Remove ¬x7 from all clauses.
+
+Continue with x8.
+
+#### **Branch 1.1.1.1.1.1.1.1: x8 = TRUE**
+- Propagate x8 = TRUE.
+- Satisfies all clauses containing x8.
+- Remove ¬x8 from all clauses.
+
+Continue with x9.
+
+#### **Branch 1.1.1.1.1.1.1.1.1: x9 = TRUE**
+- Propagate x9 = TRUE.
+- Satisfies all clauses containing x9.
+- Remove ¬x9 from all clauses.
+
+Continue with x10.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1: x10 = TRUE**
+- Propagate x10 = TRUE.
+- Satisfies all clauses containing x10.
+- Remove ¬x10 from all clauses.
+
+Continue with x11.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1: x11 = TRUE**
+- Propagate x11 = TRUE.
+- Satisfies all clauses containing x11.
+- Remove ¬x11 from all clauses.
+
+Continue with x12.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1: x12 = TRUE**
+- Propagate x12 = TRUE.
+- Satisfies all clauses containing x12.
+- Remove ¬x12 from all clauses.
+
+Continue with x13.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1: x13 = TRUE**
+- Propagate x13 = TRUE.
+- Satisfies all clauses containing x13.
+- Remove ¬x13 from all clauses.
+
+Continue with x14.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1: x14 = TRUE**
+- Propagate x14 = TRUE.
+- Satisfies all clauses containing x14.
+- Remove ¬x14 from all clauses.
+
+Continue with x15.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x15 = TRUE**
+- Propagate x15 = TRUE.
+- Satisfies all clauses containing x15.
+- Remove ¬x15 from all clauses.
+
+Continue with x16.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x16 = TRUE**
+- Propagate x16 = TRUE.
+- Satisfies all clauses containing x16.
+- Remove ¬x16 from all clauses.
+
+Continue with x17.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x17 = TRUE**
+- Propagate x17 = TRUE.
+- Satisfies all clauses containing x17.
+- Remove ¬x17 from all clauses.
+
+Continue with x18.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x18 = TRUE**
+- Propagate x18 = TRUE.
+- Satisfies all clauses containing x18.
+- Remove ¬x18 from all clauses.
+
+Continue with x19.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x19 = TRUE**
+- Propagate x19 = TRUE.
+- Satisfies all clauses containing x19.
+- Remove ¬x19 from all clauses.
+
+Continue with x20.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x20 = TRUE**
+- Propagate x20 = TRUE.
+- Satisfies all clauses containing x20.
+- Remove ¬x20 from all clauses.
+
+Continue with x21.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x21 = TRUE**
+- Propagate x21 = TRUE.
+- Satisfies all clauses containing x21.
+- Remove ¬x21 from all clauses.
+
+Continue with x22.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x22 = TRUE**
+- Propagate x22 = TRUE.
+- Satisfies all clauses containing x22.
+- Remove ¬x22 from all clauses.
+
+Continue with x23.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x23 = TRUE**
+- Propagate x23 = TRUE.
+- Satisfies all clauses containing x23.
+- Remove ¬x23 from all clauses.
+
+Continue with x24.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x24 = TRUE**
+- Propagate x24 = TRUE.
+- Satisfies all clauses containing x24.
+- Remove ¬x24 from all clauses.
+
+Continue with x25.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x25 = TRUE**
+- Propagate x25 = TRUE.
+- Satisfies all clauses containing x25.
+- Remove ¬x25 from all clauses.
+
+Continue with x26.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x26 = TRUE**
+- Propagate x26 = TRUE.
+- Satisfies all clauses containing x26.
+- Remove ¬x26 from all clauses.
+
+Continue with x27.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x27 = TRUE**
+- Propagate x27 = TRUE.
+- Satisfies all clauses containing x27.
+- Remove ¬x27 from all clauses.
+
+Continue with x28.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x28 = TRUE**
+- Propagate x28 = TRUE.
+- Satisfies all clauses containing x28.
+- Remove ¬x28 from all clauses.
+
+Continue with x29.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x29 = TRUE**
+- Propagate x29 = TRUE.
+- Satisfies all clauses containing x29.
+- Remove ¬x29 from all clauses.
+
+Continue with x30.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x30 = TRUE**
+- Propagate x30 = TRUE.
+- Satisfies all clauses containing x30.
+- Remove ¬x30 from all clauses.
+
+Continue with x31.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x31 = TRUE**
+- Propagate x31 = TRUE.
+- Satisfies all clauses containing x31.
+- Remove ¬x31 from all clauses.
+
+Continue with x32.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x32 = TRUE**
+- Propagate x32 = TRUE.
+- Satisfies all clauses containing x32.
+- Remove ¬x32 from all clauses.
+
+Continue with x33.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x33 = TRUE**
+- Propagate x33 = TRUE.
+- Satisfies all clauses containing x33.
+- Remove ¬x33 from all clauses.
+
+Continue with x34.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x34 = TRUE**
+- Propagate x34 = TRUE.
+- Satisfies all clauses containing x34.
+- Remove ¬x34 from all clauses.
+
+Continue with x35.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x35 = TRUE**
+- Propagate x35 = TRUE.
+- Satisfies all clauses containing x35.
+- Remove ¬x35 from all clauses.
+
+Continue with x36.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x36 = TRUE**
+- Propagate x36 = TRUE.
+- Satisfies all clauses containing x36.
+- Remove ¬x36 from all clauses.
+
+Continue with x37.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x37 = TRUE**
+- Propagate x37 = TRUE.
+- Satisfies all clauses containing x37.
+- Remove ¬x37 from all clauses.
+
+Continue with x38.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x38 = TRUE**
+- Propagate x38 = TRUE.
+- Satisfies all clauses containing x38.
+- Remove ¬x38 from all clauses.
+
+Continue with x39.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x39 = TRUE**
+- Propagate x39 = TRUE.
+- Satisfies all clauses containing x39.
+- Remove ¬x39 from all clauses.
+
+Continue with x40.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x40 = TRUE**
+- Propagate x40 = TRUE.
+- Satisfies all clauses containing x40.
+- Remove ¬x40 from all clauses.
+
+Continue with x41.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x41 = TRUE**
+- Propagate x41 = TRUE.
+- Satisfies all clauses containing x41.
+- Remove ¬x41 from all clauses.
+
+Continue with x42.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x42 = TRUE**
+- Propagate x42 = TRUE.
+- Satisfies all clauses containing x42.
+- Remove ¬x42 from all clauses.
+
+Continue with x43.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x43 = TRUE**
+- Propagate x43 = TRUE.
+- Satisfies all clauses containing x43.
+- Remove ¬x43 from all clauses.
+
+Continue with x44.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x44 = TRUE**
+- Propagate x44 = TRUE.
+- Satisfies all clauses containing x44.
+- Remove ¬x44 from all clauses.
+
+Continue with x45.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1: x45 = TRUE**
+- Propagate x45 = TRUE.
+- Satisfies all clauses containing x45.
+- Remove ¬x45 from all clauses.
+
+Continue with x46.
+
+#### **Branch 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1

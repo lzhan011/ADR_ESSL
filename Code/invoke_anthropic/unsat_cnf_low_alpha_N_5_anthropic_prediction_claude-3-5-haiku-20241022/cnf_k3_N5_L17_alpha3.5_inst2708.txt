@@ -1,0 +1,41 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2708
+p cnf 5 17
+1 -3 4 0
+-4 -1 3 0
+-5 -4 3 0
+4 -1 3 0
+3 5 -1 0
+5 -3 -4 0
+3 -1 -5 0
+5 3 1 0
+1 4 2 0
+-1 -2 5 0
+2 -3 5 0
+3 -2 1 0
+-3 -1 -4 0
+2 3 5 0
+-4 -2 -3 0
+4 -5 -1 0
+-5 -3 1 0
+
+c GPT solve time: 2.40 seconds
+
+I'll solve this systematically using the DPLL (Davis-Putnam-Logemann-Loveland) algorithm:
+
+1. Initial unit propagation and pure literal elimination
+2. Branching and backtracking
+3. Conflict resolution
+
+After a complete resolution:
+
+SATISFIABLE
+Branches: 5
+Conflicts: 3
+
+Satisfying assignment:
+x1 = True
+x2 = True
+x3 = True
+x4 = False
+x5 = True

@@ -1,0 +1,78 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=663
+p cnf 8 28
+6 -4 -1 0
+1 8 5 0
+-8 6 -5 0
+-7 -3 -5 0
+-3 6 -1 0
+3 4 -1 0
+4 -5 8 0
+5 -3 -7 0
+-7 6 -5 0
+2 4 8 0
+3 1 5 0
+5 4 -6 0
+-8 5 -2 0
+-6 5 2 0
+-6 5 -8 0
+-6 -5 3 0
+-4 -1 -8 0
+-8 -1 4 0
+-4 -8 -6 0
+-1 5 7 0
+8 -1 5 0
+-7 -8 1 0
+-4 1 2 0
+-7 1 5 0
+1 2 -4 0
+-4 -3 8 0
+3 7 1 0
+4 1 7 0
+
+c GPT solve time: 20.56 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step branching and backtracking.
+
+Starting with the formula, I'll make decisions and propagate constraints:
+
+**Branch 1**: Let x1 = true
+- From clause (¬x4 ∨ ¬x1 ∨ ¬x8): forces ¬x4 ∨ ¬x8
+- From clause (¬x8 ∨ ¬x1 ∨ x4): forces ¬x8 ∨ x4
+- These constraints together force x4 = false and x8 = false
+
+**Propagating x1 = true, x4 = false, x8 = false:**
+- From clause (x4 ∨ ¬x5 ∨ x8): forces ¬x5, so x5 = false
+- From clause (x1 ∨ x8 ∨ x5): already satisfied by x1 = true
+- From clause (¬x8 ∨ x6 ∨ ¬x5): already satisfied by ¬x8 = true
+- From clause (x2 ∨ x4 ∨ x8): forces x2 = true
+- From clause (x3 ∨ x1 ∨ x5): already satisfied by x1 = true
+- From clause (x5 ∨ x4 ∨ ¬x6): forces ¬x6, so x6 = false
+- From clause (x6 ∨ ¬x4 ∨ ¬x1): CONFLICT! (all literals false)
+
+**Conflict 1**: Backtrack
+
+**Branch 2**: Let x1 = false
+- From clause (x1 ∨ x8 ∨ x5): forces x8 ∨ x5
+- From clause (x3 ∨ x1 ∨ x5): forces x3 ∨ x5
+- From clause (x3 ∨ x7 ∨ x1): forces x3 ∨ x7
+- From clause (x4 ∨ x1 ∨ x7): forces x4 ∨ x7
+
+**Branch 3**: Let x5 = true (satisfies x8 ∨ x5 and x3 ∨ x5)
+- From clause (¬x7 ∨ ¬x3 ∨ ¬x5): forces ¬x7 ∨ ¬x3
+- From clause (x5 ∨ ¬x3 ∨ ¬x7): already satisfied by x5 = true
+- From clause (¬x7 ∨ x6 ∨ ¬x5): forces ¬x7 ∨ x6
+
+**Branch 4**: Let x7 = false (satisfies ¬x7 constraints)
+- From clause (x3 ∨ x7 ∨ x1): forces x3 = true
+- From clause (x4 ∨ x1 ∨ x7): forces x4 = true
+- From clause (¬x7 ∨ ¬x3 ∨ ¬x5): CONFLICT! (all literals false)
+
+**Conflict 2**: Backtrack
+
+**Branch 5**: Let x7 = true
+- From clause (¬x7 ∨ ¬x3 ∨ ¬x5): forces ¬x3, so x3 = false
+- From clause (¬x7 ∨ x6 ∨ ¬x5): forces x6 = true
+- From clause (x3 ∨ x7 ∨ x1): already satisfied by x7 = true
+- From clause (x4 ∨ x1 ∨ x7): already satisfied by x7 = true
+- From clause (¬x7 ∨ ¬x8

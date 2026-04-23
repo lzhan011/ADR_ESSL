@@ -1,0 +1,144 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=500
+p cnf 25 87
+21 -20 -4 0
+13 -5 12 0
+-2 11 -9 0
+23 -2 12 0
+-4 -13 -7 0
+-16 -8 13 0
+-10 -15 -16 0
+3 25 2 0
+-22 25 -8 0
+-7 17 8 0
+22 14 -10 0
+8 10 18 0
+-22 -9 15 0
+20 15 4 0
+8 -23 21 0
+16 -11 10 0
+4 -23 -5 0
+-22 -21 -14 0
+23 -10 -7 0
+24 -17 -20 0
+14 -12 3 0
+-25 2 -17 0
+9 18 -22 0
+13 21 2 0
+-8 -2 16 0
+-2 24 21 0
+25 14 -9 0
+-13 -21 -20 0
+-21 16 -22 0
+15 -16 1 0
+21 22 -15 0
+12 8 -5 0
+18 -9 -10 0
+3 8 -13 0
+-5 18 12 0
+4 19 -20 0
+-12 7 -21 0
+3 -16 9 0
+19 17 -24 0
+-13 24 -11 0
+-7 8 11 0
+-11 -17 3 0
+-25 -4 10 0
+-7 -17 14 0
+-6 23 7 0
+7 -16 -10 0
+5 13 24 0
+-15 -18 12 0
+-7 8 12 0
+11 -24 -10 0
+-17 19 -18 0
+14 9 -13 0
+-7 -18 1 0
+-3 -21 23 0
+16 4 10 0
+-14 11 -1 0
+-15 25 8 0
+-12 -10 23 0
+-12 18 15 0
+11 -25 -15 0
+-22 9 -12 0
+20 8 16 0
+7 8 10 0
+9 12 13 0
+-19 -16 -9 0
+15 19 20 0
+-3 -23 5 0
+-17 22 13 0
+-14 -4 22 0
+-4 -5 -10 0
+4 13 16 0
+-13 -23 3 0
+5 -20 -1 0
+13 -7 21 0
+18 -8 -23 0
+25 -19 9 0
+-4 -20 3 0
+-25 23 -24 0
+-6 2 -25 0
+-15 -14 20 0
+16 11 17 0
+-12 -23 -11 0
+3 -12 -19 0
+-1 10 23 0
+2 -24 -3 0
+-11 23 -10 0
+-20 7 2 0
+
+c GPT solve time: 32.88 seconds
+
+Here is the step-by-step solution to determine if the given 3-CNF formula is satisfiable:
+
+Step 1: Assign x21 = 1. This satisfies clause 1.
+Step 2: Assign x13 = 1. This satisfies clause 2.
+Step 3: Assign x2 = 0. This satisfies clause 3.
+Step 4: Clause 4 is satisfied by x2 = 0.
+Step 5: Assign x4 = 0. This satisfies clause 5.
+Step 6: Assign x16 = 0. This satisfies clause 7.
+Step 7: Assign x25 = 1. This satisfies clause 8.
+Step 8: Assign x22 = 0. This satisfies clause 9.
+Step 9: Assign x7 = 0. This satisfies clause 10.
+Step 10: Clause 11 is satisfied by x22 = 0.
+Step 11: Assign x8 = 1. This satisfies clause 12.
+Step 12: Clause 13 is satisfied by x22 = 0.
+Step 13: Clause 14 is satisfied by x4 = 0.
+Step 14: Clause 15 is satisfied by x8 = 1.
+Step 15: Assign x11 = 0. This satisfies clause 16.
+Step 16: Clause 17 is satisfied by x4 = 0.
+Step 17: Clause 18 is satisfied by x22 = 0.
+Step 18: Clause 19 is satisfied by x7 = 0.
+Step 19: Assign x17 = 0. This satisfies clause 20.
+Step 20: Assign x3 = 1. This satisfies clause 21.
+Step 21: Clause 22 is satisfied by x2 = 0.
+Step 22: Clause 23 is satisfied by x22 = 0.
+Step 23: Clause 24 is satisfied by x21 = 1.
+Step 24: Clause 25 is satisfied by x2 = 0.
+Step 25: Clause 26 is satisfied by x2 = 0.
+Step 26: Clause 27 is satisfied by x25 = 1.
+Step 27: Clause 28 is satisfied by x21 = 1.
+Step 28: Clause 29 is satisfied by x21 = 1.
+Step 29: Assign x15 = 0. This satisfies clause 30.
+Step 30: Clause 31 is satisfied by x21 = 1.
+Step 31: Clause 32 is satisfied by x8 = 1.
+Step 32: Clause 33 is satisfied by x8 = 1.
+Step 33: Clause 34 is satisfied by x8 = 1.
+Step 34: Assign x5 = 0. This satisfies clause 35.
+Step 35: Assign x19 = 1. This satisfies clause 36.
+Step 36: Assign x12 = 0. This satisfies clause 37.
+Step 37: Clause 38 is satisfied by x16 = 0.
+Step 38: Clause 39 is satisfied by x19 = 1.
+Step 39: Assign x24 = 1. This satisfies clause 40.
+Step 40: Clause 41 is satisfied by x8 = 1.
+Step 41: Clause 42 is satisfied by x3 = 1.
+Step 42: Clause 43 is satisfied by x4 = 0.
+Step 43: Clause 44 is satisfied by x17 = 0.
+Step 44: Assign x6 = 0. This satisfies clause 45.
+Step 45: Clause 46 is satisfied by x16 = 0.
+Step 46: Clause 47 is satisfied by x13 = 1.
+Step 47: Clause 48 is satisfied by x12 = 0.
+Step 48: Clause 49 is satisfied by x8 = 1.
+Step 49: Clause 50 is satisfied by x24 = 1.

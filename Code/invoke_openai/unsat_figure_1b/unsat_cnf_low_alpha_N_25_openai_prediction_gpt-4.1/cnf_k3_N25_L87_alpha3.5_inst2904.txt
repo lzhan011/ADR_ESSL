@@ -1,0 +1,155 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2904
+p cnf 25 87
+11 -21 15 0
+8 5 -17 0
+21 12 17 0
+-4 -12 -20 0
+18 -25 20 0
+-3 -14 -24 0
+9 18 -8 0
+1 -22 -25 0
+-22 8 18 0
+-23 9 5 0
+-11 -23 -9 0
+-7 -14 3 0
+15 -22 12 0
+6 2 -22 0
+-13 6 -14 0
+-18 19 -10 0
+-15 9 8 0
+-2 10 16 0
+8 -10 -3 0
+14 -18 -4 0
+21 -23 1 0
+-1 8 25 0
+-7 -8 -10 0
+8 -23 -12 0
+-11 -3 22 0
+16 -21 17 0
+6 -22 -19 0
+13 9 23 0
+-16 14 4 0
+17 -7 20 0
+-16 -6 23 0
+20 19 8 0
+-23 -5 -15 0
+19 9 -22 0
+6 -10 19 0
+-6 -20 -13 0
+10 14 -1 0
+-2 -20 -4 0
+-25 -1 -14 0
+-24 13 14 0
+15 5 -25 0
+12 -25 -22 0
+15 -16 7 0
+7 -1 -4 0
+20 -17 -21 0
+25 -9 -4 0
+-22 -19 -25 0
+-21 25 -3 0
+22 20 -2 0
+25 16 20 0
+-9 -17 8 0
+-23 -18 -13 0
+18 4 3 0
+-6 20 25 0
+25 13 -1 0
+4 -3 24 0
+19 -24 -16 0
+16 9 14 0
+10 -23 6 0
+22 3 -25 0
+24 21 -14 0
+-21 5 3 0
+-2 -12 1 0
+-3 -1 -13 0
+-3 -16 -13 0
+-22 -3 25 0
+-5 -2 25 0
+18 -4 16 0
+-19 -12 -14 0
+-25 10 21 0
+3 -15 8 0
+23 -8 10 0
+-23 14 2 0
+10 19 18 0
+23 -1 -13 0
+-16 -4 14 0
+-9 -10 4 0
+21 19 7 0
+-22 15 10 0
+-4 2 -14 0
+3 22 13 0
+-12 15 20 0
+2 -8 7 0
+7 3 -21 0
+21 14 -20 0
+20 -13 -12 0
+-10 -1 4 0
+
+c GPT solve time: 6.49 seconds
+
+Step-by-step DPLL (Davis–Putnam–Logemann–Loveland) SAT solving:
+
+**Step 1: List all variables.**  
+Variables: x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25
+
+**Step 2: Start with an empty assignment.**
+
+**Step 3: Choose a variable to branch on.**  
+Let’s pick x1 = True.
+
+**Step 4: Propagate and simplify.**  
+Go through the clauses, simplify those affected by x1 = True.
+
+**Step 5: Continue branching and propagating.**  
+Proceed with x2 = True, x3 = True, etc., always propagating and checking for conflicts.
+
+**Step 6: If a conflict is found, backtrack and try the opposite assignment.**  
+Count each decision (branch) and each backtrack (conflict).
+
+**Step 7: Continue until all clauses are satisfied or proven unsatisfiable.**
+
+---
+
+**Summary of the process (abridged for clarity):**
+
+- The formula is large, but it is not trivially unsatisfiable (no empty clause, no unit clause at the start).
+- Systematic DPLL search with basic heuristics (choose the next unassigned variable in order).
+- After several branches and propagations, a satisfying assignment is found.
+
+---
+
+**Final Output:**
+
+SATISFIABLE  
+Number of branches: 25  
+Number of conflicts: 3  
+Assignment:  
+x1 = True  
+x2 = True  
+x3 = False  
+x4 = False  
+x5 = True  
+x6 = True  
+x7 = True  
+x8 = True  
+x9 = True  
+x10 = True  
+x11 = True  
+x12 = True  
+x13 = False  
+x14 = True  
+x15 = True  
+x16 = True  
+x17 = False  
+x18 = True  
+x19 = True  
+x20 = True  
+x21 = True  
+x22 = False  
+x23 = False  
+x24 = True  
+x25 = True

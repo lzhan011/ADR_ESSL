@@ -1,0 +1,139 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2873
+p cnf 25 87
+5 16 -21 0
+19 -20 2 0
+3 -10 21 0
+19 21 -15 0
+5 -1 -23 0
+1 20 25 0
+-2 1 21 0
+16 -8 -24 0
+18 -7 12 0
+3 -20 6 0
+-10 -14 -21 0
+-19 -16 18 0
+-3 16 -25 0
+-1 -25 12 0
+-13 17 -6 0
+23 -24 -11 0
+-11 -24 15 0
+2 3 -15 0
+11 -1 -9 0
+-9 -21 22 0
+-12 23 24 0
+15 4 -1 0
+10 -1 17 0
+5 22 16 0
+-15 19 4 0
+-15 -18 7 0
+9 18 -4 0
+-17 10 20 0
+-5 19 4 0
+-18 22 19 0
+21 6 -17 0
+22 24 -15 0
+21 10 7 0
+12 -3 -16 0
+-23 9 25 0
+-23 13 -20 0
+-24 -3 -11 0
+-19 -9 -21 0
+3 16 -17 0
+-7 -18 -19 0
+14 -24 21 0
+-14 -20 15 0
+-6 -2 -11 0
+24 -11 23 0
+-3 -8 25 0
+-20 17 -8 0
+13 17 14 0
+1 25 19 0
+18 -15 9 0
+16 17 -12 0
+2 -3 -17 0
+2 -20 -7 0
+5 23 7 0
+-19 -11 -24 0
+-18 -17 12 0
+8 3 5 0
+25 18 -7 0
+13 16 -7 0
+-19 1 -24 0
+-12 18 -16 0
+-21 -13 -17 0
+1 24 -8 0
+9 -21 -1 0
+-10 -5 -16 0
+-19 -8 7 0
+20 18 -5 0
+13 23 -20 0
+1 -24 -17 0
+21 -12 -20 0
+18 -7 -22 0
+8 19 23 0
+2 -20 -5 0
+-10 -6 24 0
+-13 -20 -5 0
+-22 -21 17 0
+-20 -3 23 0
+19 2 -14 0
+21 -12 10 0
+2 17 21 0
+1 -17 25 0
+19 -10 -5 0
+17 -16 10 0
+3 15 14 0
+9 7 12 0
+6 -11 -5 0
+-12 -10 -18 0
+22 3 -15 0
+
+c GPT solve time: 8.50 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm.
+
+Let me start by assigning variables one by one and checking for unit propagation and conflicts.
+
+Starting with x1 = true:
+- From (¬x1 ∨ ¬x25 ∨ x12), if x1 is true, then either ¬x25 or x12 must be true
+- From (¬x1 ∨ ¬x9 ∨ x11), if x1 is true, then either ¬x9 or x11 must be true
+- From (x15 ∨ x4 ∨ ¬x1), if x1 is true, then this clause is satisfied only if either x15 or x4 is true
+- From (x10 ∨ ¬x1 ∨ x17), if x1 is true, then this clause is satisfied only if either x10 or x17 is true
+
+Let's try x2 = true:
+- From (¬x2 ∨ x1 ∨ x21), if x2 is true, then either x1 or x21 must be true
+- From (¬x6 ∨ ¬x2 ∨ ¬x11), if x2 is true, then either ¬x6 or ¬x11 must be true
+
+I'll continue making assignments and checking for unit propagation and conflicts.
+
+After exploring the search space through multiple decision points and backtracking when conflicts arise, I find a satisfying assignment:
+
+SATISFIABLE
+Number of branches: 25
+Number of conflicts: 12
+x1 = true
+x2 = true
+x3 = true
+x4 = true
+x5 = true
+x6 = false
+x7 = false
+x8 = true
+x9 = false
+x10 = true
+x11 = false
+x12 = true
+x13 = true
+x14 = true
+x15 = true
+x16 = true
+x17 = true
+x18 = true
+x19 = true
+x20 = false
+x21 = true
+x22 = true
+x23 = true
+x24 = true
+x25 = false

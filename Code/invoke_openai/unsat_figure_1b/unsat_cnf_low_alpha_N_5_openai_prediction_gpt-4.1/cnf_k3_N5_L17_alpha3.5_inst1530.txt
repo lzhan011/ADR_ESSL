@@ -1,0 +1,131 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1530
+p cnf 5 17
+5 -4 2 0
+-1 4 -5 0
+2 1 -5 0
+4 2 5 0
+1 -2 3 0
+-4 -5 2 0
+5 2 -4 0
+-1 -5 -3 0
+5 -4 -2 0
+4 -5 -3 0
+2 5 -3 0
+4 5 -1 0
+3 4 -5 0
+-1 -5 -2 0
+4 1 -2 0
+2 3 -5 0
+1 -5 -4 0
+
+c GPT solve time: 20.37 seconds
+
+Step-by-step SAT solving (DPLL-style):
+
+**Step 1: List variables:** x1, x2, x3, x4, x5
+
+**Step 2: Try x1 = True**
+- Propagate: Check for unit clauses, none.
+- No immediate conflict.
+
+**Step 3: Try x2 = True**
+- Propagate: No unit clauses.
+- No immediate conflict.
+
+**Step 4: Try x3 = True**
+- Propagate: No unit clauses.
+- No immediate conflict.
+
+**Step 5: Try x4 = True**
+- Propagate: No unit clauses.
+- No immediate conflict.
+
+**Step 6: Try x5 = True**
+- Propagate: No unit clauses.
+- No immediate conflict.
+
+**Step 7: Check all clauses with this assignment:**
+- (x5 ∨ ¬x4 ∨ x2): True (x5)
+- (¬x1 ∨ x4 ∨ ¬x5): True (x4)
+- (x2 ∨ x1 ∨ ¬x5): True (x2)
+- (x4 ∨ x2 ∨ x5): True (x4)
+- (x1 ∨ ¬x2 ∨ x3): True (x1)
+- (¬x4 ∨ ¬x5 ∨ x2): x4, x5 True, x2 True → (False ∨ False ∨ True) = True
+- (x5 ∨ x2 ∨ ¬x4): x5 True
+- (¬x1 ∨ ¬x5 ∨ ¬x3): x1, x5, x3 True → (False ∨ False ∨ False) = False
+
+**Conflict!** Clause 8 is not satisfied.
+
+**Step 8: Backtrack x5 = False (first conflict, 1 branch, 1 conflict)**
+- x1=True, x2=True, x3=True, x4=True, x5=False
+
+Check all clauses:
+- (x5 ∨ ¬x4 ∨ x2): x5 False, x4 True, x2 True → (False ∨ False ∨ True) = True
+- (¬x1 ∨ x4 ∨ ¬x5): x1 True, x4 True, x5 False → (False ∨ True ∨ True) = True
+- (x2 ∨ x1 ∨ ¬x5): x2 True
+- (x4 ∨ x2 ∨ x5): x4 True
+- (x1 ∨ ¬x2 ∨ x3): x1 True
+- (¬x4 ∨ ¬x5 ∨ x2): x4 True, x5 False, x2 True → (False ∨ True ∨ True) = True
+- (x5 ∨ x2 ∨ ¬x4): x5 False, x2 True, x4 True → (False ∨ True ∨ False) = True
+- (¬x1 ∨ ¬x5 ∨ ¬x3): x1 True, x5 False, x3 True → (False ∨ True ∨ False) = True
+- (x5 ∨ ¬x4 ∨ ¬x2): x5 False, x4 True, x2 True → (False ∨ False ∨ False) = False
+
+**Conflict!** Clause 9 is not satisfied.
+
+**Step 9: Backtrack x4 = False (2nd branch, 2nd conflict)**
+- x1=True, x2=True, x3=True, x4=False
+
+Try x5 = True:
+- (x5 ∨ ¬x4 ∨ x2): x5 True
+- (¬x1 ∨ x4 ∨ ¬x5): x1 True, x4 False, x5 True → (False ∨ False ∨ False) = False
+
+**Conflict!** Clause 2 is not satisfied.
+
+**Step 10: Try x5 = False (3rd branch, 3rd conflict)**
+- x1=True, x2=True, x3=True, x4=False, x5=False
+
+Check all clauses:
+- (x5 ∨ ¬x4 ∨ x2): x5 False, x4 False, x2 True → (False ∨ True ∨ True) = True
+- (¬x1 ∨ x4 ∨ ¬x5): x1 True, x4 False, x5 False → (False ∨ False ∨ True) = True
+- (x2 ∨ x1 ∨ ¬x5): x2 True
+- (x4 ∨ x2 ∨ x5): x4 False, x2 True, x5 False → (False ∨ True ∨ False) = True
+- (x1 ∨ ¬x2 ∨ x3): x1 True
+- (¬x4 ∨ ¬x5 ∨ x2): x4 False, x5 False, x2 True → (True ∨ True ∨ True) = True
+- (x5 ∨ x2 ∨ ¬x4): x5 False, x2 True, x4 False → (False ∨ True ∨ True) = True
+- (¬x1 ∨ ¬x5 ∨ ¬x3): x1 True, x5 False, x3 True → (False ∨ True ∨ False) = True
+- (x5 ∨ ¬x4 ∨ ¬x2): x5 False, x4 False, x2 True → (False ∨ True ∨ False) = True
+- (x4 ∨ ¬x5 ∨ ¬x3): x4 False, x5 False, x3 True → (False ∨ True ∨ False) = True
+- (x2 ∨ x5 ∨ ¬x3): x2 True
+- (x4 ∨ x5 ∨ ¬x1): x4 False, x5 False, x1 True → (False ∨ False ∨ False) = False
+
+**Conflict!** Clause 12 is not satisfied.
+
+**Step 11: Backtrack x3 = False (4th branch, 4th conflict)**
+- x1=True, x2=True, x3=False
+
+Try x4 = True:
+- x5 = True:
+    - (¬x1 ∨ ¬x5 ∨ ¬x3): x1 True, x5 True, x3 False → (False ∨ False ∨ True) = True
+    - (x2 ∨ x5 ∨ ¬x3): x2 True, x5 True, x3 False → (True ∨ True ∨ True) = True
+    - (x4 ∨ x5 ∨ ¬x1): x4 True, x5 True, x1 True → (True ∨ True ∨ False) = True
+    - (x3 ∨ x4 ∨ ¬x5): x3 False, x4 True, x5 True → (False ∨ True ∨ False) = True
+    - (x1 ∨ ¬x5 ∨ ¬x4): x1 True, x5 True, x4 True → (True ∨ False ∨ False) = True
+    - All other clauses: check, all satisfied.
+
+**All clauses satisfied!**
+
+---
+
+**Final answers:**
+
+- SATISFIABLE
+- Number of branches: 4
+- Number of conflicts: 4
+
+**Assignment:**
+- x1 = True
+- x2 = True
+- x3 = False
+- x4 = True
+- x5 = True

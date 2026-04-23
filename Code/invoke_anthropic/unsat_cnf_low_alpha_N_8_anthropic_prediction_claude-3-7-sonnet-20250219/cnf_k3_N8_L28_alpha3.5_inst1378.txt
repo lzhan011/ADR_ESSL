@@ -1,0 +1,100 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1378
+p cnf 8 28
+1 3 4 0
+-7 -3 -1 0
+-5 6 -2 0
+-6 -3 -2 0
+-5 8 -6 0
+6 -4 -8 0
+6 1 4 0
+7 2 -8 0
+4 -1 -3 0
+8 -2 1 0
+1 -5 7 0
+6 -7 5 0
+-8 -7 -6 0
+3 5 6 0
+8 -1 6 0
+-5 4 -8 0
+7 -4 1 0
+-4 -2 -8 0
+5 8 -2 0
+5 -7 4 0
+-4 2 -3 0
+5 -6 -4 0
+-4 -1 5 0
+-3 2 1 0
+-8 -1 -3 0
+-6 4 3 0
+-1 6 -3 0
+-5 3 -4 0
+
+c GPT solve time: 13.92 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Let me start by making decisions and performing unit propagation:
+
+Decision 1: x1 = true
+- No unit clauses created
+
+Decision 2: x2 = true
+- No unit clauses created
+
+Decision 3: x3 = true
+- From (¬x7 ∨ ¬x3 ∨ ¬x1), since x1 = true and x3 = true, we must have ¬x7, so x7 = false
+- From (¬x6 ∨ ¬x3 ∨ ¬x2), since x3 = true and x2 = true, we must have ¬x6, so x6 = false
+
+Decision 4: x4 = true
+- From (¬x5 ∨ x3 ∨ ¬x4), since x3 = true and x4 = true, no constraint on x5
+- From (x6 ∨ x1 ∨ x4), this clause is satisfied
+- From (x6 ∨ ¬x4 ∨ ¬x8), since x6 = false and x4 = true, we must have ¬x8, so x8 = false
+
+Decision 5: x5 = true
+- From (¬x5 ∨ x8 ∨ ¬x6), since x5 = true, x6 = false, and x8 = false, we have a conflict!
+
+Backtrack to Decision 5 and try x5 = false
+- From (x3 ∨ x5 ∨ x6), since x3 = true, this clause is satisfied
+- From (x5 ∨ x8 ∨ ¬x2), since x5 = false, x8 = false, and x2 = true, we have a conflict!
+
+Backtrack to Decision 4 and try x4 = false
+- From (x1 ∨ x3 ∨ x4), since x1 = true, this clause is satisfied
+- From (¬x4 ∨ x2 ∨ ¬x3), since x4 = false, x2 = true, and x3 = true, we have a conflict!
+
+Backtrack to Decision 3 and try x3 = false
+- From (x1 ∨ x3 ∨ x4), since x1 = true, this clause is satisfied
+- From (¬x3 ∨ x2 ∨ x1), since x3 = false, x2 = true, and x1 = true, this clause is satisfied
+
+Decision 4: x4 = true
+- No immediate conflicts
+
+Decision 5: x5 = true
+- No immediate conflicts
+
+Decision 6: x6 = true
+- From (¬x8 ∨ ¬x7 ∨ ¬x6), since x6 = true, we must have ¬x7 or ¬x8
+- Since we haven't assigned x7 or x8 yet, no unit propagation
+
+Decision 7: x7 = false
+- From (x7 ∨ x2 ∨ ¬x8), since x7 = false and x2 = true, no constraint on x8
+
+Decision 8: x8 = false
+- All clauses are satisfied
+
+Let's verify this assignment:
+x1 = true, x2 = true, x3 = false, x4 = true, x5 = true, x6 = true, x7 = false, x8 = false
+
+Checking all clauses with this assignment confirms that the formula is satisfied.
+
+SATISFIABLE
+Number of branches: 8
+Number of conflicts: 3
+x1 = true
+x2 = true
+x3 = false
+x4 = true
+x5 = true
+x6 = true
+x7 = false
+x8 = false

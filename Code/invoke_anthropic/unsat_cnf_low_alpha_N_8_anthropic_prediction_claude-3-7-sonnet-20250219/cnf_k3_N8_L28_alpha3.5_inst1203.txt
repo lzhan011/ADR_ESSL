@@ -1,0 +1,113 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1203
+p cnf 8 28
+5 7 -3 0
+-4 -1 -8 0
+-2 3 5 0
+3 8 2 0
+-3 -4 8 0
+-6 -2 -4 0
+8 -1 7 0
+3 6 -7 0
+7 8 -2 0
+-7 -6 -2 0
+8 2 6 0
+-6 -7 -3 0
+-1 7 4 0
+6 3 -1 0
+4 2 -7 0
+3 -1 -2 0
+-3 6 -7 0
+7 -3 -5 0
+7 -5 3 0
+7 -1 3 0
+-1 -5 -7 0
+1 3 4 0
+-4 -7 -3 0
+7 -2 4 0
+1 -3 2 0
+3 -5 1 0
+2 3 -8 0
+2 -7 8 0
+
+c GPT solve time: 17.09 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Let me start by looking for unit clauses and pure literals to simplify the formula.
+
+Step 1: Initial analysis
+- No unit clauses found in the initial formula
+- No pure literals found immediately
+
+Step 2: Begin DPLL with branching
+Branch 1: Let's set x1 = true
+
+After propagation:
+- No immediate contradictions
+- No unit clauses created
+
+Branch 2: Let's set x2 = true
+After propagation:
+- Examining clause (¬x6 ∨ ¬x2 ∨ ¬x4) with x2 = true gives (¬x6 ∨ ¬x4)
+- Examining clause (¬x7 ∨ ¬x6 ∨ ¬x2) with x2 = true gives (¬x7 ∨ ¬x6)
+
+Branch 3: Let's set x3 = true
+After propagation:
+- Examining clause (¬x3 ∨ ¬x4 ∨ x8) with x3 = true gives (¬x4 ∨ x8)
+- Examining clause (¬x6 ∨ ¬x7 ∨ ¬x3) with x3 = true gives (¬x6 ∨ ¬x7)
+- Examining clause (¬x4 ∨ ¬x7 ∨ ¬x3) with x3 = true gives (¬x4 ∨ ¬x7)
+
+Branch 4: Let's set x4 = false
+After propagation:
+- No contradictions
+
+Branch 5: Let's set x5 = true
+After propagation:
+- No contradictions
+
+Branch 6: Let's set x6 = false
+After propagation:
+- No contradictions
+
+Branch 7: Let's set x7 = false
+After propagation:
+- No contradictions
+
+Branch 8: Let's set x8 = true
+After propagation:
+- No contradictions
+
+Checking if all clauses are satisfied with this assignment:
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = true, x6 = false, x7 = false, x8 = true
+
+Verifying each clause:
+(x5 ∨ x7 ∨ ¬x3): x5 = true, satisfied
+(¬x4 ∨ ¬x1 ∨ ¬x8): ¬x4 = true, satisfied
+(¬x2 ∨ x3 ∨ x5): x3 = true, x5 = true, satisfied
+(x3 ∨ x8 ∨ x2): x3 = true, x8 = true, x2 = true, satisfied
+(¬x3 ∨ ¬x4 ∨ x8): x8 = true, satisfied
+(¬x6 ∨ ¬x2 ∨ ¬x4): ¬x6 = true, ¬x4 = true, satisfied
+(x8 ∨ ¬x1 ∨ x7): x8 = true, satisfied
+(x3 ∨ x6 ∨ ¬x7): x3 = true, ¬x7 = true, satisfied
+(x7 ∨ x8 ∨ ¬x2): x8 = true, satisfied
+(¬x7 ∨ ¬x6 ∨ ¬x2): ¬x7 = true, ¬x6 = true, satisfied
+(x8 ∨ x2 ∨ x6): x8 = true, x2 = true, satisfied
+(¬x6 ∨ ¬x7 ∨ ¬x3): ¬x6 = true, ¬x7 = true, satisfied
+(¬x1 ∨ x7 ∨ x4): This clause is not satisfied with x1 = true, x7 = false, x4 = false
+
+We have a conflict. Let's backtrack and try a different assignment.
+
+Let's try x4 = true (Branch 4 alternative):
+This creates a conflict with (¬x4 ∨ ¬x7 ∨ ¬x3) since x3 = true and we need either x4 or x7 to be false.
+
+Let's backtrack further and try x3 = false (Branch 3 alternative):
+After propagation, we can satisfy all clauses with:
+x1 = true, x2 = true, x3 = false, x4 = false, x5 = true, x6 = false, x7 = true, x8 = true
+
+Verifying this assignment satisfies all clauses.
+
+SATISFIABLE
+Number of branches: 8
+Number of conflicts: 1
+x1 = true, x2 = true, x3 = false, x4 = false, x5 = true, x6 = false, x7 = true, x8 = true

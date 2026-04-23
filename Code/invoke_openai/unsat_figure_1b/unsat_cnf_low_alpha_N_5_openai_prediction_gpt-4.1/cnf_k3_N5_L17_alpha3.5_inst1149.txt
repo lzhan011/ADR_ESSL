@@ -1,0 +1,318 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1149
+p cnf 5 17
+4 -5 -1 0
+3 -2 -5 0
+-1 -2 4 0
+2 3 5 0
+3 -4 -2 0
+-3 -1 5 0
+-2 5 1 0
+2 4 -5 0
+-2 1 -5 0
+-5 -2 3 0
+-1 -2 -3 0
+5 2 3 0
+-2 -4 -1 0
+3 -5 -2 0
+2 -3 1 0
+2 -3 -5 0
+-5 3 -4 0
+
+c GPT solve time: 30.27 seconds
+
+Step-by-step DPLL SAT solving:
+
+**Variables:** x1, x2, x3, x4, x5
+
+Let's proceed step by step:
+
+---
+
+### 1. Choose a variable to branch on. Let's start with x1 = True.
+
+#### Branch 1: x1 = True
+
+- Simplify all clauses:
+    - Any clause with x1 is satisfied.
+    - Any clause with ¬x1: remove ¬x1 from those clauses.
+
+#### Updated clauses:
+1. (x4 ∨ ¬x5 ∨ ¬x1) → (x4 ∨ ¬x5) [since x1=True, ¬x1=False]
+2. (x3 ∨ ¬x2 ∨ ¬x5)
+3. (¬x1 ∨ ¬x2 ∨ x4) → (¬x2 ∨ x4)
+4. (x2 ∨ x3 ∨ x5)
+5. (x3 ∨ ¬x4 ∨ ¬x2)
+6. (¬x3 ∨ ¬x1 ∨ x5) → (¬x3 ∨ x5)
+7. (¬x2 ∨ x5 ∨ x1) → satisfied
+8. (x2 ∨ x4 ∨ ¬x5)
+9. (¬x2 ∨ x1 ∨ ¬x5) → satisfied
+10. (¬x5 ∨ ¬x2 ∨ x3)
+11. (¬x1 ∨ ¬x2 ∨ ¬x3) → (¬x2 ∨ ¬x3)
+12. (x5 ∨ x2 ∨ x3)
+13. (¬x2 ∨ ¬x4 ∨ ¬x1) → (¬x2 ∨ ¬x4)
+14. (x3 ∨ ¬x5 ∨ ¬x2)
+15. (x2 ∨ ¬x3 ∨ x1) → satisfied
+16. (x2 ∨ ¬x3 ∨ ¬x5)
+17. (¬x5 ∨ x3 ∨ ¬x4)
+
+---
+
+### 2. Next, branch on x2 = True.
+
+#### Branch 1.1: x1 = True, x2 = True
+
+- Any clause with x2 is satisfied.
+- Any clause with ¬x2: remove ¬x2 from those clauses.
+
+Updated clauses:
+1. (x4 ∨ ¬x5)
+2. (x3 ∨ ¬x2 ∨ ¬x5) → (x3 ∨ ¬x5)
+3. (¬x2 ∨ x4) → (x4)
+4. (x2 ∨ x3 ∨ x5) → satisfied
+5. (x3 ∨ ¬x4 ∨ ¬x2) → (x3 ∨ ¬x4)
+6. (¬x3 ∨ x5)
+7. (x2 ∨ x4 ∨ ¬x5) → satisfied
+8. (¬x5 ∨ ¬x2 ∨ x3) → (¬x5 ∨ x3)
+9. (¬x2 ∨ ¬x3) → (¬x3)
+10. (x5 ∨ x2 ∨ x3) → satisfied
+11. (¬x2 ∨ ¬x4) → (¬x4)
+12. (x3 ∨ ¬x5 ∨ ¬x2) → (x3 ∨ ¬x5)
+13. (x2 ∨ ¬x3 ∨ ¬x5) → satisfied
+14. (¬x5 ∨ x3 ∨ ¬x4)
+
+---
+
+Now, let's look for unit clauses:
+
+- (x4)
+- (¬x3)
+- (¬x4)
+
+But (x4) and (¬x4) are both present: **CONFLICT**.
+
+#### Backtrack: x2 = False
+
+---
+
+### 3. Branch 1.2: x1 = True, x2 = False
+
+- Any clause with ¬x2 is satisfied.
+- Any clause with x2: remove x2 from those clauses.
+
+Updated clauses:
+1. (x4 ∨ ¬x5)
+2. (x3 ∨ ¬x5)
+3. (¬x2 ∨ x4) → satisfied
+4. (x3 ∨ x5)
+5. (x3 ∨ ¬x4)
+6. (¬x3 ∨ x5)
+7. (¬x2 ∨ x5 ∨ x1) → satisfied
+8. (x4 ∨ ¬x5)
+9. (¬x2 ∨ x1 ∨ ¬x5) → satisfied
+10. (¬x5 ∨ x3)
+11. (¬x1 ∨ ¬x2 ∨ ¬x3) → (¬x3)
+12. (x5 ∨ x3)
+13. (¬x2 ∨ ¬x4 ∨ ¬x1) → satisfied
+14. (x3 ∨ ¬x5)
+15. (¬x3 ∨ x1) → (¬x3)
+16. (¬x3 ∨ ¬x5)
+17. (¬x5 ∨ x3 ∨ ¬x4)
+
+Now, let's look for unit clauses:
+
+- (¬x3) appears in two clauses.
+
+Assign x3 = False.
+
+---
+
+#### Propagate x3 = False
+
+- Any clause with x3: remove x3 from those clauses.
+- Any clause with ¬x3: satisfied.
+
+Updated clauses:
+1. (x4 ∨ ¬x5)
+2. (¬x5)
+3. (x3 ∨ x5) → (x5)
+4. (x3 ∨ ¬x4) → (¬x4)
+5. (¬x3 ∨ x5) → satisfied
+6. (x4 ∨ ¬x5)
+7. (¬x5)
+8. (x5 ∨ x3) → (x5)
+9. (x3 ∨ ¬x5) → (¬x5)
+10. (¬x3 ∨ x1) → satisfied
+11. (¬x3 ∨ ¬x5) → satisfied
+12. (¬x5 ∨ x3 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+
+Now, let's look for unit clauses:
+
+- (¬x5) appears in three clauses.
+- (¬x4)
+- (x5) appears in two clauses.
+
+But (x5) and (¬x5) are both present: **CONFLICT**.
+
+#### Backtrack: x1 = False
+
+---
+
+### 4. Branch 2: x1 = False
+
+- Any clause with ¬x1 is satisfied.
+- Any clause with x1: remove x1 from those clauses.
+
+Updated clauses:
+1. (x4 ∨ ¬x5)
+2. (x3 ∨ ¬x2 ∨ ¬x5)
+3. (¬x1 ∨ ¬x2 ∨ x4) → satisfied
+4. (x2 ∨ x3 ∨ x5)
+5. (x3 ∨ ¬x4 ∨ ¬x2)
+6. (¬x3 ∨ x5)
+7. (¬x2 ∨ x5)
+8. (x2 ∨ x4 ∨ ¬x5)
+9. (¬x2 ∨ ¬x5)
+10. (¬x5 ∨ ¬x2 ∨ x3)
+11. (¬x1 ∨ ¬x2 ∨ ¬x3) → satisfied
+12. (x5 ∨ x2 ∨ x3)
+13. (¬x2 ∨ ¬x4)
+14. (x3 ∨ ¬x5 ∨ ¬x2)
+15. (x2 ∨ ¬x3)
+16. (x2 ∨ ¬x3 ∨ ¬x5)
+17. (¬x5 ∨ x3 ∨ ¬x4)
+
+---
+
+### 5. Next, branch on x2 = True.
+
+#### Branch 2.1: x1 = False, x2 = True
+
+- Any clause with x2 is satisfied.
+- Any clause with ¬x2: remove ¬x2 from those clauses.
+
+Updated clauses:
+1. (x4 ∨ ¬x5)
+2. (x3 ∨ ¬x5)
+3. (x2 ∨ x3 ∨ x5) → satisfied
+4. (x3 ∨ ¬x4)
+5. (¬x3 ∨ x5)
+6. (x2 ∨ x4 ∨ ¬x5) → satisfied
+7. (¬x5)
+8. (¬x5 ∨ x3)
+9. (x5 ∨ x2 ∨ x3) → satisfied
+10. (¬x4)
+11. (x3 ∨ ¬x5)
+12. (x2 ∨ ¬x3) → satisfied
+13. (x2 ∨ ¬x3 ∨ ¬x5) → satisfied
+14. (¬x5 ∨ x3 ∨ ¬x4)
+
+Now, let's look for unit clauses:
+
+- (¬x5)
+- (¬x4)
+
+Assign x5 = False.
+
+---
+
+#### Propagate x5 = False
+
+- Any clause with ¬x5: satisfied.
+- Any clause with x5: remove x5 from those clauses.
+
+Updated clauses:
+1. (x4 ∨ ¬x5) → satisfied
+2. (x3 ∨ ¬x5) → satisfied
+3. (x3 ∨ ¬x4)
+4. (¬x3 ∨ x5) → (¬x3)
+5. (¬x5 ∨ x3) → satisfied
+6. (¬x4)
+7. (x3 ∨ ¬x5) → satisfied
+8. (¬x4)
+9. (¬x5 ∨ x3 ∨ ¬x4) → satisfied
+
+Now, (¬x4) is a unit clause.
+
+Assign x4 = False.
+
+---
+
+#### Propagate x4 = False
+
+- Any clause with ¬x4: satisfied.
+- Any clause with x4: remove x4 from those clauses.
+
+Updated clauses:
+1. (x3)
+2. (¬x3)
+
+Now, (x3) and (¬x3) are both present: **CONFLICT**.
+
+#### Backtrack: x2 = False
+
+---
+
+### 6. Branch 2.2: x1 = False, x2 = False
+
+- Any clause with ¬x2 is satisfied.
+- Any clause with x2: remove x2 from those clauses.
+
+Updated clauses:
+1. (x4 ∨ ¬x5)
+2. (x3 ∨ ¬x5)
+3. (x3 ∨ x5)
+4. (x3 ∨ ¬x4)
+5. (¬x3 ∨ x5)
+6. (¬x2 ∨ x5) → satisfied
+7. (x4 ∨ ¬x5)
+8. (¬x2 ∨ ¬x5) → satisfied
+9. (¬x5 ∨ ¬x2 ∨ x3) → satisfied
+10. (x5 ∨ x3)
+11. (¬x2 ∨ ¬x4) → satisfied
+12. (x3 ∨ ¬x5)
+13. (¬x3)
+14. (¬x3 ∨ ¬x5)
+15. (¬x5 ∨ x3 ∨ ¬x4)
+
+Now, (¬x3) is a unit clause.
+
+Assign x3 = False.
+
+---
+
+#### Propagate x3 = False
+
+- Any clause with x3: remove x3 from those clauses.
+- Any clause with ¬x3: satisfied.
+
+Updated clauses:
+1. (x4 ∨ ¬x5)
+2. (¬x5)
+3. (x3 ∨ x5) → (x5)
+4. (x3 ∨ ¬x4) → (¬x4)
+5. (¬x3 ∨ x5) → satisfied
+6. (x4 ∨ ¬x5)
+7. (¬x5)
+8. (x5 ∨ x3) → (x5)
+9. (x3 ∨ ¬x5) → (¬x5)
+10. (¬x3 ∨ ¬x5) → satisfied
+11. (¬x5 ∨ x3 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+
+Now, (¬x5) appears in three clauses, (x5) in two, (¬x4) in one.
+
+But (x5) and (¬x5) are both present: **CONFLICT**.
+
+---
+
+## Summary
+
+All branches lead to a conflict.
+
+---
+
+**Final Answers:**
+
+- UNSATISFIABLE
+- Number of branches (decision points): 4
+- Number of conflicts (backtracking steps): 4

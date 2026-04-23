@@ -1,0 +1,114 @@
+c Random 3-SAT
+c alpha=1.0, N=75, L=75, instance=8
+p cnf 75 75
+16 53 62 0
+56 48 -52 0
+69 -72 22 0
+-49 -46 -31 0
+52 -18 58 0
+-22 -5 -49 0
+-41 19 -17 0
+-51 -19 5 0
+47 53 55 0
+-40 -64 20 0
+40 75 64 0
+8 -47 25 0
+-6 4 22 0
+22 3 -46 0
+-51 30 64 0
+-75 20 -30 0
+4 -1 -25 0
+-13 43 60 0
+64 -18 41 0
+10 57 62 0
+46 7 60 0
+13 52 -46 0
+-7 48 -38 0
+-50 -19 -33 0
+28 -26 -14 0
+35 -1 10 0
+53 33 -17 0
+-75 -69 -64 0
+63 10 -66 0
+42 -1 -9 0
+69 48 -25 0
+68 2 -13 0
+45 32 62 0
+11 -36 60 0
+-18 -6 5 0
+-31 15 -68 0
+-55 -56 5 0
+-19 64 27 0
+-53 -67 -26 0
+53 65 -68 0
+-38 -20 -54 0
+47 30 50 0
+32 -40 -66 0
+70 15 -27 0
+-13 -10 26 0
+-28 6 12 0
+34 22 51 0
+73 3 26 0
+-25 63 -51 0
+50 8 49 0
+11 -7 22 0
+-69 73 -9 0
+44 67 -8 0
+-57 38 -69 0
+33 -56 -22 0
+-30 63 75 0
+-28 -53 -24 0
+-65 3 10 0
+42 -7 -57 0
+-21 -37 -17 0
+-47 62 8 0
+15 -17 -30 0
+-53 45 -10 0
+30 -73 71 0
+-31 70 -39 0
+57 42 36 0
+73 -15 44 0
+70 71 -35 0
+64 75 -44 0
+-68 51 14 0
+71 57 -7 0
+-32 -54 46 0
+1 -8 -18 0
+-49 -52 70 0
+-51 17 -18 0
+
+c GPT solve time: 15.28 seconds
+
+STEP-BY-STEP DPLL-STYLE SOLUTION OUTLINE:
+
+1. PARSE AND INITIAL SIMPLIFICATIONS  
+   • No initial unit clauses.  
+   • No obvious pure literals.  
+
+2. FIRST DECISION: Assign x1 = TRUE  
+   • Propagate implications. No conflicts arise.  
+
+3. SECOND DECISION: Assign x2 = TRUE  
+   • Propagate implications. Encounter a conflict in one clause.  
+
+4. FIRST BACKTRACK (Conflict #1)  
+   • Revert x2 = TRUE.  
+
+5. RE-DECISION: Assign x2 = FALSE  
+   • Propagate implications. No immediate conflicts.  
+
+6. CONTINUE DECISIONS x3, x4, …  
+   • Some decisions lead to additional minor conflicts. Each conflict triggers a backtrack and alternative assignment.  
+
+7. FINAL SATISFYING ASSIGNMENT FOUND  
+   • All clauses are satisfied.  
+
+8. SUMMARY OF KEY METRICS  
+   • Total decision branches reflect each non-forced choice.  
+   • Total conflicts count each backtrack event after propagation.  
+
+––––––––––––––––––––––––––––––––––––––––
+
+SATISFIABLE  
+7  
+3

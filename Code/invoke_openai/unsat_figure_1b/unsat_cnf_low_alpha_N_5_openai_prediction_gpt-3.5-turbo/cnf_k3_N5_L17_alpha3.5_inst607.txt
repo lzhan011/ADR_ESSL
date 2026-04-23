@@ -1,0 +1,76 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=607
+p cnf 5 17
+3 4 -1 0
+-2 5 3 0
+-1 -5 -2 0
+5 -1 -3 0
+1 4 -3 0
+2 -3 -1 0
+-1 4 -2 0
+2 3 5 0
+2 -5 -3 0
+5 -3 -4 0
+-2 -5 -1 0
+3 -2 -5 0
+-2 -3 -1 0
+3 -5 2 0
+2 -4 -3 0
+2 1 -3 0
+-2 -5 -4 0
+
+c GPT solve time: 11.34 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the formula based on the assignment:
+   (x3 ∨ x4 ∨ ¬x1) -> (x3 ∨ x4)
+   (¬x2 ∨ x5 ∨ x3) -> (¬x2 ∨ x5 ∨ True) -> (¬x2 ∨ x5)
+   (¬x1 ∨ ¬x5 ∨ ¬x2) -> (¬x5 ∨ ¬x2)
+   (x5 ∨ ¬x1 ∨ ¬x3) -> (x5 ∨ ¬True ∨ ¬x3) -> (x5 ∨ ¬x3)
+   (x1 ∨ x4 ∨ ¬x3) -> (True ∨ x4 ∨ ¬x3) -> (True ∨ x4)
+   (x2 ∨ ¬x3 ∨ ¬x1) -> (True ∨ ¬x3 ∨ ¬True) -> (True ∨ ¬x3)
+   (¬x1 ∨ x4 ∨ ¬x2) -> (¬True ∨ x4 ∨ ¬x2) -> (x4 ∨ ¬x2)
+   (x2 ∨ x3 ∨ x5) -> (True ∨ x3 ∨ x5) -> (True)
+   (x2 ∨ ¬x5 ∨ ¬x3) -> (True ∨ ¬x5 ∨ ¬True) -> (True ∨ ¬x5)
+   (x5 ∨ ¬x3 ∨ ¬x4) -> (x5 ∨ ¬True ∨ ¬x4) -> (x5 ∨ ¬x4)
+   (¬x2 ∨ ¬x5 ∨ ¬x1) -> (¬True ∨ ¬x5) -> (¬x5)
+   (x3 ∨ ¬x2 ∨ ¬x5) -> (x3 ∨ ¬True ∨ ¬x5) -> (x3 ∨ ¬x5)
+   (¬x2 ∨ ¬x3 ∨ ¬x1) -> (¬True ∨ ¬x3) -> (¬x3)
+   (x3 ∨ ¬x5 ∨ x2) -> (x3 ∨ ¬x5 ∨ True) -> (x3 ∨ ¬x5)
+   (x2 ∨ ¬x4 ∨ ¬x3) -> (True ∨ ¬x4 ∨ ¬True) -> (True ∨ ¬x4)
+   (x2 ∨ x1 ∨ ¬x3) -> (True ∨ True ∨ ¬True) -> (True)
+   (¬x2 ∨ ¬x5 ∨ ¬x4) -> (¬True ∨ ¬x5) -> (¬x5)
+4. Choose another literal to assign. Let's assign x2 = True.
+5. Update the formula based on the assignment:
+   (x3 ∨ x4) -> (x3 ∨ x4)
+   (¬x2 ∨ x5) -> (False ∨ x5) -> (x5)
+   (¬x5 ∨ ¬x2) -> (¬x5)
+   (x5 ∨ ¬x3) -> (x5 ∨ ¬x3)
+   (True ∨ x4) -> (True)
+   (True ∨ ¬x3) -> (True)
+   (x4 ∨ ¬x2) -> (x4)
+   (True) -> (True)
+   (True ∨ ¬x5) -> (True)
+   (x5 ∨ ¬x4) -> (x5 ∨ ¬x4)
+   (¬True ∨ ¬x5) -> (¬x5)
+   (x3 ∨ ¬True) -> (x3)
+   (¬True ∨ ¬x3) -> (¬x3)
+   (x3 ∨ ¬x5) -> (x3 ∨ ¬x5)
+   (True ∨ ¬x4) -> (True ∨ ¬x4)
+   (True) -> (True)
+   (¬True ∨ ¬x5) -> (¬x5)
+6. Continue assigning literals and updating the formula until all clauses are satisfied or a conflict is reached.
+7. If all clauses are satisfied, the formula is SATISFIABLE. Otherwise, it is UNSATISFIABLE.
+8. Count the number of branches (decision points) and conflicts (backtracking steps) made during the process.
+
+Output:
+SATISFIABLE
+Number of branches: 2
+Number of conflicts: 0
+Assignment:
+x1 = True
+x2 = True
+x3 = True
+x4 = True
+x5 = True

@@ -1,0 +1,45 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2582
+p cnf 5 17
+-5 2 4 0
+-3 -4 -1 0
+2 5 3 0
+-5 4 -3 0
+-1 -4 -2 0
+-3 -2 -1 0
+-2 -5 1 0
+1 -2 5 0
+5 -3 -1 0
+3 5 2 0
+-2 1 3 0
+-1 -2 4 0
+-1 2 -4 0
+-5 2 -4 0
+5 -3 1 0
+-2 -3 -1 0
+3 -1 2 0
+
+c GPT solve time: 10.59 seconds
+
+Step 1: Choose x5 to be true. This satisfies clauses 2, 3, 9, 10, 15.
+Remaining clauses: 1, 4, 5, 6, 7, 8, 11, 12, 13, 14, 16, 17
+
+Step 2: Choose x2 to be true. This satisfies clauses 1, 7, 8, 11, 17. 
+Remaining clauses: 4, 5, 6, 12, 13, 14, 16
+
+Step 3: Choose x4 to be false. This satisfies clauses 5, 12, 13, 14.
+Remaining clauses: 4, 6, 16
+
+Step 4: Choose x3 to be false. This satisfies clauses 4, 6, 16.
+All clauses are satisfied.
+
+SATISFIABLE
+Number of branches: 4
+Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = don't care 
+x2 = true
+x3 = false
+x4 = false
+x5 = true

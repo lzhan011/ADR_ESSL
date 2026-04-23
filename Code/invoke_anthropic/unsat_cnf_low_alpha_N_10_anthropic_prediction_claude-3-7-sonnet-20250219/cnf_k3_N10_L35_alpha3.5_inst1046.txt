@@ -1,0 +1,139 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1046
+p cnf 10 35
+-3 -7 -9 0
+-7 2 3 0
+-5 7 -4 0
+-9 -7 -1 0
+-8 3 -6 0
+9 -2 -8 0
+-6 -3 -8 0
+8 -7 -3 0
+9 -7 -10 0
+-5 8 -6 0
+6 7 3 0
+-1 4 3 0
+5 -3 -9 0
+1 2 7 0
+8 -2 -1 0
+3 -2 -7 0
+-5 -7 6 0
+-7 1 9 0
+-7 -4 -10 0
+-10 7 -4 0
+10 -2 7 0
+-4 -1 8 0
+10 -5 -6 0
+7 5 -6 0
+3 5 -9 0
+1 -10 -3 0
+7 5 4 0
+-1 2 10 0
+7 -6 -8 0
+-7 -8 -5 0
+-5 -3 -4 0
+-3 4 7 0
+2 3 -7 0
+10 -1 7 0
+9 -5 6 0
+
+c GPT solve time: 18.77 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by looking for unit clauses and pure literals:
+
+Initial analysis:
+- No unit clauses in the original formula
+- No obvious pure literals
+
+Let's begin with a decision:
+
+Decision 1: Set x1 = true
+No immediate unit propagation
+
+Decision 2: Set x2 = true
+No immediate unit propagation
+
+Decision 3: Set x3 = true
+Checking clause (¬x3 ∨ ¬x7 ∨ ¬x9): Since x3 = true, we need (¬x7 ∨ ¬x9) to be true
+Checking clause (¬x6 ∨ ¬x3 ∨ ¬x8): Since x3 = true, we need (¬x6 ∨ ¬x8) to be true
+Checking clause (x8 ∨ ¬x7 ∨ ¬x3): Since x3 = true, we need (x8 ∨ ¬x7) to be true
+No unit propagation yet
+
+Decision 4: Set x4 = true
+Checking clause (¬x5 ∨ ¬x3 ∨ ¬x4): Since x3 = true and x4 = true, we must have x5 = false
+Propagate: x5 = false
+
+With x5 = false:
+Checking clause (¬x5 ∨ x7 ∨ ¬x4): Since x5 = false and x4 = true, we must have x7 = true
+Propagate: x7 = true
+
+With x7 = true:
+Checking clause (¬x3 ∨ ¬x7 ∨ ¬x9): Since x3 = true and x7 = true, we must have x9 = false
+Propagate: x9 = false
+
+With x7 = true:
+Checking clause (¬x7 ∨ ¬x8 ∨ ¬x5): Since x7 = true and x5 = false, we must have x8 = false
+Propagate: x8 = false
+
+With x8 = false:
+Checking clause (x8 ∨ ¬x7 ∨ ¬x3): Since x8 = false, x7 = true, and x3 = true, we have a CONFLICT!
+
+Backtrack to Decision 4 and try x4 = false:
+With x4 = false:
+No immediate unit propagation
+
+Decision 5: Set x5 = true
+Checking clause (x7 ∨ x5 ∨ x4): Since x5 = true, this clause is satisfied
+No immediate unit propagation
+
+Decision 6: Set x6 = true
+No immediate unit propagation
+
+Decision 7: Set x7 = true
+Checking clause (¬x3 ∨ ¬x7 ∨ ¬x9): Since x3 = true and x7 = true, we must have x9 = false
+Propagate: x9 = false
+
+With x7 = true:
+Checking clause (¬x7 ∨ ¬x8 ∨ ¬x5): Since x7 = true and x5 = true, we must have x8 = false
+Propagate: x8 = false
+
+With x8 = false:
+Checking clause (x8 ∨ ¬x7 ∨ ¬x3): Since x8 = false, x7 = true, and x3 = true, we have a CONFLICT!
+
+Backtrack to Decision 7 and try x7 = false:
+With x7 = false:
+Checking clause (x6 ∨ x7 ∨ x3): Since x7 = false and x3 = true, this clause is satisfied
+Checking clause (x1 ∨ x2 ∨ x7): Since x1 = true and x2 = true, this clause is satisfied
+Checking clause (x7 ∨ x5 ∨ x4): Since x5 = true, this clause is satisfied
+No immediate unit propagation
+
+Decision 8: Set x8 = true
+Checking clause (¬x8 ∨ x3 ∨ ¬x6): Since x8 = true, x3 = true, and x6 = true, we have a CONFLICT!
+
+Backtrack to Decision 8 and try x8 = false:
+With x8 = false:
+Checking clause (¬x5 ∨ x8 ∨ ¬x6): Since x5 = true, x8 = false, and x6 = true, we have a CONFLICT!
+
+Backtrack to Decision 6 and try x6 = false:
+With x6 = false:
+No immediate unit propagation
+
+Decision 8: Set x7 = true
+Checking clause (¬x3 ∨ ¬x7 ∨ ¬x9): Since x3 = true and x7 = true, we must have x9 = false
+Propagate: x9 = false
+
+Decision 9: Set x8 = true
+No immediate unit propagation
+
+Decision 10: Set x10 = true
+No conflicts found
+
+We have a satisfying assignment:
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = true, x6 = false, x7 = true, x8 = true, x9 = false, x10 = true
+
+SATISFIABLE
+Number of branches: 10
+Number of conflicts: 3
+x1 = true, x2 = true, x3 = true, x4 = false, x5 = true, x6 = false, x7 = true, x8 = true, x9 = false, x10 = true

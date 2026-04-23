@@ -1,0 +1,190 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=861
+p cnf 5 17
+-4 2 3 0
+-5 -4 -2 0
+1 -2 3 0
+5 2 3 0
+5 4 -1 0
+5 4 -3 0
+2 -5 -4 0
+1 2 5 0
+-4 5 -1 0
+2 3 4 0
+-5 2 3 0
+3 -5 -2 0
+2 1 5 0
+1 3 2 0
+5 -3 -4 0
+-3 -5 4 0
+-4 5 1 0
+
+c GPT solve time: 186.44 seconds
+
+Let's solve the given 3-CNF formula step by step using the DPLL algorithm. We'll keep track of the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Setup
+The formula consists of 17 clauses over variables \( x_1, x_2, x_3, x_4, x_5 \).
+
+### Step 2: Unit Propagation
+No unit clauses initially, so we proceed to make a decision.
+
+### Step 3: Decision and Propagation
+We'll choose variables in order \( x_1, x_2, x_3, x_4, x_5 \).
+
+#### Decision 1: \( x_1 = \text{True} \) (Branch 1)
+- Propagate \( x_1 = \text{True} \):
+  - Clause 3: \( (x_1 \lor \neg x_2 \lor x_3) \) is satisfied.
+  - Clause 8: \( (x_1 \lor x_2 \lor x_5) \) is satisfied.
+  - Clause 13: \( (x_1 \lor x_2 \lor x_5) \) is satisfied.
+  - Clause 14: \( (x_1 \lor x_3 \lor x_2) \) is satisfied.
+  - Clause 9: \( (\neg x_4 \lor x_5 \lor \neg x_1) \) becomes \( (\neg x_4 \lor x_5) \).
+  - Clause 17: \( (\neg x_4 \lor x_5 \lor x_1) \) is satisfied.
+  - Clause 5: \( (x_5 \lor x_4 \lor \neg x_1) \) becomes \( (x_5 \lor x_4) \).
+
+#### Decision 2: \( x_2 = \text{True} \) (Branch 2)
+- Propagate \( x_2 = \text{True} \):
+  - Clause 1: \( (\neg x_4 \lor x_2 \lor x_3) \) is satisfied.
+  - Clause 10: \( (x_2 \lor x_3 \lor x_4) \) is satisfied.
+  - Clause 11: \( (\neg x_5 \lor x_2 \lor x_3) \) is satisfied.
+  - Clause 12: \( (x_3 \lor \neg x_5 \lor \neg x_2) \) becomes \( (x_3 \lor \neg x_5) \).
+  - Clause 2: \( (\neg x_5 \lor \neg x_4 \lor \neg x_2) \) becomes \( (\neg x_5 \lor \neg x_4) \).
+  - Clause 7: \( (x_2 \lor \neg x_5 \lor \neg x_4) \) is satisfied.
+  - Clause 4: \( (x_5 \lor x_2 \lor x_3) \) is satisfied.
+
+#### Decision 3: \( x_3 = \text{True} \) (Branch 3)
+- Propagate \( x_3 = \text{True} \):
+  - Clause 12: \( (x_3 \lor \neg x_5) \) is satisfied.
+  - Clause 6: \( (x_5 \lor x_4 \lor \neg x_3) \) becomes \( (x_5 \lor x_4) \).
+  - Clause 15: \( (x_5 \lor \neg x_3 \lor \neg x_4) \) becomes \( (x_5 \lor \neg x_4) \).
+  - Clause 16: \( (\neg x_3 \lor \neg x_5 \lor x_4) \) becomes \( (\neg x_5 \lor x_4) \).
+
+#### Decision 4: \( x_4 = \text{True} \) (Branch 4)
+- Propagate \( x_4 = \text{True} \):
+  - Clause 2: \( (\neg x_5 \lor \neg x_4) \) becomes \( \neg x_5 \). This is a unit clause, so \( x_5 = \text{False} \).
+  - Clause 5: \( (x_5 \lor x_4) \) is satisfied.
+  - Clause 6: \( (x_5 \lor x_4) \) is satisfied.
+  - Clause 9: \( (\neg x_4 \lor x_5) \) becomes \( x_5 \), but \( x_5 = \text{False} \). This is a conflict (Conflict 1).
+
+Backtrack to Decision 4: \( x_4 = \text{False} \).
+
+#### Decision 4 (Revised): \( x_4 = \text{False} \) (Branch 4)
+- Propagate \( x_4 = \text{False} \):
+  - Clause 9: \( (\neg x_4 \lor x_5) \) is satisfied.
+  - Clause 5: \( (x_5 \lor x_4) \) becomes \( x_5 \). This is a unit clause, so \( x_5 = \text{True} \).
+  - Clause 2: \( (\neg x_5 \lor \neg x_4) \) is satisfied.
+  - Clause 6: \( (x_5 \lor x_4 \lor \neg x_3) \) is satisfied.
+  - Clause 15: \( (x_5 \lor \neg x_3 \lor \neg x_4) \) is satisfied.
+  - Clause 16: \( (\neg x_5 \lor x_4) \) becomes \( \text{False} \), which is a conflict (Conflict 2).
+
+Backtrack to Decision 3: \( x_3 = \text{False} \).
+
+#### Decision 3 (Revised): \( x_3 = \text{False} \) (Branch 3)
+- Propagate \( x_3 = \text{False} \):
+  - Clause 12: \( (x_3 \lor \neg x_5) \) becomes \( \neg x_5 \). This is a unit clause, so \( x_5 = \text{False} \).
+  - Clause 6: \( (x_5 \lor x_4 \lor \neg x_3) \) is satisfied.
+  - Clause 15: \( (x_5 \lor \neg x_3 \lor \neg x_4) \) is satisfied.
+  - Clause 16: \( (\neg x_3 \lor \neg x_5 \lor x_4) \) becomes \( x_4 \). This is a unit clause, so \( x_4 = \text{True} \).
+  - Clause 2: \( (\neg x_5 \lor \neg x_4) \) becomes \( \neg x_4 \), but \( x_4 = \text{True} \). This is a conflict (Conflict 3).
+
+Backtrack to Decision 2: \( x_2 = \text{False} \).
+
+#### Decision 2 (Revised): \( x_2 = \text{False} \) (Branch 2)
+- Propagate \( x_2 = \text{False} \):
+  - Clause 1: \( (\neg x_4 \lor x_2 \lor x_3) \) becomes \( (\neg x_4 \lor x_3) \).
+  - Clause 10: \( (x_2 \lor x_3 \lor x_4) \) becomes \( (x_3 \lor x_4) \).
+  - Clause 11: \( (\neg x_5 \lor x_2 \lor x_3) \) becomes \( (\neg x_5 \lor x_3) \).
+  - Clause 12: \( (x_3 \lor \neg x_5 \lor \neg x_2) \) becomes \( (x_3 \lor \neg x_5) \).
+  - Clause 7: \( (x_2 \lor \neg x_5 \lor \neg x_4) \) becomes \( (\neg x_5 \lor \neg x_4) \).
+  - Clause 4: \( (x_5 \lor x_2 \lor x_3) \) becomes \( (x_5 \lor x_3) \).
+
+#### Decision 3: \( x_3 = \text{True} \) (Branch 3)
+- Propagate \( x_3 = \text{True} \):
+  - Clause 1: \( (\neg x_4 \lor x_3) \) is satisfied.
+  - Clause 10: \( (x_3 \lor x_4) \) is satisfied.
+  - Clause 11: \( (\neg x_5 \lor x_3) \) is satisfied.
+  - Clause 12: \( (x_3 \lor \neg x_5) \) is satisfied.
+  - Clause 14: \( (x_1 \lor x_3 \lor x_2) \) is satisfied.
+  - Clause 6: \( (x_5 \lor x_4 \lor \neg x_3) \) becomes \( (x_5 \lor x_4) \).
+  - Clause 15: \( (x_5 \lor \neg x_3 \lor \neg x_4) \) becomes \( (x_5 \lor \neg x_4) \).
+  - Clause 16: \( (\neg x_3 \lor \neg x_5 \lor x_4) \) becomes \( (\neg x_5 \lor x_4) \).
+
+#### Decision 4: \( x_4 = \text{True} \) (Branch 4)
+- Propagate \( x_4 = \text{True} \):
+  - Clause 7: \( (\neg x_5 \lor \neg x_4) \) becomes \( \neg x_5 \). This is a unit clause, so \( x_5 = \text{False} \).
+  - Clause 5: \( (x_5 \lor x_4) \) is satisfied.
+  - Clause 6: \( (x_5 \lor x_4) \) is satisfied.
+  - Clause 9: \( (\neg x_4 \lor x_5) \) becomes \( x_5 \), but \( x_5 = \text{False} \). This is a conflict (Conflict 4).
+
+Backtrack to Decision 4: \( x_4 = \text{False} \).
+
+#### Decision 4 (Revised): \( x_4 = \text{False} \) (Branch 4)
+- Propagate \( x_4 = \text{False} \):
+  - Clause 9: \( (\neg x_4 \lor x_5) \) is satisfied.
+  - Clause 5: \( (x_5 \lor x_4) \) becomes \( x_5 \). This is a unit clause, so \( x_5 = \text{True} \).
+  - Clause 7: \( (\neg x_5 \lor \neg x_4) \) is satisfied.
+  - Clause 6: \( (x_5 \lor x_4 \lor \neg x_3) \) is satisfied.
+  - Clause 15: \( (x_5 \lor \neg x_3 \lor \neg x_4) \) is satisfied.
+  - Clause 16: \( (\neg x_5 \lor x_4) \) becomes \( \text{False} \), which is a conflict (Conflict 5).
+
+Backtrack to Decision 3: \( x_3 = \text{False} \).
+
+#### Decision 3 (Revised): \( x_3 = \text{False} \) (Branch 3)
+- Propagate \( x_3 = \text{False} \):
+  - Clause 1: \( (\neg x_4 \lor x_3) \) becomes \( \neg x_4 \). This is a unit clause, so \( x_4 = \text{False} \).
+  - Clause 10: \( (x_3 \lor x_4) \) becomes \( x_4 \), but \( x_4 = \text{False} \). This is a conflict (Conflict 6).
+
+Backtrack to Decision 1: \( x_1 = \text{False} \).
+
+#### Decision 1 (Revised): \( x_1 = \text{False} \) (Branch 1)
+- Propagate \( x_1 = \text{False} \):
+  - Clause 3: \( (x_1 \lor \neg x_2 \lor x_3) \) becomes \( (\neg x_2 \lor x_3) \).
+  - Clause 8: \( (x_1 \lor x_2 \lor x_5) \) becomes \( (x_2 \lor x_5) \).
+  - Clause 13: \( (x_1 \lor x_2 \lor x_5) \) becomes \( (x_2 \lor x_5) \).
+  - Clause 14: \( (x_1 \lor x_3 \lor x_2) \) becomes \( (x_3 \lor x_2) \).
+  - Clause 9: \( (\neg x_4 \lor x_5 \lor \neg x_1) \) is satisfied.
+  - Clause 17: \( (\neg x_4 \lor x_5 \lor x_1) \) becomes \( (\neg x_4 \lor x_5) \).
+  - Clause 5: \( (x_5 \lor x_4 \lor \neg x_1) \) becomes \( (x_5 \lor x_4) \).
+
+#### Decision 2: \( x_2 = \text{True} \) (Branch 2)
+- Propagate \( x_2 = \text{True} \):
+  - Clause 1: \( (\neg x_4 \lor x_2 \lor x_3) \) is satisfied.
+  - Clause 10: \( (x_2 \lor x_3 \lor x_4) \) is satisfied.
+  - Clause 11: \( (\neg x_5 \lor x_2 \lor x_3) \) is satisfied.
+  - Clause 12: \( (x_3 \lor \neg x_5 \lor \neg x_2) \) becomes \( (x_3 \lor \neg x_5) \).
+  - Clause 2: \( (\neg x_5 \lor \neg x_4 \lor \neg x_2) \) becomes \( (\neg x_5 \lor \neg x_4) \).
+  - Clause 7: \( (x_2 \lor \neg x_5 \lor \neg x_4) \) is satisfied.
+  - Clause 4: \( (x_5 \lor x_2 \lor x_3) \) is satisfied.
+  - Clause 3: \( (\neg x_2 \lor x_3) \) becomes \( x_3 \). This is a unit clause, so \( x_3 = \text{True} \).
+  - Clause 14: \( (x_3 \lor x_2) \) is satisfied.
+  - Clause 8: \( (x_2 \lor x_5) \) is satisfied.
+  - Clause 13: \( (x_2 \lor x_5) \) is satisfied.
+
+#### Decision 3: \( x_4 = \text{True} \) (Branch 3)
+- Propagate \( x_4 = \text{True} \):
+  - Clause 2: \( (\neg x_5 \lor \neg x_4) \) becomes \( \neg x_5 \). This is a unit clause, so \( x_5 = \text{False} \).
+  - Clause 5: \( (x_5 \lor x_4) \) is satisfied.
+  - Clause 6: \( (x_5 \lor x_4 \lor \neg x_3) \) is satisfied.
+  - Clause 15: \( (x_5 \lor \neg x_3 \lor \neg x_4) \) becomes \( \text{False} \), which is a conflict (Conflict 7).
+
+Backtrack to Decision 3: \( x_4 = \text{False} \).
+
+#### Decision 3 (Revised): \( x_4 = \text{False} \) (Branch 3)
+- Propagate \( x_4 = \text{False} \):
+  - Clause 2: \( (\neg x_5 \lor \neg x_4) \) is satisfied.
+  - Clause 5: \( (x_5 \lor x_4) \) becomes \( x_5 \). This is a unit clause, so \( x_5 = \text{True} \).
+  - Clause 17: \( (\neg x_4 \lor x_5) \) is satisfied.
+  - Clause 6: \( (x_5 \lor x_4 \lor \neg x_3) \) is satisfied.
+  - Clause 15: \( (x_5 \lor \neg x_3 \lor \neg x_4) \) is satisfied.
+  - Clause 16: \( (\neg x_3 \lor \neg x_5 \lor x_4) \) becomes \( (\neg x_3 \lor \text{False}) \), which simplifies to \( \neg x_3 \). This is a unit clause, so \( x_3 = \text{False} \).
+  - Clause 12: \( (x_3 \lor \neg x_5) \) becomes \( \neg x_5 \), but \( x_5 = \text{True} \). This is a conflict (Conflict 8).
+
+Backtrack to Decision 2: \( x_2 = \text{False} \).
+
+#### Decision 2 (Revised): \( x_2 = \text{False} \) (Branch 2)
+- Propagate \( x_2 = \text{False} \):
+  - Clause 1: \( (\neg x_4 \lor x_2 \lor x_3) \) becomes \( (\neg x_4 \lor x_3) \).
+  - Clause 10: \( (x_2 \lor x_3 \lor x_4) \) becomes \( (x_3 \lor x_4) \).
+  - Clause 11: \( (\neg x_5 \lor x_2 \lor x_3) \) becomes \( (\neg x_5 \lor x_3) \).
+  - Clause 12: \( (x_3 \lor \neg x_5 \lor \neg x_2) \) becomes \( (x_3 \lor \neg x_5) \).
+  - Clause 7: \( (x_2 \lor \neg x_5 \lor \neg x_4) \) becomes \( (\neg x_5 \lor \neg x_4)

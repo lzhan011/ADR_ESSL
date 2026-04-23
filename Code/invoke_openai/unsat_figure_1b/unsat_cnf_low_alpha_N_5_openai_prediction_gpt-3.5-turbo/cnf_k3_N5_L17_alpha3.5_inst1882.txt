@@ -1,0 +1,144 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1882
+p cnf 5 17
+4 -1 5 0
+-2 3 -4 0
+-1 -4 -5 0
+2 -3 4 0
+-5 -3 -1 0
+-2 5 4 0
+-1 -2 -4 0
+3 -5 4 0
+-2 -4 5 0
+-3 -1 2 0
+2 1 -5 0
+-3 -2 5 0
+5 -4 2 0
+4 1 -2 0
+4 -3 1 0
+-4 -5 -3 0
+2 5 4 0
+
+c GPT solve time: 41.55 seconds
+
+1. Start with an empty assignment.
+2. Choose a literal to assign. Let's start with x1 = True.
+3. Update the assignment: x1 = True.
+4. Check each clause to see if any can be satisfied with the current assignment:
+   - (x4 ∨ ¬x1 ∨ x5) is satisfied because x4 is unassigned, ¬x1 is False, and x5 is unassigned.
+   - (¬x2 ∨ x3 ∨ ¬x4) is not satisfied because ¬x2 is unassigned, x3 is unassigned, and ¬x4 is unassigned.
+   - (¬x1 ∨ ¬x4 ∨ ¬x5) is not satisfied because ¬x1 is False, ¬x4 is unassigned, and ¬x5 is unassigned.
+   - (x2 ∨ ¬x3 ∨ x4) is not satisfied because x2 is unassigned, ¬x3 is unassigned, and x4 is unassigned.
+   - (¬x5 ∨ ¬x3 ∨ ¬x1) is satisfied because ¬x5 is unassigned, ¬x3 is unassigned, and ¬x1 is False.
+   - (¬x2 ∨ x5 ∨ x4) is not satisfied because ¬x2 is unassigned, x5 is unassigned, and x4 is unassigned.
+   - (¬x1 ∨ ¬x2 ∨ ¬x4) is not satisfied because ¬x1 is False, ¬x2 is unassigned, and ¬x4 is unassigned.
+   - (x3 ∨ ¬x5 ∨ x4) is not satisfied because x3 is unassigned, ¬x5 is unassigned, and x4 is unassigned.
+   - (¬x2 ∨ ¬x4 ∨ x5) is not satisfied because ¬x2 is unassigned, ¬x4 is unassigned, and x5 is unassigned.
+   - (¬x3 ∨ ¬x1 ∨ x2) is not satisfied because ¬x3 is unassigned, ¬x1 is False, and x2 is unassigned.
+   - (x2 ∨ x1 ∨ ¬x5) is not satisfied because x2 is unassigned, x1 is True, and ¬x5 is unassigned.
+   - (¬x3 ∨ ¬x2 ∨ x5) is not satisfied because ¬x3 is unassigned, ¬x2 is unassigned, and x5 is unassigned.
+   - (x5 ∨ ¬x4 ∨ x2) is not satisfied because x5 is unassigned, ¬x4 is unassigned, and x2 is unassigned.
+   - (x4 ∨ x1 ∨ ¬x2) is satisfied because x4 is unassigned, x1 is True, and ¬x2 is unassigned.
+   - (x4 ∨ ¬x3 ∨ x1) is not satisfied because x4 is unassigned, ¬x3 is unassigned, and x1 is True.
+   - (¬x4 ∨ ¬x5 ∨ ¬x3) is not satisfied because ¬x4 is unassigned, ¬x5 is unassigned, and ¬x3 is unassigned.
+   - (x2 ∨ x5 ∨ x4) is not satisfied because x2 is unassigned, x5 is unassigned, and x4 is unassigned.
+5. Since not all clauses are satisfied, we need to backtrack.
+6. Choose a different literal to assign. Let's try x1 = False.
+7. Update the assignment: x1 = False.
+8. Check each clause again:
+   - (x4 ∨ ¬x1 ∨ x5) is satisfied because x4 is unassigned, ¬x1 is True, and x5 is unassigned.
+   - (¬x2 ∨ x3 ∨ ¬x4) is not satisfied because ¬x2 is unassigned, x3 is unassigned, and ¬x4 is unassigned.
+   - (¬x1 ∨ ¬x4 ∨ ¬x5) is satisfied because ¬x1 is False, ¬x4 is unassigned, and ¬x5 is unassigned.
+   - (x2 ∨ ¬x3 ∨ x4) is not satisfied because x2 is unassigned, ¬x3 is unassigned, and x4 is unassigned.
+   - (¬x5 ∨ ¬x3 ∨ ¬x1) is satisfied because ¬x5 is unassigned, ¬x3 is unassigned, and ¬x1 is False.
+   - (¬x2 ∨ x5 ∨ x4) is not satisfied because ¬x2 is unassigned, x5 is unassigned, and x4 is unassigned.
+   - (¬x1 ∨ ¬x2 ∨ ¬x4) is not satisfied because ¬x1 is False, ¬x2 is unassigned, and ¬x4 is unassigned.
+   - (x3 ∨ ¬x5 ∨ x4) is not satisfied because x3 is unassigned, ¬x5 is unassigned, and x4 is unassigned.
+   - (¬x2 ∨ ¬x4 ∨ x5) is not satisfied because ¬x2 is unassigned, ¬x4 is unassigned, and x5 is unassigned.
+   - (¬x3 ∨ ¬x1 ∨ x2) is not satisfied because ¬x3 is unassigned, ¬x1 is False, and x2 is unassigned.
+   - (x2 ∨ x1 ∨ ¬x5) is not satisfied because x2 is unassigned, x1 is False, and ¬x5 is unassigned.
+   - (¬x3 ∨ ¬x2 ∨ x5) is not satisfied because ¬x3 is unassigned, ¬x2 is unassigned, and x5 is unassigned.
+   - (x5 ∨ ¬x4 ∨ x2) is not satisfied because x5 is unassigned, ¬x4 is unassigned, and x2 is unassigned.
+   - (x4 ∨ x1 ∨ ¬x2) is not satisfied because x4 is unassigned, x1 is False, and ¬x2 is unassigned.
+   - (x4 ∨ ¬x3 ∨ x1) is not satisfied because x4 is unassigned, ¬x3 is unassigned, and x1 is False.
+   - (¬x4 ∨ ¬x5 ∨ ¬x3) is not satisfied because ¬x4 is unassigned, ¬x5 is unassigned, and ¬x3 is unassigned.
+   - (x2 ∨ x5 ∨ x4) is not satisfied because x2 is unassigned, x5 is unassigned, and x4 is unassigned.
+9. Since not all clauses are satisfied, we need to backtrack again.
+10. Choose a different literal to assign. Let's try x2 = True.
+11. Update the assignment: x2 = True.
+12. Check each clause again:
+   - (x4 ∨ ¬x1 ∨ x5) is satisfied because x4 is unassigned, ¬x1 is False, and x5 is unassigned.
+   - (¬x2 ∨ x3 ∨ ¬x4) is not satisfied because ¬x2 is False, x3 is unassigned, and ¬x4 is unassigned.
+   - (¬x1 ∨ ¬x4 ∨ ¬x5) is not satisfied because ¬x1 is False, ¬x4 is unassigned, and ¬x5 is unassigned.
+   - (x2 ∨ ¬x3 ∨ x4) is satisfied because x2 is True, ¬x3 is unassigned, and x4 is unassigned.
+   - (¬x5 ∨ ¬x3 ∨ ¬x1) is not satisfied because ¬x5 is unassigned, ¬x3 is unassigned, and ¬x1 is False.
+   - (¬x2 ∨ x5 ∨ x4) is not satisfied because ¬x2 is False, x5 is unassigned, and x4 is unassigned.
+   - (¬x1 ∨ ¬x2 ∨ ¬x4) is not satisfied because ¬x1 is False, ¬x2 is True, and ¬x4 is unassigned.
+   - (x3 ∨ ¬x5 ∨ x4) is not satisfied because x3 is unassigned, ¬x5 is unassigned, and x4 is unassigned.
+   - (¬x2 ∨ ¬x4 ∨ x5) is not satisfied because ¬x2 is False, ¬x4 is unassigned, and x5 is unassigned.
+   - (¬x3 ∨ ¬x1 ∨ x2) is not satisfied because ¬x3 is unassigned, ¬x1 is False, and x2 is True.
+   - (x2 ∨ x1 ∨ ¬x5) is not satisfied because x2 is True, x1 is False, and ¬x5 is unassigned.
+   - (¬x3 ∨ ¬x2 ∨ x5) is not satisfied because ¬x3 is unassigned, ¬x2 is True, and x5 is unassigned.
+   - (x5 ∨ ¬x4 ∨ x2) is not satisfied because x5 is unassigned, ¬x4 is unassigned, and x2 is True.
+   - (x4 ∨ x1 ∨ ¬x2) is not satisfied because x4 is unassigned, x1 is False, and ¬x2 is True.
+   - (x4 ∨ ¬x3 ∨ x1) is not satisfied because x4 is unassigned, ¬x3 is unassigned, and x1 is False.
+   - (¬x4 ∨ ¬x5 ∨ ¬x3) is not satisfied because ¬x4 is unassigned, ¬x5 is unassigned, and ¬x3 is unassigned.
+   - (x2 ∨ x5 ∨ x4) is not satisfied because x2 is True, x5 is unassigned, and x4 is unassigned.
+13. Since not all clauses are satisfied, we need to backtrack again.
+14. Choose a different literal to assign. Let's try x2 = False.
+15. Update the assignment: x2 = False.
+16. Check each clause again:
+   - (x4 ∨ ¬x1 ∨ x5) is satisfied because x4 is unassigned, ¬x1 is False, and x5 is unassigned.
+   - (¬x2 ∨ x3 ∨ ¬x4) is satisfied because ¬x2 is True, x3 is unassigned, and ¬x4 is unassigned.
+   - (¬x1 ∨ ¬x4 ∨ ¬x5) is not satisfied because ¬x1 is False, ¬x4 is unassigned, and ¬x5 is unassigned.
+   - (x2 ∨ ¬x3 ∨ x4) is not satisfied because x2 is False, ¬x3 is unassigned, and x4 is unassigned.
+   - (¬x5 ∨ ¬x3 ∨ ¬x1) is satisfied because ¬x5 is unassigned, ¬x3 is unassigned, and ¬x1 is False.
+   - (¬x2 ∨ x5 ∨ x4) is not satisfied because ¬x2 is True, x5 is unassigned, and x4 is unassigned.
+   - (¬x1 ∨ ¬x2 ∨ ¬x4) is not satisfied because ¬x1 is False, ¬x2 is False, and ¬x4 is unassigned.
+   - (x3 ∨ ¬x5 ∨ x4) is not satisfied because x3 is unassigned, ¬x5 is unassigned, and x4 is unassigned.
+   - (¬x2 ∨ ¬x4 ∨ x5) is not satisfied because ¬x2 is True, ¬x4 is unassigned, and x5 is unassigned.
+   - (¬x3 ∨ ¬x1 ∨ x2) is not satisfied because ¬x3 is unassigned, ¬x1 is False, and x2 is False.
+   - (x2 ∨ x1 ∨ ¬x5) is not satisfied because x2 is False, x1 is False, and ¬x5 is unassigned.
+   - (¬x3 ∨ ¬x2 ∨ x5) is not satisfied because ¬x3 is unassigned, ¬x2 is False, and x5 is unassigned.
+   - (x5 ∨ ¬x4 ∨ x2) is not satisfied because x5 is unassigned, ¬x4 is unassigned, and x2 is False.
+   - (x4 ∨ x1 ∨ ¬x2) is not satisfied because x4 is unassigned, x1 is False, and ¬x2 is False.
+   - (x4 ∨ ¬x3 ∨ x1) is not satisfied because x4 is unassigned, ¬x3 is unassigned, and x1 is False.
+   - (¬x4 ∨ ¬x5 ∨ ¬x3) is not satisfied because ¬x4 is unassigned, ¬x5 is unassigned, and ¬x3 is unassigned.
+   - (x2 ∨ x5 ∨ x4) is not satisfied because x2 is False, x5 is unassigned, and x4 is unassigned.
+17. Since not all clauses are satisfied, we need to backtrack again.
+18. Choose a different literal to assign. Let's try x3 = True.
+19. Update the assignment: x3 = True.
+20. Check each clause again:
+   - (x4 ∨ ¬x1 ∨ x5) is satisfied because x4 is unassigned, ¬x1 is False, and x5 is unassigned.
+   - (¬x2 ∨ x3 ∨ ¬x4) is not satisfied because ¬x2 is unassigned, x3 is True, and ¬x4 is unassigned.
+   - (¬x1 ∨ ¬x4 ∨ ¬x5) is not satisfied because ¬x1 is False, ¬x4 is unassigned, and ¬x5 is unassigned.
+   - (x2 ∨ ¬x3 ∨ x4) is not satisfied because x2 is unassigned, ¬x3 is True, and x4 is unassigned.
+   - (¬x5 ∨ ¬x3 ∨ ¬x1) is not satisfied because ¬x5 is unassigned, ¬x3 is True, and ¬x1 is False.
+   - (¬x2 ∨ x5 ∨ x4) is not satisfied because ¬x2 is unassigned, x5 is unassigned, and x4 is unassigned.
+   - (¬x1 ∨ ¬x2 ∨ ¬x4) is not satisfied because ¬x1 is False, ¬x2 is unassigned, and ¬x4 is unassigned.
+   - (x3 ∨ ¬x5 ∨ x4) is satisfied because x3 is True, ¬x5 is unassigned, and x4 is unassigned.
+   - (¬x2 ∨ ¬x4 ∨ x5) is not satisfied because ¬x2 is unassigned, ¬x4 is unassigned, and x5 is unassigned.
+   - (¬x3 ∨ ¬x1 ∨ x2) is not satisfied because ¬x3 is True, ¬x1 is False, and x2 is unassigned.
+   - (x2 ∨ x1 ∨ ¬x5) is not satisfied because x2 is unassigned, x1 is False, and ¬x5 is unassigned.
+   - (¬x3 ∨ ¬x2 ∨ x5) is not satisfied because ¬x3 is True, ¬x2 is unassigned, and x5 is unassigned.
+   - (x5 ∨ ¬x4 ∨ x2) is not satisfied because x5 is unassigned, ¬x4 is unassigned, and x2 is unassigned.
+   - (x4 ∨ x1 ∨ ¬x2) is not satisfied because x4 is unassigned, x1 is False, and ¬x2 is unassigned.
+   - (x4 ∨ ¬x3 ∨ x1) is not satisfied because x4 is unassigned, ¬x3 is True, and x1 is False.
+   - (¬x4 ∨ ¬x5 ∨ ¬x3) is not satisfied because ¬x4 is unassigned, ¬x5 is unassigned, and ¬x3 is True.
+   - (x2 ∨ x5 ∨ x4) is not satisfied because x2 is unassigned, x5 is unassigned, and x4 is unassigned.
+21. Since not all clauses are satisfied, we need to backtrack again.
+22. Choose a different literal to assign. Let's try x3 = False.
+23. Update the assignment: x3 = False.
+24. Check each clause again:
+   - (x4 ∨ ¬x1 ∨ x5) is satisfied because x4 is unassigned, ¬x1 is False, and x5 is unassigned.
+   - (¬x2 ∨ x3 ∨ ¬x4) is satisfied because ¬x2 is unassigned, x3 is False, and ¬x4 is unassigned.
+   - (¬x1 ∨ ¬x4 ∨ ¬x5) is not satisfied because ¬x1 is False, ¬x4 is unassigned, and ¬x5 is unassigned.
+   - (x2 ∨ ¬x3 ∨ x4) is not satisfied because x2 is unassigned, ¬x3 is False, and x4 is unassigned.
+   - (¬x5 ∨ ¬x3 ∨ ¬x1) is not satisfied because ¬x5 is unassigned, ¬x3 is False, and ¬x1 is False.
+   - (¬x2 ∨ x5 ∨ x4) is not satisfied because ¬x2 is unassigned, x5 is unassigned, and x4 is unassigned.
+   - (¬x1 ∨ ¬x2 ∨ ¬x4) is not satisfied because ¬x1 is False, ¬x2 is unassigned, and ¬x4 is unassigned.
+   - (x3 ∨ ¬x5 ∨ x4) is not satisfied because x3 is False, ¬x5 is unassigned, and x4 is unassigned.
+   - (¬x2 ∨ ¬x4 ∨ x5) is not satisfied because ¬x2 is unassigned, ¬x4 is unassigned, and x5 is unassigned.
+   - (¬x3 ∨ ¬x1 ∨ x2) is not satisfied because ¬x3 is False, ¬x1 is False, and x2 is unassigned.
+   - (x2 ∨ x1 ∨ ¬x5) is not satisfied because x2 is unassigned, x1 is False, and ¬x5 is unassigned.
+   - (¬x3 ∨ ¬x2 ∨ x5) is not

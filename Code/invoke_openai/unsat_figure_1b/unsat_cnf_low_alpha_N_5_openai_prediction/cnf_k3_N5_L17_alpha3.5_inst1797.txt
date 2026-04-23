@@ -1,0 +1,353 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1797
+p cnf 5 17
+-5 1 2 0
+4 1 3 0
+-2 -4 5 0
+2 3 -5 0
+-3 -2 4 0
+-3 -1 2 0
+-5 -4 3 0
+5 2 -4 0
+5 3 4 0
+1 -3 -4 0
+-1 -5 4 0
+-4 -5 3 0
+2 5 4 0
+2 3 5 0
+5 -1 -4 0
+-4 -5 -3 0
+3 1 4 0
+
+c GPT solve time: 54.36 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (backtracking SAT solver):
+
+Variables: x1, x2, x3, x4, x5
+
+### Step 1: Choose a variable to branch on.
+Let's start with x1 = True.
+
+#### Branch 1: x1 = True
+
+Substitute x1 = True into all clauses:
+
+- Any clause with x1 is satisfied: (¬x5 ∨ x1 ∨ x2), (x4 ∨ x1 ∨ x3), (x1 ∨ ¬x3 ∨ ¬x4), (x3 ∨ x1 ∨ x4)
+- Remove these 4 clauses.
+
+Remaining clauses:
+(¬x2 ∨ ¬x4 ∨ x5)
+(x2 ∨ x3 ∨ ¬x5)
+(¬x3 ∨ ¬x2 ∨ x4)
+(¬x3 ∨ ¬x1 ∨ x2) → (¬x3 ∨ x2) [since ¬x1 is False]
+(¬x5 ∨ ¬x4 ∨ x3)
+(x5 ∨ x2 ∨ ¬x4)
+(x5 ∨ x3 ∨ x4)
+(¬x1 ∨ ¬x5 ∨ x4) → (¬x5 ∨ x4) [since ¬x1 is False]
+(¬x4 ∨ ¬x5 ∨ x3)
+(x2 ∨ x5 ∨ x4)
+(x2 ∨ x3 ∨ x5)
+(x5 ∨ ¬x1 ∨ ¬x4) → (x5 ∨ ¬x4) [since ¬x1 is False]
+(¬x4 ∨ ¬x5 ∨ ¬x3)
+
+Let's pick x2 = True.
+
+#### Branch 1.1: x1 = True, x2 = True
+
+Substitute x2 = True:
+
+- (¬x2 ∨ ¬x4 ∨ x5): (False ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)
+- (x2 ∨ x3 ∨ ¬x5): satisfied
+- (¬x3 ∨ ¬x2 ∨ x4): (¬x3 ∨ False ∨ x4) → (¬x3 ∨ x4)
+- (¬x3 ∨ x2): satisfied
+- (¬x5 ∨ ¬x4 ∨ x3): unchanged
+- (x5 ∨ x2 ∨ ¬x4): satisfied
+- (x5 ∨ x3 ∨ x4): unchanged
+- (¬x5 ∨ x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ x3): unchanged
+- (x2 ∨ x5 ∨ x4): satisfied
+- (x2 ∨ x3 ∨ x5): satisfied
+- (x5 ∨ ¬x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ ¬x3): unchanged
+
+Remaining clauses:
+(¬x4 ∨ x5)
+(¬x3 ∨ x4)
+(¬x5 ∨ ¬x4 ∨ x3)
+(x5 ∨ x3 ∨ x4)
+(¬x5 ∨ x4)
+(¬x4 ∨ ¬x5 ∨ x3)
+(x5 ∨ ¬x4)
+(¬x4 ∨ ¬x5 ∨ ¬x3)
+
+Let's pick x3 = True.
+
+#### Branch 1.1.1: x1 = True, x2 = True, x3 = True
+
+Substitute x3 = True:
+
+- (¬x3 ∨ x4): (False ∨ x4) → (x4)
+- (¬x5 ∨ ¬x4 ∨ x3): satisfied
+- (x5 ∨ x3 ∨ x4): satisfied
+- (¬x5 ∨ x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ x3): satisfied
+- (x5 ∨ ¬x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ ¬x3): (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+
+Remaining clauses:
+(¬x4 ∨ x5)
+(x4)
+(¬x5 ∨ x4)
+(x5 ∨ ¬x4)
+(¬x4 ∨ ¬x5)
+
+Now, (x4) is a unit clause, so x4 = True.
+
+#### Branch 1.1.1.1: x1 = True, x2 = True, x3 = True, x4 = True
+
+Substitute x4 = True:
+
+- (¬x4 ∨ x5): (False ∨ x5) → (x5)
+- (¬x5 ∨ x4): (¬x5 ∨ True) → True
+- (x5 ∨ ¬x4): (x5 ∨ False) → (x5)
+- (¬x4 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+
+So, remaining clauses:
+(x5)
+(x5)
+(¬x5)
+
+Conflict! (x5) and (¬x5) cannot both be true.
+
+#### Backtrack: x3 = False
+
+##### Branch 1.1.2: x1 = True, x2 = True, x3 = False
+
+Substitute x3 = False:
+
+- (¬x3 ∨ x4): (True ∨ x4) → True
+- (¬x5 ∨ ¬x4 ∨ x3): (¬x5 ∨ ¬x4 ∨ False) → (¬x5 ∨ ¬x4)
+- (x5 ∨ x3 ∨ x4): (x5 ∨ False ∨ x4) → (x5 ∨ x4)
+- (¬x5 ∨ x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ x3): (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+- (x5 ∨ ¬x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ ¬x3): (¬x4 ∨ ¬x5 ∨ True) → True
+
+Remaining clauses:
+(¬x4 ∨ x5)
+(¬x5 ∨ ¬x4)
+(x5 ∨ x4)
+(¬x5 ∨ x4)
+(¬x4 ∨ ¬x5)
+(x5 ∨ ¬x4)
+
+Let's look for unit clauses. None.
+
+Let's pick x4 = True.
+
+###### Branch 1.1.2.1: x1 = True, x2 = True, x3 = False, x4 = True
+
+Substitute x4 = True:
+
+- (¬x4 ∨ x5): (False ∨ x5) → (x5)
+- (¬x5 ∨ ¬x4): (¬x5 ∨ False) → (¬x5)
+- (x5 ∨ x4): satisfied
+- (¬x5 ∨ x4): satisfied
+- (¬x4 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+- (x5 ∨ ¬x4): (x5 ∨ False) → (x5)
+
+Remaining clauses:
+(x5)
+(¬x5)
+(¬x5)
+(x5)
+
+Again, conflict.
+
+###### Backtrack: x4 = False
+
+###### Branch 1.1.2.2: x1 = True, x2 = True, x3 = False, x4 = False
+
+Substitute x4 = False:
+
+- (¬x4 ∨ x5): (True ∨ x5) → True
+- (¬x5 ∨ ¬x4): (¬x5 ∨ True) → True
+- (x5 ∨ x4): (x5 ∨ False) → (x5)
+- (¬x5 ∨ x4): (¬x5 ∨ False) → (¬x5)
+- (¬x4 ∨ ¬x5): (True ∨ ¬x5) → True
+- (x5 ∨ ¬x4): (x5 ∨ True) → True
+
+Remaining clauses:
+(x5)
+(¬x5)
+
+Conflict.
+
+#### Backtrack: x2 = False
+
+#### Branch 1.2: x1 = True, x2 = False
+
+Substitute x2 = False:
+
+- (¬x2 ∨ ¬x4 ∨ x5): (True ∨ ¬x4 ∨ x5) → True
+- (x2 ∨ x3 ∨ ¬x5): (False ∨ x3 ∨ ¬x5) → (x3 ∨ ¬x5)
+- (¬x3 ∨ ¬x2 ∨ x4): (¬x3 ∨ True ∨ x4) → True
+- (¬x3 ∨ ¬x1 ∨ x2): (¬x3 ∨ False ∨ False) → (¬x3)
+- (¬x5 ∨ ¬x4 ∨ x3): unchanged
+- (x5 ∨ x2 ∨ ¬x4): (x5 ∨ False ∨ ¬x4) → (x5 ∨ ¬x4)
+- (x5 ∨ x3 ∨ x4): unchanged
+- (¬x5 ∨ x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ x3): unchanged
+- (x2 ∨ x5 ∨ x4): (False ∨ x5 ∨ x4) → (x5 ∨ x4)
+- (x2 ∨ x3 ∨ x5): (False ∨ x3 ∨ x5) → (x3 ∨ x5)
+- (x5 ∨ ¬x1 ∨ ¬x4): (x5 ∨ False ∨ ¬x4) → (x5 ∨ ¬x4)
+- (¬x4 ∨ ¬x5 ∨ ¬x3): unchanged
+
+Remaining clauses:
+(x3 ∨ ¬x5)
+(¬x3)
+(¬x5 ∨ ¬x4 ∨ x3)
+(x5 ∨ ¬x4)
+(x5 ∨ x3 ∨ x4)
+(¬x5 ∨ x4)
+(¬x4 ∨ ¬x5 ∨ x3)
+(x5 ∨ x4)
+(x3 ∨ x5)
+(x5 ∨ ¬x4)
+(¬x4 ∨ ¬x5 ∨ ¬x3)
+
+Unit clause: (¬x3) ⇒ x3 = False
+
+##### Branch 1.2.1: x1 = True, x2 = False, x3 = False
+
+Substitute x3 = False:
+
+- (x3 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+- (¬x5 ∨ ¬x4 ∨ x3): (¬x5 ∨ ¬x4 ∨ False) → (¬x5 ∨ ¬x4)
+- (x5 ∨ ¬x4): unchanged
+- (x5 ∨ x3 ∨ x4): (x5 ∨ False ∨ x4) → (x5 ∨ x4)
+- (¬x5 ∨ x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ x3): (¬x4 ∨ ¬x5 ∨ False) → (¬x4 ∨ ¬x5)
+- (x5 ∨ x4): unchanged
+- (x3 ∨ x5): (False ∨ x5) → (x5)
+- (x5 ∨ ¬x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ ¬x3): (¬x4 ∨ ¬x5 ∨ True) → True
+
+Remaining clauses:
+(¬x5)
+(¬x5 ∨ ¬x4)
+(x5 ∨ ¬x4)
+(x5 ∨ x4)
+(¬x5 ∨ x4)
+(¬x4 ∨ ¬x5)
+(x5 ∨ x4)
+(x5)
+(x5 ∨ ¬x4)
+
+Unit clause: (¬x5) ⇒ x5 = False
+
+###### Branch 1.2.1.1: x1 = True, x2 = False, x3 = False, x5 = False
+
+Substitute x5 = False:
+
+- (¬x5): satisfied
+- (¬x5 ∨ ¬x4): (True ∨ ¬x4) → True
+- (x5 ∨ ¬x4): (False ∨ ¬x4) → (¬x4)
+- (x5 ∨ x4): (False ∨ x4) → (x4)
+- (¬x5 ∨ x4): (True ∨ x4) → True
+- (¬x4 ∨ ¬x5): (¬x4 ∨ True) → True
+- (x5 ∨ x4): (False ∨ x4) → (x4)
+- (x5): (False) → conflict if required, but not a unit clause
+- (x5 ∨ ¬x4): (False ∨ ¬x4) → (¬x4)
+
+Remaining clauses:
+(¬x4)
+(x4)
+(x4)
+(¬x4)
+
+Unit clauses: (x4), (¬x4) ⇒ conflict.
+
+###### Backtrack: x5 = True
+
+###### Branch 1.2.1.2: x1 = True, x2 = False, x3 = False, x5 = True
+
+Substitute x5 = True:
+
+- (¬x5): (False) → conflict.
+
+So, all branches for x1 = True lead to conflict.
+
+### Step 2: Backtrack to x1 = False
+
+#### Branch 2: x1 = False
+
+Substitute x1 = False:
+
+- (¬x5 ∨ x1 ∨ x2): (¬x5 ∨ False ∨ x2) → (¬x5 ∨ x2)
+- (x4 ∨ x1 ∨ x3): (x4 ∨ False ∨ x3) → (x4 ∨ x3)
+- (¬x2 ∨ ¬x4 ∨ x5): unchanged
+- (x2 ∨ x3 ∨ ¬x5): unchanged
+- (¬x3 ∨ ¬x2 ∨ x4): unchanged
+- (¬x3 ∨ ¬x1 ∨ x2): (¬x3 ∨ True ∨ x2) → True
+- (¬x5 ∨ ¬x4 ∨ x3): unchanged
+- (x5 ∨ x2 ∨ ¬x4): unchanged
+- (x5 ∨ x3 ∨ x4): unchanged
+- (x1 ∨ ¬x3 ∨ ¬x4): (False ∨ ¬x3 ∨ ¬x4) → (¬x3 ∨ ¬x4)
+- (¬x1 ∨ ¬x5 ∨ x4): (True ∨ ¬x5 ∨ x4) → True
+- (¬x4 ∨ ¬x5 ∨ x3): unchanged
+- (x2 ∨ x5 ∨ x4): unchanged
+- (x2 ∨ x3 ∨ x5): unchanged
+- (x5 ∨ ¬x1 ∨ ¬x4): (x5 ∨ True ∨ ¬x4) → True
+- (¬x4 ∨ ¬x5 ∨ ¬x3): unchanged
+- (x3 ∨ x1 ∨ x4): (x3 ∨ False ∨ x4) → (x3 ∨ x4)
+
+List of remaining clauses:
+(¬x5 ∨ x2)
+(x4 ∨ x3)
+(¬x2 ∨ ¬x4 ∨ x5)
+(x2 ∨ x3 ∨ ¬x5)
+(¬x3 ∨ ¬x2 ∨ x4)
+(¬x5 ∨ ¬x4 ∨ x3)
+(x5 ∨ x2 ∨ ¬x4)
+(x5 ∨ x3 ∨ x4)
+(¬x3 ∨ ¬x4)
+(¬x4 ∨ ¬x5 ∨ x3)
+(x2 ∨ x5 ∨ x4)
+(x2 ∨ x3 ∨ x5)
+(¬x4 ∨ ¬x5 ∨ ¬x3)
+(x3 ∨ x4)
+
+Let's pick x2 = True.
+
+#### Branch 2.1: x1 = False, x2 = True
+
+Substitute x2 = True:
+
+- (¬x5 ∨ x2): satisfied
+- (x4 ∨ x3): unchanged
+- (¬x2 ∨ ¬x4 ∨ x5): (False ∨ ¬x4 ∨ x5) → (¬x4 ∨ x5)
+- (x2 ∨ x3 ∨ ¬x5): satisfied
+- (¬x3 ∨ ¬x2 ∨ x4): (¬x3 ∨ False ∨ x4) → (¬x3 ∨ x4)
+- (¬x5 ∨ ¬x4 ∨ x3): unchanged
+- (x5 ∨ x2 ∨ ¬x4): satisfied
+- (x5 ∨ x3 ∨ x4): unchanged
+- (¬x3 ∨ ¬x4): unchanged
+- (¬x4 ∨ ¬x5 ∨ x3): unchanged
+- (x2 ∨ x5 ∨ x4): satisfied
+- (x2 ∨ x3 ∨ x5): satisfied
+- (¬x4 ∨ ¬x5 ∨ ¬x3): unchanged
+- (x3 ∨ x4): unchanged
+
+Remaining clauses:
+(x4 ∨ x3)
+(¬x4 ∨ x5)
+(¬x3 ∨ x4)
+(¬x5 ∨ ¬x4 ∨ x3)
+(x5 ∨ x3 ∨ x4)
+(¬x3 ∨ ¬x4)
+(¬x4 ∨ ¬x5 ∨ x3)
+(¬x4 ∨ ¬x5 ∨ ¬x3)
+(x3 ∨ x4)
+
+Let's pick x

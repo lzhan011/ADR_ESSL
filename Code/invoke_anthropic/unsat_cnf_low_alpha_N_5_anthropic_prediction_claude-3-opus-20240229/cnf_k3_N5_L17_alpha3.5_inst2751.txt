@@ -1,0 +1,44 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2751
+p cnf 5 17
+3 -1 -5 0
+-3 -4 1 0
+5 -1 3 0
+2 -3 -4 0
+-2 -3 1 0
+-5 -2 3 0
+3 1 2 0
+4 3 2 0
+-1 -3 -2 0
+-3 -4 5 0
+1 -4 3 0
+5 -3 1 0
+5 1 -2 0
+5 -2 1 0
+-5 4 -3 0
+-3 -1 5 0
+-1 -2 -4 0
+
+c GPT solve time: 7.37 seconds
+
+Step 1: Choose x3 to be true. This satisfies clauses 1, 3, 7, 8, 11, 12, 13, 14.
+
+Step 2: Choose x1 to be true. This satisfies clauses 2, 5, 9, 16.
+
+Step 3: Choose x5 to be true. This satisfies clause 6.
+
+Step 4: Choose x2 to be false. This satisfies clause 17.
+
+Step 5: Choose x4 to be false. This satisfies clauses 4, 10, 15.
+
+All clauses are satisfied, so the formula is SATISFIABLE.
+
+Number of branches: 5
+Number of conflicts: 0
+
+The satisfying assignment is:
+x1 = true
+x2 = false
+x3 = true
+x4 = false
+x5 = true

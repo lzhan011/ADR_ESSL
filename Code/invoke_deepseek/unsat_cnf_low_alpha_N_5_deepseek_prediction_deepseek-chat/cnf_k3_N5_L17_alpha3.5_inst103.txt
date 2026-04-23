@@ -1,0 +1,138 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=103
+p cnf 5 17
+5 2 4 0
+3 -2 -1 0
+-3 -4 -5 0
+3 -2 -4 0
+3 -5 4 0
+1 3 5 0
+-3 5 -4 0
+5 4 2 0
+-2 -1 3 0
+-3 -2 5 0
+-1 -2 4 0
+2 3 -1 0
+-4 -5 -2 0
+4 -3 1 0
+-4 3 -5 0
+-2 5 -1 0
+-3 -5 -1 0
+
+c GPT solve time: 101.20 seconds
+
+Let's solve the given 3-CNF formula step-by-step using the DPLL algorithm. We'll track the number of branches (decision points) and conflicts (backtracking steps).
+
+### Step 1: Initial Unit Propagation
+No unit clauses exist initially.
+
+### Step 2: Make Decisions and Propagate
+We'll choose variables in order: x1, x2, x3, x4, x5.
+
+#### Decision 1: x1 = True (Branch 1)
+- Propagate:
+  - From (¬x2 ∨ ¬x1 ∨ x3): If x1 is True, then (¬x2 ∨ x3) must be True.
+  - From (x2 ∨ x3 ∨ ¬x1): Satisfied (¬x1 is False, but other literals can satisfy).
+  - From (¬x2 ∨ x5 ∨ ¬x1): (¬x2 ∨ x5) must be True.
+  - From (¬x3 ∨ ¬x5 ∨ ¬x1): (¬x3 ∨ ¬x5) must be True.
+
+No immediate conflict, but no further propagation is possible.
+
+#### Decision 2: x2 = True (Branch 2)
+- Propagate:
+  - From (x5 ∨ x2 ∨ x4): Satisfied (x2 is True).
+  - From (x3 ∨ ¬x2 ∨ ¬x1): (x3 ∨ ¬x1). x1 is True, so (x3 ∨ False) ⇒ x3 must be True.
+    - Set x3 = True.
+  - From (¬x3 ∨ ¬x2 ∨ ¬x4): (¬x3 ∨ ¬x4). x3 is True, so (False ∨ ¬x4) ⇒ ¬x4 must be True ⇒ x4 = False.
+  - From (x3 ∨ ¬x2 ∨ ¬x4): Satisfied (x3 is True).
+  - From (x3 ∨ ¬x5 ∨ x4): x3 is True ⇒ Satisfied.
+  - From (¬x3 ∨ ¬x4 ∨ ¬x5): x3 is True, x4 is False ⇒ (False ∨ True ∨ ¬x5) ⇒ Satisfied.
+  - From (¬x3 ∨ x5 ∨ ¬x4): x3 is True, x4 is False ⇒ (False ∨ x5 ∨ True) ⇒ Satisfied.
+  - From (x5 ∨ x4 ∨ x2): Satisfied (x2 is True).
+  - From (¬x2 ∨ ¬x1 ∨ x3): Satisfied (x3 is True).
+  - From (¬x3 ∨ ¬x2 ∨ x5): x3 is True, x2 is True ⇒ (False ∨ False ∨ x5) ⇒ x5 must be True.
+    - Set x5 = True.
+  - From (¬x1 ∨ ¬x2 ∨ x4): x1 is True, x2 is True ⇒ (False ∨ False ∨ x4) ⇒ x4 must be True. But x4 is already False ⇒ CONFLICT.
+
+#### Conflict Detected (Conflict 1)
+Backtrack to Decision 2 (x2 = True) and try x2 = False.
+
+#### Decision 2: x2 = False (Branch 3)
+- Propagate:
+  - From (¬x2 ∨ ¬x1 ∨ x3): x1 is True, x2 is False ⇒ (True ∨ True ∨ x3) ⇒ Satisfied.
+  - From (¬x1 ∨ ¬x2 ∨ x4): x1 is True, x2 is False ⇒ (False ∨ True ∨ x4) ⇒ Satisfied.
+  - From (x2 ∨ x3 ∨ ¬x1): x2 is False, x1 is True ⇒ (False ∨ x3 ∨ False) ⇒ x3 must be True.
+    - Set x3 = True.
+  - From (¬x4 ∨ ¬x5 ∨ ¬x2): x2 is False ⇒ (¬x4 ∨ ¬x5 ∨ True) ⇒ Satisfied.
+  - From (x4 ∨ ¬x3 ∨ x1): x3 is True, x1 is True ⇒ (x4 ∨ False ∨ True) ⇒ Satisfied.
+  - From (¬x4 ∨ x3 ∨ ¬x5): x3 is True ⇒ (¬x4 ∨ True ∨ ¬x5) ⇒ Satisfied.
+  - From (¬x2 ∨ x5 ∨ ¬x1): x2 is False, x1 is True ⇒ (True ∨ x5 ∨ False) ⇒ Satisfied.
+  - From (¬x3 ∨ ¬x5 ∨ ¬x1): x3 is True, x1 is True ⇒ (False ∨ ¬x5 ∨ False) ⇒ ¬x5 must be True ⇒ x5 = False.
+    - Set x5 = False.
+  - From (x5 ∨ x2 ∨ x4): x5 is False, x2 is False ⇒ (False ∨ False ∨ x4) ⇒ x4 must be True.
+    - Set x4 = True.
+  - From (x3 ∨ ¬x2 ∨ ¬x1): Satisfied (x3 is True).
+  - From (¬x3 ∨ ¬x4 ∨ ¬x5): x3 is True, x4 is True, x5 is False ⇒ (False ∨ False ∨ True) ⇒ Satisfied.
+  - From (x3 ∨ ¬x2 ∨ ¬x4): x3 is True ⇒ Satisfied.
+  - From (x3 ∨ ¬x5 ∨ x4): x3 is True ⇒ Satisfied.
+  - From (x1 ∨ x3 ∨ x5): x1 is True ⇒ Satisfied.
+  - From (¬x3 ∨ x5 ∨ ¬x4): x3 is True, x5 is False, x4 is True ⇒ (False ∨ False ∨ False) ⇒ CONFLICT.
+
+#### Conflict Detected (Conflict 2)
+Backtrack to Decision 1 (x1 = True) and try x1 = False.
+
+#### Decision 1: x1 = False (Branch 4)
+- Propagate:
+  - From (x2 ∨ x3 ∨ ¬x1): x1 is False ⇒ (x2 ∨ x3 ∨ True) ⇒ Satisfied.
+  - From (¬x2 ∨ x5 ∨ ¬x1): x1 is False ⇒ (¬x2 ∨ x5 ∨ True) ⇒ Satisfied.
+  - From (¬x3 ∨ ¬x5 ∨ ¬x1): x1 is False ⇒ (¬x3 ∨ ¬x5 ∨ True) ⇒ Satisfied.
+  - From (¬x2 ∨ ¬x1 ∨ x3): x1 is False ⇒ (¬x2 ∨ True ∨ x3) ⇒ Satisfied.
+  - From (¬x1 ∨ ¬x2 ∨ x4): x1 is False ⇒ (True ∨ ¬x2 ∨ x4) ⇒ Satisfied.
+
+No further propagation is possible.
+
+#### Decision 2: x2 = True (Branch 5)
+- Propagate:
+  - From (x5 ∨ x2 ∨ x4): Satisfied (x2 is True).
+  - From (x3 ∨ ¬x2 ∨ ¬x1): x2 is True, x1 is False ⇒ (x3 ∨ False ∨ True) ⇒ Satisfied.
+  - From (¬x3 ∨ ¬x2 ∨ ¬x4): x2 is True ⇒ (¬x3 ∨ False ∨ ¬x4) ⇒ (¬x3 ∨ ¬x4) must be True.
+  - From (x3 ∨ ¬x2 ∨ ¬x4): x2 is True ⇒ (x3 ∨ False ∨ ¬x4) ⇒ (x3 ∨ ¬x4) must be True.
+  - From (x3 ∨ ¬x5 ∨ x4): No propagation.
+  - From (¬x3 ∨ x5 ∨ ¬x4): No propagation.
+  - From (x5 ∨ x4 ∨ x2): Satisfied (x2 is True).
+  - From (¬x3 ∨ ¬x2 ∨ x5): x2 is True ⇒ (¬x3 ∨ False ∨ x5) ⇒ (¬x3 ∨ x5) must be True.
+  - From (¬x4 ∨ ¬x5 ∨ ¬x2): x2 is True ⇒ (¬x4 ∨ ¬x5 ∨ False) ⇒ (¬x4 ∨ ¬x5) must be True.
+
+#### Decision 3: x3 = True (Branch 6)
+- Propagate:
+  - From (¬x3 ∨ ¬x4 ∨ ¬x5): x3 is True ⇒ (False ∨ ¬x4 ∨ ¬x5) ⇒ (¬x4 ∨ ¬x5) must be True.
+  - From (x4 ∨ ¬x3 ∨ x1): x3 is True, x1 is False ⇒ (x4 ∨ False ∨ False) ⇒ x4 must be True.
+    - Set x4 = True.
+  - From (¬x4 ∨ x3 ∨ ¬x5): x3 is True ⇒ (¬x4 ∨ True ∨ ¬x5) ⇒ Satisfied.
+  - From (¬x3 ∨ ¬x5 ∨ ¬x1): x3 is True, x1 is False ⇒ (False ∨ ¬x5 ∨ True) ⇒ Satisfied.
+  - From (¬x4 ∨ ¬x5): x4 is True ⇒ (False ∨ ¬x5) ⇒ ¬x5 must be True ⇒ x5 = False.
+    - Set x5 = False.
+  - Check all clauses:
+    - All clauses are satisfied with x1 = False, x2 = True, x3 = True, x4 = True, x5 = False.
+
+### Solution Found
+- SATISFIABLE with assignment:
+  - x1 = False
+  - x2 = True
+  - x3 = True
+  - x4 = True
+  - x5 = False
+
+### Summary
+- Branches (decision points): 6 (x1=True, x2=True; x1=True, x2=False; x1=False, x2=True, x3=True)
+- Conflicts (backtracking steps): 2 (from x1=True, x2=True; and x1=True, x2=False)
+
+### Final Answer
+SATISFIABLE  
+6  
+2  
+x1=False  
+x2=True  
+x3=True  
+x4=True  
+x5=False

@@ -1,0 +1,201 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=2729
+p cnf 5 17
+5 1 3 0
+-1 -4 -5 0
+-1 3 2 0
+2 3 5 0
+5 1 -2 0
+-5 3 4 0
+4 5 2 0
+1 -4 -5 0
+1 -5 -3 0
+5 3 4 0
+-2 5 -1 0
+5 2 -4 0
+4 -3 1 0
+-3 -2 1 0
+3 1 -4 0
+-1 -5 -3 0
+-2 4 3 0
+
+c GPT solve time: 46.40 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm.
+
+Step 1: Let's start by assigning x1 = true.
+- Simplify clauses containing x1:
+  - (x5 ∨ x1 ∨ x3) is satisfied
+  - (¬x1 ∨ ¬x4 ∨ ¬x5) becomes (¬x4 ∨ ¬x5)
+  - (¬x1 ∨ x3 ∨ x2) becomes (x3 ∨ x2)
+  - (x5 ∨ x1 ∨ ¬x2) is satisfied
+  - (x1 ∨ ¬x4 ∨ ¬x5) is satisfied
+  - (x1 ∨ ¬x5 ∨ ¬x3) is satisfied
+  - (¬x2 ∨ x5 ∨ ¬x1) becomes (¬x2 ∨ x5)
+  - (x4 ∨ ¬x3 ∨ x1) is satisfied
+  - (¬x3 ∨ ¬x2 ∨ x1) is satisfied
+  - (x3 ∨ x1 ∨ ¬x4) is satisfied
+  - (¬x1 ∨ ¬x5 ∨ ¬x3) becomes (¬x5 ∨ ¬x3)
+
+Step 2: Let's assign x3 = true.
+- Simplify clauses:
+  - (x3 ∨ x2) is satisfied
+  - (x2 ∨ x3 ∨ x5) is satisfied
+  - (¬x5 ∨ x3 ∨ x4) is satisfied
+  - (x5 ∨ x3 ∨ x4) is satisfied
+  - (¬x2 ∨ x4 ∨ x3) is satisfied
+  - (¬x5 ∨ ¬x3) becomes (¬x5)
+
+Step 3: From (¬x5), we must set x5 = false.
+- Simplify clauses:
+  - (¬x4 ∨ ¬x5) is satisfied
+  - (x2 ∨ x3 ∨ x5) is already satisfied
+  - (x5 ∨ x1 ∨ ¬x2) is already satisfied
+  - (¬x5 ∨ x3 ∨ x4) is satisfied
+  - (x4 ∨ x5 ∨ x2) becomes (x4 ∨ x2)
+  - (x1 ∨ ¬x4 ∨ ¬x5) is satisfied
+  - (x1 ∨ ¬x5 ∨ ¬x3) becomes (x1 ∨ ¬x3), which is satisfied since x1 = true
+  - (x5 ∨ x3 ∨ x4) becomes (x3 ∨ x4), which is satisfied since x3 = true
+  - (¬x2 ∨ x5 ∨ ¬x1) becomes (¬x2 ∨ ¬x1), which is unsatisfied since x1 = true, so (¬x2) must be true
+  - (x5 ∨ x2 ∨ ¬x4) becomes (x2 ∨ ¬x4)
+
+Step 4: From (¬x2), we set x2 = false.
+- Simplify clauses:
+  - (x4 ∨ x2) becomes (x4)
+  - (x2 ∨ ¬x4) becomes (¬x4)
+
+Step 5: We now have (x4) and (¬x4), which is a contradiction.
+
+Let's backtrack and try x1 = false.
+
+Step 6: Assign x1 = false.
+- Simplify clauses containing x1:
+  - (x5 ∨ x1 ∨ x3) becomes (x5 ∨ x3)
+  - (¬x1 ∨ ¬x4 ∨ ¬x5) is satisfied
+  - (¬x1 ∨ x3 ∨ x2) is satisfied
+  - (x5 ∨ x1 ∨ ¬x2) becomes (x5 ∨ ¬x2)
+  - (x1 ∨ ¬x4 ∨ ¬x5) becomes (¬x4 ∨ ¬x5)
+  - (x1 ∨ ¬x5 ∨ ¬x3) becomes (¬x5 ∨ ¬x3)
+  - (¬x2 ∨ x5 ∨ ¬x1) is satisfied
+  - (x4 ∨ ¬x3 ∨ x1) becomes (x4 ∨ ¬x3)
+  - (¬x3 ∨ ¬x2 ∨ x1) becomes (¬x3 ∨ ¬x2)
+  - (x3 ∨ x1 ∨ ¬x4) becomes (x3 ∨ ¬x4)
+  - (¬x1 ∨ ¬x5 ∨ ¬x3) is satisfied
+
+Step 7: Let's assign x3 = true.
+- Simplify clauses:
+  - (x5 ∨ x3) is satisfied
+  - (x2 ∨ x3 ∨ x5) is satisfied
+  - (¬x5 ∨ x3 ∨ x4) is satisfied
+  - (x5 ∨ x3 ∨ x4) is satisfied
+  - (x4 ∨ ¬x3) becomes (x4)
+  - (¬x3 ∨ ¬x2) becomes (¬x2)
+  - (x3 ∨ ¬x4) is satisfied
+  - (¬x5 ∨ ¬x3) becomes (¬x5)
+
+Step 8: From (¬x5) and (¬x2), we set x5 = false and x2 = false.
+- Simplify clauses:
+  - (¬x4 ∨ ¬x5) is satisfied
+  - (x5 ∨ ¬x2) becomes (¬x2), which is satisfied
+  - (x4 ∨ x5 ∨ x2) becomes (x4)
+  - (x5 ∨ x2 ∨ ¬x4) becomes (¬x4)
+
+Step 9: We now have (x4) and (¬x4), which is a contradiction.
+
+Let's backtrack and try x3 = false.
+
+Step 10: Assign x3 = false with x1 = false.
+- Simplify clauses:
+  - (x5 ∨ x3) becomes (x5)
+  - (¬x1 ∨ x3 ∨ x2) becomes (x2)
+  - (x2 ∨ x3 ∨ x5) becomes (x2 ∨ x5)
+  - (¬x5 ∨ x3 ∨ x4) becomes (¬x5 ∨ x4)
+  - (x5 ∨ x3 ∨ x4) becomes (x5 ∨ x4)
+  - (x4 ∨ ¬x3) is satisfied
+  - (¬x3 ∨ ¬x2) is satisfied
+  - (x3 ∨ ¬x4) becomes (¬x4)
+  - (¬x2 ∨ x4 ∨ x3) becomes (¬x2 ∨ x4)
+
+Step 11: From (x2), we set x2 = true.
+- Simplify clauses:
+  - (x2 ∨ x5) is satisfied
+  - (¬x2 ∨ x4) becomes (x4)
+
+Step 12: From (x4) and (¬x4), we have a contradiction.
+
+Let's try a different approach. Let's start with x5 = true.
+
+Step 13: Assign x5 = true.
+- Simplify clauses:
+  - (x5 ∨ x1 ∨ x3) is satisfied
+  - (¬x1 ∨ ¬x4 ∨ ¬x5) becomes (¬x1 ∨ ¬x4)
+  - (x2 ∨ x3 ∨ x5) is satisfied
+  - (x5 ∨ x1 ∨ ¬x2) is satisfied
+  - (¬x5 ∨ x3 ∨ x4) becomes (x3 ∨ x4)
+  - (x4 ∨ x5 ∨ x2) is satisfied
+  - (x1 ∨ ¬x4 ∨ ¬x5) becomes (x1 ∨ ¬x4)
+  - (x1 ∨ ¬x5 ∨ ¬x3) becomes (x1 ∨ ¬x3)
+  - (x5 ∨ x3 ∨ x4) is satisfied
+  - (¬x2 ∨ x5 ∨ ¬x1) is satisfied
+  - (x5 ∨ x2 ∨ ¬x4) is satisfied
+  - (¬x1 ∨ ¬x5 ∨ ¬x3) becomes (¬x1 ∨ ¬x3)
+
+Step 14: Let's assign x3 = true.
+- Simplify clauses:
+  - (¬x1 ∨ ¬x4 ∨ ¬x5) is unchanged
+  - (¬x1 ∨ x3 ∨ x2) is satisfied
+  - (x3 ∨ x4) is satisfied
+  - (x1 ∨ ¬x3) becomes (x1)
+  - (¬x1 ∨ ¬x3) becomes (¬x1)
+
+Step 15: From (x1) and (¬x1), we have a contradiction.
+
+Let's try x5 = true and x3 = false.
+
+Step 16: Assign x5 = true, x3 = false.
+- Simplify clauses:
+  - (x5 ∨ x1 ∨ x3) becomes (x5 ∨ x1), which is satisfied
+  - (¬x1 ∨ ¬x4 ∨ ¬x5) becomes (¬x1 ∨ ¬x4)
+  - (¬x1 ∨ x3 ∨ x2) becomes (¬x1 ∨ x2)
+  - (x2 ∨ x3 ∨ x5) becomes (x2 ∨ x5), which is satisfied
+  - (x5 ∨ x1 ∨ ¬x2) is satisfied
+  - (¬x5 ∨ x3 ∨ x4) becomes (x4)
+  - (x4 ∨ x5 ∨ x2) is satisfied
+  - (x1 ∨ ¬x4 ∨ ¬x5) becomes (x1 ∨ ¬x4)
+  - (x1 ∨ ¬x5 ∨ ¬x3) becomes (x1), since ¬x3 is true
+  - (x5 ∨ x3 ∨ x4) becomes (x5 ∨ x4), which is satisfied
+  - (¬x2 ∨ x5 ∨ ¬x1) is satisfied
+  - (x5 ∨ x2 ∨ ¬x4) is satisfied
+  - (x4 ∨ ¬x3 ∨ x1) becomes (x4 ∨ x1), since ¬x3 is true
+  - (¬x3 ∨ ¬x2 ∨ x1) becomes (¬x2 ∨ x1), since ¬x3 is true
+  - (x3 ∨ x1 ∨ ¬x4) becomes (x1 ∨ ¬x4)
+  - (¬x1 ∨ ¬x5 ∨ ¬x3) becomes (¬x1), since ¬x3 is true
+  - (¬x2 ∨ x4 ∨ x3) becomes (¬x2 ∨ x4)
+
+Step 17: From (x1) and (¬x1), we have a contradiction.
+
+Let's try x5 = false.
+
+Step 18: Assign x5 = false.
+- Simplify clauses:
+  - (x5 ∨ x1 ∨ x3) becomes (x1 ∨ x3)
+  - (¬x1 ∨ ¬x4 ∨ ¬x5) is satisfied
+  - (x2 ∨ x3 ∨ x5) becomes (x2 ∨ x3)
+  - (x5 ∨ x1 ∨ ¬x2) becomes (x1 ∨ ¬x2)
+  - (¬x5 ∨ x3 ∨ x4) is satisfied
+  - (x4 ∨ x5 ∨ x2) becomes (x4 ∨ x2)
+  - (x1 ∨ ¬x4 ∨ ¬x5) is satisfied
+  - (x1 ∨ ¬x5 ∨ ¬x3) is satisfied
+  - (x5 ∨ x3 ∨ x4) becomes (x3 ∨ x4)
+  - (¬x2 ∨ x5 ∨ ¬x1) becomes (¬x2 ∨ ¬x1)
+  - (x5 ∨ x2 ∨ ¬x4) becomes (x2 ∨ ¬x4)
+  - (¬x1 ∨ ¬x5 ∨ ¬x3) is satisfied
+
+Step 19: Let's assign x1 = true.
+- Simplify clauses:
+  - (x1 ∨ x3) is satisfied
+  - (¬x1 ∨ ¬x4 ∨ ¬x5) becomes (¬x4)
+  - (¬x1 ∨ x3 ∨ x2) becomes (x3 ∨ x2)
+  - (x1 ∨ ¬x2) is satisfied
+  - (x1 ∨ ¬x4 ∨ ¬x5) is satisfied
+  - (x1 ∨ ¬x5

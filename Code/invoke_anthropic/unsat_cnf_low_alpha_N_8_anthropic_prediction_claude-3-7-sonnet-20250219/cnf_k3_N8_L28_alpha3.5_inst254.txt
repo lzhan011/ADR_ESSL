@@ -1,0 +1,171 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=254
+p cnf 8 28
+-1 -8 3 0
+2 8 3 0
+-4 -2 8 0
+5 -1 3 0
+-1 2 6 0
+-7 4 -2 0
+8 6 -3 0
+-8 -1 5 0
+8 4 -6 0
+2 -3 -1 0
+3 8 4 0
+4 8 -3 0
+2 -6 4 0
+-5 -3 8 0
+-8 -6 -2 0
+-8 6 -5 0
+-1 -3 -6 0
+2 4 -3 0
+4 1 3 0
+-8 7 6 0
+-5 -1 8 0
+-2 -4 5 0
+-3 -8 -1 0
+3 5 8 0
+3 -6 -8 0
+1 6 -4 0
+-4 1 2 0
+8 7 -3 0
+
+c GPT solve time: 47.81 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by looking for unit clauses and applying unit propagation. If there are no unit clauses, I'll make a decision by assigning a value to a variable.
+
+Step 1: There are no unit clauses initially, so I'll make a decision.
+Decision 1: Let's set x1 = true
+
+Step 2: Propagate this assignment:
+- Clause (¬x1 ∨ ¬x8 ∨ x3): To satisfy this, either ¬x8 or x3 must be true
+- Clause (x5 ∨ ¬x1 ∨ x3): Since ¬x1 is false, either x5 or x3 must be true
+- Clause (¬x1 ∨ x2 ∨ x6): Since ¬x1 is false, either x2 or x6 must be true
+- Clause (¬x8 ∨ ¬x1 ∨ x5): Since ¬x1 is false, either ¬x8 or x5 must be true
+- Clause (x2 ∨ ¬x3 ∨ ¬x1): Since ¬x1 is false, either x2 or ¬x3 must be true
+- Clause (¬x1 ∨ ¬x3 ∨ ¬x6): Since ¬x1 is false, either ¬x3 or ¬x6 must be true
+- Clause (x4 ∨ x1 ∨ x3): Satisfied by x1 = true
+- Clause (¬x5 ∨ ¬x1 ∨ x8): Since ¬x1 is false, either ¬x5 or x8 must be true
+- Clause (¬x3 ∨ ¬x8 ∨ ¬x1): Since ¬x1 is false, either ¬x3 or ¬x8 must be true
+- Clause (x1 ∨ x6 ∨ ¬x4): Satisfied by x1 = true
+- Clause (¬x4 ∨ x1 ∨ x2): Satisfied by x1 = true
+
+No unit clauses emerged, so I'll make another decision.
+
+Decision 2: Let's set x2 = true
+
+Step 3: Propagate this assignment:
+- Clause (x2 ∨ x8 ∨ x3): Satisfied by x2 = true
+- Clause (¬x4 ∨ ¬x2 ∨ x8): Since ¬x2 is false, either ¬x4 or x8 must be true
+- Clause (¬x1 ∨ x2 ∨ x6): Satisfied by x2 = true
+- Clause (¬x7 ∨ x4 ∨ ¬x2): Since ¬x2 is false, either ¬x7 or x4 must be true
+- Clause (x2 ∨ ¬x3 ∨ ¬x1): Satisfied by x2 = true
+- Clause (x2 ∨ ¬x6 ∨ x4): Satisfied by x2 = true
+- Clause (¬x8 ∨ ¬x6 ∨ ¬x2): Since ¬x2 is false, either ¬x8 or ¬x6 must be true
+- Clause (x2 ∨ x4 ∨ ¬x3): Satisfied by x2 = true
+- Clause (¬x2 ∨ ¬x4 ∨ x5): Since ¬x2 is false, either ¬x4 or x5 must be true
+- Clause (¬x4 ∨ x1 ∨ x2): Satisfied by x2 = true
+
+No unit clauses emerged, so I'll make another decision.
+
+Decision 3: Let's set x3 = true
+
+Step 4: Propagate this assignment:
+- Clause (¬x1 ∨ ¬x8 ∨ x3): Satisfied by x3 = true
+- Clause (x2 ∨ x8 ∨ x3): Satisfied by x3 = true
+- Clause (x5 ∨ ¬x1 ∨ x3): Satisfied by x3 = true
+- Clause (x8 ∨ x6 ∨ ¬x3): Since ¬x3 is false, either x8 or x6 must be true
+- Clause (x2 ∨ ¬x3 ∨ ¬x1): Since ¬x3 is false and ¬x1 is false, this clause is not satisfied
+This is a conflict! We need to backtrack.
+
+Step 5: Backtrack to Decision 3 and try x3 = false
+
+Step 6: Propagate this assignment:
+- Clause (¬x1 ∨ ¬x8 ∨ x3): Since x3 is false, either ¬x1 or ¬x8 must be true. Since ¬x1 is false, ¬x8 must be true, so x8 = false
+- Clause (x2 ∨ x8 ∨ x3): Since x8 is false and x3 is false, x2 must be true (already set)
+- Clause (x8 ∨ x6 ∨ ¬x3): Satisfied by ¬x3 = true
+- Clause (x3 ∨ x8 ∨ x4): Since x3 is false and x8 is false, x4 must be true
+- Clause (x4 ∨ x8 ∨ ¬x3): Satisfied by ¬x3 = true
+- Clause (¬x5 ∨ ¬x3 ∨ x8): Since x8 is false, either ¬x5 or ¬x3 must be true. Satisfied by ¬x3 = true
+- Clause (¬x3 ∨ ¬x8 ∨ ¬x1): Since ¬x1 is false, either ¬x3 or ¬x8 must be true. Satisfied by both ¬x3 and ¬x8 being true
+- Clause (x3 ∨ x5 ∨ x8): Since x3 is false and x8 is false, x5 must be true
+- Clause (x3 ∨ ¬x6 ∨ ¬x8): Satisfied by ¬x8 = true
+- Clause (x8 ∨ x7 ∨ ¬x3): Since x8 is false and ¬x3 is true, this clause is satisfied
+
+Now with x4 = true and x5 = true, let's continue propagation:
+- Clause (¬x4 ∨ ¬x2 ∨ x8): Since ¬x4 is false, ¬x2 is false, and x8 is false, this clause is not satisfied
+This is a conflict! We need to backtrack.
+
+Step 7: We've tried both values for x3 and got conflicts, so we need to backtrack to Decision 2 and try x2 = false
+
+Step 8: Propagate this assignment:
+- Clause (x2 ∨ x8 ∨ x3): Since x2 is false, either x8 or x3 must be true
+- Clause (¬x7 ∨ x4 ∨ ¬x2): Satisfied by ¬x2 = true
+- Clause (¬x8 ∨ ¬x6 ∨ ¬x2): Satisfied by ¬x2 = true
+- Clause (x2 ∨ x4 ∨ ¬x3): Since x2 is false, either x4 or ¬x3 must be true
+- Clause (¬x2 ∨ ¬x4 ∨ x5): Satisfied by ¬x2 = true
+- Clause (¬x4 ∨ x1 ∨ x2): Since x2 is false, either ¬x4 or x1 must be true. Satisfied by x1 = true
+
+Let's continue with another decision.
+
+Decision 4: Let's set x3 = true
+
+Step 9: Propagate this assignment:
+- Clause (¬x1 ∨ ¬x8 ∨ x3): Satisfied by x3 = true
+- Clause (x2 ∨ x8 ∨ x3): Satisfied by x3 = true
+- Clause (x5 ∨ ¬x1 ∨ x3): Satisfied by x3 = true
+- Clause (x8 ∨ x6 ∨ ¬x3): Since ¬x3 is false, either x8 or x6 must be true
+- Clause (x3 ∨ x8 ∨ x4): Satisfied by x3 = true
+- Clause (x4 ∨ x8 ∨ ¬x3): Since ¬x3 is false, either x4 or x8 must be true
+- Clause (¬x5 ∨ ¬x3 ∨ x8): Since ¬x3 is false, either ¬x5 or x8 must be true
+- Clause (¬x1 ∨ ¬x3 ∨ ¬x6): Since ¬x1 is false and ¬x3 is false, ¬x6 must be true, so x6 = false
+- Clause (x2 ∨ x4 ∨ ¬x3): Since x2 is false and ¬x3 is false, x4 must be true
+- Clause (x3 ∨ x5 ∨ x8): Satisfied by x3 = true
+- Clause (x3 ∨ ¬x6 ∨ ¬x8): Satisfied by x3 = true and ¬x6 = true
+- Clause (x8 ∨ x7 ∨ ¬x3): Since ¬x3 is false, either x8 or x7 must be true
+
+With x4 = true and x6 = false, let's continue propagation:
+- Clause (¬x4 ∨ ¬x2 ∨ x8): Since ¬x4 is false, either ¬x2 or x8 must be true. Satisfied by ¬x2 = true
+- Clause (x8 ∨ x4 ∨ ¬x6): Satisfied by x4 = true and ¬x6 = true
+- Clause (x2 ∨ ¬x6 ∨ x4): Satisfied by ¬x6 = true and x4 = true
+- Clause (¬x2 ∨ ¬x4 ∨ x5): Since ¬x2 is true but ¬x4 is false, x5 must be true
+- Clause (x1 ∨ x6 ∨ ¬x4): Since x6 is false and ¬x4 is false, x1 must be true (already set)
+
+With x5 = true, let's continue propagation:
+- Clause (¬x5 ∨ ¬x1 ∨ x8): Since ¬x5 is false and ¬x1 is false, x8 must be true
+- Clause (¬x5 ∨ ¬x3 ∨ x8): Satisfied by x8 = true
+
+With x8 = true, let's check if all clauses are satisfied:
+- Clause (¬x1 ∨ ¬x8 ∨ x3): Since ¬x1 is false and ¬x8 is false, x3 must be true (already set)
+- Clause (¬x4 ∨ ¬x2 ∨ x8): Satisfied by x8 = true
+- Clause (¬x8 ∨ ¬x1 ∨ x5): Since ¬x8 is false and ¬x1 is false, x5 must be true (already set)
+- Clause (¬x8 ∨ ¬x6 ∨ ¬x2): Satisfied by ¬x6 = true and ¬x2 = true
+- Clause (¬x8 ∨ x6 ∨ ¬x5): Since ¬x8 is false, x6 is false, and ¬x5 is false, this clause is not satisfied
+This is a conflict! We need to backtrack.
+
+Step 10: Backtrack to Decision 4 and try x3 = false
+
+Step 11: Propagate this assignment:
+- Clause (x2 ∨ x8 ∨ x3): Since x2 is false and x3 is false, x8 must be true
+- Clause (x8 ∨ x6 ∨ ¬x3): Satisfied by ¬x3 = true
+- Clause (x3 ∨ x8 ∨ x4): Since x3 is false, either x8 or x4 must be true. Satisfied by x8 = true
+- Clause (x4 ∨ x8 ∨ ¬x3): Satisfied by ¬x3 = true and x8 = true
+- Clause (¬x5 ∨ ¬x3 ∨ x8): Satisfied by ¬x3 = true and x8 = true
+- Clause (x2 ∨ x4 ∨ ¬x3): Satisfied by ¬x3 = true
+- Clause (x3 ∨ x5 ∨ x8): Satisfied by x8 = true
+- Clause (x3 ∨ ¬x6 ∨ ¬x8): Since x3 is false and ¬x8 is false, ¬x6 must be true, so x6 = false
+- Clause (x8 ∨ x7 ∨ ¬x3): Satisfied by ¬x3 = true and x8 = true
+
+With x8 = true and x6 = false, let's continue propagation:
+- Clause (¬x1 ∨ ¬x8 ∨ x3): Since ¬x1 is false, ¬x8 is false, and x3 is false, this clause is not satisfied
+This is a conflict! We need to backtrack.
+
+Step 12: We've tried both values for x3 and got conflicts, so we need to backtrack to Decision 1 and try x1 = false
+
+Step 13: Propagate this assignment:
+- Clause (¬x1 ∨ ¬x8 ∨ x3): Satisfied by ¬x1 = true
+- Clause (x5 ∨ ¬x1 ∨ x3): Satisfied by ¬x1 = true
+- Clause (¬x1 ∨ x2 ∨ x6): Satisfied by ¬x1 = true
+- Clause (¬x8 ∨ ¬x1 ∨

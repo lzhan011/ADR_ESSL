@@ -1,0 +1,181 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=345
+p cnf 5 17
+2 1 -3 0
+-3 4 -2 0
+3 2 -5 0
+-1 -5 -4 0
+-1 4 3 0
+3 -4 5 0
+-4 3 -2 0
+2 -3 5 0
+2 3 1 0
+-5 1 -2 0
+5 -2 1 0
+-3 5 -1 0
+5 -4 -3 0
+-5 -2 -4 0
+4 3 -2 0
+4 -1 2 0
+2 -3 5 0
+
+c GPT solve time: 47.70 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm with unit propagation and backtracking.
+
+Step 1: Let's start by assigning x1 = true.
+
+Step 2: With x1 = true, let's check for unit clauses:
+- (x2 ∨ x1 ∨ ¬x3) is satisfied
+- (¬x1 ∨ ¬x5 ∨ ¬x4) becomes (¬x5 ∨ ¬x4)
+- (¬x1 ∨ x4 ∨ x3) becomes (x4 ∨ x3)
+- (x2 ∨ x3 ∨ x1) is satisfied
+- (¬x5 ∨ x1 ∨ ¬x2) is satisfied
+- (x5 ∨ ¬x2 ∨ x1) is satisfied
+- (¬x3 ∨ x5 ∨ ¬x1) becomes (¬x3 ∨ x5)
+- (x4 ∨ ¬x1 ∨ x2) becomes (x4 ∨ x2)
+
+Step 3: Let's assign x2 = true.
+
+Step 4: With x2 = true, let's check for unit clauses:
+- (¬x3 ∨ x4 ∨ ¬x2) becomes (¬x3 ∨ x4)
+- (x3 ∨ x2 ∨ ¬x5) is satisfied
+- (¬x4 ∨ x3 ∨ ¬x2) becomes (¬x4 ∨ x3)
+- (x2 ∨ ¬x3 ∨ x5) is satisfied
+- (¬x5 ∨ x1 ∨ ¬x2) becomes (¬x5)
+- (x5 ∨ ¬x2 ∨ x1) becomes (x5 ∨ x1) which is satisfied
+- (¬x5 ∨ ¬x2 ∨ ¬x4) becomes (¬x5 ∨ ¬x4)
+- (x4 ∨ x3 ∨ ¬x2) becomes (x4 ∨ x3)
+- (x4 ∨ ¬x1 ∨ x2) becomes (x4 ∨ ¬x1) which is satisfied
+- (x2 ∨ ¬x3 ∨ x5) is satisfied
+
+Step 5: Unit propagation gives us x5 = false.
+
+Step 6: With x5 = false, let's check for unit clauses:
+- (x3 ∨ x2 ∨ ¬x5) is satisfied
+- (¬x1 ∨ ¬x5 ∨ ¬x4) becomes (¬x1 ∨ ¬x4) which is (¬x4) since x1 = true
+- (x3 ∨ ¬x4 ∨ x5) becomes (x3 ∨ ¬x4)
+- (x2 ∨ ¬x3 ∨ x5) becomes (x2 ∨ ¬x3) which is satisfied
+- (¬x3 ∨ x5 ∨ ¬x1) becomes (¬x3) since x5 = false and x1 = true
+- (x5 ∨ ¬x4 ∨ ¬x3) becomes (¬x4 ∨ ¬x3)
+- (¬x5 ∨ ¬x2 ∨ ¬x4) becomes (¬x2 ∨ ¬x4) which is (¬x4) since x2 = true
+
+Step 7: Unit propagation gives us x4 = false and x3 = false.
+
+Step 8: Let's check if all clauses are satisfied with x1 = true, x2 = true, x3 = false, x4 = false, x5 = false:
+- (x2 ∨ x1 ∨ ¬x3): Satisfied (all literals are true)
+- (¬x3 ∨ x4 ∨ ¬x2): Not satisfied (all literals are false)
+
+We have a conflict. We need to backtrack.
+
+Step 9: Let's try x1 = true, x2 = false.
+
+Step 10: With x2 = false, let's check for unit clauses:
+- (x2 ∨ x1 ∨ ¬x3) becomes (x1 ∨ ¬x3) which is satisfied
+- (¬x3 ∨ x4 ∨ ¬x2) becomes (¬x3 ∨ x4 ∨ true) which is satisfied
+- (x3 ∨ x2 ∨ ¬x5) becomes (x3 ∨ ¬x5)
+- (¬x4 ∨ x3 ∨ ¬x2) becomes (¬x4 ∨ x3 ∨ true) which is satisfied
+- (x2 ∨ ¬x3 ∨ x5) becomes (¬x3 ∨ x5)
+- (x2 ∨ x3 ∨ x1) becomes (x3 ∨ x1) which is satisfied
+- (¬x5 ∨ x1 ∨ ¬x2) becomes (¬x5 ∨ x1 ∨ true) which is satisfied
+- (x5 ∨ ¬x2 ∨ x1) becomes (x5 ∨ true ∨ x1) which is satisfied
+- (x4 ∨ x3 ∨ ¬x2) becomes (x4 ∨ x3 ∨ true) which is satisfied
+- (x4 ∨ ¬x1 ∨ x2) becomes (x4 ∨ ¬x1) which is (x4) since x1 = true
+- (x2 ∨ ¬x3 ∨ x5) becomes (¬x3 ∨ x5)
+
+Step 11: Unit propagation gives us x4 = true.
+
+Step 12: With x4 = true, let's check for unit clauses:
+- (¬x1 ∨ ¬x5 ∨ ¬x4) becomes (¬x1 ∨ ¬x5) which is (¬x5) since x1 = true
+- (¬x1 ∨ x4 ∨ x3) is satisfied
+- (x3 ∨ ¬x4 ∨ x5) becomes (x3 ∨ x5)
+- (¬x4 ∨ x3 ∨ ¬x2) is satisfied
+- (x5 ∨ ¬x4 ∨ ¬x3) becomes (x5 ∨ ¬x3)
+- (¬x5 ∨ ¬x2 ∨ ¬x4) becomes (¬x5 ∨ ¬x2) which is satisfied
+
+Step 13: Unit propagation gives us x5 = false.
+
+Step 14: With x5 = false, let's check for unit clauses:
+- (x3 ∨ x2 ∨ ¬x5) is satisfied
+- (x3 ∨ ¬x4 ∨ x5) becomes (x3)
+- (x2 ∨ ¬x3 ∨ x5) becomes (x2 ∨ ¬x3) which is (¬x3) since x2 = false
+- (x5 ∨ ¬x4 ∨ ¬x3) becomes (¬x4 ∨ ¬x3) which is (¬x3) since x4 = true
+
+We have a conflict: x3 must be both true and false. We need to backtrack.
+
+Step 15: Let's try x1 = false.
+
+Step 16: With x1 = false, let's check for unit clauses:
+- (x2 ∨ x1 ∨ ¬x3) becomes (x2 ∨ ¬x3)
+- (¬x1 ∨ ¬x5 ∨ ¬x4) is satisfied
+- (¬x1 ∨ x4 ∨ x3) is satisfied
+- (x2 ∨ x3 ∨ x1) becomes (x2 ∨ x3)
+- (¬x5 ∨ x1 ∨ ¬x2) becomes (¬x5 ∨ ¬x2)
+- (x5 ∨ ¬x2 ∨ x1) becomes (x5 ∨ ¬x2)
+- (¬x3 ∨ x5 ∨ ¬x1) is satisfied
+- (x4 ∨ ¬x1 ∨ x2) is satisfied
+
+Step 17: Let's assign x2 = true.
+
+Step 18: With x2 = true, let's check for unit clauses:
+- (x2 ∨ x1 ∨ ¬x3) is satisfied
+- (¬x3 ∨ x4 ∨ ¬x2) becomes (¬x3 ∨ x4)
+- (x3 ∨ x2 ∨ ¬x5) is satisfied
+- (¬x4 ∨ x3 ∨ ¬x2) becomes (¬x4 ∨ x3)
+- (x2 ∨ ¬x3 ∨ x5) is satisfied
+- (x2 ∨ x3 ∨ x1) is satisfied
+- (¬x5 ∨ x1 ∨ ¬x2) becomes (¬x5 ∨ x1) which is (¬x5) since x1 = false
+- (x5 ∨ ¬x2 ∨ x1) becomes (x5 ∨ x1) which is (x5) since x1 = false
+- (¬x5 ∨ ¬x2 ∨ ¬x4) becomes (¬x5 ∨ ¬x4)
+- (x4 ∨ x3 ∨ ¬x2) becomes (x4 ∨ x3)
+
+We have a conflict: x5 must be both true and false. We need to backtrack.
+
+Step 19: Let's try x1 = false, x2 = false.
+
+Step 20: With x2 = false, let's check for unit clauses:
+- (x2 ∨ x1 ∨ ¬x3) becomes (¬x3) since x1 = false and x2 = false
+- (¬x3 ∨ x4 ∨ ¬x2) is satisfied
+- (x3 ∨ x2 ∨ ¬x5) becomes (x3 ∨ ¬x5)
+- (¬x4 ∨ x3 ∨ ¬x2) is satisfied
+- (x2 ∨ ¬x3 ∨ x5) becomes (¬x3 ∨ x5)
+- (x2 ∨ x3 ∨ x1) becomes (x3) since x1 = false and x2 = false
+- (¬x5 ∨ x1 ∨ ¬x2) becomes (¬x5 ∨ true) which is satisfied
+- (x5 ∨ ¬x2 ∨ x1) becomes (x5 ∨ true) which is satisfied
+- (x4 ∨ x3 ∨ ¬x2) is satisfied
+
+Step 21: Unit propagation gives us x3 = true and ¬x3 = true, which is a contradiction.
+
+Let me try a different approach. Let's start with x3 = true.
+
+Step 22: With x3 = true, let's check for unit clauses:
+- (x2 ∨ x1 ∨ ¬x3) becomes (x2 ∨ x1)
+- (¬x3 ∨ x4 ∨ ¬x2) becomes (x4 ∨ ¬x2)
+- (x3 ∨ x2 ∨ ¬x5) is satisfied
+- (¬x1 ∨ x4 ∨ x3) is satisfied
+- (x3 ∨ ¬x4 ∨ x5) is satisfied
+- (¬x4 ∨ x3 ∨ ¬x2) is satisfied
+- (x2 ∨ ¬x3 ∨ x5) becomes (x2 ∨ x5)
+- (x2 ∨ x3 ∨ x1) is satisfied
+- (¬x3 ∨ x5 ∨ ¬x1) becomes (x5 ∨ ¬x1)
+- (x5 ∨ ¬x4 ∨ ¬x3) becomes (x5 ∨ ¬x4)
+- (x4 ∨ x3 ∨ ¬x2) is satisfied
+
+Step 23: Let's assign x4 = true.
+
+Step 24: With x4 = true, let's check for unit clauses:
+- (¬x1 ∨ ¬x5 ∨ ¬x4) becomes (¬x1 ∨ ¬x5)
+- (x3 ∨ ¬x4 ∨ x5) becomes (x3 ∨ x5) which is satisfied
+- (¬x4 ∨ x3 ∨ ¬x2) becomes (x3 ∨ ¬x2) which is satisfied
+- (x5 ∨ ¬x4 ∨ ¬x3) becomes (x5) since ¬x4 = false and ¬x3 = false
+- (¬x5 ∨ ¬x2 ∨ ¬x4) becomes (¬x5 ∨ ¬x2)
+
+Step 25: Unit propagation gives us x5 = true.
+
+Step 26: With x5 = true, let's check for unit clauses:
+- (¬x1 ∨ ¬x5 ∨ ¬x4) becomes (¬x1) since ¬x5 = false and ¬x4 = false
+- (¬x5 ∨ ¬x2 ∨ ¬x4) becomes (¬x2) since ¬x5 = false and ¬x4 = false
+
+Step 27: Unit propagation gives us x1 = false and x2 = false.
+
+Step 28: Let's check if all clauses are satisfied with x1 = false, x2 =

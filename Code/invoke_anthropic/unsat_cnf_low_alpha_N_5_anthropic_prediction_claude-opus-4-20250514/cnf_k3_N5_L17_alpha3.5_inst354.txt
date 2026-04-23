@@ -1,0 +1,95 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=354
+p cnf 5 17
+-4 -5 -1 0
+-4 3 -5 0
+-3 -4 -1 0
+5 -1 -4 0
+4 5 3 0
+1 -2 -5 0
+-1 -5 4 0
+-2 -4 5 0
+2 -3 1 0
+3 4 -1 0
+-2 4 3 0
+-1 -4 5 0
+1 3 2 0
+5 1 -2 0
+-3 4 -2 0
+5 -2 4 0
+5 2 4 0
+
+c GPT solve time: 16.20 seconds
+
+I'll solve this 3-CNF formula using the DPLL algorithm with step-by-step reasoning.
+
+Let me start by analyzing the formula and making decisions:
+
+**Initial Formula:**
+1. (¬x4 ∨ ¬x5 ∨ ¬x1)
+2. (¬x4 ∨ x3 ∨ ¬x5)
+3. (¬x3 ∨ ¬x4 ∨ ¬x1)
+4. (x5 ∨ ¬x1 ∨ ¬x4)
+5. (x4 ∨ x5 ∨ x3)
+6. (x1 ∨ ¬x2 ∨ ¬x5)
+7. (¬x1 ∨ ¬x5 ∨ x4)
+8. (¬x2 ∨ ¬x4 ∨ x5)
+9. (x2 ∨ ¬x3 ∨ x1)
+10. (x3 ∨ x4 ∨ ¬x1)
+11. (¬x2 ∨ x4 ∨ x3)
+12. (¬x1 ∨ ¬x4 ∨ x5)
+13. (x1 ∨ x3 ∨ x2)
+14. (x5 ∨ x1 ∨ ¬x2)
+15. (¬x3 ∨ x4 ∨ ¬x2)
+16. (x5 ∨ ¬x2 ∨ x4)
+17. (x5 ∨ x2 ∨ x4)
+
+**Branch 1:** Let x1 = TRUE
+- Clause 1: (¬x4 ∨ ¬x5) [simplified]
+- Clause 3: (¬x3 ∨ ¬x4) [simplified]
+- Clause 4: (x5 ∨ ¬x4) [simplified]
+- Clause 6: satisfied
+- Clause 7: (¬x5 ∨ x4) [simplified]
+- Clause 9: satisfied
+- Clause 10: (x3 ∨ x4) [simplified]
+- Clause 12: (¬x4 ∨ x5) [simplified]
+- Clause 13: satisfied
+- Clause 14: satisfied
+
+**Branch 2:** Let x4 = TRUE (under x1 = TRUE)
+- Clause 1: ¬x5 [unit clause]
+- Clause 3: ¬x3 [unit clause]
+- Clause 7: satisfied
+- Clause 10: satisfied
+
+**Unit Propagation:** x5 = FALSE, x3 = FALSE
+- Clause 2: (¬x4 ∨ x3) = FALSE ∨ FALSE = FALSE
+
+**Conflict!** Backtrack.
+
+**Branch 3:** Let x4 = FALSE (under x1 = TRUE)
+- Clause 4: x5 [unit clause]
+- Clause 12: x5 [unit clause]
+
+**Unit Propagation:** x5 = TRUE
+- Clause 1: satisfied
+- Clause 7: satisfied
+- Clause 8: ¬x2 [unit clause]
+
+**Unit Propagation:** x2 = FALSE
+- Clause 11: x3 [unit clause]
+
+**Unit Propagation:** x3 = TRUE
+- All clauses satisfied!
+
+**Solution Found:**
+- x1 = TRUE
+- x2 = FALSE
+- x3 = TRUE
+- x4 = FALSE
+- x5 = TRUE
+
+SATISFIABLE
+x1 = TRUE, x2 = FALSE, x3 = TRUE, x4 = FALSE, x5 = TRUE
+Number of branches: 3
+Number of conflicts: 1

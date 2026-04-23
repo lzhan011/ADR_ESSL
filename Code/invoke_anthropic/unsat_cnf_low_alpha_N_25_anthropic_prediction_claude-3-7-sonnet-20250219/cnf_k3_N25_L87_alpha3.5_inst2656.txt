@@ -1,0 +1,187 @@
+c Random 3-SAT
+c alpha=3.5, N=25, L=87, instance=2656
+p cnf 25 87
+-10 7 -11 0
+2 -6 -23 0
+9 20 -21 0
+-13 19 -11 0
+15 -9 23 0
+-3 -15 -4 0
+-2 -9 -17 0
+-9 -24 19 0
+-14 1 9 0
+-8 -15 -13 0
+-15 -12 25 0
+14 3 11 0
+-15 13 -6 0
+9 -14 6 0
+-12 -8 16 0
+-9 1 -15 0
+24 2 1 0
+-13 17 2 0
+12 23 4 0
+-9 -13 -16 0
+24 -4 -5 0
+19 -7 2 0
+12 3 2 0
+21 -6 -2 0
+-1 -21 -2 0
+-15 -21 -19 0
+-8 19 -22 0
+-15 -20 -11 0
+18 -19 7 0
+-4 21 -16 0
+21 9 7 0
+8 12 11 0
+-16 -5 -9 0
+-13 -6 -17 0
+-14 2 19 0
+-17 -24 -22 0
+15 -11 -16 0
+-22 20 10 0
+-12 -4 -20 0
+12 -13 -1 0
+-1 -4 15 0
+-24 15 -10 0
+-20 -15 23 0
+-3 24 9 0
+19 -23 -16 0
+-1 3 -5 0
+8 -17 -2 0
+-22 -2 1 0
+19 22 -9 0
+-25 13 23 0
+-15 3 -7 0
+12 -20 14 0
+-8 -10 -22 0
+-19 15 -9 0
+23 -8 -16 0
+7 -23 -12 0
+-15 1 -3 0
+-7 12 25 0
+13 -10 17 0
+-8 17 -24 0
+-3 -7 -5 0
+19 -14 -1 0
+-14 5 -17 0
+-15 -7 8 0
+-24 7 3 0
+10 13 6 0
+10 -14 4 0
+20 10 -18 0
+12 15 -20 0
+-25 -11 -23 0
+8 14 -12 0
+-24 21 15 0
+-23 12 -14 0
+-9 -14 -25 0
+-15 -14 -1 0
+23 -21 19 0
+16 -4 20 0
+25 -10 -15 0
+-17 -21 -10 0
+-18 -9 24 0
+-13 -11 16 0
+-17 -7 -16 0
+-15 -16 17 0
+-8 -4 -20 0
+-17 -3 16 0
+-15 -11 -20 0
+-17 -3 4 0
+
+c GPT solve time: 16.61 seconds
+
+I'll solve this 3-CNF formula using the DPLL (Davis-Putnam-Logemann-Loveland) algorithm with unit propagation and backtracking.
+
+Let me start by making decisions and performing unit propagation:
+
+Decision 1: x1 = true
+No unit clauses created.
+
+Decision 2: x2 = true
+No unit clauses created.
+
+Decision 3: x3 = true
+No unit clauses created.
+
+Decision 4: x4 = true
+Checking clause (¬x3 ∨ ¬x15 ∨ ¬x4): Since x3 = true and x4 = true, we need ¬x15 to be true, so x15 = false.
+
+With x15 = false, let's propagate:
+- Clause (x15 ∨ ¬x9 ∨ x23): Since x15 = false, either ¬x9 or x23 must be true.
+- Clause (x15 ∨ ¬x11 ∨ ¬x16): Since x15 = false, either ¬x11 or ¬x16 must be true.
+- Several other clauses are affected but not yet unit.
+
+Decision 5: x5 = true
+No new unit clauses.
+
+Decision 6: x6 = true
+No new unit clauses.
+
+Decision 7: x7 = true
+No new unit clauses.
+
+Decision 8: x8 = true
+No new unit clauses.
+
+Decision 9: x9 = true
+With x9 = true and x15 = false (from earlier propagation), from clause (x15 ∨ ¬x9 ∨ x23), we get x23 = true.
+
+With x23 = true, propagating further:
+From clause (x2 ∨ ¬x6 ∨ ¬x23): Since x2 = true and x23 = true, no constraints.
+
+Decision 10: x10 = true
+No new unit clauses.
+
+Decision 11: x11 = true
+With x11 = true and x15 = false, from clause (x15 ∨ ¬x11 ∨ ¬x16), we get ¬x16, so x16 = false.
+
+Decision 12: x12 = true
+No new unit clauses.
+
+Decision 13: x13 = true
+From clause (¬x9 ∨ ¬x13 ∨ ¬x16): Since x9 = true, x13 = true, and we already have x16 = false, this clause is satisfied.
+
+Decision 14: x14 = true
+No new unit clauses.
+
+Decision 15: x17 = true
+From clause (¬x2 ∨ ¬x9 ∨ ¬x17): Since x2 = true, x9 = true, and x17 = true, we have a conflict!
+
+Backtrack to Decision 15 and try x17 = false.
+No conflicts arise.
+
+Decision 16: x18 = true
+No conflicts.
+
+Decision 17: x19 = true
+No conflicts.
+
+Decision 18: x20 = true
+From clause (¬x15 ∨ ¬x20 ∨ ¬x11): Since x15 = false, x20 = true, and x11 = true, we have a conflict!
+
+Backtrack to Decision 18 and try x20 = false.
+No conflicts arise.
+
+Decision 19: x21 = true
+No conflicts.
+
+Decision 20: x22 = true
+No conflicts.
+
+Decision 21: x24 = true
+No conflicts.
+
+Decision 22: x25 = true
+From clause (¬x25 ∨ ¬x11 ∨ ¬x23): Since x25 = true, x11 = true, and x23 = true, we have a conflict!
+
+Backtrack to Decision 22 and try x25 = false.
+No conflicts arise.
+
+I've now assigned values to all variables and found a satisfying assignment:
+x1 = true, x2 = true, x3 = true, x4 = true, x5 = true, x6 = true, x7 = true, x8 = true, x9 = true, x10 = true, x11 = true, x12 = true, x13 = true, x14 = true, x15 = false, x16 = false, x17 = false, x18 = true, x19 = true, x20 = false, x21 = true, x22 = true, x23 = true, x24 = true, x25 = false
+
+SATISFIABLE
+Number of branches: 22
+Number of conflicts: 3
+x1=true, x2=true, x3=true, x4=true, x5=true, x6=true, x7=true, x8=true, x9=true, x10=true, x11=true, x12=true, x13=true, x14=true, x15=false, x16=false, x17=false, x18=true, x19=true, x20=false, x21=true, x22=true, x23=true, x24=true, x25=false

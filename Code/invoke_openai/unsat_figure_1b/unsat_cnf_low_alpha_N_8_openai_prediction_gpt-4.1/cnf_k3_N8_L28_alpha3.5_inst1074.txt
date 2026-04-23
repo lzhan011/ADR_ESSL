@@ -1,0 +1,264 @@
+c Random 3-SAT
+c alpha=3.5, N=8, L=28, instance=1074
+p cnf 8 28
+2 4 -1 0
+-2 -8 -3 0
+2 8 3 0
+3 8 4 0
+5 -7 -4 0
+5 8 7 0
+3 -2 -4 0
+7 -6 8 0
+-1 -3 8 0
+-8 3 6 0
+-3 7 -5 0
+5 6 -7 0
+7 4 -5 0
+-3 -2 -7 0
+-7 2 8 0
+-5 6 -8 0
+5 4 -8 0
+7 1 2 0
+-7 1 -4 0
+-8 6 -5 0
+-8 -7 1 0
+-5 -4 -2 0
+-4 -7 -3 0
+4 8 -6 0
+-1 2 -6 0
+-8 6 -3 0
+5 -1 6 0
+-2 -1 -8 0
+
+c GPT solve time: 56.06 seconds
+
+Step-by-step DPLL-style SAT solving:
+
+**Step 1: List variables**
+Variables: x1, x2, x3, x4, x5, x6, x7, x8
+
+**Step 2: Start branching and unit propagation**
+
+Let's pick x1 = True (Branch 1)
+
+- Clause 1: (x2 ∨ x4 ∨ ¬x1) → (x2 ∨ x4 ∨ False) → (x2 ∨ x4)
+- Clause 9: (¬x1 ∨ ¬x3 ∨ x8) → (False ∨ ¬x3 ∨ x8) → (¬x3 ∨ x8)
+- Clause 19: (¬x7 ∨ x1 ∨ ¬x4) → (¬x7 ∨ True ∨ ¬x4) → (True) (satisfied)
+- Clause 25: (¬x1 ∨ x2 ∨ ¬x6) → (False ∨ x2 ∨ ¬x6) → (x2 ∨ ¬x6)
+- Clause 28: (x5 ∨ ¬x1 ∨ x6) → (x5 ∨ False ∨ x6) → (x5 ∨ x6)
+- Clause 27: (¬x2 ∨ ¬x1 ∨ ¬x8) → (¬x2 ∨ False ∨ ¬x8) → (¬x2 ∨ ¬x8)
+
+No unit clauses yet. Let's pick x2 = True (Branch 2)
+
+- Clause 1: (x2 ∨ x4) → (True ∨ x4) → (True) (satisfied)
+- Clause 2: (¬x2 ∨ ¬x8 ∨ ¬x3) → (False ∨ ¬x8 ∨ ¬x3) → (¬x8 ∨ ¬x3)
+- Clause 3: (x2 ∨ x8 ∨ x3) → (True ∨ x8 ∨ x3) → (True) (satisfied)
+- Clause 7: (x3 ∨ ¬x2 ∨ ¬x4) → (x3 ∨ False ∨ ¬x4) → (x3 ∨ ¬x4)
+- Clause 14: (¬x3 ∨ ¬x2 ∨ ¬x7) → (¬x3 ∨ False ∨ ¬x7) → (¬x3 ∨ ¬x7)
+- Clause 15: (¬x7 ∨ x2 ∨ x8) → (¬x7 ∨ True ∨ x8) → (True) (satisfied)
+- Clause 25: (x2 ∨ ¬x6) → (True ∨ ¬x6) → (True) (satisfied)
+- Clause 27: (¬x2 ∨ ¬x8) → (False ∨ ¬x8) → (¬x8)
+
+Now, clause 27 gives us a unit clause: (¬x8) ⇒ x8 = False
+
+Propagate x8 = False
+
+- Clause 2: (¬x8 ∨ ¬x3) → (True ∨ ¬x3) → (True) (satisfied)
+- Clause 4: (x3 ∨ x8 ∨ x4) → (x3 ∨ False ∨ x4) → (x3 ∨ x4)
+- Clause 6: (x5 ∨ x8 ∨ x7) → (x5 ∨ False ∨ x7) → (x5 ∨ x7)
+- Clause 8: (x7 ∨ ¬x6 ∨ x8) → (x7 ∨ ¬x6 ∨ False) → (x7 ∨ ¬x6)
+- Clause 9: (¬x3 ∨ x8) → (¬x3 ∨ False) → (¬x3)
+- Clause 10: (¬x8 ∨ x3 ∨ x6) → (True ∨ x3 ∨ x6) → (True) (satisfied)
+- Clause 15: (¬x7 ∨ x2 ∨ x8) → (¬x7 ∨ True ∨ False) → (True) (satisfied)
+- Clause 16: (¬x5 ∨ x6 ∨ ¬x8) → (¬x5 ∨ x6 ∨ True) → (True) (satisfied)
+- Clause 17: (x5 ∨ x4 ∨ ¬x8) → (x5 ∨ x4 ∨ True) → (True) (satisfied)
+- Clause 20: (¬x8 ∨ x6 ∨ ¬x5) → (True ∨ x6 ∨ ¬x5) → (True) (satisfied)
+- Clause 21: (¬x8 ∨ ¬x7 ∨ x1) → (True ∨ ¬x7 ∨ x1) → (True) (satisfied)
+- Clause 24: (x4 ∨ x8 ∨ ¬x6) → (x4 ∨ False ∨ ¬x6) → (x4 ∨ ¬x6)
+- Clause 26: (¬x8 ∨ x6 ∨ ¬x3) → (True ∨ x6 ∨ ¬x3) → (True) (satisfied)
+- Clause 27: already used
+
+Clause 9: (¬x3) ⇒ x3 = False
+
+Propagate x3 = False
+
+- Clause 4: (x3 ∨ x4) → (False ∨ x4) → (x4)
+- Clause 7: (x3 ∨ ¬x4) → (False ∨ ¬x4) → (¬x4)
+- Clause 11: (¬x3 ∨ x7 ∨ ¬x5) → (True ∨ x7 ∨ ¬x5) → (True) (satisfied)
+- Clause 13: (x7 ∨ x4 ∨ ¬x5) → (x7 ∨ x4 ∨ ¬x5)
+- Clause 14: (¬x3 ∨ ¬x7) → (True ∨ ¬x7) → (True) (satisfied)
+- Clause 23: (¬x4 ∨ ¬x7 ∨ ¬x3) → (¬x4 ∨ ¬x7 ∨ True) → (True) (satisfied)
+- Clause 26: (¬x8 ∨ x6 ∨ ¬x3) → (True ∨ x6 ∨ True) → (True) (satisfied)
+
+Now, clause 4: (x4)
+Clause 7: (¬x4)
+
+Conflict! x4 = True and x4 = False
+
+**Step 3: Backtrack**
+
+Backtrack to last decision: x2 = True → x2 = False (Branch 3, Conflict 1)
+
+Now, x2 = False
+
+- Clause 1: (x2 ∨ x4) → (False ∨ x4) → (x4)
+- Clause 2: (¬x2 ∨ ¬x8 ∨ ¬x3) → (True ∨ ¬x8 ∨ ¬x3) → (True) (satisfied)
+- Clause 3: (x2 ∨ x8 ∨ x3) → (False ∨ x8 ∨ x3) → (x8 ∨ x3)
+- Clause 7: (x3 ∨ ¬x2 ∨ ¬x4) → (x3 ∨ True ∨ ¬x4) → (True) (satisfied)
+- Clause 14: (¬x3 ∨ ¬x2 ∨ ¬x7) → (¬x3 ∨ True ∨ ¬x7) → (True) (satisfied)
+- Clause 15: (¬x7 ∨ x2 ∨ x8) → (¬x7 ∨ False ∨ x8) → (¬x7 ∨ x8)
+- Clause 25: (x2 ∨ ¬x6) → (False ∨ ¬x6) → (¬x6)
+- Clause 27: (¬x2 ∨ ¬x8) → (True ∨ ¬x8) → (True) (satisfied)
+
+Clause 1: (x4)
+Clause 25: (¬x6)
+
+So, x4 = True, x6 = False
+
+Propagate x4 = True
+
+- Clause 5: (x5 ∨ ¬x7 ∨ ¬x4) → (x5 ∨ ¬x7 ∨ False) → (x5 ∨ ¬x7)
+- Clause 7: already satisfied
+- Clause 13: (x7 ∨ x4 ∨ ¬x5) → (x7 ∨ True ∨ ¬x5) → (True) (satisfied)
+- Clause 17: (x5 ∨ x4 ∨ ¬x8) → (x5 ∨ True ∨ ¬x8) → (True) (satisfied)
+- Clause 22: (¬x5 ∨ ¬x4 ∨ ¬x2) → (¬x5 ∨ False ∨ True) → (¬x5 ∨ True) → (True) (satisfied)
+- Clause 23: (¬x4 ∨ ¬x7 ∨ ¬x3) → (False ∨ ¬x7 ∨ ¬x3) → (¬x7 ∨ ¬x3)
+
+Clause 3: (x8 ∨ x3)
+Clause 5: (x5 ∨ ¬x7)
+Clause 8: (x7 ∨ ¬x6) → (x7 ∨ True) → (True) (satisfied)
+Clause 15: (¬x7 ∨ x8)
+Clause 23: (¬x7 ∨ ¬x3)
+
+Clause 25: x6 = False
+
+Now, let's try x8 = True (Branch 4)
+
+Clause 3: (x8 ∨ x3) → (True ∨ x3) → (True) (satisfied)
+Clause 15: (¬x7 ∨ x8) → (¬x7 ∨ True) → (True) (satisfied)
+
+Now, remaining: (x5 ∨ ¬x7), (¬x7 ∨ ¬x3)
+
+Let's try x7 = True (Branch 5)
+
+Clause 5: (x5 ∨ ¬x7) → (x5 ∨ False) → (x5)
+Clause 23: (¬x7 ∨ ¬x3) → (False ∨ ¬x3) → (¬x3)
+
+So, x5 = True, x3 = False
+
+Now, check if all clauses are satisfied with current assignments:
+
+Assignments:
+x1 = True (from Branch 1)
+x2 = False (from Branch 3)
+x4 = True
+x6 = False
+x8 = True (from Branch 4)
+x7 = True (from Branch 5)
+x5 = True
+x3 = False
+
+Check all clauses:
+
+1. (x2 ∨ x4 ∨ ¬x1): (False ∨ True ∨ False) = True
+2. (¬x2 ∨ ¬x8 ∨ ¬x3): (True ∨ False ∨ True) = True
+3. (x2 ∨ x8 ∨ x3): (False ∨ True ∨ False) = True
+4. (x3 ∨ x8 ∨ x4): (False ∨ True ∨ True) = True
+5. (x5 ∨ ¬x7 ∨ ¬x4): (True ∨ False ∨ False) = True
+6. (x5 ∨ x8 ∨ x7): (True ∨ True ∨ True) = True
+7. (x3 ∨ ¬x2 ∨ ¬x4): (False ∨ True ∨ False) = True
+8. (x7 ∨ ¬x6 ∨ x8): (True ∨ True ∨ True) = True
+9. (¬x1 ∨ ¬x3 ∨ x8): (False ∨ True ∨ True) = True
+10. (¬x8 ∨ x3 ∨ x6): (False ∨ False ∨ False) = False
+
+Clause 10 is not satisfied! (¬x8 ∨ x3 ∨ x6): (False ∨ False ∨ False) = False
+
+So, conflict. Backtrack x7 = False (Branch 6, Conflict 2)
+
+Now, x7 = False
+
+Clause 5: (x5 ∨ ¬x7) → (x5 ∨ True) → (True)
+Clause 23: (¬x7 ∨ ¬x3) → (True ∨ ¬x3) → (True)
+
+Now, all clauses with current assignments:
+
+x1 = True
+x2 = False
+x4 = True
+x6 = False
+x8 = True
+x7 = False
+
+Now, assign x5 and x3.
+
+Clause 13: (x7 ∨ x4 ∨ ¬x5): (False ∨ True ∨ ¬x5) → (True ∨ ¬x5) → True
+Clause 11: (¬x3 ∨ x7 ∨ ¬x5): (¬x3 ∨ False ∨ ¬x5) → (¬x3 ∨ ¬x5)
+Clause 3: (x2 ∨ x8 ∨ x3): (False ∨ True ∨ x3) → (True ∨ x3) → True
+
+Clause 10: (¬x8 ∨ x3 ∨ x6): (False ∨ x3 ∨ False) → (x3)
+
+So, x3 must be True.
+
+Clause 11: (¬x3 ∨ ¬x5): (False ∨ ¬x5) → (¬x5)
+
+So, x5 = False
+
+Now, check all clauses:
+
+1. (x2 ∨ x4 ∨ ¬x1): (False ∨ True ∨ False) = True
+2. (¬x2 ∨ ¬x8 ∨ ¬x3): (True ∨ False ∨ False) = True
+3. (x2 ∨ x8 ∨ x3): (False ∨ True ∨ True) = True
+4. (x3 ∨ x8 ∨ x4): (True ∨ True ∨ True) = True
+5. (x5 ∨ ¬x7 ∨ ¬x4): (False ∨ True ∨ False) = True
+6. (x5 ∨ x8 ∨ x7): (False ∨ True ∨ False) = True
+7. (x3 ∨ ¬x2 ∨ ¬x4): (True ∨ True ∨ False) = True
+8. (x7 ∨ ¬x6 ∨ x8): (False ∨ True ∨ True) = True
+9. (¬x1 ∨ ¬x3 ∨ x8): (False ∨ False ∨ True) = True
+10. (¬x8 ∨ x3 ∨ x6): (False ∨ True ∨ False) = True
+11. (¬x3 ∨ x7 ∨ ¬x5): (False ∨ False ∨ True) = True
+12. (x5 ∨ x6 ∨ ¬x7): (False ∨ False ∨ True) = True
+13. (x7 ∨ x4 ∨ ¬x5): (False ∨ True ∨ True) = True
+14. (¬x3 ∨ ¬x2 ∨ ¬x7): (False ∨ True ∨ True) = True
+15. (¬x7 ∨ x2 ∨ x8): (True ∨ False ∨ True) = True
+16. (¬x5 ∨ x6 ∨ ¬x8): (True ∨ False ∨ False) = True
+17. (x5 ∨ x4 ∨ ¬x8): (False ∨ True ∨ False) = True
+18. (x7 ∨ x1 ∨ x2): (False ∨ True ∨ False) = True
+19. (¬x7 ∨ x1 ∨ ¬x4): (True ∨ True ∨ False) = True
+20. (¬x8 ∨ x6 ∨ ¬x5): (False ∨ False ∨ True) = True
+21. (¬x8 ∨ ¬x7 ∨ x1): (False ∨ True ∨ True) = True
+22. (¬x5 ∨ ¬x4 ∨ ¬x2): (True ∨ False ∨ True) = True
+23. (¬x4 ∨ ¬x7 ∨ ¬x3): (False ∨ True ∨ False) = True
+24. (x4 ∨ x8 ∨ ¬x6): (True ∨ True ∨ True) = True
+25. (¬x1 ∨ x2 ∨ ¬x6): (False ∨ False ∨ True) = True
+26. (¬x8 ∨ x6 ∨ ¬x3): (False ∨ False ∨ False) = False
+
+Clause 26: (¬x8 ∨ x6 ∨ ¬x3): (False ∨ False ∨ False) = False
+
+Conflict! Backtrack x8 = False (Branch 7, Conflict 3)
+
+Now, x8 = False
+
+Clause 3: (x8 ∨ x3): (False ∨ x3) → (x3)
+Clause 15: (¬x7 ∨ x8): (¬x7 ∨ False) → (¬x7)
+
+So, x3 = True, x7 = False
+
+Now, assign x5.
+
+Clause 11: (¬x3 ∨ x7 ∨ ¬x5): (False ∨ False ∨ ¬x5) → (¬x5)
+So, x5 = False
+
+Now, check all clauses:
+
+x1 = True
+x2 = False
+x4 = True
+x6 = False
+x8 = False
+x3 = True
+x7 = False
+x5 = False
+
+Check all clauses:
+
+1. (x2 ∨ x4 ∨ ¬x1):

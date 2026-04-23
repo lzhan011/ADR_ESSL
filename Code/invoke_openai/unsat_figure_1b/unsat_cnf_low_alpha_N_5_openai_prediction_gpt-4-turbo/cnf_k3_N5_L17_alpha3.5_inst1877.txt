@@ -1,0 +1,113 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1877
+p cnf 5 17
+2 -4 -1 0
+3 -2 -4 0
+5 2 3 0
+4 1 -5 0
+1 -4 2 0
+5 -1 -2 0
+4 -3 -5 0
+5 2 1 0
+-2 -3 1 0
+-1 4 -5 0
+-5 2 3 0
+5 -3 2 0
+4 3 5 0
+5 4 3 0
+-3 -1 -4 0
+-4 -3 2 0
+5 4 -3 0
+
+c GPT solve time: 15.33 seconds
+
+To solve the given 3-CNF formula, we will use the DPLL (Davis-Putnam-Logemann-Loveland) algorithm, which involves choosing a literal, assigning a truth value to it, simplifying the formula, and recursively checking if the resulting formula is satisfiable. If a contradiction is found, the algorithm backtracks and tries the opposite truth value for the literal.
+
+1. **Choose x1 = True**  
+   Simplify the formula:
+   - (x2 ∨ ¬x4)
+   - (x3 ∨ ¬x2 ∨ ¬x4)
+   - (x5 ∨ x2 ∨ x3)
+   - (x4 ∨ ¬x5)
+   - (¬x4 ∨ x2)
+   - (x5 ∨ ¬x2)
+   - (x4 ∨ ¬x3 ∨ ¬x5)
+   - (x5 ∨ x2)
+   - (¬x2 ∨ ¬x3)
+   - (x4 ∨ ¬x5)
+   - (¬x5 ∨ x2 ∨ x3)
+   - (x5 ∨ ¬x3 ∨ x2)
+   - (x4 ∨ x3 ∨ x5)
+   - (x5 ∨ x4 ∨ x3)
+   - (¬x3 ∨ ¬x4)
+   - (¬x4 ∨ ¬x3 ∨ x2)
+   - (x5 ∨ x4 ∨ ¬x3)
+
+2. **Choose x2 = True**  
+   Simplify the formula:
+   - (¬x4)
+   - (x3 ∨ ¬x4)
+   - (x5 ∨ x3)
+   - (x4 ∨ ¬x5)
+   - (x5)
+   - (x4 ∨ ¬x3 ∨ ¬x5)
+   - (¬x3)
+   - (x4 ∨ ¬x5)
+   - (x5 ∨ x3)
+   - (x5 ∨ ¬x3)
+   - (x4 ∨ x3 ∨ x5)
+   - (x5 ∨ x4 ∨ x3)
+   - (¬x3 ∨ ¬x4)
+   - (¬x4 ∨ ¬x3)
+   - (x5 ∨ x4 ∨ ¬x3)
+
+3. **Choose x3 = False**  
+   Simplify the formula:
+   - (¬x4)
+   - (x5)
+   - (x4 ∨ ¬x5)
+   - (x5)
+   - (x4 ∨ ¬x5)
+   - (x5)
+   - (x5)
+   - (x5 ∨ x4)
+   - (¬x4)
+
+4. **Choose x4 = False**  
+   Simplify the formula:
+   - (x5)
+   - (¬x5)
+   - (x5)
+   - (¬x5)
+   - (x5)
+   - (x5)
+   - (x5)
+
+   Conflict detected as x5 and ¬x5 cannot both be true.
+
+5. **Backtrack and choose x4 = True**  
+   Simplify the formula:
+   - (x5)
+   - (x5)
+   - (x5)
+   - (x5)
+   - (x5)
+   - (x5)
+   - (x5)
+
+   No conflict detected.
+
+6. **Choose x5 = True**  
+   All clauses are satisfied.
+
+**Conclusion:**
+- The formula is SATISFIABLE.
+- Number of branches: 4 (x1, x2, x3, x4)
+- Number of conflicts: 1 (when x4 was initially set to False)
+
+**Literal values:**
+- x1 = True
+- x2 = True
+- x3 = False
+- x4 = True
+- x5 = True

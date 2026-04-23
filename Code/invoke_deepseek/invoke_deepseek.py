@@ -1,9 +1,9 @@
 import requests
 import json
 import time
-
+import os
 # 替换成你的 DeepSeek API Key
-API_KEY = os.environ["DEEPSEEK_API_KEY"]
+API_KEY = os.environ.get("DEEPSEEK_API_KEY")
 API_URL = 'https://api.deepseek.com/v1/chat/completions'  # 假设 DeepSeek 接口遵循 OpenAI 格式
 
 HEADERS = {

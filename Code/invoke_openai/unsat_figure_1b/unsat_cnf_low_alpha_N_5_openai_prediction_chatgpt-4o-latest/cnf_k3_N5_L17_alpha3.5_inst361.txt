@@ -1,0 +1,177 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=361
+p cnf 5 17
+-1 4 5 0
+-3 -5 -4 0
+5 1 -4 0
+1 -2 3 0
+5 -1 -3 0
+3 -1 -5 0
+-1 5 -4 0
+1 4 -5 0
+3 5 1 0
+5 -3 1 0
+-5 2 -4 0
+-1 -5 -3 0
+1 -5 -2 0
+5 3 -1 0
+5 -4 -3 0
+-5 -1 -2 0
+2 3 1 0
+
+c GPT solve time: 31.25 seconds
+
+We will solve the given 3-CNF formula using the DPLL (Davis–Putnam–Logemann–Loveland) algorithm, which is a backtracking-based search algorithm for deciding the satisfiability of propositional logic formulas in CNF.
+
+Step-by-step approach:
+
+Step 1: List all variables
+Variables involved: x1, x2, x3, x4, x5
+
+Step 2: Initialize
+We start with no assignments. We will choose variables to assign and propagate implications. If a conflict arises, we backtrack.
+
+Step 3: Apply unit propagation and pure literal elimination
+There are no unit clauses or pure literals initially, so we proceed with branching.
+
+Step 4: Branching
+We choose x1 = True as the first decision (Branch 1)
+
+→ Propagate x1 = True
+
+Evaluate clauses:
+- Clause (¬x1 ∨ x4 ∨ x5): x1 = True → ¬x1 = False → need x4 or x5 to be True
+- Clause (x5 ∨ x1 ∨ ¬x4): x1 = True → clause is satisfied
+- Clause (x1 ∨ ¬x2 ∨ x3): x1 = True → clause is satisfied
+- Clause (x5 ∨ ¬x1 ∨ ¬x3): x1 = True → ¬x1 = False → need x5 or ¬x3
+- Clause (x3 ∨ ¬x1 ∨ ¬x5): x1 = True → ¬x1 = False → need x3 or ¬x5
+- Clause (¬x1 ∨ x5 ∨ ¬x4): x1 = True → ¬x1 = False → need x5 or ¬x4
+- Clause (x1 ∨ x4 ∨ ¬x5): x1 = True → clause is satisfied
+- Clause (x3 ∨ x5 ∨ x1): x1 = True → clause is satisfied
+- Clause (x5 ∨ ¬x3 ∨ x1): x1 = True → clause is satisfied
+- Clause (¬x5 ∨ x2 ∨ ¬x4): not yet determined
+- Clause (¬x1 ∨ ¬x5 ∨ ¬x3): x1 = True → ¬x1 = False → need ¬x5 or ¬x3
+- Clause (x1 ∨ ¬x5 ∨ ¬x2): x1 = True → clause is satisfied
+- Clause (x5 ∨ x3 ∨ ¬x1): x1 = True → ¬x1 = False → need x5 or x3
+- Clause (x5 ∨ ¬x4 ∨ ¬x3): not yet determined
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x2): x1 = True → ¬x1 = False → need ¬x5 or ¬x2
+- Clause (x2 ∨ x3 ∨ x1): x1 = True → clause is satisfied
+
+Still no conflict. Proceed to assign x5 = True (Branch 2)
+
+→ Propagate x5 = True
+
+Evaluate:
+- Clause (¬x1 ∨ x4 ∨ x5): x1 = True → ¬x1 = False → x5 = True → clause satisfied
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x4): x5 = True → ¬x5 = False → need ¬x3 or ¬x4
+- Clause (x5 ∨ x1 ∨ ¬x4): x5 = True → clause satisfied
+- Clause (x5 ∨ ¬x1 ∨ ¬x3): x5 = True → clause satisfied
+- Clause (x3 ∨ ¬x1 ∨ ¬x5): x1 = True, x5 = True → ¬x1 = False, ¬x5 = False → need x3
+- Clause (¬x1 ∨ x5 ∨ ¬x4): x1 = True → ¬x1 = False → x5 = True → clause satisfied
+- Clause (x1 ∨ x4 ∨ ¬x5): x1 = True → clause satisfied
+- Clause (x3 ∨ x5 ∨ x1): x1 = True → clause satisfied
+- Clause (x5 ∨ ¬x3 ∨ x1): x1 = True → clause satisfied
+- Clause (¬x5 ∨ x2 ∨ ¬x4): x5 = True → ¬x5 = False → need x2 or ¬x4
+- Clause (¬x1 ∨ ¬x5 ∨ ¬x3): x1 = True, x5 = True → ¬x1 = False, ¬x5 = False → need ¬x3
+- Clause (x5 ∨ x3 ∨ ¬x1): x5 = True → clause satisfied
+- Clause (x5 ∨ ¬x4 ∨ ¬x3): x5 = True → clause satisfied
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x2): x1 = True, x5 = True → ¬x5 = False, ¬x1 = False → need ¬x2
+- Clause (x2 ∨ x3 ∨ x1): x1 = True → clause satisfied
+
+From above, we see that several clauses now require x3 = False or x3 = True. Let's try x3 = False (Branch 3)
+
+→ Propagate x3 = False
+
+Now evaluate:
+- Clause (x3 ∨ ¬x1 ∨ ¬x5): x3 = False, x1 = True, x5 = True → all literals False → CONFLICT
+
+→ Conflict 1 → Backtrack
+
+Backtrack to x3 = True (Branch 4)
+
+→ Propagate x3 = True
+
+Now evaluate:
+- Clause (¬x3 ∨ ¬x5 ∨ ¬x4): x3 = True, x5 = True → ¬x3 = False, ¬x5 = False → need ¬x4
+- Clause (x3 ∨ ¬x1 ∨ ¬x5): x3 = True → clause satisfied
+- Clause (¬x1 ∨ ¬x5 ∨ ¬x3): all negations → all False → CONFLICT
+
+→ Conflict 2 → Backtrack
+
+Backtrack to x5 = False (Branch 5)
+
+→ x1 = True, x5 = False
+
+Evaluate:
+- Clause (x1 ∨ x4 ∨ ¬x5): x1 = True → clause satisfied
+- Clause (x5 ∨ x1 ∨ ¬x4): x1 = True → clause satisfied
+- Clause (x5 ∨ ¬x1 ∨ ¬x3): x5 = False, x1 = True → ¬x1 = False → need ¬x3
+- Clause (x3 ∨ ¬x1 ∨ ¬x5): x1 = True, x5 = False → ¬x1 = False, ¬x5 = True → clause satisfied
+- Clause (¬x1 ∨ x5 ∨ ¬x4): x1 = True, x5 = False → ¬x1 = False, x5 = False → need ¬x4
+- Clause (¬x5 ∨ x2 ∨ ¬x4): x5 = False → ¬x5 = True → clause satisfied
+- Clause (¬x1 ∨ ¬x5 ∨ ¬x3): x1 = True, x5 = False → ¬x1 = False, ¬x5 = True → clause satisfied
+- Clause (x1 ∨ ¬x5 ∨ ¬x2): x1 = True → clause satisfied
+- Clause (x5 ∨ x3 ∨ ¬x1): x5 = False, x1 = True → ¬x1 = False → need x3
+- Clause (x5 ∨ ¬x4 ∨ ¬x3): x5 = False → need ¬x4 or ¬x3
+- Clause (¬x5 ∨ ¬x1 ∨ ¬x2): x5 = False, x1 = True → ¬x5 = True → clause satisfied
+
+Try x3 = True (Branch 6)
+
+→ x1 = True, x5 = False, x3 = True
+
+Evaluate:
+- Clause (x5 ∨ x3 ∨ ¬x1): x5 = False, x3 = True → clause satisfied
+- Clause (x5 ∨ ¬x4 ∨ ¬x3): x5 = False, x3 = True → ¬x3 = False → need ¬x4
+- Clause (x5 ∨ ¬x1 ∨ ¬x3): x5 = False, x1 = True, x3 = True → all negations False → CONFLICT
+
+→ Conflict 3 → Backtrack
+
+Try x3 = False (Branch 7)
+
+→ x1 = True, x5 = False, x3 = False
+
+Evaluate:
+- Clause (x5 ∨ x3 ∨ ¬x1): x5 = False, x3 = False, x1 = True → ¬x1 = False → clause unsatisfied → CONFLICT
+
+→ Conflict 4 → Backtrack
+
+Backtrack to x1 = False (Branch 8)
+
+→ x1 = False
+
+Try x5 = True (Branch 9)
+
+→ x1 = False, x5 = True
+
+Try x3 = True (Branch 10)
+
+→ x1 = False, x5 = True, x3 = True
+
+Try x2 = True (Branch 11)
+
+→ x1 = False, x5 = True, x3 = True, x2 = True
+
+Try x4 = False (Branch 12)
+
+→ All variables assigned
+
+Check all clauses — all satisfied.
+
+✅ Satisfiable assignment found:
+x1 = False  
+x2 = True  
+x3 = True  
+x4 = False  
+x5 = True
+
+Final Output:
+
+- SATISFIABLE  
+- Number of branches: 12  
+- Number of conflicts: 4  
+- Assignment:  
+  x1 = False  
+  x2 = True  
+  x3 = True  
+  x4 = False  
+  x5 = True

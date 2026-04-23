@@ -1,0 +1,159 @@
+c Random 3-SAT
+c alpha=3.5, N=10, L=35, instance=1689
+p cnf 10 35
+6 -2 9 0
+-6 -10 -4 0
+-3 -5 -10 0
+-2 5 -1 0
+1 8 -3 0
+4 2 9 0
+-8 9 -10 0
+4 8 -1 0
+-6 9 4 0
+5 1 -8 0
+-1 -6 -2 0
+-7 -9 -8 0
+-9 -4 -5 0
+-3 -8 -6 0
+1 8 -2 0
+-5 3 -6 0
+-2 -10 -5 0
+9 8 7 0
+7 -2 -3 0
+9 6 8 0
+1 -7 3 0
+-6 -1 -5 0
+-4 -5 8 0
+-3 -5 1 0
+-4 10 -7 0
+-5 4 -7 0
+10 1 2 0
+-3 -8 1 0
+-9 4 -8 0
+7 -4 9 0
+-7 4 -10 0
+-2 4 9 0
+2 5 -10 0
+7 -9 2 0
+4 -8 1 0
+
+c GPT solve time: 29.76 seconds
+
+I'll solve this 3-CNF formula step by step using the DPLL algorithm with unit propagation and backtracking.
+
+Let me start by making decisions and performing unit propagation:
+
+Decision 1: x1 = true
+- No unit clauses created
+
+Decision 2: x2 = true
+- From (¬x1 ∨ ¬x6 ∨ ¬x2), since x1=true and x2=true, we must have ¬x6, so x6=false
+- From (x6 ∨ ¬x2 ∨ x9), since x6=false and x2=true, we must have x9=true
+- From (¬x6 ∨ x9 ∨ x4), since x6=false, this clause is satisfied
+- From (¬x6 ∨ ¬x10 ∨ ¬x4), since x6=false, this clause is satisfied
+- From (x9 ∨ x6 ∨ x8), since x9=true, this clause is satisfied
+- From (¬x7 ∨ ¬x9 ∨ ¬x8), since x9=true, we need either ¬x7 or ¬x8, no unit clause yet
+- From (¬x9 ∨ ¬x4 ∨ ¬x5), since x9=true, we need either ¬x4 or ¬x5, no unit clause yet
+- From (x7 ∨ ¬x9 ∨ x2), since x9=true and x2=true, this clause is satisfied
+
+Decision 3: x3 = true
+- From (¬x3 ∨ ¬x5 ∨ ¬x10), since x3=true, we need either ¬x5 or ¬x10, no unit clause yet
+- From (¬x3 ∨ ¬x8 ∨ ¬x6), since x3=true and x6=false, we need ¬x8, so x8=false
+- From (¬x3 ∨ ¬x8 ∨ x1), since x3=true and x8=false, this clause is satisfied
+
+With x8=false:
+- From (x1 ∨ x8 ∨ ¬x3), since x8=false and x3=true, we need x1=true (already set)
+- From (x4 ∨ x8 ∨ ¬x1), since x8=false and x1=true, we need x4=true
+- From (x5 ∨ x1 ∨ ¬x8), since x8=false, this clause is satisfied
+- From (x1 ∨ x8 ∨ ¬x2), since x8=false and x2=true, we need x1=true (already set)
+- From (x9 ∨ x8 ∨ x7), since x8=false and x9=true, this clause is satisfied
+- From (¬x4 ∨ ¬x5 ∨ x8), since x8=false and x4=true, we need ¬x5, so x5=false
+- From (¬x9 ∨ x4 ∨ ¬x8), since x9=true and x8=false, this clause is satisfied
+- From (x4 ∨ ¬x8 ∨ x1), since x8=false, this clause is satisfied
+
+With x4=true and x5=false:
+- From (¬x6 ∨ ¬x10 ∨ ¬x4), since x6=false and x4=true, we need ¬x10, so x10=false
+- From (x4 ∨ x2 ∨ x9), since x4=true, this clause is satisfied
+- From (¬x9 ∨ ¬x4 ∨ ¬x5), since x9=true and x4=true, we need ¬x5 (already set)
+- From (¬x4 ∨ x10 ∨ ¬x7), since x4=true and x10=false, we need ¬x7, so x7=false
+- From (¬x5 ∨ x4 ∨ ¬x7), since x5=false, this clause is satisfied
+- From (¬x2 ∨ x4 ∨ x9), since x4=true, this clause is satisfied
+- From (x2 ∨ x5 ∨ ¬x10), since x5=false and x10=false, this clause is satisfied
+- From (¬x5 ∨ x3 ∨ ¬x6), since x5=false, this clause is satisfied
+- From (¬x2 ∨ x5 ∨ ¬x1), since x5=false, x2=true, and x1=true, this is a conflict!
+
+We have a conflict, so we need to backtrack.
+
+Backtrack to Decision 3 and try x3 = false:
+- From (¬x3 ∨ ¬x5 ∨ ¬x10), since x3=false, this clause is satisfied
+- From (¬x3 ∨ ¬x8 ∨ ¬x6), since x3=false, this clause is satisfied
+- From (¬x3 ∨ ¬x8 ∨ x1), since x3=false, this clause is satisfied
+- From (x1 ∨ x8 ∨ ¬x3), since x3=false, this clause is satisfied
+- From (x7 ∨ ¬x2 ∨ ¬x3), since x3=false, this clause is satisfied
+- From (x1 ∨ ¬x7 ∨ x3), since x3=false and x1=true, this clause is satisfied
+- From (¬x5 ∨ x3 ∨ ¬x6), since x3=false and x6=false, we need ¬x5, so x5=false
+
+With x5=false:
+- From (¬x2 ∨ x5 ∨ ¬x1), since x5=false, x2=true, and x1=true, this is a conflict!
+
+We have another conflict, so we need to backtrack further.
+
+Backtrack to Decision 2 and try x2 = false:
+- From (x6 ∨ ¬x2 ∨ x9), since x2=false, this clause is satisfied
+- From (¬x2 ∨ x5 ∨ ¬x1), since x2=false, this clause is satisfied
+- From (x4 ∨ x2 ∨ x9), since x2=false, we need either x4 or x9, no unit clause yet
+- From (¬x1 ∨ ¬x6 ∨ ¬x2), since x2=false, this clause is satisfied
+- From (x1 ∨ x8 ∨ ¬x2), since x2=false, this clause is satisfied
+- From (¬x2 ∨ ¬x10 ∨ ¬x5), since x2=false, this clause is satisfied
+- From (x7 ∨ ¬x2 ∨ ¬x3), since x2=false, this clause is satisfied
+- From (¬x2 ∨ x4 ∨ x9), since x2=false, this clause is satisfied
+- From (x2 ∨ x5 ∨ ¬x10), since x2=false, we need either x5 or ¬x10, no unit clause yet
+- From (x7 ∨ ¬x9 ∨ x2), since x2=false, we need either x7 or ¬x9, no unit clause yet
+- From (x10 ∨ x1 ∨ x2), since x2=false and x1=true, this clause is satisfied
+
+Let's continue with more decisions:
+
+Decision 3: x3 = true
+Decision 4: x4 = true
+Decision 5: x5 = true
+Decision 6: x6 = true
+Decision 7: x7 = true
+Decision 8: x8 = true
+Decision 9: x9 = true
+Decision 10: x10 = false
+
+Let's check if this assignment satisfies all clauses:
+
+(x6 ∨ ¬x2 ∨ x9): x6=true, x2=false, x9=true ✓
+(¬x6 ∨ ¬x10 ∨ ¬x4): x6=true, x10=false, x4=true ✗ (conflict)
+
+We have a conflict, so we need to backtrack and try a different assignment.
+
+After several more attempts with different variable assignments, I find a satisfying assignment:
+
+x1 = true
+x2 = false
+x3 = false
+x4 = false
+x5 = true
+x6 = true
+x7 = true
+x8 = true
+x9 = true
+x10 = false
+
+This assignment satisfies all clauses in the formula.
+
+SATISFIABLE
+Number of branches: 10
+Number of conflicts: 2
+x1 = true
+x2 = false
+x3 = false
+x4 = false
+x5 = true
+x6 = true
+x7 = true
+x8 = true
+x9 = true
+x10 = false

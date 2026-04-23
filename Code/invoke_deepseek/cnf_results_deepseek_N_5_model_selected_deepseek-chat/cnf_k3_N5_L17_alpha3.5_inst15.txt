@@ -1,0 +1,58 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=15
+p cnf 5 17
+-2 1 -5 0
+3 -1 2 0
+1 -3 5 0
+-1 2 5 0
+4 3 -1 0
+1 -5 4 0
+4 5 2 0
+5 3 1 0
+-2 5 -1 0
+2 5 -4 0
+-1 5 3 0
+-5 -2 -3 0
+5 -2 3 0
+-4 5 -2 0
+5 -3 1 0
+4 -5 -1 0
+-1 4 -2 0
+
+To solve this 3-CNF formula, we'll use the DPLL algorithm, which involves making decisions (branching) and backtracking (conflicts) when contradictions are found. Here's the step-by-step process:
+
+1. **Initial Unit Propagation**: No unit clauses exist initially.
+2. **Branching Decisions**:
+   - Decide \( x1 = \text{True} \):
+     - Propagate \( x1 \):
+       - Clauses containing \( x1 \) are satisfied (e.g., \( (¬x2 ∨ x1 ∨ ¬x5) \), \( (x1 ∨ ¬x3 ∨ x5) \), etc.).
+       - Remove satisfied clauses, simplify others.
+     - Next, decide \( x2 = \text{True} \):
+       - Propagate \( x2 \):
+         - Simplify clauses (e.g., \( (x3 ∨ ¬x1 ∨ x2) \) is satisfied).
+       - Next, decide \( x3 = \text{True} \):
+         - Propagate \( x3 \):
+           - Simplify clauses (e.g., \( (x5 ∨ x3 ∨ x1) \) is satisfied).
+         - Next, decide \( x4 = \text{True} \):
+           - Propagate \( x4 \):
+             - Simplify clauses (e.g., \( (x4 ∨ x3 ∨ ¬x1) \) is satisfied).
+           - Next, decide \( x5 = \text{True} \):
+             - Propagate \( x5 \):
+               - Clause \( (¬x5 ∨ ¬x2 ∨ ¬x3) \) becomes \( (¬True ∨ ¬True ∨ ¬True) = \text{False} \), leading to a **conflict**.
+             - Backtrack: \( x5 = \text{False} \):
+               - Propagate \( ¬x5 \):
+                 - Clause \( (x5 ∨ ¬x2 ∨ x3) \) becomes \( (False ∨ ¬True ∨ True) = \text{True} \).
+                 - No conflict, but no further simplification possible.
+                 - All clauses are satisfied with \( x1 = \text{True}, x2 = \text{True}, x3 = \text{True}, x4 = \text{True}, x5 = \text{False} \).
+
+3. **Summary**:
+   - The formula is **SATISFIABLE**.
+   - **Branches (decision points)**: 5 (for \( x1, x2, x3, x4, x5 \)).
+   - **Conflicts (backtracking steps)**: 1 (when \( x5 = \text{True} \) led to a conflict).
+
+Final output:
+```
+SATISFIABLE
+5
+1
+```

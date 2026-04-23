@@ -1,0 +1,216 @@
+c Random 3-SAT
+c alpha=3.5, N=5, L=17, instance=1522
+p cnf 5 17
+-3 1 4 0
+-3 5 1 0
+4 -1 5 0
+3 -4 1 0
+4 3 1 0
+-1 5 4 0
+3 2 -5 0
+-1 -5 -4 0
+1 -5 -4 0
+4 3 1 0
+-4 3 -5 0
+3 -2 1 0
+-2 4 5 0
+-2 -1 -5 0
+1 5 -3 0
+-1 4 -3 0
+-1 5 -4 0
+
+c GPT solve time: 77.96 seconds
+
+Let's solve the formula step by step using the DPLL algorithm (branching and backtracking):
+
+**Variables:** x1, x2, x3, x4, x5
+
+### Step 1: Unit Propagation & Pure Literal Elimination
+No unit clauses or pure literals at the start.
+
+### Step 2: Branch on x1
+
+#### Branch 1: x1 = TRUE
+
+Substitute x1 = TRUE into all clauses:
+
+- (¬x3 ∨ x1 ∨ x4) → TRUE
+- (¬x3 ∨ x5 ∨ x1) → TRUE
+- (x4 ∨ ¬x1 ∨ x5) → (x4 ∨ x5)
+- (x3 ∨ ¬x4 ∨ x1) → TRUE
+- (x4 ∨ x3 ∨ x1) → TRUE
+- (¬x1 ∨ x5 ∨ x4) → (x5 ∨ x4)
+- (x3 ∨ x2 ∨ ¬x5)
+- (¬x1 ∨ ¬x5 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- (x1 ∨ ¬x5 ∨ ¬x4) → TRUE
+- (x4 ∨ x3 ∨ x1) → TRUE
+- (¬x4 ∨ x3 ∨ ¬x5)
+- (x3 ∨ ¬x2 ∨ x1) → TRUE
+- (¬x2 ∨ x4 ∨ x5)
+- (¬x2 ∨ ¬x1 ∨ ¬x5) → (¬x2 ∨ ¬x5)
+- (x1 ∨ x5 ∨ ¬x3) → TRUE
+- (¬x1 ∨ x4 ∨ ¬x3) → (x4 ∨ ¬x3)
+- (¬x1 ∨ x5 ∨ ¬x4) → (x5 ∨ ¬x4)
+
+Now, the simplified formula is:
+1. (x4 ∨ x5)
+2. (x5 ∨ x4)
+3. (x3 ∨ x2 ∨ ¬x5)
+4. (¬x5 ∨ ¬x4)
+5. (¬x4 ∨ x3 ∨ ¬x5)
+6. (¬x2 ∨ x4 ∨ x5)
+7. (¬x2 ∨ ¬x5)
+8. (x4 ∨ ¬x3)
+9. (x5 ∨ ¬x4)
+
+Notice (x4 ∨ x5) and (x5 ∨ x4) are the same, so at least one of x4 or x5 is TRUE.
+
+#### Branch 1.1: x4 = TRUE
+
+Substitute x4 = TRUE:
+
+- (x4 ∨ x5) → TRUE
+- (x5 ∨ x4) → TRUE
+- (x3 ∨ x2 ∨ ¬x5)
+- (¬x5 ∨ ¬x4) → (¬x5 ∨ FALSE) → (¬x5)
+- (¬x4 ∨ x3 ∨ ¬x5) → (FALSE ∨ x3 ∨ ¬x5) → (x3 ∨ ¬x5)
+- (¬x2 ∨ x4 ∨ x5) → TRUE
+- (¬x2 ∨ ¬x5)
+- (x4 ∨ ¬x3) → TRUE
+- (x5 ∨ ¬x4) → (x5 ∨ FALSE) → (x5)
+
+Now, (¬x5) and (x5) are present: **CONFLICT**.
+
+#### Branch 1.2: x5 = TRUE
+
+Instead, try x4 = FALSE, so x5 must be TRUE (from (x4 ∨ x5)).
+
+Substitute x5 = TRUE, x4 = FALSE:
+
+- (x4 ∨ x5) → TRUE
+- (x5 ∨ x4) → TRUE
+- (x3 ∨ x2 ∨ ¬x5) → (x3 ∨ x2 ∨ FALSE) → (x3 ∨ x2)
+- (¬x5 ∨ ¬x4) → (FALSE ∨ TRUE) → TRUE
+- (¬x4 ∨ x3 ∨ ¬x5) → (TRUE ∨ x3 ∨ FALSE) → TRUE
+- (¬x2 ∨ x4 ∨ x5) → (¬x2 ∨ FALSE ∨ TRUE) → TRUE
+- (¬x2 ∨ ¬x5) → (¬x2 ∨ FALSE) → (¬x2)
+- (x4 ∨ ¬x3) → (FALSE ∨ ¬x3) → (¬x3)
+- (x5 ∨ ¬x4) → (TRUE ∨ TRUE) → TRUE
+
+Now, remaining clauses:
+1. (x3 ∨ x2)
+2. (¬x2)
+3. (¬x3)
+
+From (¬x2), set x2 = FALSE.
+
+Now, (x3 ∨ x2) → (x3 ∨ FALSE) → (x3)
+And (¬x3)
+
+So, (x3), (¬x3): **CONFLICT**
+
+#### Backtrack to Branch 1: x1 = TRUE
+
+Both x4 = TRUE and x4 = FALSE (with x5 = TRUE) lead to conflict.
+
+#### Branch 2: x1 = FALSE
+
+Substitute x1 = FALSE:
+
+- (¬x3 ∨ x1 ∨ x4) → (¬x3 ∨ FALSE ∨ x4) → (¬x3 ∨ x4)
+- (¬x3 ∨ x5 ∨ x1) → (¬x3 ∨ x5 ∨ FALSE) → (¬x3 ∨ x5)
+- (x4 ∨ ¬x1 ∨ x5) → (x4 ∨ TRUE ∨ x5) → TRUE
+- (x3 ∨ ¬x4 ∨ x1) → (x3 ∨ ¬x4 ∨ FALSE) → (x3 ∨ ¬x4)
+- (x4 ∨ x3 ∨ x1) → (x4 ∨ x3 ∨ FALSE) → (x4 ∨ x3)
+- (¬x1 ∨ x5 ∨ x4) → (TRUE ∨ x5 ∨ x4) → TRUE
+- (x3 ∨ x2 ∨ ¬x5)
+- (¬x1 ∨ ¬x5 ∨ ¬x4) → (TRUE ∨ ¬x5 ∨ ¬x4) → TRUE
+- (x1 ∨ ¬x5 ∨ ¬x4) → (FALSE ∨ ¬x5 ∨ ¬x4) → (¬x5 ∨ ¬x4)
+- (x4 ∨ x3 ∨ x1) → (x4 ∨ x3 ∨ FALSE) → (x4 ∨ x3)
+- (¬x4 ∨ x3 ∨ ¬x5)
+- (x3 ∨ ¬x2 ∨ x1) → (x3 ∨ ¬x2 ∨ FALSE) → (x3 ∨ ¬x2)
+- (¬x2 ∨ x4 ∨ x5)
+- (¬x2 ∨ ¬x1 ∨ ¬x5) → (¬x2 ∨ TRUE ∨ ¬x5) → TRUE
+- (x1 ∨ x5 ∨ ¬x3) → (FALSE ∨ x5 ∨ ¬x3) → (x5 ∨ ¬x3)
+- (¬x1 ∨ x4 ∨ ¬x3) → (TRUE ∨ x4 ∨ ¬x3) → TRUE
+- (¬x1 ∨ x5 ∨ ¬x4) → (TRUE ∨ x5 ∨ ¬x4) → TRUE
+
+Simplified formula:
+1. (¬x3 ∨ x4)
+2. (¬x3 ∨ x5)
+3. (x3 ∨ ¬x4)
+4. (x4 ∨ x3)
+5. (x3 ∨ x2 ∨ ¬x5)
+6. (¬x5 ∨ ¬x4)
+7. (¬x4 ∨ x3 ∨ ¬x5)
+8. (x3 ∨ ¬x2)
+9. (¬x2 ∨ x4 ∨ x5)
+10. (x5 ∨ ¬x3)
+
+Let's look for unit clauses or pure literals.
+
+No unit clauses. Let's branch on x3.
+
+#### Branch 2.1: x3 = TRUE
+
+Substitute x3 = TRUE:
+
+- (¬x3 ∨ x4) → (FALSE ∨ x4) → (x4)
+- (¬x3 ∨ x5) → (FALSE ∨ x5) → (x5)
+- (x3 ∨ ¬x4) → TRUE
+- (x4 ∨ x3) → TRUE
+- (x3 ∨ x2 ∨ ¬x5) → TRUE
+- (¬x5 ∨ ¬x4)
+- (¬x4 ∨ x3 ∨ ¬x5) → TRUE
+- (x3 ∨ ¬x2) → TRUE
+- (¬x2 ∨ x4 ∨ x5)
+- (x5 ∨ ¬x3) → (x5 ∨ FALSE) → (x5)
+
+Now, (x4), (x5), (¬x5 ∨ ¬x4), (¬x2 ∨ x4 ∨ x5)
+
+Set x4 = TRUE, x5 = TRUE
+
+(¬x5 ∨ ¬x4) → (FALSE ∨ FALSE) → FALSE: **CONFLICT**
+
+#### Branch 2.2: x3 = FALSE
+
+Substitute x3 = FALSE:
+
+- (¬x3 ∨ x4) → (TRUE ∨ x4) → TRUE
+- (¬x3 ∨ x5) → (TRUE ∨ x5) → TRUE
+- (x3 ∨ ¬x4) → (FALSE ∨ ¬x4) → (¬x4)
+- (x4 ∨ x3) → (x4 ∨ FALSE) → (x4)
+- (x3 ∨ x2 ∨ ¬x5) → (FALSE ∨ x2 ∨ ¬x5) → (x2 ∨ ¬x5)
+- (¬x5 ∨ ¬x4)
+- (¬x4 ∨ x3 ∨ ¬x5) → (¬x4 ∨ FALSE ∨ ¬x5) → (¬x4 ∨ ¬x5)
+- (x3 ∨ ¬x2) → (FALSE ∨ ¬x2) → (¬x2)
+- (¬x2 ∨ x4 ∨ x5)
+- (x5 ∨ ¬x3) → (x5 ∨ TRUE) → TRUE
+
+Now, (¬x4), (x4): **CONFLICT**
+
+---
+
+## Summary
+
+All branches lead to a conflict. Therefore, the formula is **UNSATISFIABLE**.
+
+### Counting branches and conflicts
+
+- Branch 1: x1 = TRUE
+  - Branch 1.1: x4 = TRUE → conflict
+  - Branch 1.2: x4 = FALSE, x5 = TRUE → conflict
+- Branch 2: x1 = FALSE
+  - Branch 2.1: x3 = TRUE → conflict
+  - Branch 2.2: x3 = FALSE → conflict
+
+**Branches:** 4 (x1=TRUE, x1=FALSE, x4=TRUE, x3=TRUE)
+**Conflicts:** 4 (one at each leaf)
+
+---
+
+## Final Output
+
+- UNSATISFIABLE
+- Number of branches: 4
+- Number of conflicts: 4

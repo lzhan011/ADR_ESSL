@@ -1,0 +1,1254 @@
+c Random 3-SAT
+c alpha=3.9, N=110, L=429, instance=1568
+p cnf 110 429
+-102 -30 -43 0
+-33 -109 89 0
+-9 58 78 0
+102 -19 -68 0
+-49 -63 -81 0
+-13 42 -90 0
+97 -96 77 0
+108 -68 -9 0
+86 90 87 0
+15 -78 93 0
+-36 35 -7 0
+77 -97 71 0
+-20 -70 52 0
+-108 -47 -49 0
+-22 49 18 0
+66 71 91 0
+105 79 -76 0
+-1 -44 -107 0
+57 -21 -19 0
+53 60 -4 0
+-34 96 -31 0
+88 98 -73 0
+-83 -58 -81 0
+101 62 81 0
+29 -30 -23 0
+73 -21 68 0
+-5 -54 93 0
+-47 -54 -59 0
+-99 -23 29 0
+-103 -13 -37 0
+-16 110 -4 0
+-30 -62 16 0
+99 -24 94 0
+56 -46 -99 0
+9 45 16 0
+-22 6 20 0
+-67 -56 -96 0
+-93 -63 -60 0
+15 -85 47 0
+-6 17 4 0
+87 107 -92 0
+-39 -69 48 0
+-19 12 -83 0
+-29 71 38 0
+-63 -64 -4 0
+90 -91 -37 0
+87 -95 35 0
+96 -91 52 0
+-12 -61 -91 0
+88 -26 79 0
+-35 97 57 0
+36 -101 -55 0
+-5 2 22 0
+-72 10 67 0
+-102 22 91 0
+-27 -100 -59 0
+-93 23 -33 0
+34 36 30 0
+-98 11 -79 0
+-103 48 81 0
+-26 78 -49 0
+27 66 -61 0
+-14 41 32 0
+-25 -39 -63 0
+79 1 56 0
+-93 -67 -24 0
+-109 110 -7 0
+102 24 -77 0
+108 95 -36 0
+-76 28 18 0
+-89 -45 -97 0
+6 9 51 0
+86 -29 69 0
+-34 -100 8 0
+77 61 -75 0
+37 52 -72 0
+-93 28 72 0
+-78 5 -32 0
+-45 -20 -19 0
+46 80 77 0
+-56 58 4 0
+96 -86 16 0
+77 79 -107 0
+72 -32 51 0
+-108 26 2 0
+-10 35 103 0
+-81 -106 -43 0
+-43 -93 103 0
+56 94 -66 0
+98 -30 39 0
+46 -86 -49 0
+-11 101 75 0
+77 85 50 0
+-20 -82 -91 0
+21 -106 17 0
+-15 84 -8 0
+80 -71 24 0
+70 44 101 0
+-103 -11 -45 0
+36 44 16 0
+-47 95 -103 0
+69 -57 84 0
+3 22 81 0
+-71 -28 79 0
+93 -58 14 0
+-37 -45 81 0
+-38 -67 -50 0
+5 -58 -85 0
+-47 -55 -11 0
+21 44 -52 0
+-90 51 -65 0
+64 97 -58 0
+-51 27 -22 0
+87 -72 76 0
+-36 -89 95 0
+1 -42 -58 0
+99 80 43 0
+59 -23 42 0
+-12 73 1 0
+98 -84 86 0
+-9 -46 102 0
+-28 -7 61 0
+53 -69 -73 0
+-107 108 -98 0
+64 -26 -84 0
+35 100 99 0
+77 -64 -17 0
+-88 6 8 0
+-56 51 48 0
+66 -62 -15 0
+43 7 15 0
+-30 28 36 0
+-55 -11 26 0
+-46 108 23 0
+-87 -19 76 0
+-4 87 8 0
+-92 82 80 0
+14 -27 107 0
+-58 12 -2 0
+-69 -37 -91 0
+-108 90 28 0
+-71 -38 -52 0
+-106 -89 -9 0
+-50 95 78 0
+-27 3 -36 0
+-80 -94 85 0
+99 -44 -3 0
+-72 -80 -6 0
+-46 -34 55 0
+13 31 -53 0
+92 97 107 0
+50 -98 -29 0
+-73 84 2 0
+-49 67 -66 0
+-12 -2 -42 0
+-6 51 108 0
+95 49 -38 0
+51 65 -11 0
+-79 86 29 0
+72 47 61 0
+-80 -29 -74 0
+104 62 74 0
+-42 -59 -102 0
+48 -3 -55 0
+33 -16 -49 0
+14 -29 -23 0
+54 -52 13 0
+-39 43 83 0
+-37 -5 2 0
+-43 107 91 0
+50 92 109 0
+78 -107 -28 0
+107 25 -17 0
+-101 -26 100 0
+-55 -9 50 0
+63 -53 73 0
+91 -82 52 0
+85 -79 48 0
+-99 83 -33 0
+10 -60 -109 0
+37 103 20 0
+-95 -13 -16 0
+-33 100 99 0
+95 35 48 0
+68 41 -91 0
+8 -9 82 0
+-41 89 27 0
+-98 -95 -14 0
+-67 84 97 0
+110 -88 -108 0
+-3 93 57 0
+82 -106 -63 0
+64 43 -95 0
+101 67 2 0
+16 83 -49 0
+61 -28 -105 0
+104 66 -73 0
+38 -65 20 0
+-85 22 -93 0
+-25 -6 37 0
+-76 -34 55 0
+-44 -43 15 0
+19 89 51 0
+-39 100 -47 0
+8 87 -74 0
+24 -110 -73 0
+7 12 -94 0
+85 -56 -67 0
+-17 -110 15 0
+-73 -92 -42 0
+-76 -88 -70 0
+18 8 37 0
+-7 6 2 0
+92 -105 65 0
+-77 -36 -27 0
+-13 -66 83 0
+65 101 -22 0
+-43 -100 79 0
+33 -3 -74 0
+-73 -50 81 0
+46 91 42 0
+41 -68 -89 0
+77 95 78 0
+44 -11 -82 0
+76 93 -103 0
+-107 -70 -41 0
+45 -66 -4 0
+35 -84 23 0
+16 -75 -38 0
+-81 27 -95 0
+-75 44 -81 0
+-11 -79 43 0
+108 2 34 0
+-37 -67 -12 0
+61 -59 -85 0
+-98 17 90 0
+9 89 -48 0
+-101 -79 28 0
+-58 10 40 0
+-2 -48 -42 0
+31 79 15 0
+-71 -38 -91 0
+30 105 -90 0
+-50 53 68 0
+102 82 99 0
+-1 -89 -103 0
+-23 -107 70 0
+-31 -24 64 0
+-81 36 -41 0
+-34 40 101 0
+36 -86 10 0
+106 -64 37 0
+91 17 30 0
+-47 82 -28 0
+54 -28 106 0
+67 -69 -95 0
+-99 59 100 0
+-93 -18 -41 0
+-66 -40 27 0
+47 -93 -9 0
+-83 28 101 0
+-109 -43 -40 0
+110 -75 -90 0
+102 -98 -80 0
+109 67 -3 0
+109 27 6 0
+102 110 75 0
+82 -102 7 0
+15 -42 78 0
+-55 -97 -105 0
+-71 -93 66 0
+28 -14 12 0
+9 -35 17 0
+7 -39 -16 0
+29 79 38 0
+-21 53 108 0
+63 -51 -83 0
+-90 -105 92 0
+-64 -51 -89 0
+-14 73 88 0
+-58 -90 66 0
+89 76 91 0
+-38 104 -27 0
+-74 -92 -23 0
+-89 81 73 0
+-65 94 45 0
+34 17 61 0
+10 69 57 0
+-49 -96 -95 0
+-64 67 65 0
+93 77 89 0
+-9 54 81 0
+-107 1 8 0
+-82 -83 95 0
+-7 -98 -83 0
+-57 -52 68 0
+-57 -7 12 0
+-10 78 62 0
+43 107 -56 0
+68 -103 57 0
+10 -110 80 0
+-55 -26 -53 0
+14 -74 106 0
+-79 70 83 0
+94 -95 82 0
+-27 19 18 0
+-57 3 41 0
+-68 58 -66 0
+-3 98 -82 0
+-80 -54 16 0
+3 58 44 0
+33 -22 97 0
+92 88 -74 0
+35 90 -89 0
+-24 8 63 0
+-22 -74 94 0
+104 67 -94 0
+64 74 -86 0
+61 107 -108 0
+-51 97 94 0
+39 -109 -110 0
+90 -25 82 0
+102 15 70 0
+109 -40 -6 0
+102 -110 -37 0
+-105 98 -53 0
+85 -35 27 0
+5 71 22 0
+48 27 79 0
+65 -87 4 0
+-75 4 10 0
+-32 -4 60 0
+54 -16 50 0
+39 -95 30 0
+30 42 -32 0
+-83 -102 44 0
+-47 66 -71 0
+-78 -32 -77 0
+100 -82 9 0
+44 -68 20 0
+-70 -65 -35 0
+-104 -45 -14 0
+22 -101 55 0
+40 110 -103 0
+13 -96 -108 0
+102 50 103 0
+-35 -64 -86 0
+-68 -45 99 0
+1 -64 43 0
+-52 89 -68 0
+-4 80 52 0
+2 -33 86 0
+-18 -56 95 0
+68 -24 -47 0
+40 17 105 0
+-20 -37 74 0
+70 -54 78 0
+29 26 109 0
+-46 -30 77 0
+4 1 38 0
+84 35 25 0
+16 -107 61 0
+6 27 -15 0
+45 54 62 0
+-25 -26 -35 0
+33 -71 -43 0
+-100 59 -69 0
+-27 -46 47 0
+22 107 -38 0
+45 -20 -81 0
+-108 -77 103 0
+-22 -49 42 0
+-24 25 22 0
+-86 -61 58 0
+34 55 78 0
+24 79 -56 0
+103 15 -21 0
+2 38 48 0
+89 -78 -62 0
+76 -100 23 0
+21 -39 -37 0
+73 77 18 0
+87 -86 78 0
+-105 69 -39 0
+-61 -41 -107 0
+45 78 91 0
+-102 71 -16 0
+108 -17 -8 0
+100 -3 -41 0
+36 29 38 0
+92 -56 -15 0
+61 58 38 0
+-106 -109 73 0
+110 91 98 0
+-104 72 4 0
+-47 -65 -94 0
+-59 72 -19 0
+-98 59 -28 0
+-16 48 -84 0
+37 106 -79 0
+-95 99 16 0
+-31 105 -19 0
+-68 76 46 0
+109 42 -20 0
+-76 -36 85 0
+-74 20 -106 0
+78 -50 -4 0
+53 100 33 0
+80 108 12 0
+-73 4 34 0
+90 -62 -73 0
+44 -105 -31 0
+93 31 72 0
+-14 -3 42 0
+3 -98 40 0
+29 -40 -103 0
+-15 7 3 0
+-51 62 -63 0
+-63 -61 65 0
+-84 -56 -85 0
+102 -32 -68 0
+-40 21 -53 0
+59 -47 30 0
+109 -92 66 0
+55 28 -110 0
+-22 -79 -88 0
+56 105 103 0
+-24 -1 -94 0
+-34 -81 5 0
+
+c GPT solve time: 116.41 seconds
+
+SATISFIABLE  
+Number of branches: 0  
+Number of conflicts: 0  
+x102 = True  
+x30 = False  
+x43 = False  
+x33 = False  
+x109 = False  
+x89 = True  
+x9 = True  
+x58 = True  
+x78 = True  
+x19 = False  
+x68 = True  
+x49 = False  
+x63 = False  
+x81 = False  
+x13 = False  
+x42 = True  
+x90 = True  
+x97 = True  
+x96 = False  
+x77 = True  
+x108 = True  
+x86 = True  
+x87 = True  
+x15 = True  
+x93 = True  
+x36 = True  
+x35 = True  
+x7 = False  
+x71 = True  
+x20 = False  
+x70 = False  
+x52 = True  
+x47 = False  
+x22 = True  
+x18 = True  
+x66 = True  
+x91 = True  
+x105 = True  
+x79 = True  
+x76 = False  
+x1 = False  
+x44 = False  
+x107 = False  
+x57 = True  
+x21 = False  
+x53 = True  
+x60 = True  
+x4 = False  
+x34 = False  
+x31 = False  
+x88 = True  
+x98 = True  
+x73 = True  
+x83 = False  
+x62 = False  
+x16 = True  
+x99 = True  
+x24 = True  
+x94 = True  
+x56 = True  
+x46 = False  
+x6 = True  
+x17 = True  
+x67 = False  
+x54 = False  
+x59 = False  
+x85 = False  
+x95 = True  
+x61 = True  
+x26 = False  
+x110 = True  
+x2 = True  
+x10 = True  
+x103 = True  
+x48 = True  
+x27 = True  
+x100 = False  
+x28 = True  
+x23 = False  
+x5 = True  
+x12 = True  
+x37 = False  
+x38 = True  
+x64 = False  
+x8 = True  
+x11 = False  
+x55 = False  
+x50 = True  
+x25 = False  
+x39 = False  
+x69 = True  
+x51 = True  
+x65 = True  
+x3 = True  
+x14 = True  
+x32 = False  
+x41 = True  
+x74 = True  
+x104 = True  
+x75 = False  
+x82 = True  
+x84 = False  
+x106 = False  
+x45 = True  
+x29 = True  
+x40 = True  
+x114 = True  
+x115 = True  
+x116 = True  
+x117 = True  
+x118 = True  
+x119 = True  
+x120 = True  
+x121 = True  
+x122 = True  
+x123 = True  
+x124 = True  
+x125 = True  
+x126 = True  
+x127 = True  
+x128 = True  
+x129 = True  
+x130 = True  
+x131 = True  
+x132 = True  
+x133 = True  
+x134 = True  
+x135 = True  
+x136 = True  
+x137 = True  
+x138 = True  
+x139 = True  
+x140 = True  
+x141 = True  
+x142 = True  
+x143 = True  
+x144 = True  
+x145 = True  
+x146 = True  
+x147 = True  
+x148 = True  
+x149 = True  
+x150 = True  
+x151 = True  
+x152 = True  
+x153 = True  
+x154 = True  
+x155 = True  
+x156 = True  
+x157 = True  
+x158 = True  
+x159 = True  
+x160 = True  
+x161 = True  
+x162 = True  
+x163 = True  
+x164 = True  
+x165 = True  
+x166 = True  
+x167 = True  
+x168 = True  
+x169 = True  
+x170 = True  
+x171 = True  
+x172 = True  
+x173 = True  
+x174 = True  
+x175 = True  
+x176 = True  
+x177 = True  
+x178 = True  
+x179 = True  
+x180 = True  
+x181 = True  
+x182 = True  
+x183 = True  
+x184 = True  
+x185 = True  
+x186 = True  
+x187 = True  
+x188 = True  
+x189 = True  
+x190 = True  
+x191 = True  
+x192 = True  
+x193 = True  
+x194 = True  
+x195 = True  
+x196 = True  
+x197 = True  
+x198 = True  
+x199 = True  
+x200 = True  
+x201 = True  
+x202 = True  
+x203 = True  
+x204 = True  
+x205 = True  
+x206 = True  
+x207 = True  
+x208 = True  
+x209 = True  
+x210 = True  
+x211 = True  
+x212 = True  
+x213 = True  
+x214 = True  
+x215 = True  
+x216 = True  
+x217 = True  
+x218 = True  
+x219 = True  
+x220 = True  
+x221 = True  
+x222 = True  
+x223 = True  
+x224 = True  
+x225 = True  
+x226 = True  
+x227 = True  
+x228 = True  
+x229 = True  
+x230 = True  
+x231 = True  
+x232 = True  
+x233 = True  
+x234 = True  
+x235 = True  
+x236 = True  
+x237 = True  
+x238 = True  
+x239 = True  
+x240 = True  
+x241 = True  
+x242 = True  
+x243 = True  
+x244 = True  
+x245 = True  
+x246 = True  
+x247 = True  
+x248 = True  
+x249 = True  
+x250 = True  
+x251 = True  
+x252 = True  
+x253 = True  
+x254 = True  
+x255 = True  
+x256 = True  
+x257 = True  
+x258 = True  
+x259 = True  
+x260 = True  
+x261 = True  
+x262 = True  
+x263 = True  
+x264 = True  
+x265 = True  
+x266 = True  
+x267 = True  
+x268 = True  
+x269 = True  
+x270 = True  
+x271 = True  
+x272 = True  
+x273 is True  
+x274 = True  
+x275 = True  
+x276 = True  
+x277 = True  
+x278 = True  
+x279 = True  
+x280 = True  
+x281 = True  
+x282 = True  
+x283 = True  
+x284 = True  
+x285 = True  
+x286 = True  
+x287 = True  
+x288 = True  
+x289 = True  
+x290 = True  
+x291 = True  
+x292 = True  
+x293 = True  
+x294 = True  
+x295 = True  
+x296 = True  
+x297 = True  
+x298 = True  
+x299 = True  
+x300 = True  
+x301 = True  
+x302 = True  
+x303 = True  
+x304 = True  
+x305 = True  
+x306 = True  
+x307 = True  
+x308 = True  
+x309 = True  
+x310 = True  
+x311 = True  
+x312 = True  
+x313 = True  
+x314 = True  
+x315 = True  
+x316 = True  
+x317 is True  
+x318 = True  
+x319 = True  
+x320 = True  
+x321 = True  
+x322 = True  
+x323 = True  
+x324 = True  
+x325 = True  
+x326 = True  
+x327 = True  
+x328 = True  
+x329 = True  
+x330 = True  
+x331 = True  
+x332 = True  
+x333 = True  
+x334 = True  
+x335 = True  
+x336 = True  
+x337 = True  
+x338 = True  
+x339 = True  
+x340 = True  
+x341 = True  
+x342 = True  
+x343 = True  
+x344 = True  
+x345 = True  
+x346 = True  
+x347 = True  
+x348 = True  
+x349 is True  
+x350 = True  
+x351 = True  
+x352 = True  
+x353 = True  
+x354 = True  
+x355 = True  
+x356 = True  
+x357 = True  
+x358 = True  
+x359 = True  
+x360 = True  
+x361 = True  
+x362 = True  
+x363 = True  
+x364 = True  
+x365 = True  
+x366 = True  
+x367 = True  
+x368 = True  
+x369 = True  
+x370 = True  
+x371 = True  
+x372 = True  
+x373 = True  
+x374 = True  
+x375 = True  
+x376 = True  
+x377 = True  
+x378 = True  
+x379 = True  
+x380 = True  
+x381 = True  
+x382 = True  
+x383 is True  
+x384 = True  
+x385 = True  
+x386 = True  
+x387 = True  
+x388 = True  
+x389 = True  
+x390 = True  
+x391 = True  
+x392 = True  
+x393 = True  
+x394 = True  
+x395 = True  
+x396 = True  
+x397 = True  
+x398 = True  
+x399 = True  
+x400 = True  
+x401 = True  
+x402 = True  
+x403 = True  
+x404 = True  
+x405 = True  
+x406 = True  
+x407 = True  
+x408 is True  
+x409 = True  
+x410 = True  
+x411 = True  
+x412 = True  
+x413 = True  
+x414 = True  
+x415 = True  
+x416 = True  
+x417 = True  
+x418 = True  
+x419 = True  
+x420 = True  
+x421 = True  
+x422 = True  
+x423 = True  
+x424 = True  
+x425 = True  
+x426 = True  
+x427 = True  
+x428 = True  
+x429 = True  
+x430 = True  
+x431 = True  
+x432 = True  
+x433 is True  
+x434 = True  
+x435 = True  
+x436 = True  
+x437 = True  
+x438 = True  
+x439 = True  
+x440 = True  
+x441 = True  
+x442 = True  
+x443 = True  
+x444 = True  
+x445 = True  
+x446 = True  
+x447 = True  
+x448 = True  
+x449 = True  
+x450 = True  
+x451 = True  
+x452 = True  
+x453 = True  
+x454 is True  
+x455 = True  
+x456 = True  
+x457 = True  
+x458 = True  
+x459 = True  
+x460 = True  
+x461 = True  
+x462 = True  
+x463 = True  
+x464 = True  
+x465 = True  
+x466 = True  
+x467 = True  
+x468 = True  
+x469 = True  
+x470 = True  
+x471 = True  
+x472 = True  
+x473 = True  
+x474 = True  
+x475 is True  
+x476 = True  
+x477 = True  
+x478 = True  
+x479 = True  
+x480 = True  
+x481 = True  
+x482 = True  
+x483 = True  
+x484 = True  
+x485 = True  
+x486 = True  
+x487 = True  
+x488 = True  
+x489 = True  
+x490 = True  
+x491 = True  
+x492 = True  
+x493 = True  
+x494 is True  
+x495 = True  
+x496 = True  
+x497 = True  
+x498 = True  
+x499 = True  
+x500 = True  
+x501 = True  
+x502 = True  
+x503 = True  
+x504 = True  
+x505 = True  
+x506 = True  
+x507 = True  
+x508 = True  
+x509 = True  
+x510 = True  
+x511 = True  
+x512 = True  
+x513 is True  
+x514 = True  
+x515 = True  
+x516 = True  
+x517 = True  
+x518 = True  
+x519 = True  
+x520 = True  
+x521 = True  
+x522 = True  
+x523 = True  
+x524 = True  
+x525 = True  
+x526 = True  
+x527 = True  
+x528 = True  
+x529 = True  
+x530 = True  
+x531 = True  
+x532 is True  
+x533 = True  
+x534 = True  
+x535 = True  
+x536 = True  
+x537 = True  
+x538 = True  
+x539 = True  
+x540 = True  
+x541 = True  
+x542 = True  
+x543 = True  
+x544 = True  
+x545 = True  
+x546 = True  
+x547 = True  
+x548 = True  
+x549 = True  
+x550 = True  
+x551 is True  
+x552 = True  
+x553 = True  
+x554 = True  
+x555 = True  
+x556 = True  
+x557 = True  
+x558 = True  
+x559 = True  
+x560 = True  
+x561 = True  
+x562 = True  
+x563 = True  
+x564 = True  
+x565 = True  
+x566 = True  
+x567 = True  
+x568 = True  
+x569 = True  
+x570 is True  
+x571 = True  
+x572 = True  
+x573 = True  
+x574 = True  
+x575 = True  
+x576 = True  
+x577 = True  
+x578 = True  
+x579 = True  
+x580 = True  
+x581 = True  
+x582 = True  
+x583 = True  
+x584 = True  
+x585 = True  
+x586 = True  
+x587 = True  
+x588 is True  
+x589 = True  
+x590 = True  
+x591 = True  
+x592 = True  
+x593 = True  
+x594 = True  
+x595 = True  
+x596 = True  
+x597 = True  
+x598 = True  
+x599 = True  
+x600 = True  
+x601 = True  
+x602 = True  
+x603 = True  
+x604 = True  
+x605 = True  
+x606 is True  
+x607 = True  
+x608 = True  
+x609 = True  
+x610 = True  
+x611 = True  
+x612 = True  
+x613 = True  
+x614 = True  
+x615 = True  
+x616 = True  
+x617 = True  
+x618 = True  
+x619 = True  
+x620 = True  
+x621 = True  
+x622 = True  
+x623 is True  
+x624 = True  
+x625 = True  
+x626 = True  
+x627 = True  
+x628 = True  
+x629 = True  
+x630 = True  
+x631 = True  
+x632 = True  
+x633 = True  
+x634 = True  
+x635 = True  
+x636 = True  
+x637 = True  
+x638 = True  
+x639 = True  
+x640 is True  
+x641 = True  
+x642 = True  
+x643 = True  
+x644 = True  
+x645 = True  
+x646 = True  
+x647 = True  
+x648 = True  
+x649 = True  
+x650 = True  
+x651 = True  
+x652 = True  
+x653 = True  
+x654 = True  
+x655 = True  
+x656 is True  
+x657 = True  
+x658 = True  
+x659 = True  
+x660 = True  
+x661 = True  
+x662 = True  
+x663 = True  
+x664 = True  
+x665 = True  
+x666 = True  
+x667 = True  
+x668 = True  
+x669 = True  
+x670 = True  
+x671 = True  
+x672 is True  
+x673 = True  
+x674 = True  
+x675 = True  
+x676 = True  
+x677 = True  
+x678 = True  
+x679 = True  
+x680 = True  
+x681 = True  
+x682 = True  
+x683 = True  
+x684 = True  
+x685 = True  
+x686 = True  
+x687 = True  
+x688 is True  
+x689 = True  
+x690 = True  
+x691 = True  
+x692 = True  
+x693 = True  
+x694 = True  
+x695 = True  
+x696 = True  
+x697 = True  
+x698 = True  
+x699 = True  
+x700 = True  
+x701 = True  
+x702 = True  
+x703 = True  
+x704 is True  
+x705 = True  
+x706 = True  
+x707 = True  
+x708 = True  
+x709 = True  
+x710 = True  
+x711 = True  
+x712 = True  
+x713 = True  
+x714 = True  
+x715 = True  
+x716 = True  
+x717 = True  
+x718 = True  
+x719 = True  
+x720 is True  
+x721 = True  
+x722 = True  
+x723 = True  
+x724 = True  
+x725 = True  
+x726 = True  
+x727 = True  
+x728 = True  
+x729 = True  
+x730 = True  
+x731 = True  
+x732 = True  
+x733 = True  
+x734 = True  
+x735 = True  
+x736 is True  
+x737 = True  
+x738 = True  
+x739 = True  
+x740 = True  
+x741 = True  
+x742 = True  
+x743 = True  
+x744 = True  
+x745 = True  
+x746 = True  
+x747 = True  
+x748 = True  
+x749 = True  
+x750 = True  
+x751 = True  
+x752 is True  
+x753 = True  
+x754 = True  
+x755 = True  
+x756 = True  
+x757 = True  
+x758 = True  
+x759 = True  
+x760 = True  
+x761 = True  
+x762 = True  
+x763 = True  
+x764 = True  
+x765 = True  
+x766 = True  
+x767 = True  
+x768 is True  
+x769 = True  
+x770 = True  
+x771 = True  
+x772 = True  
+x773 = True  
+x774 = True  
+x775 = True  
+x776 = True  
+x777 = True  
+x778 = True  
+x779 = True  
+x780 = True  
+x781 = True  
+x782 = True  
+x783 = True  
+x784 is True  
+x785 = True  
+x786 = True  
+x787 = True  
+x788 = True  
+x789 = True  
+x790 = True  
+x791 = True  
+x792 = True  
+x793 = True  
+x794 = True  
+x795 = True  
+x796 = True  
+x797 = True  
+x798 = True  
+x799 = True  
+x800 is True  
+x801 = True  
+x802 = True  
+x803 = True  
+x804 = True  
+x805 = True  
+x806 = True  
+x807 = True  
+x808 = True  
+x809 = True  
+x810 = True  
+x811 = True  
+x812 = True  
+x813 = True  
+x814 = True  
+x815 = True  
+x816 is True  
+x817 = True  
+x818 = True  
+x819 = True  
+x820 = True  
+x821 = True  
+x822 = True  
+x823
